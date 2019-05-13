@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>3D Camera and Camera Positionning with Boids model · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="3D Camera and Camera Positionning with Boids model · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">3D Camera and Camera Positionning with Boids model</h1></header><article><div><span><p><em>Author : Arnaud Grignard</em></p>
+<p>Model using the Boids model to represent the flight of boids following a goal and avoiding obstacles.</p>
+<p>Five experiments are proposed with differents goals : understanding of the model used (Boids_gui), 3D Display (start), 3D Display with trajectories analysis of boids (trajectory_analysis), one coupling both previous experiments and the time simulated with boids going higher and higher according to the time (SpaceTimeCube) and a model presenting the different views possible in the 3D Display : first person, third person and global view (Multiple view).</p>
+<p>Imported model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> boids 
+
+<span class="hljs-comment">//make the environment torus according to the bool variable torus_environment </span>
+<span class="hljs-class">global <span class="hljs-title">torus</span>: <span class="hljs-title">torus_environment</span></span>{ 
+    
+    <span class="hljs-comment">//Variable to represent the number of boids to create</span>
+    <span class="hljs-literal">int</span> number_of_agents &lt;- 10 min: 1 max: 1000000;
+    <span class="hljs-comment">//Variable to represent the number of obstacles to create</span>
+    <span class="hljs-literal">int</span> number_of_obstacles &lt;- 5 min: 0;
+    <span class="hljs-comment">//Variable to represent the maximal speed of the boids agents</span>
+    <span class="hljs-literal">float</span> maximal_speed &lt;- 15.0 min: 0.1 max: 15.0;
+    
+    <span class="hljs-comment">//Variables to manage the boids movements</span>
+    <span class="hljs-literal">int</span> cohesion_factor &lt;- 200;
+    <span class="hljs-literal">int</span> alignment_factor &lt;- 100; 
+    <span class="hljs-literal">float</span> minimal_distance &lt;- 10.0; 
+    <span class="hljs-literal">int</span> maximal_turn &lt;- 90 min: 0 max: 359; 
+    
+    <span class="hljs-comment">//Variables for the environment </span>
+    <span class="hljs-literal">int</span> width_and_height_of_environment &lt;- 800;  
+    <span class="hljs-literal">bool</span> torus_environment &lt;- false; 
+    <span class="hljs-literal">bool</span> apply_cohesion &lt;- true ;
+    <span class="hljs-literal">bool</span> apply_alignment &lt;- true ;
+    <span class="hljs-literal">bool</span> apply_separation &lt;- true;
+    <span class="hljs-literal">bool</span> apply_goal &lt;- true;
+    <span class="hljs-literal">bool</span> apply_avoid &lt;- true;  
+    <span class="hljs-literal">bool</span> apply_wind &lt;- true;   
+    <span class="hljs-literal">bool</span> moving_obstacles &lt;- false;   
+    
+    <span class="hljs-comment">//Bounds of the environment</span>
+    <span class="hljs-literal">int</span> bounds &lt;- <span class="hljs-literal">int</span>(width_and_height_of_environment / 20) depends_on: [width_and_height_of_environment]; 
+    <span class="hljs-comment">//Vector to represent the direction of the wind</span>
+    <span class="hljs-literal">point</span> wind_vector &lt;- {0,0}; 
+    
+    <span class="hljs-comment">//Variables for the goal : its duration and its location determined randomlly</span>
+    <span class="hljs-literal">int</span> goal_duration &lt;- 30 update: (goal_duration - 1); 
+    <span class="hljs-literal">point</span> goal &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 }; 
+    
+    <span class="hljs-comment">//Images available for the aspect of the boids</span>
+    <span class="hljs-literal">list</span> images of: image_file &lt;- [<span class="hljs-literal">file</span>('../images/bird1.png'),<span class="hljs-literal">file</span>('../images/bird2.png'),<span class="hljs-literal">file</span>('../images/bird3.png')]; 
+    
+    <span class="hljs-comment">//Determine the bounding rectangle of the environment</span>
+    <span class="hljs-literal">int</span> xmin &lt;- bounds depends_on: [bounds];    
+    <span class="hljs-literal">int</span> ymin &lt;- bounds depends_on: [bounds];  
+    <span class="hljs-literal">int</span> xmax &lt;- (width_and_height_of_environment - bounds);     
+    <span class="hljs-literal">int</span> ymax &lt;- (width_and_height_of_environment - bounds);   
+
+    <span class="hljs-literal">geometry</span> shape &lt;- square(width_and_height_of_environment);
+    init { 
+        create boids number: number_of_agents { 
+             location &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 };
+        } 
+                 
+        create obstacle number: number_of_obstacles {
+            location &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 }; 
+        }
+        
+        create  boids_goal {
+            location &lt;- goal;
+        }   
+    }   
+}
+
+
+<span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+    <span class="hljs-literal">float</span> range  &lt;- 20.0;
+    <span class="hljs-literal">float</span> size  &lt;- 10.0;
+    
+    <span class="hljs-class">reflex <span class="hljs-title">wander</span> </span>{  
+        do  wander amplitude: 45 speed: 20;  
+        goal &lt;- location;
+    }
+    
+    aspect default {
+        draw circle(10) color: #red ;
+        draw circle(40) color: #orange empty: true;
+    }
+} 
+
+<span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+    <span class="hljs-literal">float</span> speed max: maximal_speed &lt;- maximal_speed;
+    <span class="hljs-literal">float</span> range &lt;- minimal_distance * 2;
+    <span class="hljs-literal">int</span> heading ;
+    <span class="hljs-literal">point</span> velocity &lt;- {0,0};
+    <span class="hljs-literal">int</span> size &lt;- 5;
+        
+    <span class="hljs-class">reflex <span class="hljs-title">separation</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_separation</span> </span>{
+        <span class="hljs-literal">point</span> acc &lt;- {0,0};
+        ask (boids overlapping (circle(minimal_distance)))  {
+            acc &lt;- acc - ((location) - myself.location);
+        }  
+        velocity &lt;- velocity + acc;
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">alignment</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_alignment</span> </span>{
+        <span class="hljs-literal">list</span> others  &lt;- ((boids overlapping (circle (range)))  - self);
+        <span class="hljs-literal">point</span> acc &lt;- mean (others collect (each.velocity)) - velocity;
+        velocity &lt;- velocity + (acc / alignment_factor);
+    }
+     
+    <span class="hljs-class">reflex <span class="hljs-title">cohesion</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_cohesion</span> </span>{
+        <span class="hljs-literal">list</span> others &lt;- ((boids overlapping (circle (range)))  - self);
+        <span class="hljs-literal">point</span> mass_center &lt;- (length(others) &gt; 0) ? mean (others collect (each.location)) : location;
+
+        <span class="hljs-literal">point</span> acc &lt;- mass_center - location;
+        acc &lt;- acc / cohesion_factor; 
+        velocity &lt;- velocity + acc;   
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">avoid</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_avoid</span> </span>{ 
+        <span class="hljs-literal">point</span> acc &lt;- {0,0};
+        <span class="hljs-literal">list</span>&lt;obstacle&gt; nearby_obstacles &lt;- (obstacle overlapping (circle (range)) );
+        loop obs over: nearby_obstacles {
+            acc &lt;- acc - ((location of obs) - my (location));
+        }
+        velocity &lt;- velocity + acc; 
+    }
+    
+    action bounding {
+        <span class="hljs-keyword">if</span>  !(torus_environment) {
+            <span class="hljs-keyword">if</span>  (location.x) &lt; xmin {
+                velocity &lt;- velocity + {bounds,0};
+            } else <span class="hljs-keyword">if</span> (location.x) &gt; xmax {
+                velocity &lt;- velocity - {bounds,0};
+            }
+            
+            <span class="hljs-keyword">if</span> (location.y) &lt; ymin {
+                velocity &lt;- velocity + {0,bounds};
+            } else <span class="hljs-keyword">if</span> (location.y) &gt; ymax {
+                velocity &lt;- velocity - {0,bounds};
+            }
+            
+        }
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">follow_goal</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_goal</span> </span>{
+        velocity &lt;- velocity + ((goal - location) / cohesion_factor);
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">wind</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_wind</span> </span>{
+        velocity &lt;- velocity + wind_vector;
+    }
+      
+    action do_move {  
+        <span class="hljs-keyword">if</span> (((velocity.x) as <span class="hljs-literal">int</span>) = 0) and (((velocity.y) as <span class="hljs-literal">int</span>) = 0) {
+            velocity &lt;- {(rnd(4)) -2, (rnd(4)) - 2};
+        }
+        <span class="hljs-literal">point</span> old_location &lt;- copy(location);
+        do goto target: location + velocity;
+        velocity &lt;- location - old_location;
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">movement</span> </span>{
+        do do_move;
+    }
+    
+    aspect image {
+        draw (images at (rnd(2))) size: 35 rotate: heading color: <span class="hljs-literal">rgb</span>([0,0,rnd(200) + 55]);      
+    }
+    aspect circle { 
+        draw circle(15) rotate: 90 + heading color: #red;
+    }
+    
+    aspect default { 
+        draw triangle(15) rotate: 90 + heading color: #yellow;
+    }
+} 
+
+<span class="hljs-class">species <span class="hljs-title">obstacle</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+    <span class="hljs-literal">float</span> speed &lt;- 2.0;
+    <span class="hljs-literal">geometry</span> shape &lt;- triangle(15);
+    
+    <span class="hljs-class">reflex <span class="hljs-title">move_obstacles</span> <span class="hljs-title">when</span>: <span class="hljs-title">moving_obstacles</span> </span>{
+        <span class="hljs-keyword">if</span> flip(0.5)  
+        { 
+            do goto target: one_of(boids);
+        } 
+        else{ 
+            do wander amplitude: 360;   
+        }
+    }
+    aspect default {
+        draw  triangle(20) color: #yellow ;
+    }
+
+    
+    aspect geom {
+        draw shape color: #yellow;
+    }
+}
+
+
+<span class="hljs-class">experiment <span class="hljs-title">Boids_gui</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    parameter 'Number of agents' var: number_of_agents;
+    parameter 'Number of obstacles' var: number_of_obstacles;
+    parameter 'Maximal speed' var: maximal_speed;
+    parameter 'Cohesion Factor' var: cohesion_factor;
+    parameter 'Alignment Factor' var: alignment_factor; 
+    parameter 'Minimal Distance'  var: minimal_distance; 
+    parameter 'Maximal Turn'  var: maximal_turn; 
+    parameter 'Width/Height of the Environment' var: width_and_height_of_environment ;  
+    parameter 'Toroidal Environment ?'  var: torus_environment ; 
+    parameter 'Apply Cohesion ?' var: apply_cohesion ;
+    parameter 'Apply Alignment ?' var: apply_alignment ;   
+    parameter 'Apply Separation ?' var: apply_separation ;   
+    parameter 'Follow Goal ?' var: apply_goal ; 
+    parameter 'Apply Avoidance ?' var: apply_avoid ;   
+    parameter 'Apply Wind ?' var: apply_wind ;     
+    parameter 'Moving Obstacles ?' var: moving_obstacles  ;    
+    parameter 'Direction of the wind' var: wind_vector ;  
+    
+    output {
+        <span class="hljs-class">display <span class="hljs-title">Sky</span></span>
+        {
+            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
+            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">boids_goal</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">obstacle</span>;</span>
+        }
+    }
+}
+</code></pre>
+<p>Code of the model :</p>
+<pre><code class="hljs">
+<span class="hljs-builtin">model</span> boidsVisualization
+
+<span class="hljs-comment">//import everything from Boids model, even the experiments</span>
+import <span class="hljs-string">"../includes/Boids.gaml"</span>
+
+<span class="hljs-class">experiment <span class="hljs-title">start</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    
+    <span class="hljs-comment">//each cycle will have a minimum duration of 0.03 second to slow the experiment allowing a better view of the dynamics</span>
+    <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.03;
+    
+    <span class="hljs-comment">//the type opengl allows the 3D Display instead of only 2D</span>
+    output {
+        <span class="hljs-class">display <span class="hljs-title">RealBoids</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">z_fighting</span>:<span class="hljs-title">false</span> </span>{
+            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
+            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>  <span class="hljs-title">position</span>:</span>{0,0,0.1};
+            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.1};
+            <span class="hljs-class">species <span class="hljs-title">obstacle</span> <span class="hljs-title">position</span>:</span>{0,0,0.1};        
+        }
+    }
+}
+
+<span class="hljs-class">experiment <span class="hljs-title">trajectory_analysis</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    
+    <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.03;
+    output {
+        
+        <span class="hljs-class">display <span class="hljs-title">RealBoids</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
+            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
+            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">trace</span>:100</span>{
+                draw triangle(20) rotate: 90 + heading color: hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) depth:8 ;  
+            }
+            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.1};
+            <span class="hljs-class">species <span class="hljs-title">obstacle</span> <span class="hljs-title">position</span>:</span>{0,0,0.1};        
+        }
+    }
+}
+
+<span class="hljs-class">experiment <span class="hljs-title">SpaceTimeCube</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    
+    <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.03;
+    output {
+        <span class="hljs-class">display <span class="hljs-title">RealBoids</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
+            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
+            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span> <span class="hljs-title">transparency</span>:0.5 <span class="hljs-title">position</span>:</span>{0,0,0.11};
+            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.1};
+            <span class="hljs-class">species <span class="hljs-title">obstacle</span> <span class="hljs-title">position</span>:</span>{0,0,0.1};        
+        }
+        
+        <span class="hljs-class">display <span class="hljs-title">SpaceTimeCubeAll</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
+            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
+            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">trace</span>:100</span>{
+                draw triangle(20) rotate: 90 + heading color: hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) depth:8 at: {location.x ,location.y,location.z+time};  
+            }
+            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">trace</span>:100</span>{
+                draw sphere(10) color: #yellow at: {location.x ,location.y,location.z+time};
+            }   
+        }
+                
+    }
+}
+
+<span class="hljs-class">experiment <span class="hljs-title">MultipleView</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.03;
+    output {
+        <span class="hljs-class">display <span class="hljs-title">RealBoids</span>   <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
+            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
+            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>  <span class="hljs-title">transparency</span>:0.5 <span class="hljs-title">position</span>:</span>{0,0,0.25};
+            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.25};
+            <span class="hljs-class">species <span class="hljs-title">obstacle</span> ;</span>
+            <span class="hljs-class">species <span class="hljs-title">boids</span>  <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.24};      
+        }
+        <span class="hljs-comment">//The facet camera_pos is the position of the camera in the 3D display and the facet camera_look_pos is the position where the camera is looking</span>
+        <span class="hljs-class">display <span class="hljs-title">ThirdPersonn</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">camera_interaction</span>:<span class="hljs-title">false</span> <span class="hljs-title">camera_pos</span>:</span>{<span class="hljs-literal">int</span>(first(boids).location.x),<span class="hljs-literal">int</span>(first(boids).location.y),250} 
+        camera_look_pos:{<span class="hljs-literal">int</span>(first(boids).location.x),(first(boids).location.y),0} camera_up_vector:{0.0,-1.0,0.0} {
+        
+            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
+            <span class="hljs-class">species <span class="hljs-title">obstacle</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">boids</span></span>{
+                draw triangle(20) rotate: 90 + heading color: hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) depth:8 ;  
+            }
+            <span class="hljs-class">species <span class="hljs-title">boids_goal</span></span>{
+                draw sphere(10) color: #yellow;
+            }   
+        }
+        
+        <span class="hljs-comment">//The facet camera_up_vector allows the definition of the vector on which the top of the camera point at, it has to be perpendicular to the look vector</span>
+        <span class="hljs-class">display <span class="hljs-title">FirstPerson</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">camera_interaction</span>:<span class="hljs-title">false</span> <span class="hljs-title">camera_pos</span>:</span>{<span class="hljs-literal">int</span>(first(boids).location.x),<span class="hljs-literal">int</span>(first(boids).location.y),10} 
+            camera_look_pos:{cos(first(boids).heading)*first(boids).speed+<span class="hljs-literal">int</span>(first(boids).location.x),
+            sin(first(boids).heading)*first(boids).speed+<span class="hljs-literal">int</span>(first(boids).location.y),10} 
+            camera_up_vector:{0.0,0.0,1.0} {    
+            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
+            <span class="hljs-class">species <span class="hljs-title">obstacle</span> ;</span>
+            <span class="hljs-class">species <span class="hljs-title">boids</span></span>{
+                draw triangle(20) rotate: 90 + heading color: hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) depth:8 ;  
+            }
+            <span class="hljs-class">species <span class="hljs-title">boids_goal</span></span>{
+                draw sphere(10) color: #yellow;
+            }       
+        }
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

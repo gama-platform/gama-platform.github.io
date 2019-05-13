@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Balls without gravity · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Balls without gravity · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Balls without gravity</h1></header><article><div><span><p><em>Author : Arnaud Grignard</em></p>
+<p>This is a model that shows how the physics engine work without gravity. Balls can collide each other and can't go further than the wall and the ground agents.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> Perfect_Gas
+
+ 
+ 
+<span class="hljs-class">global </span>{
+    <span class="hljs-comment">//Bounds of the environment</span>
+    <span class="hljs-literal">int</span> width_of_environment parameter: 'Dimensions' init:200 ; 
+    <span class="hljs-literal">int</span> height_of_environment parameter: 'Dimensions' init:200  ; 
+    
+    <span class="hljs-comment">//Range, Speed ans Size of the agents</span>
+    <span class="hljs-literal">int</span> range_of_agents parameter: 'Range of Agents' min: 1 &lt;- 25 ;
+    <span class="hljs-literal">float</span> speed_of_agents parameter: 'Speed of Agents' min: 0.1  &lt;- 2.0 ; 
+    <span class="hljs-literal">int</span> size_of_agents &lt;- 10;
+    
+    
+    <span class="hljs-literal">float</span> size_of_the_wall &lt;- 10.0;
+    <span class="hljs-literal">int</span> offset&lt;-10;
+    <span class="hljs-literal">geometry</span> shape &lt;- rectangle(width_of_environment, height_of_environment);
+
+    <span class="hljs-comment">//Physic engines that will compute the forces</span>
+    physic_world world2;
+    init {
+        create ball number: 1000{
+            radius &lt;-2;
+            location &lt;-  {offset+ rnd(width_of_environment-offset*2), offset+ rnd(height_of_environment- offset*2),offset+ rnd(width_of_environment-offset*2)};
+            mass &lt;-0.001;
+            collisionBound &lt;-  [<span class="hljs-string">"shape"</span>::<span class="hljs-string">"sphere"</span>,<span class="hljs-string">"radius"</span>::radius];
+        }
+        
+        create ground 
+        {   
+            location &lt;- {width_of_environment/2,height_of_environment/2,0};
+            collisionBound &lt;-  [<span class="hljs-string">"shape"</span>::<span class="hljs-string">"floor"</span>,<span class="hljs-string">"x"</span>::width_of_environment/2 , <span class="hljs-string">"y"</span>:: height_of_environment/2, <span class="hljs-string">"z"</span>::size_of_the_wall];
+            shape &lt;- rectangle(width_of_environment,height_of_environment);
+            mass &lt;-0.0;
+        }
+        
+        <span class="hljs-comment">//Sky</span>
+        create ground{
+            location &lt;- {width_of_environment/2,height_of_environment/2,width_of_environment};
+            collisionBound &lt;-  [<span class="hljs-string">"shape"</span>::<span class="hljs-string">"floor"</span>,<span class="hljs-string">"x"</span>::width_of_environment/2 , <span class="hljs-string">"y"</span>:: height_of_environment/2, <span class="hljs-string">"z"</span>::size_of_the_wall];
+            shape &lt;- rectangle(width_of_environment,height_of_environment);
+            mass &lt;-0.0;
+        }
+
+        <span class="hljs-comment">//down wall</span>
+        create wall{
+            location &lt;- {width_of_environment/2,height_of_environment,0};
+            height &lt;- <span class="hljs-literal">float</span>(width_of_environment);
+            shape &lt;- rectangle(width_of_environment,2);
+            collisionBound &lt;-  [<span class="hljs-string">"shape"</span>::<span class="hljs-string">"floor"</span>,<span class="hljs-string">"x"</span>::width_of_environment/2, <span class="hljs-string">"y"</span>:: size_of_the_wall, <span class="hljs-string">"z"</span>::height];
+            mass &lt;-0.0;
+        }
+        <span class="hljs-comment">//upper wall</span>
+        create wall{
+            location &lt;- {width_of_environment/2,0,0};
+            height &lt;- <span class="hljs-literal">float</span>(width_of_environment);
+            shape &lt;- rectangle(width_of_environment,2);
+            collisionBound &lt;-  [<span class="hljs-string">"shape"</span>::<span class="hljs-string">"floor"</span>,<span class="hljs-string">"x"</span>::width_of_environment/2, <span class="hljs-string">"y"</span>:: size_of_the_wall, <span class="hljs-string">"z"</span>::height];
+            mass &lt;-0.0;
+        }
+        <span class="hljs-comment">//left wall</span>
+        create wall{
+            location &lt;- {0.0,height_of_environment/2,0.0};
+            height &lt;- <span class="hljs-literal">float</span>(width_of_environment);
+            shape &lt;- rectangle(2,height_of_environment);
+            collisionBound &lt;-  [<span class="hljs-string">"shape"</span>::<span class="hljs-string">"floor"</span>,<span class="hljs-string">"x"</span>::size_of_the_wall, <span class="hljs-string">"y"</span>:: height_of_environment/2, <span class="hljs-string">"z"</span>::height];
+            mass &lt;-0.0;         
+        }
+        <span class="hljs-comment">//right wall</span>
+        create wall{
+            location &lt;- {width_of_environment,height_of_environment/2,0};
+            height &lt;- <span class="hljs-literal">float</span>(width_of_environment);
+            shape &lt;- rectangle(2,height_of_environment);
+            collisionBound &lt;-  [<span class="hljs-string">"shape"</span>::<span class="hljs-string">"floor"</span>,<span class="hljs-string">"x"</span>::size_of_the_wall, <span class="hljs-string">"y"</span>:: height_of_environment/2, <span class="hljs-string">"z"</span>::height];
+            mass &lt;-0.0;
+            
+        }
+        
+        <span class="hljs-comment">//Create the physic engine without gravity computed</span>
+        create physic_world {
+            gravity &lt;- false;
+            world2 &lt;- self;
+        }
+        
+        <span class="hljs-comment">//Add the agents to compute their forces</span>
+        ask world2 {agents &lt;-  (ball as <span class="hljs-literal">list</span>) + (ground as <span class="hljs-literal">list</span>) + (wall as <span class="hljs-literal">list</span>);}
+        
+    }
+    
+    <span class="hljs-comment">//Reflex to compute the forces at each step</span>
+    <span class="hljs-class">reflex <span class="hljs-title">computeForces</span>  </span>{
+        ask world2 {do compute_forces step: 1;}
+    } 
+            
+} 
+<span class="hljs-comment">//Species to represent the physic engine, derivated from the Physical3DWorld built-in species</span>
+<span class="hljs-class">species <span class="hljs-title">physic_world</span> <span class="hljs-title">parent</span>: <span class="hljs-title">physical_world</span> ;</span>
+ 
+<span class="hljs-comment">//Species to represent the ground using the physical3D skill</span>
+<span class="hljs-class">species <span class="hljs-title">ground</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">physics</span>]</span>{
+    aspect default {
+        draw shape color: #black empty:true;
+    }
+}
+
+<span class="hljs-comment">//Species to represent the wall using the physical3D skill</span>
+<span class="hljs-class">species <span class="hljs-title">wall</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">physics</span>]</span>{
+    <span class="hljs-literal">rgb</span> color;
+    <span class="hljs-literal">float</span> height;
+    aspect default {
+        draw shape color: #black depth:height empty:true;
+    }
+}
+    
+<span class="hljs-comment">//Species to represent the ball using the physical3D skill</span>
+<span class="hljs-class">species <span class="hljs-title">ball</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">physics</span>] </span>{  
+    <span class="hljs-literal">rgb</span> color;
+    <span class="hljs-literal">int</span> radius;
+    <span class="hljs-literal">int</span> size  &lt;- size_of_agents;
+    <span class="hljs-literal">int</span> range  &lt;- range_of_agents; 
+    <span class="hljs-literal">float</span> speed  &lt;- speed_of_agents;  
+    <span class="hljs-literal">int</span> heading &lt;- rnd(359);
+
+    aspect sphere{
+        draw sphere(radius) color: <span class="hljs-literal">rgb</span>(135,201,255) ;
+    }   
+}
+
+<span class="hljs-class">experiment <span class="hljs-title">perfect_gas</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    init{
+        minimum_cycle_duration &lt;-0.001;
+    }
+    output {
+        <span class="hljs-class">display <span class="hljs-title">Cube</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(20,79,127) <span class="hljs-title">draw_env</span>:<span class="hljs-title">false</span></span>{
+            <span class="hljs-class">species <span class="hljs-title">ground</span> <span class="hljs-title">transparency</span>:0.5;</span>
+            <span class="hljs-class">species <span class="hljs-title">wall</span> <span class="hljs-title">transparency</span>:0.5;</span>
+            <span class="hljs-class">species <span class="hljs-title">ball</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">sphere</span>;         </span>
+        }
+    }
+}
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

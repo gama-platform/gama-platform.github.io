@@ -1,0 +1,194 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>segregationGrid · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="segregationGrid · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">segregationGrid</h1></header><article><div><span><p>_Author : _</p>
+<p>Imported model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> segregation_base
+
+<span class="hljs-class">global </span>{
+    <span class="hljs-comment">//Different colors for the group</span>
+    <span class="hljs-literal">rgb</span> color_1 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"yellow"</span>) parameter: <span class="hljs-string">"Color of group 1:"</span> category: <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_2 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"red"</span>) parameter: <span class="hljs-string">"Color of group 2:"</span> category: <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_3 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"blue"</span>) parameter: <span class="hljs-string">"Color of group 3:"</span> category: <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_4 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"orange"</span>) parameter: <span class="hljs-string">"Color of group 4:"</span> category: <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_5 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"green"</span>) parameter: <span class="hljs-string">"Color of group 5:"</span> category: <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_6 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"pink"</span>) parameter: <span class="hljs-string">"Color of group 6:"</span> category: <span class="hljs-string">"User interface"</span>;   
+    <span class="hljs-literal">rgb</span> color_7 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"magenta"</span>) parameter: <span class="hljs-string">"Color of group 7:"</span> category: <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_8 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"cyan"</span>) parameter: <span class="hljs-string">"Color of group 8:"</span> category: <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">list</span> colors &lt;- [color_1, color_2, color_3, color_4, color_5, color_6, color_7, color_8] of: <span class="hljs-literal">rgb</span>;
+
+    
+    <span class="hljs-comment">//Number of groups</span>
+    <span class="hljs-literal">int</span> number_of_groups &lt;- 2 max: 8 parameter: <span class="hljs-string">"Number of groups:"</span> category: <span class="hljs-string">"Population"</span>;
+    <span class="hljs-comment">//Density of the people</span>
+    <span class="hljs-literal">float</span> density_of_people &lt;- 0.7 parameter: <span class="hljs-string">"Density of people:"</span> category: <span class="hljs-string">"Population"</span> min: 0.01 max: 0.99;
+    <span class="hljs-comment">//Percentage of similar wanted for segregation</span>
+    <span class="hljs-literal">float</span> percent_similar_wanted &lt;- 0.5 min: <span class="hljs-literal">float</span> (0) max: <span class="hljs-literal">float</span> (1) parameter: <span class="hljs-string">"Desired percentage of similarity:"</span> category: <span class="hljs-string">"Population"</span>;
+    <span class="hljs-comment">//Dimension of the grid</span>
+    <span class="hljs-literal">int</span> dimensions &lt;- 40 max: 400 min: 10 parameter: <span class="hljs-string">"Width and height of the environment:"</span> category: <span class="hljs-string">"Environment"</span>;
+    <span class="hljs-comment">//Neighbors distance for the perception of the agents</span>
+    <span class="hljs-literal">int</span> neighbors_distance &lt;- 2 max: 10 min: 1 parameter: <span class="hljs-string">"Distance of perception:"</span> category: <span class="hljs-string">"Population"</span>;
+    <span class="hljs-comment">//Number of people agents</span>
+    <span class="hljs-literal">int</span> number_of_people &lt;- 0;
+    <span class="hljs-comment">//Number of happy people</span>
+    <span class="hljs-literal">int</span> sum_happy_people &lt;- 0 update: all_people count (each.is_happy);
+    <span class="hljs-comment">//Number of similar neighbors</span>
+    <span class="hljs-literal">int</span> sum_similar_neighbors &lt;- 0 update: sum (all_people collect each.similar_nearby);
+    <span class="hljs-comment">//Number of neighbors</span>
+    <span class="hljs-literal">int</span> sum_total_neighbors &lt;- 1 update: sum (all_people collect each.total_nearby) min: 1;
+    <span class="hljs-comment">//List of all the places</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; all_places;
+    <span class="hljs-comment">//List of all the people</span>
+    <span class="hljs-literal">list</span>&lt;base&gt; all_people;  
+    
+    <span class="hljs-comment">//Action to write the description of the model in the console</span>
+    action description {
+        write
+        <span class="hljs-string">"\\n\\u25B6 Description. \\n\\u25B6 Thomas Schelling model of residential segregation is a classic study of the effects of local decisions on global dynamics. Agents with mild preferences for same-type neighbors, but without preferences for segregated neighborhoods, can wind up producing complete segregation.\\n\\u25B6 In this model, agents populate a grid with a given *density*. They are in two different states : happy when the percentage of same-color neighbors is above their *desired percentage of similarity*; unhappy otherwise. In the latter case, they change their location randomly until they find a neighborhood that fits their desire. \\n\\u25B6 In addition to the previous parameter, one can adjust the *distance of perception* (i.e.  the distance at which they consider other agents as neighbors) of the agents to see how it affects the global process. "</span>;
+    }
+    <span class="hljs-comment">//Initialization of the model</span>
+    init {
+        <span class="hljs-comment">//Write the description of the model </span>
+        do description;
+        <span class="hljs-comment">//Initialization of the places</span>
+        do initialize_places;
+        <span class="hljs-comment">//Computation of the number of people according to the density of people</span>
+        number_of_people &lt;- <span class="hljs-literal">int</span>( length (all_places) * density_of_people);
+        <span class="hljs-comment">//Initialization of the people</span>
+        do initialize_people;
+    }
+    <span class="hljs-comment">//Action to initialize places defined in the subclasses</span>
+    action initialize_places virtual: true;
+    <span class="hljs-comment">//Action to initialize people in the subclasses</span>
+    action initialize_people virtual: true;
+}
+
+<span class="hljs-comment">//Species base representing the people agents</span>
+<span class="hljs-class">species <span class="hljs-title">base</span> </span>{
+    <span class="hljs-literal">rgb</span> color;
+    <span class="hljs-comment">//List of all the neighbors agents</span>
+    <span class="hljs-literal">list</span>&lt;base&gt; my_neighbors;
+    <span class="hljs-comment">//computation of the similar neighbors</span>
+    <span class="hljs-literal">int</span> similar_nearby -&gt; {
+        (my_neighbors count (each.color = color))
+    };
+    <span class="hljs-comment">//Computation of the total neighbors nearby</span>
+    <span class="hljs-literal">int</span> total_nearby -&gt; {
+        length (my_neighbors)
+    };
+    <span class="hljs-comment">//Boolean to know if the agent is happy or not</span>
+    <span class="hljs-literal">bool</span> is_happy -&gt; {similar_nearby &gt;= (percent_similar_wanted * total_nearby )} ;
+}
+
+</code></pre>
+<p>Code of the model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> segregation
+
+<span class="hljs-comment">//Importation of the Common Schelling Segregation model</span>
+import <span class="hljs-string">"../include/Common Schelling Segregation.gaml"</span>
+
+<span class="hljs-comment">//Define the environment as torus</span>
+<span class="hljs-class">global <span class="hljs-title">torus</span>: <span class="hljs-title">true</span></span>{
+    <span class="hljs-comment">//List of all the free places</span>
+    <span class="hljs-literal">list</span>&lt;space&gt; free_places ;
+    <span class="hljs-comment">//List of all the places</span>
+    <span class="hljs-literal">list</span>&lt;space&gt; all_places  ;
+    <span class="hljs-comment">//List of all the people</span>
+    <span class="hljs-literal">list</span>&lt;space&gt; all_people;
+    <span class="hljs-comment">//Shape of the environment</span>
+    <span class="hljs-literal">geometry</span> shape &lt;- square(dimensions);
+    
+    <span class="hljs-comment">//Action to initialize the places</span>
+    action initialize_places {
+        all_places &lt;- shuffle(space);
+        free_places &lt;- shuffle(all_places);
+    }
+    <span class="hljs-comment">//Action to initialize the people agents</span>
+    action initialize_people {
+        <span class="hljs-comment">//Place all the people agent in the cellular automata</span>
+        loop i from: 0 to: number_of_people - 1 {
+            space pp &lt;- all_places at i;
+            remove pp from: free_places;
+            add pp to: all_people;
+            pp.color &lt;- colors at (rnd(number_of_groups - 1));
+        }
+
+    }
+    <span class="hljs-comment">//Reflex to migrate all the people agents</span>
+    <span class="hljs-class">reflex <span class="hljs-title">migrate</span> </span>{
+        ask copy(all_people) {
+            do migrate;
+        }
+
+    }
+
+}
+
+<span class="hljs-comment">//Grid species representing the places and the people in each cell</span>
+<span class="hljs-class">grid <span class="hljs-title">space</span> <span class="hljs-title">parent</span>: <span class="hljs-title">base</span> <span class="hljs-title">width</span>: <span class="hljs-title">dimensions</span> <span class="hljs-title">height</span>: <span class="hljs-title">dimensions</span> <span class="hljs-title">neighbors</span>: 8  </span>{
+    <span class="hljs-literal">rgb</span> color &lt;- #black;
+    <span class="hljs-comment">//List of the neighbors of the places</span>
+    <span class="hljs-literal">list</span>&lt;space&gt; my_neighbors &lt;- self neighbors_at neighbors_distance;
+    <span class="hljs-comment">//Action to migrate the agent in another cell if it is not happy</span>
+    action migrate {
+        <span class="hljs-keyword">if</span> !is_happy {
+            <span class="hljs-comment">//Change the space of the agent to a free space</span>
+            space pp &lt;- any(my_neighbors where (each.color = #black));
+            <span class="hljs-keyword">if</span> (pp != nil) {
+                free_places &lt;+ self;
+                free_places &gt;- pp;
+                all_people &gt;- self;
+                all_people &lt;&lt; pp;
+                pp.color &lt;- color;
+                color &lt;- #black;
+            }
+        }
+    }
+}
+
+
+<span class="hljs-class">experiment <span class="hljs-title">schelling</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    output {
+        <span class="hljs-class">display <span class="hljs-title">Segregation</span> </span>{
+            <span class="hljs-class">grid <span class="hljs-title">space</span>;</span>
+        }
+
+        <span class="hljs-class">display <span class="hljs-title">Charts</span> </span>{
+            chart <span class="hljs-string">"Proportion of happiness"</span> type: pie background: #lightgray style: exploded position: { 0, 0 } size: { 1.0, 0.5 } {
+                data <span class="hljs-string">"Unhappy"</span> value: number_of_people - sum_happy_people color: #green;
+                data <span class="hljs-string">"Happy"</span> value: sum_happy_people color: #yellow;
+            }
+
+            chart <span class="hljs-string">"Global happiness and similarity"</span> type: series background: #lightgray axes: #white position: { 0, 0.5 } size: { 1.0, 0.5 }  x_range: 50{
+                data <span class="hljs-string">"happy"</span> color: #blue value: (sum_happy_people / number_of_people) * 100 style: spline;
+                data <span class="hljs-string">"similarity"</span> color: #red value: (sum_similar_neighbors / sum_total_neighbors) * 100 style: step;
+            }
+
+        }
+
+    }
+
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>SIR (Split in Agents, Multiple Strains) · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="SIR (Split in Agents, Multiple Strains) · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">SIR (Split in Agents, Multiple Strains)</h1></header><article><div><span><p><em>Author : tri and nghi</em></p>
+<p>This model is an extension of the model SIR_split_in_agents.gaml. It creates several agents of one compartment type (here typically several I_agt).</p>
+<p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations SIR (Split in Agents, Multiple Strains)/chart_1system_eq-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p><p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations SIR (Split in Agents, Multiple Strains)/chart_3system_eq-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p>Code of the model : 
+<pre><code class="hljs"><span class="hljs-builtin">model</span> SIR_split_in_agents_multiple_strains
+
+<span class="hljs-class">global </span>{
+    <span class="hljs-comment">// Parameters</span>
+    <span class="hljs-literal">int</span> number_S &lt;- 495 ; <span class="hljs-comment">// The number of susceptible</span>
+    <span class="hljs-literal">int</span> number_I &lt;- 5 ; <span class="hljs-comment">// The number of infected</span>
+    <span class="hljs-literal">int</span> number_R &lt;- 0 ; <span class="hljs-comment">// The number of removed </span>
+
+    <span class="hljs-literal">float</span> _beta &lt;- 1.0 ; <span class="hljs-comment">// The parameter Beta</span>
+    <span class="hljs-literal">float</span> _delta &lt;- 0.01 ; <span class="hljs-comment">// The parameter Delta</span>
+    
+    <span class="hljs-comment">// Global variables</span>
+    <span class="hljs-literal">int</span> strain_number &lt;- 2;
+    <span class="hljs-literal">int</span> N &lt;- number_S + number_I * strain_number + number_R;    
+    <span class="hljs-literal">float</span> hKR4 &lt;- 0.01;
+    
+    init {
+        create S_agt {
+            Ssize &lt;- <span class="hljs-literal">float</span>(number_S);
+        }
+
+        create I_agt number: strain_number {
+            Isize &lt;- <span class="hljs-literal">float</span>(number_I);
+            self.beta &lt;- _beta; 
+            self.delta &lt;- _delta; 
+        }
+
+        create R_agt {
+            Rsize &lt;- <span class="hljs-literal">float</span>(number_R);
+        }
+
+        create my_SIR_maths {
+            self.Sm &lt;- <span class="hljs-literal">float</span>(number_S);
+            self.Im &lt;- <span class="hljs-literal">float</span>(number_I) * strain_number;
+            self.Rm &lt;- <span class="hljs-literal">float</span>(number_R);
+        }
+
+        write 'Basic Reproduction Number (R0): ' + <span class="hljs-literal">string</span>(_beta * number_S / (_delta));
+    }
+
+}
+
+
+<span class="hljs-class">species <span class="hljs-title">S_agt</span> </span>{
+    <span class="hljs-literal">float</span> t;        
+    <span class="hljs-literal">float</span> Ssize;
+    
+    equation evol simultaneously: [I_agt, R_agt] {
+        diff(self.Ssize, t) = (- sum(I_agt accumulate [each.beta * each.Isize]) * self.Ssize / N);
+    }
+
+    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve evol method: <span class="hljs-string">"rk4"</span> step: hKR4 ;}
+}
+
+<span class="hljs-class">species <span class="hljs-title">I_agt</span> </span>{
+    <span class="hljs-literal">float</span> t;        
+    <span class="hljs-literal">float</span> Isize;
+     
+    <span class="hljs-literal">float</span> beta;
+    <span class="hljs-literal">float</span> delta;
+    
+    equation evol simultaneously: [S_agt, R_agt] {
+        diff(self.Isize, t) = (beta * first(S_agt).Ssize * self.Isize / N) - (delta * self.Isize);
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">R_agt</span> </span>{
+    <span class="hljs-literal">float</span> t;        
+    <span class="hljs-literal">float</span> Rsize;
+
+    equation evol simultaneously: [I_agt] {
+        diff(self.Rsize, t) = (sum(I_agt collect (each.delta * each.Isize)));
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">my_SIR_maths</span> </span>{
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">float</span> Im;
+    <span class="hljs-literal">float</span> Sm;
+    <span class="hljs-literal">float</span> Rm;
+    
+    equation SIR {
+        diff(self.Sm, t) = (-_beta * Sm * Im / N);
+        diff(self.Im, t) = (_beta * Sm * Im / N) - (_delta * Im);
+        diff(self.Rm, t) = (_delta * Im);
+    }
+
+    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve SIR method: <span class="hljs-string">"rk4"</span> step: hKR4;}
+}
+
+
+
+<span class="hljs-class">experiment <span class="hljs-title">Simulation</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    parameter 'Number of Susceptible' type: <span class="hljs-literal">int</span> var: number_S &lt;- 495 category: <span class="hljs-string">"Initial population"</span>; 
+    parameter 'Number of Infected'    type: <span class="hljs-literal">int</span> var: number_I &lt;- 5   category: <span class="hljs-string">"Initial population"</span>;
+    parameter 'Number of Removed'     type: <span class="hljs-literal">int</span> var: number_R &lt;- 0   category: <span class="hljs-string">"Initial population"</span>;
+
+    parameter 'Beta (S-&gt;I)'  type: <span class="hljs-literal">float</span> var: _beta &lt;- 1.0   category: <span class="hljs-string">"Parameters"</span>;
+    parameter 'Delta (I-&gt;R)' type: <span class="hljs-literal">float</span> var: _delta &lt;- 0.01 category: <span class="hljs-string">"Parameters"</span>;    
+    
+    output {
+        <span class="hljs-class">display <span class="hljs-title">chart_3system_eq</span> </span>{
+            chart 'Split system' type: series background: #lightgray {
+                data 'susceptible' value: first(S_agt).Ssize color: #green;
+                data 'infected0' value: first(I_agt).beta * first(I_agt).Isize color: #white;
+                data 'infected1' value: last(I_agt).beta * last(I_agt).Isize color: #yellow;
+                data 'i1+i2' value: sum(I_agt accumulate (each.beta * each. Isize)) color: <span class="hljs-literal">rgb</span> ( 'red' ) ;              
+                data 'recovered' value: first(R_agt).Rsize color: #blue;
+            }
+
+        }
+
+        <span class="hljs-class">display <span class="hljs-title">chart_1system_eq</span>  </span>{
+            chart 'unified system' type: series background: #lightgray {
+                data 'susceptible_maths' value: first(my_SIR_maths).Sm color: #green;
+                data 'infected_maths' value: first(my_SIR_maths).Im color: #red;
+                data 'recovered_maths' value: first(my_SIR_maths).Rm color: #blue;
+            }
+        }
+    }
+}
+
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

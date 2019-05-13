@@ -1,0 +1,729 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Using Database Access · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Using Database Access · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Recipes</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Home<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Home">Home</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Overview">Introduction</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Platform<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/PlatformDocumentation">Platform</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Installation and Launching</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/InstallationAndLaunching">Installation and Launching</a></li><li class="navListItem"><a class="navItem" href="/wiki/Installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/wiki/Launching">Launching GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Headless">Headless Mode</a></li><li class="navListItem"><a class="navItem" href="/wiki/Updating">Updating GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/InstallingPlugins">Installing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/Troubleshooting">Troubleshooting</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Workspace, Projects and Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/WorkspaceProjectsAndModels">Workspace, Projects and Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/NavigatingWorkspace">Navigating in the Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/ChangingWorkspace">Changing Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/ImportingModels">Importing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Editing Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/EditingModels">Editing models</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamlEditorGeneralities">The GAML Editor - Generalities</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamlEditorToolbar">The GAML Editor Toolbar</a></li><li class="navListItem"><a class="navItem" href="/wiki/ValidationOfModels">Validation of Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Running Experiments</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/RunningExperiments">Running Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/LaunchingExperiments">Launching Experiments from the User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExperimentsUserInterface">Experiments User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/MenusAndCommands">Menus and Commands</a></li><li class="navListItem"><a class="navItem" href="/wiki/ParametersView">Parameters View</a></li><li class="navListItem"><a class="navItem" href="/wiki/InspectorsAndMonitors">Inspectors and monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/Displays">Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/BatchSpecific">Batch Specific UI</a></li><li class="navListItem"><a class="navItem" href="/wiki/ErrorsView">Errors View</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/Preferences">Preferences</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn GAML step by step<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/LearnGAMLStepByStep">Learn GAML Step by Step</a></li><li class="navListItem"><a class="navItem" href="/wiki/Introduction">Introduction</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Start with GAML</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/StartWithGAML">Start with GAML</a></li><li class="navListItem"><a class="navItem" href="/wiki/ModelOrganization">Organization of a model</a></li><li class="navListItem"><a class="navItem" href="/wiki/BasicProgrammingConceptsInGAML">Basic programming concepts in GAML</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Manipulate basic Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/ManipulateBasicSpecies">Manipulate basic species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GlobalSpecies">The global species</a></li><li class="navListItem"><a class="navItem" href="/wiki/RegularSpecies">Regular species</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningActionsAndBehaviors">Defining actions and behaviors</a></li><li class="navListItem"><a class="navItem" href="/wiki/InteractionBetweenAgents">Interaction between agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/AttachingSkills">Attaching Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/Inheritance">Inheritance</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining Advanced Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/DefiningAdvancedSpecies">Defining advanced species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GridSpecies">Grid Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GraphSpecies">Graph Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/MirrorSpecies">Mirror species</a></li><li class="navListItem"><a class="navItem" href="/wiki/MultiLevelArchitecture">Multi-level architecture</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining GUI Experiment</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/DefiningGUIExperiment">Defining GUI Experiment</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningParameters">Defining Parameters</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningDisplaysGeneralities">Defining displays (Generalities)</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningCharts">Defining Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/Defining3DDisplays">Defining 3D Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningMonitorsAndInspectors">Defining monitors and inspectors</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningExportFiles">Defining export files</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningUserInteraction">Defining user interaction</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Exploring Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/ExploringModels">Exploring Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/RunSeveralSimulations">Run Several Simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/BatchExperiments">Defining Batch Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExplorationMethods">Exploration Methods</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Optimizing Model Section</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/OptimizingModelsSection">Optimizing Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/RuntimeConcepts">Runtime Concepts</a></li><li class="navListItem"><a class="navItem" href="/wiki/OptimizingModels">Optimizing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Multi-Paradigm Modeling</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/MultiParadigmModeling">Multi-Paradigm Modeling</a></li><li class="navListItem"><a class="navItem" href="/wiki/ControlArchitecture">Control Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/Equations">Using Equations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Recipes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Recipes">Recipes</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateOSMDatas">Manipulate OSM Datas</a></li><li class="navListItem"><a class="navItem" href="/wiki/Diffusion">Implementing diffusion</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/UsingDatabase">Using Database Access</a></li><li class="navListItem"><a class="navItem" href="/wiki/CallingR">CallingR</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingFIPAACL">Using FIPA ACL</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamAnalyzer">Using GAMAnalyzer</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingBDI">Using BDI</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingDrivingSkill">Advanced Driving Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateDates">Manipulate Dates</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateLight">Implementing light</a></li><li class="navListItem"><a class="navItem" href="/wiki/Comodel">Using Comodel</a></li><li class="navListItem"><a class="navItem" href="/wiki/Save-and-restore-simulations">Save and Restore simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingNetwork">Using network</a></li><li class="navListItem"><a class="navItem" href="/wiki/Headless-mode-for-dummies">Headless-mode-for-dummies</a></li><li class="navListItem"><a class="navItem" href="/wiki/G__GraphicalEditor">The Graphical Editor</a></li><li class="navListItem"><a class="navItem" href="/wiki/FAQ">FAQ (Frequently Asked Questions)</a></li><li class="navListItem"><a class="navItem" href="/wiki/KnownIssues">Known issues</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">GAML References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/GamlReference">GAML References</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Built-in Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/BuiltInSpecies">Built-in Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/AgentBuiltIn">The &#x27;agent&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/ModelBuiltIn">The &#x27;model&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExperimentBuiltIn">The &#x27;experiment&#x27; built-in species (Under Construction)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/BuiltInSkills">Built-in Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/BuiltInArchitectures">Built-in Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/Statements">Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/DataTypes">Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/FileTypes">File Types</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Expressions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/Expressions">Expressions</a></li><li class="navListItem"><a class="navItem" href="/wiki/Literals">Literals</a></li><li class="navListItem"><a class="navItem" href="/wiki/UnitsAndConstants">Units and constants</a></li><li class="navListItem"><a class="navItem" href="/wiki/PseudoVariables">Pseudo-variables</a></li><li class="navListItem"><a class="navItem" href="/wiki/VariablesAndAttributes">Variables and Attributes</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/Index">Exhaustive list of GAMA Keywords</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing Extensions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/DevelopingExtensions">Developing Extensions</a></li><li class="navListItem"><a class="navItem" href="/wiki/InstallingGitVersion">Installing the GIT version</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamaArchitecture">Architecture of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingPlugins">Developing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingSkills">Developing a New Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingStatements">Developing Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingOperators">Developing Operators</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingTypes">Developing Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingSpecies">Developing Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingControlArchitectures">Developing architecture</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingIndexAnnotations">Index of annotations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/developingGAMA">Get into the GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/IntroductionToGamaJavaAPI">IntroductionToGamaJavaAPI</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingIScope">IScope interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/CreatingAReleaseOfGama">Product your own release of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Documentation">Documentation</a></li><li class="navListItem"><a class="navItem" href="/wiki/WebsiteGeneration">How to write the Website Content</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Scientific References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/References">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Projects using GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Training Session<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/TrainingSession">Training Session</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Events<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Events">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Older versions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/OlderVersions">Versions of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Event__CC15_Reorganization">Introduction</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Using Database Access</h1></header><article><div><span><p>Database features of GAMA provide a set of actions on Database Management Systems (DBMS) and Multi-Dimensional Database for agents in GAMA. Database features are implemented in the irit.gaml.extensions.database plug-in with these features:</p>
+<ul>
+<li>Agents can execute SQL queries (create, Insert, select, update, drop, delete) to various kinds of DBMS.</li>
+<li>Agents can execute MDX (Multidimensional Expressions) queries to select multidimensional objects, such as cubes, and return multidimensional cellsets that contain the cube's data .
+These features are implemented in two kinds of component: <em>skills</em> (SQLSKILL, MDXSKILL) and agent (AgentDB)</li>
+</ul>
+<p>SQLSKILL and AgentDB provide almost the same features (a same set of actions on DBMS) but with certain slight differences:</p>
+<ul>
+<li>An agent of species AgentDB will maintain a unique connection to the database during the whole simulation. The connection is thus initialized when the agent is created.</li>
+<li>In contrast, an agent of a species with the SQLSKILL skill will open a connection each time he wants to execute a query. This means that each action will be composed of three running steps:
+<ul>
+<li>Make a database connection.</li>
+<li>Execute SQL statement.</li>
+<li>Close database connection.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>An agent with the SQLSKILL spends lot of time to create/close the connection each time it needs to send a query; it saves the database connection (DBMS often limit the number of simultaneous connections). In contrast, an AgentDB agent only needs to establish one database connection and it can be used for any actions. Because it does not need to create and close database connection for each action: therefore, actions of AgentDB agents are executed faster than actions of SQLSKILL ones but we must pay a connection for each agent.</p>
+</blockquote>
+<ul>
+<li>With an inheritance agent of species AgentDB  or an agent of a species using SQLSKILL, we can query data from relational database for creating species, defining environment or analyzing or storing simulation results into RDBMS. On the other hand, an agent of species with MDXKILL supports the OLAP technology to query data from data marts (multidimensional database).
+The database features help us to have more flexibility in management of simulation models and analysis of simulation results.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="description"></a><a href="#description" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description</h2>
+<ul>
+<li><strong>Plug-in</strong>: <em>irit.gaml.extensions.database</em></li>
+<li><strong>Author</strong>: TRUONG Minh Thai, Frederic AMBLARD, Benoit GAUDOU, Christophe SIBERTIN-BLANC</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="supported-dbms"></a><a href="#supported-dbms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Supported DBMS</h2>
+<p>The following DBMS are currently supported:</p>
+<ul>
+<li>SQLite</li>
+<li>MySQL Server</li>
+<li>PostgreSQL Server</li>
+<li>SQL Server</li>
+<li>Mondrian OLAP Server</li>
+<li>SQL Server Analysis Services</li>
+</ul>
+<p>Note that, other DBMSs require a dedicated server to work while SQLite on only needs a file to be accessed.
+All the actions can be used independently from the chosen DBMS. Only the connection parameters are DBMS-dependent.</p>
+<h2><a class="anchor" aria-hidden="true" id="sqlskill"></a><a href="#sqlskill" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SQLSKILL</h2>
+<h3><a class="anchor" aria-hidden="true" id="define-a-species-that-uses-the-sqlskill-skill"></a><a href="#define-a-species-that-uses-the-sqlskill-skill" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define a species that uses the SQLSKILL skill</h3>
+<p>Example of declaration:</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">toto</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">SQLSKILL</span>] </span>{
+    <span class="hljs-comment">//insert your descriptions here</span>
+}
+</code></pre>
+<p>Agents with such a skill can use additional actions (defined in the skill)</p>
+<h3><a class="anchor" aria-hidden="true" id="map-of-connection-parameters-for-sql"></a><a href="#map-of-connection-parameters-for-sql" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Map of connection parameters for SQL</h3>
+<p>In the actions defined in the SQLSkill, a parameter containing the connection parameters is required. It is a map with the following <em>key::value</em> pairs:</p>
+<table>
+<thead>
+<tr><th style="text-align:left"><strong>Key</strong></th><th style="text-align:left"><strong>Optional</strong></th><th style="text-align:left"><strong>Description</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><em>dbtype</em></td><td style="text-align:left">No</td><td style="text-align:left">DBMS type value. Its value is a string. We must use &quot;mysql&quot; when we want to connect to a MySQL. That is the same for &quot;postgres&quot;, &quot;sqlite&quot; or &quot;sqlserver&quot; (ignore case sensitive)</td></tr>
+<tr><td style="text-align:left"><em>host</em></td><td style="text-align:left">Yes</td><td style="text-align:left">Host name or IP address of data server. It is absent when we work with SQlite.</td></tr>
+<tr><td style="text-align:left"><em>port</em></td><td style="text-align:left">Yes</td><td style="text-align:left">Port of connection. It is not required when we work with SQLite.</td></tr>
+<tr><td style="text-align:left"><em>database</em></td><td style="text-align:left">No</td><td style="text-align:left">Name of database. It is the file name including the path when we work with SQLite.</td></tr>
+<tr><td style="text-align:left"><em>user</em></td><td style="text-align:left">Yes</td><td style="text-align:left">Username. It is not required when we work with SQLite.</td></tr>
+<tr><td style="text-align:left"><em>passwd</em></td><td style="text-align:left">Yes</td><td style="text-align:left">Password. It is not required when we work with SQLite.</td></tr>
+<tr><td style="text-align:left">srid</td><td style="text-align:left">Yes</td><td style="text-align:left">srid (Spatial Reference Identifier)  corresponds to a spatial reference system. This value is specified when GAMA connects to spatial database. If it is absent then GAMA uses spatial reference system defined in <em>Preferences-&gt;External</em> configuration.</td></tr>
+</tbody>
+</table>
+<p><strong>Table 1</strong>: Connection parameter description</p>
+<p><strong>Example</strong>: Definitions of connection parameter</p>
+<pre><code class="hljs"><span class="hljs-comment">// POSTGRES connection parameter</span>
+<span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;  POSTGRES &lt;- [
+     'host'::'localhost',
+     'dbtype'::'postgres',
+     'database'::'BPH',
+     'port'::'5433',
+     'user'::'postgres',
+     'passwd'::'abc'];
+
+<span class="hljs-comment">//SQLite</span>
+<span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;  SQLITE &lt;- [
+    'dbtype'::'sqlite',
+    'database'::'../includes/meteo.db'];
+
+<span class="hljs-comment">// SQLSERVER connection parameter</span>
+<span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; SQLSERVER &lt;- [
+    'host'::'localhost',
+    'dbtype'::'sqlserver',
+    'database'::'BPH',
+    'port'::'1433',
+    'user'::'sa',
+    'passwd'::'abc'];
+
+<span class="hljs-comment">// MySQL connection parameter</span>
+<span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;  MySQL &lt;- [
+    'host'::'localhost',
+    'dbtype'::'MySQL',
+    'database'::'', <span class="hljs-comment">// it may be a null string</span>
+    'port'::'3306',
+    'user'::'root',
+    'passwd'::'abc'];
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="test-a-connection-to-database"></a><a href="#test-a-connection-to-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test a connection to database</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>testConnection</strong> (params: connection<code>_</code>parameter)</em>
+The action tests the connection to a given database.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: boolean. It is:
+<ul>
+<li><em>true</em>: the agent can connect to the DBMS (to the given Database with given name and password)</li>
+<li><em>false</em>: the agent cannot connect</li>
+</ul></li>
+<li><strong>Arguments</strong>:
+<ul>
+<li><em>params</em>: (type = map) map of connection parameters</li>
+</ul></li>
+<li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+</ul>
+<p><strong>Example</strong>: Check a connection to MySQL</p>
+<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection(params:MySQL)){
+    write <span class="hljs-string">"Connection is OK"</span> ;
+}else{
+    write <span class="hljs-string">"Connection is false"</span> ;
+}   
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="select-data-from-database"></a><a href="#select-data-from-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Select data from database</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>select</strong> (param: connection<code>_</code>parameter, select: selection<code>_</code>string,values: value<code>_</code>list)</em>
+The action creates a connection to a DBMS and executes the select statement. If the connection or selection fails then it throws a GamaRuntimeException.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: list &lt; list &gt;. If the selection succeeds, it returns a list with three elements:
+<ul>
+<li>The first element is a list of column name.</li>
+<li>The second element is a list of column type.</li>
+<li>The third element is a data set.</li>
+</ul></li>
+<li><strong>Arguments</strong>:
+<ul>
+<li><em>params</em>: (type = map) map containing the connection parameters</li>
+<li><em>select</em>: (type = string) select string. The selection string can contain question marks.</li>
+<li><em>values</em>: List of values that are used to replace question marks in appropriate. This is an optional parameter.</li>
+</ul></li>
+<li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+</ul>
+<p><strong>Example</strong>: select data from table points</p>
+<pre><code class="hljs"><span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; t &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select(params:PARAMS, 
+                         select:<span class="hljs-string">"SELECT * FROM points ;"</span>));
+</code></pre>
+<p><strong>Example</strong>: select data from table point with question marks from table points</p>
+<pre><code class="hljs"><span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; t &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select(params: PARAMS, 
+                                           select: <span class="hljs-string">"SELECT temp_min FROM points where (day&gt;? and day&lt;?);"</span>
+                                           values: [10,20] ));
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="insert-data-into-database"></a><a href="#insert-data-into-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Insert data into database</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p>_<strong>insert</strong> (param: connection<code>_</code>parameter,  into:  table<code>_</code>name, columns: column<code>_</code>list, values: value`_list)<em>The action creates a connection to a DBMS and executes the insert statement. If the connection or insertion fails then it throws a_GamaRuntimeException</em>.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: int</li>
+</ul>
+<blockquote>
+<p>If the insertion succeeds, it returns a number of records inserted by the insert.</p>
+</blockquote>
+<ul>
+<li><strong>Arguments</strong>:
+*<em>params</em>: (type = map) map containing the connection parameters.
+*<em>into</em>: (type = string) table name.
+*<em>columns</em>: (type=list)  list of column names of table. It is an optional argument. If it is not applicable then all columns of table are selected.
+*<em>values</em>: (type=list) list of values that are used to insert into table corresponding to columns. Hence the columns and values must have same size.</li>
+<li><strong>Exceptions</strong>:_GamaRuntimeException</li>
+</ul>
+<p><strong>Example</strong>: Insert data into table registration</p>
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
+
+do insert (params: PARAMS, 
+               into: <span class="hljs-string">"registration"</span>, 
+               values: [102, 'Mahnaz', 'Fatma', 25]);
+
+do insert (params: PARAMS, 
+                into: <span class="hljs-string">"registration"</span>, 
+                columns: [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
+                values: [103, 'Zaid tim', 'Kha']);
+
+<span class="hljs-literal">int</span> n &lt;- insert (params: PARAMS, 
+                        into: <span class="hljs-string">"registration"</span>, 
+                       columns: [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
+                       values: [104, 'Bill', 'Clark']);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="execution-update-commands"></a><a href="#execution-update-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution update commands</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>executeUpdate</strong> (param: connection<code>_</code>parameter,  updateComm:  table<code>_</code>name, values: value<code>_</code>list)</em>
+The action executeUpdate executes an update command (create/insert/delete/drop) by using the current database connection of the agent. If the database connection does not exist or the update command fails then it throws a GamaRuntimeException. Otherwise it returns an integer value.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: int. If the insertion succeeds, it returns a number of records inserted by the insert.</li>
+<li><strong>Arguments</strong>:
+<ul>
+<li><em>params</em>: (type = map) map containing the connection parameters</li>
+<li><em>updateComm</em>: (type = string) SQL command string. It may be commands: <em>create</em>, <em>update</em>, <em>delete</em> and <em>drop</em> with or without question marks.</li>
+<li><em>columns</em>: (type=list)  list of column names of table.</li>
+<li><em>values</em>: (type=list) list of values that are used to replace question marks if appropriate. This is an optional parameter.</li>
+</ul></li>
+<li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+</ul>
+<p><strong>Examples</strong>: Using action executeUpdate do sql commands (create, insert, update, delete and drop).</p>
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- ['dbtype'::'sqlite',  'database'::'../../includes/Student.db'];
+<span class="hljs-comment">// Create table</span>
+do executeUpdate (params: PARAMS, 
+                              updateComm: <span class="hljs-string">"CREATE TABLE registration"</span> 
+                                             + <span class="hljs-string">"(id INTEGER PRIMARY KEY, "</span> 
+                                             + <span class="hljs-string">" first TEXT NOT NULL, "</span> + <span class="hljs-string">" last TEXT NOT NULL, "</span> 
+                                             + <span class="hljs-string">" age INTEGER);"</span>);
+
+<span class="hljs-comment">// Insert into </span>
+do executeUpdate (params: PARAMS ,  
+                             updateComm: <span class="hljs-string">"INSERT INTO registration "</span> + <span class="hljs-string">"VALUES(100, 'Zara', 'Ali', 18);"</span>);
+do insert (params: PARAMS, into: <span class="hljs-string">"registration"</span>, 
+               columns: [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
+               values: [103, 'Zaid tim', 'Kha']);
+
+<span class="hljs-comment">// executeUpdate with question marks</span>
+do executeUpdate (params: PARAMS,
+                             updateComm: <span class="hljs-string">"INSERT INTO registration "</span> + <span class="hljs-string">"VALUES(?, ?, ?, ?);"</span> ,  
+                             values: [101, 'Mr', 'Mme', 45]);
+
+<span class="hljs-comment">//update </span>
+<span class="hljs-literal">int</span> n &lt;-  executeUpdate (params: PARAMS, 
+                                       updateComm: <span class="hljs-string">"UPDATE registration SET age = 30 WHERE id IN (100, 101)"</span> );
+
+<span class="hljs-comment">// delete</span>
+<span class="hljs-literal">int</span> n &lt;- executeUpdate (params: PARAMS, 
+                                      updateComm: <span class="hljs-string">"DELETE FROM registration where id=? "</span>,  
+                                      values: [101] );
+
+<span class="hljs-comment">// Drop table</span>
+do executeUpdate (params: PARAMS, updateComm: <span class="hljs-string">"DROP TABLE registration"</span>);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="mdxskill"></a><a href="#mdxskill" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MDXSKILL</h2>
+<p>MDXSKILL plays the role of an OLAP tool using select to query data from OLAP server to GAMA environment and then species can use the queried data for any analysis purposes.</p>
+<h3><a class="anchor" aria-hidden="true" id="define-a-species-that-uses-the-mdxskill-skill"></a><a href="#define-a-species-that-uses-the-mdxskill-skill" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define a species that uses the MDXSKILL skill</h3>
+<p>Example of declaration:</p>
+<pre><code class="hljs">    <span class="hljs-class">species <span class="hljs-title">olap</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">MDXSKILL</span>]</span>
+     {  
+        <span class="hljs-comment">//insert your descriptions here</span>
+        
+     } 
+      ...
+</code></pre>
+<p>Agents with such a skill can use additional actions (defined in the skill)</p>
+<h3><a class="anchor" aria-hidden="true" id="map-of-connection-parameters-for-mdx"></a><a href="#map-of-connection-parameters-for-mdx" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Map of connection parameters for MDX</h3>
+<p>In the actions defined in the SQLSkill, a parameter containing the connection parameters is required. It is a map with following key::value pairs:</p>
+<table>
+<thead>
+<tr><th style="text-align:left"><strong>Key</strong></th><th style="text-align:left"><strong>Optional</strong></th><th style="text-align:left"><strong>Description</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><em>olaptype</em></td><td style="text-align:left">No</td><td style="text-align:left">OLAP Server type value. Its value is a string. We must use &quot;SSAS/XMLA&quot; when we want to connect to an SQL Server Analysis Services by using XML for Analysis. That is the same for &quot;MONDRIAN/XML&quot; or &quot;MONDRIAN&quot; (ignore case sensitive)</td></tr>
+<tr><td style="text-align:left"><em>dbtype</em></td><td style="text-align:left">No</td><td style="text-align:left">DBMS type value. Its value is a string. We must use &quot;mysql&quot; when we want to connect to a MySQL. That is the same for &quot;postgres&quot; or &quot;sqlserver&quot; (ignore case sensitive)</td></tr>
+<tr><td style="text-align:left"><em>host</em></td><td style="text-align:left">No</td><td style="text-align:left">Host name or IP address of data server.</td></tr>
+<tr><td style="text-align:left"><em>port</em></td><td style="text-align:left">No</td><td style="text-align:left">Port of connection. It is no required when we work with SQLite.</td></tr>
+<tr><td style="text-align:left"><em>database</em></td><td style="text-align:left">No</td><td style="text-align:left">Name of database. It is file name include path when we work with SQLite.</td></tr>
+<tr><td style="text-align:left"><em>catalog</em></td><td style="text-align:left">Yes</td><td style="text-align:left">Name of catalog. It is an optional parameter. We do not need to use it when we connect to SSAS via XMLA and its file name includes the path when we connect a ROLAP database directly by using Mondrian API (see Example as below)</td></tr>
+<tr><td style="text-align:left"><em>user</em></td><td style="text-align:left">No</td><td style="text-align:left">Username.</td></tr>
+<tr><td style="text-align:left"><em>passwd</em></td><td style="text-align:left">No</td><td style="text-align:left">Password.</td></tr>
+</tbody>
+</table>
+<p><strong>Table 2</strong>: OLAP Connection parameter description</p>
+<p><strong>Example</strong>: Definitions of OLAP connection parameter</p>
+<pre><code class="hljs"><span class="hljs-comment">//Connect SQL Server Analysis Services via XMLA</span>
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; SSAS &lt;- [
+                'olaptype'::'SSAS/XMLA',
+                'dbtype'::'sqlserver',
+                'host'::'172.17.88.166',
+                'port'::'80',
+                'database'::'olap',
+                'user'::'test',
+                'passwd'::'abc'];
+
+<span class="hljs-comment">//Connect Mondriam server via XMLA</span>
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt;  MONDRIANXMLA &lt;- [
+                'olaptype'::<span class="hljs-string">"MONDRIAN/XMLA"</span>,
+                'dbtype'::'postgres',
+                'host'::'localhost',
+                'port'::'8080',
+                'database'::'MondrianFoodMart',
+                'catalog'::'FoodMart',
+                'user'::'test',
+                'passwd'::'abc'];
+
+<span class="hljs-comment">//Connect a ROLAP server using Mondriam API </span>
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt;  MONDRIAN &lt;- [
+                'olaptype'::'MONDRIAN',
+                'dbtype'::'postgres',
+                'host'::'localhost',
+                'port'::'5433',
+                'database'::'foodmart',
+                'catalog'::'../includes/FoodMart.xml',
+                'user'::'test',
+                                'passwd'::'abc'];
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="test-a-connection-to-olap-database"></a><a href="#test-a-connection-to-olap-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test a connection to OLAP database</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>testConnection</strong> (params: connection<code>_</code>parameter)</em>
+The action tests the connection to a given OLAP database.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: boolean.  It is:
+<ul>
+<li><em>true</em>: the agent can connect to the DBMS (to the given Database with given name and password)</li>
+<li><em>false</em>: the agent cannot connect</li>
+</ul></li>
+<li><strong>Arguments</strong>:
+<ul>
+<li><em>params</em>: (type = map) map of connection parameters</li>
+</ul></li>
+<li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+</ul>
+<p><strong>Example</strong>: Check a connection to MySQL</p>
+<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection(params:MONDIRANXMLA)){
+    write <span class="hljs-string">"Connection is OK"</span>;
+}else{
+    write <span class="hljs-string">"Connection is false"</span>;
+}   
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="select-data-from-olap-database"></a><a href="#select-data-from-olap-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Select data from OLAP database</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>select</strong> (param: connection<code>_</code>parameter, onColumns: column<code>_</code>string, onRows: row<code>_</code>string from: cube<code>_</code>string, where: condition<code>_</code>string, values: value<code>_</code>list)</em>
+The action creates a connection to an OLAP database and executes the select statement. If the connection or selection fails then it throws a <em>GamaRuntimeException</em>.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: list &lt; list &gt;.  If the selection succeeds, it returns a list with three elements:
+<ul>
+<li>The first element is a list of column name.</li>
+<li>The second element is a list of column type.</li>
+<li>The third element is a data set.</li>
+</ul></li>
+<li><strong>Arguments</strong>:
+<ul>
+<li><em>params</em>: (type = map) map containing the connection parameters</li>
+<li><em>onColumns</em>: (type = string) declare  the select string on columns. The selection string can contain question marks.</li>
+<li><em>onRows</em>: (type = string) declare the selection string on rows. The selection string can contain question marks.</li>
+<li><em>from</em>: (type = string) specify cube where data is selected. The cube_string can contain question marks.</li>
+<li>where_: (type = string) specify the selection conditions. The condiction_string can contains question marks. This is an optional parameter.
+*<em>values</em>: List of values that are used to replace question marks if appropriate. This is an optional parameter.</li>
+</ul></li>
+<li><strong>Exceptions</strong>:_GamaRuntimeException</li>
+</ul>
+<p><strong>Example</strong>: select data from SQL Server Analysis Service via XMLA</p>
+<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection[ params::SSAS]){
+    <span class="hljs-literal">list</span> l1  &lt;- <span class="hljs-literal">list</span>(self select (params: SSAS ,
+        onColumns: <span class="hljs-string">" { [Measures].[Quantity], [Measures].[Price] }"</span>,
+        onRows:<span class="hljs-string">" { { { [Time].[Year].[All].CHILDREN } * "</span>
+        + <span class="hljs-string">" { [Product].[Product Category].[All].CHILDREN } * "</span>
+        +<span class="hljs-string">"{ [Customer].[Company Name].&amp;[Alfreds Futterkiste], "</span> 
+        +<span class="hljs-string">"[Customer].[Company Name].&amp;[Ana Trujillo Emparedadosy helados], "</span> 
+        + <span class="hljs-string">"[Customer].[Company Name].&amp;[Antonio Moreno Taquería] } } } "</span> ,
+        from : <span class="hljs-string">"FROM [Northwind Star] "</span>));
+    write <span class="hljs-string">"result1:"</span>+ l1;
+}else {
+    write <span class="hljs-string">"Connect error"</span>;
+}
+</code></pre>
+<p><strong>Example</strong>: select data from Mondrian via XMLA with question marks in selection</p>
+<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection(params:MONDRIANXMLA)){
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; l2  &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select(params: MONDRIANXMLA, 
+    onColumns:<span class="hljs-string">" {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} "</span>,
+    onRows:<span class="hljs-string">"  Hierarchize(Union(Union(Union({([Promotion Media].[All Media],"</span>
+    +<span class="hljs-string">" [Product].[All Products])}, "</span>
+    +<span class="hljs-string">" Crossjoin([Promotion Media].[All Media].Children, "</span>
+    +<span class="hljs-string">" {[Product].[All Products]})), "</span>
+    +<span class="hljs-string">" Crossjoin({[Promotion Media].[Daily Paper, Radio, TV]}, "</span>
+    +<span class="hljs-string">" [Product].[All Products].Children)), "</span>
+    +<span class="hljs-string">" Crossjoin({[Promotion Media].[Street Handout]}, "</span> 
+    +<span class="hljs-string">" [Product].[All Products].Children)))  "</span>,
+    from:<span class="hljs-string">" from [?] "</span> ,
+    where :<span class="hljs-string">" where [Time].[?] "</span> ,
+    values:[<span class="hljs-string">"Sales"</span>,1997]));
+    write <span class="hljs-string">"result2:"</span>+ l2;
+}else {
+    write <span class="hljs-string">"Connect error"</span>;
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="agentdb"></a><a href="#agentdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AgentDB</h2>
+<p>AgentBD is a built-in species, which supports behaviors that look like actions in SQLSKILL but differs slightly with SQLSKILL in that it uses  only one connection for several actions. It means that AgentDB makes a connection to DBMS and keeps that connection for its later operations with DBMS.</p>
+<h3><a class="anchor" aria-hidden="true" id="define-a-species-that-is-an-inheritance-of-agentdb"></a><a href="#define-a-species-that-is-an-inheritance-of-agentdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define a species that is an inheritance of agentDB</h3>
+<p>Example of declaration:</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">agentDB</span> <span class="hljs-title">parent</span>: <span class="hljs-title">AgentDB</span> </span>{  
+    <span class="hljs-comment">//insert your descriptions here</span>
+} 
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="connect-to-database"></a><a href="#connect-to-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connect to database</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>Connect</strong> (param: connection<code>_</code>parameter)</em>
+This action makes a connection to DBMS. If a connection is established then it will assign the connection object into a built-in attribute of species (conn) otherwise it throws a GamaRuntimeException.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: connection</li>
+<li><strong>Arguments</strong>:
+<ul>
+<li><em>params</em>: (type = map) map containing the connection parameters</li>
+</ul></li>
+<li><strong>Exceptions</strong>: GamaRuntimeException
+<strong>Example</strong>: Connect to PostgreSQL</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-comment">// POSTGRES connection parameter</span>
+<span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;  POSTGRES &lt;- [
+                                        'host'::'localhost',
+                                        'dbtype'::'postgres',
+                                        'database'::'BPH',
+                                        'port'::'5433',
+                                        'user'::'postgres',
+                                        'passwd'::'abc'];
+ask agentDB {
+      do connect (params: POSTGRES);
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="check-agent-connected-a-database-or-not"></a><a href="#check-agent-connected-a-database-or-not" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Check agent connected a database or not</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>isConnected</strong> (param: connection<code>_</code>parameter)</em>
+This action checks if an agent is connecting to database or not.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: Boolean.   If agent is connecting to a database then isConnected returns true; otherwise it returns false.</li>
+<li><strong>Arguments</strong>:
+<ul>
+<li><em>params</em>: (type = map) map containing the connection parameters</li>
+</ul></li>
+</ul>
+<p><strong>Example</strong>: Using action executeUpdate do sql commands (create, insert, update, delete and drop).</p>
+<pre><code class="hljs">ask agentDB {
+    <span class="hljs-keyword">if</span> (self isConnected){
+              write <span class="hljs-string">"It already has a connection"</span>;
+    }else{
+              do connect (params: POSTGRES);
+        } 
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="close-the-current-connection"></a><a href="#close-the-current-connection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Close the current connection</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>close</strong></em>
+This action closes the current database connection of species. If species does not has a database connection then it throws a GamaRuntimeException.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: null
+If the current connection of species is close then the action return null value; otherwise it throws a GamaRuntimeException.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="hljs">ask agentDB {
+    <span class="hljs-keyword">if</span> (self isConnected){
+          do close;
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="get-connection-parameter"></a><a href="#get-connection-parameter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get connection parameter</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>getParameter</strong></em>
+This action returns the connection parameter of species.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: map &lt; string, string &gt;</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="hljs">ask agentDB {
+    <span class="hljs-keyword">if</span> (self isConnected){
+        write <span class="hljs-string">"the connection parameter: "</span> +(self getParameter);
+        }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="set-connection-parameter"></a><a href="#set-connection-parameter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set connection parameter</h3>
+<p><strong>Syntax</strong>:</p>
+<blockquote>
+<p><em><strong>setParameter</strong> (param: connection<code>_</code>parameter)</em>
+This action sets the new values for connection parameter and closes the current connection of species. If it can not close the current connection then it will throw GamaRuntimeException. If the species wants to make the connection to database with the new values then action connect must be called.</p>
+</blockquote>
+<ul>
+<li><strong>Return</strong>: null</li>
+<li><strong>Arguments</strong>:
+<ul>
+<li><em>params</em>: (type = map) map containing the connection parameters</li>
+</ul></li>
+<li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="hljs">ask agentDB {
+    <span class="hljs-keyword">if</span> (self isConnected){
+             do setParameter(params: MySQL);
+             do connect(params: (self getParameter));
+        }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="retrieve-data-from-database-by-using-agentdb"></a><a href="#retrieve-data-from-database-by-using-agentdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Retrieve data from database by using AgentDB</h3>
+<p>Because of the connection to database of AgentDB is kept alive then AgentDB can execute several SQL queries with only one connection. Hence AgentDB can do actions such as <strong>select</strong>, <strong>insert</strong>, <strong>executeUpdate</strong> with the same parameters of those actions of SQLSKILL <em>except <strong>params</strong> parameter is always absent</em>.</p>
+<p><strong>Examples</strong>:</p>
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
+ask agentDB {
+   do connect (params: PARAMS);
+   <span class="hljs-comment">// Create table</span>
+   do executeUpdate (updateComm: <span class="hljs-string">"CREATE TABLE registration"</span> 
+    + <span class="hljs-string">"(id INTEGER PRIMARY KEY, "</span> 
+        + <span class="hljs-string">" first TEXT NOT NULL, "</span> + <span class="hljs-string">" last TEXT NOT NULL, "</span> 
+        + <span class="hljs-string">" age INTEGER);"</span>);
+   <span class="hljs-comment">// Insert into </span>
+   do executeUpdate ( updateComm: <span class="hljs-string">"INSERT INTO registration "</span> 
+        + <span class="hljs-string">"VALUES(100, 'Zara', 'Ali', 18);"</span>);
+   do insert (into: <span class="hljs-string">"registration"</span>, 
+     columns: [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
+     values: [103, 'Zaid tim', 'Kha']);
+   <span class="hljs-comment">// executeUpdate with question marks</span>
+   do executeUpdate (updateComm: <span class="hljs-string">"INSERT INTO registration VALUES(?, ?, ?, ?);"</span>,  
+     values: [101, 'Mr', 'Mme', 45]);
+   <span class="hljs-comment">//select</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; t &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select( 
+     select:<span class="hljs-string">"SELECT * FROM registration;"</span>));
+    <span class="hljs-comment">//update </span>
+    <span class="hljs-literal">int</span> n &lt;-  executeUpdate (updateComm: <span class="hljs-string">"UPDATE registration SET age = 30 WHERE id IN (100, 101)"</span>);
+     <span class="hljs-comment">// delete</span>
+     <span class="hljs-literal">int</span> n &lt;- executeUpdate ( updateComm: <span class="hljs-string">"DELETE FROM registration where id=? "</span>,  values: [101] );
+     <span class="hljs-comment">// Drop table</span>
+      do executeUpdate (updateComm: <span class="hljs-string">"DROP TABLE registration"</span>);
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="using-database-features-to-define-environment-or-create-species"></a><a href="#using-database-features-to-define-environment-or-create-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using database features to define environment or create species</h2>
+<p>In Gama, we can use results of select action of SQLSKILL or AgentDB to create species or define boundary of environment in the same way we do with shape files. Further more, we can also save simulation data that are generated by simulation including geometry data to database.</p>
+<h3><a class="anchor" aria-hidden="true" id="define-the-boundary-of-the-environment-from-database"></a><a href="#define-the-boundary-of-the-environment-from-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define the boundary of the environment from database</h3>
+<ul>
+<li><strong>Step 1</strong>: specify select query by declaration a map object with keys as below:</li>
+</ul>
+<table>
+<thead>
+<tr><th style="text-align:left"><strong>Key</strong></th><th style="text-align:left"><strong>Optional</strong></th><th style="text-align:left"><strong>Description</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><em>dbtype</em></td><td style="text-align:left">No</td><td style="text-align:left">DBMS type value. Its value is a string. We must use &quot;mysql&quot; when we want to connect to a MySQL. That is the same for &quot;postgres&quot;, &quot;sqlite&quot; or &quot;sqlserver&quot; (ignore case sensitive)</td></tr>
+<tr><td style="text-align:left"><em>host</em></td><td style="text-align:left">Yes</td><td style="text-align:left">Host name or IP address of data server. It is absent when we work with SQlite.</td></tr>
+<tr><td style="text-align:left"><em>port</em></td><td style="text-align:left">Yes</td><td style="text-align:left">Port of connection. It is not required when we work with SQLite.</td></tr>
+<tr><td style="text-align:left"><em>database</em></td><td style="text-align:left">No</td><td style="text-align:left">Name of database. It is the file name including the path when we work with SQLite.</td></tr>
+<tr><td style="text-align:left"><em>user</em></td><td style="text-align:left">Yes</td><td style="text-align:left">Username. It is  not required when we work with SQLite.</td></tr>
+<tr><td style="text-align:left"><em>passwd</em></td><td style="text-align:left">Yes</td><td style="text-align:left">Password. It is  not required when we work with SQLite.</td></tr>
+<tr><td style="text-align:left"><em>srid</em></td><td style="text-align:left">Yes</td><td style="text-align:left">srid (Spatial Reference Identifier)  corresponds to a spatial reference system. This value is specified when GAMA connects to spatial database. If it is absent then GAMA uses spatial reference system defined in Preferences-&gt;External configuration.</td></tr>
+<tr><td style="text-align:left"><em>select</em></td><td style="text-align:left">No</td><td style="text-align:left">Selection string</td></tr>
+</tbody>
+</table>
+<p><strong>Table 3</strong>: Select boundary parameter description</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; BOUNDS &lt;- [  
+    <span class="hljs-comment">//'srid'::'32648',</span>
+    'host'::'localhost',                                
+        'dbtype'::'postgres',
+    'database'::'spatial_DB',
+    'port'::'5433',                             
+        'user'::'postgres',
+    'passwd'::'tmt',
+    'select'::'SELECT ST_AsBinary(geom) as geom FROM bounds;' ];
+</code></pre>
+<ul>
+<li><strong>Step 2</strong>: define boundary of environment by using the map object in first step.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">geometry</span> shape &lt;- envelope(BOUNDS);
+</code></pre>
+<p>Note: We can do the same way if we work with MySQL, SQLite, or SQLServer and we must convert Geometry format in GIS database to binary format.</p>
+<h3><a class="anchor" aria-hidden="true" id="create-agents-from-the-result-of-a-select-action"></a><a href="#create-agents-from-the-result-of-a-select-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create agents from the result of a select action</h3>
+<p>If we are familiar with how to create agents from a shapefile then it becomes very simple to create agents from select result. We can do as below:</p>
+<ul>
+<li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">toto</span> <span class="hljs-title">skills</span>: <span class="hljs-title">SQLSKILL</span> </span>{
+    <span class="hljs-comment">//insert your descriptions here </span>
+}   
+</code></pre>
+<ul>
+<li><strong>Step 2</strong>: Define a connection and selection parameters</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-class">global </span>{
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt;  PARAMS &lt;- ['dbtype'::'sqlite','database'::'../includes/bph.sqlite'];
+    <span class="hljs-literal">string</span> location &lt;- 'select ID_4, Name_4, ST_AsBinary(<span class="hljs-literal">geometry</span>) as geom from vnm_adm4 
+                                      where id_2=38253 or id_2=38254;';
+    ...
+}      
+</code></pre>
+<ul>
+<li><strong>Step 3</strong>: Create species by using selected results</li>
+</ul>
+<pre><code class="hljs">init {
+   create toto { 
+      create locations from: <span class="hljs-literal">list</span>(self select (params: PARAMS, 
+                                                           select: LOCATIONS)) 
+                                   with:[ id:: <span class="hljs-string">"id_4"</span>, custom_name:: <span class="hljs-string">"name_4"</span>, shape::<span class="hljs-string">"geom"</span>];
+    }
+   ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="save-geometry-data-to-database"></a><a href="#save-geometry-data-to-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Save Geometry data to database</h3>
+<p>If we are familiar with how to create agents from a shapefile then it becomes very simple to create agents from select result. We can do as below:</p>
+<ul>
+<li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">toto</span> <span class="hljs-title">skills</span>: <span class="hljs-title">SQLSKILL</span> </span>{  
+    <span class="hljs-comment">//insert your descriptions here</span>
+} 
+</code></pre>
+<ul>
+<li><strong>Step 2</strong>: Define a connection and create GIS database and tables</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-class">global </span>{
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; PARAMS &lt;-  ['host'::'localhost', 'dbtype'::'Postgres', 'database'::'', 
+                                                            'port'::'5433', 'user'::'postgres', 'passwd'::'tmt'];
+
+    init {
+        create toto ;
+        ask toto {
+            <span class="hljs-keyword">if</span> (self testConnection[ params::PARAMS]){
+                <span class="hljs-comment">// create GIS database  </span>
+                do executeUpdate(params:PARAMS, 
+                        updateComm: <span class="hljs-string">"CREATE DATABASE spatial_db with TEMPLATE = template_postgis;"</span>); 
+                    remove key: <span class="hljs-string">"database"</span> from: PARAMS;
+                put <span class="hljs-string">"spatial_db"</span> key:<span class="hljs-string">"database"</span> in: PARAMS;
+                <span class="hljs-comment">//create table</span>
+                            do executeUpdate params: PARAMS 
+                  updateComm : <span class="hljs-string">"CREATE TABLE buildings "</span>+
+                  <span class="hljs-string">"( "</span>  +
+                                   <span class="hljs-string">" name character varying(255), "</span> + 
+                                       <span class="hljs-string">" type character varying(255), "</span> + 
+                                       <span class="hljs-string">" geom GEOMETRY "</span> + 
+                                   <span class="hljs-string">")"</span>;
+            }else {
+                write <span class="hljs-string">"Connection to MySQL can not be established "</span>;
+            }   
+        }
+    }
+}
+</code></pre>
+<ul>
+<li><strong>Step 3</strong>: Insert geometry data to GIS database</li>
+</ul>
+<pre><code class="hljs">ask building {
+   ask DB_Accessor {
+    do insert(params: PARAMS, 
+                        into: <span class="hljs-string">"buildings"</span>,
+            columns: [<span class="hljs-string">"name"</span>, <span class="hljs-string">"type"</span>,<span class="hljs-string">"geom"</span>],
+            values: [myself.name,myself.type,myself.shape];
+   }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/Diffusion"><span class="arrow-prev">← </span><span>Implementing diffusion</span></a><a class="docs-next button" href="/wiki/CallingR"><span class="function-name-prevnext">CallingR</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#description">Description</a></li><li><a href="#supported-dbms">Supported DBMS</a></li><li><a href="#sqlskill">SQLSKILL</a><ul class="toc-headings"><li><a href="#define-a-species-that-uses-the-sqlskill-skill">Define a species that uses the SQLSKILL skill</a></li><li><a href="#map-of-connection-parameters-for-sql">Map of connection parameters for SQL</a></li><li><a href="#test-a-connection-to-database">Test a connection to database</a></li><li><a href="#select-data-from-database">Select data from database</a></li><li><a href="#insert-data-into-database">Insert data into database</a></li><li><a href="#execution-update-commands">Execution update commands</a></li></ul></li><li><a href="#mdxskill">MDXSKILL</a><ul class="toc-headings"><li><a href="#define-a-species-that-uses-the-mdxskill-skill">Define a species that uses the MDXSKILL skill</a></li><li><a href="#map-of-connection-parameters-for-mdx">Map of connection parameters for MDX</a></li><li><a href="#test-a-connection-to-olap-database">Test a connection to OLAP database</a></li><li><a href="#select-data-from-olap-database">Select data from OLAP database</a></li></ul></li><li><a href="#agentdb">AgentDB</a><ul class="toc-headings"><li><a href="#define-a-species-that-is-an-inheritance-of-agentdb">Define a species that is an inheritance of agentDB</a></li><li><a href="#connect-to-database">Connect to database</a></li><li><a href="#check-agent-connected-a-database-or-not">Check agent connected a database or not</a></li><li><a href="#close-the-current-connection">Close the current connection</a></li><li><a href="#get-connection-parameter">Get connection parameter</a></li><li><a href="#set-connection-parameter">Set connection parameter</a></li><li><a href="#retrieve-data-from-database-by-using-agentdb">Retrieve data from database by using AgentDB</a></li></ul></li><li><a href="#using-database-features-to-define-environment-or-create-species">Using database features to define environment or create species</a><ul class="toc-headings"><li><a href="#define-the-boundary-of-the-environment-from-database">Define the boundary of the environment from database</a></li><li><a href="#create-agents-from-the-result-of-a-select-action">Create agents from the result of a select action</a></li><li><a href="#save-geometry-data-to-database">Save Geometry data to database</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

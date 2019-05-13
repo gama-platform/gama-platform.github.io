@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Control Architectures · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Control Architectures · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Learn GAML step by step</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Home<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Home">Home</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Overview">Introduction</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Platform<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/PlatformDocumentation">Platform</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Installation and Launching</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/InstallationAndLaunching">Installation and Launching</a></li><li class="navListItem"><a class="navItem" href="/wiki/Installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/wiki/Launching">Launching GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Headless">Headless Mode</a></li><li class="navListItem"><a class="navItem" href="/wiki/Updating">Updating GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/InstallingPlugins">Installing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/Troubleshooting">Troubleshooting</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Workspace, Projects and Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/WorkspaceProjectsAndModels">Workspace, Projects and Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/NavigatingWorkspace">Navigating in the Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/ChangingWorkspace">Changing Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/ImportingModels">Importing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Editing Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/EditingModels">Editing models</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamlEditorGeneralities">The GAML Editor - Generalities</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamlEditorToolbar">The GAML Editor Toolbar</a></li><li class="navListItem"><a class="navItem" href="/wiki/ValidationOfModels">Validation of Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Running Experiments</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/RunningExperiments">Running Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/LaunchingExperiments">Launching Experiments from the User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExperimentsUserInterface">Experiments User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/MenusAndCommands">Menus and Commands</a></li><li class="navListItem"><a class="navItem" href="/wiki/ParametersView">Parameters View</a></li><li class="navListItem"><a class="navItem" href="/wiki/InspectorsAndMonitors">Inspectors and monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/Displays">Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/BatchSpecific">Batch Specific UI</a></li><li class="navListItem"><a class="navItem" href="/wiki/ErrorsView">Errors View</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/Preferences">Preferences</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn GAML step by step<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/LearnGAMLStepByStep">Learn GAML Step by Step</a></li><li class="navListItem"><a class="navItem" href="/wiki/Introduction">Introduction</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Start with GAML</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/StartWithGAML">Start with GAML</a></li><li class="navListItem"><a class="navItem" href="/wiki/ModelOrganization">Organization of a model</a></li><li class="navListItem"><a class="navItem" href="/wiki/BasicProgrammingConceptsInGAML">Basic programming concepts in GAML</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Manipulate basic Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/ManipulateBasicSpecies">Manipulate basic species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GlobalSpecies">The global species</a></li><li class="navListItem"><a class="navItem" href="/wiki/RegularSpecies">Regular species</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningActionsAndBehaviors">Defining actions and behaviors</a></li><li class="navListItem"><a class="navItem" href="/wiki/InteractionBetweenAgents">Interaction between agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/AttachingSkills">Attaching Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/Inheritance">Inheritance</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining Advanced Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/DefiningAdvancedSpecies">Defining advanced species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GridSpecies">Grid Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GraphSpecies">Graph Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/MirrorSpecies">Mirror species</a></li><li class="navListItem"><a class="navItem" href="/wiki/MultiLevelArchitecture">Multi-level architecture</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining GUI Experiment</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/DefiningGUIExperiment">Defining GUI Experiment</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningParameters">Defining Parameters</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningDisplaysGeneralities">Defining displays (Generalities)</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningCharts">Defining Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/Defining3DDisplays">Defining 3D Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningMonitorsAndInspectors">Defining monitors and inspectors</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningExportFiles">Defining export files</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningUserInteraction">Defining user interaction</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Exploring Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/ExploringModels">Exploring Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/RunSeveralSimulations">Run Several Simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/BatchExperiments">Defining Batch Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExplorationMethods">Exploration Methods</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Optimizing Model Section</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/OptimizingModelsSection">Optimizing Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/RuntimeConcepts">Runtime Concepts</a></li><li class="navListItem"><a class="navItem" href="/wiki/OptimizingModels">Optimizing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Multi-Paradigm Modeling</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/MultiParadigmModeling">Multi-Paradigm Modeling</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/ControlArchitecture">Control Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/Equations">Using Equations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Recipes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Recipes">Recipes</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateOSMDatas">Manipulate OSM Datas</a></li><li class="navListItem"><a class="navItem" href="/wiki/Diffusion">Implementing diffusion</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingDatabase">Using Database Access</a></li><li class="navListItem"><a class="navItem" href="/wiki/CallingR">CallingR</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingFIPAACL">Using FIPA ACL</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamAnalyzer">Using GAMAnalyzer</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingBDI">Using BDI</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingDrivingSkill">Advanced Driving Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateDates">Manipulate Dates</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateLight">Implementing light</a></li><li class="navListItem"><a class="navItem" href="/wiki/Comodel">Using Comodel</a></li><li class="navListItem"><a class="navItem" href="/wiki/Save-and-restore-simulations">Save and Restore simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingNetwork">Using network</a></li><li class="navListItem"><a class="navItem" href="/wiki/Headless-mode-for-dummies">Headless-mode-for-dummies</a></li><li class="navListItem"><a class="navItem" href="/wiki/G__GraphicalEditor">The Graphical Editor</a></li><li class="navListItem"><a class="navItem" href="/wiki/FAQ">FAQ (Frequently Asked Questions)</a></li><li class="navListItem"><a class="navItem" href="/wiki/KnownIssues">Known issues</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">GAML References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/GamlReference">GAML References</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Built-in Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/BuiltInSpecies">Built-in Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/AgentBuiltIn">The &#x27;agent&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/ModelBuiltIn">The &#x27;model&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExperimentBuiltIn">The &#x27;experiment&#x27; built-in species (Under Construction)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/BuiltInSkills">Built-in Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/BuiltInArchitectures">Built-in Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/Statements">Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/DataTypes">Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/FileTypes">File Types</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Expressions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/Expressions">Expressions</a></li><li class="navListItem"><a class="navItem" href="/wiki/Literals">Literals</a></li><li class="navListItem"><a class="navItem" href="/wiki/UnitsAndConstants">Units and constants</a></li><li class="navListItem"><a class="navItem" href="/wiki/PseudoVariables">Pseudo-variables</a></li><li class="navListItem"><a class="navItem" href="/wiki/VariablesAndAttributes">Variables and Attributes</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/Index">Exhaustive list of GAMA Keywords</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing Extensions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/DevelopingExtensions">Developing Extensions</a></li><li class="navListItem"><a class="navItem" href="/wiki/InstallingGitVersion">Installing the GIT version</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamaArchitecture">Architecture of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingPlugins">Developing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingSkills">Developing a New Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingStatements">Developing Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingOperators">Developing Operators</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingTypes">Developing Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingSpecies">Developing Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingControlArchitectures">Developing architecture</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingIndexAnnotations">Index of annotations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/developingGAMA">Get into the GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/IntroductionToGamaJavaAPI">IntroductionToGamaJavaAPI</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingIScope">IScope interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/CreatingAReleaseOfGama">Product your own release of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Documentation">Documentation</a></li><li class="navListItem"><a class="navItem" href="/wiki/WebsiteGeneration">How to write the Website Content</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Scientific References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/References">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Projects using GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Training Session<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/TrainingSession">Training Session</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Events<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Events">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Older versions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/OlderVersions">Versions of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Event__CC15_Reorganization">Introduction</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Control Architectures</h1></header><article><div><span><p>GAMA allows to attach built-in control architecture to agents.</p>
+<p>These control architectures will give the possibility to the modeler to use for a species a specific control architecture in addition to the <a href="DefiningActionsAndBehaviors#Behaviour">common behavior structure</a>. Note that only one control architecture can be used per species.</p>
+<p>The attachment of a control architecture to a species is done through the facets <code>control</code>.</p>
+<p>For example, the given code allows to attach the <code>fsm</code> control architecture to the dummy species.</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">fsm</span> </span>{
+}
+</code></pre>
+<p>GAMA integrates several agent control architectures that can be used in addition to the common behavior structure:</p>
+<ul>
+<li><a href="#finite-state-machine">fsm</a>: finite state machine based behavior model. During its life cycle, the agent can be in several states. At any given time step, it is in one single state. Such an agent needs to have one initial state (the state in which it will be at its initialization)</li>
+<li><a href="#task-based">weighted_tasks</a>: task-based control architecture. At any given time, only the task only the task with the maximal weight is executed.</li>
+<li><a href="#task-based">sorted_tasks</a>: task-based control architecture. At any given time, the tasks are all executed in the order specified by their weights (highest first).</li>
+<li><a href="#task-based">probabilistic_tasks</a>: task-based control architecture. This architecture uses the weights as a support for making a weighted probabilistic choice among the different tasks. If all tasks have the same weight, one is randomly chosen at each step.</li>
+<li><a href="#user_only-user_first-user_last">user_only</a>: allows users to take control over an agent during the course of the simulation. With this architecture, only the user control the agents (no reflexes).</li>
+<li><a href="#user_only-user_first-user_last">user_first</a>: allows users to take control over an agent during the course of the simulation. With this architecture, the user actions are executed before the agent reflexes.</li>
+<li><a href="#user_only-user_first-user_last">user_last</a>: allows users to take control over an agent during the course of the simulation. With this architecture, the user actions are executed after the agent reflexes.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="index"></a><a href="#index" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index</h2>
+<ul>
+<li><a href="#finite-state-machine">Finite State Machine</a>
+<ul>
+<li><a href="#declaration">Declaration</a></li>
+<li><a href="#state">State</a></li>
+</ul></li>
+<li><a href="#task-based">Task Based</a>
+<ul>
+<li><a href="#declaration">Declaration</a></li>
+<li><a href="#task">Task</a></li>
+</ul></li>
+<li><a href="#user-control-architectures">User Control Architecture</a>
+<ul>
+<li><a href="#user_only-user_first-user_last">user_only, user_first, user_last</a></li>
+<li><a href="#user_panel">user_panel</a></li>
+<li><a href="#user_controlled">user_controlled</a></li>
+</ul></li>
+<li><a href="#other-control-architectures">Other Control Architectures</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="finite-state-machine"></a><a href="#finite-state-machine" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Finite State Machine</h2>
+<p><strong>FSM (Finite State Machine)</strong> is a finite state machine based behavior model. During its life cycle, the agent can be in several states. At any given time step, it is in one single state. Such an agent needs to have one initial state (the state in which it will be at its initialization).</p>
+<p>At each time step, the agent will:</p>
+<ul>
+<li>first (only if he just entered in its current state) execute statement embedded in the <code>enter</code> statement,</li>
+<li>then all the statements in the state statement</li>
+<li>it will evaluate the condition of each embedded transition statements. If one condition is fulfilled, the agent execute the embedded statements</li>
+</ul>
+<p>Note that an agent executes only one state at each step.</p>
+<h3><a class="anchor" aria-hidden="true" id="declaration"></a><a href="#declaration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaration</h3>
+<p>Using the FSM architecture for a species require to use the <strong>control</strong> facet:</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">fsm</span> </span>{
+   ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="state"></a><a href="#state" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>State</h3>
+<h4><a class="anchor" aria-hidden="true" id="attributes"></a><a href="#attributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Attributes</h4>
+<ul>
+<li>initial: a boolean expression, indicates the initial state of agent.</li>
+<li>final: a boolean expression, indicates the final state of agent.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="sub-statements"></a><a href="#sub-statements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sub Statements</h4>
+<ul>
+<li>enter: a sequence of statements to execute upon entering the state.</li>
+<li>exit: a sequence of statements to execute right before exiting the state. Note that the <code>exit</code> statement will be executed even if the fired transition points to the same state (the FSM architecture in GAMA does not implement 'internal transitions' like the ones found in UML state charts: all transitions, even &quot;self-transitions&quot;, follow the same rules).</li>
+<li>transition: allows to define a condition that, when evaluated to true, will designate the next state of the life cycle. Note that the evaluation of transitions is short-circuited: the first one that evaluates to true, in the order in which they have been defined, will be followed. I.e., if two transitions evaluate to true during the same time step, only the first one will be triggered.</li>
+</ul>
+<p>Things worth to be mentioned regarding these sub-statements:</p>
+<ul>
+<li>Obviously, only one definition of exit and enter is accepted in a given state</li>
+<li>Transition statements written in the middle of the state statements will only be evaluated at the end, so, even if it evaluates to true, the remaining of the statements found after the definition of the transition will be nevertheless executed. So, despite the appearance, a transition written somewhere in the sequence will &quot;not stop&quot; the state at that point (but only at the end).</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="definition"></a><a href="#definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Definition</h4>
+<p>A state can contain several statements that will be executed, at each time step, by the agent. There are three exceptions to this rule:</p>
+<ol>
+<li>statements enclosed in <code>enter</code> will only be executed when the state is entered (after a transition, or because it is the initial state).</li>
+<li>Those enclosed in <code>exit</code> will be executed when leaving the state as a result of a successful transition (and before the statements enclosed in the transition).</li>
+<li>Those enclosed in a transition will be executed when performing this transition (but after the <code>exit</code> sequence has been executed).</li>
+</ol>
+<p>For example, consider the following example:</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">fsm</span> </span>{       
+    state state1 initial: true { 
+        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"state1"</span>;
+        transition to: state2 when: flip(0.5) {
+            write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"transition to state1"</span>;
+        }
+        transition to: state3 when: flip(0.2) ; 
+    }
+
+    state state2 {
+        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"state2"</span>;
+        transition to: state1 when: flip(0.5) { 
+            write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"transition to state1"</span>;
+        }
+        exit {
+            write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"leave state2"</span>;
+        }
+    }
+    
+    state state3 {
+        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"state3"</span>;
+        transition to: state1 when: flip(0.5)  {
+            write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"transition to state1"</span>;
+        }
+        transition to: state2 when: flip(0.2)  ;
+    }   
+}
+</code></pre>
+<p>the dummy agents start at <em>state1</em>. At each simulation step they have a probability of 0.5 to change their state to <em>state2</em>. If they do not change their state to <em>state2</em>, they have a probability of 0.2 to change their state to <em>state3</em>. In <em>state2</em>, at each simulation step, they have a probability of 0.5 to change their state to <em>state1</em>. At last, in <em>step3</em>, at each simulation step they have a probability of 0.5 to change their state to <em>state1</em>. If they do not change their state to <em>state1</em>, they have a probability of 0.2 to change their state to <em>state2</em>.</p>
+<p>Here a possible result that can be obtained with one dummy agent:</p>
+<pre><code class="hljs">0:dummy0-&gt;state1
+0:dummy0-&gt;transition to state1
+1:dummy0-&gt;state2
+2:dummy0-&gt;state2
+2:dummy0-&gt;leave state2
+2:dummy0-&gt;transition to state1
+3:dummy0-&gt;state1
+3:dummy0-&gt;transition to state1
+4:dummy0-&gt;state2
+5:dummy0-&gt;state2
+5:dummy0-&gt;leave state2
+5:dummy0-&gt;transition to state1
+6:dummy0-&gt;state1
+7:dummy0-&gt;state3
+8:dummy0-&gt;state2
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="task-based"></a><a href="#task-based" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Task Based</h2>
+<p>GAMA integrated several <strong>task-based</strong> control architectures. Species can define any number of tasks within their body. At any given time, only one or several tasks are executed according to the architecture chosen:</p>
+<ul>
+<li><strong>weighted_tasks</strong> : in this architecture, only the task with the maximal weight is executed.</li>
+<li><strong>sorted_tasks</strong> : in this architecture, the tasks are all executed in the order specified by their weights (biggest first)</li>
+<li><strong>probabilistic_tasks</strong>: this architecture uses the weights as a support for making a weighted probabilistic choice among the different tasks. If all tasks have the same weight, one is randomly chosen each step.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="declaration-1"></a><a href="#declaration-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaration</h3>
+<p>Using the Task architectures for a species require to use the <strong>control</strong> facet:</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">weighted_tasks</span> </span>{
+   ...
+}
+</code></pre>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">sorted_tasks</span> </span>{
+   ...
+}
+</code></pre>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">probabilistic_tasks</span> </span>{
+   ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="task"></a><a href="#task" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Task</h3>
+<h4><a class="anchor" aria-hidden="true" id="sub-elements"></a><a href="#sub-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sub elements</h4>
+<p>Besides a sequence of statements like reflex, a task contains the following sub elements:</p>
+<ul>
+<li>weight: Mandatory. The priority level of the task.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="definition-1"></a><a href="#definition-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Definition</h4>
+<p>As reflex, a task is a sequence of statements that can be executed, at each time step, by the agent. If an agent owns several tasks, the scheduler chooses a task to execute based on its current priority weight value.</p>
+<p>For example, consider the following example:</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">weighted_tasks</span> </span>{   
+    task task1 weight: cycle mod 3 { 
+        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"task1"</span>;
+    }
+    task task2 weight: 2 { 
+        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"task2"</span>;
+    }
+}
+</code></pre>
+<p>As the <strong>weighted_tasks</strong> control architecture was chosen, at each simulation step, the dummy agents execute only the task with the highest behavior. Thus,  when <em>cycle modulo 3</em> is higher to 2, task1 is executed; when <em>cycle modulo 3</em> is lower than 2, task2 is executed. In case when <em>cycle modulo 3</em> is equal 2 (at cycle 2, 5, ...), the only the first task defined (here task1) is executed.</p>
+<p>Here the result obtained with one dummy agent:</p>
+<pre><code class="hljs">0:dummy0-&gt;task2
+1:dummy0-&gt;task2
+2:dummy0-&gt;task1
+3:dummy0-&gt;task2
+4:dummy0-&gt;task2
+5:dummy0-&gt;task1
+6:dummy0-&gt;task2
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="user-control-architecture"></a><a href="#user-control-architecture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Control Architecture</h2>
+<h3><a class="anchor" aria-hidden="true" id="user-_only-user-_first-user-_last"></a><a href="#user-_only-user-_first-user-_last" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>user_only, user_first, user_last</h3>
+<p>A specific type of control architecture has been introduced to allow users to take control over an agent during the course of the simulation. It can be invoked using three different keywords: <code>user_only</code>, <code>user_first</code>, <code>user_last</code>.</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">user</span> <span class="hljs-title">control</span>: <span class="hljs-title">user_only</span> </span>{
+   ...
+}
+</code></pre>
+<p>If the control chosen is <code>user_first</code>, it means that the user controlled panel is opened first, and then the agent has a chance to run its &quot;own&quot; behaviors (reflexes, essentially, or &quot;init&quot; in the case of a &quot;user_init&quot; panel).
+If the control chosen is <code>user_last</code>, it is the contrary.</p>
+<h3><a class="anchor" aria-hidden="true" id="user-_panel"></a><a href="#user-_panel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>user_panel</h3>
+<p>This control architecture is a specialization of the Finite State Machine Architecture where the &quot;behaviors&quot; of agents can be defined by using new constructs called <code>user_panel</code> (and one <code>user_init</code>), mixed with &quot;states&quot; or &quot;reflexes&quot;. This <code>user_panel</code> translates, in the interface, in a semi-modal view that awaits the user to choose action buttons, change attributes of the controlled agent, etc. Each <code>user_panel</code>, like a <code>state</code> in FSM, can have a <code>enter</code> and <code>exit</code> sections, but it is only defined in terms of a set of <code>user_command</code>s which describe the different action buttons present in the panel.</p>
+<p>user_commands can also accept inputs, in order to create more interesting commands for the user. This uses the <code>user_input</code> statement (and not operator), which is basically the same as a temporary variable declaration whose value is asked to the user. Example:</p>
+<p>As <code>user_panel</code> is a specialization of <code>state</code>, the modeler has the possibility to describe several panels and choose the one to open depending on some condition, using the same syntax than for finite state machines :</p>
+<ul>
+<li>either adding <code>transitions</code> to the user_panels,</li>
+<li>or setting the <code>state</code> attribute to a new value, from inside or from another agent.</li>
+</ul>
+<p>This ensures a great flexibility for the design of the user interface proposed to the user, as it can be adapted to the different stages of the simulation, etc...</p>
+<p>Follows a simple example, where, every 10 steps, and depending on the value of an attribute called &quot;advanced&quot;, either the basic or the advanced panel is proposed. (The full model is provided in the GAMA model library.)</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">user</span> <span class="hljs-title">control</span>:<span class="hljs-title">user_only</span> </span>{
+   user_panel default initial: true {
+      transition to: <span class="hljs-string">"Basic Control"</span> when: every (10 #cycles) and !advanced_user_control;
+      transition to: <span class="hljs-string">"Advanced Control"</span> when: every(10 #cycles) and advanced_user_control;
+   }
+   
+   user_panel <span class="hljs-string">"Basic Control"</span> {
+      user_command <span class="hljs-string">"Kill one cell"</span> {
+         ask (one_of(cell)){
+            do die;
+         }
+      }
+      user_command <span class="hljs-string">"Create one cell"</span> {
+        create cell ;
+      } 
+      transition to: default when: true;
+   }
+   user_panel <span class="hljs-string">"Advanced Control"</span> {
+      user_command <span class="hljs-string">"Kill cells"</span> {
+        user_input <span class="hljs-string">"Number"</span> returns: number type: <span class="hljs-literal">int</span> &lt;- 10;
+        ask (number among cell){
+           do die;
+        }
+      }
+      user_command <span class="hljs-string">"Create cells"</span> {
+        user_input <span class="hljs-string">"Number"</span> returns: number type: <span class="hljs-literal">int</span> &lt;- 10;
+        create cell number: number ;
+      } 
+      transition to: default when: true;
+   }
+}
+</code></pre>
+<p>The panel marked with the &quot;<em>initial: true</em>&quot; facet will be the one run first when the agent is supposed to run. If none is marked, the first panel (in their definition order) is chosen.</p>
+<p>A special panel called user_init will be invoked only once when initializing the agent if it is defined.
+If no panel is described or if all panels are empty (i.e. no user_commands), the control view is never invoked. If the control is said to be &quot;user_only&quot;, the agent will then not run any of its behaviors.</p>
+<h3><a class="anchor" aria-hidden="true" id="user-_controlled"></a><a href="#user-_controlled" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>user_controlled</h3>
+<p>Finally, each agent provided with this architecture inherits a boolean attribute called <code>user_controlled</code>. If this attribute becomes false, no panels will be displayed and the agent will run &quot;normally&quot; unless its species is defined with a <code>user_only</code> control.</p>
+<h2><a class="anchor" aria-hidden="true" id="other-control-architectures"></a><a href="#other-control-architectures" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other Control Architectures</h2>
+<p>Some other control architectures are available in additional plugins. For instance, <a href="UsingBDI">BDI (Belief, desire, intention) architecture</a> is available. Feel free to read about it if you want to learn more.</p>
+<p>You need some other control architectures for your model? Feel free to make your suggestion to the team of developer through the <a href="https://groups.google.com/forum/#!forum/gama-platform">mailing list</a>. Remember also that GAMA is an open-source platform, you can design your own control architecture easily. Go to the section Community/contribute if you want to jump into coding!</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/MultiParadigmModeling"><span class="arrow-prev">← </span><span>Multi-Paradigm Modeling</span></a><a class="docs-next button" href="/wiki/Equations"><span>Using Equations</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#index">Index</a></li><li><a href="#finite-state-machine">Finite State Machine</a><ul class="toc-headings"><li><a href="#declaration">Declaration</a></li><li><a href="#state">State</a></li></ul></li><li><a href="#task-based">Task Based</a><ul class="toc-headings"><li><a href="#declaration-1">Declaration</a></li><li><a href="#task">Task</a></li></ul></li><li><a href="#user-control-architecture">User Control Architecture</a><ul class="toc-headings"><li><a href="#user-_only-user-_first-user-_last">user_only, user_first, user_last</a></li><li><a href="#user-_panel">user_panel</a></li><li><a href="#user-_controlled">user_controlled</a></li></ul></li><li><a href="#other-control-architectures">Other Control Architectures</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

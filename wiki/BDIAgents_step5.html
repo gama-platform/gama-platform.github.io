@@ -1,0 +1,526 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>5. Norms, obligation and enforcement · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;This last step consists in adding social norms, obligations and enforcement into the agents &#x27;behavior.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="5. Norms, obligation and enforcement · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="&lt;p&gt;This last step consists in adding social norms, obligations and enforcement into the agents &#x27;behavior.&lt;/p&gt;
+"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class="siteNavGroupActive"><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>BDI Agents</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tutorials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Tutorials">Tutorials</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Predator Prey<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey">Predator Prey</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step2">2. Vegetation Dynamic</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step3">3. Prey Agent Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step4">4. Inspectors and Monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step5">5. Predator Agent</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step6">6. Breeding</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step7">7. Agent Aspect</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step8">8. Complex Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step9">9. Stopping condition</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step10">10. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step11">11. Writing Files</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step12">12. Image loading</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Road Traffic<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel">Road Traffic</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step1">1. Loading of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step2">2. People Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step3">3. Movement of People</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step4">4. Weight for Road Network</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step5">5. Dynamic weights</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step6">6. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step7">7. Automatic Road Repair</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">3D Tutorial<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/ThreeD">3D Tutorial</a></li><li class="navListItem"><a class="navItem" href="/wiki/ThreeD_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/ThreeD_step2">2. Moving Cells</a></li><li class="navListItem"><a class="navItem" href="/wiki/ThreeD_step3">3. Connections</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Incremental Model<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel">Incremental Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step1">1. Simple SI Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step2">2. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step3">3. Integration of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step4">4. Movement on Graph</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step5">5. Visualizing in 3D</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step6">6. Multi-Level</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step7">7. Differential Equations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Luneray&#x27;s flu<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu">Luneray&#x27;s flu</a></li><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu_step1">1. Creation of a first basic disease spreading model</a></li><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu_step2">2. Definition of monitors and chart outputs</a></li><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu_step3">3. Importation of GIS data</a></li><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu_step4">4. Use of a graph to constraint the movements of people</a></li><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu_step5">5. Definition of 3D displays</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Co-modeling<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/CoModelingTutorial">Co-modeling tutorial</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">BDI Agents<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents">BDI Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents_step1">1. Skeleton model</a></li><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents_step2">2. BDI Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents_step3">3. Social relation</a></li><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents_step4">4. Emotions and Personality</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/BDIAgents_step5">5. Norms, obligation and enforcement</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">5. Norms, obligation and enforcement</h1></header><article><div><span><p>This last step consists in adding social norms, obligations and enforcement into the agents 'behavior.</p>
+<h2><a class="anchor" aria-hidden="true" id="formulation"></a><a href="#formulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formulation</h2>
+<ul>
+<li>Definition of global predicates</li>
+<li>Definition of the policeman species</li>
+<li>Definition of the enforcement done by policeman species</li>
+<li>Definition of the law agents have to follow</li>
+<li>Definition of a gold miner norm to fulfill its obligation and its social norms</li>
+<li>Definition of the enforcement done by gold miners</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="norms-obligations-and-enforcement"></a><a href="#norms-obligations-and-enforcement" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Norms, obligations, and enforcement</h2>
+<p>The BDI architecture of GAMA allows defining explicit social norms, laws that lead to obligations and an enforcement process to sanction or reward the other agent depending on their behavior toward norms.
+A social norm is a set of actions executed under certain conditions which are known by the people has the right things to do in that conditions. As it is, it can be assimilated into a plan. However, a norm can be violated which mean an agent chose to disobey and do not execute it while it should. To do this, each agent has an obedient value, between 0 and 1 ad computed from its personality and each norm has a threshold. If the obedient value of the agent is above the threshold, the norm is executed.
+An obligation is a mental state that can be assimilated with a desire. It is created by a law that indicates under which conditions the agent has to follow a particular obligation. Once again, the law can have a threshold value to be activated or not depending on the obedient value of the agent. If an agent has an obligation, it will give up its current intention and current plan to get this obligation as its intention. Then, it will choose a specific norm to answer this obligation, once again with a threshold on the obedient value.
+Finally, an enforcement mechanism can be defined during the perception process. Norms, laws, and obligation can be enforced. If a violation is detected, a sanction can be executed. If the norm/law/obligation is fulfilled, a reward can be executed.</p>
+<h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
+<h3><a class="anchor" aria-hidden="true" id="law"></a><a href="#law" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>law</h3>
+<p>We add a law to the gold miner species that will create the obligation to get a gold if a gold nugget is perceived. This law replaces a rule and expresses the fact that miners are working or not, depending on their obedience value.</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">miner</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>:<span class="hljs-title">simple_bdi</span> </span>{
+    ...
+    law working belief: mine_location new_obligation: has_gold 
+   when:not has_obligation(has_gold) and not has_belief(has_gold) strength: 2.0 threshold:thresholdLaw;
+    
+        ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="norms"></a><a href="#norms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>norms</h3>
+<p>The miners will have two norms. A first one to answer the obligation to collect gold. This norms replaces the previous plan created for this purpose. However, a new plan is declared to get 3 pieces of gold at each time. This plan will be considered illegal by the policeman species.</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">miner</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>:<span class="hljs-title">simple_bdi</span> </span>{
+    ...
+        norm doingJob obligation:has_gold finished_when: has_belief(has_gold) threshold:thresholdObligation{
+        <span class="hljs-keyword">if</span> (target = nil) {
+            do add_subintention(has_gold,choose_goldmine, true);
+            do current_intention_on_hold();
+        } else {
+            do goto target: target ;
+            <span class="hljs-keyword">if</span> (target = location)  {
+                goldmine current_mine&lt;- goldmine first_with (target = each.location);
+                <span class="hljs-keyword">if</span> current_mine.quantity &gt; 0 {
+                    gold_transported &lt;- gold_transported+1;
+                    do add_belief(has_gold);
+                    ask current_mine {quantity &lt;- quantity - 1;}    
+                } else {
+                    do add_belief(new_predicate(empty_mine_location, [<span class="hljs-string">"location_value"</span>::target]));
+                    do remove_belief(new_predicate(mine_at_location, [<span class="hljs-string">"location_value"</span>::target]));
+                }
+                target &lt;- nil;
+            }
+        }   
+    }
+}
+</code></pre>
+<p>The second norm is a social norm to communicate the list of known mines to one's friends. It replaces the previous plan that did this action, while a new plan is added to give a wrong list of mines to one's friend.</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">miner</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>:<span class="hljs-title">simple_bdi</span> </span>{
+    ...
+    norm share_information intention:share_information threshold:thresholdNorm instantaneous: true{
+        <span class="hljs-literal">list</span>&lt;miner&gt; my_friends &lt;- <span class="hljs-literal">list</span>&lt;miner&gt;((social_link_base where (each.liking &gt; 0)) collect each.<span class="hljs-literal">agent</span>);
+        loop known_goldmine over: get_beliefs_with_name(mine_at_location) {
+            ask my_friends {
+                do add_belief(known_goldmine);
+            }
+        }
+        loop known_empty_goldmine over: get_beliefs_with_name(empty_mine_location) {
+            ask my_friends {
+                do add_belief(known_empty_goldmine);
+            }
+        }
+        
+        do remove_intention(share_information, true); 
+    }
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="enforcement-of-the-social-norm"></a><a href="#enforcement-of-the-social-norm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>enforcement of the social norm</h3>
+<p>Finally for the gold-miner agent, an enforcement is defined about the social norm to communicate the location of mines to other agents. A sanction and a reward are declared to change the liking value with the agent controlled, depending if the norm is violated or fulfilled.</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">miner</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>:<span class="hljs-title">simple_bdi</span> </span>{
+    ...
+    perceive target:miner in:viewdist {
+        myself.agent_perceived&lt;-self;
+        enforcement norm:<span class="hljs-string">"share_information"</span> sanction:<span class="hljs-string">"sanctionToNorm"</span> reward:<span class="hljs-string">"rewardToNorm"</span>;
+    }
+        
+    sanction sanctionToNorm{
+        do change_liking(agent_perceived,-0.1);
+    }   
+    
+    sanction rewardToNorm{
+        do change_liking(agent_perceived,0.1);
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="definition-of-policeman-species"></a><a href="#definition-of-policeman-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Definition of policeman species</h3>
+<p>Finally, we define a policeman species that will wander through the map and enforce the miners about the law and the obligation. The sanctions will be a fine collected by policemen.</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">policeman</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>:<span class="hljs-title">simple_bdi</span> </span>{
+    predicate patroling &lt;- new_predicate(<span class="hljs-string">"patrolling"</span>);
+    <span class="hljs-literal">float</span> viewdist &lt;- 1000.0;
+    miner agent_perceived &lt;- nil;
+    
+    init {
+        do add_desire(patroling);
+    }
+    
+    perceive target:miner in: viewdist{
+        myself.agent_perceived &lt;- self;
+        enforcement law:<span class="hljs-string">"working"</span> sanction:<span class="hljs-string">"sanctionToLaw"</span>;
+        enforcement obligation:has_gold sanction: <span class="hljs-string">"sanctionToObligation"</span> reward:<span class="hljs-string">"rewardToObligation"</span>;
+    }
+    
+    sanction sanctionToLaw{
+        ask agent_perceived{
+            thresholdLaw &lt;- 0.0;
+            gold_sold &lt;- gold_sold-5;
+        }
+        fine &lt;- fine +5;
+    }
+    
+    sanction sanctionToObligation {
+        ask agent_perceived{
+            gold_sold &lt;- gold_sold-3;
+            do remove_intention(sell_gold,true);
+            thresholdObligation &lt;- self.thresholdObligation - 0.1;
+        }
+        fine &lt;- fine + 3;
+    }
+    
+    sanction rewardToObligation{
+        ask agent_perceived{
+            gold_sold &lt;- gold_sold+2;
+        }
+        fine &lt;- fine -2;
+    }
+    
+    plan patrol intention: patroling{
+        do wander;
+    }
+    
+    aspect base{
+        draw circle(viewdist) color: #blue depth:0.0;
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> GoldBdi
+
+<span class="hljs-class">global </span>{
+    <span class="hljs-literal">int</span> nb_mines &lt;- 10; 
+    <span class="hljs-literal">int</span> nbminer&lt;-5;
+    <span class="hljs-literal">int</span> nb_police &lt;- 1;
+    <span class="hljs-literal">int</span> fine &lt;-0;
+    market the_market;
+    
+    <span class="hljs-literal">string</span> mine_at_location &lt;- <span class="hljs-string">"mine_at_location"</span>;
+    <span class="hljs-literal">string</span> empty_mine_location &lt;- <span class="hljs-string">"empty_mine_location"</span>;
+    
+    <span class="hljs-literal">float</span> step &lt;- 10#mn;
+    
+    <span class="hljs-comment">//possible predicates concerning miners</span>
+    predicate mine_location &lt;- new_predicate(mine_at_location) ;
+    predicate choose_goldmine &lt;- new_predicate(<span class="hljs-string">"choose a gold mine"</span>);
+    predicate has_gold &lt;- new_predicate(<span class="hljs-string">"extract gold"</span>);
+    predicate find_gold &lt;- new_predicate(<span class="hljs-string">"find gold"</span>) ;
+    predicate sell_gold &lt;- new_predicate(<span class="hljs-string">"sell gold"</span>) ;
+    predicate share_information &lt;- new_predicate(<span class="hljs-string">"share information"</span>) ;
+    
+    
+    emotion joy &lt;- new_emotion(<span class="hljs-string">"joy"</span>);
+    
+    <span class="hljs-literal">float</span> inequality &lt;- 0.0 update:standard_deviation(miner collect each.gold_sold);
+    
+    <span class="hljs-literal">geometry</span> shape &lt;- square(20 #km);
+    init
+    {
+        create market {
+            the_market &lt;- self; 
+        }
+        create goldmine number:nb_mines;
+        create miner number:nbminer;
+        create policeman number:nb_police;
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">end_simulation</span> <span class="hljs-title">when</span>: <span class="hljs-title">sum</span>(<span class="hljs-title">goldmine</span> <span class="hljs-title">collect</span> <span class="hljs-title">each</span>.<span class="hljs-title">quantity</span>) = 0 <span class="hljs-title">and</span> <span class="hljs-title">empty</span>(<span class="hljs-title">miner</span> <span class="hljs-title">where</span> <span class="hljs-title">each</span>.<span class="hljs-title">has_belief</span>(<span class="hljs-title">has_gold</span>))</span>{
+        do pause;
+        ask miner{
+            write name + <span class="hljs-string">" : "</span> +gold_sold;
+        }
+        write <span class="hljs-string">"**********************"</span>;
+        write <span class="hljs-string">"fine : "</span> + fine;
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">goldmine</span> </span>{
+    <span class="hljs-literal">int</span> quantity &lt;- rnd(1,20);
+    aspect default
+    {
+        <span class="hljs-keyword">if</span> (quantity = 0) {
+            draw triangle(200) color: #gray border: #black; 
+        } else {
+            draw triangle(200 + quantity*50) color: #yellow border: #black; 
+        }
+     
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">market</span> </span>{
+    <span class="hljs-literal">int</span> golds;
+    aspect default
+    {
+      draw square(1000) color: #black ;
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">policeman</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>:<span class="hljs-title">simple_bdi</span> </span>{
+    predicate patroling &lt;- new_predicate(<span class="hljs-string">"patrolling"</span>);
+    <span class="hljs-literal">float</span> viewdist &lt;- 1000.0;
+    miner agent_perceived &lt;- nil;
+    
+    init {
+        do add_desire(patroling);
+    }
+    
+    perceive target:miner in: viewdist{
+        enforcement law:<span class="hljs-string">"working"</span> sanction:<span class="hljs-string">"sanctionToLaw"</span>;
+        enforcement obligation:has_gold <span class="hljs-comment">/*when:has_belief(has_gold)*/</span> sanction: <span class="hljs-string">"sanctionToObligation"</span> reward:<span class="hljs-string">"rewardToObligation"</span>;
+    }
+    
+    sanction sanctionToLaw{
+        ask agent_perceived{
+            thresholdLaw &lt;- 0.0;
+            gold_sold &lt;- gold_sold-5;
+        }
+        fine &lt;- fine +5;
+    }
+    
+    sanction sanctionToObligation {
+        ask agent_perceived{
+            gold_sold &lt;- gold_sold-3;
+            do remove_intention(sell_gold,true);
+            thresholdObligation &lt;- self.thresholdObligation - 0.1;
+        }
+        fine &lt;- fine + 3;
+    }
+    
+    sanction rewardToObligation{
+        ask agent_perceived{
+            gold_sold &lt;- gold_sold+2;
+        }
+        fine &lt;- fine -2;
+    }
+    
+    plan patrol intention: patroling{
+        do wander;
+    }
+    
+    aspect base{
+        draw circle(viewdist) color: #blue depth:0.0;
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">miner</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>:<span class="hljs-title">simple_bdi</span> </span>{
+    
+    <span class="hljs-literal">float</span> viewdist&lt;-1000.0;
+    <span class="hljs-literal">float</span> speed &lt;- 2#km/#h;
+    <span class="hljs-literal">rgb</span> mycolor&lt;-rnd_color(255);
+    <span class="hljs-literal">point</span> target;
+    <span class="hljs-literal">int</span> gold_sold;
+    <span class="hljs-literal">int</span> gold_transported&lt;-0;
+    <span class="hljs-literal">agent</span> agent_perceived&lt;-nil;
+    
+    <span class="hljs-literal">bool</span> use_social_architecture &lt;- true;
+    <span class="hljs-literal">bool</span> use_emotions_architecture &lt;- true;
+    <span class="hljs-literal">bool</span> use_personality &lt;- true;
+    
+    <span class="hljs-literal">float</span> openness &lt;- gauss(0.5,0.12);
+    <span class="hljs-literal">float</span> conscientiousness &lt;- gauss(0.5,0.12);
+    <span class="hljs-literal">float</span> extraversion &lt;- gauss(0.5,0.12);
+    <span class="hljs-literal">float</span> agreeableness &lt;- gauss(0.5,0.12);
+    <span class="hljs-literal">float</span> neurotism &lt;- gauss(0.5,0.12);
+    
+    <span class="hljs-literal">float</span> plan_persistence &lt;- 1.0;
+    <span class="hljs-literal">float</span> intention_persistence &lt;- 1.0;
+    
+    <span class="hljs-literal">float</span> thresholdLaw &lt;- 1.0;
+    <span class="hljs-literal">float</span> thresholdObligation &lt;- 1.0;
+    <span class="hljs-literal">float</span> thresholdNorm &lt;- 0.5;
+    
+    init
+    {
+        do add_desire(find_gold);
+    }
+    
+    perceive target:self{
+        <span class="hljs-keyword">if</span>(gold_transported&gt;0){
+            do add_belief(has_gold);
+        } else {
+            do remove_belief(has_gold);
+        }
+    }
+    
+    perceive target:miner in:viewdist {
+        myself.agent_perceived&lt;-self;
+        socialize liking: <span class="hljs-literal">point</span>(mycolor.red, mycolor.green, mycolor.blue) distance_to <span class="hljs-literal">point</span>(myself.mycolor.red, myself.mycolor.green, myself.mycolor.blue) / ( 255) - 1;
+        enforcement norm:<span class="hljs-string">"share_information"</span> sanction:<span class="hljs-string">"sanctionToNorm"</span> reward:<span class="hljs-string">"rewardToNorm"</span>;
+    }
+        
+    sanction sanctionToNorm{
+        do change_liking(agent_perceived,-0.1);
+    }   
+    
+    sanction rewardToNorm{
+        do change_liking(agent_perceived,0.1);
+    }
+        
+    perceive target:goldmine where (each.quantity &gt; 0) in:viewdist {
+        focus id:mine_at_location var:location;
+        ask myself {
+            <span class="hljs-keyword">if</span> (has_emotion(joy)) {do add_desire(predicate:share_information, strength: 5.0);}
+            do remove_intention(find_gold, false);
+        }
+    }
+    
+    rule belief: has_gold new_desire: sell_gold strength: 3.0;
+    
+    law working belief: mine_location new_obligation: has_gold when:not has_obligation(has_gold) and not has_belief(has_gold) strength: 2.0 threshold:thresholdLaw;
+    
+    plan letsWander intention:find_gold 
+    {
+        do wander;
+    }
+    
+    norm doingJob obligation:has_gold finished_when: has_belief(has_gold) threshold:thresholdObligation{
+        <span class="hljs-keyword">if</span> (target = nil) {
+            do add_subintention(has_gold,choose_goldmine, true);
+            do current_intention_on_hold();
+        } else {
+            do goto target: target ;
+            <span class="hljs-keyword">if</span> (target = location)  {
+                goldmine current_mine&lt;- goldmine first_with (target = each.location);
+                <span class="hljs-keyword">if</span> current_mine.quantity &gt; 0 {
+                    gold_transported &lt;- gold_transported+1;
+                    do add_belief(has_gold);
+                    ask current_mine {quantity &lt;- quantity - 1;}    
+                } else {
+                    do add_belief(new_predicate(empty_mine_location, [<span class="hljs-string">"location_value"</span>::target]));
+                    do remove_belief(new_predicate(mine_at_location, [<span class="hljs-string">"location_value"</span>::target]));
+                }
+                target &lt;- nil;
+            }
+        }   
+    }
+    
+    plan getMoreGold intention:has_gold
+    {
+        <span class="hljs-keyword">if</span> (target = nil) {
+            do add_subintention(has_gold,choose_goldmine, true);
+            do current_intention_on_hold();
+        } else {
+            do goto target: target ;
+            <span class="hljs-keyword">if</span> (target = location)  {
+                goldmine current_mine&lt;- goldmine first_with (target = each.location);
+                <span class="hljs-keyword">if</span> current_mine.quantity &gt; 0 {
+                    gold_transported &lt;- 3;
+                    do add_belief(has_gold);
+                    ask current_mine {<span class="hljs-keyword">if</span>(quantity&gt;=3) {
+                        quantity &lt;- quantity - 3;
+                    }else {
+                        quantity &lt;- 0;
+                    } 
+                    }   
+                } else {
+                    do add_belief(new_predicate(empty_mine_location, [<span class="hljs-string">"location_value"</span>::target]));
+                    do remove_belief(new_predicate(mine_at_location, [<span class="hljs-string">"location_value"</span>::target]));
+                }
+                target &lt;- nil;
+            }
+        }   
+    }
+    
+    plan choose_closest_goldmine intention: choose_goldmine instantaneous: true{
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; possible_mines &lt;- get_beliefs_with_name(mine_at_location) collect (<span class="hljs-literal">point</span>(get_predicate(mental_state (each)).values[<span class="hljs-string">"location_value"</span>]));
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; empty_mines &lt;- get_beliefs_with_name(empty_mine_location) collect (<span class="hljs-literal">point</span>(get_predicate(mental_state (each)).values[<span class="hljs-string">"location_value"</span>]));
+        possible_mines &lt;- possible_mines - empty_mines;
+        <span class="hljs-keyword">if</span> (empty(possible_mines)) {
+            do remove_intention(has_gold, true); 
+        } else {
+            target &lt;- (possible_mines with_min_of (each distance_to self)).location;
+        }
+        do remove_intention(choose_goldmine, true); 
+    }
+    
+    plan return_to_base intention: sell_gold when: has_belief(has_gold){
+        do goto target: the_market ;
+        <span class="hljs-keyword">if</span> (the_market.location = location)  {
+            do remove_belief(has_gold);
+            do remove_intention(sell_gold, true);
+            gold_sold &lt;- gold_sold + gold_transported;
+            gold_transported &lt;- 0;
+        }
+    }
+    
+    norm share_information intention:share_information threshold:thresholdNorm instantaneous: true{
+        <span class="hljs-literal">list</span>&lt;miner&gt; my_friends &lt;- <span class="hljs-literal">list</span>&lt;miner&gt;((social_link_base where (each.liking &gt; 0)) collect each.<span class="hljs-literal">agent</span>);
+        loop known_goldmine over: get_beliefs_with_name(mine_at_location) {
+            ask my_friends {
+                do add_belief(known_goldmine);
+            }
+        }
+        loop known_empty_goldmine over: get_beliefs_with_name(empty_mine_location) {
+            ask my_friends {
+                do add_belief(known_empty_goldmine);
+            }
+        }
+        
+        do remove_intention(share_information, true); 
+    }
+    
+    plan share_information_to_friends intention: share_information instantaneous: true{
+        <span class="hljs-literal">list</span>&lt;miner&gt; my_friends &lt;- <span class="hljs-literal">list</span>&lt;miner&gt;((social_link_base where (each.liking &gt; 0)) collect each.<span class="hljs-literal">agent</span>);
+        loop known_goldmine over: get_beliefs_with_name(empty_mine_location) {
+            ask my_friends {
+                do add_belief(known_goldmine);
+            }
+        }       
+        do remove_intention(share_information, true); 
+    }
+
+    aspect default {
+      draw circle(200) color: mycolor border: #black depth: gold_sold;
+    }
+}
+
+
+<span class="hljs-class">experiment <span class="hljs-title">GoldBdi</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    output {
+        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>
+        {
+            <span class="hljs-class">species <span class="hljs-title">market</span> ;</span>
+            <span class="hljs-class">species <span class="hljs-title">goldmine</span> ;</span>
+            <span class="hljs-class">species <span class="hljs-title">miner</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">policeman</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>;</span>
+        }
+        
+    }
+}
+</code></pre>
+<p><a href="BDIAgents">Back to the start of the tutorial</a></p>
+<ol>
+<li><a href="GoldMinerModel_step1">Creation of the basic model: gold mines and market</a></li>
+<li><a href="GoldMinerModel_step2">Definition of the BDI miners</a></li>
+<li><a href="GoldMinerModel_step3">Definition of social relations between miners</a></li>
+<li><a href="GoldMinerModel_step4">Use of emotions and personality for the miners</a></li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/BDIAgents_step4"><span class="arrow-prev">← </span><span>4. Emotions and Personality</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#formulation">Formulation</a></li><li><a href="#norms-obligations-and-enforcement">Norms, obligations, and enforcement</a></li><li><a href="#model-definition">Model Definition</a><ul class="toc-headings"><li><a href="#law">law</a></li><li><a href="#norms">norms</a></li><li><a href="#enforcement-of-the-social-norm">enforcement of the social norm</a></li><li><a href="#definition-of-policeman-species">Definition of policeman species</a></li></ul></li><li><a href="#complete-model">Complete Model</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

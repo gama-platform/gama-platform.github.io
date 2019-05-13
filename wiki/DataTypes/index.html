@@ -1,0 +1,539 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Types · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;A variable&#x27;s or expression&#x27;s &lt;em&gt;type&lt;/em&gt; (or &lt;em&gt;data type&lt;/em&gt;) determines the values it can take, plus the operations that can be performed on or with it. GAML is a statically-typed language, which means that the type of an expression is always known at compile time, and is even enforced with casting operations.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Types · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="&lt;p&gt;A variable&#x27;s or expression&#x27;s &lt;em&gt;type&lt;/em&gt; (or &lt;em&gt;data type&lt;/em&gt;) determines the values it can take, plus the operations that can be performed on or with it. GAML is a statically-typed language, which means that the type of an expression is always known at compile time, and is even enforced with casting operations.&lt;/p&gt;
+"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>GAML References</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Home<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Home">Home</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Overview">Introduction</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Platform<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/PlatformDocumentation">Platform</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Installation and Launching</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/InstallationAndLaunching">Installation and Launching</a></li><li class="navListItem"><a class="navItem" href="/wiki/Installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/wiki/Launching">Launching GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Headless">Headless Mode</a></li><li class="navListItem"><a class="navItem" href="/wiki/Updating">Updating GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/InstallingPlugins">Installing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/Troubleshooting">Troubleshooting</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Workspace, Projects and Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/WorkspaceProjectsAndModels">Workspace, Projects and Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/NavigatingWorkspace">Navigating in the Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/ChangingWorkspace">Changing Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/ImportingModels">Importing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Editing Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/EditingModels">Editing models</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamlEditorGeneralities">The GAML Editor - Generalities</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamlEditorToolbar">The GAML Editor Toolbar</a></li><li class="navListItem"><a class="navItem" href="/wiki/ValidationOfModels">Validation of Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Running Experiments</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/RunningExperiments">Running Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/LaunchingExperiments">Launching Experiments from the User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExperimentsUserInterface">Experiments User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/MenusAndCommands">Menus and Commands</a></li><li class="navListItem"><a class="navItem" href="/wiki/ParametersView">Parameters View</a></li><li class="navListItem"><a class="navItem" href="/wiki/InspectorsAndMonitors">Inspectors and monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/Displays">Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/BatchSpecific">Batch Specific UI</a></li><li class="navListItem"><a class="navItem" href="/wiki/ErrorsView">Errors View</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/Preferences">Preferences</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn GAML step by step<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/LearnGAMLStepByStep">Learn GAML Step by Step</a></li><li class="navListItem"><a class="navItem" href="/wiki/Introduction">Introduction</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Start with GAML</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/StartWithGAML">Start with GAML</a></li><li class="navListItem"><a class="navItem" href="/wiki/ModelOrganization">Organization of a model</a></li><li class="navListItem"><a class="navItem" href="/wiki/BasicProgrammingConceptsInGAML">Basic programming concepts in GAML</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Manipulate basic Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/ManipulateBasicSpecies">Manipulate basic species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GlobalSpecies">The global species</a></li><li class="navListItem"><a class="navItem" href="/wiki/RegularSpecies">Regular species</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningActionsAndBehaviors">Defining actions and behaviors</a></li><li class="navListItem"><a class="navItem" href="/wiki/InteractionBetweenAgents">Interaction between agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/AttachingSkills">Attaching Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/Inheritance">Inheritance</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining Advanced Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/DefiningAdvancedSpecies">Defining advanced species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GridSpecies">Grid Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GraphSpecies">Graph Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/MirrorSpecies">Mirror species</a></li><li class="navListItem"><a class="navItem" href="/wiki/MultiLevelArchitecture">Multi-level architecture</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining GUI Experiment</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/DefiningGUIExperiment">Defining GUI Experiment</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningParameters">Defining Parameters</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningDisplaysGeneralities">Defining displays (Generalities)</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningCharts">Defining Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/Defining3DDisplays">Defining 3D Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningMonitorsAndInspectors">Defining monitors and inspectors</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningExportFiles">Defining export files</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningUserInteraction">Defining user interaction</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Exploring Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/ExploringModels">Exploring Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/RunSeveralSimulations">Run Several Simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/BatchExperiments">Defining Batch Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExplorationMethods">Exploration Methods</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Optimizing Model Section</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/OptimizingModelsSection">Optimizing Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/RuntimeConcepts">Runtime Concepts</a></li><li class="navListItem"><a class="navItem" href="/wiki/OptimizingModels">Optimizing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Multi-Paradigm Modeling</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/MultiParadigmModeling">Multi-Paradigm Modeling</a></li><li class="navListItem"><a class="navItem" href="/wiki/ControlArchitecture">Control Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/Equations">Using Equations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Recipes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Recipes">Recipes</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateOSMDatas">Manipulate OSM Datas</a></li><li class="navListItem"><a class="navItem" href="/wiki/Diffusion">Implementing diffusion</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingDatabase">Using Database Access</a></li><li class="navListItem"><a class="navItem" href="/wiki/CallingR">CallingR</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingFIPAACL">Using FIPA ACL</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamAnalyzer">Using GAMAnalyzer</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingBDI">Using BDI</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingDrivingSkill">Advanced Driving Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateDates">Manipulate Dates</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateLight">Implementing light</a></li><li class="navListItem"><a class="navItem" href="/wiki/Comodel">Using Comodel</a></li><li class="navListItem"><a class="navItem" href="/wiki/Save-and-restore-simulations">Save and Restore simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingNetwork">Using network</a></li><li class="navListItem"><a class="navItem" href="/wiki/Headless-mode-for-dummies">Headless-mode-for-dummies</a></li><li class="navListItem"><a class="navItem" href="/wiki/G__GraphicalEditor">The Graphical Editor</a></li><li class="navListItem"><a class="navItem" href="/wiki/FAQ">FAQ (Frequently Asked Questions)</a></li><li class="navListItem"><a class="navItem" href="/wiki/KnownIssues">Known issues</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">GAML References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/GamlReference">GAML References</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Built-in Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/BuiltInSpecies">Built-in Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/AgentBuiltIn">The &#x27;agent&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/ModelBuiltIn">The &#x27;model&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExperimentBuiltIn">The &#x27;experiment&#x27; built-in species (Under Construction)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/BuiltInSkills">Built-in Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/BuiltInArchitectures">Built-in Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/Statements">Statements</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/DataTypes">Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/FileTypes">File Types</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Expressions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/Expressions">Expressions</a></li><li class="navListItem"><a class="navItem" href="/wiki/Literals">Literals</a></li><li class="navListItem"><a class="navItem" href="/wiki/UnitsAndConstants">Units and constants</a></li><li class="navListItem"><a class="navItem" href="/wiki/PseudoVariables">Pseudo-variables</a></li><li class="navListItem"><a class="navItem" href="/wiki/VariablesAndAttributes">Variables and Attributes</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/Index">Exhaustive list of GAMA Keywords</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing Extensions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/DevelopingExtensions">Developing Extensions</a></li><li class="navListItem"><a class="navItem" href="/wiki/InstallingGitVersion">Installing the GIT version</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamaArchitecture">Architecture of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingPlugins">Developing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingSkills">Developing a New Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingStatements">Developing Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingOperators">Developing Operators</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingTypes">Developing Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingSpecies">Developing Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingControlArchitectures">Developing architecture</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingIndexAnnotations">Index of annotations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/developingGAMA">Get into the GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/IntroductionToGamaJavaAPI">IntroductionToGamaJavaAPI</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingIScope">IScope interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/CreatingAReleaseOfGama">Product your own release of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Documentation">Documentation</a></li><li class="navListItem"><a class="navItem" href="/wiki/WebsiteGeneration">How to write the Website Content</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Scientific References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/References">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Projects using GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Training Session<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/TrainingSession">Training Session</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Events<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Events">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Older versions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/OlderVersions">Versions of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Event__CC15_Reorganization">Introduction</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Types</h1></header><article><div><span><p>A variable's or expression's <em>type</em> (or <em>data type</em>) determines the values it can take, plus the operations that can be performed on or with it. GAML is a statically-typed language, which means that the type of an expression is always known at compile time, and is even enforced with casting operations.
+There are 4 categories of types:</p>
+<ul>
+<li>primitive types, declared as keyword in the language,</li>
+<li>complex types, also declared as keyword in the language,</li>
+<li>parametric types, a refinement of complex types (mainly children of container) that is dynamically constructed using an enclosing type, a contents type and a key type,</li>
+<li>species types, dynamically constructed from the species declarations made by the modeler (and the built-in species present).</li>
+</ul>
+<p>The hierarchy of types in GAML (only primitive and complex types are displayed here, of course, as the other ones are model-dependent) is the following:</p>
+<p><img src="../resources/images/gamlReferences/types_hierarchy.png" alt="images/types_hierarchy.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of contents</h2>
+<ul>
+<li><a href="#types-under-construction">Types (Under Construction)</a>
+<ul>
+<li><a href="#primitive-built-in-types">Primitive built-in types</a>
+<ul>
+<li><a href="#bool">bool</a></li>
+<li><a href="#float">float</a></li>
+<li><a href="#int">int</a></li>
+<li><a href="#string">string</a></li>
+</ul></li>
+<li><a href="#complex-built-in-types">Complex built-in types</a>
+<ul>
+<li><a href="#agent">agent</a></li>
+<li><a href="#container">container</a></li>
+<li><a href="#file">file</a></li>
+<li><a href="#geometry">geometry</a></li>
+<li><a href="#graph">graph</a></li>
+<li><a href="#list">list</a></li>
+<li><a href="#map">map</a></li>
+<li><a href="#matrix">matrix</a></li>
+<li><a href="#pair">pair</a></li>
+<li><a href="#path">path</a></li>
+<li><a href="#point">point</a></li>
+<li><a href="#rgb">rgb</a></li>
+<li><a href="#species">species</a></li>
+<li><a href="#species-names-as-types">Species names as types</a></li>
+<li><a href="#topology">topology</a></li>
+</ul></li>
+<li><a href="#defining-custom-types">Defining custom types</a></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="primitive-built-in-types"></a><a href="#primitive-built-in-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Primitive built-in types</h2>
+<h3><a class="anchor" aria-hidden="true" id="bool"></a><a href="#bool" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bool</h3>
+<ul>
+<li><strong>Definition:</strong> primitive datatype providing two values: <code>true</code> or <code>false</code>.</li>
+<li><strong>Litteral declaration:</strong> both <code>true</code> or <code>false</code> are interpreted as boolean constants.</li>
+<li><strong>Other declarations:</strong> expressions that require a boolean operand often directly apply a casting to bool to their operand. It is a convenient way to directly obtain a bool value.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">bool</span> (0) -&gt; false
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="float"></a><a href="#float" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>float</h3>
+<ul>
+<li><strong>Definition:</strong> primitive datatype holding floating point values, its absolute value is comprised between 4.9E-324 and 1.8E308.</li>
+<li><strong>Comments:</strong> this datatype is internally backed up by the Java double datatype.</li>
+<li><strong>Litteral declaration:</strong> decimal notation 123.45 or exponential notation 123e45 are supported.</li>
+<li><strong>Other declarations:</strong> expressions that require an integer operand often directly apply a casting to float to their operand. Using it is a way to obtain a float constant.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">float</span> (12) -&gt; 12.0
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="int"></a><a href="#int" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>int</h3>
+<ul>
+<li><strong>Definition:</strong> primitive datatype holding integer values comprised between -2147483648 and 2147483647 (i.e. between <code>-2^31</code> and <code>2^31 - 1</code>.</li>
+<li><strong>Comments:</strong> this datatype is internally backed up by the Java int datatype.</li>
+<li><strong>Litteral declaration:</strong> decimal notation like 1, 256790 or hexadecimal notation like #1209FF are automatically interpreted.</li>
+<li><strong>Other declarations:</strong> expressions that require an integer operand often directly apply a casting to int to their operand. Using it is a way to obtain an integer constant.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">int</span> (234.5) -&gt; 234.
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="string"></a><a href="#string" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>string</h3>
+<ul>
+<li><strong>Definition:</strong> a datatype holding a sequence of characters.</li>
+<li><strong>Comments:</strong> this datatype is internally backed up by the Java String class. However, contrary to Java, strings are considered as a primitive type, which means they do not contain character objects. This can be seen when casting a string to a list using the list operator: the result is a list of one-character strings, not a list of characters.</li>
+<li><strong>Litteral declaration:</strong> a sequence of characters enclosed in quotes, like 'this is a string' . If one wants to literally declare strings that contain quotes, one has to double these quotes in the declaration. Strings accept escape characters like <code>\n</code> (newline), <code>\r</code> (carriage return), <code>\t</code> (tabulation), as well as any Unicode character (<code>\uXXXX</code>).</li>
+<li><strong>Other declarations:</strong> see string</li>
+<li><strong>Example:</strong> see <a href="Operators#strings-related-operators">string operators</a>.</li>
+</ul>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h2><a class="anchor" aria-hidden="true" id="complex-built-in-types"></a><a href="#complex-built-in-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complex built-in types</h2>
+<p>Contrarily to primitive built-in types, complex types have often various attributes. They can be accessed in the same way as attributes of agents:</p>
+<pre><code class="hljs">complex_type nom_var &lt;- init_var;
+ltype_attr attr_var &lt;- nom_var.attr_name;
+</code></pre>
+<p>For example:</p>
+<pre><code class="hljs"><span class="hljs-literal">file</span> fileText &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../data/cell.Data"</span>);
+<span class="hljs-literal">bool</span> fileTextReadable &lt;- fileText.readable;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="agent"></a><a href="#agent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>agent</h3>
+<ul>
+<li><strong>Definition:</strong> a generic datatype that represents an agent whatever its actual species.</li>
+<li><strong>Comments:</strong> This datatype is barely used, since species can be directly used as datatypes themselves.</li>
+<li><strong>Declaration:</strong> the agent casting operator can be applied to an int (to get the agent with this unique index), a string (to get the agent with this name).</li>
+</ul>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="container"></a><a href="#container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>container</h3>
+<ul>
+<li><strong>Definition:</strong> a generic datatype that represents a collection of data.</li>
+<li><strong>Comments:</strong>  a container variable can be a list, a matrix, a map... Conversely each list, matrix and map is a kind of container. In consequence every container can be used in container-related operators.</li>
+<li><strong>See also:</strong> <a href="Operators#containers-related-operators">Container operators</a></li>
+<li><strong>Declaration:</strong></li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">container</span> c  &lt;- [1,2,3];
+<span class="hljs-literal">container</span> c  &lt;- <span class="hljs-literal">matrix</span> [[1,2,3],[4,5,6]];
+<span class="hljs-literal">container</span> c  &lt;- <span class="hljs-literal">map</span> [<span class="hljs-string">"x"</span>::5, <span class="hljs-string">"y"</span>::12];
+<span class="hljs-literal">container</span> c  &lt;- <span class="hljs-literal">list</span> species1;
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="file"></a><a href="#file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>file</h3>
+<ul>
+<li><strong>Definition:</strong> a datatype that represents a file.</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>name (type = string): the name of the represented file (with its extension)</li>
+<li>extension(type = string): the extension of the file</li>
+<li>path (type = string): the absolute path of the file</li>
+<li>readable (type = bool, read-only): a flag expressing whether the file is readable</li>
+<li>writable (type = bool, read-only): a flag expressing whether the file is writable</li>
+<li>exists (type = bool, read-only): a flag expressing whether the file exists</li>
+<li>is_folder (type = bool, read-only): a flag expressing whether the file is folder</li>
+<li>contents (type = container): a container storing the content of the file</li>
+</ul></li>
+<li><strong>Comments:</strong> a variable with the <code>file</code> type can handle any kind of file (text, image or shape files...). The type of the <code>content</code> attribute will depend on the kind of file. Note that the allowed kinds of file are the followings:
+<ul>
+<li>text files: files with the extensions .txt, .data, .csv, .text, .tsv, .asc. The <code>content</code> is by default a list of string.</li>
+<li>image files: files with the extensions .pgm, .tif, .tiff, .jpg, .jpeg, .png, .gif, .pict, .bmp. The <code>content</code> is by default a matrix of int.</li>
+<li>shapefiles: files with the extension .shp. The <code>content</code> is by default a list of geometry.</li>
+<li>properties files: files with the extension .properties. The <code>content</code> is by default a map of string::string.</li>
+<li>folders. The <code>content</code> is by default a list of string.</li>
+</ul></li>
+<li><strong>Remark:</strong> Files are also a particular kind of container and can thus be read, written or iterated using the container operators and commands.</li>
+<li><strong>See also:</strong> <a href="Operators#files-related-operators">File operators</a></li>
+<li><strong>Declaration:</strong> a file can be created using the generic <code>file</code> (that opens a file in read only mode and tries to determine its contents), <code>folder</code> or the <code>new_folder</code> (to open an existing folder or create a new one) unary operators. But things can be specialized with the combination of the <code>read</code>/<code>write</code> and <code>image</code>/<code>text</code>/<code>shapefile</code>/<code>properties</code> unary operators.</li>
+</ul>
+<pre><code class="hljs">folder(a_string)  <span class="hljs-comment">// returns a file managing a existing folder</span>
+<span class="hljs-literal">file</span>(a_string) <span class="hljs-comment">// returns any kind of file in read-only mode</span>
+read(text(a_string)) <span class="hljs-comment">// returns a text file in read-only mode</span>
+read(image(a_string)) <span class="hljs-comment">// does the same with an image file.</span>
+write(properties(a_string)) <span class="hljs-comment">// returns a property file which is available for writing </span>
+                            <span class="hljs-comment">// (if it exists, contents will be appended unless it is cleared </span>
+                            <span class="hljs-comment">// using the standard container operations).</span>
+
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="geometry"></a><a href="#geometry" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>geometry</h3>
+<ul>
+<li><strong>Definition:</strong> a datatype that represents a vector geometry, i.e. a list of georeferenced points.</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>location (type = point): the centroid of the geometry</li>
+<li>area (type = float): the area of the geometry</li>
+<li>perimeter (type = float): the perimeter of the geometry</li>
+<li>holes (type = list of geometry): the list of the hole inside the given geometry</li>
+<li>contour (type = geometry): the exterior ring of the given geometry and of his holes</li>
+<li>envelope (type = geometry): the geometry bounding box</li>
+<li>width (type = float): the width of the bounding box</li>
+<li>height (type = float): the height of the bounding box</li>
+<li>points (type = list of point): the set of the points composing the geometry</li>
+</ul></li>
+<li><strong>Comments:</strong> a geometry can be either a point, a polyline or a polygon. Operators working on geometries handle transparently these three kinds of geometry. The envelope (a.k.a. the bounding box) of the geometry depends on the kind of geometry:
+<ul>
+<li>If this Geometry is the empty geometry, it is an empty point.</li>
+<li>If the Geometry is a point, it is a non-empty point.</li>
+<li>Otherwise, it is a Polygon whose points are (minx, miny), (maxx, miny), (maxx, maxy), (minx, maxy), (minx, miny).</li>
+</ul></li>
+<li><strong>See also:</strong> <a href="Operators#spatial-operators">Spatial operators</a></li>
+<li><strong>Declaration:</strong> geometries can be built from a point, a list of points or by using specific operators (circle, square, triangle...).</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">geometry</span> varGeom &lt;- circle(5);
+<span class="hljs-literal">geometry</span> polygonGeom &lt;- polygon([{3,5}, {5,6},{1,4}]);
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="graph"></a><a href="#graph" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>graph</h3>
+<ul>
+<li><strong>Definition:</strong> a datatype that represents a graph composed of vertices linked by edges.</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>edges(type = list of agent/geometry): the list of all edges</li>
+<li>vertices(type = list of agent/geometry): the list of all vertices</li>
+<li>circuit (type = path): an approximate minimal traveling salesman tour (hamiltonian cycle)</li>
+<li>spanning_tree (type = list of agent/geometry): minimum spanning tree of the graph, i.e. a sub-graph such as every vertex lies in the tree, and as much edges lies in it but no cycles (or loops) are formed.</li>
+<li>connected(type = bool): test whether the graph is connected</li>
+</ul></li>
+<li><strong>Remark:</strong>
+<ul>
+<li>graphs are also a particular kind of container and can thus be manipulated using the container operators and commands.</li>
+<li>This algorithm used to compute the circuit requires that the graph be complete and the triangle inequality exists (if x,y,z are vertices then d(x,y)+d(y,z)&lt;d(x,z) for all x,y,z) then this algorithm will guarantee a hamiltonian cycle such that the total weight of the cycle is less than or equal to double the total weight of the optimal hamiltonian cycle.</li>
+<li>The computation of the spanning tree uses an implementation of  the Kruskal's minimum spanning tree algorithm. If the given graph is connected it computes the minimum spanning tree, otherwise it computes the minimum spanning forest.</li>
+</ul></li>
+<li><strong>See also:</strong> <a href="Operators#graph-related-operators">Graph operators</a></li>
+<li><strong>Declaration:</strong> graphs can be built from a list of vertices (agents or geometries) or from a list of edges (agents or geometries) by using specific operators. They are often used to deal with a road network and are built from a shapefile.</li>
+</ul>
+<pre><code class="hljs">create road from: shape_file_road;
+<span class="hljs-literal">graph</span> the_graph &lt;- as_edge_graph(road);
+
+<span class="hljs-literal">graph</span>([1,9,5])        --: ([1: in[] + out[], 5: in[] + out[], 9: in[] + out[]], [])
+<span class="hljs-literal">graph</span>([node(0), node(1), node(2)]      <span class="hljs-comment">// if node is a species</span>
+<span class="hljs-literal">graph</span>(['a'::345, 'b'::13])  --:  ([b: in[] + out[b::13], a: in[] + out[a::345], 13: in[b::13] + out[], 345: in[a::345] + out[]], [a::345=(a,345), b::13=(b,13)])
+<span class="hljs-literal">graph</span>(a_graph)  --: a_graph
+<span class="hljs-literal">graph</span>(node1)    --: null
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="list"></a><a href="#list" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>list</h3>
+<ul>
+<li><strong>Definition:</strong> a composite datatype holding an ordered collection of values.</li>
+<li><strong>Comments:</strong> lists are more or less equivalent to instances of ArrayList in Java (although they are backed up by a specific class). They grow and shrink as needed, can be accessed via an index (see @ or index_of), support set operations (like union and difference), and provide the modeller with a number of utilities that make it easy to deal with collections of agents (see, for instance, shuffle, reverse,where,sort_by,...).</li>
+<li><strong>Remark:</strong> lists can contain values of any datatypes, including other lists. Note, however, that due to limitations in the current parser, lists of lists cannot be declared litteraly; they have to be built using assignments. Lists are also a particular kind of container and can thus be manipulated using the container operators and commands.</li>
+<li><strong>Litteral declaration:</strong> a set of expressions separated by commas, enclosed in square brackets, like [12, 14, 'abc', self]. An empty list is noted <a href=""></a>.</li>
+<li><strong>Other declarations:</strong> lists can be build litteraly from a point, or a string, or any other element by using the list casting operator.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">list</span> (1) -&gt; [1]
+</code></pre>
+<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; myList &lt;- [1,2,3,4]; 
+myList[2] =&gt; 3
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="map"></a><a href="#map" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>map</h3>
+<ul>
+<li><strong>Definition:</strong> a composite datatype holding an ordered collection of pairs (a key, and its associated value).</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>keys (type = list): the list of all keys</li>
+<li>values (type = list): the list of all values</li>
+<li>pairs (type = list of pairs): the list of all pairs key::value</li>
+</ul></li>
+<li><strong>Comments:</strong> maps are more or less equivalent to instances of Hashtable in Java (although they are backed up by a specific class).</li>
+<li><strong>Remark:</strong> maps can contain values of any datatypes, including other maps or lists. Maps are also a particular kind of container and can thus be manipulated using the container operators and commands.</li>
+<li><strong>Litteral declaration:</strong> a set of pair expressions separated by commas, enclosed in square brackets; each pair is represented by a key and a value sperarated by '::'. An example of map is [agentA::'big', agentB::'small', agentC::'big']. An empty map is noted <a href=""></a>.</li>
+<li><strong>Other declarations:</strong> lists can be built litteraly from a point, or a string, or any other element by using the map casting operator.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">map</span> (1) -&gt; [1::1]
+<span class="hljs-literal">map</span> ({1,5}) -&gt; [x::1, y::5]
+[]   <span class="hljs-comment">// empty map </span>
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="matrix"></a><a href="#matrix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>matrix</h3>
+<ul>
+<li><strong>Definition:</strong> a composite datatype that represents either a two-dimension array (matrix) or a one-dimension array (vector), holding any type of data (including other matrices).</li>
+<li><strong>Comments:</strong> Matrices are fixed-size structures that can be accessed by index (point for two-dimensions matrices, integer for vectors).</li>
+<li><strong>Litteral declaration:</strong> Matrices cannot be defined literally. One-dimensions matrices can be built by using the matrix casting operator applied on a list. Two-dimensions matrices need to to be declared as variables first, before being filled.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-comment">//builds a one-dimension matrix, of size 5</span>
+<span class="hljs-literal">matrix</span> mat1 &lt;- <span class="hljs-literal">matrix</span> ([10, 20, 30, 40, 50]);
+<span class="hljs-comment">//  builds a two-dimensions matrix with 10 columns and 5 rows, where each cell is initialized to 0.0</span>
+<span class="hljs-literal">matrix</span> mat2 &lt;- 0.0 as_matrix({10,5}); 
+<span class="hljs-comment">// builds a two-dimensions matrix with 2 columns and 3 rows, with initialized cells</span>
+<span class="hljs-literal">matrix</span> mat3 &lt;- <span class="hljs-literal">matrix</span>([[<span class="hljs-string">"c11"</span>,<span class="hljs-string">"c12"</span>,<span class="hljs-string">"c13"</span>],[<span class="hljs-string">"c21"</span>,<span class="hljs-string">"c22"</span>,<span class="hljs-string">"c23"</span>]]);     
+    -&gt; c11;c21
+       c12;c22
+       c13;c23
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="pair"></a><a href="#pair" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>pair</h3>
+<ul>
+<li><strong>Definition:</strong> a datatype holding a key and its associated value.</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>key (type = string): the key of the pair, i.e. the first element of the pair</li>
+<li>value (type = string): the value of the pair, i.e. the second element of the pair</li>
+</ul></li>
+<li><strong>Remark:</strong> pairs are also a particular kind of container and can thus be manipulated using the container operators and commands.</li>
+<li><strong>Litteral declaration:</strong> a pair is defined by a key and a value sperarated by '::'.</li>
+<li><strong>Other declarations:</strong> a pair can also be built from:
+<ul>
+<li>a point,</li>
+<li>a map (in this case the first element of the pair is the list of all the keys of the map and the second element is the list of all the values of the map),</li>
+<li>a list (in this case the two first element of the list are used to built the pair)</li>
+</ul></li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">pair</span> testPair &lt;- <span class="hljs-string">"key"</span>::56;
+<span class="hljs-literal">pair</span> testPairPoint &lt;- {3,5};             <span class="hljs-comment">// 3::5</span>
+<span class="hljs-literal">pair</span> testPairList2 &lt;- [6,7,8];           <span class="hljs-comment">// 6::7</span>
+<span class="hljs-literal">pair</span> testPairMap &lt;- [2::6,5::8,12::45];  <span class="hljs-comment">// [12,5,2]::[45,8,6]</span>
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="path"></a><a href="#path" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>path</h3>
+<ul>
+<li><strong>Definition:</strong> a datatype representing a path linking two agents or geometries in a graph.</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>source (type = point): the source point, i.e. the first point of the path</li>
+<li>target (type = point): the target point, i.e. the last point of the path</li>
+<li>graph (type = graph): the current topology (in the case it is a spatial graph), null otherwise</li>
+<li>edges (type = list of agents/geometries) :  the edges of the graph composing the path</li>
+<li>vertices (type = list of agents/geometries) :  the vertices of the graph composing the path</li>
+<li>segments (type = list of geometries): the list of the geometries composing the path</li>
+<li>shape (type = geometry) : the global geometry of the path (polyline)</li>
+</ul></li>
+<li><strong>Comments:</strong> the path created between two agents/geometries or locations will strongly depends on the topology in which it is created.</li>
+<li><strong>Remark:</strong> a path is <strong>immutable</strong>, i.e. it can not be modified after it is created.</li>
+<li><strong>Declaration:</strong> paths are very barely defined litterally. We can nevertheless use the <code>path</code> unary operator on a list of points to build a path. Operators dedicated to the computation of paths (such as path_to or path_between) are often used to build a path.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">path</span>([{1,5},{2,9},{5,8}]) <span class="hljs-comment">// a path from {1,5} to {5,8} through {2,9}</span>
+       
+<span class="hljs-literal">geometry</span> rect &lt;- rectangle(5);
+<span class="hljs-literal">geometry</span> poly &lt;- polygon([{10,20},{11,21},{10,21},{11,22}]);
+<span class="hljs-literal">path</span> pa &lt;- rect path_to poly;  <span class="hljs-comment">// built a path between rect and poly, in the topolopy   </span>
+                                            <span class="hljs-comment">// of the current agent (i.e. a line in a&amp; continuous topology, </span>
+                                            <span class="hljs-comment">// a path in a graph  in a graph topology )</span>
+
+a_topology path_between a_container_of_geometries <span class="hljs-comment">// idem with an explicit topology and the possiblity </span>
+                                                  <span class="hljs-comment">// to have more than 2 geometries </span>
+                                                  <span class="hljs-comment">// (the path is then built incrementally)</span>
+
+
+path_between (a_graph, a_source, a_target) <span class="hljs-comment">// idem with a the given graph as topology</span>
+
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="point"></a><a href="#point" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>point</h3>
+<ul>
+<li><strong>Definition:</strong> a datatype normally holding two positive float values. Represents the absolute coordinates of agents in the model.</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>x (type = float): coordinate of the point on the x-axis</li>
+<li>y (type = float): coordinate of the point on the y-axis</li>
+</ul></li>
+<li><strong>Comments:</strong> point coordinates should be positive, if a negative value is used in its declaration, the point is built with the absolute value.</li>
+<li><strong>Remark:</strong> points are particular cases of geometries and containers. Thus they have also all the built-in attributes of both the geometry and the container datatypes and can be used with every kind of operator or command admitting geometry and container.</li>
+<li><strong>Litteral declaration:</strong> two numbers, separated by a comma, enclosed in braces, like {12.3, 14.5}</li>
+<li><strong>Other declarations:</strong> points can be built litteraly from a list, or from an integer or float value by using the point casting operator.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">point</span> ([12,123.45]) -&gt; {12.0, 123.45} 
+<span class="hljs-literal">point</span> (2) -&gt; {2.0, 2.0}
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="rgb"></a><a href="#rgb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>rgb</h3>
+<ul>
+<li><strong>Definition:</strong> a datatype that represents a color in the RGB space.</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>red(type = int): the red component of the color</li>
+<li>green(type = int): the green component of the color</li>
+<li>blue(type = int): the blue component of the color</li>
+<li>darker(type = rgb): a new color that is a darker version of this color</li>
+<li>brighter(type = rgb): a new color that is a brighter version of this color</li>
+</ul></li>
+<li><strong>Remark:</strong> rgbs are also a particular kind of container and can thus be manipulated using the container operators and commands.</li>
+<li><strong>Litteral declaration:</strong> there exist lot of ways to declare a color. We use the <code>rgb</code> casting operator applied to:
+<ul>
+<li>a string. The allowed color names are the constants defined in the Color Java class, i.e.: black, blue, cyan, darkGray, lightGray, gray, green, magenta, orange, pink, red, white, yellow.</li>
+<li>a list. The integer value associated to the three first elements of the list are used to define the three red (element 0 of the list), green (element 1 of the list) and blue (element 2 of the list) components of the color.</li>
+<li>a map. The red, green, blue compoenents take the value associated to the keys &quot;r&quot;, &quot;g&quot;, &quot;b&quot; in the map.</li>
+<li>an integer &lt;- the decimal integer is translated into a hexadecimal &lt;- OxRRGGBB. The red (resp. green, blue) component of the color take the value RR (resp. GG, BB) translated in decimal.</li>
+<li>Since GAMA 1.6.1, colors can be directly obtained like units, by using the ° or # symbol followed by the name in lowercase of one of the 147 CSS colors (see <a href="http://www.cssportal.com/css3-color-names/">http://www.cssportal.com/css3-color-names/</a>).</li>
+</ul></li>
+<li><strong>Declaration:</strong></li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">rgb</span> cssRed &lt;- #red;   <span class="hljs-comment">// Since 1.6.1</span>
+<span class="hljs-literal">rgb</span> testColor &lt;- <span class="hljs-literal">rgb</span>('white');                 <span class="hljs-comment">// rgb [255,255,255]</span>
+<span class="hljs-literal">rgb</span> test &lt;- <span class="hljs-literal">rgb</span>(3,5,67);                     <span class="hljs-comment">// rgb [3,5,67]</span>
+<span class="hljs-literal">rgb</span> te &lt;- <span class="hljs-literal">rgb</span>(340);                            <span class="hljs-comment">// rgb [0,1,84]</span>
+<span class="hljs-literal">rgb</span> tete &lt;- <span class="hljs-literal">rgb</span>([<span class="hljs-string">"r"</span>::34, <span class="hljs-string">"g"</span>::56, <span class="hljs-string">"b"</span>::345]); <span class="hljs-comment">// rgb [34,56,255]</span>
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="species"></a><a href="#species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>species</h3>
+<ul>
+<li>Definition: a generic datatype that represents a species</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>topology (type=topology): the topology is which lives the population of agents</li>
+</ul></li>
+<li>Comments: this datatype is actually a &quot;meta-type&quot;. It allows to manipulate (in a rather limited fashion, however) the species themselves as any other values.</li>
+<li>Litteral declaration: the name of a declared species is already a litteral declaration of species.</li>
+<li>Other declarations: the species casting operator, or its variant called species_of can be applied to an agent in order to get its species.</li>
+</ul>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="species-names-as-types"></a><a href="#species-names-as-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Species names as types</h3>
+<p>Once a species has been declared in a model, it automatically becomes a datatype. This means that :</p>
+<ul>
+<li>It can be used to declare variables, parameters or constants,</li>
+<li>It can be used as an operand to commands or operators that require species parameters,</li>
+<li>It can be used as a casting operator (with the same capabilities as the built-in type agent)</li>
+</ul>
+<p>In the simple following example, we create a set of &quot;humans&quot; and initialize a random &quot;friendship network&quot; among them. See how the name of the species, human, is used in the create command, as an argument to the list casting operator, and as the type of the variable named friend.</p>
+<pre><code class="hljs"><span class="hljs-class">global </span>{
+    init {
+         create human number: 10;
+         ask human {
+               friend &lt;- one_of (human - self);
+         }
+     }
+}
+entities {
+    <span class="hljs-class">species <span class="hljs-title">human</span> </span>{
+        human friend &lt;- nil;
+    }
+}
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h3><a class="anchor" aria-hidden="true" id="topology"></a><a href="#topology" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>topology</h3>
+<ul>
+<li><strong>Definition:</strong> a topology is basically on neighborhoods, distance,... structures in which agents evolves. It is the environment or the context in which all these values are computed. It also provides the access to the spatial index shared by all the agents. And it maintains a (eventually dynamic) link with the 'environment' which is a geometrical border.</li>
+<li><strong>Built-in attributes:</strong>
+<ul>
+<li>places(type = container): the collection of places (geometry) defined by this topology.</li>
+<li>environment(type = geometry): the environment of this topology (i.e. the geometry that defines its boundaries)</li>
+</ul></li>
+<li><strong>Comments:</strong> the attributes <code>places</code> depends on the kind of the considered topolopy.  For continuous topologies, it is a list with their environment. For discrete topologies, it can be any of the container supporting the inclusion of geometries (list, graph, map, matrix)</li>
+<li><strong>Remark:</strong> There exist various kinds of topology: continuous topology and discrete topology (e.g. grid, graph...)</li>
+<li><strong>Declaration:</strong> To create a topology, we can use the <code>topology</code> unary casting operator applied to:
+<ul>
+<li>an agent: returns a continuous topology built from the agent's geometry</li>
+<li>a species name: returns the topology defined for this species population</li>
+<li>a geometry: returns a continuous topology built on this geometry</li>
+<li>a geometry container (list, map, shapefile): returns an half-discrete (with corresponding places), half-continuous topology (to compute distances...)</li>
+<li>a geometry matrix (i.e. a grid): returns a grid topology which computes specifically neighborhood and distances</li>
+<li>a geometry graph: returns a graph topology which computes specifically neighborhood and distances
+More complex topologies can also be built using dedicated operators, e.g. to decompose a geometry...</li>
+</ul></li>
+</ul>
+<p><a href="#table-of-contents">Top of the page</a></p>
+<h2><a class="anchor" aria-hidden="true" id="defining-custom-types"></a><a href="#defining-custom-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining custom types</h2>
+<p>Sometimes, besides the species of agents that compose the model, it can be necessary to declare custom datatypes. Species serve this purpose as well, and can be seen as &quot;classes&quot; that can help to instantiate simple &quot;objects&quot;. In the following example, we declare a new kind of &quot;object&quot;, bottle, that lacks the skills habitually associated with agents (moving, visible, etc.), but can nevertheless group together attributes and behaviors within the same closure. The following example demonstrates how to create the species:</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">bottle</span> </span>{
+    <span class="hljs-literal">float</span> volume &lt;- 0.0 max:1 min:0.0;
+    <span class="hljs-literal">bool</span> is_empty -&gt; {volume = 0.0};
+    action fill {
+         volume &lt;- 1.0;
+    }
+}
+</code></pre>
+<p>How to use this species to declare new bottles :</p>
+<pre><code class="hljs">create bottle {
+    volume &lt;- 0.5;
+}
+</code></pre>
+<p>And how to use bottles as any other agent in a species (a drinker owns a bottle; when he gets thirsty, it drinks a random quantity from it; when it is empty, it refills it):</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">drinker</span> </span>{
+     ...
+    bottle my_bottle&lt;- nil;
+    <span class="hljs-literal">float</span> quantity &lt;- rnd (100) / 100;
+    <span class="hljs-literal">bool</span> thirsty &lt;- false update: flip (0.1);
+    ...
+    action drink {
+         <span class="hljs-keyword">if</span> condition: ! bottle.is_empty {
+              bottle.volume &lt;-bottle.volume - quantity;
+              thirsty &lt;- false;
+         }
+    }
+    ...
+    init {
+          create bottle return: created_bottle;
+              volume &lt;- 0.5;
+          }
+          my_bottle &lt;- first(created_bottle);
+    }
+    ...
+    <span class="hljs-class">reflex <span class="hljs-title">filling_bottle</span> <span class="hljs-title">when</span>: <span class="hljs-title">bottle</span>.<span class="hljs-title">is_empty</span> </span>{
+         ask  my_bottle {
+              do fill;
+         }
+    }
+    ...
+    <span class="hljs-class">reflex <span class="hljs-title">drinking</span> <span class="hljs-title">when</span>: <span class="hljs-title">thirsty</span> </span>{
+         do drink;
+    }
+}
+</code></pre>
+<p><a href="#table-of-contents">Top of the page</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/Statements"><span class="arrow-prev">← </span><span>Statements</span></a><a class="docs-next button" href="/wiki/FileTypes"><span>File Types</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table of contents</a></li><li><a href="#primitive-built-in-types">Primitive built-in types</a><ul class="toc-headings"><li><a href="#bool">bool</a></li><li><a href="#float">float</a></li><li><a href="#int">int</a></li><li><a href="#string">string</a></li></ul></li><li><a href="#complex-built-in-types">Complex built-in types</a><ul class="toc-headings"><li><a href="#agent">agent</a></li><li><a href="#container">container</a></li><li><a href="#file">file</a></li><li><a href="#geometry">geometry</a></li><li><a href="#graph">graph</a></li><li><a href="#list">list</a></li><li><a href="#map">map</a></li><li><a href="#matrix">matrix</a></li><li><a href="#pair">pair</a></li><li><a href="#path">path</a></li><li><a href="#point">point</a></li><li><a href="#rgb">rgb</a></li><li><a href="#species">species</a></li><li><a href="#species-names-as-types">Species names as types</a></li><li><a href="#topology">topology</a></li></ul></li><li><a href="#defining-custom-types">Defining custom types</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
