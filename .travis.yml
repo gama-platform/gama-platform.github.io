@@ -4,13 +4,13 @@ node_js:
   - '8'
 branches:
   only:
-    - master
+    - sources
 cache:
   yarn: true
 before_script:
 
 # Go in project dir
-  - git checkout sources && git pull
+  #- git checkout sources && git pull
 
 #  Setup
   - git config --global user.name "${GH_NAME}"
