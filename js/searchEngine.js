@@ -31,7 +31,7 @@ function initSearchEngine(){
   var client = new XMLHttpRequest();
   
   // Get json file with an asynchrone request
-  client.open('GET', '/BC2019-Gama-Site/database/index.json');
+  client.open('GET', '/database/index.json');
 
   // Prepare request
   client.onreadystatechange = function() {
