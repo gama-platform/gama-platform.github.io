@@ -16,7 +16,7 @@ before_script:
   
 #FIX
   - git clone https://github.com/gama-platform/gama-platform.github.io.git
-  - git cd gama-platform.github.io
+  - cd gama-platform.github.io
 # Go in project branch
   - git pull && git checkout sources && git pull
   
