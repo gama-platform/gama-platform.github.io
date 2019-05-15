@@ -5,11 +5,6 @@
 <url> <loc>https://gama-platform.github.io/index</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gama-platform.github.io/en/index" /> </url>
 <url> <loc>https://gama-platform.github.io/release-1.8</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gama-platform.github.io/en/release-1.8" /> </url>
 <url> <loc>https://gama-platform.github.io/search</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gama-platform.github.io/en/search" /> </url>
-<url> <loc>https://gama-platform.github.io/blog/2017/10/24/new-version-1.0.0</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
-<url> <loc>https://gama-platform.github.io/blog/2017/09/26/adding-rss</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
-<url> <loc>https://gama-platform.github.io/blog/2017/09/25/testing-rss</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
-<url> <loc>https://gama-platform.github.io/blog/2017/04/10/blog-post-two</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
-<url> <loc>https://gama-platform.github.io/blog/2016/03/11/blog-post</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
 <url> <loc>https://gama-platform.github.io/wiki/_Footer</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gama-platform.github.io/wiki/_Footer" /> </url>
 <url> <loc>https://gama-platform.github.io/wiki/_Sidebar</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gama-platform.github.io/wiki/_Sidebar" /> </url>
 <url> <loc>https://gama-platform.github.io/wiki/3D Model 01</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://gama-platform.github.io/wiki/3D Model 01" /> </url>
