@@ -2044,6 +2044,7 @@ statement_keyword facet1: expression1 facet2: expression2 ...;
 <li><code>name</code> (a label), (omissible) : The message displayed in the interface</li>
 <li><code>among</code> (list): the list of possible values</li>
 <li><code>category</code> (a label): a category label, used to group parameters in the interface</li>
+<li><code>colors</code> (list): The colors of the control in the UI. An empty list has no effects. Only used for sliders and switches so far. For sliders, 3 colors will allow to specify the color of the left section, the thumb and the right section (in this order); 2 colors will define the left and right sections only (thumb will be dark green); 1 color will define the left section and the thumb. For switches, 2 colors will define the background for respectively the left 'true' and right 'false' sections. 1 color will define both backgrounds</li>
 <li><code>disables</code> (list): a list of global variables whose parameter editors will be disabled when this parameter value is set to true (they are otherwise enabled)</li>
 <li><code>enables</code> (list): a list of global variables whose parameter editors will be enabled when this parameter value is set to true (they are otherwise disabled)</li>
 <li><code>init</code> (any type): the init value</li>
