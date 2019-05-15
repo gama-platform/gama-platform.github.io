@@ -39,7 +39,7 @@ function Download(props) {
         <h2>{props.os}</h2>
             <Button href={`https://github.com/gama-platform/gama/releases/download/v${props.version}/${props.zipName}_${props.zipOS}.zip`} className="button buttonBlue">Download</Button>
             <Button href={`https://github.com/gama-platform/gama/releases/download/v${props.version}/${props.zipName}_EmbeddedJDK_${props.zipOS}.zip`} className="button buttonRed">with JDK</Button>
-            <Button href="https://github.com/gama-platform/gama/releases/tag/latest" className="button buttonOrange">git version</Button>
+            <Button href="https://github.com/gama-platform/gama/releases/tag/latest" className="button buttonOrange">Daily</Button>
       </div>
     </div>
   );
