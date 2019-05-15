@@ -2,17 +2,17 @@
 
 On this branch, you have all the sources from the website [_gama-platform.github.io_](gama-platform.github.io) which is the documentation of the _Gama-Platform_.
 
-## Updating Website
+## Editing Website
 
 You saw an error on the website and you want to correct it. The first thing is to check which page should be updated !
 
-### Updating website parameters
+### Editing website parameters
 
 The website have a big config file. This file is fully documented and will configure many things from the website (logo, title, etc etc etc). 
 
 You can find it here : _\<project>/website/siteConfig.js_
 
-### Updating `wiki`
+### Editing `wiki`
 
 Let's start by taking a look at the URL. For example :
 
@@ -32,7 +32,7 @@ https://gama-platform.github.io/wiki/Home
                                                       ^^^^ ^^^^
 ```
 
-### Updating site specific pages
+### Editing site specific pages
 
 If you don't have the `wiki` keyword, the page you want to edit is probably a React page (like the *download* page or the *index* page).
 
