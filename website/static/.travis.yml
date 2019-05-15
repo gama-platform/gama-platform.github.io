@@ -4,7 +4,6 @@ node_js:
   - '8'
 branches:
   only:
-
     - sources
 cache:
   yarn: true
@@ -15,10 +14,10 @@ before_script:
   - echo "machine github.com login ${GH_NAME} password ${BOT_TOKEN}" > ~/.netrc
   
 #FIX -> able to git checkout "sources" branch
-  - git clone https://github.com/gama-platform/gama-platform.github.io.git
-  - cd gama-platform.github.io
+#  - git clone https://github.com/gama-platform/gama-platform.github.io.git
+#  - cd gama-platform.github.io
 # Go in project branch
-  - git pull && git checkout sources && git pull
+#  - git pull && git checkout sources && git pull
   
 #  Get new wiki
   - git clone https://github.com/gama-platform/gama.wiki.git
