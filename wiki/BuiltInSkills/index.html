@@ -99,7 +99,7 @@
 <li><strong><code>final_target</code></strong> (<code>point</code>): the final target of the agent</li>
 <li><strong><code>max_acceleration</code></strong> (<code>float</code>): maximum acceleration of the car for a cycle</li>
 <li><strong><code>max_speed</code></strong> (<code>float</code>): maximal speed of the vehicle</li>
-<li><strong><code>min_security_distance</code></strong> (<code>float</code>): the minimal distance to another driver</li>
+<li><strong><code>min_safety_distance</code></strong> (<code>float</code>): the minimal distance to another driver</li>
 <li><strong><code>on_linked_road</code></strong> (<code>boolean</code>): is the agent on the linked road?</li>
 <li><strong><code>proba_block_node</code></strong> (<code>float</code>): probability to block a node (do not let other driver cross the crossroad)</li>
 <li><strong><code>proba_lane_change_down</code></strong> (<code>float</code>): probability to change lane to a lower lane (right lane if right side driving) if necessary</li>
@@ -109,7 +109,7 @@
 <li><strong><code>proba_use_linked_road</code></strong> (<code>float</code>): probability to change lane to a linked road lane if necessary</li>
 <li><strong><code>real_speed</code></strong> (<code>float</code>): the actual speed of the agent (in meter/second)</li>
 <li><strong><code>right_side_driving</code></strong> (<code>boolean</code>): are drivers driving on the right size of the road?</li>
-<li><strong><code>security_distance_coeff</code></strong> (<code>float</code>): the coefficient for the computation of the the min distance between two drivers (according to the vehicle speed - security_distance =max(min_security_distance, security_distance_coeff <code>*</code> min(self.real_speed, other.real_speed) )</li>
+<li><strong><code>safety_distance_coeff</code></strong> (<code>float</code>): the coefficient for the computation of the the min distance between two drivers (according to the vehicle speed - safety_distance =max(min_safety_distance, safety_distance_coeff <code>*</code> min(self.real_speed, other.real_speed) )</li>
 <li><strong><code>segment_index_on_road</code></strong> (<code>int</code>): current segment index of the agent on the current road</li>
 <li><strong><code>speed</code></strong> (<code>float</code>): the speed of the agent (in meter/second)</li>
 <li><strong><code>speed_coeff</code></strong> (<code>float</code>): speed coefficient for the speed that the driver want to reach (according to the max speed of the road)</li>
