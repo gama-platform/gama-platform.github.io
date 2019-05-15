@@ -14,6 +14,9 @@ before_script:
   - git config --global user.email "${GH_EMAIL}"
   - echo "machine github.com login ${GH_NAME} password ${GH_TOKEN}" > ~/.netrc
   
+#FIX
+  - git clone https://github.com/gama-platform/gama-platform.github.io.git
+  - git cd gama-platform.github.io
 # Go in project branch
   - git pull && git checkout sources && git pull
   
