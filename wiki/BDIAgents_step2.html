@@ -190,13 +190,14 @@ In addition, we ask the miner agent to remove the intention to find gold, allowi
 }
 </code></pre>
 <p>The second plan called <em>getGold</em> is defined to achieve the <em>has_gold</em> intention. if the agent has no target (it does not know where to go), it adds a new sub-intention to choose a goldmine and put the current intention on hold (the agent will wait to select a gold mine to go before executing again this plan). The <em>add_subintention</em> has 3 arguments: the sub-intention (choose_goldmine), the super intention (extract_gold) and a boolean that defines if the sub-intention should or not be added as well as a desire.
-If the agent has already a target, it moves toward this target using the <em>goto</em> action of the <em>moving</em> skill. If the agent reaches its target - goldmine - (target = location), the agent tries to extract gold nuggets from it. If the corresponding goldmine (that one located at the target location) is not empty, the agent extract a gold nugget from it: the agent adds the belief that it has a gold nugget, then the quantity of golds in the gold mine is reduced. Otherwise, if the gold mine is empty, the agent adds the belief that this gold mine is empty. then the target is set to nil.</p>
+If the agent has already a target, it moves toward this target using the <em>goto</em> action of the <em>moving</em> skill. If the agent reaches its target - goldmine - (target = location), the agent tries to extract gold nuggets from it. If the corresponding goldmine (that one located at the target location) is not empty, the agent extract a gold nugget from it: the agent adds the belief that it has a gold nugget, then the quantity of golds in the gold mine is reduced. Otherwise, if the gold mine is empty, the agent adds the belief that this gold mine is empty. then the target is set to nil.
+get_current_intention() returns the current intention. As plan getGold is executed only when intention is about the has_gold predicate, the current intention is about this predicate.</p>
 <pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">miner</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>:<span class="hljs-title">simple_bdi</span> </span>{
         ...
         plan getGold intention:has_gold
     {
         <span class="hljs-keyword">if</span> (target = nil) {
-            do add_subintention(has_gold,choose_goldmine, true);
+            do add_subintention(get_current_intention(),choose_goldmine, true);
             do current_intention_on_hold();
         } else {
             do goto target: target ;
