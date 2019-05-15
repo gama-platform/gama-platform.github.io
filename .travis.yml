@@ -10,7 +10,7 @@ cache:
 before_script:
 
 # Go in project dir
-  - cd sources
+  - git checkout sources && git pull
 
 #  Setup
   - git config --global user.name "${GH_NAME}"
