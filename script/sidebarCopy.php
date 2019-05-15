@@ -25,6 +25,7 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
 			$sidebarArray[$catArray][ $subMenu ] = array( explode(')', $title[1])[0] );
 		}
 		else {
+			printf("You've forget that line");
 			var_dump( $line );
 		}
 
@@ -43,9 +44,6 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
 
 				$arrayTuto[] = $t;
 
-				var_dump($sidebarArray[$catArray][ $subMenu ]);
-				var_dump( $t );
-
 				
 				$step = count(glob("./docs/" . $t . "*"));
 
@@ -55,7 +53,6 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
 
 				$sidebarArray[$catArray][ explode("](", explode('[', $line)[1] )[0] ] = $arrayTuto;
 
-				printf("There were %d Files\n\n", $step);
 
 			}
 			else{
@@ -78,11 +75,10 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
 			else{
 				$sidebarArray[$catArray][$subMenu][ $indexArray ]["ids"][] = explode(')', explode("](", explode('[', $line)[1] )[1] )[0];
 			}
-			//var_dump($line);
 		}
 	}
 }
-//		var_dump($sidebarArray);
+
 fclose($fp);
 
 
