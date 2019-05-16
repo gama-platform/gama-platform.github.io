@@ -122,7 +122,7 @@ function Download(props) {
           <header className="postHeader">
             <h1>Download</h1>
           </header>
-          <p>The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the monthly release.</p>
+          <p>The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the daily release.</p>
           <OsGrid version={siteConfig.downloadVersion} zipName={siteConfig.zipName} />
 
         </div>
