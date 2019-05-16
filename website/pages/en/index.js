@@ -152,6 +152,9 @@ class Index extends React.Component {
         .fLeft,   .fRight  > div {
           float: right;
         }
+        .promoSection .promoRow .pluginRowBlock {
+          justify-content: flex-start !important;
+        }
         .fRight {
           padding-right: 71px;
         }
@@ -172,9 +175,6 @@ class Index extends React.Component {
             height: 100%;
             max-height: 250px;
           }
-          .fLeft,   .fRight {
-            padding: 0;
-          }
         }
 
         @media only screen and (max-device-width: 736px) {
@@ -192,6 +192,7 @@ class Index extends React.Component {
             flex-wrap: wrap;
           }
           .fLeft,   .fRight {
+            padding: 0;
             width: auto;
             margin: 0 auto;
           }
