@@ -1,4 +1,4 @@
-# gama-platform.github.io
+# gama-platform.github.io 
 
 Welcome in the Gama-Platform web documentation.
 
