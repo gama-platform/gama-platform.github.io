@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+# gama-platform.github.io 
+
+Welcome in the Gama-Platform web documentation.
+
+This repository is composed of 2 branches : `master` and `sources`.
+
+# WARNING !!
+
+If you're on the `master` branch, keep in mind that your modifications will be erase with the next Travis CI commit (every 24 hours).
+
+If you want to modify the website, go to the `sources` branch and make your change in this branch :)
+=======
 # gama-platform.github.io - `sources` branch
 
 On this branch, you have all the sources from the website [_gama-platform.github.io_](gama-platform.github.io) which is the documentation of the _Gama-Platform_.
@@ -138,3 +151,4 @@ See also the list of [contributors](https://github.com/gama-platform/gama-platfo
 ## License
 
 This project is licensed under the GPL3 License - see the [LICENSE.md](https://github.com/gama-platform/gama-platform.github.io/blob/sources/LICENSE) file for details
+>>>>>>> 56bc5987fdfea42d9777b1a3582ac51812160aa3
