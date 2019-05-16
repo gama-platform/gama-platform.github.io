@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Ville 5 · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Ville 5 · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Ville 5</h1></header><article><div><span><p>_Author : _</p>
+<p>Creation of buildings and roads thanks to a shape file. The color of the building depends on the type of the building, while the color of a house depend on its income. People among the world will try to find the best building according to the mean income of their neighbors and their own income, but also to their working place. This model add a new display showing the &quot;color&quot; of each building according to the mean income of its residents</p>
+<p>Code of the model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> ville
+
+<span class="hljs-class">global </span>{
+    <span class="hljs-literal">file</span> shape_file_batiments &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/batiments.shp"</span>);
+    <span class="hljs-literal">file</span> shape_file_routes &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/routes.shp"</span>);
+    <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_routes);
+    <span class="hljs-literal">graph</span>&lt;<span class="hljs-literal">point</span>, route&gt; reseau_route;
+    
+    init {
+        create route from: shape_file_routes;
+        reseau_route &lt;- as_edge_graph(route);
+        create batiment from: shape_file_batiments with: [type:: <span class="hljs-literal">string</span>(read(<span class="hljs-string">"NATURE"</span>))];
+        create foyer number: 500;
+    }
+} 
+
+<span class="hljs-class">species <span class="hljs-title">foyer</span> </span>{
+    <span class="hljs-literal">float</span> revenu &lt;- gauss(1500, 500);
+    <span class="hljs-literal">bool</span> est_satisfait update: calculer_satisfaction();
+    batiment habitation;
+    batiment lieu_travail;
+    init {
+        lieu_travail &lt;- one_of(batiment where (each.type = <span class="hljs-string">"Industrial"</span>));
+        habitation &lt;- choisir_batiment(); 
+        do emmenager;
+    }
+    <span class="hljs-literal">bool</span> calculer_satisfaction {
+        <span class="hljs-literal">list</span>&lt;foyer&gt; voisins &lt;- foyer at_distance 50.0;
+        <span class="hljs-literal">float</span> revenu_moyen &lt;- mean(voisins collect (each.revenu));
+        return empty(voisins) or (revenu_moyen &gt; (revenu * 0.7) and revenu_moyen &lt; (revenu / 0.7));
+    }
+    action emmenager {
+        habitation.capacite &lt;- habitation.capacite - 1;
+        habitation.foyers &lt;&lt; self;
+        location &lt;- any_location_in(habitation.shape) + {0,0, habitation.hauteur};
+    }
+    action demenager {
+        habitation.capacite &lt;- habitation.capacite + 1;
+        remove self from: habitation.foyers;
+    }
+    batiment choisir_batiment {
+        return one_of(batiment where ((each.capacite &gt;0) and ( each.distances[lieu_travail]&lt; 1000.0)));
+    }
+    <span class="hljs-class">reflex <span class="hljs-title">demenagement</span> <span class="hljs-title">when</span>: !<span class="hljs-title">est_satisfait</span> </span>{
+        do demenager;
+        habitation &lt;- choisir_batiment();
+        do emmenager;
+    }
+    aspect revenu {
+        <span class="hljs-literal">int</span> val &lt;- <span class="hljs-literal">int</span>(255 * (revenu / 3000));
+        draw sphere(5) color: <span class="hljs-literal">rgb</span>(255 - val, val, 0);
+    }
+}
+<span class="hljs-class">species <span class="hljs-title">batiment</span> </span>{
+    <span class="hljs-literal">string</span> type;
+    <span class="hljs-literal">int</span> capacite &lt;- type = <span class="hljs-string">"Industrial"</span> ? 0 : <span class="hljs-literal">int</span>(shape.area / 70.0);
+    <span class="hljs-literal">map</span>&lt;batiment,<span class="hljs-literal">float</span>&gt; distances;
+    <span class="hljs-literal">int</span> hauteur &lt;- 5 + rnd(10);
+    <span class="hljs-literal">list</span>&lt;foyer&gt; foyers ;
+    <span class="hljs-literal">float</span> revenu_moyen update: empty(foyer) ? 0.0 : mean (foyers collect each.revenu);
+    init {
+        loop bat over: batiment where (each.type = <span class="hljs-string">"Industrial"</span>) {
+            put (<span class="hljs-literal">topology</span>(reseau_route) distance_between [self,bat]) at: bat in: distances;
+        }
+    }
+    aspect geometrie {
+        draw shape color: type = <span class="hljs-string">"Industrial"</span> ? #pink : #gray depth: hauteur;
+    }
+    aspect information_foyer {
+        draw shape color: type = <span class="hljs-string">"Industrial"</span> ? #pink : (empty(foyers) ? #gray : <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - (revenu_moyen / 3000))), <span class="hljs-literal">int</span>(255 * (revenu_moyen / 3000)), 0)) depth: length(foyers);
+    }
+}
+<span class="hljs-class">species <span class="hljs-title">route</span> </span>{
+    aspect geometrie {
+        draw shape color: #black;
+    }
+}
+<span class="hljs-class">experiment <span class="hljs-title">ville</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    output {
+        <span class="hljs-class">display <span class="hljs-title">carte_principale</span> <span class="hljs-title">type</span>: <span class="hljs-title">java2D</span> </span>{
+            <span class="hljs-class">species <span class="hljs-title">batiment</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geometrie</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">route</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geometrie</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">foyer</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">revenu</span>;</span>
+        }
+        <span class="hljs-class">display <span class="hljs-title">carte_batiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
+            <span class="hljs-class">species <span class="hljs-title">batiment</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">information_foyer</span>;</span>
+        }
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

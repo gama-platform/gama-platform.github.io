@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Using Equations · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="GAMA"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Using Equations · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="GAMA"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Learn GAML step by step</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Home<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Home">Home</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Overview">Introduction</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Changes from 1.6.1 to 1.8<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/New-Version-Changes">New-Version-Changes</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Platform<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/PlatformDocumentation">Platform</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Installation and Launching</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/InstallationAndLaunching">Installation and Launching</a></li><li class="navListItem"><a class="navItem" href="/wiki/Installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/wiki/Launching">Launching GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Headless">Headless Mode</a></li><li class="navListItem"><a class="navItem" href="/wiki/Updating">Updating GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/InstallingPlugins">Installing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/Troubleshooting">Troubleshooting</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Workspace, Projects and Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/WorkspaceProjectsAndModels">Workspace, Projects and Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/NavigatingWorkspace">Navigating in the Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/ChangingWorkspace">Changing Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/ImportingModels">Importing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Editing Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/EditingModels">Editing models</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamlEditorGeneralities">The GAML Editor - Generalities</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamlEditorToolbar">The GAML Editor Toolbar</a></li><li class="navListItem"><a class="navItem" href="/wiki/ValidationOfModels">Validation of Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Running Experiments</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/RunningExperiments">Running Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/LaunchingExperiments">Launching Experiments from the User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExperimentsUserInterface">Experiments User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/MenusAndCommands">Menus and Commands</a></li><li class="navListItem"><a class="navItem" href="/wiki/ParametersView">Parameters View</a></li><li class="navListItem"><a class="navItem" href="/wiki/InspectorsAndMonitors">Inspectors and monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/Displays">Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/BatchSpecific">Batch Specific UI</a></li><li class="navListItem"><a class="navItem" href="/wiki/ErrorsView">Errors View</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/Preferences">Preferences</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn GAML step by step<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/LearnGAMLStepByStep">Learn GAML Step by Step</a></li><li class="navListItem"><a class="navItem" href="/wiki/Introduction">Introduction</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Start with GAML</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/StartWithGAML">Start with GAML</a></li><li class="navListItem"><a class="navItem" href="/wiki/ModelOrganization">Organization of a model</a></li><li class="navListItem"><a class="navItem" href="/wiki/BasicProgrammingConceptsInGAML">Basic programming concepts in GAML</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Manipulate basic Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/ManipulateBasicSpecies">Manipulate basic species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GlobalSpecies">The global species</a></li><li class="navListItem"><a class="navItem" href="/wiki/RegularSpecies">Regular species</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningActionsAndBehaviors">Defining actions and behaviors</a></li><li class="navListItem"><a class="navItem" href="/wiki/InteractionBetweenAgents">Interaction between agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/AttachingSkills">Attaching Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/Inheritance">Inheritance</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining Advanced Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/DefiningAdvancedSpecies">Defining advanced species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GridSpecies">Grid Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/GraphSpecies">Graph Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/MirrorSpecies">Mirror species</a></li><li class="navListItem"><a class="navItem" href="/wiki/MultiLevelArchitecture">Multi-level architecture</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining GUI Experiment</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/DefiningGUIExperiment">Defining GUI Experiment</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningParameters">Defining Parameters</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningDisplaysGeneralities">Defining displays (Generalities)</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningCharts">Defining Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/Defining3DDisplays">Defining 3D Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningMonitorsAndInspectors">Defining monitors and inspectors</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningExportFiles">Defining export files</a></li><li class="navListItem"><a class="navItem" href="/wiki/DefiningUserInteraction">Defining user interaction</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Exploring Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/ExploringModels">Exploring Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/RunSeveralSimulations">Run Several Simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/BatchExperiments">Defining Batch Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExplorationMethods">Exploration Methods</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Optimizing Model Section</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/OptimizingModelsSection">Optimizing Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/RuntimeConcepts">Runtime Concepts</a></li><li class="navListItem"><a class="navItem" href="/wiki/OptimizingModels">Optimizing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Multi-Paradigm Modeling</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/MultiParadigmModeling">Multi-Paradigm Modeling</a></li><li class="navListItem"><a class="navItem" href="/wiki/ControlArchitecture">Control Architectures</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/Equations">Using Equations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Recipes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Recipes">Recipes</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateOSMDatas">Manipulate OSM Datas</a></li><li class="navListItem"><a class="navItem" href="/wiki/Diffusion">Implementing diffusion</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingDatabase">Using Database Access</a></li><li class="navListItem"><a class="navItem" href="/wiki/CallingR">CallingR</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingFIPAACL">Using FIPA ACL</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamAnalyzer">Using GAMAnalyzer</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingBDI">Using BDI</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingDrivingSkill">Advanced Driving Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateDates">Manipulate Dates</a></li><li class="navListItem"><a class="navItem" href="/wiki/ManipulateLight">Implementing light</a></li><li class="navListItem"><a class="navItem" href="/wiki/Comodel">Using Comodel</a></li><li class="navListItem"><a class="navItem" href="/wiki/Save-and-restore-simulations">Save and Restore simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/UsingNetwork">Using network</a></li><li class="navListItem"><a class="navItem" href="/wiki/Headless-mode-for-dummies">Headless-mode-for-dummies</a></li><li class="navListItem"><a class="navItem" href="/wiki/G__GraphicalEditor">The Graphical Editor</a></li><li class="navListItem"><a class="navItem" href="/wiki/FAQ">FAQ (Frequently Asked Questions)</a></li><li class="navListItem"><a class="navItem" href="/wiki/KnownIssues">Known issues</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">GAML References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/GamlReference">GAML References</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Built-in Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/BuiltInSpecies">Built-in Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/AgentBuiltIn">The &#x27;agent&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/ModelBuiltIn">The &#x27;model&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/ExperimentBuiltIn">The &#x27;experiment&#x27; built-in species (Under Construction)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/BuiltInSkills">Built-in Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/BuiltInArchitectures">Built-in Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/Statements">Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/DataTypes">Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/FileTypes">File Types</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Expressions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/Expressions">Expressions</a></li><li class="navListItem"><a class="navItem" href="/wiki/Literals">Literals</a></li><li class="navListItem"><a class="navItem" href="/wiki/UnitsAndConstants">Units and constants</a></li><li class="navListItem"><a class="navItem" href="/wiki/PseudoVariables">Pseudo-variables</a></li><li class="navListItem"><a class="navItem" href="/wiki/VariablesAndAttributes">Variables and Attributes</a></li><li class="navListItem"><a class="navItem" href="/wiki/OperatorsAA">Operators (A to A)</a></li><li class="navListItem"><a class="navItem" href="/wiki/OperatorsBC">Operators (B to C)</a></li><li class="navListItem"><a class="navItem" href="/wiki/OperatorsDH">Operators (D to H)</a></li><li class="navListItem"><a class="navItem" href="/wiki/OperatorsIM">Operators (I to M)</a></li><li class="navListItem"><a class="navItem" href="/wiki/OperatorsNR">Operators (N to R)</a></li><li class="navListItem"><a class="navItem" href="/wiki/OperatorsSZ">Operators (S to Z)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/Index">Exhaustive list of GAMA Keywords</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing Extensions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/DevelopingExtensions">Developing Extensions</a></li><li class="navListItem"><a class="navItem" href="/wiki/InstallingGitVersion">Installing the GIT version</a></li><li class="navListItem"><a class="navItem" href="/wiki/GamaArchitecture">Architecture of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingPlugins">Developing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingSkills">Developing a New Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingStatements">Developing Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingOperators">Developing Operators</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingTypes">Developing Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingSpecies">Developing Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingControlArchitectures">Developing architecture</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingIndexAnnotations">Index of annotations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/developingGAMA">Get into the GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/IntroductionToGamaJavaAPI">IntroductionToGamaJavaAPI</a></li><li class="navListItem"><a class="navItem" href="/wiki/DevelopingIScope">IScope interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/CreatingAReleaseOfGama">Product your own release of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Documentation">Documentation</a></li><li class="navListItem"><a class="navItem" href="/wiki/WebsiteGeneration">How to write the Website Content</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Scientific References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/References">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Projects using GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Training Session<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/TrainingSession">Training Session</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Events<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Events">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Older versions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/OlderVersions">Versions of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/Event__CC15_Reorganization">Introduction</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Using Equations</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>ODEs (Ordinary Differential Equations) are often used in ecology or in epidemiology to describe the macroscopic evolution over time of a population. Generally the whole population is split into several compartments. The state of the population is described by the number of individuals in each compartment. Each equation of the ODE system describes the evolution of the number of individual in a compartment. In such an approach individuals are not taken into account individually, with own features and behaviors. In contrary they are aggregated in a compartment and reduced to a number.</p>
+<p>A classical example is the SIR epidemic model representing the spreading of a disease in a population. The population is split into 3 compartments: S (Susceptible), I (Infected), R (Recovered). (see below for the equation)</p>
+<p>In general the ODE systems cannot be analytically solved, i.e. it is not possible to find the equation describing the evolution of the number of S, I or R. But these systems can be numerically integrated in order to get the evolution. A numerical integration computes step after step the value of S, I and R. Several integration methods exist (e.g. Euler, Runge-Kutta...), each of them being a compromise between accuracy and computation time. The length of the integration step has also a huge impact on precision. These models are deterministic.</p>
+<p>This approach makes a lot of strong hypotheses. The model does not take into account space. The population is considered has infinite and homogeneously mixed, so that any agent can interact with any other one.</p>
+<h2><a class="anchor" aria-hidden="true" id="example-of-a-sir-model"></a><a href="#example-of-a-sir-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example of a SIR model</h2>
+<p>In the SIR model, the population is split into 3 compartments: S (Susceptible), I (Infected), R (Recovered). This can be represented by the following Forrester diagram: boxes represent stocks (i.e. compartments) and arrows are flows. Arrows hold the rate of a compartment population flowing to another compartment.</p>
+<p><img src="../resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR-compartment.png"></p>
+<p>The corresponding ODE system contains one equation per stock. For example, the I compartment evolution is influenced by an inner (so positive) flow from the S compartment and an outer (so negative) flow to the R compartment.</p>
+<p><img src="../resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR-equations.png"></p>
+<p>Integrating this system using the Runge-Kutta 4 method provides the evolution of S, I and R over time. The initial values are:</p>
+<ul>
+<li>S = 499</li>
+<li>I = 1</li>
+<li>R = 0</li>
+<li>beta = 0.4</li>
+<li>gamma = 0.1</li>
+<li>h = 0.1</li>
+</ul>
+<p><img src="../resources/images/multiParadigmModeling/SIR-result.png" alt="SIR-result.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="why-and-when-can-we-use-ode-in-agent-based-models"></a><a href="#why-and-when-can-we-use-ode-in-agent-based-models" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why and when can we use ODE in agent-based models ?</h2>
+<p>These hypotheses are very strong and cannot be fulfilled in agent-based models.</p>
+<p>But in some multi-scale models, some entities can be close. For example if we want to implement a model describing the worldwide epidemic spread and the impact of air traffic on it, we cannot simulate the 7 billions people. But we can represent only cities with airports and airplanes as agents. In this case, cities are entities with a population of millions inhabitants, that will not been spatially located. As we are only interested in the disease spread, we are only interested in the number of infected people in the cities (and susceptibles and recovered too). As a consequence, it appears particularly relevant to describe the evolution of the disease in the city using a ODE system.</p>
+<p>In addition these models have the advantage to not be sensible to population size in the integration process. Dozens or billions people does not bring a computation time increase, contrarily to agent-based models.</p>
+<h2><a class="anchor" aria-hidden="true" id="use-of-ode-in-a-gaml-model"></a><a href="#use-of-ode-in-a-gaml-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use of ODE in a GAML model</h2>
+<p>A stereotypical use of ODE in a GAMA agent-based model is to describe species where some agents attributes evolution is described using an ODE system.</p>
+<p>As a consequence, the GAML language has been increased by two main concepts (as two statements):</p>
+<ul>
+<li>equations can be written with the <code>equation</code> statement. An <code>equation</code> block is composed of a set of <code>diff</code> statement describing the evolution of species attributes.</li>
+<li>an equation can be numerically integrated using the <code>solve</code> statement</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="equation"></a><a href="#equation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation</code></h2>
+<h3><a class="anchor" aria-hidden="true" id="defining-an-ode-system"></a><a href="#defining-an-ode-system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining an ODE system</h3>
+<p>Defining a new ODE system needs to define a new <code>equation</code> block in a species. As example, the following <code>eqSI</code> system describes the evolution of a population with 2 compartments (S and I) and the flow from S to I compartment:</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">userSI</span> </span>{
+    <span class="hljs-literal">float</span> t ;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> S ; 
+    <span class="hljs-literal">int</span> N ;
+    <span class="hljs-literal">float</span> beta&lt;-0.4 ;
+    <span class="hljs-literal">float</span> h ;
+    
+    equation eqSI {
+        diff(S,t) = -beta * S * I / N ;
+        diff(I,t) = beta * S * I / N ;
+    }
+}           
+</code></pre>
+<p>This equation has to be defined in a species with <code>t</code>, <code>S</code> and <code>I</code> attributes. <code>beta</code> (and other similar parameters) can be defined either in the specific species (if it is specific to each agents) or in the <code>global</code> if it is a constant.</p>
+<p>Note: the <code>t</code> attribute will be automatically updated using the <code>solve</code> statement ; it contains the time elapsed in the equation integration.</p>
+<h3><a class="anchor" aria-hidden="true" id="using-a-built-in-ode-system"></a><a href="#using-a-built-in-ode-system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using a built-in ODE system</h3>
+<p>In order to ease the use of very classical ODE system, some built-in systems have been implemented in GAMA. For example, the previous SI system can be written as follows. Three additional facets are used to define the system:</p>
+<ul>
+<li><code>type</code>: the identifier of the built-in system (here SI) (the list of all built-in systems are described below),</li>
+<li><code>vars</code>: this facet is expecting a list of variables of the species, that will be matched with the variables of the system,</li>
+<li><code>params</code>: this facet is expecting a list of variables of the species (of of the global), that will be matched with the parameters of the system.</li>
+</ul>
+<pre><code class="hljs">equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta] ;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="split-a-system-into-several-agents"></a><a href="#split-a-system-into-several-agents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Split a system into several agents</h3>
+<p>An equation system can be split into several species and each part of the system are synchronized using the <code>simultaneously</code> facet of <code>equation</code>. The system split into several agents can be integrated using a single call to the <code>solve</code> statement. Notice that all the <code>equation</code> definition must have the same name.</p>
+<p>For example the SI system presented above can be defined in two different species <code>S_agt</code> (containing the equation defining the evolution of the S value) and <code>I_agt</code> (containing the equation defining the evolution of the I value). These two equations are linked using the <code>simultaneously</code> facet of the <code>equation</code> statement. This facet expects a set of agents. The integration is called only once in a simulation step, e.g. in the <code>S_agt</code> agent.</p>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">S_agt</span> </span>{
+    <span class="hljs-literal">float</span> t ;       
+    <span class="hljs-literal">float</span> Ssize ;
+    
+    equation evol simultaneously: [ I_agt ] {
+        diff(Ssize, t) = (- sum(I_agt accumulate [each.beta * each.Isize]) * self.Ssize / N);
+    }
+    
+    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve evol method : rk4 step : hKR4 ;}  
+}
+
+<span class="hljs-class">species <span class="hljs-title">I_agt</span> </span>{
+    <span class="hljs-literal">float</span> t ;
+    <span class="hljs-literal">float</span> Isize ; <span class="hljs-comment">// number of infected </span>
+    <span class="hljs-literal">float</span> beta ;
+
+    equation evol simultaneously : [ S_agt ] {
+        diff(Isize, t) = (beta * first(S_agt).Ssize * Isize / N);
+    }
+}
+</code></pre>
+<p>The interest is that the modeler can create several agents for each compartment, which different values. For example in the SI model, the modeler can choose to create 1 agent <code>S_agt</code> and 2 agents <code>I_agt</code>. The <code>beta</code> attribute will have different values in the two agents, in order to represent 2 different strains.</p>
+<pre><code class="hljs"><span class="hljs-class">global </span>{
+    <span class="hljs-literal">int</span> number_S &lt;- 495 ; <span class="hljs-comment">// The number of susceptible</span>
+    <span class="hljs-literal">int</span> number_I &lt;- 5   ; <span class="hljs-comment">// The number of infected</span>
+    <span class="hljs-literal">int</span> nb_I &lt;- 2;
+    <span class="hljs-literal">float</span> gbeta  &lt;- 0.3  ; <span class="hljs-comment">// The parameter Beta</span>
+    
+    <span class="hljs-literal">int</span> N &lt;- number_S + nb_I * number_I ;
+    <span class="hljs-literal">float</span> hKR4 &lt;- 0.1 ;
+
+    init {
+        create S_agt {
+            Ssize &lt;- <span class="hljs-literal">float</span>(number_S) ;
+        }
+        create I_agt number: nb_I {
+            Isize &lt;- <span class="hljs-literal">float</span>(number_I) ;
+            self.beta &lt;- myself.gbeta + rnd(0.5) ;
+        }
+    }
+}
+</code></pre>
+<p>The results are computed using the RK4 method with:</p>
+<ul>
+<li>number_S = 495</li>
+<li>number_I = 5</li>
+<li>nb_I = 2</li>
+<li>gbeta = 0.3</li>
+<li>hKR4 = 0.1</li>
+</ul>
+<p><img src="../resources/images/multiParadigmModeling/SI-split-results.png" alt="SI-split-results.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="solve-an-equation"></a><a href="#solve-an-equation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>solve</code> an equation</h2>
+<p>The <code>solve</code> statement has been added in order to integrate numerically the equation system. It should be add into a reflex. At each simulation step, a step of the integration is executed, the length of the integration step is defined in the <code>step</code> facet. The <code>solve</code> statement will update the variables used in the equation system. The chosen integration method (defined in <code>method</code>) is Runge-Kutta 4 (which is very often a good choice of integration method in terms of accuracy).</p>
+<pre><code class="hljs"><span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{
+    solve eqSI method:rk4 step:h;
+}
+</code></pre>
+<p>With a smaller integration step, the integration will be faster but less accurate.</p>
+<h2><a class="anchor" aria-hidden="true" id="more-details"></a><a href="#more-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>More details</h2>
+<h3><a class="anchor" aria-hidden="true" id="details-about-the-solve-statement"></a><a href="#details-about-the-solve-statement" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Details about the <code>solve</code> statement</h3>
+<p>The <code>solve</code> statement can have a huge set of facets (see [S_Statements#solve] for more details). The basic use of the <code>solve</code> statement requiers only the equation identifier. By default, the integration method is Runge-Kutta 4 with an integration step of <code>1</code>, which means that at each simulation step the equation integration is made over 1 unit of time (which is implicitly defined by the system parameter value).</p>
+<pre><code class="hljs">solve eqSI ;
+</code></pre>
+<p>2 integration methods can be used:</p>
+<ul>
+<li><code>method: rk4</code> will use <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">the Runge-Kutta 4 integration method</a></li>
+<li><code>method: dp853</code> will use <a href="https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method">the Dorman-Prince 8(5,3) integration method</a>. The advantage of this method compared to Runge-Kutta is that it has an evaluation of the error and can use it to adapt the integration step size.</li>
+</ul>
+<p>In order to synchronize the simulation step and the equation integration step, 2 facets can be used:</p>
+<ul>
+<li><code>step: number</code></li>
+<li><code>cycle_length: number</code></li>
+</ul>
+<p>cycle_length (int): length of simulation cycle which will be synchronize with step of integrator (default value: 1)
+step (float): integration step, use with most integrator methods (default value: 1)</p>
+<p>time_final (float): target time for the integration (can be set to a value smaller than t0 for backward integration)
+time_initial (float): initial time
+discretizing_step (int): number of discret beside 2 step of simulation (default value: 0)
+integrated_times (list): time interval inside integration process
+integrated_values (list): list of variables's value inside integration process</p>
+<p>Some facets are specific to the DP853 integration methods: <code>max_step</code>, <code>min_step</code>, <code>scalAbsoluteTolerance</code> and <code>scalRelativeTolerance</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="example-of-the-influence-of-the-integration-step"></a><a href="#example-of-the-influence-of-the-integration-step" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example of the influence of the integration step</h3>
+<p>The <code>step</code> and <code>cycle_length</code> facets of the integration method may have a huge influence on the results. <code>step</code> has an impact on the result accuracy. In addition, it is possible to synchronize the step of the (agent-based) simulation and the (equation) integration step in various ways (depending on the modeler purpose) using the <code>cycle_length</code> facet: e.g. <code>cycle_length: 10</code> means that 10 simulation steps are equivalent to 1 unit of time of the integration method.</p>
+<ul>
+<li><p><code>solve SIR method: &quot;rk4&quot; step: 1.0 cycle_length: 1.0 ;</code>
+<img src="../resources/images/multiParadigmModeling/SIR-results-h1.png" alt="SIR-results-h1.png"></p></li>
+<li><p><code>solve SIR method: &quot;rk4&quot; step: 0.1 cycle_length: 10.0 ;</code>
+<img src="../resources/images/multiParadigmModeling/SIR-results-h0.1.png" alt="SIR-results-h0.1.png"></p></li>
+<li><p><code>solve SIR method: &quot;rk4&quot; step: 0.01 cycle_length: 100.0 ;</code>
+<img src="../resources/images/multiParadigmModeling/SIR-results-h0.01.png" alt="SIR-results-h0.01.png"></p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="list-of-built-in-ode-systems"></a><a href="#list-of-built-in-ode-systems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>List of built-in ODE systems</h3>
+<p>Several built-in equations have been defined.</p>
+<h4><a class="anchor" aria-hidden="true" id="equation-eqbuiltinsi-type-si-vars-s-i-t-params-n-beta"></a><a href="#equation-eqbuiltinsi-type-si-vars-s-i-t-params-n-beta" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta];</code></h4>
+<p>This system is equivalent to:</p>
+<pre><code class="hljs">equation eqSI {
+    diff(S,t) = -beta * S * I / N ;
+    diff(I,t) = beta * S * I / N ;
+}
+</code></pre>
+<p><img src="../resources/images/multiParadigmModeling/SI-compartment.png" alt="SI-compartment.png"></p>
+<p><img src="../resources/images/multiParadigmModeling/SI-equations.png" alt="SI-equations.png"></p>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
+<ul>
+<li>S = 499</li>
+<li>I = 1</li>
+<li>beta = 0.4</li>
+<li>h = 0.1</li>
+</ul>
+<p><img src="../resources/images/multiParadigmModeling/SI-result.png" alt="SI-result.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="equation-eqsis-type-sis-vars-s-i-t-params-n-beta-gamma"></a><a href="#equation-eqsis-type-sis-vars-s-i-t-params-n-beta-gamma" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqSIS type: SIS vars: [S,I,t] params: [N,beta,gamma];</code></h4>
+<p>This system is equivalent to:</p>
+<pre><code class="hljs">equation eqSIS {
+    diff(S,t) = -beta * S * I / N + gamma * I;
+    diff(I,t) = beta * S * I / N - gamma * I;
+}
+</code></pre>
+<p><img src="../resources/images/multiParadigmModeling//SIS-compartment.png" alt="SIS-compartment.png"></p>
+<p><img src="../resources/images/multiParadigmModeling/SIS-equations.png" alt="SIS-equations.png"></p>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
+<ul>
+<li>S = 499</li>
+<li>I = 1</li>
+<li>beta = 0.4</li>
+<li>gamma = 0.1</li>
+<li>h = 0.1</li>
+</ul>
+<p><img src="../resources/images/multiParadigmModeling/SIS-result.png" alt="SIS-result.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="equation-eqsir-type-sir-vars-s-i-r-t-params-n-beta-gamma"></a><a href="#equation-eqsir-type-sir-vars-s-i-r-t-params-n-beta-gamma" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqSIR type:SIR vars:[S,I,R,t] params:[N,beta,gamma] ;</code></h4>
+<p>This system is equivalent to:</p>
+<pre><code class="hljs">equation eqSIR {
+    diff(S,t) = (- beta * S * I / N);
+    diff(I,t) = (beta * S * I / N) - (gamma * I);
+    diff(R,t) = (gamma * I);
+}
+</code></pre>
+<p><img src="../resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR-compartment.png"></p>
+<p><img src="../resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR-equations.png"></p>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
+<ul>
+<li>S = 499</li>
+<li>I = 1</li>
+<li>R = 0</li>
+<li>beta = 0.4</li>
+<li>gamma = 0.1</li>
+<li>h = 0.1</li>
+</ul>
+<p><img src="../resources/images/multiParadigmModeling/SIR-result.png" alt="SIR-result.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="equation-eqsirs-type-sirs-vars-s-i-r-t-params-n-beta-gamma-omega-mu"></a><a href="#equation-eqsirs-type-sirs-vars-s-i-r-t-params-n-beta-gamma-omega-mu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqSIRS type: SIRS vars: [S,I,R,t] params: [N,beta,gamma,omega,mu] ;</code></h4>
+<p>This system is equivalent to:</p>
+<pre><code class="hljs">equation eqSIRS {
+     diff(S,t) = mu * N + omega * R + - beta * S * I / N - mu * S ;
+     diff(I,t) = beta * S * I / N - gamma * I - mu * I ;
+     diff(R,t) = gamma * I - omega * R - mu * R ;
+}
+</code></pre>
+<p><img src="../resources/images/multiParadigmModeling/SIRS-compartment.png" alt="SIRS-compartment.png"></p>
+<p><img src="../resources/images/multiParadigmModeling/SIRS-equations.png" alt="SIRS-equations.png"></p>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
+<ul>
+<li>S = 499</li>
+<li>I = 1</li>
+<li>R = 0</li>
+<li>beta = 0.4</li>
+<li>gamma = 0.01</li>
+<li>omega = 0.05</li>
+<li>mu = 0.01</li>
+<li>h = 0.1</li>
+</ul>
+<p><img src="../resources/images/multiParadigmModeling/SIRS-result.png" alt="SIRS-result.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="equation-eqseir-type-seir-vars-s-e-i-r-t-params-n-beta-gamma-sigma-mu"></a><a href="#equation-eqseir-type-seir-vars-s-e-i-r-t-params-n-beta-gamma-sigma-mu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqSEIR type: SEIR vars: [S,E,I,R,t] params: [N,beta,gamma,sigma,mu] ;</code></h4>
+<p>This system is equivalent to:</p>
+<pre><code class="hljs">equation eqSEIR {
+    diff(S,t) = mu * N - beta * S * I / N - mu * S ;
+    diff(E,t) = beta * S * I / N - mu * E - sigma * E ;
+    diff(I,t) = sigma * E - mu * I - gamma * I;
+    diff(R,t) = gamma * I - mu * R ;
+}
+</code></pre>
+<p><img src="../resources/images/multiParadigmModeling/SEIR-compartment.png" alt="SEIR-compartment.png"></p>
+<p><img src="../resources/images/multiParadigmModeling/SEIR-equations.png" alt="SEIR-equations.png"></p>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
+<ul>
+<li>S = 499</li>
+<li>E = 0</li>
+<li>I = 1</li>
+<li>R = 0</li>
+<li>beta = 0.4</li>
+<li>gamma = 0.01</li>
+<li>sigma = 0.05</li>
+<li>mu = 0.01</li>
+<li>h = 0.1</li>
+</ul>
+<p><img src="../resources/images/multiParadigmModeling/SEIR-result.png" alt="SEIR-result.png"></p>
+<h4><a class="anchor" aria-hidden="true" id="equation-eqlv-type-lv-vars-x-y-t-params-alpha-beta-delta-gamma"></a><a href="#equation-eqlv-type-lv-vars-x-y-t-params-alpha-beta-delta-gamma" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqLV type: LV vars: [x,y,t] params: [alpha,beta,delta,gamma] ;</code></h4>
+<p>This system is equivalent to:</p>
+<pre><code class="hljs">equation eqLV { 
+    diff(x,t) =   x * (alpha - beta * y);
+    diff(y,t) = - y * (delta - gamma * x);
+}   
+</code></pre>
+<p><img src="../resources/images/multiParadigmModeling/LV-equations.png" alt="LV-equations.png"></p>
+<p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
+<ul>
+<li>x = 2</li>
+<li>y = 2</li>
+<li>alpha = 0.8</li>
+<li>beta = 0.3</li>
+<li>gamma = 0.2</li>
+<li>delta = 0.85</li>
+<li>h = 0.1</li>
+</ul>
+<p><img src="../resources/images/multiParadigmModeling/LV-result.png" alt="LV-result.png"></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/ControlArchitecture"><span class="arrow-prev">← </span><span>Control Architectures</span></a><a class="docs-next button" href="/wiki/Recipes"><span>Recipes</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#example-of-a-sir-model">Example of a SIR model</a></li><li><a href="#why-and-when-can-we-use-ode-in-agent-based-models">Why and when can we use ODE in agent-based models ?</a></li><li><a href="#use-of-ode-in-a-gaml-model">Use of ODE in a GAML model</a></li><li><a href="#equation"><code>equation</code></a><ul class="toc-headings"><li><a href="#defining-an-ode-system">Defining an ODE system</a></li><li><a href="#using-a-built-in-ode-system">Using a built-in ODE system</a></li><li><a href="#split-a-system-into-several-agents">Split a system into several agents</a></li></ul></li><li><a href="#solve-an-equation"><code>solve</code> an equation</a></li><li><a href="#more-details">More details</a><ul class="toc-headings"><li><a href="#details-about-the-solve-statement">Details about the <code>solve</code> statement</a></li><li><a href="#example-of-the-influence-of-the-integration-step">Example of the influence of the integration step</a></li><li><a href="#list-of-built-in-ode-systems">List of built-in ODE systems</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

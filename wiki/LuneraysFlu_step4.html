@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>4. Use of a graph to constraint the movements of people · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;This fourth step illustrates how to use a graph to constraint the movements of agents&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="4. Use of a graph to constraint the movements of people · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="&lt;p&gt;This fourth step illustrates how to use a graph to constraint the movements of agents&lt;/p&gt;
+"/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class="siteNavGroupActive"><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Luneray&#x27;s flu</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tutorials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/Tutorials">Tutorials</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Predator Prey<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey">Predator Prey</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step2">2. Vegetation Dynamic</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step3">3. Prey Agent Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step4">4. Inspectors and Monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step5">5. Predator Agent</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step6">6. Breeding</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step7">7. Agent Aspect</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step8">8. Complex Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step9">9. Stopping condition</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step10">10. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step11">11. Writing Files</a></li><li class="navListItem"><a class="navItem" href="/wiki/PredatorPrey_step12">12. Image loading</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Road Traffic<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel">Road Traffic</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step1">1. Loading of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step2">2. People Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step3">3. Movement of People</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step4">4. Weight for Road Network</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step5">5. Dynamic weights</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step6">6. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/RoadTrafficModel_step7">7. Automatic Road Repair</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">3D Tutorial<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/ThreeD">3D Tutorial</a></li><li class="navListItem"><a class="navItem" href="/wiki/ThreeD_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/ThreeD_step2">2. Moving Cells</a></li><li class="navListItem"><a class="navItem" href="/wiki/ThreeD_step3">3. Connections</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Incremental Model<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel">Incremental Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step1">1. Simple SI Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step2">2. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step3">3. Integration of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step4">4. Movement on Graph</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step5">5. Visualizing in 3D</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step6">6. Multi-Level</a></li><li class="navListItem"><a class="navItem" href="/wiki/IncrementalModel_step7">7. Differential Equations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Luneray&#x27;s flu<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu">Luneray&#x27;s flu</a></li><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu_step1">1. Creation of a first basic disease spreading model</a></li><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu_step2">2. Definition of monitors and chart outputs</a></li><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu_step3">3. Importation of GIS data</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/LuneraysFlu_step4">4. Use of a graph to constraint the movements of people</a></li><li class="navListItem"><a class="navItem" href="/wiki/LuneraysFlu_step5">5. Definition of 3D displays</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Co-modeling<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/CoModelingTutorial">Co-modeling tutorial</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">BDI Agents<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents">BDI Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents_step1">1. Skeleton model</a></li><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents_step2">2. BDI Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents_step3">3. Social relation</a></li><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents_step4">4. Emotions and Personality</a></li><li class="navListItem"><a class="navItem" href="/wiki/BDIAgents_step5">5. Norms, obligation and enforcement</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">4. Use of a graph to constraint the movements of people</h1></header><article><div><span><p>This fourth step illustrates how to use a graph to constraint the movements of agents</p>
+<p><img src="../resources/images/tutorials/luneray4.png" alt="images/luneray4.png"></p>
+<h2><a class="anchor" aria-hidden="true" id="formulation"></a><a href="#formulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formulation</h2>
+<ul>
+<li>Define a new global variable: the road network (graph).</li>
+<li>Build the road network graph from the road agents</li>
+<li>Add new attribute to the people agents (target)</li>
+<li>Define a new reflex for people agents: stay.</li>
+<li>Modify the move reflex of the people agents.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
+<h3><a class="anchor" aria-hidden="true" id="global-section"></a><a href="#global-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global section</h3>
+<h4><a class="anchor" aria-hidden="true" id="global-variables"></a><a href="#global-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global variables</h4>
+<p>In this model, we want that people agents move from buildings to buildings by using the shortest path in the road network. In order to compute this shortest path, we need to use a graph structure.</p>
+<p>We thus define a new global variable called <em>road_network</em> of type <em>graph</em> that will represent the road network.</p>
+<pre><code class="hljs"><span class="hljs-class">global</span>{
+    <span class="hljs-comment">//... other attributes</span>
+    <span class="hljs-literal">graph</span> road_network;
+    
+    <span class="hljs-comment">//... init</span>
+}
+</code></pre>
+<p>In order to compute the graph from the road network, we use, just after having creating the road agents, the <a href="Operators#as_edge_graph">as_edge_graph</a> operator. This operator automatically built a graph from a set of polylines. Each extremity point of the lines will become a node in the graph, and each polyline an edge. By default, the graph is not oriented and the weights of the edges are the perimeters of the polylines. It is of course possible to change through the use of some operators.</p>
+<pre><code class="hljs"><span class="hljs-class">global </span>{
+    <span class="hljs-comment">// world variable definition</span>
+
+    init{
+        create road from: roads_shapefile;
+        road_network &lt;- as_edge_graph(road);        
+        create building from: buildings_shapefile;
+        create people number:nb_people {
+            location &lt;- any_location_in(one_of(building));              
+        }
+        ask nb_infected_init among people {
+            is_infected &lt;- true;
+        }
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="people-species"></a><a href="#people-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>people species</h3>
+<p>We want to modify the behavior of the people agents in order to make them move from buildings to buildings by using the shortest path in the road network.</p>
+<h3><a class="anchor" aria-hidden="true" id="variables"></a><a href="#variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>variables</h3>
+<p>In order to implement this behavior, we will add two variables to our people species:</p>
+<ul>
+<li><em>target</em> of type <em>point</em> that will be the location where the agent wants to go</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{
+    <span class="hljs-comment">//...the other attributes</span>
+    <span class="hljs-literal">point</span> target;
+    <span class="hljs-comment">//....</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="behavior"></a><a href="#behavior" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>behavior</h3>
+<p>First, we add a new reflex called <em>stay</em> that will be activated when the agent is in a house (i.e. its target is null) and that will define with a probability of 0.05 if the agent has to go or not. If the agent has to go, it will randomly choose a new target (a random location inside one of the building).</p>
+<pre><code class="hljs"><span class="hljs-class">reflex <span class="hljs-title">stay</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> = <span class="hljs-title">nil</span> </span>{
+    <span class="hljs-keyword">if</span> flip(0.05) {
+        target &lt;- any_location_in (one_of(building));
+    }
+}
+</code></pre>
+<p>Then, we modify the <em>move</em> reflex. This one will be only activated when the agent will have to move (target not null). Instead of using the <em>wander</em> action of the <em>moving</em> skill, we use the <em>goto</em> one that allows to make an agent moves toward a given target. In addition, it is possible to add a facet <em>on</em> to precise on which topology the agent will have to move on. In our case, the topology is the road network.
+When the agent reach its destination (location = target), it sets its target to null.</p>
+<pre><code class="hljs"><span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> != <span class="hljs-title">nil</span></span>{
+    do goto target:target on: road_network;
+    <span class="hljs-keyword">if</span> (location = target) {
+        target &lt;- nil;
+    } 
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> model4 
+
+<span class="hljs-class">global </span>{
+    <span class="hljs-literal">int</span> nb_people &lt;- 2147;
+    <span class="hljs-literal">int</span> nb_infected_init &lt;- 5;
+    <span class="hljs-literal">float</span> step &lt;- 5 #mn;
+    <span class="hljs-literal">file</span> roads_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/roads.shp"</span>);
+    <span class="hljs-literal">file</span> buildings_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/buildings.shp"</span>);
+    <span class="hljs-literal">geometry</span> shape &lt;- envelope(roads_shapefile);    
+    <span class="hljs-literal">graph</span> road_network;
+    
+    
+    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
+    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
+    <span class="hljs-literal">float</span> infected_rate update: nb_people_infected/nb_people;
+    
+    
+    init{
+        create road from: roads_shapefile;
+        road_network &lt;- as_edge_graph(road);        
+        create building from: buildings_shapefile;
+        create people number:nb_people {
+            location &lt;- any_location_in(one_of(building));              
+        }
+        ask nb_infected_init among people {
+            is_infected &lt;- true;
+        }
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+    <span class="hljs-literal">float</span> speed &lt;- (2 + rnd(3)) #km/#h;
+    <span class="hljs-literal">bool</span> is_infected &lt;- false;
+    <span class="hljs-literal">point</span> target;
+    
+    <span class="hljs-class">reflex <span class="hljs-title">stay</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> = <span class="hljs-title">nil</span> </span>{
+        <span class="hljs-keyword">if</span> flip(0.05) {
+            target &lt;- any_location_in (one_of(building));
+        }
+    }
+        
+    <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> != <span class="hljs-title">nil</span></span>{
+        do goto target:target on: road_network;
+        <span class="hljs-keyword">if</span> (location = target) {
+            target &lt;- nil;
+        } 
+    }
+
+    <span class="hljs-class">reflex <span class="hljs-title">infect</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_infected</span></span>{
+        ask people at_distance 10 #m {
+            <span class="hljs-keyword">if</span> flip(0.05) {
+                is_infected &lt;- true;
+            }
+        }
+    }
+    
+    aspect circle {
+        draw circle(10) color:is_infected ? #red : #green;
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">road</span> </span>{
+    aspect geom {
+        draw shape color: #black;
+    }
+}
+
+<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
+    aspect geom {
+        draw shape color: #gray;
+    }
+}
+
+<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+    parameter <span class="hljs-string">"Nb people infected at init"</span> var: nb_infected_init min: 1 max: 2147;
+
+    output {
+        monitor <span class="hljs-string">"Infected people rate"</span> value: infected_rate;
+        
+        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
+            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
+            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">circle</span>;           </span>
+        }
+        
+        <span class="hljs-class">display <span class="hljs-title">chart_display</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">every</span>(10 #<span class="hljs-title">cycle</span>) </span>{
+            chart <span class="hljs-string">"Disease spreading"</span> type: series {
+                data <span class="hljs-string">"susceptible"</span> value: nb_people_not_infected color: #green;
+                data <span class="hljs-string">"infected"</span> value: nb_people_infected color: #red;
+            }
+        }
+    }
+}
+</code></pre>
+<p><a href="LuneraysFlu_step5">Next step: Definition of 3D displays</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/LuneraysFlu_step3"><span class="arrow-prev">← </span><span>3. Importation of GIS data</span></a><a class="docs-next button" href="/wiki/LuneraysFlu_step5"><span>5. Definition of 3D displays</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#formulation">Formulation</a></li><li><a href="#model-definition">Model Definition</a><ul class="toc-headings"><li><a href="#global-section">global section</a></li><li><a href="#people-species">people species</a></li><li><a href="#variables">variables</a></li><li><a href="#behavior">behavior</a></li></ul></li><li><a href="#complete-model">Complete Model</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
