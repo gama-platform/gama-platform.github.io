@@ -46,6 +46,10 @@ html p, html li {
   display: none;
 }
 
+h4.navGroupSubcategoryTitle {
+  display: none;
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 
