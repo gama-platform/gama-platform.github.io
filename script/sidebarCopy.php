@@ -66,7 +66,7 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
 			// Create sub menu
 			$indexArray = sizeof($sidebarArray[$catArray][$subMenu]) -1;
 			if( !is_array ($sidebarArray[$catArray][$subMenu][$indexArray]) ){ 
-				$sidebarArray[$catArray][$subMenu][ $indexArray ] = array( 
+				$sidebarArray[$catArray][$subMenu][] = array( 
 					"type" => "subcategory",
 					"label" => $prevTitle,
 					"ids" => array($sidebarArray[$catArray][$subMenu][ $indexArray ], explode(')', explode("](", explode('[', $line)[1] )[1] )[0])
