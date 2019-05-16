@@ -120,10 +120,9 @@ function Download(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="post">
           <header className="postHeader">
-            <h1>Download <i>GAMA latest Release</i></h1>
+            <h1>Download</h1>
           </header>
-          <p>Choose the version that fits you the best !</p>
-          <p>You can download the GAMA software with or without an embedded JDK or the Git version from GitHub.</p>
+          <p>The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the monthly release.</p>
           <OsGrid version={siteConfig.downloadVersion} zipName={siteConfig.zipName} />
 
         </div>
@@ -131,7 +130,13 @@ function Download(props) {
           <header className="postHeader">
             <h1>Documentation</h1>
           </header>
-          <Button href={`${baseUrl}resources/pdf/docGAMAv${siteConfig.downloadVersion}.pdf`} className="button smallButton">GAMA {siteConfig.downloadVersion}</Button>
+            <FlexContainer>
+              <div className="blockElement imageAlignTop threeByGridBlock">
+                <Button href={`${baseUrl}resources/pdf/docGAMAv${siteConfig.downloadVersion}.pdf`} className="button">PDF</Button>
+              </div>
+              <div className="blockElement imageAlignTop threeByGridBlock"></div>
+              <div className="blockElement imageAlignTop threeByGridBlock"></div>
+            </FlexContainer>
         </div>
       </Container>
     </div>
