@@ -73,7 +73,7 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
 				);
 			}
 			else{
-				$sidebarArray[$catArray][$subMenu][ $indexArray ]["ids"][] = explode(')', explode("](", explode('[', $line)[1] )[1] )[0];
+				$sidebarArray[$catArray][$subMenu][ $indexArray ]["ids"][] = explode(')', explode('(', $line)[1])[0];
 			}
 		}
 	}
