@@ -90,8 +90,15 @@ function Download(props) {
         margin-bottom: 1em;
         text-align: center;
       }
+      .gridBlock {
+        text-align: center;
+      }
+      .blockImage {
+        margin: 0 auto 20px auto;
+      }
       @media only screen and (min-width: 1024px) {
-        .button { width: 50%; }
+        .button { width: 75%; }
+        .gridBlock { padding-top: 1.5em; }
       }
       @media only screen and (max-width: 1023px) { 
         .button { width: 100%; }
@@ -100,6 +107,9 @@ function Download(props) {
       .buttonGray {
         border-color: #bbb;
         color: #bbb;
+      }
+      .smallButton {
+        width: auto;
       }
     `}} />
   );
@@ -115,18 +125,13 @@ function Download(props) {
           <p>Choose the version that fits you the best !</p>
           <p>You can download the GAMA software with or without an embedded JDK or the Git version from GitHub.</p>
           <OsGrid version={siteConfig.downloadVersion} zipName={siteConfig.zipName} />
-          <div className="blockElement imageAlignTop threeByGridBlock">
-            <div class="blockContent">
-              <h2>Previous version</h2>
-                  <Button href="https://github.com/gama-platform/gama/releases" className="button buttonGray">Previous version</Button>
-            </div>
-          </div>
+
         </div>
         <div className="post">
           <header className="postHeader">
-            <h1>Download the PDF documentation</h1>
+            <h1>Documentation</h1>
           </header>
-          <Button href={`${baseUrl}resources/pdf/docGAMAv${siteConfig.downloadVersion}.pdf`} className="button">GAMA {siteConfig.downloadVersion}</Button>
+          <Button href={`${baseUrl}resources/pdf/docGAMAv${siteConfig.downloadVersion}.pdf`} className="button smallButton">GAMA {siteConfig.downloadVersion}</Button>
         </div>
       </Container>
     </div>
