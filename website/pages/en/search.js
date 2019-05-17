@@ -19,14 +19,6 @@ function search(props) {
   const langPart = `${language ? `${language}/` : ''}`;
   const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
-  const Button = props => (
-    <div className="pluginWrapper buttonWrapper">
-      <a className={props.className} href={props.href} target={props.target}>
-        {props.children}
-      </a>
-    </div>
-  );
-
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `
 

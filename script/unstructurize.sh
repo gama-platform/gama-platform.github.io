@@ -23,6 +23,11 @@ if [ -d ./gama.wiki/.git ];then
 	rm -fr ./gama.wiki/.git
 fi
 
+# Remove template webpage
+if [ -f ./website/pages/en/template.js ];then
+	rm ./website/pages/en/template.js
+fi
+
 # Update folder resource in the static folder in _website/_
 if [ -d ./website/static/resources ];then
 	rm -fr ./website/static/resources
