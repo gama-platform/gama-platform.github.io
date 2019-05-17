@@ -68,35 +68,36 @@ const siteConfig = {
     	hljs.registerLanguage('gaml', function(hljs) {
     		return {
     			aliases: ['gaml', 'gama', 'gama-language'],
-          //lexemes: '/[a-zA-Z]\\w*:/',
-          //keywords: 'var:',
     			keywords: {
-            keyword: 'for if while',
+            keyword: '= action add agents annealing ask aspect assert benchmark break camera capture catch chart conscious_contagion create data datalist default diffuse display display_grid display_population do draw else emotional_contagion enforcement enter equation error event exhaustive exit experiment focus focus_on genetic graphics highlight hill_climbing if image inspect law layout let light loop match migrate monitor norm output output_file overlay parameter perceive permanent plan put reactive_tabu reflex release remove return rule run sanction save set setup simulate socialize solve species start_simulation state status switch tabu task test trace transition try unconscious_contagion user_command user_init user_input user_panel using Variable_container Variable_number Variable_regular warn write',
             builtin: 'agent model experiment driving fipa GAMASQL MDXSKILL messaging moving moving3D network old_driving physics skill_road skill_road_node SQLSKILL fsm parallel_bdi probabilistic_tasks reflex simple_bdi sorted_tasks user_first user_last user_only weighted_tasks',
             literal: 'bool float int string agent container file geometry graph list map matrix pair path point rgb species topology'
           },
           contains: [
+            /* AUTO DETECT */
+            // String
             hljs.C_LINE_COMMENT_MODE,
             hljs.C_BLOCK_COMMENT_MODE,
-//            hljs.APOS_STRING_MODE,
+            hljs.APOS_STRING_MODE,
             hljs.QUOTE_STRING_MODE,
+            // Facet
             {
-              className: 'keyword',
-              begin: '/[a-zA-Z]/', end: ':'//,
-              //contains: [hljs.QUOTE_STRING_MODE, 'self']
-            },
+              className: 'symbol',  //'facet', -> No color
+              begin: hljs.IDENT_RE + ':(?!:)',
+              relevance: 0
+/*            },
+            // Auto literal
             {
-              className: 'class',
-              begin: '(display|global|reflex|species|grid|experiment)\\b', end: '({|$)', excludeEnd: true,
-              keywords: 'display reflex global species grid experiment', lexemes: '/[a-zA-Z]\\w*/',
-              contains: [
-                hljs.UNDERSCORE_TITLE_MODE
-              ]
-            }
+              className: 'literal',
+              keywords: 'bool float int string agent container file geometry graph list map matrix pair path point rgb species topology',
+              begin: '/[a-z]\\S/', end: ';', excludeEnd: true,
+              relevance: 0 */
+            } 
           ]
+          
     		}
     	});
-    },
+    }, 
     defaultLang: 'gaml'//'java'
   },
 
