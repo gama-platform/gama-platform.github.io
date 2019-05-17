@@ -167,6 +167,10 @@ class Index extends React.Component {
           display: none;
         }
 
+          .inner {
+            padding-top: 5vh;
+          }
+
         @media only screen and (max-width: 1200px) {
           .homeContainer .homeWrapper .projectLogo {
             display: block;
@@ -195,6 +199,10 @@ class Index extends React.Component {
             padding: 0;
             width: auto;
             margin: 0 auto;
+          }
+
+          .inner {
+            padding-top: 0;
           }
         }
       `}} />
