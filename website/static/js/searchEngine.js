@@ -50,7 +50,7 @@ function initSearchEngine(){
     }else{
       // Get search input
       document.getElementById('search_input_react').addEventListener('keyup', requestSearch);
-//      document.getElementById('search_input_react').setAttribute("onfocusout", "setTimeout(cleanSearchResult, 200)");
+      document.getElementById('search_input_react').setAttribute("onfocusout", "setTimeout(cleanSearchResult, 200)");
     }
   }
 
@@ -81,18 +81,29 @@ function createSearchResult(result) {
   var resultDiv = document.createElement("DIV");
   var resultList = document.createElement("UL");
 
-  var prevTag = ""; 
+  var prevTag = ""; var prevSubCat = ""; 
   for (var i = 0; i < result.length; i++) {
 
     // Display new Tag title if changing
     if (prevTag != result[i]["tag"]) {
-      prevTag = result[i]["tag"]
+      prevSubCat = ""; // Debug
+      prevTag = result[i]["tag"];
       resultList.appendChild( document.createElement("HR") );
 
       var tagTitle = document.createElement("H4");
       tagTitle.innerHTML = createTitle(prevTag);
 
       resultList.appendChild( tagTitle );
+    }
+
+    // Display new subcat title if changing
+    if ( result[i]["subcat"] && prevSubCat != result[i]["subcat"] ){ // if dictionary entry exist && is different
+      prevSubCat = result[i]["subcat"];
+
+      var subTagTitle = document.createElement("H5");
+      subTagTitle.innerHTML = createTitle(prevSubCat);
+
+      resultList.appendChild( subTagTitle );
     }
 
     // Prepare result item
@@ -141,6 +152,7 @@ function isUpperCase(str) {
     return str === str.toUpperCase();
 }
 
+// Create innerHTML Title for search side result 
 function createTitle(str){
   var returnStr = "";
   var arrayString = str.split(" ");
