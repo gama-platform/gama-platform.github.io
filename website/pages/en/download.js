@@ -19,7 +19,7 @@ function Download(props) {
   const langPart = `${language ? `${language}/` : ''}`;
   const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
-  const FlexContainer = props => ( <div class="gridBlock"> {props.children} </div> );
+  const FlexContainer = props => ( <div className="gridBlock"> {props.children} </div> );
   const FlexItem = props => ( <div className="blockElement imageAlignTop threeByGridBlock">{props.children}</div> );
 
   const Button = props => (
@@ -32,10 +32,10 @@ function Download(props) {
 
   const OsBlock = props => (
     <div className="blockElement imageAlignTop threeByGridBlock">
-      <div class="blockImage">
+      <div className="blockImage">
         <img src={props.src} alt={props.os} ></img>
       </div>
-      <div class="blockContent">
+      <div className="blockContent">
         <h2>{props.os}</h2>
             <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_${props.zipOS}_64bits.zip`} className="button buttonBlue">Download</Button>
             <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_withJDK_${props.zipOS}_64bits.zip`} className="button buttonRed">with JDK</Button>
@@ -129,7 +129,7 @@ function Download(props) {
         <div className="post">
             <FlexContainer>
               <div className="blockElement imageAlignTop threeByGridBlock">
-		      <div class="blockContent">
+		      <div className="blockContent">
 			    <h2>Documentation</h2>
 				<Button href={`${baseUrl}resources/pdf/docGAMAv${siteConfig.downloadVersion}.pdf`} className="button">PDF</Button>
 		      </div>

@@ -38,39 +38,39 @@ class Footer extends React.Component {
           <div>
             <h5>Networks</h5>
             <a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank">
-              <i class="fab fa-youtube"></i> Youtube
+              <i className="fab fa-youtube"></i> Youtube
             </a>
             <a href="https://www.linkedin.com/company/gama-platform" target="_blank">
-              <i class="fab fa-linkedin"></i> LinkedIn
+              <i className="fab fa-linkedin"></i> LinkedIn
             </a>
             <a href="https://twitter.com/gamaplatform" target="_blank">
-              <i class="fab fa-twitter"></i> Twitter
+              <i className="fab fa-twitter"></i> Twitter
             </a>
             <a href="https://www.facebook.com/GamaPlatform/" target="_blank">
-              <i class="fab fa-facebook"></i> Facebook
+              <i className="fab fa-facebook"></i> Facebook
             </a>
           </div>
           <div>
             <h5>Mailing list</h5>
             <a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank">
-          		<i class="fas fa-envelope"></i> For Users<br />
+          		<i className="fas fa-envelope"></i> For Users<br />
           		gama-platform@googlegroups.com
             </a>
             <a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank">
-          		<i class="fas fa-envelope"></i> For Developers<br />
+          		<i className="fas fa-envelope"></i> For Developers<br />
           		gama-dev@googlegroups.com
             </a>
           </div>
           <div>
             <h5>Ecosystem</h5>
             <a href="https://github.com/gama-platform/gama">
-		          <i class="fab fa-github"></i> GitHub Gama
+		          <i className="fab fa-github"></i> GitHub Gama
             </a>
             <a href="https://github.com/gama-platform/gama.experimental">
-		          <i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins
+		          <i className="fas fa-puzzle-piece"></i> Gama Experimental Plugins
             </a>
             <a href="https://github.com/gama-platform/gama.models.experimental">
-		          <i class="fas fa-scroll"></i> Gama Experimental Models
+		          <i className="fas fa-scroll"></i> Gama Experimental Models
             </a>
           </div>
         </section>
