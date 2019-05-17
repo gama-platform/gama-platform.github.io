@@ -10,7 +10,7 @@ Click to grab an group of agents, click again to drop them. Press the keys &quot
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> MovingAgents
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-literal">list</span>&lt;being&gt; moved_agents ;
     <span class="hljs-literal">geometry</span> shape &lt;- square(1000);
@@ -19,40 +19,40 @@ Click to grab an group of agents, click again to drop them. Press the keys &quot
     <span class="hljs-literal">bool</span> can_drop;
     init
     {
-        create being number: 100;
+        <span class="hljs-keyword">create</span> being <span class="hljs-symbol">number:</span> 100;
     }
 
-    action kill (<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; selectedAgent, <span class="hljs-literal">point</span> mousePosition)
+    <span class="hljs-keyword">action</span> kill (<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; selectedAgent, <span class="hljs-literal">point</span> mousePosition)
     {
-        ask moved_agents
+        <span class="hljs-keyword">ask</span> moved_agents
         {
-            do die;
+            <span class="hljs-keyword">do</span> die;
         }
 
         moved_agents &lt;- <span class="hljs-literal">list</span>&lt;being&gt;([]);
     }
 
-    action duplicate (<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; selectedAgent, <span class="hljs-literal">point</span> mousePosition)
+    <span class="hljs-keyword">action</span> duplicate (<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; selectedAgent, <span class="hljs-literal">point</span> mousePosition)
     {
         <span class="hljs-literal">geometry</span> available_space &lt;- (zone at_location target) - (union(moved_agents) + 10);
-        create being number: length(moved_agents) with: (location: any_location_in(available_space));
+        <span class="hljs-keyword">create</span> being <span class="hljs-symbol">number:</span> length(moved_agents) <span class="hljs-symbol">with:</span> (<span class="hljs-symbol">location:</span> any_location_in(available_space));
     }
 
-    action click (<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; selectedAgent, <span class="hljs-literal">point</span> mousePosition)
+    <span class="hljs-keyword">action</span> click (<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; selectedAgent, <span class="hljs-literal">point</span> mousePosition)
     {
         <span class="hljs-keyword">if</span> (empty(moved_agents))
         {
             <span class="hljs-literal">list</span>&lt;being&gt; selected_agents &lt;- being inside (zone at_location mousePosition);
             moved_agents &lt;- selected_agents;
-            ask selected_agents
+            <span class="hljs-keyword">ask</span> selected_agents
             {
                 difference &lt;- mousePosition - location;
                 color &lt;- # olive;
             }
 
-        } else <span class="hljs-keyword">if</span> (can_drop)
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (can_drop)
         {
-            ask moved_agents
+            <span class="hljs-keyword">ask</span> moved_agents
             {
                 color &lt;- # burlywood;
             }
@@ -62,20 +62,20 @@ Click to grab an group of agents, click again to drop them. Press the keys &quot
 
     }
 
-    action move (<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; selectedAgent, <span class="hljs-literal">point</span> mousePosition)
+    <span class="hljs-keyword">action</span> move (<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; selectedAgent, <span class="hljs-literal">point</span> mousePosition)
     {
         can_drop &lt;- true;
         target &lt;- mousePosition;
         <span class="hljs-literal">list</span>&lt;being&gt; other_agents &lt;- (being inside (zone at_location mousePosition)) - moved_agents;
         <span class="hljs-literal">geometry</span> occupied &lt;- <span class="hljs-literal">geometry</span>(other_agents);
-        ask moved_agents
+        <span class="hljs-keyword">ask</span> moved_agents
         {
             location &lt;- mousePosition - difference;
             <span class="hljs-keyword">if</span> (occupied intersects self)
             {
                 color &lt;- # red;
                 can_drop &lt;- false;
-            } else
+            } <span class="hljs-keyword">else</span>
             {
                 color &lt;- # olive;
             }
@@ -86,92 +86,92 @@ Click to grab an group of agents, click again to drop them. Press the keys &quot
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">being</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>]</span>
+<span class="hljs-literal">species</span> being <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>]
 {
     <span class="hljs-literal">geometry</span> shape &lt;- square(10);
     <span class="hljs-literal">point</span> difference &lt;- { 0, 0 };
     <span class="hljs-literal">rgb</span> color &lt;- # burlywood;
-    <span class="hljs-class">reflex <span class="hljs-title">r</span></span>
+    <span class="hljs-builtin">reflex</span> r
     {
         <span class="hljs-keyword">if</span> (!(moved_agents contains self))
         {
-            do wander amplitude: 30;
+            <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span> 30;
         }
 
     }
 
-    aspect default
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>
     {
-        draw shape color: color at: location;
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">at:</span> location;
     }
 
 }
 
-<span class="hljs-class">experiment "<span class="hljs-title">Click</span> <span class="hljs-title">and</span> <span class="hljs-title">Move</span>" <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> <span class="hljs-string">"Click and Move"</span> <span class="hljs-symbol">type:</span> gui
 {
     font regular &lt;- font(<span class="hljs-string">"Helvetica"</span>, 14, # bold);
-    output
+    <span class="hljs-keyword">output</span>
     {
-        <span class="hljs-class">display "<span class="hljs-title">Click</span> <span class="hljs-title">and</span> <span class="hljs-title">Move</span> [<span class="hljs-title">OPENGL</span>]" <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"Click and Move [OPENGL]"</span> <span class="hljs-symbol">type:</span> opengl
         {
-            graphics <span class="hljs-string">"Empty target"</span> 
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"Empty target"</span> 
             {
                 <span class="hljs-keyword">if</span> (empty(moved_agents))
                 {
-                    draw zone at: target empty: false border: false color: #wheat;
+                    <span class="hljs-keyword">draw</span> zone <span class="hljs-symbol">at:</span> target <span class="hljs-symbol">empty:</span> false <span class="hljs-symbol">border:</span> false <span class="hljs-symbol">color:</span> #wheat;
                 }
 
             }
 
-            <span class="hljs-class">species <span class="hljs-title">being</span>;</span>
-            event mouse_move action: move;
-            event mouse_up action: click;
-            event 'k' action: kill;
-            event 'c' action: duplicate;
-            graphics <span class="hljs-string">"Full target"</span> 
+            <span class="hljs-literal">species</span> being;
+            <span class="hljs-keyword">event</span> mouse_move <span class="hljs-symbol">action:</span> move;
+            <span class="hljs-keyword">event</span> mouse_up <span class="hljs-symbol">action:</span> click;
+            <span class="hljs-keyword">event</span> <span class="hljs-string">'k'</span> <span class="hljs-symbol">action:</span> kill;
+            <span class="hljs-keyword">event</span> <span class="hljs-string">'c'</span> <span class="hljs-symbol">action:</span> duplicate;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"Full target"</span> 
             {
                 <span class="hljs-literal">int</span> size &lt;- length(moved_agents);
                 <span class="hljs-keyword">if</span> (size &gt; 0)
                 {
                     <span class="hljs-literal">rgb</span> c1 &lt;- <span class="hljs-literal">rgb</span>(#darkseagreen, 120);
                     <span class="hljs-literal">rgb</span> c2 &lt;- <span class="hljs-literal">rgb</span>(#firebrick, 120);
-                    draw zone at: target empty: false border: false color: (can_drop ? c1 : c2);
-                    draw <span class="hljs-literal">string</span>(size) at: target + { -30, -30 } font: regular color: # white;
-                    draw <span class="hljs-string">"'k': kill"</span> at: target + { -30, 0 } font: regular color: # white;
-                    draw <span class="hljs-string">"'c': copy"</span> at: target + { -30, 30 } font: regular color: # white;
+                    <span class="hljs-keyword">draw</span> zone <span class="hljs-symbol">at:</span> target <span class="hljs-symbol">empty:</span> false <span class="hljs-symbol">border:</span> false <span class="hljs-symbol">color:</span> (can_drop ? c1 : c2);
+                    <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span>(size) <span class="hljs-symbol">at:</span> target + { -30, -30 } <span class="hljs-symbol">font:</span> regular <span class="hljs-symbol">color:</span> # white;
+                    <span class="hljs-keyword">draw</span> <span class="hljs-string">"'k': kill"</span> <span class="hljs-symbol">at:</span> target + { -30, 0 } <span class="hljs-symbol">font:</span> regular <span class="hljs-symbol">color:</span> # white;
+                    <span class="hljs-keyword">draw</span> <span class="hljs-string">"'c': copy"</span> <span class="hljs-symbol">at:</span> target + { -30, 30 } <span class="hljs-symbol">font:</span> regular <span class="hljs-symbol">color:</span> # white;
                 }
 
             }
 
         }
         
-        <span class="hljs-class">display "<span class="hljs-title">Click</span> <span class="hljs-title">and</span> <span class="hljs-title">Move</span> [<span class="hljs-title">JAVA2D</span>]" <span class="hljs-title">type</span>: <span class="hljs-title">java2D</span></span>
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"Click and Move [JAVA2D]"</span> <span class="hljs-symbol">type:</span> java2D
         {
-            graphics <span class="hljs-string">"Empty target"</span> 
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"Empty target"</span> 
             {
                 <span class="hljs-keyword">if</span> (empty(moved_agents))
                 {
-                    draw zone at: target empty: false border: false color: #wheat;
+                    <span class="hljs-keyword">draw</span> zone <span class="hljs-symbol">at:</span> target <span class="hljs-symbol">empty:</span> false <span class="hljs-symbol">border:</span> false <span class="hljs-symbol">color:</span> #wheat;
                 }
 
             }
 
-            <span class="hljs-class">species <span class="hljs-title">being</span>;</span>
-            event mouse_move action: move;
-            event mouse_up action: click;
-            event 'k' action: kill;
-            event 'c' action: duplicate;
-            graphics <span class="hljs-string">"Full target"</span> 
+            <span class="hljs-literal">species</span> being;
+            <span class="hljs-keyword">event</span> mouse_move <span class="hljs-symbol">action:</span> move;
+            <span class="hljs-keyword">event</span> mouse_up <span class="hljs-symbol">action:</span> click;
+            <span class="hljs-keyword">event</span> <span class="hljs-string">'k'</span> <span class="hljs-symbol">action:</span> kill;
+            <span class="hljs-keyword">event</span> <span class="hljs-string">'c'</span> <span class="hljs-symbol">action:</span> duplicate;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"Full target"</span> 
             {
                 <span class="hljs-literal">int</span> size &lt;- length(moved_agents);
                 <span class="hljs-keyword">if</span> (size &gt; 0)
                 {
                     <span class="hljs-literal">rgb</span> c1 &lt;- <span class="hljs-literal">rgb</span>(#darkseagreen, 120);
                     <span class="hljs-literal">rgb</span> c2 &lt;- <span class="hljs-literal">rgb</span>(#firebrick, 120);
-                    draw zone at: target empty: false border: false color: (can_drop ? c1 : c2);
-                    draw <span class="hljs-literal">string</span>(size) at: target + { -30, -30 } font: regular color: # white;
-                    draw <span class="hljs-string">"'k': kill"</span> at: target + { -30, 0 } font: regular color: # white;
-                    draw <span class="hljs-string">"'c': copy"</span> at: target + { -30, 30 } font: regular color: # white;
+                    <span class="hljs-keyword">draw</span> zone <span class="hljs-symbol">at:</span> target <span class="hljs-symbol">empty:</span> false <span class="hljs-symbol">border:</span> false <span class="hljs-symbol">color:</span> (can_drop ? c1 : c2);
+                    <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span>(size) <span class="hljs-symbol">at:</span> target + { -30, -30 } <span class="hljs-symbol">font:</span> regular <span class="hljs-symbol">color:</span> # white;
+                    <span class="hljs-keyword">draw</span> <span class="hljs-string">"'k': kill"</span> <span class="hljs-symbol">at:</span> target + { -30, 0 } <span class="hljs-symbol">font:</span> regular <span class="hljs-symbol">color:</span> # white;
+                    <span class="hljs-keyword">draw</span> <span class="hljs-string">"'c': copy"</span> <span class="hljs-symbol">at:</span> target + { -30, 30 } <span class="hljs-symbol">font:</span> regular <span class="hljs-symbol">color:</span> # white;
                 }
 
             }

@@ -82,16 +82,16 @@ First it creates a <a href="GlobalSpecies"><code>world</code> agent</a>.</p>
 <p>When an agent is asked to <em>step</em>, it means that it is expected to update its variables, run its behaviors and then <em>step</em> its micro-agents (if any).</p>
 <pre><code class="hljs">step of <span class="hljs-literal">agent</span> agent_a
     {
-        species_a &lt;- agent_a.<span class="hljs-class">species</span>
+        species_a &lt;- agent_a.<span class="hljs-literal">species</span>
         architecture_a &lt;- species_a.architecture
-        ask architecture_a to step agent_a {
-             ask agent_a to update species_a.variables
-             ask agent_a to run architecture_a.behaviors
+        <span class="hljs-keyword">ask</span> architecture_a to step agent_a {
+             <span class="hljs-keyword">ask</span> agent_a to update species_a.variables
+             <span class="hljs-keyword">ask</span> agent_a to <span class="hljs-keyword">run</span> architecture_a.behaviors
         }
 
-        ask each micro-population mp of agent_a to step {
-            <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; sub-agents &lt;- mp.compute_agents_to_schedule
-            ask each agent_b of sub-agents to step <span class="hljs-comment">//... recursive call...</span>
+        <span class="hljs-keyword">ask</span> each micro-population mp of agent_a to step {
+            <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; sub-<span class="hljs-keyword">agents</span> &lt;- mp.compute_agents_to_schedule
+            <span class="hljs-keyword">ask</span> each agent_b of sub-<span class="hljs-keyword">agents</span> to step <span class="hljs-comment">//... recursive call...</span>
         }
     }
 
@@ -100,26 +100,26 @@ First it creates a <a href="GlobalSpecies"><code>world</code> agent</a>.</p>
 <p>The global scheduling of agents is then simply the application of this previous <em>step</em> to the <em>experiment agent</em>, keeping in mind that this agent has only one micro-population (of simulation agents, each instance of the model species), and that the simulation(s) inside this population contain(s), in turn, all the &quot;regular&quot; populations of agents of the model.</p>
 <p>To influence this schedule, then, one possible way is to change the way populations compute their lists of agents to schedule, which can be done in a model by providing custom definitions to the &quot;schedules:&quot; facet of one or several species.</p>
 <p>A practical application of this facet is to reduce simulation artifacts created by the default scheduling of populations, which is sequential (i.e. their agents are executed in turn in their order of creation). To enable a pseudo-parallel scheduling based on a random scheduling recomputed at each step, one has simply to define the corresponding species like in the following example:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">A</span> <span class="hljs-title">schedules</span>: <span class="hljs-title">shuffle</span>(<span class="hljs-title">A</span>) </span>{...}
+<pre><code class="hljs"><span class="hljs-literal">species</span> A <span class="hljs-symbol">schedules:</span> shuffle(A) {...}
 </code></pre>
 <p>Moving further, it is possible to enable a completely random scheduling that will eliminate the sequential scheduling of populations:</p>
-<pre><code class="hljs"><span class="hljs-class">global <span class="hljs-title">schedules</span>: [<span class="hljs-title">world</span>] + <span class="hljs-title">shuffle</span>(<span class="hljs-title">A</span> + <span class="hljs-title">B</span> + <span class="hljs-title">C</span>) </span>{...}
+<pre><code class="hljs">global <span class="hljs-symbol">schedules:</span> [world] + shuffle(A + B + C) {...}
 
-<span class="hljs-class">species <span class="hljs-title">A</span> <span class="hljs-title">schedules</span>: [] </span>{...}
-<span class="hljs-class">species <span class="hljs-title">B</span> <span class="hljs-title">schedules</span>: [] </span>{...}
-<span class="hljs-class">species <span class="hljs-title">C</span> <span class="hljs-title">schedules</span>: [] </span>{...}
+<span class="hljs-literal">species</span> A <span class="hljs-symbol">schedules:</span> [] {...}
+<span class="hljs-literal">species</span> B <span class="hljs-symbol">schedules:</span> [] {...}
+<span class="hljs-literal">species</span> C <span class="hljs-symbol">schedules:</span> [] {...}
 </code></pre>
 <p>It is important to (1) explicitly invoke the scheduling of the world (although it doesn't have to be the first); (2) suppress the population-based scheduling to avoid having agent being scheduled 2 times (one time in the custom definition, one time by their population).</p>
 <p>Other schemes are possible. For instance, the following definition will completely suppress the default scheduling mechanism to replace it with a custom scheduler that will execute the world, then all agents of species A in a random way and then all agents of species B in their order of creation:</p>
-<pre><code class="hljs"><span class="hljs-class">global <span class="hljs-title">schedules</span>: [<span class="hljs-title">world</span>] + <span class="hljs-title">shuffle</span>(<span class="hljs-title">A</span>) + <span class="hljs-title">B</span> </span>{...} <span class="hljs-comment">// explicit scheduling in the world</span>
+<pre><code class="hljs">global <span class="hljs-symbol">schedules:</span> [world] + shuffle(A) + B {...} <span class="hljs-comment">// explicit scheduling in the world</span>
 
-<span class="hljs-class">species <span class="hljs-title">A</span> <span class="hljs-title">schedules</span> [];</span>
+<span class="hljs-literal">species</span> A schedules [];
 
-<span class="hljs-class">species <span class="hljs-title">B</span> <span class="hljs-title">schedules</span>: [];</span>
+<span class="hljs-literal">species</span> B <span class="hljs-symbol">schedules:</span> [];
 
 </code></pre>
 <p>Complex conditions can be used to express which agents need to be scheduled each step. For instance, in the following definition, only agents of A that return true to a particular condition are scheduled:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">A</span> <span class="hljs-title">schedules</span>: <span class="hljs-title">A</span> <span class="hljs-title">where</span> <span class="hljs-title">each</span>.<span class="hljs-title">can_be_scheduled</span>() </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> A <span class="hljs-symbol">schedules:</span> A where each.can_be_scheduled() {
 
     <span class="hljs-literal">bool</span> can_be_scheduled() {
          ...
@@ -128,14 +128,14 @@ First it creates a <a href="GlobalSpecies"><code>world</code> agent</a>.</p>
 }
 </code></pre>
 <p>Be aware that enabling a custom scheduling can potentially end up in non-functional simulations. For example, the following definitions will result in a simulation that will <strong>never be executed</strong>:</p>
-<pre><code class="hljs"><span class="hljs-class">global <span class="hljs-title">schedules</span>: [] </span>{}; <span class="hljs-comment">// the world is NEVER scheduled</span>
+<pre><code class="hljs">global <span class="hljs-symbol">schedules:</span> [] {}; <span class="hljs-comment">// the world is NEVER scheduled</span>
  
-<span class="hljs-class">species <span class="hljs-title">my_scheduler</span> <span class="hljs-title">schedules</span>: [<span class="hljs-title">world</span>] ; // <span class="hljs-title">so</span> <span class="hljs-title">its</span> <span class="hljs-title">micro</span>-<span class="hljs-title">species</span> '<span class="hljs-title">my_scheduler</span>' <span class="hljs-title">is</span> <span class="hljs-title">NOT</span> <span class="hljs-title">scheduled</span> <span class="hljs-title">either</span>. </span>
+<span class="hljs-literal">species</span> my_scheduler <span class="hljs-symbol">schedules:</span> [world] ; <span class="hljs-comment">// so its micro-species 'my_scheduler' is NOT scheduled either. </span>
 </code></pre>
 <p>and this one will result in an <strong>infinite loop</strong> (which will trigger a stack overflow at some point):</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{} <span class="hljs-comment">// The world is normally scheduled...</span>
+<pre><code class="hljs">global {} <span class="hljs-comment">// The world is normally scheduled...</span>
 
-<span class="hljs-class">species <span class="hljs-title">my_scheduler</span> <span class="hljs-title">schedules</span>: [<span class="hljs-title">world</span>]; // ... <span class="hljs-title">but</span> <span class="hljs-title">schedules</span> <span class="hljs-title">itself</span> <span class="hljs-title">again</span> <span class="hljs-title">as</span> <span class="hljs-title">a</span> <span class="hljs-title">consequence</span> <span class="hljs-title">of</span> <span class="hljs-title">scheduling</span> <span class="hljs-title">the</span> <span class="hljs-title">micro</span>-<span class="hljs-title">species</span> '<span class="hljs-title">my_scheduler</span>'</span>
+<span class="hljs-literal">species</span> my_scheduler <span class="hljs-symbol">schedules:</span> [world]; <span class="hljs-comment">// ... but schedules itself again as a consequence of scheduling the micro-species 'my_scheduler'</span>
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/OptimizingModelsSection"><span class="arrow-prev">← </span><span>Optimizing Models</span></a><a class="docs-next button" href="/wiki/OptimizingModels"><span>Optimizing Models</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table of contents</a></li><li><a href="#simulation-initialization">Simulation initialization</a></li><li><a href="#agents-creation">Agents Creation</a></li><li><a href="#agents-step">Agents Step</a></li><li><a href="#schedule-agents">Schedule Agents</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

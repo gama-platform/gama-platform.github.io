@@ -11,52 +11,52 @@
 
 <span class="hljs-builtin">model</span> SavetoText
 
-<span class="hljs-class">global </span>{
+global {
     init {
         <span class="hljs-comment">//Create the agents that will be saved in the text file.</span>
-        create bug number: 50;
+        <span class="hljs-keyword">create</span> bug <span class="hljs-symbol">number:</span> 50;
     }
     
     <span class="hljs-comment">//Reflex saving the agents every 10 steps. </span>
-    <span class="hljs-class">reflex <span class="hljs-title">save_data</span> <span class="hljs-title">when</span>: <span class="hljs-title">every</span>(10)</span>{
+    <span class="hljs-builtin">reflex</span> save_data <span class="hljs-symbol">when:</span> every(10){
         <span class="hljs-comment">//save the following text into the given text file. Note that each time the save statement is used, a new line is added at the end of the file.</span>
-        save (<span class="hljs-string">"cycle:"</span> + cycle + <span class="hljs-string">", mean size: "</span> + mean(bug collect each.size)) to: <span class="hljs-string">"../results/data.txt"</span>;
+        <span class="hljs-keyword">save</span> (<span class="hljs-string">"cycle:"</span> + cycle + <span class="hljs-string">", mean size: "</span> + mean(bug collect each.size)) <span class="hljs-symbol">to:</span> <span class="hljs-string">"../results/data.txt"</span>;
     }
     <span class="hljs-comment">//Reflex that will pause the simulation when the number of cycles reach 100.</span>
-    <span class="hljs-class">reflex <span class="hljs-title">end_simulation</span> <span class="hljs-title">when</span>: <span class="hljs-title">cycle</span> = 100 </span>{
-        do pause;
+    <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> cycle = 100 {
+        <span class="hljs-keyword">do</span> pause;
     }
 }
 
 <span class="hljs-comment">//Species bug that will be saved using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">bug</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{
-    <span class="hljs-literal">float</span> size &lt;- 1.0 + rnd(4) min: 1.0 max: 5.0;
+<span class="hljs-literal">species</span> bug <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{
+    <span class="hljs-literal">float</span> size &lt;- 1.0 + rnd(4) <span class="hljs-symbol">min:</span> 1.0 <span class="hljs-symbol">max:</span> 5.0;
     <span class="hljs-literal">float</span> speed &lt;- 1.0 + rnd(4.0);
     
     <span class="hljs-comment">//At each step, the size of the agent is update according to the number of bugs close to the agent</span>
-    <span class="hljs-class">reflex <span class="hljs-title">update_size</span> </span>{
+    <span class="hljs-builtin">reflex</span> update_size {
         <span class="hljs-literal">int</span> nb_neigh &lt;- length(bug at_distance 20.0);
         <span class="hljs-keyword">if</span> (nb_neigh &gt; 5) {
             size &lt;- size + 1;
-        } else {
+        } <span class="hljs-keyword">else</span> {
             size &lt;- size - 1;
         }
     }   
     
     <span class="hljs-comment">//Make the agent move randomly</span>
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> </span>{
-        do wander;
+    <span class="hljs-builtin">reflex</span> move {
+        <span class="hljs-keyword">do</span> wander;
     }
     
-    aspect default {
-        draw circle(size) color: #red;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> #red;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">bug</span>;</span>
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> bug;
         }
     }
 }

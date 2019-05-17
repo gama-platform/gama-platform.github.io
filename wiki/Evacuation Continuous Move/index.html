@@ -8,7 +8,7 @@
 <p>A 3D model which show how to represent an evacuation system with obstacles, cohesion factor and velocity. The people are placed randomly and have to escape by going to a target point</p>
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> continuous_move 
-<span class="hljs-class">global </span>{ 
+global { 
     <span class="hljs-comment">//Shapefile of the buildings</span>
     <span class="hljs-literal">file</span> building_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/building.shp"</span>);
     <span class="hljs-comment">//Shape of the environment</span>
@@ -27,14 +27,14 @@
         
         free_space &lt;- copy(shape);
         <span class="hljs-comment">//Creation of the buildinds</span>
-        create building from: building_shapefile {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> building_shapefile {
             <span class="hljs-comment">//Creation of the free space by removing the shape of the different buildings existing</span>
             free_space &lt;- free_space - (shape + people_size);
         }
         <span class="hljs-comment">//Simplification of the free_space to remove sharp edges</span>
         free_space &lt;- free_space simplification(1.0);
         <span class="hljs-comment">//Creation of the people agents</span>
-        create people number: nb_people {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> nb_people {
             <span class="hljs-comment">//People agents are placed randomly among the free space</span>
             location &lt;- any_location_in(free_space);
             target_loc &lt;-  target_point;
@@ -42,15 +42,15 @@
     }   
 }
 <span class="hljs-comment">//Species which represent the building </span>
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
+<span class="hljs-literal">species</span> building {
     <span class="hljs-comment">//Height of the buildings</span>
     <span class="hljs-literal">float</span> height &lt;- 3.0 + rnd(5);
-    aspect default {
-        draw shape color: #gray depth: height;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">depth:</span> height;
     }
 }
 <span class="hljs-comment">//Species people which move to the evacuation point using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{
     <span class="hljs-comment">//Target point to evacuate</span>
     <span class="hljs-literal">point</span> target_loc;
     <span class="hljs-comment">//Speed of the agent</span>
@@ -58,61 +58,61 @@
     <span class="hljs-comment">//Velocity of the agent</span>
     <span class="hljs-literal">point</span> velocity &lt;- {0,0};
     <span class="hljs-comment">//Direction of the agent taking in consideration the maximal turn an agent is able to make</span>
-    <span class="hljs-literal">int</span> heading max: heading + maximal_turn min: heading - maximal_turn;
+    <span class="hljs-literal">int</span> heading <span class="hljs-symbol">max:</span> heading + maximal_turn <span class="hljs-symbol">min:</span> heading - maximal_turn;
     
     <span class="hljs-comment">//Size of the agent</span>
     <span class="hljs-literal">float</span> size &lt;- people_size;
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(rnd(255),rnd(255),rnd(255));
         
     <span class="hljs-comment">//Reflex to kill the agent when it has evacuated the area</span>
-    <span class="hljs-class">reflex <span class="hljs-title">end</span> <span class="hljs-title">when</span>: <span class="hljs-title">location</span> <span class="hljs-title">distance_to</span> <span class="hljs-title">target_loc</span> &lt;= 2 * <span class="hljs-title">people_size</span></span>{
-        write name + <span class="hljs-string">" is arrived"</span>;
-        do die;
+    <span class="hljs-builtin">reflex</span> end <span class="hljs-symbol">when:</span> location distance_to target_loc &lt;= 2 * people_size{
+        <span class="hljs-keyword">write</span> name + <span class="hljs-string">" is arrived"</span>;
+        <span class="hljs-keyword">do</span> die;
     }
     <span class="hljs-comment">//Reflex to compute the velocity of the agent considering the cohesion factor</span>
-    <span class="hljs-class">reflex <span class="hljs-title">follow_goal</span>  </span>{
+    <span class="hljs-builtin">reflex</span> follow_goal  {
         velocity &lt;- velocity + ((target_loc - location) / cohesion_factor);
     }
     <span class="hljs-comment">//Reflex to apply separation when people are too close from each other</span>
-    <span class="hljs-class">reflex <span class="hljs-title">separation</span> </span>{
+    <span class="hljs-builtin">reflex</span> separation {
         <span class="hljs-literal">point</span> acc &lt;- {0,0};
-        ask (people at_distance size)  {
+        <span class="hljs-keyword">ask</span> (people at_distance size)  {
             acc &lt;- acc - (location - myself.location);
         }  
         velocity &lt;- velocity + acc;
     }
     <span class="hljs-comment">//Reflex to avoid the different obstacles</span>
-    <span class="hljs-class">reflex <span class="hljs-title">avoid</span> </span>{ 
+    <span class="hljs-builtin">reflex</span> avoid { 
         <span class="hljs-literal">point</span> acc &lt;- {0,0};
         <span class="hljs-literal">list</span>&lt;building&gt; nearby_obstacles &lt;- (building at_distance people_size);
-        loop obs over: nearby_obstacles {
+        <span class="hljs-keyword">loop</span> obs <span class="hljs-symbol">over:</span> nearby_obstacles {
             acc &lt;- acc - (obs.location - location);
         }
         velocity &lt;- velocity + acc; 
     }
     <span class="hljs-comment">//Reflex to move the agent considering its location, target and velocity</span>
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> </span>{
+    <span class="hljs-builtin">reflex</span> move {
         <span class="hljs-literal">point</span> old_location &lt;- copy(location);
-        do goto target: location + velocity ;
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> location + velocity ;
         <span class="hljs-keyword">if</span> (not empty(building overlapping self )) {
             location &lt;- <span class="hljs-literal">point</span>((location closest_points_with free_space)[1]);
         }
         velocity &lt;- location - old_location;
     }   
-    aspect default {
-        draw pyramid(size) color: color;
-        draw sphere(size/3) at: {location.x,location.y,size} color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> pyramid(size) <span class="hljs-symbol">color:</span> color;
+        <span class="hljs-keyword">draw</span> sphere(size/3) <span class="hljs-symbol">at:</span> {location.x,location.y,size} <span class="hljs-symbol">color:</span> color;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"nb people"</span> var: nb_people min: 1 max: 1000;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
-            graphics <span class="hljs-string">"exit"</span> refresh: false {
-                draw sphere(2 * people_size) at: target_point color: #green;    
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"nb people"</span> <span class="hljs-symbol">var:</span> nb_people <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">refresh:</span> false;
+            <span class="hljs-literal">species</span> people;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"exit"</span> <span class="hljs-symbol">refresh:</span> false {
+                <span class="hljs-keyword">draw</span> sphere(2 * people_size) <span class="hljs-symbol">at:</span> target_point <span class="hljs-symbol">color:</span> #green;    
             }
         }
     }

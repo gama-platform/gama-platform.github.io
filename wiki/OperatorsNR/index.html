@@ -90,16 +90,16 @@
 <h2><a class="anchor" aria-hidden="true" id="using-actions-as-operators"></a><a href="#using-actions-as-operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using actions as operators</h2>
 <p>Actions defined in species can be used as operators, provided they are called on the correct agent. The syntax is that of normal functional operators, but the agent that will perform the action must be added as the first operand.</p>
 <p>For instance, if the following species is defined:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">spec1</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> spec1 {
         <span class="hljs-literal">int</span> min(<span class="hljs-literal">int</span> x, <span class="hljs-literal">int</span> y) {
-                return x &gt; y ? x : y;
+                <span class="hljs-keyword">return</span> x &gt; y ? x : y;
         }
 }
 </code></pre>
 <p>Any agent instance of spec1 can use <code>min</code> as an operator (if the action conflicts with an existing operator, a warning will be emitted). For instance, in the same model, the following line is perfectly acceptable:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
         init {
-                create spec1;
+                <span class="hljs-keyword">create</span> spec1;
                 spec1 my_agent &lt;- spec1[0];
                 <span class="hljs-literal">int</span> the_min &lt;- my_agent min(10,20); <span class="hljs-comment">// or min(my_agent, 10, 20);</span>
         }
@@ -424,7 +424,7 @@ a new mental state
 a new mental state
 a new mental state</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-5"></a><a href="#examples-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) new_mental-state(belief) 
+<pre><code class="hljs">new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) new_mental-<span class="hljs-keyword">state</span>(belief) 
 
 </code></pre>
 <hr>
@@ -529,7 +529,7 @@ a new social link</p>
 <p>the norm of the vector with the coordinates of the point operand.</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-9"></a><a href="#examples-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- norm({3,4}); <span class="hljs-comment">// var0 equals 5.0</span>
+<span class="hljs-literal">float</span> var0 &lt;- <span class="hljs-keyword">norm</span>({3,4}); <span class="hljs-comment">// var0 equals 5.0</span>
 
 </code></pre>
 <hr>
@@ -646,10 +646,10 @@ a new social link</p>
 <p>a list, containing the agents of the left-hand operand whose species is that denoted by the right-hand operand and whose species extends the right-hand operand species</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-14"></a><a href="#examples-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"><span class="hljs-comment">// species speciesA {} // species sub_speciesA parent: speciesA {}  </span>
-<span class="hljs-literal">list</span> var2 &lt;- [sub_speciesA(0),sub_speciesA(1),speciesA(2),speciesA(3)] of_generic_<span class="hljs-class">species <span class="hljs-title">speciesA</span>; // <span class="hljs-title">var2</span> <span class="hljs-title">equals</span> [<span class="hljs-title">sub_speciesA0</span>,<span class="hljs-title">sub_speciesA1</span>,<span class="hljs-title">speciesA0</span>,<span class="hljs-title">speciesA1</span>] </span>
-<span class="hljs-literal">list</span> var3 &lt;- [sub_speciesA(0),sub_speciesA(1),speciesA(2),speciesA(3)] of_generic_<span class="hljs-class">species <span class="hljs-title">sous_test</span>; // <span class="hljs-title">var3</span> <span class="hljs-title">equals</span> [<span class="hljs-title">sub_speciesA0</span>,<span class="hljs-title">sub_speciesA1</span>] </span>
-<span class="hljs-literal">list</span> var4 &lt;- [sub_speciesA(0),sub_speciesA(1),speciesA(2),speciesA(3)] of_<span class="hljs-class">species <span class="hljs-title">speciesA</span>; // <span class="hljs-title">var4</span> <span class="hljs-title">equals</span> [<span class="hljs-title">speciesA0</span>,<span class="hljs-title">speciesA1</span>] </span>
-<span class="hljs-literal">list</span> var5 &lt;- [sub_speciesA(0),sub_speciesA(1),speciesA(2),speciesA(3)] of_<span class="hljs-class">species <span class="hljs-title">sous_test</span>; // <span class="hljs-title">var5</span> <span class="hljs-title">equals</span> [<span class="hljs-title">sub_speciesA0</span>,<span class="hljs-title">sub_speciesA1</span>]</span>
+<span class="hljs-literal">list</span> var2 &lt;- [sub_speciesA(0),sub_speciesA(1),speciesA(2),speciesA(3)] of_generic_species speciesA; <span class="hljs-comment">// var2 equals [sub_speciesA0,sub_speciesA1,speciesA0,speciesA1] </span>
+<span class="hljs-literal">list</span> var3 &lt;- [sub_speciesA(0),sub_speciesA(1),speciesA(2),speciesA(3)] of_generic_species sous_test; <span class="hljs-comment">// var3 equals [sub_speciesA0,sub_speciesA1] </span>
+<span class="hljs-literal">list</span> var4 &lt;- [sub_speciesA(0),sub_speciesA(1),speciesA(2),speciesA(3)] of_species speciesA; <span class="hljs-comment">// var4 equals [speciesA0,speciesA1] </span>
+<span class="hljs-literal">list</span> var5 &lt;- [sub_speciesA(0),sub_speciesA(1),speciesA(2),speciesA(3)] of_species sous_test; <span class="hljs-comment">// var5 equals [sub_speciesA0,sub_speciesA1]</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-7"></a><a href="#see-also-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -669,8 +669,8 @@ a new social link</p>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-15"></a><a href="#examples-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span> var0 &lt;- (self neighbors_at 10) of_<span class="hljs-class">species (<span class="hljs-title">species</span> (<span class="hljs-title">self</span>)); // <span class="hljs-title">var0</span> <span class="hljs-title">equals</span> <span class="hljs-title">all</span> <span class="hljs-title">the</span> <span class="hljs-title">neighboring</span> <span class="hljs-title">agents</span> <span class="hljs-title">of</span> <span class="hljs-title">the</span> <span class="hljs-title">same</span> <span class="hljs-title">species</span>. </span>
-<span class="hljs-literal">list</span> var1 &lt;- [test(0),test(1),node(1),node(2)] of_<span class="hljs-class">species <span class="hljs-title">test</span>; // <span class="hljs-title">var1</span> <span class="hljs-title">equals</span> [<span class="hljs-title">test0</span>,<span class="hljs-title">test1</span>]</span>
+<span class="hljs-literal">list</span> var0 &lt;- (self neighbors_at 10) of_species (<span class="hljs-literal">species</span> (self)); <span class="hljs-comment">// var0 equals all the neighboring agents of the same species. </span>
+<span class="hljs-literal">list</span> var1 &lt;- [<span class="hljs-keyword">test</span>(0),<span class="hljs-keyword">test</span>(1),node(1),node(2)] of_species <span class="hljs-keyword">test</span>; <span class="hljs-comment">// var1 equals [test0,test1]</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-8"></a><a href="#see-also-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -961,12 +961,12 @@ The shortest path between a list of two objects in a graph
 The shortest path between several objects according to set of cells</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-25"></a><a href="#examples-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">path</span> var0 &lt;- path_between (cell_<span class="hljs-class">grid <span class="hljs-title">where</span> <span class="hljs-title">each</span>.<span class="hljs-title">is_free</span>, <span class="hljs-title">ag1</span>, <span class="hljs-title">ag2</span>); // <span class="hljs-title">var0</span> <span class="hljs-title">equals</span> <span class="hljs-title">A</span> <span class="hljs-title">path</span> <span class="hljs-title">between</span> <span class="hljs-title">ag1</span> <span class="hljs-title">and</span> <span class="hljs-title">ag2</span> <span class="hljs-title">passing</span> <span class="hljs-title">through</span> <span class="hljs-title">the</span> <span class="hljs-title">given</span> <span class="hljs-title">cell_grid</span> <span class="hljs-title">agents</span> </span>
+<span class="hljs-literal">path</span> var0 &lt;- path_between (cell_grid where each.is_free, ag1, ag2); <span class="hljs-comment">// var0 equals A path between ag1 and ag2 passing through the given cell_grid agents </span>
 <span class="hljs-literal">path</span> var1 &lt;- my_topology path_between [ag1, ag2]; <span class="hljs-comment">// var1 equals A path between ag1 and ag2 </span>
-<span class="hljs-literal">path</span> var2 &lt;- path_between (cell_<span class="hljs-class">grid <span class="hljs-title">as_map</span> (<span class="hljs-title">each</span>::<span class="hljs-title">each</span>.<span class="hljs-title">is_obstacle</span> ? 9999.0 : 1.0), [<span class="hljs-title">ag1</span>, <span class="hljs-title">ag2</span>, <span class="hljs-title">ag3</span>]); // <span class="hljs-title">var2</span> <span class="hljs-title">equals</span> <span class="hljs-title">A</span> <span class="hljs-title">path</span> <span class="hljs-title">between</span> <span class="hljs-title">ag1</span> <span class="hljs-title">and</span> <span class="hljs-title">ag2</span> <span class="hljs-title">and</span> <span class="hljs-title">ag3</span> <span class="hljs-title">passing</span> <span class="hljs-title">through</span> <span class="hljs-title">the</span> <span class="hljs-title">given</span> <span class="hljs-title">cell_grid</span> <span class="hljs-title">agents</span> <span class="hljs-title">with</span> <span class="hljs-title">minimal</span> <span class="hljs-title">cost</span> </span>
-<span class="hljs-literal">path</span> var3 &lt;- path_between (cell_<span class="hljs-class">grid <span class="hljs-title">as_map</span> (<span class="hljs-title">each</span>::<span class="hljs-title">each</span>.<span class="hljs-title">is_obstacle</span> ? 9999.0 : 1.0), <span class="hljs-title">ag1</span>, <span class="hljs-title">ag2</span>); // <span class="hljs-title">var3</span> <span class="hljs-title">equals</span> <span class="hljs-title">A</span> <span class="hljs-title">path</span> <span class="hljs-title">between</span> <span class="hljs-title">ag1</span> <span class="hljs-title">and</span> <span class="hljs-title">ag2</span> <span class="hljs-title">passing</span> <span class="hljs-title">through</span> <span class="hljs-title">the</span> <span class="hljs-title">given</span> <span class="hljs-title">cell_grid</span> <span class="hljs-title">agents</span> <span class="hljs-title">with</span> <span class="hljs-title">a</span> <span class="hljs-title">minimal</span> <span class="hljs-title">cost</span> </span>
+<span class="hljs-literal">path</span> var2 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); <span class="hljs-comment">// var2 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost </span>
+<span class="hljs-literal">path</span> var3 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); <span class="hljs-comment">// var3 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost </span>
 <span class="hljs-literal">path</span> var4 &lt;- path_between (my_graph, ag1, ag2); <span class="hljs-comment">// var4 equals A path between ag1 and ag2 </span>
-<span class="hljs-literal">path</span> var5 &lt;- path_between (cell_<span class="hljs-class">grid <span class="hljs-title">where</span> <span class="hljs-title">each</span>.<span class="hljs-title">is_free</span>, [<span class="hljs-title">ag1</span>, <span class="hljs-title">ag2</span>, <span class="hljs-title">ag3</span>]); // <span class="hljs-title">var5</span> <span class="hljs-title">equals</span> <span class="hljs-title">A</span> <span class="hljs-title">path</span> <span class="hljs-title">between</span> <span class="hljs-title">ag1</span> <span class="hljs-title">and</span> <span class="hljs-title">ag2</span> <span class="hljs-title">and</span> <span class="hljs-title">ag3</span> <span class="hljs-title">passing</span> <span class="hljs-title">through</span> <span class="hljs-title">the</span> <span class="hljs-title">given</span> <span class="hljs-title">cell_grid</span> <span class="hljs-title">agents</span> </span>
+<span class="hljs-literal">path</span> var5 &lt;- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); <span class="hljs-comment">// var5 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents </span>
 <span class="hljs-literal">path</span> var6 &lt;- my_topology path_between (ag1, ag2); <span class="hljs-comment">// var6 equals A path between ag1 and ag2</span>
 
 </code></pre>
@@ -1077,7 +1077,7 @@ The shortest path between several objects according to set of cells</p>
 <p>Add a given number of days to a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-30"></a><a href="#examples-30" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-date var0 &lt;- date('2000-01-01') plus_days 12; <span class="hljs-comment">// var0 equals date('2000-01-13')</span>
+date var0 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) plus_days 12; <span class="hljs-comment">// var0 equals date('2000-01-13')</span>
 
 </code></pre>
 <hr>
@@ -1091,7 +1091,7 @@ date var0 &lt;- date('2000-01-01') plus_days 12; <span class="hljs-comment">// v
 <p>Add a given number of hours to a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-31"></a><a href="#examples-31" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"><span class="hljs-comment">// equivalent to date1 + 15 #h  </span>
-date var1 &lt;- date('2000-01-01') plus_hours 24; <span class="hljs-comment">// var1 equals date('2000-01-02')</span>
+date var1 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) plus_hours 24; <span class="hljs-comment">// var1 equals date('2000-01-02')</span>
 
 </code></pre>
 <hr>
@@ -1105,7 +1105,7 @@ date var1 &lt;- date('2000-01-01') plus_hours 24; <span class="hljs-comment">// 
 <p>Add a given number of minutes to a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-32"></a><a href="#examples-32" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"><span class="hljs-comment">// equivalent to date1 + 5 #mn  </span>
-date var1 &lt;- date('2000-01-01') plus_minutes 5 ; <span class="hljs-comment">// var1 equals date('2000-01-01 00:05:00')</span>
+date var1 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) plus_minutes 5 ; <span class="hljs-comment">// var1 equals date('2000-01-01 00:05:00')</span>
 
 </code></pre>
 <hr>
@@ -1119,7 +1119,7 @@ date var1 &lt;- date('2000-01-01') plus_minutes 5 ; <span class="hljs-comment">/
 <p>Add a given number of months to a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-33"></a><a href="#examples-33" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-date var0 &lt;- date('2000-01-01') plus_months 5; <span class="hljs-comment">// var0 equals date('2000-06-01')</span>
+date var0 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) plus_months 5; <span class="hljs-comment">// var0 equals date('2000-06-01')</span>
 
 </code></pre>
 <hr>
@@ -1133,7 +1133,7 @@ date var0 &lt;- date('2000-01-01') plus_months 5; <span class="hljs-comment">// 
 <p>Add a given number of milliseconds to a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-34"></a><a href="#examples-34" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"><span class="hljs-comment">// equivalent to date('2000-01-01') + 15 #ms  </span>
-date var1 &lt;- date('2000-01-01') plus_ms 1000 ; <span class="hljs-comment">// var1 equals date('2000-01-01 00:00:01')</span>
+date var1 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) plus_ms 1000 ; <span class="hljs-comment">// var1 equals date('2000-01-01 00:00:01')</span>
 
 </code></pre>
 <hr>
@@ -1150,7 +1150,7 @@ date var1 &lt;- date('2000-01-01') plus_ms 1000 ; <span class="hljs-comment">// 
 <p>Add a given number of weeks to a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-35"></a><a href="#examples-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-date var0 &lt;- date('2000-01-01') plus_weeks 15; <span class="hljs-comment">// var0 equals date('2000-04-15')</span>
+date var0 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) plus_weeks 15; <span class="hljs-comment">// var0 equals date('2000-04-15')</span>
 
 </code></pre>
 <hr>
@@ -1164,7 +1164,7 @@ date var0 &lt;- date('2000-01-01') plus_weeks 15; <span class="hljs-comment">// 
 <p>Add a given number of years to a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-36"></a><a href="#examples-36" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-date var0 &lt;- date('2000-01-01') plus_years 15; <span class="hljs-comment">// var0 equals date('2015-01-01')</span>
+date var0 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) plus_years 15; <span class="hljs-comment">// var0 equals date('2015-01-01')</span>
 
 </code></pre>
 <hr>
@@ -1547,7 +1547,7 @@ Allows to build a list of int representing all contiguous values from the first 
 <p>Reads an attribute of the agent. The attribute's name is specified by the operand.</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-54"></a><a href="#examples-54" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs">unknown 
-agent_name &lt;- read ('name'); <span class="hljs-comment">//agent_name equals reads the 'name' variable of agent then assigns the returned value to the 'agent_name' variable. </span>
+agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hljs-comment">//agent_name equals reads the 'name' variable of agent then assigns the returned value to the 'agent_name' variable. </span>
 
 </code></pre>
 <hr>
@@ -1620,7 +1620,7 @@ agent_name &lt;- read ('name'); <span class="hljs-comment">//agent_name equals r
 <p>Returns the String resulting by replacing for the first operand all the sub-strings corresponding the second operand by the third operand</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-57"></a><a href="#examples-57" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">string</span> var0 &lt;- replace('to be or not to be,that is the question','to', 'do'); <span class="hljs-comment">// var0 equals 'do be or not do be,that is the question'</span>
+<span class="hljs-literal">string</span> var0 &lt;- replace(<span class="hljs-string">'to be or not to be,that is the question'</span>,<span class="hljs-string">'to'</span>, <span class="hljs-string">'do'</span>); <span class="hljs-comment">// var0 equals 'do be or not do be,that is the question'</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-35"></a><a href="#see-also-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1676,7 +1676,7 @@ agent_name &lt;- read ('name'); <span class="hljs-comment">//agent_name equals r
 <li>if it is a string, reverse returns a new string with characters in the reversed order</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">string</span> var0 &lt;- reverse ('abcd'); <span class="hljs-comment">// var0 equals 'dcba'</span>
+<span class="hljs-literal">string</span> var0 &lt;- reverse (<span class="hljs-string">'abcd'</span>); <span class="hljs-comment">// var0 equals 'dcba'</span>
 </code></pre>
 <ul>
 <li>if it is a list, reverse returns a copy of the operand list with elements in the reversed order</li>
@@ -1688,7 +1688,7 @@ agent_name &lt;- read ('name'); <span class="hljs-comment">//agent_name equals r
 <li>if it is a map, reverse returns a copy of the operand map with each pair in the reversed order (i.e. all keys become values and values become keys)</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">string</span>&gt; var2 &lt;- reverse (['k1'::44, 'k2'::32, 'k3'::12]); <span class="hljs-comment">// var2 equals [44::'k1', 32::'k2', 12::'k3']</span>
+<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">string</span>&gt; var2 &lt;- reverse ([<span class="hljs-string">'k1'</span>::44, <span class="hljs-string">'k2'</span>::32, <span class="hljs-string">'k3'</span>::12]); <span class="hljs-comment">// var2 equals [44::'k1', 32::'k2', 12::'k3']</span>
 </code></pre>
 <ul>
 <li>if it is a matrix, reverse returns a new matrix containing the transpose of the operand.</li>

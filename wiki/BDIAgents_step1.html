@@ -69,24 +69,24 @@
 <p>In this first model, we have to define two species of agents: the <strong>goldmine</strong> agents and the <strong>market</strong> ones. These agents will not have a particular behavior, they will just be displayed.
 For the goldmine species, we define a new attribute: <strong>quantity</strong> of type <em>int</em>, with for initial value a random integer between 0 and 20. We also define aspect called <strong>default</strong> that displays the goldmine as a triangle with a gray color if the gold mine is empty, yellow otherwise. The size of the triangle depends on the quantity of gold nuggets in the mine.
 Concerning the market species, we define a new attribute: <strong>golds</strong> of type <em>int</em>. We define as well an aspect called <strong>default</strong> that displays the market as a blue square.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">goldmine</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> goldmine {
     <span class="hljs-literal">int</span> quantity &lt;- rnd(1,20);
-    aspect default
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>
     {
         <span class="hljs-keyword">if</span> (quantity = 0) {
-            draw triangle(200) color: #gray border: #black; 
-        } else {
-            draw triangle(200 + quantity*50) color: #yellow border: #black; 
+            <span class="hljs-keyword">draw</span> triangle(200) <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">border:</span> #black; 
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">draw</span> triangle(200 + quantity*50) <span class="hljs-symbol">color:</span> #yellow <span class="hljs-symbol">border:</span> #black; 
         }
      
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">market</span> </span>{
+<span class="hljs-literal">species</span> market {
     <span class="hljs-literal">int</span> golds;
-    aspect default
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>
     {
-      draw square(1000) color: #black ;
+      <span class="hljs-keyword">draw</span> square(1000) <span class="hljs-symbol">color:</span> #black ;
     }
 }
 
@@ -94,7 +94,7 @@ Concerning the market species, we define a new attribute: <strong>golds</strong>
 <h3><a class="anchor" aria-hidden="true" id="global-variables"></a><a href="#global-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global variables</h3>
 <p>We define two global variables for the model: one called <strong>nb_mines</strong> that will be used to define the number of mines and that will be set to 10. One call <strong>the_market</strong> that will represent the market agent (that will be unique).</p>
 <p>In addition, we define the duration of a simulation step to 10 minutes, and we define the shape of the environnement by a square with a side size of 20 kilometers.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-literal">int</span> nb_mines &lt;- 10; 
     market the_market;
     <span class="hljs-literal">float</span> step &lt;- 10#mn;
@@ -104,31 +104,31 @@ Concerning the market species, we define a new attribute: <strong>golds</strong>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="global-init"></a><a href="#global-init" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global init</h3>
 <p>At the initialisation of the model, we create a market agent and <em>nb_mines</em> goldmine agents. For the market agent, we set the value of the <em>the_market</em> agent with the created agent.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
    ...
    init
     {
-        create market {
+        <span class="hljs-keyword">create</span> market {
             the_market &lt;- self;
         }
-        create goldmine number:nb_mines;
+        <span class="hljs-keyword">create</span> goldmine <span class="hljs-symbol">number:</span>nb_mines;
     }
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="display"></a><a href="#display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>display</h3>
 <p>We define a display to visualize the market and goldmine agents. We use for that the classic <strong>species</strong> keyword. In order to optimize the display we use an opengl display (facet <strong>type: opengl</strong>).</p>
 <p>In the <strong>experiment</strong> block:</p>
-<pre><code class="hljs">output {
-   <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-    <span class="hljs-class">species <span class="hljs-title">market</span> ;</span>
-    <span class="hljs-class">species <span class="hljs-title">goldmine</span> ;</span>
+<pre><code class="hljs"><span class="hljs-keyword">output</span> {
+   <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+    <span class="hljs-literal">species</span> market ;
+    <span class="hljs-literal">species</span> goldmine ;
    }
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> GoldBdi
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_mines &lt;- 10; 
     market the_market;
     <span class="hljs-literal">float</span> step &lt;- 10#mn;
@@ -137,41 +137,41 @@ Concerning the market species, we define a new attribute: <strong>golds</strong>
     
     init
     {
-        create market {
+        <span class="hljs-keyword">create</span> market {
             the_market &lt;- self;
         }
-        create goldmine number:nb_mines;
+        <span class="hljs-keyword">create</span> goldmine <span class="hljs-symbol">number:</span>nb_mines;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">goldmine</span> </span>{
+<span class="hljs-literal">species</span> goldmine {
     <span class="hljs-literal">int</span> quantity &lt;- rnd(1,20);
-    aspect default
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>
     {
         <span class="hljs-keyword">if</span> (quantity = 0) {
-            draw triangle(200) color: #gray border: #black; 
-        } else {
-            draw triangle(200 + quantity*50) color: #yellow border: #black; 
+            <span class="hljs-keyword">draw</span> triangle(200) <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">border:</span> #black; 
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">draw</span> triangle(200 + quantity*50) <span class="hljs-symbol">color:</span> #yellow <span class="hljs-symbol">border:</span> #black; 
         }
      
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">market</span> </span>{
+<span class="hljs-literal">species</span> market {
     <span class="hljs-literal">int</span> golds;
-    aspect default
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>
     {
-      draw square(1000) color: #black ;
+      <span class="hljs-keyword">draw</span> square(1000) <span class="hljs-symbol">color:</span> #black ;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">GoldBdi</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> GoldBdi <span class="hljs-symbol">type:</span> gui {
 
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl
         {
-            <span class="hljs-class">species <span class="hljs-title">market</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">goldmine</span> ;</span>
+            <span class="hljs-literal">species</span> market ;
+            <span class="hljs-literal">species</span> goldmine ;
         }
     }
 }

@@ -9,7 +9,7 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> SIR_switch
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">// Parameters</span>
     <span class="hljs-literal">int</span> initial_S &lt;- 495 ; <span class="hljs-comment">// The number of susceptible</span>
     <span class="hljs-literal">int</span> initial_I &lt;- 5   ; <span class="hljs-comment">// The number of infected</span>
@@ -38,34 +38,34 @@
     <span class="hljs-comment">// the purpose is to minimize the number of evaluation by using the smallest list.</span>
     
     init {
-        create new_scheduler;
+        <span class="hljs-keyword">create</span> new_scheduler;
         <span class="hljs-comment">/* determine the size of the neighborhood and the average count of hosts neighbors */</span>
-        gridSize &lt;- length(sir_<span class="hljs-class">grid);</span>
+        gridSize &lt;- length(sir_grid);
         <span class="hljs-literal">int</span> nbCells &lt;- 0;
         
-        loop cell over: sir_<span class="hljs-class">grid </span>{
+        <span class="hljs-keyword">loop</span> cell <span class="hljs-symbol">over:</span> sir_grid {
             nbCells &lt;- nbCells + length(cell.neighbors);
         }
 
         neighborhoodSize &lt;- nbCells / gridSize + 1; <span class="hljs-comment">// +1 to count itself in the neighborhood;</span>
         beta_maths &lt;- beta * neighborhoodSize * number_Hosts / gridSize * adjust;
         
-        write 'Switch will happen at population sizes around ' +switch_threshold;
-        write 'Basic Reproduction Number (R0): ' + <span class="hljs-literal">string</span>(beta / delta) + '\n';
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'Switch will happen at population sizes around '</span> +switch_threshold;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'Basic Reproduction Number (R0): '</span> + <span class="hljs-literal">string</span>(beta / delta) + <span class="hljs-string">'\n'</span>;
         
         <span class="hljs-comment">//Creation of the switch_model agent that will manage the switch between the mathematical and the individual based models</span>
-        create switch_model {
+        <span class="hljs-keyword">create</span> switch_model {
             threshold_to_IBM &lt;- switch_threshold;
             threshold_to_Maths &lt;- switch_threshold;
         }
         <span class="hljs-comment">//Creation of the model according to the one to begin with</span>
         <span class="hljs-keyword">if</span> (first(switch_model).start_with_IBM) {
         <span class="hljs-comment">//      write 'Starting with IBM model';</span>
-            create IBM_model;
+            <span class="hljs-keyword">create</span> IBM_model;
             current_model &lt;- first(IBM_model);
-        } else {
+        } <span class="hljs-keyword">else</span> {
         <span class="hljs-comment">//      write 'Starting with Maths model';</span>
-            create Math_model;
+            <span class="hljs-keyword">create</span> Math_model;
             current_model &lt;- first(Math_model);
         }
         <span class="hljs-comment">//Initialization of the Susceptible, Infected, Resistant and Total Compartiment</span>
@@ -75,12 +75,12 @@
         current_model.N &lt;- number_Hosts;
         
         <span class="hljs-comment">//Ask to the model to initialize itself according to the value initialized</span>
-        ask current_model {
-            do initialize;
+        <span class="hljs-keyword">ask</span> current_model {
+            <span class="hljs-keyword">do</span> initialize;
         }
         
         <span class="hljs-comment">//Create the SIR maths with ODE to compare</span>
-        create my_SIR_maths {
+        <span class="hljs-keyword">create</span> my_SIR_maths {
             self.S &lt;- <span class="hljs-literal">float</span>(myself.initial_S);
             self.I &lt;- <span class="hljs-literal">float</span>(myself.initial_I);
             self.R &lt;- <span class="hljs-literal">float</span>(myself.initial_R);
@@ -91,7 +91,7 @@
 
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">infection_computation_method</span> </span>{
+    <span class="hljs-builtin">reflex</span> infection_computation_method {
     <span class="hljs-comment">/* computing infection from S has a complexity of S*ngb, where ngb is the size of the neighborhood.
      * computing infection from I has a complexity of I*ngb.
      * this reflex determine which method has the lowest cost.
@@ -101,35 +101,35 @@
 
 }
 <span class="hljs-comment">//Grid which represent the discretized space for the host agents</span>
-    <span class="hljs-class">grid <span class="hljs-title">sir_grid</span> <span class="hljs-title">width</span>: <span class="hljs-title">grid_size</span> <span class="hljs-title">height</span>: <span class="hljs-title">grid_size</span> </span>{
+    grid sir_grid <span class="hljs-symbol">width:</span> grid_size <span class="hljs-symbol">height:</span> grid_size {
         <span class="hljs-literal">rgb</span> color &lt;- #black;
-        <span class="hljs-literal">list</span>&lt;sir_<span class="hljs-class">grid&gt; <span class="hljs-title">neighbors</span> &lt;- (<span class="hljs-title">self</span> <span class="hljs-title">neighbors_at</span> <span class="hljs-title">neighbors_range</span>) <span class="hljs-title">of_species</span> <span class="hljs-title">sir_grid</span>;</span>
+        <span class="hljs-literal">list</span>&lt;sir_grid&gt; neighbors &lt;- (self neighbors_at neighbors_range) of_species sir_grid;
     }
 
 
 <span class="hljs-comment">//Species which allows the execution of only Host, IBM_model, Math_model and switch_model at each cycle</span>
-<span class="hljs-class">species <span class="hljs-title">new_scheduler</span> <span class="hljs-title">schedules</span>: (<span class="hljs-title">Host</span> + <span class="hljs-title">IBM_model</span> + <span class="hljs-title">Math_model</span> + <span class="hljs-title">switch_model</span>) ;</span>
+<span class="hljs-literal">species</span> new_scheduler <span class="hljs-symbol">schedules:</span> (Host + IBM_model + Math_model + switch_model) ;
 
 <span class="hljs-comment">//Species which represent the manager between IBM and Math model</span>
-<span class="hljs-class">species <span class="hljs-title">switch_model</span> <span class="hljs-title">schedules</span>: [] </span>{
+<span class="hljs-literal">species</span> switch_model <span class="hljs-symbol">schedules:</span> [] {
     <span class="hljs-literal">int</span> threshold_to_IBM &lt;- 45; <span class="hljs-comment">// threshold under which the model swith to IBM</span>
     <span class="hljs-literal">int</span> threshold_to_Maths &lt;- 50; <span class="hljs-comment">// threshold under which the model swith to Maths model </span>
-    <span class="hljs-literal">bool</span> start_with_IBM function: { (initial_S &lt; threshold_to_IBM or initial_I &lt; threshold_to_IBM) };
+    <span class="hljs-literal">bool</span> start_with_IBM <span class="hljs-symbol">function:</span> { (initial_S &lt; threshold_to_IBM or initial_I &lt; threshold_to_IBM) };
 
     <span class="hljs-comment">//Switch the model used to IBM when the threshold is higher than the population</span>
-    <span class="hljs-class">reflex <span class="hljs-title">switch_to_IBM</span> <span class="hljs-title">when</span>: (<span class="hljs-title">current_model</span>.<span class="hljs-title">model_type</span> = '<span class="hljs-title">Maths</span>') </span>{
+    <span class="hljs-builtin">reflex</span> switch_to_IBM <span class="hljs-symbol">when:</span> (current_model.model_type = <span class="hljs-string">'Maths'</span>) {
         <span class="hljs-keyword">if</span> (current_model.S &lt; threshold_to_IBM or current_model.I &lt; threshold_to_IBM) {
-            write 'Switch to IBM <span class="hljs-builtin">model</span> at cycle ' + <span class="hljs-literal">string</span>(cycle);
-            create IBM_model {
+            <span class="hljs-keyword">write</span> <span class="hljs-string">'Switch to IBM model at cycle '</span> + <span class="hljs-literal">string</span>(cycle);
+            <span class="hljs-keyword">create</span> IBM_model {
                 self.S &lt;- current_model.S;
                 self.I &lt;- current_model.I;
                 self.R &lt;- current_model.R;
                 self.N &lt;- current_model.N;
-                do initialize;
+                <span class="hljs-keyword">do</span> initialize;
             }
 
-            ask current_model {
-                do remove_model;
+            <span class="hljs-keyword">ask</span> current_model {
+                <span class="hljs-keyword">do</span> remove_model;
             }
 
             current_model &lt;- first(IBM_model);
@@ -137,19 +137,19 @@
 
     }
     <span class="hljs-comment">//Switch the model used to Maths when the threshold is lower than the population</span>
-    <span class="hljs-class">reflex <span class="hljs-title">switch_to_Maths</span> <span class="hljs-title">when</span>: (<span class="hljs-title">current_model</span>.<span class="hljs-title">model_type</span> = '<span class="hljs-title">IBM</span>') </span>{
+    <span class="hljs-builtin">reflex</span> switch_to_Maths <span class="hljs-symbol">when:</span> (current_model.model_type = <span class="hljs-string">'IBM'</span>) {
         <span class="hljs-keyword">if</span> (current_model.S &gt; threshold_to_Maths and current_model.I &gt; threshold_to_Maths) {
-            write 'Switch to Maths <span class="hljs-builtin">model</span> at cycle ' + cycle;
-            create Math_model {
+            <span class="hljs-keyword">write</span> <span class="hljs-string">'Switch to Maths model at cycle '</span> + cycle;
+            <span class="hljs-keyword">create</span> Math_model {
                 self.S &lt;- current_model.S;
                 self.I &lt;- current_model.I;
                 self.R &lt;- current_model.R;
                 self.N &lt;- current_model.N;
-                do initialize;
+                <span class="hljs-keyword">do</span> initialize;
             }
 
-            ask current_model {
-                do remove_model;
+            <span class="hljs-keyword">ask</span> current_model {
+                <span class="hljs-keyword">do</span> remove_model;
             }
 
             current_model &lt;- first(Math_model);
@@ -159,124 +159,124 @@
 
 }
 <span class="hljs-comment">//Species which represent the SIR model used by the IBM and the Math models </span>
-<span class="hljs-class">species <span class="hljs-title">SIR_model</span> <span class="hljs-title">schedules</span>: [] </span>{
+<span class="hljs-literal">species</span> SIR_model <span class="hljs-symbol">schedules:</span> [] {
     <span class="hljs-literal">float</span> S;
     <span class="hljs-literal">float</span> I;
     <span class="hljs-literal">float</span> R;
     <span class="hljs-literal">int</span> N;
-    <span class="hljs-literal">string</span> model_type &lt;- 'none';
+    <span class="hljs-literal">string</span> model_type &lt;- <span class="hljs-string">'none'</span>;
     
-    action remove_model {
-        do die;
+    <span class="hljs-keyword">action</span> remove_model {
+        <span class="hljs-keyword">do</span> die;
     }
 
-    action initialize ;
+    <span class="hljs-keyword">action</span> initialize ;
 
 }
 
 <span class="hljs-comment">//Species IBM Model which represent the Individual based model, derivated from SIR_model</span>
-<span class="hljs-class">species <span class="hljs-title">IBM_model</span> <span class="hljs-title">schedules</span>: [] <span class="hljs-title">parent</span>: <span class="hljs-title">SIR_model</span> </span>{
-    <span class="hljs-literal">string</span> model_type &lt;- 'IBM';
+<span class="hljs-literal">species</span> IBM_model <span class="hljs-symbol">schedules:</span> [] <span class="hljs-symbol">parent:</span> SIR_model {
+    <span class="hljs-literal">string</span> model_type &lt;- <span class="hljs-string">'IBM'</span>;
     
     <span class="hljs-comment">//Action to initialize the Model with SIR compartiments</span>
-    action initialize {
+    <span class="hljs-keyword">action</span> initialize {
         
-        write 'Initializing IBM <span class="hljs-builtin">model</span> with S=' + round(S) + ', I=' + round(I) + ', R=' + round(R) + '\n';
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'Initializing IBM model with S='</span> + round(S) + <span class="hljs-string">', I='</span> + round(I) + <span class="hljs-string">', R='</span> + round(R) + <span class="hljs-string">'\n'</span>;
         <span class="hljs-comment">//Creation of the host agents</span>
-        create Host number: round(S) {
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span> round(S) {
             is_susceptible &lt;- true;
             is_infected &lt;- false;
             is_immune &lt;- false;
             color &lt;- #green;
         }
 
-        create Host number: round(I) {
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span> round(I) {
             is_susceptible &lt;- false;
             is_infected &lt;- true;
             is_immune &lt;- false;
             color &lt;- #red;
         }
 
-        create Host number: round(R) {
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span> round(R) {
             is_susceptible &lt;- false;
             is_infected &lt;- false;
             is_immune &lt;- true;
             color &lt;- #yellow;
         }
-        do count;
+        <span class="hljs-keyword">do</span> count;
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">count</span> </span>{
-        do count;
+    <span class="hljs-builtin">reflex</span> count {
+        <span class="hljs-keyword">do</span> count;
     }
     <span class="hljs-comment">//Action to update the different compartiments</span>
-    action count {
+    <span class="hljs-keyword">action</span> count {
         S &lt;- <span class="hljs-literal">float</span>(Host count (each.is_susceptible));
         I &lt;- <span class="hljs-literal">float</span>(Host count (each.is_infected));
         R &lt;- <span class="hljs-literal">float</span>(Host count (each.is_immune));
     }
     <span class="hljs-comment">//Action to remove the model and kill all the agents it contains</span>
-    action remove_model {
-        ask Host {
-            do die;
+    <span class="hljs-keyword">action</span> remove_model {
+        <span class="hljs-keyword">ask</span> Host {
+            <span class="hljs-keyword">do</span> die;
         }
 
-        do die;
+        <span class="hljs-keyword">do</span> die;
     }
 
 }
 
 <span class="hljs-comment">//Species Math Model which represent the mathematical Ordinary Differential Equations model, derivated from SIR_model</span>
-<span class="hljs-class">species <span class="hljs-title">Math_model</span> <span class="hljs-title">schedules</span>: [] <span class="hljs-title">parent</span>: <span class="hljs-title">SIR_model</span> </span>{
-    <span class="hljs-literal">string</span> model_type &lt;- 'Maths';
+<span class="hljs-literal">species</span> Math_model <span class="hljs-symbol">schedules:</span> [] <span class="hljs-symbol">parent:</span> SIR_model {
+    <span class="hljs-literal">string</span> model_type &lt;- <span class="hljs-string">'Maths'</span>;
     <span class="hljs-literal">float</span> t;
     
-    action initialize {
-        write 'Initializing Maths <span class="hljs-builtin">model</span> with S=' + S + ', I=' + I + ', R=' + R + '\n';
+    <span class="hljs-keyword">action</span> initialize {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'Initializing Maths model with S='</span> + S + <span class="hljs-string">', I='</span> + I + <span class="hljs-string">', R='</span> + R + <span class="hljs-string">'\n'</span>;
     }
 
-    equation SIR {
+    <span class="hljs-keyword">equation</span> SIR {
         diff(S, t) = (-beta_maths * S * I / N);
         diff(I, t) = (beta_maths * S * I / N) - (delta * I);
         diff(R, t) = (delta * I);
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve SIR method: <span class="hljs-string">"rk4"</span> step: 0.01 ;}
+    <span class="hljs-builtin">reflex</span> solving {<span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span> <span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span> 0.01 ;}
 }
 <span class="hljs-comment">//Species host used by the Individual Based Model which move from one cell to another</span>
-<span class="hljs-class">species <span class="hljs-title">Host</span> <span class="hljs-title">schedules</span>: [] <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> Host <span class="hljs-symbol">schedules:</span> [] <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">bool</span> is_susceptible &lt;- true;
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
     <span class="hljs-literal">bool</span> is_immune &lt;- false;
     <span class="hljs-literal">rgb</span> color &lt;- #green;
-    sir_<span class="hljs-class">grid <span class="hljs-title">myPlace</span>;</span>
+    sir_grid myPlace;
     
     <span class="hljs-comment">/* next function computes the number of neighbors of the agent */</span>
-    <span class="hljs-literal">int</span> ngb_number function: {
-        length(((self) neighbors_at (2)) of_<span class="hljs-class">species <span class="hljs-title">Host</span>) - 1 // -1 <span class="hljs-title">is</span> <span class="hljs-title">because</span> <span class="hljs-title">the</span> <span class="hljs-title">agent</span> <span class="hljs-title">counts</span> <span class="hljs-title">itself</span></span>
+    <span class="hljs-literal">int</span> ngb_number <span class="hljs-symbol">function:</span> {
+        length(((self) neighbors_at (2)) of_species Host) - 1 <span class="hljs-comment">// -1 is because the agent counts itself</span>
     };
     
     init {
-        myPlace &lt;- one_of(sir_<span class="hljs-class">grid <span class="hljs-title">as</span> <span class="hljs-title">list</span>);</span>
+        myPlace &lt;- one_of(sir_grid as <span class="hljs-literal">list</span>);
         location &lt;- myPlace.location;
     }
 
     <span class="hljs-comment">//Reflex to move the agents among the cells</span>
-    <span class="hljs-class">reflex <span class="hljs-title">basic_move</span> </span>{
+    <span class="hljs-builtin">reflex</span> basic_move {
         <span class="hljs-keyword">if</span> (!local_random_walk) {
         <span class="hljs-comment">/* random walk among neighbors */</span>
             myPlace &lt;- one_of(myPlace.neighbors);
             location &lt;- myPlace.location;
-        } else {
+        } <span class="hljs-keyword">else</span> {
         <span class="hljs-comment">/* move agent to a random place anywhere in the grid */</span>
-            myPlace &lt;- any(sir_<span class="hljs-class">grid);</span>
+            myPlace &lt;- any(sir_grid);
             location &lt;- myPlace.location;
         }
 
     }
     <span class="hljs-comment">//Reflex to make the agent infected when the infection is computed from S for a better execution time</span>
-    <span class="hljs-class">reflex <span class="hljs-title">become_infected</span> <span class="hljs-title">when</span>: (<span class="hljs-title">is_susceptible</span> <span class="hljs-title">and</span> <span class="hljs-title">computeInfectionFromS</span>) </span>{
-        <span class="hljs-keyword">if</span> (flip(1 - (1 - beta) ^ (((self) neighbors_at (2)) of_<span class="hljs-class">species <span class="hljs-title">Host</span>) <span class="hljs-title">count</span> (<span class="hljs-title">each</span>.<span class="hljs-title">is_infected</span>))) </span>{
+    <span class="hljs-builtin">reflex</span> become_infected <span class="hljs-symbol">when:</span> (is_susceptible and computeInfectionFromS) {
+        <span class="hljs-keyword">if</span> (flip(1 - (1 - beta) ^ (((self) neighbors_at (2)) of_species Host) count (each.is_infected))) {
             is_susceptible &lt;- false;
             is_infected &lt;- true;
             is_immune &lt;- false;
@@ -285,8 +285,8 @@
 
     }
     <span class="hljs-comment">//Reflex to make the agent infect others when the infection is not computed from S for a better execution time</span>
-    <span class="hljs-class">reflex <span class="hljs-title">infecte_others</span> <span class="hljs-title">when</span>: (<span class="hljs-title">is_infected</span> <span class="hljs-title">and</span> <span class="hljs-title">not</span> (<span class="hljs-title">computeInfectionFromS</span>)) </span>{
-        loop hst over: ((self) neighbors_at (2)) {
+    <span class="hljs-builtin">reflex</span> infecte_others <span class="hljs-symbol">when:</span> (is_infected and not (computeInfectionFromS)) {
+        <span class="hljs-keyword">loop</span> hst <span class="hljs-symbol">over:</span> ((self) neighbors_at (2)) {
             <span class="hljs-keyword">if</span> (hst.is_susceptible) {
                 <span class="hljs-keyword">if</span> (flip(beta)) {
                     hst.is_susceptible &lt;- false;
@@ -298,77 +298,77 @@
         }
     }
     <span class="hljs-comment">//Reflex to make the agent resistant</span>
-    <span class="hljs-class">reflex <span class="hljs-title">become_immune</span> <span class="hljs-title">when</span>: (<span class="hljs-title">is_infected</span> <span class="hljs-title">and</span> <span class="hljs-title">flip</span>(<span class="hljs-title">delta</span>)) </span>{
+    <span class="hljs-builtin">reflex</span> become_immune <span class="hljs-symbol">when:</span> (is_infected and flip(delta)) {
         is_susceptible &lt;- false;
         is_infected &lt;- false;
         is_immune &lt;- true;
         color &lt;- #yellow;
     }
 
-    aspect basic {
-        draw circle(1) color: color;
+    <span class="hljs-keyword">aspect</span> basic {
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span> color;
     }
 
 }
 <span class="hljs-comment">//Species which represent the SIR mathematical model </span>
-<span class="hljs-class">species <span class="hljs-title">my_SIR_maths</span> </span>{
+<span class="hljs-literal">species</span> my_SIR_maths {
     <span class="hljs-literal">float</span> t;
     <span class="hljs-literal">float</span> I &lt;- <span class="hljs-literal">float</span>(iInit);
     <span class="hljs-literal">float</span> S &lt;- N - I;
     <span class="hljs-literal">float</span> R &lt;- 0.0;
             
-    <span class="hljs-literal">float</span> alpha &lt;- 0.01 min: 0.0 max: 1.0;
-    <span class="hljs-literal">float</span> beta1 &lt;- 0.1 min: 0.0 max: 1000.0;
-    <span class="hljs-literal">int</span> N &lt;- 500 min: 1 max: 3000;
+    <span class="hljs-literal">float</span> alpha &lt;- 0.01 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0;
+    <span class="hljs-literal">float</span> beta1 &lt;- 0.1 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1000.0;
+    <span class="hljs-literal">int</span> N &lt;- 500 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 3000;
     <span class="hljs-literal">int</span> iInit &lt;- 1;
 
-    equation SIR {
+    <span class="hljs-keyword">equation</span> SIR {
         diff(S, t) = (-beta1 * S * I / N);
         diff(I, t) = (beta1 * S * I / N) - (alpha * I);
         diff(R, t) = (alpha * I);
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve SIR method:<span class="hljs-string">"rk4"</span> step:0.01;}
+    <span class="hljs-builtin">reflex</span> solving {<span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span><span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span>0.01;}
 
 }
 
 
 
-<span class="hljs-class">experiment <span class="hljs-title">mysimulation</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter 'Number of Susceptible' type: <span class="hljs-literal">int</span> var: initial_S &lt;- 495 category: <span class="hljs-string">"Initial population"</span>; 
-    parameter 'Number of Infected'    type: <span class="hljs-literal">int</span> var: initial_I &lt;- 5   category: <span class="hljs-string">"Initial population"</span>;
-    parameter 'Number of Removed'     type: <span class="hljs-literal">int</span> var: initial_R &lt;- 0   category: <span class="hljs-string">"Initial population"</span>;
+<span class="hljs-builtin">experiment</span> mysimulation <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of Susceptible'</span> <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">var:</span> initial_S &lt;- 495 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Initial population"</span>; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of Infected'</span>    <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">var:</span> initial_I &lt;- 5   <span class="hljs-symbol">category:</span> <span class="hljs-string">"Initial population"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of Removed'</span>     <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">var:</span> initial_R &lt;- 0   <span class="hljs-symbol">category:</span> <span class="hljs-string">"Initial population"</span>;
 
-    parameter 'Beta (S-&gt;I)'  type: <span class="hljs-literal">float</span> var: beta &lt;- 1.0   category: <span class="hljs-string">"Parameters"</span>;
-    parameter 'Delta (I-&gt;R)' type: <span class="hljs-literal">float</span> var: delta &lt;- 0.01 category: <span class="hljs-string">"Parameters"</span>; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Beta (S-&gt;I)'</span>  <span class="hljs-symbol">type:</span> <span class="hljs-literal">float</span> <span class="hljs-symbol">var:</span> beta &lt;- 1.0   <span class="hljs-symbol">category:</span> <span class="hljs-string">"Parameters"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Delta (I-&gt;R)'</span> <span class="hljs-symbol">type:</span> <span class="hljs-literal">float</span> <span class="hljs-symbol">var:</span> delta &lt;- 0.01 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Parameters"</span>; 
     
-    parameter 'Is the infection is computed locally?' type: <span class="hljs-literal">bool</span> var: local_infection &lt;- true category: <span class="hljs-string">"Infection"</span>;
-    parameter 'Size of the neighbors' type: <span class="hljs-literal">int</span> var: neighbors_range &lt;- 2 min:1 max: 5 category: <span class="hljs-string">"Infection"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Is the infection is computed locally?'</span> <span class="hljs-symbol">type:</span> <span class="hljs-literal">bool</span> <span class="hljs-symbol">var:</span> local_infection &lt;- true <span class="hljs-symbol">category:</span> <span class="hljs-string">"Infection"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Size of the neighbors'</span> <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">var:</span> neighbors_range &lt;- 2 <span class="hljs-symbol">min:</span>1 <span class="hljs-symbol">max:</span> 5 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Infection"</span>;
 
-    parameter 'Local Random Walk' type: <span class="hljs-literal">bool</span> var: local_random_walk &lt;- true category: <span class="hljs-string">"Agents"</span>; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Local Random Walk'</span> <span class="hljs-symbol">type:</span> <span class="hljs-literal">bool</span> <span class="hljs-symbol">var:</span> local_random_walk &lt;- true <span class="hljs-symbol">category:</span> <span class="hljs-string">"Agents"</span>; 
     
-    parameter 'Switch models at' type: <span class="hljs-literal">int</span> var: switch_threshold &lt;- 120 category: <span class="hljs-string">"Model"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Switch models at'</span> <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">var:</span> switch_threshold &lt;- 120 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Model"</span>;
     
-    output {
-        <span class="hljs-class">display '<span class="hljs-title">sir</span> <span class="hljs-title">display</span>' </span>{
-            <span class="hljs-class">grid <span class="hljs-title">sir_grid</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">Host</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">basic</span>;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-string">'sir display'</span> {
+            grid sir_grid <span class="hljs-symbol">lines:</span> #black;
+            <span class="hljs-literal">species</span> Host <span class="hljs-symbol">aspect:</span> basic;
         }
     
-        <span class="hljs-class">display '<span class="hljs-title">Switch</span> <span class="hljs-title">model</span>' </span>{
-            chart 'Susceptible' type: series background: #lightgray style: exploded {
-                data 'susceptible' value: current_model.S color: #green;
-                data 'infected' value: current_model.I color: #red;
-                data 'immune' value: current_model.R color: #yellow;
+        <span class="hljs-keyword">display</span> <span class="hljs-string">'Switch model'</span> {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'Susceptible'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">style:</span> exploded {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'susceptible'</span> <span class="hljs-symbol">value:</span> current_model.S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'infected'</span> <span class="hljs-symbol">value:</span> current_model.I <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'immune'</span> <span class="hljs-symbol">value:</span> current_model.R <span class="hljs-symbol">color:</span> #yellow;
             }
 
         }
 
-        <span class="hljs-class">display <span class="hljs-title">SI_maths</span>  </span>{
-            chart <span class="hljs-string">"SI"</span> type: series background: #white {
-                data 'S' value: first((my_SIR_maths)).S color: #green;
-                data 'I' value: first((my_SIR_maths)).I color: #red;
-                data 'R' value: first((my_SIR_maths)).R color: #yellow;
+        <span class="hljs-keyword">display</span> SI_maths  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"SI"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S'</span> <span class="hljs-symbol">value:</span> first((my_SIR_maths)).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I'</span> <span class="hljs-symbol">value:</span> first((my_SIR_maths)).I <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R'</span> <span class="hljs-symbol">value:</span> first((my_SIR_maths)).R <span class="hljs-symbol">color:</span> #yellow;
             }
 
         }

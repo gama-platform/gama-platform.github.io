@@ -10,46 +10,46 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> Grid
 
-<span class="hljs-class">global </span>{
+global {
     init {    
-        create goal{
+        <span class="hljs-keyword">create</span> goal{
             location &lt;- (one_of (cell where not each.is_obstacle)).location;
         }
-        create people number: 10 {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> 10 {
             target &lt;- one_of (goal);
             location &lt;-  (one_of (cell where not each.is_obstacle)).location;
         }
     } 
 }
 
-<span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 50 <span class="hljs-title">height</span>: 50 <span class="hljs-title">neighbors</span>: 4 </span>{
+grid cell <span class="hljs-symbol">width:</span> 50 <span class="hljs-symbol">height:</span> 50 <span class="hljs-symbol">neighbors:</span> 4 {
     <span class="hljs-literal">bool</span> is_obstacle &lt;- flip(0.2);
     <span class="hljs-literal">rgb</span> color &lt;- is_obstacle ? #black : #white;
 } 
      
-<span class="hljs-class">species <span class="hljs-title">goal</span> </span>{
-    aspect default { 
-        draw circle(0.5) color: #red;
+<span class="hljs-literal">species</span> goal {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> { 
+        <span class="hljs-keyword">draw</span> circle(0.5) <span class="hljs-symbol">color:</span> #red;
     }
 }  
     
       
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     goal target;
     <span class="hljs-literal">float</span> speed &lt;- <span class="hljs-literal">float</span>(3);
     
-    aspect default {
-        draw circle(0.5) color: #green;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(0.5) <span class="hljs-symbol">color:</span> #green;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">location</span> != <span class="hljs-title">target</span></span>{
+    <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> location != target{
         <span class="hljs-comment">//Neighs contains all the neighbors cells that are reachable by the agent plus the cell where it's located</span>
         <span class="hljs-literal">list</span>&lt;cell&gt; neighs &lt;- (cell(location) neighbors_at speed) + cell(location); 
         
         <span class="hljs-comment">//We restrain the movements of the agents only at the grid of cells that are not obstacle using the on facet of the goto operator and we return the path</span>
         <span class="hljs-comment">//followed by the agent</span>
         <span class="hljs-comment">//the recompute_path is used to precise that we do not need to recompute the shortest path at each movement (gain of computation time): the obtsacles on the grid never change.</span>
-        <span class="hljs-literal">path</span> followed_path &lt;- self goto (on:(cell where not each.is_obstacle), target:target, speed:speed, return_path:true, recompute_path: false);
+        <span class="hljs-literal">path</span> followed_path &lt;- self goto (<span class="hljs-symbol">on:</span>(cell where not each.is_obstacle), <span class="hljs-symbol">target:</span>target, <span class="hljs-symbol">speed:</span>speed, <span class="hljs-symbol">return_path:</span>true, <span class="hljs-symbol">recompute_path:</span> false);
         
         <span class="hljs-comment">//As a side note, it is also possible to use the path_between operator and follow action with a grid</span>
         <span class="hljs-comment">//Add a my_path attribute of type path to the people species</span>
@@ -60,17 +60,17 @@
             <span class="hljs-literal">geometry</span> path_geom &lt;- <span class="hljs-literal">geometry</span>(followed_path.segments);
             
             <span class="hljs-comment">//The cells intersecting the path followed by the agent are colored in magenta</span>
-            ask (neighs where (each.shape intersects path_geom)) { color &lt;- #magenta;}
+            <span class="hljs-keyword">ask</span> (neighs where (each.shape intersects path_geom)) { color &lt;- #magenta;}
         }   
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">goto_grid</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">objects_display</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">goal</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
+<span class="hljs-builtin">experiment</span> goto_grid <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> objects_display {
+            grid cell <span class="hljs-symbol">lines:</span> #black;
+            <span class="hljs-literal">species</span> goal <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
         }
     }
 }

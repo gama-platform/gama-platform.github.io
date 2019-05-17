@@ -10,18 +10,18 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> procedural_city   
 
-<span class="hljs-class">global </span>{
-    <span class="hljs-literal">int</span> number_of_building parameter: 'Number of Agents' min: 1 &lt;- 300 category: 'Initialization';
-    <span class="hljs-literal">int</span> width_and_height_of_environment parameter: 'Dimensions' min: 10 &lt;- 500 category: 'Initialization';
+global {
+    <span class="hljs-literal">int</span> number_of_building <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Number of Agents'</span> <span class="hljs-symbol">min:</span> 1 &lt;- 300 <span class="hljs-symbol">category:</span> <span class="hljs-string">'Initialization'</span>;
+    <span class="hljs-literal">int</span> width_and_height_of_environment <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Dimensions'</span> <span class="hljs-symbol">min:</span> 10 &lt;- 500 <span class="hljs-symbol">category:</span> <span class="hljs-string">'Initialization'</span>;
     
     <span class="hljs-literal">geometry</span> shape &lt;- square(width_and_height_of_environment);
         
-    <span class="hljs-literal">file</span> roof_texture &lt;- <span class="hljs-literal">file</span>('../images/building_texture/roof_top.png') ;      
-    <span class="hljs-literal">list</span> textures &lt;- [<span class="hljs-literal">file</span>('../images/building_texture/texture1.jpg'),<span class="hljs-literal">file</span>('../images/building_texture/texture2.jpg'),<span class="hljs-literal">file</span>('../images/building_texture/texture3.jpg'),<span class="hljs-literal">file</span>('../images/building_texture/texture4.jpg'),<span class="hljs-literal">file</span>('../images/building_texture/texture5.jpg'),
-    <span class="hljs-literal">file</span>('../images/building_texture/texture6.jpg'),<span class="hljs-literal">file</span>('../images/building_texture/texture7.jpg'),<span class="hljs-literal">file</span>('../images/building_texture/texture8.jpg'),<span class="hljs-literal">file</span>('../images/building_texture/texture9.jpg'),<span class="hljs-literal">file</span>('../images/building_texture/texture10.jpg')];
+    <span class="hljs-literal">file</span> roof_texture &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/roof_top.png'</span>) ;      
+    <span class="hljs-literal">list</span> textures &lt;- [<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture1.jpg'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture2.jpg'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture3.jpg'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture4.jpg'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture5.jpg'</span>),
+    <span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture6.jpg'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture7.jpg'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture8.jpg'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture9.jpg'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/building_texture/texture10.jpg'</span>)];
 
     init { 
-      create Building number:number_of_building{
+      <span class="hljs-keyword">create</span> Building <span class="hljs-symbol">number:</span>number_of_building{
              width &lt;- (rnd(100)/100)*(rnd(100)/100)*(rnd(100)/100)*50+10;
              depth &lt;-   (rnd(100)/100)*(rnd(100)/100)*(rnd(100)/100*width)*10+10;
             shape &lt;- box(width, width, depth) rotated_by rnd(360);
@@ -31,41 +31,41 @@
 
 } 
 
-<span class="hljs-class">species <span class="hljs-title">Building</span></span>{
+<span class="hljs-literal">species</span> Building{
     <span class="hljs-literal">float</span> width;
     <span class="hljs-literal">float</span> height;
     <span class="hljs-literal">float</span> depth;
     <span class="hljs-literal">int</span> angle;          
     <span class="hljs-literal">file</span> texture;
     
-    <span class="hljs-class">reflex <span class="hljs-title">shuffle</span></span>{
+    <span class="hljs-builtin">reflex</span> shuffle{
          width &lt;- (rnd(100)/100)*(rnd(100)/100)*(rnd(100)/100)*50+10;
          depth &lt;-   (rnd(100)/100)*(rnd(100)/100)*(rnd(100)/100*width)*10+10;
         shape &lt;- box(width, width, depth) rotated_by rnd(360);
     }
     
-    aspect base {
-        draw shape color:#white;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>#white;
     }
     
-    aspect textured {
-        draw shape texture:[roof_texture.<span class="hljs-literal">path</span>,texture.<span class="hljs-literal">path</span>] ;
+    <span class="hljs-keyword">aspect</span> textured {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">texture:</span>[roof_texture.<span class="hljs-literal">path</span>,texture.<span class="hljs-literal">path</span>] ;
     }
 }   
 
 
-<span class="hljs-class">experiment <span class="hljs-title">DisplayTextured</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-      <span class="hljs-class">display <span class="hljs-title">City</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55)</span>{
-            <span class="hljs-class">species <span class="hljs-title">Building</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">textured</span>;                           </span>
+<span class="hljs-builtin">experiment</span> DisplayTextured  <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+      <span class="hljs-keyword">display</span> City <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55){
+            <span class="hljs-literal">species</span> Building <span class="hljs-symbol">aspect:</span>textured;                           
         }
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">DisplayWithDynamicDiffuseLight</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-      <span class="hljs-class">display <span class="hljs-title">City</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55)</span>{
-            light 1 type:<span class="hljs-literal">point</span> color:hsb((time mod 255) /255,1.0 ,0.5) position:{world.shape.width*0.5+ world.shape.width*1.5*sin(time*2),world.shape.width*0.5,world.shape.width*cos(time*2)} draw_light:true update:true;
-            <span class="hljs-class">species <span class="hljs-title">Building</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>;                                   </span>
+<span class="hljs-builtin">experiment</span> DisplayWithDynamicDiffuseLight  <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+      <span class="hljs-keyword">display</span> City <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55){
+            <span class="hljs-keyword">light</span> 1 <span class="hljs-symbol">type:</span><span class="hljs-literal">point</span> <span class="hljs-symbol">color:</span>hsb((time mod 255) /255,1.0 ,0.5) <span class="hljs-symbol">position:</span>{world.shape.width*0.5+ world.shape.width*1.5*sin(time*2),world.shape.width*0.5,world.shape.width*cos(time*2)} <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">update:</span>true;
+            <span class="hljs-literal">species</span> Building <span class="hljs-symbol">aspect:</span>base;                                   
         }
     }
 }

@@ -107,15 +107,15 @@
 <h4><a class="anchor" aria-hidden="true" id="example-1"></a><a href="#example-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example 1</h4>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> CallingR
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">list</span> X &lt;- [2, 3, 1];
     <span class="hljs-literal">list</span> Y &lt;- [2, 12, 4]; 
 
     <span class="hljs-literal">list</span> result;
     
     init{
-        write corR(X, Y); <span class="hljs-comment">// -&gt; 0.755928946018454</span>
-        write meanR(X); <span class="hljs-comment">// -&gt; 2.0</span>
+        <span class="hljs-keyword">write</span> corR(X, Y); <span class="hljs-comment">// -&gt; 0.755928946018454</span>
+        <span class="hljs-keyword">write</span> meanR(X); <span class="hljs-comment">// -&gt; 2.0</span>
     }
 }
 </code></pre>
@@ -125,26 +125,26 @@
 <h4><a class="anchor" aria-hidden="true" id="example-2"></a><a href="#example-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example 2</h4>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> CallingR
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-literal">list</span> result;
 
     init{
         result &lt;- R_compute(<span class="hljs-string">"C:/YourPath/Correlation.R"</span>);
-        write result at 0;
+        <span class="hljs-keyword">write</span> result at 0;
     }
 }
 </code></pre>
 <p>Above syntax is deprecated, use following syntax with R_file instead of R_compute:</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> CallingR
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-literal">file</span> result;
 
     init{
         result &lt;- R_file(<span class="hljs-string">"C:/YourPath/Correlation.R"</span>);
-        write result.contents;
+        <span class="hljs-keyword">write</span> result.contents;
     }
 }
 </code></pre>
@@ -160,14 +160,14 @@ result &lt;- cor(x, y, method = <span class="hljs-string">"pearson"</span>)
 <h4><a class="anchor" aria-hidden="true" id="example-3"></a><a href="#example-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example 3</h4>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> CallingR
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-literal">list</span> result;
 
     init{
         result &lt;- R_compute(<span class="hljs-string">"C:/YourPath/RandomForest.R"</span>);
 
-        write result at 0;
+        <span class="hljs-keyword">write</span> result at 0;
     }
 }
 </code></pre>
@@ -176,7 +176,7 @@ result &lt;- cor(x, y, method = <span class="hljs-string">"pearson"</span>)
 library(randomForest)
 
 
-data(iris)
+<span class="hljs-keyword">data</span>(iris)
 
 nrow&lt;-length(iris[,1])
 
@@ -210,14 +210,14 @@ acc&lt;-sum(pred==testset[, ncol])/(nrow-trainrow)
 <h4><a class="anchor" aria-hidden="true" id="example-4"></a><a href="#example-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example 4</h4>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> CallingR
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-literal">list</span> X &lt;- [2, 3, 1];
     <span class="hljs-literal">list</span> result;
 
     init{
         result &lt;- R_compute_param(<span class="hljs-string">"C:/YourPath/Mean.R"</span>, X);
-        write result at 0;
+        <span class="hljs-keyword">write</span> result at 0;
     }
 }
 </code></pre>
@@ -228,13 +228,13 @@ acc&lt;-sum(pred==testset[, ncol])/(nrow-trainrow)
 <h4><a class="anchor" aria-hidden="true" id="example-5"></a><a href="#example-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example 5</h4>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> CallingR
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">list</span> X &lt;- [2, 3, 1];
     <span class="hljs-literal">list</span> result;
     
         init{
         result &lt;- R_compute_param(<span class="hljs-string">"C:/YourPath/AddParam.R"</span>, X);
-        write result at 0;
+        <span class="hljs-keyword">write</span> result at 0;
     }
 }
 </code></pre>

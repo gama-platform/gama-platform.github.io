@@ -73,7 +73,7 @@
 <ul>
 <li><code>public void setChildren(final List&lt;? extends ISymbol&gt; children)</code>: this method will be called at the compilation of the model. It allows to manage all the embeded statements (in <code>children</code>) and for example separate the statements that should be executed at the initialization only from the ones that should be executed at each simulation step. Following example allows to test the name of the all the embedded statements:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">for</span> ( final ISymbol c : children ) {
+<pre><code class="hljs">for ( final ISymbol c : children ) {
    <span class="hljs-keyword">if</span>( IKeyword.INIT.equals(c.getFacet(IKeyword.KEYWORD).literalValue()) ) {
 </code></pre>
 <ul>

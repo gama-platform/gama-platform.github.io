@@ -97,7 +97,7 @@ All the actions can be used independently from the chosen DBMS. Only the connect
 <h2><a class="anchor" aria-hidden="true" id="sqlskill"></a><a href="#sqlskill" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SQLSKILL</h2>
 <h3><a class="anchor" aria-hidden="true" id="define-a-species-that-uses-the-sqlskill-skill"></a><a href="#define-a-species-that-uses-the-sqlskill-skill" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define a species that uses the SQLSKILL skill</h3>
 <p>Example of declaration:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">toto</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">SQLSKILL</span>] </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> toto <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">SQLSKILL</span>] {
     <span class="hljs-comment">//insert your descriptions here</span>
 }
 </code></pre>
@@ -122,35 +122,35 @@ All the actions can be used independently from the chosen DBMS. Only the connect
 <p><strong>Example</strong>: Definitions of connection parameter</p>
 <pre><code class="hljs"><span class="hljs-comment">// POSTGRES connection parameter</span>
 <span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;  POSTGRES &lt;- [
-     'host'::'localhost',
-     'dbtype'::'postgres',
-     'database'::'BPH',
-     'port'::'5433',
-     'user'::'postgres',
-     'passwd'::'abc'];
+     <span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>,
+     <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'postgres'</span>,
+     <span class="hljs-string">'database'</span>::<span class="hljs-string">'BPH'</span>,
+     <span class="hljs-string">'port'</span>::<span class="hljs-string">'5433'</span>,
+     <span class="hljs-string">'user'</span>::<span class="hljs-string">'postgres'</span>,
+     <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'abc'</span>];
 
 <span class="hljs-comment">//SQLite</span>
 <span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;  SQLITE &lt;- [
-    'dbtype'::'sqlite',
-    'database'::'../includes/meteo.db'];
+    <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlite'</span>,
+    <span class="hljs-string">'database'</span>::<span class="hljs-string">'../includes/meteo.db'</span>];
 
 <span class="hljs-comment">// SQLSERVER connection parameter</span>
 <span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; SQLSERVER &lt;- [
-    'host'::'localhost',
-    'dbtype'::'sqlserver',
-    'database'::'BPH',
-    'port'::'1433',
-    'user'::'sa',
-    'passwd'::'abc'];
+    <span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>,
+    <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlserver'</span>,
+    <span class="hljs-string">'database'</span>::<span class="hljs-string">'BPH'</span>,
+    <span class="hljs-string">'port'</span>::<span class="hljs-string">'1433'</span>,
+    <span class="hljs-string">'user'</span>::<span class="hljs-string">'sa'</span>,
+    <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'abc'</span>];
 
 <span class="hljs-comment">// MySQL connection parameter</span>
 <span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;  MySQL &lt;- [
-    'host'::'localhost',
-    'dbtype'::'MySQL',
-    'database'::'', <span class="hljs-comment">// it may be a null string</span>
-    'port'::'3306',
-    'user'::'root',
-    'passwd'::'abc'];
+    <span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>,
+    <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'MySQL'</span>,
+    <span class="hljs-string">'database'</span>::<span class="hljs-string">''</span>, <span class="hljs-comment">// it may be a null string</span>
+    <span class="hljs-string">'port'</span>::<span class="hljs-string">'3306'</span>,
+    <span class="hljs-string">'user'</span>::<span class="hljs-string">'root'</span>,
+    <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'abc'</span>];
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="test-a-connection-to-database"></a><a href="#test-a-connection-to-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test a connection to database</h3>
 <p><strong>Syntax</strong>:</p>
@@ -171,10 +171,10 @@ The action tests the connection to a given database.</p>
 <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
 </ul>
 <p><strong>Example</strong>: Check a connection to MySQL</p>
-<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection(params:MySQL)){
-    write <span class="hljs-string">"Connection is OK"</span> ;
-}else{
-    write <span class="hljs-string">"Connection is false"</span> ;
+<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection(<span class="hljs-symbol">params:</span>MySQL)){
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection is OK"</span> ;
+}<span class="hljs-keyword">else</span>{
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection is false"</span> ;
 }   
 
 </code></pre>
@@ -200,15 +200,15 @@ The action creates a connection to a DBMS and executes the select statement. If 
 <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
 </ul>
 <p><strong>Example</strong>: select data from table points</p>
-<pre><code class="hljs"><span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; t &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select(params:PARAMS, 
-                         select:<span class="hljs-string">"SELECT * FROM points ;"</span>));
+<pre><code class="hljs"><span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;   PARAMS &lt;- [<span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlite'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">'../includes/meteo.db'</span>];
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; t &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select(<span class="hljs-symbol">params:</span>PARAMS, 
+                         <span class="hljs-symbol">select:</span><span class="hljs-string">"SELECT * FROM points ;"</span>));
 </code></pre>
 <p><strong>Example</strong>: select data from table point with question marks from table points</p>
-<pre><code class="hljs"><span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;   PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; t &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select(params: PARAMS, 
-                                           select: <span class="hljs-string">"SELECT temp_min FROM points where (day&gt;? and day&lt;?);"</span>
-                                           values: [10,20] ));
+<pre><code class="hljs"><span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;   PARAMS &lt;- [<span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlite'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">'../includes/meteo.db'</span>];
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; t &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select(<span class="hljs-symbol">params:</span> PARAMS, 
+                                           <span class="hljs-symbol">select:</span> <span class="hljs-string">"SELECT temp_min FROM points where (day&gt;? and day&lt;?);"</span>
+                                           <span class="hljs-symbol">values:</span> [10,20] ));
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="insert-data-into-database"></a><a href="#insert-data-into-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Insert data into database</h3>
 <p><strong>Syntax</strong>:</p>
@@ -230,21 +230,21 @@ The action creates a connection to a DBMS and executes the select statement. If 
 <li><strong>Exceptions</strong>:_GamaRuntimeException</li>
 </ul>
 <p><strong>Example</strong>: Insert data into table registration</p>
-<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- [<span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlite'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">'../../includes/Student.db'</span>];
 
-do insert (params: PARAMS, 
-               into: <span class="hljs-string">"registration"</span>, 
-               values: [102, 'Mahnaz', 'Fatma', 25]);
+<span class="hljs-keyword">do</span> insert (<span class="hljs-symbol">params:</span> PARAMS, 
+               <span class="hljs-symbol">into:</span> <span class="hljs-string">"registration"</span>, 
+               <span class="hljs-symbol">values:</span> [102, <span class="hljs-string">'Mahnaz'</span>, <span class="hljs-string">'Fatma'</span>, 25]);
 
-do insert (params: PARAMS, 
-                into: <span class="hljs-string">"registration"</span>, 
-                columns: [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
-                values: [103, 'Zaid tim', 'Kha']);
+<span class="hljs-keyword">do</span> insert (<span class="hljs-symbol">params:</span> PARAMS, 
+                <span class="hljs-symbol">into:</span> <span class="hljs-string">"registration"</span>, 
+                <span class="hljs-symbol">columns:</span> [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
+                <span class="hljs-symbol">values:</span> [103, <span class="hljs-string">'Zaid tim'</span>, <span class="hljs-string">'Kha'</span>]);
 
-<span class="hljs-literal">int</span> n &lt;- insert (params: PARAMS, 
-                        into: <span class="hljs-string">"registration"</span>, 
-                       columns: [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
-                       values: [104, 'Bill', 'Clark']);
+<span class="hljs-literal">int</span> n &lt;- insert (<span class="hljs-symbol">params:</span> PARAMS, 
+                        <span class="hljs-symbol">into:</span> <span class="hljs-string">"registration"</span>, 
+                       <span class="hljs-symbol">columns:</span> [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
+                       <span class="hljs-symbol">values:</span> [104, <span class="hljs-string">'Bill'</span>, <span class="hljs-string">'Clark'</span>]);
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="execution-update-commands"></a><a href="#execution-update-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution update commands</h3>
 <p><strong>Syntax</strong>:</p>
@@ -264,43 +264,43 @@ The action executeUpdate executes an update command (create/insert/delete/drop) 
 <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
 </ul>
 <p><strong>Examples</strong>: Using action executeUpdate do sql commands (create, insert, update, delete and drop).</p>
-<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- ['dbtype'::'sqlite',  'database'::'../../includes/Student.db'];
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- [<span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlite'</span>,  <span class="hljs-string">'database'</span>::<span class="hljs-string">'../../includes/Student.db'</span>];
 <span class="hljs-comment">// Create table</span>
-do executeUpdate (params: PARAMS, 
-                              updateComm: <span class="hljs-string">"CREATE TABLE registration"</span> 
+<span class="hljs-keyword">do</span> executeUpdate (<span class="hljs-symbol">params:</span> PARAMS, 
+                              <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"CREATE TABLE registration"</span> 
                                              + <span class="hljs-string">"(id INTEGER PRIMARY KEY, "</span> 
                                              + <span class="hljs-string">" first TEXT NOT NULL, "</span> + <span class="hljs-string">" last TEXT NOT NULL, "</span> 
                                              + <span class="hljs-string">" age INTEGER);"</span>);
 
 <span class="hljs-comment">// Insert into </span>
-do executeUpdate (params: PARAMS ,  
-                             updateComm: <span class="hljs-string">"INSERT INTO registration "</span> + <span class="hljs-string">"VALUES(100, 'Zara', 'Ali', 18);"</span>);
-do insert (params: PARAMS, into: <span class="hljs-string">"registration"</span>, 
-               columns: [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
-               values: [103, 'Zaid tim', 'Kha']);
+<span class="hljs-keyword">do</span> executeUpdate (<span class="hljs-symbol">params:</span> PARAMS ,  
+                             <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"INSERT INTO registration "</span> + <span class="hljs-string">"VALUES(100, 'Zara', 'Ali', 18);"</span>);
+<span class="hljs-keyword">do</span> insert (<span class="hljs-symbol">params:</span> PARAMS, <span class="hljs-symbol">into:</span> <span class="hljs-string">"registration"</span>, 
+               <span class="hljs-symbol">columns:</span> [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
+               <span class="hljs-symbol">values:</span> [103, <span class="hljs-string">'Zaid tim'</span>, <span class="hljs-string">'Kha'</span>]);
 
 <span class="hljs-comment">// executeUpdate with question marks</span>
-do executeUpdate (params: PARAMS,
-                             updateComm: <span class="hljs-string">"INSERT INTO registration "</span> + <span class="hljs-string">"VALUES(?, ?, ?, ?);"</span> ,  
-                             values: [101, 'Mr', 'Mme', 45]);
+<span class="hljs-keyword">do</span> executeUpdate (<span class="hljs-symbol">params:</span> PARAMS,
+                             <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"INSERT INTO registration "</span> + <span class="hljs-string">"VALUES(?, ?, ?, ?);"</span> ,  
+                             <span class="hljs-symbol">values:</span> [101, <span class="hljs-string">'Mr'</span>, <span class="hljs-string">'Mme'</span>, 45]);
 
 <span class="hljs-comment">//update </span>
-<span class="hljs-literal">int</span> n &lt;-  executeUpdate (params: PARAMS, 
-                                       updateComm: <span class="hljs-string">"UPDATE registration SET age = 30 WHERE id IN (100, 101)"</span> );
+<span class="hljs-literal">int</span> n &lt;-  executeUpdate (<span class="hljs-symbol">params:</span> PARAMS, 
+                                       <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"UPDATE registration SET age = 30 WHERE id IN (100, 101)"</span> );
 
 <span class="hljs-comment">// delete</span>
-<span class="hljs-literal">int</span> n &lt;- executeUpdate (params: PARAMS, 
-                                      updateComm: <span class="hljs-string">"DELETE FROM registration where id=? "</span>,  
-                                      values: [101] );
+<span class="hljs-literal">int</span> n &lt;- executeUpdate (<span class="hljs-symbol">params:</span> PARAMS, 
+                                      <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"DELETE FROM registration where id=? "</span>,  
+                                      <span class="hljs-symbol">values:</span> [101] );
 
 <span class="hljs-comment">// Drop table</span>
-do executeUpdate (params: PARAMS, updateComm: <span class="hljs-string">"DROP TABLE registration"</span>);
+<span class="hljs-keyword">do</span> executeUpdate (<span class="hljs-symbol">params:</span> PARAMS, <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"DROP TABLE registration"</span>);
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="mdxskill"></a><a href="#mdxskill" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MDXSKILL</h2>
 <p>MDXSKILL plays the role of an OLAP tool using select to query data from OLAP server to GAMA environment and then species can use the queried data for any analysis purposes.</p>
 <h3><a class="anchor" aria-hidden="true" id="define-a-species-that-uses-the-mdxskill-skill"></a><a href="#define-a-species-that-uses-the-mdxskill-skill" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define a species that uses the MDXSKILL skill</h3>
 <p>Example of declaration:</p>
-<pre><code class="hljs">    <span class="hljs-class">species <span class="hljs-title">olap</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">MDXSKILL</span>]</span>
+<pre><code class="hljs">    <span class="hljs-literal">species</span> olap <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">MDXSKILL</span>]
      {  
         <span class="hljs-comment">//insert your descriptions here</span>
         
@@ -329,35 +329,35 @@ do executeUpdate (params: PARAMS, updateComm: <span class="hljs-string">"DROP TA
 <p><strong>Example</strong>: Definitions of OLAP connection parameter</p>
 <pre><code class="hljs"><span class="hljs-comment">//Connect SQL Server Analysis Services via XMLA</span>
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; SSAS &lt;- [
-                'olaptype'::'SSAS/XMLA',
-                'dbtype'::'sqlserver',
-                'host'::'172.17.88.166',
-                'port'::'80',
-                'database'::'olap',
-                'user'::'test',
-                'passwd'::'abc'];
+                <span class="hljs-string">'olaptype'</span>::<span class="hljs-string">'SSAS/XMLA'</span>,
+                <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlserver'</span>,
+                <span class="hljs-string">'host'</span>::<span class="hljs-string">'172.17.88.166'</span>,
+                <span class="hljs-string">'port'</span>::<span class="hljs-string">'80'</span>,
+                <span class="hljs-string">'database'</span>::<span class="hljs-string">'olap'</span>,
+                <span class="hljs-string">'user'</span>::<span class="hljs-string">'test'</span>,
+                <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'abc'</span>];
 
 <span class="hljs-comment">//Connect Mondriam server via XMLA</span>
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt;  MONDRIANXMLA &lt;- [
-                'olaptype'::<span class="hljs-string">"MONDRIAN/XMLA"</span>,
-                'dbtype'::'postgres',
-                'host'::'localhost',
-                'port'::'8080',
-                'database'::'MondrianFoodMart',
-                'catalog'::'FoodMart',
-                'user'::'test',
-                'passwd'::'abc'];
+                <span class="hljs-string">'olaptype'</span>::<span class="hljs-string">"MONDRIAN/XMLA"</span>,
+                <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'postgres'</span>,
+                <span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>,
+                <span class="hljs-string">'port'</span>::<span class="hljs-string">'8080'</span>,
+                <span class="hljs-string">'database'</span>::<span class="hljs-string">'MondrianFoodMart'</span>,
+                <span class="hljs-string">'catalog'</span>::<span class="hljs-string">'FoodMart'</span>,
+                <span class="hljs-string">'user'</span>::<span class="hljs-string">'test'</span>,
+                <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'abc'</span>];
 
 <span class="hljs-comment">//Connect a ROLAP server using Mondriam API </span>
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt;  MONDRIAN &lt;- [
-                'olaptype'::'MONDRIAN',
-                'dbtype'::'postgres',
-                'host'::'localhost',
-                'port'::'5433',
-                'database'::'foodmart',
-                'catalog'::'../includes/FoodMart.xml',
-                'user'::'test',
-                                'passwd'::'abc'];
+                <span class="hljs-string">'olaptype'</span>::<span class="hljs-string">'MONDRIAN'</span>,
+                <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'postgres'</span>,
+                <span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>,
+                <span class="hljs-string">'port'</span>::<span class="hljs-string">'5433'</span>,
+                <span class="hljs-string">'database'</span>::<span class="hljs-string">'foodmart'</span>,
+                <span class="hljs-string">'catalog'</span>::<span class="hljs-string">'../includes/FoodMart.xml'</span>,
+                <span class="hljs-string">'user'</span>::<span class="hljs-string">'test'</span>,
+                                <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'abc'</span>];
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="test-a-connection-to-olap-database"></a><a href="#test-a-connection-to-olap-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test a connection to OLAP database</h3>
 <p><strong>Syntax</strong>:</p>
@@ -378,10 +378,10 @@ The action tests the connection to a given OLAP database.</p>
 <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
 </ul>
 <p><strong>Example</strong>: Check a connection to MySQL</p>
-<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection(params:MONDIRANXMLA)){
-    write <span class="hljs-string">"Connection is OK"</span>;
-}else{
-    write <span class="hljs-string">"Connection is false"</span>;
+<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection(<span class="hljs-symbol">params:</span>MONDIRANXMLA)){
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection is OK"</span>;
+}<span class="hljs-keyword">else</span>{
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection is false"</span>;
 }   
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="select-data-from-olap-database"></a><a href="#select-data-from-olap-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Select data from OLAP database</h3>
@@ -410,24 +410,24 @@ The action creates a connection to an OLAP database and executes the select stat
 </ul>
 <p><strong>Example</strong>: select data from SQL Server Analysis Service via XMLA</p>
 <pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection[ params::SSAS]){
-    <span class="hljs-literal">list</span> l1  &lt;- <span class="hljs-literal">list</span>(self select (params: SSAS ,
-        onColumns: <span class="hljs-string">" { [Measures].[Quantity], [Measures].[Price] }"</span>,
-        onRows:<span class="hljs-string">" { { { [Time].[Year].[All].CHILDREN } * "</span>
+    <span class="hljs-literal">list</span> l1  &lt;- <span class="hljs-literal">list</span>(self select (<span class="hljs-symbol">params:</span> SSAS ,
+        <span class="hljs-symbol">onColumns:</span> <span class="hljs-string">" { [Measures].[Quantity], [Measures].[Price] }"</span>,
+        <span class="hljs-symbol">onRows:</span><span class="hljs-string">" { { { [Time].[Year].[All].CHILDREN } * "</span>
         + <span class="hljs-string">" { [Product].[Product Category].[All].CHILDREN } * "</span>
         +<span class="hljs-string">"{ [Customer].[Company Name].&amp;[Alfreds Futterkiste], "</span> 
         +<span class="hljs-string">"[Customer].[Company Name].&amp;[Ana Trujillo Emparedadosy helados], "</span> 
         + <span class="hljs-string">"[Customer].[Company Name].&amp;[Antonio Moreno Taquería] } } } "</span> ,
         from : <span class="hljs-string">"FROM [Northwind Star] "</span>));
-    write <span class="hljs-string">"result1:"</span>+ l1;
-}else {
-    write <span class="hljs-string">"Connect error"</span>;
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"result1:"</span>+ l1;
+}<span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"Connect error"</span>;
 }
 </code></pre>
 <p><strong>Example</strong>: select data from Mondrian via XMLA with question marks in selection</p>
-<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection(params:MONDRIANXMLA)){
-    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; l2  &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select(params: MONDRIANXMLA, 
-    onColumns:<span class="hljs-string">" {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} "</span>,
-    onRows:<span class="hljs-string">"  Hierarchize(Union(Union(Union({([Promotion Media].[All Media],"</span>
+<pre><code class="hljs"><span class="hljs-keyword">if</span> (self testConnection(<span class="hljs-symbol">params:</span>MONDRIANXMLA)){
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; l2  &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select(<span class="hljs-symbol">params:</span> MONDRIANXMLA, 
+    <span class="hljs-symbol">onColumns:</span><span class="hljs-string">" {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} "</span>,
+    <span class="hljs-symbol">onRows:</span><span class="hljs-string">"  Hierarchize(Union(Union(Union({([Promotion Media].[All Media],"</span>
     +<span class="hljs-string">" [Product].[All Products])}, "</span>
     +<span class="hljs-string">" Crossjoin([Promotion Media].[All Media].Children, "</span>
     +<span class="hljs-string">" {[Product].[All Products]})), "</span>
@@ -435,19 +435,19 @@ The action creates a connection to an OLAP database and executes the select stat
     +<span class="hljs-string">" [Product].[All Products].Children)), "</span>
     +<span class="hljs-string">" Crossjoin({[Promotion Media].[Street Handout]}, "</span> 
     +<span class="hljs-string">" [Product].[All Products].Children)))  "</span>,
-    from:<span class="hljs-string">" from [?] "</span> ,
+    <span class="hljs-symbol">from:</span><span class="hljs-string">" from [?] "</span> ,
     where :<span class="hljs-string">" where [Time].[?] "</span> ,
-    values:[<span class="hljs-string">"Sales"</span>,1997]));
-    write <span class="hljs-string">"result2:"</span>+ l2;
-}else {
-    write <span class="hljs-string">"Connect error"</span>;
+    <span class="hljs-symbol">values:</span>[<span class="hljs-string">"Sales"</span>,1997]));
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"result2:"</span>+ l2;
+}<span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"Connect error"</span>;
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="agentdb"></a><a href="#agentdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AgentDB</h2>
 <p>AgentBD is a built-in species, which supports behaviors that look like actions in SQLSKILL but differs slightly with SQLSKILL in that it uses  only one connection for several actions. It means that AgentDB makes a connection to DBMS and keeps that connection for its later operations with DBMS.</p>
 <h3><a class="anchor" aria-hidden="true" id="define-a-species-that-is-an-inheritance-of-agentdb"></a><a href="#define-a-species-that-is-an-inheritance-of-agentdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define a species that is an inheritance of agentDB</h3>
 <p>Example of declaration:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">agentDB</span> <span class="hljs-title">parent</span>: <span class="hljs-title">AgentDB</span> </span>{  
+<pre><code class="hljs"><span class="hljs-literal">species</span> agentDB <span class="hljs-symbol">parent:</span> AgentDB {  
     <span class="hljs-comment">//insert your descriptions here</span>
 } 
 </code></pre>
@@ -468,14 +468,14 @@ This action makes a connection to DBMS. If a connection is established then it w
 </ul>
 <pre><code class="hljs"><span class="hljs-comment">// POSTGRES connection parameter</span>
 <span class="hljs-literal">map</span> &lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt;  POSTGRES &lt;- [
-                                        'host'::'localhost',
-                                        'dbtype'::'postgres',
-                                        'database'::'BPH',
-                                        'port'::'5433',
-                                        'user'::'postgres',
-                                        'passwd'::'abc'];
-ask agentDB {
-      do connect (params: POSTGRES);
+                                        <span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>,
+                                        <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'postgres'</span>,
+                                        <span class="hljs-string">'database'</span>::<span class="hljs-string">'BPH'</span>,
+                                        <span class="hljs-string">'port'</span>::<span class="hljs-string">'5433'</span>,
+                                        <span class="hljs-string">'user'</span>::<span class="hljs-string">'postgres'</span>,
+                                        <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'abc'</span>];
+<span class="hljs-keyword">ask</span> agentDB {
+      <span class="hljs-keyword">do</span> connect (<span class="hljs-symbol">params:</span> POSTGRES);
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="check-agent-connected-a-database-or-not"></a><a href="#check-agent-connected-a-database-or-not" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Check agent connected a database or not</h3>
@@ -492,11 +492,11 @@ This action checks if an agent is connecting to database or not.</p>
 </ul></li>
 </ul>
 <p><strong>Example</strong>: Using action executeUpdate do sql commands (create, insert, update, delete and drop).</p>
-<pre><code class="hljs">ask agentDB {
+<pre><code class="hljs"><span class="hljs-keyword">ask</span> agentDB {
     <span class="hljs-keyword">if</span> (self isConnected){
-              write <span class="hljs-string">"It already has a connection"</span>;
-    }else{
-              do connect (params: POSTGRES);
+              <span class="hljs-keyword">write</span> <span class="hljs-string">"It already has a connection"</span>;
+    }<span class="hljs-keyword">else</span>{
+              <span class="hljs-keyword">do</span> connect (<span class="hljs-symbol">params:</span> POSTGRES);
         } 
 }
 </code></pre>
@@ -511,9 +511,9 @@ This action closes the current database connection of species. If species does n
 If the current connection of species is close then the action return null value; otherwise it throws a GamaRuntimeException.</li>
 </ul>
 <p><strong>Example</strong>:</p>
-<pre><code class="hljs">ask agentDB {
+<pre><code class="hljs"><span class="hljs-keyword">ask</span> agentDB {
     <span class="hljs-keyword">if</span> (self isConnected){
-          do close;
+          <span class="hljs-keyword">do</span> close;
     }
 }
 </code></pre>
@@ -527,9 +527,9 @@ This action returns the connection parameter of species.</p>
 <li><strong>Return</strong>: map &lt; string, string &gt;</li>
 </ul>
 <p><strong>Example</strong>:</p>
-<pre><code class="hljs">ask agentDB {
+<pre><code class="hljs"><span class="hljs-keyword">ask</span> agentDB {
     <span class="hljs-keyword">if</span> (self isConnected){
-        write <span class="hljs-string">"the connection parameter: "</span> +(self getParameter);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"the connection parameter: "</span> +(self getParameter);
         }
 }
 </code></pre>
@@ -548,42 +548,42 @@ This action sets the new values for connection parameter and closes the current 
 <li><strong>Exceptions</strong>: <em>GamaRuntimeException</em></li>
 </ul>
 <p><strong>Example</strong>:</p>
-<pre><code class="hljs">ask agentDB {
+<pre><code class="hljs"><span class="hljs-keyword">ask</span> agentDB {
     <span class="hljs-keyword">if</span> (self isConnected){
-             do setParameter(params: MySQL);
-             do connect(params: (self getParameter));
+             <span class="hljs-keyword">do</span> setParameter(<span class="hljs-symbol">params:</span> MySQL);
+             <span class="hljs-keyword">do</span> connect(<span class="hljs-symbol">params:</span> (self getParameter));
         }
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="retrieve-data-from-database-by-using-agentdb"></a><a href="#retrieve-data-from-database-by-using-agentdb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Retrieve data from database by using AgentDB</h3>
 <p>Because of the connection to database of AgentDB is kept alive then AgentDB can execute several SQL queries with only one connection. Hence AgentDB can do actions such as <strong>select</strong>, <strong>insert</strong>, <strong>executeUpdate</strong> with the same parameters of those actions of SQLSKILL <em>except <strong>params</strong> parameter is always absent</em>.</p>
 <p><strong>Examples</strong>:</p>
-<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
-ask agentDB {
-   do connect (params: PARAMS);
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- [<span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlite'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">'../../includes/Student.db'</span>];
+<span class="hljs-keyword">ask</span> agentDB {
+   <span class="hljs-keyword">do</span> connect (<span class="hljs-symbol">params:</span> PARAMS);
    <span class="hljs-comment">// Create table</span>
-   do executeUpdate (updateComm: <span class="hljs-string">"CREATE TABLE registration"</span> 
+   <span class="hljs-keyword">do</span> executeUpdate (<span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"CREATE TABLE registration"</span> 
     + <span class="hljs-string">"(id INTEGER PRIMARY KEY, "</span> 
         + <span class="hljs-string">" first TEXT NOT NULL, "</span> + <span class="hljs-string">" last TEXT NOT NULL, "</span> 
         + <span class="hljs-string">" age INTEGER);"</span>);
    <span class="hljs-comment">// Insert into </span>
-   do executeUpdate ( updateComm: <span class="hljs-string">"INSERT INTO registration "</span> 
+   <span class="hljs-keyword">do</span> executeUpdate ( <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"INSERT INTO registration "</span> 
         + <span class="hljs-string">"VALUES(100, 'Zara', 'Ali', 18);"</span>);
-   do insert (into: <span class="hljs-string">"registration"</span>, 
-     columns: [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
-     values: [103, 'Zaid tim', 'Kha']);
+   <span class="hljs-keyword">do</span> insert (<span class="hljs-symbol">into:</span> <span class="hljs-string">"registration"</span>, 
+     <span class="hljs-symbol">columns:</span> [<span class="hljs-string">"id"</span>, <span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], 
+     <span class="hljs-symbol">values:</span> [103, <span class="hljs-string">'Zaid tim'</span>, <span class="hljs-string">'Kha'</span>]);
    <span class="hljs-comment">// executeUpdate with question marks</span>
-   do executeUpdate (updateComm: <span class="hljs-string">"INSERT INTO registration VALUES(?, ?, ?, ?);"</span>,  
-     values: [101, 'Mr', 'Mme', 45]);
+   <span class="hljs-keyword">do</span> executeUpdate (<span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"INSERT INTO registration VALUES(?, ?, ?, ?);"</span>,  
+     <span class="hljs-symbol">values:</span> [101, <span class="hljs-string">'Mr'</span>, <span class="hljs-string">'Mme'</span>, 45]);
    <span class="hljs-comment">//select</span>
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; t &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; (self select( 
-     select:<span class="hljs-string">"SELECT * FROM registration;"</span>));
+     <span class="hljs-symbol">select:</span><span class="hljs-string">"SELECT * FROM registration;"</span>));
     <span class="hljs-comment">//update </span>
-    <span class="hljs-literal">int</span> n &lt;-  executeUpdate (updateComm: <span class="hljs-string">"UPDATE registration SET age = 30 WHERE id IN (100, 101)"</span>);
+    <span class="hljs-literal">int</span> n &lt;-  executeUpdate (<span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"UPDATE registration SET age = 30 WHERE id IN (100, 101)"</span>);
      <span class="hljs-comment">// delete</span>
-     <span class="hljs-literal">int</span> n &lt;- executeUpdate ( updateComm: <span class="hljs-string">"DELETE FROM registration where id=? "</span>,  values: [101] );
+     <span class="hljs-literal">int</span> n &lt;- executeUpdate ( <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"DELETE FROM registration where id=? "</span>,  <span class="hljs-symbol">values:</span> [101] );
      <span class="hljs-comment">// Drop table</span>
-      do executeUpdate (updateComm: <span class="hljs-string">"DROP TABLE registration"</span>);
+      <span class="hljs-keyword">do</span> executeUpdate (<span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"DROP TABLE registration"</span>);
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="using-database-features-to-define-environment-or-create-species"></a><a href="#using-database-features-to-define-environment-or-create-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using database features to define environment or create species</h2>
@@ -611,13 +611,13 @@ ask agentDB {
 <p><strong>Example</strong>:</p>
 <pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; BOUNDS &lt;- [  
     <span class="hljs-comment">//'srid'::'32648',</span>
-    'host'::'localhost',                                
-        'dbtype'::'postgres',
-    'database'::'spatial_DB',
-    'port'::'5433',                             
-        'user'::'postgres',
-    'passwd'::'tmt',
-    'select'::'SELECT ST_AsBinary(geom) as geom FROM bounds;' ];
+    <span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>,                                
+        <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'postgres'</span>,
+    <span class="hljs-string">'database'</span>::<span class="hljs-string">'spatial_DB'</span>,
+    <span class="hljs-string">'port'</span>::<span class="hljs-string">'5433'</span>,                             
+        <span class="hljs-string">'user'</span>::<span class="hljs-string">'postgres'</span>,
+    <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'tmt'</span>,
+    <span class="hljs-string">'select'</span>::<span class="hljs-string">'SELECT ST_AsBinary(geom) as geom FROM bounds;'</span> ];
 </code></pre>
 <ul>
 <li><strong>Step 2</strong>: define boundary of environment by using the map object in first step.</li>
@@ -630,16 +630,16 @@ ask agentDB {
 <ul>
 <li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">toto</span> <span class="hljs-title">skills</span>: <span class="hljs-title">SQLSKILL</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> toto <span class="hljs-symbol">skills:</span> <span class="hljs-builtin">SQLSKILL</span> {
     <span class="hljs-comment">//insert your descriptions here </span>
 }   
 </code></pre>
 <ul>
 <li><strong>Step 2</strong>: Define a connection and selection parameters</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
-    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt;  PARAMS &lt;- ['dbtype'::'sqlite','database'::'../includes/bph.sqlite'];
-    <span class="hljs-literal">string</span> location &lt;- 'select ID_4, Name_4, ST_AsBinary(<span class="hljs-literal">geometry</span>) as geom from vnm_adm4 
+<pre><code class="hljs">global {
+    map&lt;string,string&gt;  PARAMS &lt;- ['dbtype'::'sqlite','database'::'../includes/bph.sqlite'];
+    string location &lt;- 'select ID_4, Name_4, ST_AsBinary(geometry) as geom from vnm_adm4 
                                       where id_2=38253 or id_2=38254;';
     ...
 }      
@@ -648,10 +648,10 @@ ask agentDB {
 <li><strong>Step 3</strong>: Create species by using selected results</li>
 </ul>
 <pre><code class="hljs">init {
-   create toto { 
-      create locations from: <span class="hljs-literal">list</span>(self select (params: PARAMS, 
-                                                           select: LOCATIONS)) 
-                                   with:[ id:: <span class="hljs-string">"id_4"</span>, custom_name:: <span class="hljs-string">"name_4"</span>, shape::<span class="hljs-string">"geom"</span>];
+   <span class="hljs-keyword">create</span> toto { 
+      <span class="hljs-keyword">create</span> locations <span class="hljs-symbol">from:</span> <span class="hljs-literal">list</span>(self select (<span class="hljs-symbol">params:</span> PARAMS, 
+                                                           <span class="hljs-symbol">select:</span> LOCATIONS)) 
+                                   <span class="hljs-symbol">with:</span>[ id:: <span class="hljs-string">"id_4"</span>, custom_name:: <span class="hljs-string">"name_4"</span>, shape::<span class="hljs-string">"geom"</span>];
     }
    ...
 }
@@ -661,36 +661,36 @@ ask agentDB {
 <ul>
 <li><strong>Step 1</strong>: Define a species with SQLSKILL or AgentDB</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">toto</span> <span class="hljs-title">skills</span>: <span class="hljs-title">SQLSKILL</span> </span>{  
+<pre><code class="hljs"><span class="hljs-literal">species</span> toto <span class="hljs-symbol">skills:</span> <span class="hljs-builtin">SQLSKILL</span> {  
     <span class="hljs-comment">//insert your descriptions here</span>
 } 
 </code></pre>
 <ul>
 <li><strong>Step 2</strong>: Define a connection and create GIS database and tables</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
-    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; PARAMS &lt;-  ['host'::'localhost', 'dbtype'::'Postgres', 'database'::'', 
-                                                            'port'::'5433', 'user'::'postgres', 'passwd'::'tmt'];
+<pre><code class="hljs">global {
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; PARAMS &lt;-  [<span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>, <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'Postgres'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">''</span>, 
+                                                            <span class="hljs-string">'port'</span>::<span class="hljs-string">'5433'</span>, <span class="hljs-string">'user'</span>::<span class="hljs-string">'postgres'</span>, <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'tmt'</span>];
 
     init {
-        create toto ;
-        ask toto {
+        <span class="hljs-keyword">create</span> toto ;
+        <span class="hljs-keyword">ask</span> toto {
             <span class="hljs-keyword">if</span> (self testConnection[ params::PARAMS]){
                 <span class="hljs-comment">// create GIS database  </span>
-                do executeUpdate(params:PARAMS, 
-                        updateComm: <span class="hljs-string">"CREATE DATABASE spatial_db with TEMPLATE = template_postgis;"</span>); 
-                    remove key: <span class="hljs-string">"database"</span> from: PARAMS;
-                put <span class="hljs-string">"spatial_db"</span> key:<span class="hljs-string">"database"</span> in: PARAMS;
+                <span class="hljs-keyword">do</span> executeUpdate(<span class="hljs-symbol">params:</span>PARAMS, 
+                        <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"CREATE DATABASE spatial_db with TEMPLATE = template_postgis;"</span>); 
+                    <span class="hljs-keyword">remove</span> <span class="hljs-symbol">key:</span> <span class="hljs-string">"database"</span> <span class="hljs-symbol">from:</span> PARAMS;
+                <span class="hljs-keyword">put</span> <span class="hljs-string">"spatial_db"</span> <span class="hljs-symbol">key:</span><span class="hljs-string">"database"</span> <span class="hljs-symbol">in:</span> PARAMS;
                 <span class="hljs-comment">//create table</span>
-                            do executeUpdate params: PARAMS 
+                            <span class="hljs-keyword">do</span> executeUpdate <span class="hljs-symbol">params:</span> PARAMS 
                   updateComm : <span class="hljs-string">"CREATE TABLE buildings "</span>+
                   <span class="hljs-string">"( "</span>  +
                                    <span class="hljs-string">" name character varying(255), "</span> + 
                                        <span class="hljs-string">" type character varying(255), "</span> + 
                                        <span class="hljs-string">" geom GEOMETRY "</span> + 
                                    <span class="hljs-string">")"</span>;
-            }else {
-                write <span class="hljs-string">"Connection to MySQL can not be established "</span>;
+            }<span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection to MySQL can not be established "</span>;
             }   
         }
     }
@@ -699,12 +699,12 @@ ask agentDB {
 <ul>
 <li><strong>Step 3</strong>: Insert geometry data to GIS database</li>
 </ul>
-<pre><code class="hljs">ask building {
-   ask DB_Accessor {
-    do insert(params: PARAMS, 
-                        into: <span class="hljs-string">"buildings"</span>,
-            columns: [<span class="hljs-string">"name"</span>, <span class="hljs-string">"type"</span>,<span class="hljs-string">"geom"</span>],
-            values: [myself.name,myself.type,myself.shape];
+<pre><code class="hljs"><span class="hljs-keyword">ask</span> building {
+   <span class="hljs-keyword">ask</span> DB_Accessor {
+    <span class="hljs-keyword">do</span> insert(<span class="hljs-symbol">params:</span> PARAMS, 
+                        <span class="hljs-symbol">into:</span> <span class="hljs-string">"buildings"</span>,
+            <span class="hljs-symbol">columns:</span> [<span class="hljs-string">"name"</span>, <span class="hljs-string">"type"</span>,<span class="hljs-string">"geom"</span>],
+            <span class="hljs-symbol">values:</span> [myself.name,myself.type,myself.shape];
    }
 }
 </code></pre>

@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> diffusion_with_mask
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> grid_size &lt;- 64; <span class="hljs-comment">// better to have a pow of 2 for the size of the grid</span>
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(square(grid_size) * 10);
     cells_avoid_mask selected_cells1;
@@ -27,51 +27,51 @@
         selected_cells1 &lt;- location as cells_avoid_mask;
         selected_cells2 &lt;- location as cells_diffuse_on_mask;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">new_Value</span> </span>{
-        ask selected_cells1 {
+    <span class="hljs-builtin">reflex</span> new_Value {
+        <span class="hljs-keyword">ask</span> selected_cells1 {
             phero &lt;- 1.0;
         }
-        ask selected_cells2 {
+        <span class="hljs-keyword">ask</span> selected_cells2 {
             phero &lt;- 1.0;
         }
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">diff</span> </span>{
+    <span class="hljs-builtin">reflex</span> diff {
         <span class="hljs-comment">// Declare a diffusion on the grid "cells". The value of the diffusion will be store in the new variable "phero" of the cell.</span>
-        diffuse var: phero on: cells_avoid_mask <span class="hljs-literal">matrix</span>: mat_diff mask: mymask avoid_mask: true;
-        diffuse var: phero on: cells_diffuse_on_mask <span class="hljs-literal">matrix</span>: mat_diff mask: mymask; 
+        <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells_avoid_mask <span class="hljs-symbol">matrix:</span> mat_diff <span class="hljs-symbol">mask:</span> mymask <span class="hljs-symbol">avoid_mask:</span> true;
+        <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells_diffuse_on_mask <span class="hljs-symbol">matrix:</span> mat_diff <span class="hljs-symbol">mask:</span> mymask; 
     }
 }
 
 
-<span class="hljs-class">grid <span class="hljs-title">cells_avoid_mask</span> <span class="hljs-title">height</span>: <span class="hljs-title">grid_size</span> <span class="hljs-title">width</span>: <span class="hljs-title">grid_size</span> </span>{
+grid cells_avoid_mask <span class="hljs-symbol">height:</span> grid_size <span class="hljs-symbol">width:</span> grid_size {
     <span class="hljs-comment">// "phero" is the variable storing the value of the diffusion</span>
     <span class="hljs-literal">float</span> phero &lt;- 0.0;
     <span class="hljs-comment">// the color of the cell is linked to the value of "phero".</span>
-    <span class="hljs-literal">rgb</span> color &lt;- (((mymask row_at grid_y) at grid_x) &lt; -1) ? #black : hsb(phero,1.0,1.0) update: (((mymask row_at grid_y) at grid_x) &lt; -1) ? #black : hsb(phero,1.0,1.0);
+    <span class="hljs-literal">rgb</span> color &lt;- (((mymask row_at grid_y) at grid_x) &lt; -1) ? #black : hsb(phero,1.0,1.0) <span class="hljs-symbol">update:</span> (((mymask row_at grid_y) at grid_x) &lt; -1) ? #black : hsb(phero,1.0,1.0);
     <span class="hljs-comment">// Update the "grid_value", which will be used for the elevation of the cell</span>
-    <span class="hljs-literal">float</span> grid_value update: phero * 100;
+    <span class="hljs-literal">float</span> grid_value <span class="hljs-symbol">update:</span> phero * 100;
 } 
 
-<span class="hljs-class">grid <span class="hljs-title">cells_diffuse_on_mask</span> <span class="hljs-title">height</span>: <span class="hljs-title">grid_size</span> <span class="hljs-title">width</span>: <span class="hljs-title">grid_size</span> </span>{
+grid cells_diffuse_on_mask <span class="hljs-symbol">height:</span> grid_size <span class="hljs-symbol">width:</span> grid_size {
     <span class="hljs-comment">// "phero" is the variable storing the value of the diffusion</span>
     <span class="hljs-literal">float</span> phero &lt;- 0.0;
     <span class="hljs-comment">// the color of the cell is linked to the value of "phero".</span>
-    <span class="hljs-literal">rgb</span> color &lt;- (((mymask row_at grid_y) at grid_x) &lt; -1) ? #black : hsb(phero,1.0,1.0) update: (((mymask row_at grid_y) at grid_x) &lt; -1) ? #black : hsb(phero,1.0,1.0);
+    <span class="hljs-literal">rgb</span> color &lt;- (((mymask row_at grid_y) at grid_x) &lt; -1) ? #black : hsb(phero,1.0,1.0) <span class="hljs-symbol">update:</span> (((mymask row_at grid_y) at grid_x) &lt; -1) ? #black : hsb(phero,1.0,1.0);
     <span class="hljs-comment">// Update the "grid_value", which will be used for the elevation of the cell</span>
-    <span class="hljs-literal">float</span> grid_value update: phero * 100;
+    <span class="hljs-literal">float</span> grid_value <span class="hljs-symbol">update:</span> phero * 100;
 } 
 
 
-<span class="hljs-class">experiment <span class="hljs-title">diffusion</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">a</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
+<span class="hljs-builtin">experiment</span> diffusion <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> a <span class="hljs-symbol">type:</span> opengl {
             <span class="hljs-comment">// Display the grid with elevation</span>
-            <span class="hljs-class">grid <span class="hljs-title">cells_avoid_mask</span> <span class="hljs-title">elevation</span>: <span class="hljs-title">true</span> <span class="hljs-title">triangulation</span>: <span class="hljs-title">true</span>;</span>
+            grid cells_avoid_mask <span class="hljs-symbol">elevation:</span> true <span class="hljs-symbol">triangulation:</span> true;
         }
-        <span class="hljs-class">display <span class="hljs-title">b</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
+        <span class="hljs-keyword">display</span> b <span class="hljs-symbol">type:</span> opengl {
             <span class="hljs-comment">// Display the grid with elevation</span>
-            <span class="hljs-class">grid <span class="hljs-title">cells_diffuse_on_mask</span> <span class="hljs-title">elevation</span>: <span class="hljs-title">true</span> <span class="hljs-title">triangulation</span>: <span class="hljs-title">true</span>;</span>
+            grid cells_diffuse_on_mask <span class="hljs-symbol">elevation:</span> true <span class="hljs-symbol">triangulation:</span> true;
         }
     }
 }

@@ -69,27 +69,27 @@
 For each of these species, we define a new attribute: <strong>color</strong> of type <em>rgb</em>, with for initial value: &quot;black&quot; for the <strong>road</strong> agent and &quot;gray&quot; (by default) for the <strong>building</strong> agent.
 Concerning the <strong>building</strong> agent, we define a second attribute named <strong>type</strong> representing the type of the building (&quot;Residential&quot; or &quot;Industrial&quot;).
 At last, we define an aspect for these species. In this model, we want to represent the geometry of the agent, we then use the keyword <strong>draw</strong> that allow to draw a given geometry. In order to draw the geometry of the agent we use the attribute <strong>shape</strong> (which is a built-in attribute of all agents).</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">building</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> building {
     <span class="hljs-literal">string</span> type; 
     <span class="hljs-literal">rgb</span> color &lt;- #gray  ;
     
-    aspect base {
-        draw shape color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{
+<span class="hljs-literal">species</span> road  {
     <span class="hljs-literal">rgb</span> color &lt;- #black ;
     
-        aspect base {
-        draw shape color: color ;
+        <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parameters</h3>
 <p>GAMA allows to automatically read GIS data that are formatted as shapefiles. In order to let the user chooses his/her shapefiles, we define three parameters. One allowing the user to choose the road shapefile, one allowing him/her to choose the building shapefile, and, at last, one allowing him/her to choose the bounds shapefile. We will come back later on the notion of &quot;bounds&quot; in GAMA.</p>
 <p>Definition of the three global variables of type <em>file</em> concerning the GIS files:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
    <span class="hljs-literal">file</span> shape_file_buildings &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/building.shp"</span>);
    <span class="hljs-literal">file</span> shape_file_roads &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/road.shp"</span>);
    <span class="hljs-literal">file</span> shape_file_bounds &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/bounds.shp"</span>);
@@ -97,30 +97,30 @@ At last, we define an aspect for these species. In this model, we want to repres
 </code></pre>
 <p>All shapefiles are available in the model library (under Library models -&gt; Tutorials -&gt; Road Traffic) or you can download them by following this <a href="https://github.com/gama-platform/gama/tree/master/msi.gama.models/models/Tutorials/Road%20Traffic/includes">GitHub link</a>.</p>
 <p>In the experiment section, we add three parameters to allow the user to change the shapefile used directly through the UI:</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">road_traffic</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-   parameter <span class="hljs-string">"Shapefile for the buildings:"</span> var: shape_file_buildings category: <span class="hljs-string">"GIS"</span> ;
-   parameter <span class="hljs-string">"Shapefile for the roads:"</span> var: shape_file_roads category: <span class="hljs-string">"GIS"</span> ;
-   parameter <span class="hljs-string">"Shapefile for the bounds:"</span> var: shape_file_bounds category: <span class="hljs-string">"GIS"</span> ;
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> road_traffic <span class="hljs-symbol">type:</span> gui {
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the buildings:"</span> <span class="hljs-symbol">var:</span> shape_file_buildings <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the roads:"</span> <span class="hljs-symbol">var:</span> shape_file_roads <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the bounds:"</span> <span class="hljs-symbol">var:</span> shape_file_bounds <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="agentification-of-gis-data"></a><a href="#agentification-of-gis-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>agentification of GIS data</h3>
 <p>In GAMA, the agentification of GIS data is very straightforward: it only requires to use the <strong>create</strong> command with the <strong>from</strong> facet to pass the shapefile. Each object of the shapefile will be directly used to instantiate an agent of the specified species. The reading of an attribute in a shapefile is also very simple. It only requires to use the <strong>with</strong> facet: the argument of this facet is a dictionary of which the keys are the names of the agent attributes and the value the <strong>read</strong> command followed by the name of the shapefile attribute (&quot;NATURE&quot; in our case).</p>
 <p>Init section of the global block: creation of the road and building agents from the shape files. Concerning the <strong>building</strong> agents, reading of the &quot;NATURE&quot; attribute of the shapefile to initiate the value of the <strong>type</strong> attribute. If the <strong>type</strong> attribute is equal to &quot;Industrial&quot; set the <strong>color</strong> attribute to &quot;blue&quot;.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
   ...
   init {
-   create building from: shape_file_buildings with: [type::read (<span class="hljs-string">"NATURE"</span>)] {
+   <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> shape_file_buildings <span class="hljs-symbol">with:</span> [type::read (<span class="hljs-string">"NATURE"</span>)] {
       <span class="hljs-keyword">if</span> type=<span class="hljs-string">"Industrial"</span> {
          color &lt;- #blue ;
       }
    }
-   create road from: shape_file_roads ;
+   <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_roads ;
   } 
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="time-step"></a><a href="#time-step" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>time step</h3>
 <p>In GAMA, by default, a time step represents 1 second. It is possible to redefine this value by overriding the <strong>step</strong> global variable. This value of the time step is used by the moving primitives of GAMA.</p>
 <p>In our model, we define that a step represent 10 minutes. Note that it is possible to define the unit of a value by using <em>#</em> + unit name. For instance, #mn or #km for kilometers.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
   ...
   <span class="hljs-literal">float</span> step &lt;- 10 #mn;
   ...
@@ -128,7 +128,7 @@ At last, we define an aspect for these species. In this model, we want to repres
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="environment"></a><a href="#environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>environment</h3>
 <p>Building a GIS environment in GAMA requires nothing special, just to define the bounds of the environment, i.e. the geometry of the world agent. It is possible to use a shapefile to automatically define it by computing its envelope. In this model, we use a specific shapefile to define it. However, it would been possible to use the road shapefile to define it and let GAMA computes it enveloppe automatically.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
   ...
   <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_bounds); 
   ...
@@ -137,17 +137,17 @@ At last, we define an aspect for these species. In this model, we want to repres
 <h3><a class="anchor" aria-hidden="true" id="display"></a><a href="#display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>display</h3>
 <p>We define a display to visualize the road and building agents. We use for that the classic <strong>species</strong> keyword. In order to optimize the display we use an opengl display (facet <strong>type: opengl</strong>).</p>
 <p>In the <strong>experiment</strong> block:</p>
-<pre><code class="hljs">output {
-   <span class="hljs-class">display <span class="hljs-title">city_display</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-      <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-      <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+<pre><code class="hljs"><span class="hljs-keyword">output</span> {
+   <span class="hljs-keyword">display</span> city_display <span class="hljs-symbol">type:</span>opengl {
+      <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base ;
+      <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base ;
    }
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> tutorial_gis_city_traffic
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">file</span> shape_file_buildings &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/building.shp"</span>);
     <span class="hljs-literal">file</span> shape_file_roads &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/road.shp"</span>);
     <span class="hljs-literal">file</span> shape_file_bounds &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/bounds.shp"</span>);
@@ -155,40 +155,40 @@ At last, we define an aspect for these species. In this model, we want to repres
     <span class="hljs-literal">float</span> step &lt;- 10 #mn;
     
     init {
-        create building from: shape_file_buildings with: [type::<span class="hljs-literal">string</span>(read (<span class="hljs-string">"NATURE"</span>))] {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> shape_file_buildings <span class="hljs-symbol">with:</span> [type::<span class="hljs-literal">string</span>(read (<span class="hljs-string">"NATURE"</span>))] {
             <span class="hljs-keyword">if</span> type=<span class="hljs-string">"Industrial"</span> {
                 color &lt;- #blue ;
             }
         }
-        create road from: shape_file_roads ;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_roads ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
+<span class="hljs-literal">species</span> building {
     <span class="hljs-literal">string</span> type; 
     <span class="hljs-literal">rgb</span> color &lt;- #gray  ;
     
-    aspect base {
-        draw shape color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{
+<span class="hljs-literal">species</span> road  {
     <span class="hljs-literal">rgb</span> color &lt;- #black ;
-    aspect base {
-        draw shape color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">road_traffic</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Shapefile for the buildings:"</span> var: shape_file_buildings category: <span class="hljs-string">"GIS"</span> ;
-    parameter <span class="hljs-string">"Shapefile for the roads:"</span> var: shape_file_roads category: <span class="hljs-string">"GIS"</span> ;
-    parameter <span class="hljs-string">"Shapefile for the bounds:"</span> var: shape_file_bounds category: <span class="hljs-string">"GIS"</span> ;
+<span class="hljs-builtin">experiment</span> road_traffic <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the buildings:"</span> <span class="hljs-symbol">var:</span> shape_file_buildings <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the roads:"</span> <span class="hljs-symbol">var:</span> shape_file_roads <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the bounds:"</span> <span class="hljs-symbol">var:</span> shape_file_bounds <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base ;
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base ;
         }
     }
 }

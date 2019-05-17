@@ -15,7 +15,7 @@
 <pre><code class="hljs"><span class="hljs-builtin">model</span> Sqlite_QGis
  
   
-<span class="hljs-class">global </span>{ 
+global { 
     <span class="hljs-literal">map</span> BOUNDS &lt;- [<span class="hljs-comment">//'srid'::'4326', // optinal</span>
                   <span class="hljs-string">"dbtype"</span>::<span class="hljs-string">"sqlite"</span>,
                   <span class="hljs-string">"database"</span>::<span class="hljs-string">"../../includes/spatialite.db"</span>
@@ -29,26 +29,26 @@
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(BOUNDS);         
             
     init {
-        create DB_accessor {
-            create buildings from: (self select [params:: PARAMS, select:: QUERY]) 
-                             with:[ 'name'::<span class="hljs-string">"name"</span>,'type'::<span class="hljs-string">"type"</span>, 'shape':: <span class="hljs-literal">geometry</span>(<span class="hljs-string">"geom"</span>)];
+        <span class="hljs-keyword">create</span> DB_accessor {
+            <span class="hljs-keyword">create</span> buildings <span class="hljs-symbol">from:</span> (self select [params:: PARAMS, select:: QUERY]) 
+                             <span class="hljs-symbol">with:</span>[ <span class="hljs-string">'name'</span>::<span class="hljs-string">"name"</span>,<span class="hljs-string">'type'</span>::<span class="hljs-string">"type"</span>, <span class="hljs-string">'shape'</span>:: <span class="hljs-literal">geometry</span>(<span class="hljs-string">"geom"</span>)];
          }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">DB_accessor</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">SQLSKILL</span>];</span>
+<span class="hljs-literal">species</span> DB_accessor <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">SQLSKILL</span>];
 
-<span class="hljs-class">species <span class="hljs-title">buildings</span> </span>{
+<span class="hljs-literal">species</span> buildings {
     <span class="hljs-literal">string</span> type;
-    aspect default {
-        draw shape color: #gray ;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray ;
     }   
 }   
 
-<span class="hljs-class">experiment <span class="hljs-title">DB2agentSQLite</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">fullView</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">buildings</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span>;</span>
+<span class="hljs-builtin">experiment</span> DB2agentSQLite <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> fullView {
+            <span class="hljs-literal">species</span> buildings <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span>;
         }
     }
 }

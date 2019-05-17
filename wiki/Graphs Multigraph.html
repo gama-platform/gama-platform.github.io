@@ -10,9 +10,9 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> multigraph
 
-<span class="hljs-class">global </span>{
-    <span class="hljs-literal">file</span> shape_file_in &lt;- <span class="hljs-literal">file</span>('../includes/road.shp') ;
-    <span class="hljs-literal">file</span> shape_file_bounds &lt;- <span class="hljs-literal">file</span>('../includes/bounds.shp') ;
+global {
+    <span class="hljs-literal">file</span> shape_file_in &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../includes/road.shp'</span>) ;
+    <span class="hljs-literal">file</span> shape_file_bounds &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../includes/bounds.shp'</span>) ;
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_bounds);
     
     <span class="hljs-comment">//spatial graph representing the road network</span>
@@ -22,36 +22,36 @@
     <span class="hljs-literal">graph</span> friendship_graph &lt;- <span class="hljs-literal">graph</span>([]);
     
     init {
-        create road from: shape_file_in;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_in;
         
         <span class="hljs-comment">//creation of th road graph from the road agents</span>
         road_graph &lt;- as_edge_graph(road);
         
         <span class="hljs-comment">//creation of 50 people agent, and add each people agent as a node in the friendship graph</span>
-        create people number: 50 {
-            add node(self) to: friendship_graph;
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> 50 {
+            <span class="hljs-keyword">add</span> node(self) <span class="hljs-symbol">to:</span> friendship_graph;
         }
         
         <span class="hljs-comment">//creation of 50 friendship link between people agents</span>
-        loop times: 50 {
+        <span class="hljs-keyword">loop</span> <span class="hljs-symbol">times:</span> 50 {
             people p1 &lt;- one_of(people);
             people p2 &lt;- one_of(<span class="hljs-literal">list</span>(people) - p1);
-            create friendship_link  {
-                add edge (p1, p2, self) to: friendship_graph;
+            <span class="hljs-keyword">create</span> friendship_link  {
+                <span class="hljs-keyword">add</span> edge (p1, p2, self) <span class="hljs-symbol">to:</span> friendship_graph;
                 shape &lt;- link(p1,p2);
             }
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>]</span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>]{
     <span class="hljs-literal">point</span> location &lt;- any_location_in(one_of(road));
     people target_people &lt;- one_of(people);
     <span class="hljs-literal">point</span> target &lt;- target_people.location;
     <span class="hljs-literal">float</span> size &lt;- 3.0;
     
     <span class="hljs-comment">//action that make recompute the size of the agents as the distance between it and its target people in the friendship graph (the farthest, the biggest)</span>
-    action updateSize {
+    <span class="hljs-keyword">action</span> updateSize {
         <span class="hljs-literal">path</span> friendship_path &lt;- path_between(friendship_graph,self,target_people);
         <span class="hljs-keyword">if</span> (friendship_path != nil) {
             size &lt;-max([2,length( friendship_path.edges)]) as <span class="hljs-literal">float</span>;
@@ -59,39 +59,39 @@
     }
     
     <span class="hljs-comment">//the agent moves toward its target, when reaching it, it chooses another target as the location of one of the people agent</span>
-    <span class="hljs-class">reflex <span class="hljs-title">movement</span> </span>{
+    <span class="hljs-builtin">reflex</span> movement {
         <span class="hljs-keyword">if</span> (location distance_to target &lt; 5.0) {
             target_people &lt;- one_of(people);
             target &lt;- target_people.location;
-            do updateSize;
+            <span class="hljs-keyword">do</span> updateSize;
         }
-        do goto on:road_graph target:target speed:1 + rnd(2);
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">on:</span>road_graph <span class="hljs-symbol">target:</span>target <span class="hljs-symbol">speed:</span>1 + rnd(2);
     }
-    aspect default {
-        draw circle(size) color: #red;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> #red;
     }   
 }
     
-<span class="hljs-class">species <span class="hljs-title">friendship_link</span> </span>{
+<span class="hljs-literal">species</span> friendship_link {
     
-    aspect default {
-        draw shape color: #blue;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #blue;
     }
 }
     
-<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{
-    aspect default {
-        draw shape color:#black ;
+<span class="hljs-literal">species</span> road  {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>#black ;
     }
 } 
 
 
-<span class="hljs-class">experiment <span class="hljs-title">multigraph</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">friendship</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">friendship_link</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+<span class="hljs-builtin">experiment</span> multigraph <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> friendship <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> road ;
+            <span class="hljs-literal">species</span> friendship_link ;
+            <span class="hljs-literal">species</span> people;
         }
     }
 }

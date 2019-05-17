@@ -10,26 +10,26 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> weightperagents
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">map</span>&lt;road, <span class="hljs-literal">float</span>&gt; roads_weight;
     <span class="hljs-literal">graph</span> road_network;
     <span class="hljs-literal">float</span> slow_coeff &lt;- 3.0;
     init {
         <span class="hljs-comment">//This road will be slow</span>
-        create road {
+        <span class="hljs-keyword">create</span> road {
             shape &lt;- line ([{10,50},{90,50}]);
             slow &lt;- true;
         }
         <span class="hljs-comment">//The others will be faster</span>
-        create road {
+        <span class="hljs-keyword">create</span> road {
             shape &lt;- line ([{10,50},{10,10}]);
             slow &lt;- false;
         }
-        create road {
+        <span class="hljs-keyword">create</span> road {
             shape &lt;- line ([{10,10},{90,10}]);
             slow &lt;- false;
         }
-        create road {
+        <span class="hljs-keyword">create</span> road {
             shape &lt;- line ([{90,10},{90,50}]);
             slow &lt;- false;
         }
@@ -39,14 +39,14 @@
         road_network &lt;- as_edge_graph(road);
         
         <span class="hljs-comment">//people with information about the traffic</span>
-        create people {
+        <span class="hljs-keyword">create</span> people {
             color &lt;- #blue;
             size &lt;- 2.0;
             roads_knowledge &lt;- roads_weight;
         }
         
         <span class="hljs-comment">//people without information about the traffic</span>
-        create people {
+        <span class="hljs-keyword">create</span> people {
             color &lt;- #yellow;
             size &lt;- 1.0;
             roads_knowledge &lt;- road as_map (each:: each.shape.perimeter);
@@ -55,14 +55,14 @@
     
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span> </span>{
+<span class="hljs-literal">species</span> road {
     <span class="hljs-literal">bool</span> slow;
-    aspect geom {
-        draw shape color: slow ? #red : #green;
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> slow ? #red : #green;
     }
 }
     
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">map</span>&lt;road, <span class="hljs-literal">float</span>&gt; roads_knowledge;
     <span class="hljs-literal">point</span> the_target;
     <span class="hljs-literal">rgb</span> color;
@@ -74,27 +74,27 @@
         location &lt;- {10,50};
     }
         
-    <span class="hljs-class">reflex <span class="hljs-title">movement</span> <span class="hljs-title">when</span>: <span class="hljs-title">location</span> != <span class="hljs-title">the_target</span></span>{
+    <span class="hljs-builtin">reflex</span> movement <span class="hljs-symbol">when:</span> location != the_target{
         <span class="hljs-keyword">if</span> (path_to_follow = nil) {
             
             <span class="hljs-comment">//Find the shortest path using the agent's own weights to compute the shortest path</span>
             path_to_follow &lt;- path_between(road_network with_weights roads_knowledge, location,the_target);
         }
         <span class="hljs-comment">//the agent follows the path it computed but with the real weights of the graph</span>
-        do follow <span class="hljs-literal">path</span>:path_to_follow speed: 5 move_weights: roads_weight;
+        <span class="hljs-keyword">do</span> follow <span class="hljs-symbol">path:</span>path_to_follow <span class="hljs-symbol">speed:</span> 5 <span class="hljs-symbol">move_weights:</span> roads_weight;
     }
         
-    aspect base {
-        draw circle(size) color: color;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> color;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">weightperagents</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> weightperagents <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.1;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> geom;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base;
         }
     }
 }

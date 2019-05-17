@@ -10,9 +10,9 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> geotiffimport
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//definiton of the file to import</span>
-    <span class="hljs-literal">file</span> grid_data &lt;- <span class="hljs-literal">file</span>('../includes/bogota_<span class="hljs-class">grid.<span class="hljs-title">tif</span>') ;</span>
+    <span class="hljs-literal">file</span> grid_data &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../includes/bogota_grid.tif'</span>) ;
     
     <span class="hljs-comment">//computation of the environment size from the geotiff file</span>
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(grid_data);  
@@ -22,7 +22,7 @@
     init {
         max_value &lt;- cell max_of (each.grid_value);
         min_value &lt;- cell min_of (each.grid_value);
-        ask cell {
+        <span class="hljs-keyword">ask</span> cell {
             <span class="hljs-literal">int</span> val &lt;- <span class="hljs-literal">int</span>(255 * ( 1  - (grid_value - min_value) /(max_value - min_value)));
             color &lt;- <span class="hljs-literal">rgb</span>(val,val,val);
         }
@@ -30,12 +30,12 @@
 }
 
 <span class="hljs-comment">//definition of the grid from the geotiff file: the width and height of the grid are directly read from the asc file. The values of the asc file are stored in the grid_value attribute of the cells.</span>
-<span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">file</span>: <span class="hljs-title">grid_data</span>;</span>
+grid cell <span class="hljs-symbol">file:</span> grid_data;
 
-<span class="hljs-class">experiment <span class="hljs-title">show_example</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">test</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span>;</span>
+<span class="hljs-builtin">experiment</span> show_example <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-keyword">test</span> {
+            grid cell <span class="hljs-symbol">lines:</span> #black;
         }
     } 
 }

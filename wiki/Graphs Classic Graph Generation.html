@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> classicgraphgeneration
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">graph</span> the_graph ;
     <span class="hljs-literal">string</span> graph_type &lt;- <span class="hljs-string">"small-world"</span>;
     <span class="hljs-literal">int</span> nb_nodes &lt;- 500;
@@ -20,50 +20,50 @@
     <span class="hljs-literal">int</span> radius &lt;- 20;
     
     init {
-        switch graph_type {
-            match <span class="hljs-string">"scale-free"</span> {
+        <span class="hljs-keyword">switch</span> graph_type {
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"scale-free"</span> {
                 the_graph &lt;- generate_barabasi_albert(node_agent, edge_agent, nb_nodes,m, true);    
             }
-            match <span class="hljs-string">"small-world"</span> {
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"small-world"</span> {
                 the_graph &lt;- generate_watts_strogatz(node_agent, edge_agent, nb_nodes, p, k, true); 
             }
-            match <span class="hljs-string">"complete"</span> {
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"complete"</span> {
                 the_graph &lt;- generate_complete_graph(node_agent, edge_agent, nb_nodes,true);    
             }
-            match <span class="hljs-string">"complete-with-radius"</span> {
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"complete-with-radius"</span> {
                 the_graph &lt;- generate_complete_graph(node_agent, edge_agent, nb_nodes, radius,true);    
             }       
         }
-        write the_graph;
-        write <span class="hljs-string">"Edges : "</span>+length(the_graph.edges);
-        write <span class="hljs-string">"Nodes : "</span>+length(the_graph.vertices);
+        <span class="hljs-keyword">write</span> the_graph;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Edges : "</span>+length(the_graph.edges);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Nodes : "</span>+length(the_graph.vertices);
     }
     
 }
 
-<span class="hljs-class">species <span class="hljs-title">edge_agent</span> </span>{
-    aspect default {    
-        draw shape color: #black;
+<span class="hljs-literal">species</span> edge_agent {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {    
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">node_agent</span> </span>{
-    aspect default {    
-        draw circle(1) color: #red;
+<span class="hljs-literal">species</span> node_agent {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {    
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span> #red;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">loadgraph</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Graph type"</span> var: graph_type among: [ <span class="hljs-string">"scale-free"</span>, <span class="hljs-string">"small-world"</span>, <span class="hljs-string">"complete"</span>];
-    parameter <span class="hljs-string">"Number of nodes"</span> var: nb_nodes min: 5 ;
-    parameter <span class="hljs-string">"Probability to rewire an edge (beta)"</span> var: p min: 0.0 max: 1.0 category: <span class="hljs-string">"small-world"</span>;
-    parameter <span class="hljs-string">"Base degree of each node. k must be even"</span> var: k min: 2 max: 10 category: <span class="hljs-string">"small-world"</span>;
-    parameter <span class="hljs-string">"Number of edges added per novel node"</span> var: m min: 1 max: 10 category: <span class="hljs-string">"scale-free"</span>;
+<span class="hljs-builtin">experiment</span> loadgraph <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Graph type"</span> <span class="hljs-symbol">var:</span> graph_type <span class="hljs-symbol">among:</span> [ <span class="hljs-string">"scale-free"</span>, <span class="hljs-string">"small-world"</span>, <span class="hljs-string">"complete"</span>];
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of nodes"</span> <span class="hljs-symbol">var:</span> nb_nodes <span class="hljs-symbol">min:</span> 5 ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Probability to rewire an edge (beta)"</span> <span class="hljs-symbol">var:</span> p <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 <span class="hljs-symbol">category:</span> <span class="hljs-string">"small-world"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Base degree of each node. k must be even"</span> <span class="hljs-symbol">var:</span> k <span class="hljs-symbol">min:</span> 2 <span class="hljs-symbol">max:</span> 10 <span class="hljs-symbol">category:</span> <span class="hljs-string">"small-world"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of edges added per novel node"</span> <span class="hljs-symbol">var:</span> m <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 10 <span class="hljs-symbol">category:</span> <span class="hljs-string">"scale-free"</span>;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">edge_agent</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">node_agent</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> edge_agent ;
+            <span class="hljs-literal">species</span> node_agent ;
         }
     }
 }

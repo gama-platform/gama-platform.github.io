@@ -60,33 +60,33 @@
 <li>The possibility to save the state of a simulation in a file and to restore a simulation from this file.</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="save-a-simulation"></a><a href="#save-a-simulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Save a simulation</h2>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">saveSimu</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> saveSimu <span class="hljs-symbol">type:</span> gui {
 
-    <span class="hljs-class">reflex <span class="hljs-title">store</span> <span class="hljs-title">when</span>: <span class="hljs-title">cycle</span> = 5 </span>{      
-        write <span class="hljs-string">"================ START SAVE + self "</span> + <span class="hljs-string">" - "</span> + cycle ;       
-        write <span class="hljs-string">"Save of simulation : "</span> + saveSimulation('saveSimu.gsim');
-        write <span class="hljs-string">"================ END SAVE + self "</span> + <span class="hljs-string">" - "</span> + cycle ;         
+    <span class="hljs-builtin">reflex</span> store <span class="hljs-symbol">when:</span> cycle = 5 {      
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"================ START SAVE + self "</span> + <span class="hljs-string">" - "</span> + cycle ;       
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Save of simulation : "</span> + saveSimulation(<span class="hljs-string">'saveSimu.gsim'</span>);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"================ END SAVE + self "</span> + <span class="hljs-string">" - "</span> + cycle ;         
     }   
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">main_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;                        </span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> main_display {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> geom;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base;                        
         }
     }   
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="restore-a-simulation"></a><a href="#restore-a-simulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Restore a simulation</h2>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">reloadSavedSimuOnly</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> reloadSavedSimuOnly <span class="hljs-symbol">type:</span> gui {
     
-    action _init_ {
-        create simulation from: saved_simulation_file(<span class="hljs-string">"saveSimu.gsim"</span>); 
+    <span class="hljs-keyword">action</span> _init_ {
+        <span class="hljs-keyword">create</span> simulation <span class="hljs-symbol">from:</span> saved_simulation_file(<span class="hljs-string">"saveSimu.gsim"</span>); 
     }
 
-    output {
-        <span class="hljs-class">display <span class="hljs-title">main_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;                        </span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> main_display {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> geom;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base;                        
         }
     }   
 }

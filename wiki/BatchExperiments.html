@@ -56,11 +56,11 @@
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Defining Batch Experiments</h1></header><article><div><span><p>Batch experiments allows to execute numerous successive simulation runs.They are used to explore the parameter space of a model or to optimize a set of model parameters.</p>
 <p>A Batch experiment is defined by:</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">exp_title</span> <span class="hljs-title">type</span>: <span class="hljs-title">batch</span> </span>{
-   [parameter to explore]
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> exp_title <span class="hljs-symbol">type:</span> batch {
+   [<span class="hljs-keyword">parameter</span> to explore]
    [exploration method]
-   [<span class="hljs-class">reflex]</span>
-   [permanent]
+   [<span class="hljs-builtin">reflex</span>]
+   [<span class="hljs-keyword">permanent</span>]
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of contents</h2>
@@ -77,18 +77,18 @@
 <li>repeat: (integer) A parameter configuration corresponds to a set of values assigned to each parameter. The attribute repeat specifies the number of times each configuration will be repeated, meaning that as many simulations will be run with the same parameter values. Different random seeds are given to the pseudo-random number generator. This allows to get some statistical power from the experiments conducted. Default value is 1.</li>
 <li>keep_seed: (boolean) If true, the same series of random seeds will be used from one parameter configuration to another. Default value is false.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">my_batch_experiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">batch</span> <span class="hljs-title">repeat</span>: 5 <span class="hljs-title">keep_seed</span>: <span class="hljs-title">true</span> <span class="hljs-title">until</span>: <span class="hljs-title">time</span> = 300 </span>{
-   [parameter to explore]
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> my_batch_experiment <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 5 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> time = 300 {
+   [<span class="hljs-keyword">parameter</span> to explore]
    [exploration method]
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="action-_step"></a><a href="#action-_step" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Action _step</h2>
 <p>The_step_action of an experiment is called at the end of a simulation. It is possible to override this action to apply a specific action at the end of each simulation. Note that at the experiment level, you have access to all the species and all the global variables._</p>
 <p>For instance, the following experiment runs the simulation 5 times, and, at the end of each simulation, saves the people agents in a shapefile.</p>
-<pre><code class="hljs"><span class="hljs-class">experiment '<span class="hljs-title">Run</span> 5 <span class="hljs-title">simulations</span>' <span class="hljs-title">type</span>: <span class="hljs-title">batch</span> <span class="hljs-title">repeat</span>: 5 <span class="hljs-title">keep_seed</span>: <span class="hljs-title">true</span> <span class="hljs-title">until</span>: ( <span class="hljs-title">time</span> &gt; 1000 ) </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> <span class="hljs-string">'Run 5 simulations'</span> <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 5 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> ( time &gt; 1000 ) {
     <span class="hljs-literal">int</span> cpt &lt;- 0;
-    action _step_ {
-        save people type:<span class="hljs-string">"shp"</span> to:<span class="hljs-string">"people_shape"</span> + cpt + <span class="hljs-string">".shp"</span> with: [is_infected::<span class="hljs-string">"INFECTED"</span>,is_immune::<span class="hljs-string">"IMMUNE"</span>];
+    <span class="hljs-keyword">action</span> _step_ {
+        <span class="hljs-keyword">save</span> people <span class="hljs-symbol">type:</span><span class="hljs-string">"shp"</span> <span class="hljs-symbol">to:</span><span class="hljs-string">"people_shape"</span> + cpt + <span class="hljs-string">".shp"</span> <span class="hljs-symbol">with:</span> [is_infected::<span class="hljs-string">"INFECTED"</span>,is_immune::<span class="hljs-string">"IMMUNE"</span>];
         cpt &lt;- cpt + 1;
     }
 }
@@ -97,17 +97,17 @@ A second solution to achieve the same result is to use reflexes (see below).
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="reflexes"></a><a href="#reflexes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reflexes</h2>
 <p>It is possible to write reflexes inside a batch experiment. This reflex will be executed at the end of each simulation. For instance, the following reflex writes at the end of each simulation the value of the variable <em>food_gathered</em>:</p>
-<pre><code class="hljs"><span class="hljs-class">reflex <span class="hljs-title">info_sim</span> </span>{
-    write <span class="hljs-string">"Running a new simulation "</span> + simulation + <span class="hljs-string">" -&gt; "</span> + food_gathered;
+<pre><code class="hljs"><span class="hljs-builtin">reflex</span> info_sim {
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"Running a new simulation "</span> + simulation + <span class="hljs-string">" -&gt; "</span> + food_gathered;
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="permanent"></a><a href="#permanent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Permanent</h2>
 <p>The <strong>permanent</strong> section allows to define a output block that will not be re-initialized at the beginning of each simulation but will be filled at the end of each simulation.
 For instance, this <strong>permanent</strong> section will allows to display for each simulation the end value of the <em>food_gathered</em> variable.</p>
-<pre><code class="hljs">permanent {
-    <span class="hljs-class">display <span class="hljs-title">Ants</span> <span class="hljs-title">background</span>: <span class="hljs-title">rgb</span>('<span class="hljs-title">white</span>') <span class="hljs-title">refresh</span>:<span class="hljs-title">every</span>(1) </span>{
-        chart <span class="hljs-string">"Food Gathered"</span> type: series {
-            data <span class="hljs-string">"Food"</span> value: food_gathered;
+<pre><code class="hljs"><span class="hljs-keyword">permanent</span> {
+    <span class="hljs-keyword">display</span> Ants <span class="hljs-symbol">background:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-string">'white'</span>) <span class="hljs-symbol">refresh:</span>every(1) {
+        <span class="hljs-keyword">chart</span> <span class="hljs-string">"Food Gathered"</span> <span class="hljs-symbol">type:</span> series {
+            <span class="hljs-keyword">data</span> <span class="hljs-string">"Food"</span> <span class="hljs-symbol">value:</span> food_gathered;
         }
     }
 }

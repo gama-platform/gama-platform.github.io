@@ -26,7 +26,7 @@ public class PhysicsSkill extends Skill{
         @setter(<span class="hljs-string">"physical_world"</span>)
         public void setWorldAgent(final IAgent _agent, final IAgent _world){
                 <span class="hljs-keyword">if</span>(_world == null)
-                        return;
+                        <span class="hljs-keyword">return</span>;
                         
                 PhysicalWorldAgent pwa = (PhysicalWorldAgent)_world;
                 pwa.registerAgent(_agent);

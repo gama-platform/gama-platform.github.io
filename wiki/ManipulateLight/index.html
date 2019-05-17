@@ -58,26 +58,26 @@
 Most of the following screenshots will be taken with the following short example gaml :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> test_light
 
-<span class="hljs-class">grid <span class="hljs-title">cells</span> </span>{
-    aspect base {
-        draw square(1) at:{grid_x,grid_y} color:#white;
+grid cells {
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> square(1) <span class="hljs-symbol">at:</span>{grid_x,grid_y} <span class="hljs-symbol">color:</span>#white;
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span></span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">my_display</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">background</span>:#<span class="hljs-title">darkblue</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">cells</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>;</span>
-            graphics <span class="hljs-string">"my_layer"</span> {
-                draw square(100) color:#white at:{50,50};
-                draw cube(5) color:#lightgrey at:{50,30};
-                draw cube(5) color:#lightgrey at:{30,35};
-                draw cube(5) color:#lightgrey at:{60,35};
-                draw sphere(5) color:#lightgrey at:{10,10,2.5};
-                draw sphere(5) color:#lightgrey at:{20,30,2.5};
-                draw sphere(5) color:#lightgrey at:{40,30,2.5};
-                draw sphere(5) color:#lightgrey at:{40,60,2.5};
-                draw cone3D(5,5) color:#lightgrey at:{55,10,0};
-                draw cylinder(5,5) color:#lightgrey at:{10,60,0};
+<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span>gui{
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> my_display <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">background:</span>#darkblue {
+            <span class="hljs-literal">species</span> cells <span class="hljs-symbol">aspect:</span>base;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"my_layer"</span> {
+                <span class="hljs-keyword">draw</span> square(100) <span class="hljs-symbol">color:</span>#white <span class="hljs-symbol">at:</span>{50,50};
+                <span class="hljs-keyword">draw</span> cube(5) <span class="hljs-symbol">color:</span>#lightgrey <span class="hljs-symbol">at:</span>{50,30};
+                <span class="hljs-keyword">draw</span> cube(5) <span class="hljs-symbol">color:</span>#lightgrey <span class="hljs-symbol">at:</span>{30,35};
+                <span class="hljs-keyword">draw</span> cube(5) <span class="hljs-symbol">color:</span>#lightgrey <span class="hljs-symbol">at:</span>{60,35};
+                <span class="hljs-keyword">draw</span> sphere(5) <span class="hljs-symbol">color:</span>#lightgrey <span class="hljs-symbol">at:</span>{10,10,2.5};
+                <span class="hljs-keyword">draw</span> sphere(5) <span class="hljs-symbol">color:</span>#lightgrey <span class="hljs-symbol">at:</span>{20,30,2.5};
+                <span class="hljs-keyword">draw</span> sphere(5) <span class="hljs-symbol">color:</span>#lightgrey <span class="hljs-symbol">at:</span>{40,30,2.5};
+                <span class="hljs-keyword">draw</span> sphere(5) <span class="hljs-symbol">color:</span>#lightgrey <span class="hljs-symbol">at:</span>{40,60,2.5};
+                <span class="hljs-keyword">draw</span> cone3D(5,5) <span class="hljs-symbol">color:</span>#lightgrey <span class="hljs-symbol">at:</span>{55,10,0};
+                <span class="hljs-keyword">draw</span> cylinder(5,5) <span class="hljs-symbol">color:</span>#lightgrey <span class="hljs-symbol">at:</span>{10,60,0};
             }
         }
     }
@@ -143,9 +143,9 @@ This specular light is not implemented yet in gama, only the two others are.</p>
 <p>In your opengl display, you can create up to 8 lights, giving them the properties you want.</p>
 <h3><a class="anchor" aria-hidden="true" id="ambient-light-1"></a><a href="#ambient-light-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ambient light</h3>
 <p>In order to keep it simple, the ambient light can be set directly when you are declaring your display, through the facet <code>ambient_light</code>. You will have one only ambient light.</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display "<span class="hljs-title">my_display</span>" <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">ambient_light</span>:100 </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"my_display"</span> <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">ambient_light:</span>100 {
         }
     }
 }
@@ -153,10 +153,10 @@ This specular light is not implemented yet in gama, only the two others are.</p>
 <p><em>Note for developers</em> : Note that this ambient light is set to the GL_LIGHT0. This GL_LIGHT0 only contains an ambient light, and no either diffuse nor specular light.</p>
 <h3><a class="anchor" aria-hidden="true" id="diffuse-light-1"></a><a href="#diffuse-light-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Diffuse light</h3>
 <p>In order to add lights, or modifying the existing lights, you can use the statement <code>light</code>, inside your <code>display</code> scope :</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display "<span class="hljs-title">my_display</span>" <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            light id:0;
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"my_display"</span> <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-keyword">light</span> <span class="hljs-symbol">id:</span>0;
         }
     }
 }
@@ -168,25 +168,25 @@ An other very important facet is the <code>type</code> facet. This facet accepts
 <h4><a class="anchor" aria-hidden="true" id="declaring-direction-light"></a><a href="#declaring-direction-light" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaring direction light</h4>
 <p>A direction light, as explained in the first part, is a light without any position. Instead of the facet <code>position</code>, you will use the facet <code>direction</code>, giving a 3D vector.</p>
 <p>Example of implementation :</p>
-<pre><code class="hljs">light id:1 type:direction direction:{1,1,1} color:<span class="hljs-literal">rgb</span>(255,0,0);
+<pre><code class="hljs"><span class="hljs-keyword">light</span> <span class="hljs-symbol">id:</span>1 <span class="hljs-symbol">type:</span>direction <span class="hljs-symbol">direction:</span>{1,1,1} <span class="hljs-symbol">color:</span><span class="hljs-literal">rgb</span>(255,0,0);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="declaring-point-light"></a><a href="#declaring-point-light" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaring point light</h4>
 <p>A point light will need a facet <code>position</code>, in order to give the position of the light source.</p>
 <p>Example of implementation of a basic point light :</p>
-<pre><code class="hljs">light id:1 type:<span class="hljs-literal">point</span> position:{10,20,10} color:<span class="hljs-literal">rgb</span>(255,0,0);
+<pre><code class="hljs"><span class="hljs-keyword">light</span> <span class="hljs-symbol">id:</span>1 <span class="hljs-symbol">type:</span><span class="hljs-literal">point</span> <span class="hljs-symbol">position:</span>{10,20,10} <span class="hljs-symbol">color:</span><span class="hljs-literal">rgb</span>(255,0,0);
 </code></pre>
 <p>You can add, if you want, a custom attenuation of the light, through the facets <code>linear_attenuation</code> or <code>quadratic_attenuation</code>.</p>
 <p>Example of implementation of a point light with attenuation :</p>
-<pre><code class="hljs">light id:1 type:<span class="hljs-literal">point</span> position:{10,20,10} color:<span class="hljs-literal">rgb</span>(255,0,0) linear_attenuation:0.1;
+<pre><code class="hljs"><span class="hljs-keyword">light</span> <span class="hljs-symbol">id:</span>1 <span class="hljs-symbol">type:</span><span class="hljs-literal">point</span> <span class="hljs-symbol">position:</span>{10,20,10} <span class="hljs-symbol">color:</span><span class="hljs-literal">rgb</span>(255,0,0) <span class="hljs-symbol">linear_attenuation:</span>0.1;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="declaring-spot-light"></a><a href="#declaring-spot-light" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaring spot light</h4>
 <p>A spot light will need the facet <code>position</code> (a spot light is a positionnal light) and the facet <code>direction</code>. A spot light will also need a special facet <code>spot_angle</code> to determine the angle of the spot (by default, this value is set to 45 degree).</p>
 <p>Example of implementation of a basic spot light :</p>
-<pre><code class="hljs">light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:<span class="hljs-literal">rgb</span>(255,0,0) spot_angle:20;
+<pre><code class="hljs"><span class="hljs-keyword">light</span> <span class="hljs-symbol">id:</span>1 <span class="hljs-symbol">type:</span>spot <span class="hljs-symbol">position:</span>{0,0,10} <span class="hljs-symbol">direction:</span>{1,1,1} <span class="hljs-symbol">color:</span><span class="hljs-literal">rgb</span>(255,0,0) <span class="hljs-symbol">spot_angle:</span>20;
 </code></pre>
 <p>Same as for point light, you can specify an attenuation for a spot light.</p>
 <p>Example of implementation of a spot light with attenuation :</p>
-<pre><code class="hljs">light id:1 type:spot position:{0,0,10} direction:{1,1,1} color:<span class="hljs-literal">rgb</span>(255,0,0) spot_angle:20;
+<pre><code class="hljs"><span class="hljs-keyword">light</span> <span class="hljs-symbol">id:</span>1 <span class="hljs-symbol">type:</span>spot <span class="hljs-symbol">position:</span>{0,0,10} <span class="hljs-symbol">direction:</span>{1,1,1} <span class="hljs-symbol">color:</span><span class="hljs-literal">rgb</span>(255,0,0) <span class="hljs-symbol">spot_angle:</span>20;
 </code></pre>
 <p>Note that when you are working with lights, you can display your lights through the facet <code>draw light</code> to help you implementing your model. The three types of lights are displayed differently :</p>
 <ul>

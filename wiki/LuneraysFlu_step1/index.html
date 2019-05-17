@@ -87,12 +87,12 @@
 <li>how they are displayed (aspects)</li>
 </ul>
 <p>In our model, we define a people species:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">people</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> people {
          
 }
 </code></pre>
 <p>In addition, we want to add a new capability to our agent: the possibility to move randomly. For that, we add a specific skill to our people agents. A <a href="AttachingSkills">skill</a> is a built-in module that provide the modeler a self-contain and relevant set of actions and variables. The <a href="__BuiltInSkills#moving">moving</a> provides the agents with several attributes and actions related to movement.</p>
-<pre><code class="hljs">   <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>]</span>{
+<pre><code class="hljs">   <span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>]{
        ...
    }
 </code></pre>
@@ -112,7 +112,7 @@
 <li><strong>speed</strong> of type float, with for initial value: a random value between 2 and 5 km/h</li>
 <li><strong>is_infected</strong> of type bool, with for initial value: false</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+<pre><code class="hljs"><span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-literal">float</span> speed &lt;- (2 + rnd(3)) #km/#h;
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
 }
@@ -121,23 +121,23 @@
 <h4><a class="anchor" aria-hidden="true" id="behavior"></a><a href="#behavior" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Behavior</h4>
 <p>GAMA proposes several ways to define the behavior of a species: dynamic variables (update facet), reflexes....</p>
 <p>A <a href="DefiningActionsAndBehaviors#behaviors">reflex</a> is a block of statements (that can be defined in global or any species) that will be automatically executed at each simulation step if its condition is true, it is defined as follows:</p>
-<pre><code class="hljs">   <span class="hljs-class">reflex <span class="hljs-title">reflex_name</span> <span class="hljs-title">when</span>: <span class="hljs-title">condition</span> </span>{...}
+<pre><code class="hljs">   <span class="hljs-builtin">reflex</span> reflex_name <span class="hljs-symbol">when:</span> condition {...}
 </code></pre>
 <p>The <strong>when</strong> facet is optional: when it is omitted, the reflex is activated at each time step. Note that if several reflexes are defined for a species, the reflexes will be activated following their definition order.</p>
 <p>We define a first reflex called <strong>move</strong> that is activated at each simulation step (no condition) and that makes the people move randomly using the wander action from the <a href="BuiltInSkills#moving">moving</a> skill.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+<pre><code class="hljs"><span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-comment">//variable definition</span>
-    <span class="hljs-class">reflex <span class="hljs-title">move</span></span>{
-        do wander;
+    <span class="hljs-builtin">reflex</span> move{
+        <span class="hljs-keyword">do</span> wander;
     }
 }
 </code></pre>
 <p>We define a second reflex called <strong>infect</strong> that is activated only when the agent is infected (is_infected = true) and that ask all the people at a distance of 10m to test a probability to be infected.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+<pre><code class="hljs"><span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-comment">//variable definition and move reflex</span>
     
-    <span class="hljs-class">reflex <span class="hljs-title">infect</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_infected</span></span>{
-        ask people at_distance 10 #m {
+    <span class="hljs-builtin">reflex</span> infect <span class="hljs-symbol">when:</span> is_infected{
+        <span class="hljs-keyword">ask</span> people at_distance 10 #m {
             <span class="hljs-keyword">if</span> flip(0.05) {
                 is_infected &lt;- true;
             }
@@ -155,11 +155,11 @@ In the block of an aspect, it is possible to draw :</p>
 <li>A text : to draw a text</li>
 </ul>
 <p>In our model, we define an aspect for the people agent called <strong>circle</strong> that draw the agents as a circle of 10m radius with a color that depends on their <strong>is_infected</strong> attribute. If the people agent is infected, it will be draw in red, in green otherwise.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">people</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> people {
     ...<span class="hljs-comment">//variable and reflex definition</span>
 
-    aspect circle {
-            draw circle(10) color:is_infected ? #red : #green;
+    <span class="hljs-keyword">aspect</span> circle {
+            <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span>is_infected ? #red : #green;
         }
     } 
 }
@@ -177,7 +177,7 @@ It allows to initialize simulations (init block): the world is always created an
 <li>step: redefine in order to set the duration of a simulation step to 5 minutes.</li>
 <li>shape: redefine in order to set the geometry of the world to a square of 1500 meters side size.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-literal">int</span> nb_people &lt;- 2147;
     <span class="hljs-literal">int</span> nb_infected_init &lt;- 5;
     <span class="hljs-literal">float</span> step &lt;- 5 #mn;
@@ -192,11 +192,11 @@ It allows to initialize simulations (init block): the world is always created an
 <li>returns: list of created agents (list)</li>
 </ul>
 <p>For our model, we define the init block in order to create <em>nb_people</em> <em>people</em> agents and ask <em>nb_infected_init</em> of them to be infected:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-comment">// world variable definition</span>
     init{
-        create people number:nb_people;
-        ask nb_infected_init among people {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people;
+        <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
         }
     }
@@ -209,7 +209,7 @@ It allows to initialize simulations (init block): the world is always created an
 <li>batch : Allows to setup a series of simulations (w/o graphical interface).</li>
 </ul>
 <p>In our model, we define a gui experiment called <em>main_experiment</em>  :</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">main_experiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span> gui {
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="input"></a><a href="#input" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>input</h4>
@@ -229,10 +229,10 @@ It allows to initialize simulations (init block): the world is always created an
 <ul>
 <li>&quot;Nb people infected at init&quot; that will define the value of the global variable <em>nb_infected_init</em> with a min value of 1 and a max value of 2147 (the number of people living in Luneray).</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">main_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span></span>{
-    parameter <span class="hljs-string">"Nb people infected at init"</span> var: nb_infected_init min: 1 max: 2147;
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span>gui{
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Nb people infected at init"</span> <span class="hljs-symbol">var:</span> nb_infected_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 2147;
     
-    output {
+    <span class="hljs-keyword">output</span> {
     }
 }
 </code></pre>
@@ -247,55 +247,55 @@ It allows to initialize simulations (init block): the world is always created an
 <li>Charts : see later.</li>
 </ul>
 <p>Note that it is possible to define a <a href="G__3DSpecificInstructions">opengl display</a> (for 3D display or just to optimize the display) by using the facet <strong>type: opengl</strong>.</p>
-<pre><code class="hljs">output {
-    <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-        <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">circle</span>;   </span>
+<pre><code class="hljs"><span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+        <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;   
     }
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> model1
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_people &lt;- 2147;
     <span class="hljs-literal">int</span> nb_infected_init &lt;- 5;
     <span class="hljs-literal">float</span> step &lt;- 5 #mn;
     <span class="hljs-literal">geometry</span> shape&lt;-square(1500 #m);
     
     init{
-        create people number:nb_people;
-        ask nb_infected_init among people {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people;
+        <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-literal">float</span> speed &lt;- (2 + rnd(3)) #km/#h;
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
     
-    <span class="hljs-class">reflex <span class="hljs-title">move</span></span>{
-        do wander;
+    <span class="hljs-builtin">reflex</span> move{
+        <span class="hljs-keyword">do</span> wander;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">infect</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_infected</span></span>{
-        ask people at_distance 10 #m {
+    <span class="hljs-builtin">reflex</span> infect <span class="hljs-symbol">when:</span> is_infected{
+        <span class="hljs-keyword">ask</span> people at_distance 10 #m {
             <span class="hljs-keyword">if</span> flip(0.05) {
                 is_infected &lt;- true;
             }
         }
     }
     
-    aspect circle {
-        draw circle(10) color:is_infected ? #red : #green;
+    <span class="hljs-keyword">aspect</span> circle {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span>is_infected ? #red : #green;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Nb people infected at init"</span> var: nb_infected_init min: 1 max: 2147;
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Nb people infected at init"</span> <span class="hljs-symbol">var:</span> nb_infected_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 2147;
 
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">circle</span>;   </span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;   
         }
     }
 }

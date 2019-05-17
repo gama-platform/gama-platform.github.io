@@ -10,48 +10,48 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> ville
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">file</span> shape_file_batiments &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/batiments.shp"</span>);
     <span class="hljs-literal">file</span> shape_file_routes &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/routes.shp"</span>);
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_routes);
     init {
-        create route from: shape_file_routes;
-        create batiment from: shape_file_batiments with: [type:: <span class="hljs-literal">string</span>(read(<span class="hljs-string">"NATURE"</span>))];
-        create foyer number: 500;
+        <span class="hljs-keyword">create</span> route <span class="hljs-symbol">from:</span> shape_file_routes;
+        <span class="hljs-keyword">create</span> batiment <span class="hljs-symbol">from:</span> shape_file_batiments <span class="hljs-symbol">with:</span> [type:: <span class="hljs-literal">string</span>(read(<span class="hljs-string">"NATURE"</span>))];
+        <span class="hljs-keyword">create</span> foyer <span class="hljs-symbol">number:</span> 500;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">batiment</span> </span>{
+<span class="hljs-literal">species</span> batiment {
     <span class="hljs-literal">string</span> type;
     <span class="hljs-literal">int</span> capacite &lt;- type = <span class="hljs-string">"Industrial"</span> ? 0 : <span class="hljs-literal">int</span>(shape.area / 60.0);
-    aspect geometrie {
-        draw shape color: type = <span class="hljs-string">"Industrial"</span> ? #pink : #gray;
+    <span class="hljs-keyword">aspect</span> geometrie {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> type = <span class="hljs-string">"Industrial"</span> ? #pink : #gray;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">route</span> </span>{
-    aspect geometrie {
-        draw shape color: #black;
+<span class="hljs-literal">species</span> route {
+    <span class="hljs-keyword">aspect</span> geometrie {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">foyer</span> </span>{
+<span class="hljs-literal">species</span> foyer {
     <span class="hljs-literal">float</span> revenu &lt;- gauss(1500, 500);
     batiment habitation;
     batiment lieu_travail;
     
-    aspect revenu {
+    <span class="hljs-keyword">aspect</span> revenu {
         <span class="hljs-literal">int</span> val &lt;- <span class="hljs-literal">int</span>(255 * (revenu / 3000));
-        draw circle(5) color: <span class="hljs-literal">rgb</span>(255 - val, val, 0);
+        <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(255 - val, val, 0);
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">ville</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">carte_principale</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">batiment</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geometrie</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">route</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geometrie</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">foyer</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">revenu</span>;</span>
+<span class="hljs-builtin">experiment</span> ville <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> carte_principale {
+            <span class="hljs-literal">species</span> batiment <span class="hljs-symbol">aspect:</span> geometrie;
+            <span class="hljs-literal">species</span> route <span class="hljs-symbol">aspect:</span> geometrie;
+            <span class="hljs-literal">species</span> foyer <span class="hljs-symbol">aspect:</span> revenu;
         }
     }
 }

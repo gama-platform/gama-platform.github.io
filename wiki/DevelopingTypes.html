@@ -77,7 +77,7 @@ public class GamaColor extends Color implements IValue {
 <p>It can contain setter and/or getter for each of its attributes. Setters and getters are methods annotated by the <a href="DevelopingIndexAnnotations#@getter">@getter</a> or <a href="DevelopingIndexAnnotations#@setter">@setter</a> annotations.</p>
 <pre><code class="hljs">@getter(IKeyword.COLOR_RED)
 public Integer red() {
-    return super.getRed();
+    <span class="hljs-keyword">return</span> super.getRed();
 }
 </code></pre>
 <p>In addition it is recommended that this class implements the <code>IValue</code> interface. It provides a clean way to give a string representation of the type and thus eases good serialization of the object.

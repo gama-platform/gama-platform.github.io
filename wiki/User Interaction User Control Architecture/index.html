@@ -11,65 +11,65 @@
 
 <span class="hljs-builtin">model</span> user_control
 
-<span class="hljs-class">global </span>{
+global {
 
     <span class="hljs-literal">int</span> nbAgent &lt;- 10;
     <span class="hljs-literal">bool</span> advanced_user_control &lt;- false;
     init {
-        create cell number: nbAgent {
+        <span class="hljs-keyword">create</span> cell <span class="hljs-symbol">number:</span> nbAgent {
             color &lt;-°green;
         }
-        create user;
+        <span class="hljs-keyword">create</span> user;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">cell</span> </span>{
+<span class="hljs-literal">species</span> cell {
     <span class="hljs-literal">rgb</span> color;  
-    aspect default {
-        draw circle(1) color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span> color;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">user</span> <span class="hljs-title">control</span>:<span class="hljs-title">user_only</span> </span>{
-   user_panel <span class="hljs-string">"Default"</span> initial: true {
-      transition to: <span class="hljs-string">"Basic Control"</span> when: every (10) and !advanced_user_control;
-      transition to: <span class="hljs-string">"Advanced Control"</span> when: every(10) and advanced_user_control;
+<span class="hljs-literal">species</span> user <span class="hljs-symbol">control:</span><span class="hljs-builtin">user_only</span> {
+   <span class="hljs-keyword">user_panel</span> <span class="hljs-string">"Default"</span> <span class="hljs-symbol">initial:</span> true {
+      <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> <span class="hljs-string">"Basic Control"</span> <span class="hljs-symbol">when:</span> every (10) and !advanced_user_control;
+      <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> <span class="hljs-string">"Advanced Control"</span> <span class="hljs-symbol">when:</span> every(10) and advanced_user_control;
    }
    
-   user_panel <span class="hljs-string">"Basic Control"</span> {
-      user_command <span class="hljs-string">"Kill one cell"</span> {
-         ask (one_of(cell)){
-            do die;
+   <span class="hljs-keyword">user_panel</span> <span class="hljs-string">"Basic Control"</span> {
+      <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Kill one cell"</span> {
+         <span class="hljs-keyword">ask</span> (one_of(cell)){
+            <span class="hljs-keyword">do</span> die;
          }
       }
-      user_command <span class="hljs-string">"Create one cell"</span> {
-        create cell { 
+      <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Create one cell"</span> {
+        <span class="hljs-keyword">create</span> cell { 
             color &lt;-°green; 
         }
       } 
-      transition to: <span class="hljs-string">"Default"</span> when: true;                    
+      <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> <span class="hljs-string">"Default"</span> <span class="hljs-symbol">when:</span> true;                    
    }
-   user_panel <span class="hljs-string">"Advanced Control"</span> {
-      user_command <span class="hljs-string">"Kill cells"</span> color: #red continue: true{
-        user_input <span class="hljs-string">"Number"</span> returns: number type: <span class="hljs-literal">int</span> &lt;- 10;
-        ask (number among <span class="hljs-literal">list</span>(cell)){
-           do die;
+   <span class="hljs-keyword">user_panel</span> <span class="hljs-string">"Advanced Control"</span> {
+      <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Kill cells"</span> <span class="hljs-symbol">color:</span> #red <span class="hljs-symbol">continue:</span> true{
+        <span class="hljs-keyword">user_input</span> <span class="hljs-string">"Number"</span> <span class="hljs-symbol">returns:</span> number <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> &lt;- 10;
+        <span class="hljs-keyword">ask</span> (number among <span class="hljs-literal">list</span>(cell)){
+           <span class="hljs-keyword">do</span> die;
         }
       }
-      user_command <span class="hljs-string">"Create cells"</span> color: #green {
-        user_input <span class="hljs-string">"Number"</span> returns: number type: <span class="hljs-literal">int</span> &lt;- 10;
-        create cell number: number ;
+      <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Create cells"</span> <span class="hljs-symbol">color:</span> #green {
+        <span class="hljs-keyword">user_input</span> <span class="hljs-string">"Number"</span> <span class="hljs-symbol">returns:</span> number <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> &lt;- 10;
+        <span class="hljs-keyword">create</span> cell <span class="hljs-symbol">number:</span> number ;
       } 
-      transition to: <span class="hljs-string">"Default"</span> when: true;        
+      <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> <span class="hljs-string">"Default"</span> <span class="hljs-symbol">when:</span> true;        
    }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">Displays</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"advanced user control"</span> var: advanced_user_control &lt;- false;
-    output { 
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{ 
-            <span class="hljs-class">species <span class="hljs-title">cell</span>;</span>
+<span class="hljs-builtin">experiment</span> Displays <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"advanced user control"</span> <span class="hljs-symbol">var:</span> advanced_user_control &lt;- false;
+    <span class="hljs-keyword">output</span> { 
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> { 
+            <span class="hljs-literal">species</span> cell;
         }
     }
 }

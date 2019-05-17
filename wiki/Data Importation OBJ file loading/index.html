@@ -10,30 +10,30 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> obj_loading   
 
-<span class="hljs-class">global </span>{
+global {
 
     init { 
-        create object;
+        <span class="hljs-keyword">create</span> object;
     }  
 } 
 
-<span class="hljs-class">species <span class="hljs-title">object</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{
+<span class="hljs-literal">species</span> object <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{
     
     <span class="hljs-literal">geometry</span> shape &lt;- obj_file(<span class="hljs-string">"../includes/teapot.obj"</span>) as <span class="hljs-literal">geometry</span>;
     
-    <span class="hljs-class">reflex <span class="hljs-title">move</span></span>{
-        do wander;
+    <span class="hljs-builtin">reflex</span> move{
+        <span class="hljs-keyword">do</span> wander;
     }
-    aspect obj {
-        draw shape;
+    <span class="hljs-keyword">aspect</span> obj {
+        <span class="hljs-keyword">draw</span> shape;
     }
             
 }   
 
-<span class="hljs-class">experiment <span class="hljs-title">Display</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">complex</span>  <span class="hljs-title">background</span>:#<span class="hljs-title">gray</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-          <span class="hljs-class">species <span class="hljs-title">object</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">obj</span>;                </span>
+<span class="hljs-builtin">experiment</span> Display  <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> complex  <span class="hljs-symbol">background:</span>#gray <span class="hljs-symbol">type:</span> opengl{
+          <span class="hljs-literal">species</span> object <span class="hljs-symbol">aspect:</span>obj;                
         }
     }
 }

@@ -9,22 +9,22 @@
 <p>Code of the model :</p>
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> polygon
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Import of the shapefile containing the different polygons</span>
-    <span class="hljs-literal">file</span> shape_file_in &lt;- <span class="hljs-literal">file</span>('../includes/gis/squareHole.shp') ;
+    <span class="hljs-literal">file</span> shape_file_in &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../includes/gis/squareHole.shp'</span>) ;
     <span class="hljs-literal">graph</span> the_graph;
     
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_in);
     
     init {    
-        create object from: shape_file_in ;
+        <span class="hljs-keyword">create</span> object <span class="hljs-symbol">from:</span> shape_file_in ;
         object the_object &lt;- first(object);
         
         <span class="hljs-comment">//triangulation of the object to get the different triangles of the polygons</span>
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; triangles &lt;- <span class="hljs-literal">list</span>(triangulate(the_object));
         
-        loop trig over: triangles {
-            create triangle_obj {
+        <span class="hljs-keyword">loop</span> trig <span class="hljs-symbol">over:</span> triangles {
+            <span class="hljs-keyword">create</span> triangle_obj {
                 shape &lt;- trig;
             }
         }
@@ -34,8 +34,8 @@
         
         <span class="hljs-comment">//Split of the skeletons list according to their intersection points</span>
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; skeletons_split  &lt;- split_lines(skeletons);
-        loop sk over: skeletons_split {
-            create skeleton {
+        <span class="hljs-keyword">loop</span> sk <span class="hljs-symbol">over:</span> skeletons_split {
+            <span class="hljs-keyword">create</span> skeleton {
                 shape &lt;- sk;
             }
         }
@@ -44,61 +44,61 @@
          the_graph &lt;- as_edge_graph(skeleton);
          
          
-        create goal  {
+        <span class="hljs-keyword">create</span> goal  {
              location &lt;- any_location_in (one_of(skeleton)); 
         }
-        create people number: 100 {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> 100 {
              target &lt;- one_of (goal) ; 
              location &lt;- any_location_in (one_of(skeleton));
         } 
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">object</span>  </span>{
-    aspect default {
-        draw shape color: #gray ;
+<span class="hljs-literal">species</span> object  {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">triangle_obj</span>  </span>{
+<span class="hljs-literal">species</span> triangle_obj  {
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(150 +rnd(100),150 + rnd(100),150 + rnd(100));
-    aspect default {
-        draw shape color: color ; 
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ; 
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">skeleton</span>  </span>{
-    aspect default {
-        draw shape + 0.2 color: #red ;
+<span class="hljs-literal">species</span> skeleton  {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape + 0.2 <span class="hljs-symbol">color:</span> #red ;
     }
 }
     
-<span class="hljs-class">species <span class="hljs-title">goal</span> </span>{
-    aspect default {
-        draw circle(3) color:#red;
+<span class="hljs-literal">species</span> goal {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(3) <span class="hljs-symbol">color:</span>#red;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     goal target;
     <span class="hljs-literal">path</span> my_path; 
     
-    <span class="hljs-class">reflex <span class="hljs-title">goto</span> </span>{
-        do goto on:the_graph target:target speed:1;
+    <span class="hljs-builtin">reflex</span> goto {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">on:</span>the_graph <span class="hljs-symbol">target:</span>target <span class="hljs-symbol">speed:</span>1;
     }
-    aspect default {
-        draw circle(3) color: #green;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(3) <span class="hljs-symbol">color:</span> #green;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">goto_polygon</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">objects_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">object</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">triangle_obj</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">skeleton</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">goal</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
+<span class="hljs-builtin">experiment</span> goto_polygon <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> objects_display {
+            <span class="hljs-literal">species</span> object <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
+            <span class="hljs-literal">species</span> triangle_obj <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
+            <span class="hljs-literal">species</span> skeleton <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
+            <span class="hljs-literal">species</span> goal <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
         }
     }
 }

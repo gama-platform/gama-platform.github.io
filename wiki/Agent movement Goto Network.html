@@ -10,8 +10,8 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> Network
 
-<span class="hljs-class">global </span>{
-    <span class="hljs-literal">file</span> shape_file_in &lt;- <span class="hljs-literal">file</span>('../includes/gis/roads.shp') ;
+global {
+    <span class="hljs-literal">file</span> shape_file_in &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../includes/gis/roads.shp'</span>) ;
     <span class="hljs-literal">graph</span> the_graph; 
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_in);
     <span class="hljs-literal">bool</span> save_shortest_paths &lt;- false;
@@ -28,7 +28,7 @@
     <span class="hljs-literal">string</span> optimizer_type &lt;- <span class="hljs-string">"Djikstra"</span>;
     <span class="hljs-literal">int</span> nb_people &lt;- 100;
     init {    
-        create road from: shape_file_in ;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_in ;
         the_graph &lt;- as_edge_graph(<span class="hljs-literal">list</span>(road));
         
         <span class="hljs-comment">//allows to choose the type of algorithm to use compute the shortest paths</span>
@@ -40,60 +40,60 @@
         <span class="hljs-comment">//computes all the shortest paths, puts them in a matrix, then saves the matrix in a file</span>
         <span class="hljs-keyword">if</span> save_shortest_paths {
             <span class="hljs-literal">matrix</span> ssp &lt;- all_pairs_shortest_path(the_graph);
-            save ssp type:<span class="hljs-string">"text"</span> to:shortest_paths_file;
+            <span class="hljs-keyword">save</span> ssp <span class="hljs-symbol">type:</span><span class="hljs-string">"text"</span> <span class="hljs-symbol">to:</span>shortest_paths_file;
             
         <span class="hljs-comment">//loads the file of the shortest paths as a matrix and uses it to initialize all the shortest paths of the graph</span>
-        } else <span class="hljs-keyword">if</span> load_shortest_paths {
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> load_shortest_paths {
             the_graph &lt;- the_graph load_shortest_paths <span class="hljs-literal">matrix</span>(<span class="hljs-literal">file</span>(shortest_paths_file));
         }
         
-        create goal number: 1 {
+        <span class="hljs-keyword">create</span> goal <span class="hljs-symbol">number:</span> 1 {
             location &lt;- any_location_in (one_of(road));
         }
-        create people number: nb_people {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> nb_people {
             target &lt;- one_of (goal) ;
             location &lt;- any_location_in (one_of(road));
         } 
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{
+<span class="hljs-literal">species</span> road  {
     <span class="hljs-literal">float</span> speed_coef ;
-    aspect default {
-        draw shape color: #black ;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black ;
     }
 } 
     
-<span class="hljs-class">species <span class="hljs-title">goal</span> </span>{
-    aspect default {
-        draw circle(50) color: #red;
+<span class="hljs-literal">species</span> goal {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(50) <span class="hljs-symbol">color:</span> #red;
     }
 }
     
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     goal target;
     <span class="hljs-literal">path</span> my_path; 
     
-    aspect default {
-        draw circle(50) color: #green;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(50) <span class="hljs-symbol">color:</span> #green;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">movement</span> </span>{
-        do goto on:the_graph target:target speed:1;
+    <span class="hljs-builtin">reflex</span> movement {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">on:</span>the_graph <span class="hljs-symbol">target:</span>target <span class="hljs-symbol">speed:</span>1;
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">goto_network</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Type of optimizer"</span> var: optimizer_type among: [<span class="hljs-string">"Djikstra"</span>, <span class="hljs-string">"AStar"</span>, <span class="hljs-string">"Bellmann"</span>, <span class="hljs-string">"Floyd Warshall"</span>];
-    parameter <span class="hljs-string">"Number of people"</span> var: nb_people min: 1 max: 1000000;
-    parameter <span class="hljs-string">"Computed all the shortest paths and save the results"</span> var: save_shortest_paths;
-    parameter <span class="hljs-string">"Load the shortest paths from the file"</span> var: load_shortest_paths;
+<span class="hljs-builtin">experiment</span> goto_network <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Type of optimizer"</span> <span class="hljs-symbol">var:</span> optimizer_type <span class="hljs-symbol">among:</span> [<span class="hljs-string">"Djikstra"</span>, <span class="hljs-string">"AStar"</span>, <span class="hljs-string">"Bellmann"</span>, <span class="hljs-string">"Floyd Warshall"</span>];
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of people"</span> <span class="hljs-symbol">var:</span> nb_people <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000000;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Computed all the shortest paths and save the results"</span> <span class="hljs-symbol">var:</span> save_shortest_paths;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Load the shortest paths from the file"</span> <span class="hljs-symbol">var:</span> load_shortest_paths;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">objects_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">goal</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> objects_display {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
+            <span class="hljs-literal">species</span> goal <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> ;
         }
     }
 }

@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> RoadTrafficComplex
  
-<span class="hljs-class">global </span>{   
+global {   
     <span class="hljs-literal">bool</span> simple_data &lt;- false;
     
     <span class="hljs-comment">//Check if we use simple data or more complex roads</span>
@@ -25,25 +25,25 @@
     init {  
         <span class="hljs-comment">//create the intersection and check if there are traffic lights or not by looking the values inside the type column of the shapefile and linking</span>
         <span class="hljs-comment">// this column to the attribute is_traffic_signal. </span>
-        create intersection from: shape_file_nodes with:[is_traffic_signal::(read(<span class="hljs-string">"type"</span>) = <span class="hljs-string">"traffic_signals"</span>)];
+        <span class="hljs-keyword">create</span> intersection <span class="hljs-symbol">from:</span> shape_file_nodes <span class="hljs-symbol">with:</span>[is_traffic_signal::(read(<span class="hljs-string">"type"</span>) = <span class="hljs-string">"traffic_signals"</span>)];
         
         <span class="hljs-comment">//create road agents using the shapefile and using the oneway column to check the orientation of the roads if there are directed</span>
-        create road from: shape_file_roads with:[lanes::<span class="hljs-literal">int</span>(read(<span class="hljs-string">"lanes"</span>)), oneway::<span class="hljs-literal">string</span>(read(<span class="hljs-string">"oneway"</span>))] {
-            geom_<span class="hljs-class">display &lt;- <span class="hljs-title">shape</span> + (2.5 * <span class="hljs-title">lanes</span>);</span>
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_roads <span class="hljs-symbol">with:</span>[lanes::<span class="hljs-literal">int</span>(read(<span class="hljs-string">"lanes"</span>)), oneway::<span class="hljs-literal">string</span>(read(<span class="hljs-string">"oneway"</span>))] {
+            geom_display &lt;- shape + (2.5 * lanes);
             maxspeed &lt;- (lanes = 1 ? 30.0 : (lanes = 2 ? 50.0 : 70.0)) °km/°h;
-            switch oneway {
-                match <span class="hljs-string">"no"</span> {
-                    create road {
+            <span class="hljs-keyword">switch</span> oneway {
+                <span class="hljs-keyword">match</span> <span class="hljs-string">"no"</span> {
+                    <span class="hljs-keyword">create</span> road {
                         lanes &lt;- max([1, <span class="hljs-literal">int</span> (myself.lanes / 2.0)]);
                         shape &lt;- polyline(reverse(myself.shape.points));
                         maxspeed &lt;- myself.maxspeed;
-                        geom_<span class="hljs-class">display  &lt;- <span class="hljs-title">myself</span>.<span class="hljs-title">geom_display</span>;</span>
+                        geom_display  &lt;- myself.geom_display;
                         linked_road &lt;- myself;
                         myself.linked_road &lt;- self;
                     }
                     lanes &lt;- <span class="hljs-literal">int</span>(lanes /2.0 + 0.5);
                 }
-                match <span class="hljs-string">"-1"</span> {
+                <span class="hljs-keyword">match</span> <span class="hljs-string">"-1"</span> {
                     shape &lt;- polyline(reverse(shape.points));
                 }   
             }
@@ -54,11 +54,11 @@
         road_network &lt;-  (as_driving_graph(road, intersection))  with_weights general_speed_map;
         
         <span class="hljs-comment">//initialize the traffic light</span>
-        ask intersection {
-            do initialize;
+        <span class="hljs-keyword">ask</span> intersection {
+            <span class="hljs-keyword">do</span> initialize;
         }
         
-        create people number: nb_people { 
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> nb_people { 
             max_speed &lt;- 160 °km/°h;
             vehicle_length &lt;- 5.0 °m;
             right_side_driving &lt;- true;
@@ -81,7 +81,7 @@
 } 
 
 <span class="hljs-comment">//species that will represent the intersection node, it can be traffic lights or not, using the skill_road_node skill</span>
-<span class="hljs-class">species <span class="hljs-title">intersection</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">skill_road_node</span>] </span>{
+<span class="hljs-literal">species</span> intersection <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">skill_road_node</span>] {
     <span class="hljs-literal">bool</span> is_traffic_signal;
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; stop;
     <span class="hljs-literal">int</span> time_to_change &lt;- 100;
@@ -91,24 +91,24 @@
     <span class="hljs-literal">bool</span> is_green;
     <span class="hljs-literal">rgb</span> color_fire;
     
-    action initialize {
+    <span class="hljs-keyword">action</span> initialize {
         <span class="hljs-keyword">if</span> (is_traffic_signal) {
-            do compute_crossing;
+            <span class="hljs-keyword">do</span> compute_crossing;
             stop&lt;&lt; [];
             <span class="hljs-keyword">if</span> (flip(0.5)) {
-                do to_green;
-            } else {
-                do to_red;
+                <span class="hljs-keyword">do</span> to_green;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">do</span> to_red;
             }   
         }
     }
     
-    action compute_crossing{
+    <span class="hljs-keyword">action</span> compute_crossing{
         <span class="hljs-keyword">if</span>  (length(roads_in) &gt;= 2) {
             road rd0 &lt;- road(roads_in[0]);
             <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; pts &lt;- rd0.shape.points;                        
             <span class="hljs-literal">float</span> ref_angle &lt;-  <span class="hljs-literal">float</span>( last(pts) direction_to rd0.location);
-            loop rd over: roads_in {
+            <span class="hljs-keyword">loop</span> rd <span class="hljs-symbol">over:</span> roads_in {
                 <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; pts2 &lt;- road(rd).shape.points;                      
                 <span class="hljs-literal">float</span> angle_dest &lt;-  <span class="hljs-literal">float</span>( last(pts2) direction_to rd.location);
                 <span class="hljs-literal">float</span> ang &lt;- abs(angle_dest - ref_angle);
@@ -117,62 +117,62 @@
                 }
             }
         }
-        loop rd over: roads_in {
+        <span class="hljs-keyword">loop</span> rd <span class="hljs-symbol">over:</span> roads_in {
             <span class="hljs-keyword">if</span> not(rd in ways2) {
                 ways1 &lt;&lt; road(rd);
             }
         }
     }
     
-    action to_green {
+    <span class="hljs-keyword">action</span> to_green {
         stop[0] &lt;- ways2 ;
         color_fire &lt;- #green;
         is_green &lt;- true;
     }
     
-    action to_red {
+    <span class="hljs-keyword">action</span> to_red {
         stop[0] &lt;- ways1;
         color_fire &lt;- #red;
         is_green &lt;- false;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">dynamic_node</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_traffic_signal</span>  </span>{
+    <span class="hljs-builtin">reflex</span> dynamic_node <span class="hljs-symbol">when:</span> is_traffic_signal  {
         counter &lt;- counter + 1;
         <span class="hljs-keyword">if</span> (counter &gt;= time_to_change) { 
             counter &lt;- 0;
-            <span class="hljs-keyword">if</span> is_green {do to_red;}
-            else {do to_green;}
+            <span class="hljs-keyword">if</span> is_green {<span class="hljs-keyword">do</span> to_red;}
+            <span class="hljs-keyword">else</span> {<span class="hljs-keyword">do</span> to_green;}
         } 
     }
     
-    aspect base {
+    <span class="hljs-keyword">aspect</span> base {
         <span class="hljs-keyword">if</span> (is_traffic_signal) {    
-            draw circle(5) color: color_fire;
+            <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">color:</span> color_fire;
         }
     }
     
-    aspect base3D {
+    <span class="hljs-keyword">aspect</span> base3D {
         <span class="hljs-keyword">if</span> (is_traffic_signal) {    
-            draw box(1,1,10) color:#black;
-            draw sphere(5) at: {location.x,location.y,12} color: color_fire;
+            <span class="hljs-keyword">draw</span> box(1,1,10) <span class="hljs-symbol">color:</span>#black;
+            <span class="hljs-keyword">draw</span> sphere(5) <span class="hljs-symbol">at:</span> {location.x,location.y,12} <span class="hljs-symbol">color:</span> color_fire;
         }
     }
 }
 
 
 <span class="hljs-comment">//species that will represent the roads, it can be directed or not and uses the skill skill_road</span>
-<span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">skill_road</span>] </span>{ 
-    <span class="hljs-literal">geometry</span> geom_<span class="hljs-class">display;</span>
+<span class="hljs-literal">species</span> road <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">skill_road</span>] { 
+    <span class="hljs-literal">geometry</span> geom_display;
     <span class="hljs-literal">string</span> oneway;
-    aspect base {    
-        draw shape color: #gray end_arrow: 10;
+    <span class="hljs-keyword">aspect</span> base {    
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">end_arrow:</span> 10;
     } 
-    aspect base3D {    
-        draw geom_<span class="hljs-class">display <span class="hljs-title">color</span>: #<span class="hljs-title">gray</span> ;</span>
+    <span class="hljs-keyword">aspect</span> base3D {    
+        <span class="hljs-keyword">draw</span> geom_display <span class="hljs-symbol">color:</span> #gray ;
     } 
 }
 
 <span class="hljs-comment">//People species that will move on the graph of roads to a target and using the skill advanced_driving</span>
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">advanced_driving</span>] </span>{ 
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [advanced_driving] { 
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(rnd(255), rnd(255), rnd(255)) ;
     <span class="hljs-literal">int</span> counter_stucked &lt;- 0;
     <span class="hljs-literal">int</span> threshold_stucked;
@@ -180,79 +180,79 @@
     <span class="hljs-literal">float</span> proba_breakdown ;
     intersection target;
     
-    <span class="hljs-class">reflex <span class="hljs-title">breakdown</span> <span class="hljs-title">when</span>: <span class="hljs-title">flip</span>(<span class="hljs-title">proba_breakdown</span>)</span>{
+    <span class="hljs-builtin">reflex</span> breakdown <span class="hljs-symbol">when:</span> flip(proba_breakdown){
         breakdown &lt;- true;
         max_speed &lt;- 1 °km/°h;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">time_to_go</span> <span class="hljs-title">when</span>: <span class="hljs-title">final_target</span> = <span class="hljs-title">nil</span> </span>{
+    <span class="hljs-builtin">reflex</span> time_to_go <span class="hljs-symbol">when:</span> final_target = nil {
         target &lt;- one_of(intersection where not each.is_traffic_signal);
-        current_path &lt;- compute_path(<span class="hljs-literal">graph</span>: road_network, target: target );
+        current_path &lt;- compute_path(<span class="hljs-symbol">graph:</span> road_network, <span class="hljs-symbol">target:</span> target );
         <span class="hljs-keyword">if</span> (current_path = nil ) {
             final_target &lt;- nil;
         }
     }
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">current_path</span> != <span class="hljs-title">nil</span> <span class="hljs-title">and</span> <span class="hljs-title">final_target</span> != <span class="hljs-title">nil</span> </span>{
-        do drive;
+    <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> current_path != nil and final_target != nil {
+        <span class="hljs-keyword">do</span> drive;
         <span class="hljs-keyword">if</span> real_speed &lt; 5°km/°h {
             counter_stucked&lt;- counter_stucked + 1;
             <span class="hljs-keyword">if</span> (counter_stucked mod threshold_stucked = 0) {
                 proba_use_linked_road &lt;- min([1.0,proba_use_linked_road + 0.1]);
             }
-        } else {
+        } <span class="hljs-keyword">else</span> {
             counter_stucked&lt;- 0;
             proba_use_linked_road &lt;- 0.0;
         }
     }
 
-    aspect base { 
-        draw breakdown ? square(15) : triangle(15) color: color rotate:heading + 90;
+    <span class="hljs-keyword">aspect</span> base { 
+        <span class="hljs-keyword">draw</span> breakdown ? square(15) : triangle(15) <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">rotate:</span>heading + 90;
     } 
-    aspect base3D {
+    <span class="hljs-keyword">aspect</span> base3D {
         <span class="hljs-literal">point</span> loc &lt;- calcul_loc();
-        draw box(vehicle_length, 1,1) at: loc rotate:  heading color: color;
+        <span class="hljs-keyword">draw</span> box(vehicle_length, 1,1) <span class="hljs-symbol">at:</span> loc <span class="hljs-symbol">rotate:</span>  heading <span class="hljs-symbol">color:</span> color;
         
-        draw triangle(0.5) depth: 1.5 at: loc rotate:  heading + 90 color: color;
+        <span class="hljs-keyword">draw</span> triangle(0.5) <span class="hljs-symbol">depth:</span> 1.5 <span class="hljs-symbol">at:</span> loc <span class="hljs-symbol">rotate:</span>  heading + 90 <span class="hljs-symbol">color:</span> color;
         
         <span class="hljs-keyword">if</span> (breakdown) {
-            draw circle(2) at: loc color: #red;
+            <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">at:</span> loc <span class="hljs-symbol">color:</span> #red;
         }
     } 
     
     <span class="hljs-literal">point</span> calcul_loc {
         <span class="hljs-keyword">if</span> (current_road = nil) {
-            return location;
-        } else {
+            <span class="hljs-keyword">return</span> location;
+        } <span class="hljs-keyword">else</span> {
             <span class="hljs-literal">float</span> val &lt;- (road(current_road).lanes - current_lane) + 0.5;
             val &lt;- on_linked_road ? val * - 1 : val;
             <span class="hljs-keyword">if</span> (val = 0) {
-                return location; 
-            } else {
-                return (location + {cos(heading + 90) * val, sin(heading + 90) * val});
+                <span class="hljs-keyword">return</span> location; 
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> (location + {cos(heading + 90) * val, sin(heading + 90) * val});
             }
         }
     }
     
 } 
 
-<span class="hljs-class">experiment <span class="hljs-title">experiment_2D</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"if true, simple data (simple track), if false complex one (Manhattan):"</span> var: simple_data category: <span class="hljs-string">"GIS"</span> ;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">intersection</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
+<span class="hljs-builtin">experiment</span> experiment_2D <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"if true, simple data (simple track), if false complex one (Manhattan):"</span> <span class="hljs-symbol">var:</span> simple_data <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base ;
+            <span class="hljs-literal">species</span> intersection <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base;
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">experiment_3D</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"if true, simple data (simple track), if false complex one (Manhattan):"</span> var: simple_data category: <span class="hljs-string">"GIS"</span> ;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">carte_principale</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base3D</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">true</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">intersection</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base3D</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base3D</span> ; </span>
+<span class="hljs-builtin">experiment</span> experiment_3D <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"if true, simple data (simple track), if false complex one (Manhattan):"</span> <span class="hljs-symbol">var:</span> simple_data <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> carte_principale <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base3D <span class="hljs-symbol">refresh:</span> true;
+            <span class="hljs-literal">species</span> intersection <span class="hljs-symbol">aspect:</span> base3D;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base3D ; 
         }
     }
 }

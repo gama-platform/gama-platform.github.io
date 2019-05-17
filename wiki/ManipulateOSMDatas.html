@@ -83,9 +83,9 @@ Several software are possible to use, but we will focus on <a href="http://www.q
 <p>Copy passed all the .shp created in the include folder of your GAMA project. You are now ready to write the model.</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> HowToUseOpenStreetMap
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">// Global variables related to the Management units </span>
-    <span class="hljs-literal">file</span> shapeFile &lt;- <span class="hljs-literal">file</span>('../includes/new_york.shp'); 
+    <span class="hljs-literal">file</span> shapeFile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../includes/new_york.shp'</span>); 
     
     <span class="hljs-comment">//definition of the environment size from the shapefile. </span>
     <span class="hljs-comment">//Note that is possible to define it from several files by using: geometry shape &lt;- envelope(envelope(file1) + envelope(file2) + ...);</span>
@@ -93,25 +93,25 @@ Several software are possible to use, but we will focus on <a href="http://www.q
     
     init {
         <span class="hljs-comment">//Creation of elementOfNewYork agents from the shapefile (and reading some of the shapefile attributes)</span>
-        create elementOfNewYork from: shapeFile 
-            with: [elementId::<span class="hljs-literal">int</span>(read('id')), elementHeight::<span class="hljs-literal">int</span>(read('height')), elementColor::<span class="hljs-literal">string</span>(read('attrForGama'))] ;
+        <span class="hljs-keyword">create</span> elementOfNewYork <span class="hljs-symbol">from:</span> shapeFile 
+            <span class="hljs-symbol">with:</span> [elementId::<span class="hljs-literal">int</span>(read(<span class="hljs-string">'id'</span>)), elementHeight::<span class="hljs-literal">int</span>(read(<span class="hljs-string">'height'</span>)), elementColor::<span class="hljs-literal">string</span>(read(<span class="hljs-string">'attrForGama'</span>))] ;
     }
 }
     
-<span class="hljs-class">species <span class="hljs-title">elementOfNewYork</span></span>{
+<span class="hljs-literal">species</span> elementOfNewYork{
     <span class="hljs-literal">int</span> elementId;
     <span class="hljs-literal">int</span> elementHeight;
     <span class="hljs-literal">string</span> elementColor;
     
-    aspect basic{
-        draw shape color: (elementColor = <span class="hljs-string">"blue"</span>) ? #blue : ( (elementColor = <span class="hljs-string">"red"</span>) ? #red : #yellow ) depth: elementHeight;
+    <span class="hljs-keyword">aspect</span> basic{
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> (elementColor = <span class="hljs-string">"blue"</span>) ? #blue : ( (elementColor = <span class="hljs-string">"red"</span>) ? #red : #yellow ) <span class="hljs-symbol">depth:</span> elementHeight;
     }
 }   
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">HowToUseOpenStreetMap</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">elementOfNewYork</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">basic</span>; </span>
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {     
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> HowToUseOpenStreetMap <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-literal">species</span> elementOfNewYork <span class="hljs-symbol">aspect:</span> basic; 
         }
     }
 }

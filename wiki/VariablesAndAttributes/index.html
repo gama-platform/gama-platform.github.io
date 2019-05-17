@@ -73,18 +73,18 @@ Outside its <em>scope</em> of validity, an expression cannot use a variable or a
 <h2><a class="anchor" aria-hidden="true" id="direct-access"></a><a href="#direct-access" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Direct Access</h2>
 <p>When an agent wants to use either one of the variables declared locally, one of the attributes declared in its species (or parent species), one of the attributes declared in the macro-species of its species, it can directly invoke its name and the compiler will do the rest (i.e. finding the variable or attribute in the right scope).
 For instance, we can have a look at the following example:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">animal</span> </span>{
-   <span class="hljs-literal">float</span> energy &lt;- 1000 min: 0 max: 2000 update: energy - 0.001;
-   <span class="hljs-literal">int</span> age_in_years &lt;- 1 update: age_in_years + <span class="hljs-literal">int</span> (time / 365);
+<pre><code class="hljs"><span class="hljs-literal">species</span> animal {
+   <span class="hljs-literal">float</span> energy &lt;- 1000 <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 2000 <span class="hljs-symbol">update:</span> energy - 0.001;
+   <span class="hljs-literal">int</span> age_in_years &lt;- 1 <span class="hljs-symbol">update:</span> age_in_years + <span class="hljs-literal">int</span> (time / 365);
    
-   action eat (<span class="hljs-literal">float</span> amount &lt;- 0) {
+   <span class="hljs-keyword">action</span> eat (<span class="hljs-literal">float</span> amount &lt;- 0) {
        <span class="hljs-literal">float</span> gain &lt;- amount / age_in_years;
        energy &lt;- energy + gain;
    }
 
-   <span class="hljs-class">reflex <span class="hljs-title">feed</span> </span>{
+   <span class="hljs-builtin">reflex</span> feed {
       <span class="hljs-literal">int</span> food_found &lt;- rnd(100);
-      do eat (amount: food_found); 
+      <span class="hljs-keyword">do</span> eat (<span class="hljs-symbol">amount:</span> food_found); 
    }
 
 }
@@ -136,30 +136,30 @@ For instance, we can have a look at the following example:</p>
 <pre><code class="hljs">remote_agent.variable
 </code></pre>
 <p>where remote_agent can be the name of an agent, an expression returning an agent, self, myself or each. For instance, if we modify the previous species by giving its agents the possibility to feed another agent found in its neighborhood, the result would be:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">animal</span> </span>{
-   <span class="hljs-literal">float</span> energy &lt;- 1000 min: 0 max: 2000 update: energy - 0.001;
-   <span class="hljs-literal">int</span> age_in_years &lt;- 1 update: age_in_years + <span class="hljs-literal">int</span> (time / 365);
-   action eat (<span class="hljs-literal">float</span> amount &lt;- 0.0) {
+<pre><code class="hljs"><span class="hljs-literal">species</span> animal {
+   <span class="hljs-literal">float</span> energy &lt;- 1000 <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 2000 <span class="hljs-symbol">update:</span> energy - 0.001;
+   <span class="hljs-literal">int</span> age_in_years &lt;- 1 <span class="hljs-symbol">update:</span> age_in_years + <span class="hljs-literal">int</span> (time / 365);
+   <span class="hljs-keyword">action</span> eat (<span class="hljs-literal">float</span> amount &lt;- 0.0) {
        <span class="hljs-literal">float</span> gain &lt;- amount / age_in_years;
        energy &lt;- energy + gain;
    }
-   action feed (animal target){
+   <span class="hljs-keyword">action</span> feed (animal target){
        <span class="hljs-keyword">if</span> (agent_to_feed != nil) and (agent_to_feed.energy &lt; energy { <span class="hljs-comment">// verifies that the agent exists and that it need to be fed</span>
-            ask agent_to_feed {
-                do eat amount: myself.energy / 10; <span class="hljs-comment">// asks the agent to eat 10% of our own energy</span>
+            <span class="hljs-keyword">ask</span> agent_to_feed {
+                <span class="hljs-keyword">do</span> eat <span class="hljs-symbol">amount:</span> myself.energy / 10; <span class="hljs-comment">// asks the agent to eat 10% of our own energy</span>
             }
             energy &lt;- energy - (energy / 10); <span class="hljs-comment">// reduces the energy by 10%</span>
        }
    }
-   <span class="hljs-class">reflex </span>{
+   <span class="hljs-builtin">reflex</span> {
        animal candidates &lt;- agents_overlapping (10 around <span class="hljs-literal">agent</span>.shape); gathers all the neighbors
-       agent_to_feed value: candidates with_min_of (each.energy); <span class="hljs-comment">//grabs one agent with the lowest energy </span>
-       do feed target: agent_to_feed; <span class="hljs-comment">// tries to feed it</span>
+       agent_to_feed <span class="hljs-symbol">value:</span> candidates with_min_of (each.energy); <span class="hljs-comment">//grabs one agent with the lowest energy </span>
+       <span class="hljs-keyword">do</span> feed <span class="hljs-symbol">target:</span> agent_to_feed; <span class="hljs-comment">// tries to feed it</span>
    }
 }
 </code></pre>
 <p>In this example, agent_to_feed.energy, myself.energy and each.energy show different remote accesses to the attribute energy. The dotted notation used here can be employed in assignments as well. For instance, an action allowing two agents to exchange their energy could be defined as:</p>
-<pre><code class="hljs">action random_exchange {<span class="hljs-comment">//exchanges our energy with that of the closest agent</span>
+<pre><code class="hljs"><span class="hljs-keyword">action</span> random_exchange {<span class="hljs-comment">//exchanges our energy with that of the closest agent</span>
      animal one_agent &lt;- agent_closest_to (self)/&gt;
      <span class="hljs-literal">float</span> temp  &lt;-one_agent.energy; <span class="hljs-comment">// temporary storage of the agent's energy</span>
      one_agent.energy &lt;- energy; <span class="hljs-comment">// assignment of the agent's energy with our energy</span>

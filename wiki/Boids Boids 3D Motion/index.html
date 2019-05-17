@@ -8,155 +8,155 @@
 <p>This model shows the movement of boids following a goal, and creating without their own volonty, a flock .  The goal agent and the boids will move within the 3D space.</p>
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> boids_3D 
-<span class="hljs-class">global <span class="hljs-title">torus</span>: <span class="hljs-title">torus_environment</span></span>{ 
+global <span class="hljs-symbol">torus:</span> torus_environment{ 
     <span class="hljs-comment">//Number of boids to create</span>
-    <span class="hljs-literal">int</span> number_of_agents parameter: 'Number of agents' &lt;- 100 min: 1 max: 1000000;
+    <span class="hljs-literal">int</span> number_of_agents <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Number of agents'</span> &lt;- 100 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000000;
     <span class="hljs-comment">//Number of obstacles to create</span>
-    <span class="hljs-literal">int</span> number_of_obstacles parameter: 'Number of obstacles' &lt;- 0 min: 0;
+    <span class="hljs-literal">int</span> number_of_obstacles <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Number of obstacles'</span> &lt;- 0 <span class="hljs-symbol">min:</span> 0;
     <span class="hljs-comment">//Size of the boids</span>
-    <span class="hljs-literal">int</span> boids_size parameter: 'Boids size' &lt;- 50 min: 1;
+    <span class="hljs-literal">int</span> boids_size <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Boids size'</span> &lt;- 50 <span class="hljs-symbol">min:</span> 1;
     <span class="hljs-comment">//Maximal speed of the boids</span>
-    <span class="hljs-literal">float</span> maximal_speed parameter: 'Maximal speed' &lt;- 15.0 min: 0.1 max: 15.0;
+    <span class="hljs-literal">float</span> maximal_speed <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Maximal speed'</span> &lt;- 15.0 <span class="hljs-symbol">min:</span> 0.1 <span class="hljs-symbol">max:</span> 15.0;
     <span class="hljs-comment">//Factor for the boids flock</span>
-    <span class="hljs-literal">int</span> cohesion_factor parameter: 'Cohesion Factor' &lt;- 100; 
-    <span class="hljs-literal">int</span> alignment_factor parameter: 'Alignment Factor' &lt;- 100; 
-    <span class="hljs-literal">float</span> minimal_distance parameter: 'Minimal Distance' &lt;- 10.0; 
+    <span class="hljs-literal">int</span> cohesion_factor <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Cohesion Factor'</span> &lt;- 100; 
+    <span class="hljs-literal">int</span> alignment_factor <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Alignment Factor'</span> &lt;- 100; 
+    <span class="hljs-literal">float</span> minimal_distance <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Minimal Distance'</span> &lt;- 10.0; 
     <span class="hljs-comment">//MAximal angle of turn for the boids</span>
-    <span class="hljs-literal">int</span> maximal_turn parameter: 'Maximal Turn' &lt;- 90 min: 0 max: 359; 
+    <span class="hljs-literal">int</span> maximal_turn <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Maximal Turn'</span> &lt;- 90 <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 359; 
     <span class="hljs-comment">//environment parameters</span>
-    <span class="hljs-literal">int</span> width_and_height_of_environment parameter: 'Width/Height of the Environment' &lt;- 800;  
-    <span class="hljs-literal">int</span> z_max parameter: 'Z max of the Environment' &lt;- 400;  
-    <span class="hljs-literal">bool</span> torus_environment parameter: 'Toroidal Environment ?' &lt;- false; 
+    <span class="hljs-literal">int</span> width_and_height_of_environment <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Width/Height of the Environment'</span> &lt;- 800;  
+    <span class="hljs-literal">int</span> z_max <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Z max of the Environment'</span> &lt;- 400;  
+    <span class="hljs-literal">bool</span> torus_environment <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Toroidal Environment ?'</span> &lt;- false; 
     <span class="hljs-comment">//Experiment parameter</span>
-    <span class="hljs-literal">bool</span> apply_cohesion &lt;- true parameter: 'Apply Cohesion ?';
-    <span class="hljs-literal">bool</span> apply_alignment &lt;- true parameter: 'Apply Alignment ?';   
-    <span class="hljs-literal">bool</span> apply_separation &lt;- true parameter: 'Apply Separation ?';   
-    <span class="hljs-literal">bool</span> apply_goal &lt;- true parameter: 'Follow Goal ?'; 
-    <span class="hljs-literal">bool</span> apply_wind &lt;- true parameter: 'Apply Wind ?';     
+    <span class="hljs-literal">bool</span> apply_cohesion &lt;- true <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Apply Cohesion ?'</span>;
+    <span class="hljs-literal">bool</span> apply_alignment &lt;- true <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Apply Alignment ?'</span>;   
+    <span class="hljs-literal">bool</span> apply_separation &lt;- true <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Apply Separation ?'</span>;   
+    <span class="hljs-literal">bool</span> apply_goal &lt;- true <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Follow Goal ?'</span>; 
+    <span class="hljs-literal">bool</span> apply_wind &lt;- true <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Apply Wind ?'</span>;     
     <span class="hljs-comment">//Wind variable</span>
-    <span class="hljs-literal">point</span> wind_vector &lt;- {0,0,0}  parameter: 'Direction of the wind';   
+    <span class="hljs-literal">point</span> wind_vector &lt;- {0,0,0}  <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Direction of the wind'</span>;   
     <span class="hljs-comment">//Duration of the goal</span>
-    <span class="hljs-literal">int</span> goal_duration &lt;- 30 update: (goal_duration - 1); 
+    <span class="hljs-literal">int</span> goal_duration &lt;- 30 <span class="hljs-symbol">update:</span> (goal_duration - 1); 
     <span class="hljs-comment">//Location of the goal</span>
     <span class="hljs-literal">point</span> goal &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 ,(rnd(z_max - 2) + 1)}; 
-    <span class="hljs-literal">list</span> images &lt;- [<span class="hljs-literal">file</span>('../images/bird1.png'),<span class="hljs-literal">file</span>('../images/bird2.png'),<span class="hljs-literal">file</span>('../images/bird3.png')]; 
+    <span class="hljs-literal">list</span> images &lt;- [<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/bird1.png'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/bird2.png'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/bird3.png'</span>)]; 
     <span class="hljs-literal">geometry</span> shape &lt;- cube(width_and_height_of_environment);
     init {
         <span class="hljs-comment">//Creation of the boids agents that will be placed randomly within the environment</span>
-        create boids number: number_of_agents { 
+        <span class="hljs-keyword">create</span> boids <span class="hljs-symbol">number:</span> number_of_agents { 
             location &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 , (rnd(z_max - 2) + 1)};
         } 
         <span class="hljs-comment">//Creation of the goal</span>
-        create boids_goal {
+        <span class="hljs-keyword">create</span> boids_goal {
             location &lt;- goal;
         }
     }
 }
 
 <span class="hljs-comment">//Species boids_goal that will represent the goal agent, using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving3D</span>] </span>{
-    <span class="hljs-literal">float</span> range init: 20.0;
+<span class="hljs-literal">species</span> boids_goal <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving3D</span>] {
+    <span class="hljs-literal">float</span> range <span class="hljs-symbol">init:</span> 20.0;
     
     <span class="hljs-comment">//Reflex to make the goal agent wander in a certain amplitude and a certain speed, </span>
     <span class="hljs-comment">//Respecting the minimal and maximal z values</span>
-    <span class="hljs-class">reflex <span class="hljs-title">wander</span> </span>{ 
-        do  wander amplitude: 45 speed: 20; 
+    <span class="hljs-builtin">reflex</span> wander { 
+        <span class="hljs-keyword">do</span>  wander <span class="hljs-symbol">amplitude:</span> 45 <span class="hljs-symbol">speed:</span> 20; 
         <span class="hljs-keyword">if</span> (location.z) &lt; 0 {
             location &lt;- {location.x,location.y,0};
-        } else <span class="hljs-keyword">if</span> (location.z) &gt; z_max {
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (location.z) &gt; z_max {
             location &lt;- {location.x,location.y,z_max};
         }
         goal &lt;- location;
     }
     
-    aspect default { 
-        draw sphere(10) color: #red ;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> { 
+        <span class="hljs-keyword">draw</span> sphere(10) <span class="hljs-symbol">color:</span> #red ;
     }
 } 
 
 <span class="hljs-comment">//Species boids that will represent the boids agents, using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> boids <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-comment">//Attribute for the speed of the boids</span>
-    <span class="hljs-literal">float</span> speed max: maximal_speed &lt;- maximal_speed;
+    <span class="hljs-literal">float</span> speed <span class="hljs-symbol">max:</span> maximal_speed &lt;- maximal_speed;
     <span class="hljs-comment">//Range of sensing of the boids</span>
     <span class="hljs-literal">float</span> range &lt;- minimal_distance * 2;
     <span class="hljs-literal">point</span> velocity &lt;- {0,0, 0} ;
     
     <span class="hljs-comment">//List of the others boids in the range distance of the agent</span>
-    <span class="hljs-literal">list</span> others update: ((boids at_distance range)  - self);
+    <span class="hljs-literal">list</span> others <span class="hljs-symbol">update:</span> ((boids at_distance range)  - self);
     <span class="hljs-comment">//Mass center of the "flock" represented as the other boids in the sensing range</span>
-    <span class="hljs-literal">point</span> mass_center update:  (length(others) &gt; 0) ? (mean (others collect (each.location)) )  : location;
+    <span class="hljs-literal">point</span> mass_center <span class="hljs-symbol">update:</span>  (length(others) &gt; 0) ? (mean (others collect (each.location)) )  : location;
     
     <span class="hljs-comment">//Reflex to apply separation</span>
-    <span class="hljs-class">reflex <span class="hljs-title">separation</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_separation</span> </span>{
+    <span class="hljs-builtin">reflex</span> separation <span class="hljs-symbol">when:</span> apply_separation {
         <span class="hljs-literal">point</span> acc &lt;- {0,0,0};
-        loop boid over: (boids at_distance (minimal_distance))  {
+        <span class="hljs-keyword">loop</span> boid <span class="hljs-symbol">over:</span> (boids at_distance (minimal_distance))  {
             acc &lt;- acc - ((location of boid) - location);
         }  
         velocity &lt;- velocity + acc;
     }
     <span class="hljs-comment">//Reflex to apply alignment</span>
-    <span class="hljs-class">reflex <span class="hljs-title">alignment</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_alignment</span> </span>{
+    <span class="hljs-builtin">reflex</span> alignment <span class="hljs-symbol">when:</span> apply_alignment {
         <span class="hljs-literal">point</span> acc &lt;- (length(others) &gt; 0) ? (mean (others collect (each.velocity))) : {0.0,0.0,0.0};
         acc &lt;- acc - velocity;
         velocity &lt;- velocity + (acc / alignment_factor);
     }
     <span class="hljs-comment">//Reflex to apply cohesion</span>
-    <span class="hljs-class">reflex <span class="hljs-title">cohesion</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_cohesion</span> </span>{
+    <span class="hljs-builtin">reflex</span> cohesion <span class="hljs-symbol">when:</span> apply_cohesion {
         <span class="hljs-literal">point</span> acc &lt;- mass_center - location;
         acc &lt;- acc / cohesion_factor;
         velocity &lt;- velocity + acc; 
     }
     <span class="hljs-comment">//Action to make the agent location within the environment</span>
-    action bounding {
+    <span class="hljs-keyword">action</span> bounding {
         <span class="hljs-keyword">if</span> (location.z) &lt; 0 {
             location &lt;- {location.x,location.y,0};
-        } else <span class="hljs-keyword">if</span> (location.z) &gt; z_max {
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (location.z) &gt; z_max {
             location &lt;- {location.x,location.y,z_max};
         }
     }
     <span class="hljs-comment">//Reflex to make the agent follow the goal</span>
-    <span class="hljs-class">reflex <span class="hljs-title">follow_goal</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_goal</span> </span>{
+    <span class="hljs-builtin">reflex</span> follow_goal <span class="hljs-symbol">when:</span> apply_goal {
         velocity &lt;- velocity + ((goal - location) / cohesion_factor);
     }
     <span class="hljs-comment">//Reflex to apply the wind by using the vector of wind</span>
-    <span class="hljs-class">reflex <span class="hljs-title">wind</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_wind</span> </span>{
+    <span class="hljs-builtin">reflex</span> wind <span class="hljs-symbol">when:</span> apply_wind {
         velocity &lt;- velocity + wind_vector;
     }
     <span class="hljs-comment">//Action to make the agent moving</span>
-    action do_move {  
+    <span class="hljs-keyword">action</span> do_move {  
         <span class="hljs-keyword">if</span> (((velocity.x) as <span class="hljs-literal">int</span>) = 0) and (((velocity.y) as <span class="hljs-literal">int</span>) = 0) and (((velocity.z) as <span class="hljs-literal">int</span>) = 0) {
             velocity &lt;- {(rnd(4)) -2, (rnd(4)) - 2,  ((rnd(4)) - 2)} ; 
         }
         <span class="hljs-literal">point</span> old_location &lt;- location;
-        do goto target: location + velocity;
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> location + velocity;
         velocity &lt;- location - old_location;
     }
     <span class="hljs-comment">//Reflex to move the agent, calling both bounding and do_move action</span>
-    <span class="hljs-class">reflex <span class="hljs-title">movement</span> </span>{
-        do bounding;
-        do do_move;
+    <span class="hljs-builtin">reflex</span> movement {
+        <span class="hljs-keyword">do</span> bounding;
+        <span class="hljs-keyword">do</span> do_move;
     }
     
-    aspect sphere {
-        draw sphere(10) color: #green;
+    <span class="hljs-keyword">aspect</span> sphere {
+        <span class="hljs-keyword">draw</span> sphere(10) <span class="hljs-symbol">color:</span> #green;
     }
     
-    aspect image {
-        draw (images at (rnd(2))) size: boids_size rotate: heading color: #black ;      
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">image</span> {
+        <span class="hljs-keyword">draw</span> (images at (rnd(2))) <span class="hljs-symbol">size:</span> boids_size <span class="hljs-symbol">rotate:</span> heading <span class="hljs-symbol">color:</span> #black ;      
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">boids_3D</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> boids_3D <span class="hljs-symbol">type:</span> gui {
     
     
-    output {
+    <span class="hljs-keyword">output</span> {
         
-        <span class="hljs-class">display <span class="hljs-title">Sky1</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span>  <span class="hljs-title">z_fighting</span>:<span class="hljs-title">false</span></span>{
-            image 'background' <span class="hljs-literal">file</span>:'../images/ocean.jpg' ;
-            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span>; </span>
+        <span class="hljs-keyword">display</span> Sky1 <span class="hljs-symbol">type:</span>opengl  <span class="hljs-symbol">z_fighting:</span>false{
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'background'</span> <span class="hljs-symbol">file:</span><span class="hljs-string">'../images/ocean.jpg'</span> ;
+            <span class="hljs-literal">species</span> boids <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span>;
+            <span class="hljs-literal">species</span> boids_goal; 
         }
         
 

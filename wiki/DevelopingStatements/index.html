@@ -153,7 +153,7 @@ public SingleStatementExample(final IDescription desc) {
         }
         GuiUtils.informConsole(nameStr);
     }
-    return nameStr;
+    <span class="hljs-keyword">return</span> nameStr;
 }  
 </code></pre>
 <p>The variable <code>scope</code> of type <code>IScope</code> can be used to:</p>
@@ -184,7 +184,7 @@ public class ReflexStatement extends AbstractStatementSequence {
 </ul>
 <pre><code class="hljs">public String getTrace(final IScope scope) {
     <span class="hljs-comment">// We dont trace write statements</span>
-    return <span class="hljs-string">""</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;
 } 
 </code></pre>
 <ul>

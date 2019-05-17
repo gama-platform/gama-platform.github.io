@@ -9,7 +9,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> tutorial_gis_city_traffic
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">file</span> shape_file_buildings &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/building.shp"</span>);
     <span class="hljs-literal">file</span> shape_file_roads &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/road.shp"</span>);
     <span class="hljs-literal">file</span> shape_file_bounds &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/bounds.shp"</span>);
@@ -18,54 +18,54 @@
     <span class="hljs-literal">int</span> nb_people &lt;- 100;
     
     init {
-        create building from: shape_file_buildings with: [type::<span class="hljs-literal">string</span>(read (<span class="hljs-string">"NATURE"</span>))] {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> shape_file_buildings <span class="hljs-symbol">with:</span> [type::<span class="hljs-literal">string</span>(read (<span class="hljs-string">"NATURE"</span>))] {
             <span class="hljs-keyword">if</span> type=<span class="hljs-string">"Industrial"</span> {
                 color &lt;- #blue ;
             }
         }
-        create road from: shape_file_roads ;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_roads ;
         <span class="hljs-literal">list</span>&lt;building&gt; residential_buildings &lt;- building where (each.type=<span class="hljs-string">"Residential"</span>);
-        create people number: nb_people {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> nb_people {
             location &lt;- any_location_in (one_of (residential_buildings));
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
+<span class="hljs-literal">species</span> building {
     <span class="hljs-literal">string</span> type; 
     <span class="hljs-literal">rgb</span> color &lt;- #gray  ;
     
-    aspect base {
-        draw shape color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{
+<span class="hljs-literal">species</span> road  {
     <span class="hljs-literal">rgb</span> color &lt;- #black ;
-    aspect base {
-        draw shape color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> </span>{
+<span class="hljs-literal">species</span> people {
     <span class="hljs-literal">rgb</span> color &lt;- #yellow ;
     
-    aspect base {
-        draw circle(10) color: color;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span> color;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">road_traffic</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Shapefile for the buildings:"</span> var: shape_file_buildings category: <span class="hljs-string">"GIS"</span> ;
-    parameter <span class="hljs-string">"Shapefile for the roads:"</span> var: shape_file_roads category: <span class="hljs-string">"GIS"</span> ;
-    parameter <span class="hljs-string">"Shapefile for the bounds:"</span> var: shape_file_bounds category: <span class="hljs-string">"GIS"</span> ;
-    parameter <span class="hljs-string">"Number of people agents"</span> var: nb_people category: <span class="hljs-string">"People"</span> ;
+<span class="hljs-builtin">experiment</span> road_traffic <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the buildings:"</span> <span class="hljs-symbol">var:</span> shape_file_buildings <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the roads:"</span> <span class="hljs-symbol">var:</span> shape_file_roads <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the bounds:"</span> <span class="hljs-symbol">var:</span> shape_file_bounds <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of people agents"</span> <span class="hljs-symbol">var:</span> nb_people <span class="hljs-symbol">category:</span> <span class="hljs-string">"People"</span> ;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base ;
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base ;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base ;
         }
     }
 }

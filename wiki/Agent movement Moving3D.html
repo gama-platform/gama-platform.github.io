@@ -12,27 +12,27 @@
 
 <span class="hljs-builtin">model</span> Moving3DModel   
 
-<span class="hljs-class">global </span>{
-    <span class="hljs-literal">int</span> number_of_agents parameter: 'Number of Agents' min: 1 &lt;- 250 step:10 category: 'Initialization'; 
+global {
+    <span class="hljs-literal">int</span> number_of_agents <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Number of Agents'</span> <span class="hljs-symbol">min:</span> 1 &lt;- 250 <span class="hljs-symbol">step:</span>10 <span class="hljs-symbol">category:</span> <span class="hljs-string">'Initialization'</span>; 
     <span class="hljs-literal">int</span> envSize &lt;-100; <span class="hljs-comment">//max:100;</span>
     <span class="hljs-literal">int</span> mazeSize &lt;-10;
-    <span class="hljs-literal">int</span> radius parameter: 'Radius' min: 1 &lt;- 1 ;
-    <span class="hljs-literal">int</span> directionSize parameter: 'direction size' min: 1 &lt;- 10 ;
+    <span class="hljs-literal">int</span> radius <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Radius'</span> <span class="hljs-symbol">min:</span> 1 &lt;- 1 ;
+    <span class="hljs-literal">int</span> directionSize <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'direction size'</span> <span class="hljs-symbol">min:</span> 1 &lt;- 10 ;
     <span class="hljs-literal">string</span> effectType &lt;-<span class="hljs-string">""</span>;<span class="hljs-comment">// among:["","firework", "blob","direction"];</span>
     <span class="hljs-literal">string</span> movingType &lt;-<span class="hljs-string">"move"</span>;
     <span class="hljs-literal">graph</span> mazeGraph;
     <span class="hljs-literal">geometry</span> shape &lt;- cube(envSize);
-    <span class="hljs-literal">bool</span> trace &lt;-false;
-    <span class="hljs-literal">string</span> agentAspect &lt;- <span class="hljs-string">"sphere"</span> among:[<span class="hljs-string">"circle"</span>, <span class="hljs-string">"sphere"</span>,<span class="hljs-string">"direction"</span>];
+    <span class="hljs-literal">bool</span> <span class="hljs-keyword">trace</span> &lt;-false;
+    <span class="hljs-literal">string</span> agentAspect &lt;- <span class="hljs-string">"sphere"</span> <span class="hljs-symbol">among:</span>[<span class="hljs-string">"circle"</span>, <span class="hljs-string">"sphere"</span>,<span class="hljs-string">"direction"</span>];
 
     init { 
         
         <span class="hljs-keyword">if</span>(movingType = <span class="hljs-string">"move"</span> or movingType = <span class="hljs-string">"complete"</span>){
-          create movingAgent number: number_of_agents{
+          <span class="hljs-keyword">create</span> movingAgent <span class="hljs-symbol">number:</span> number_of_agents{
             <span class="hljs-keyword">if</span>(effectType = <span class="hljs-string">"firework"</span>){
               location &lt;- {envSize/2, envSize/2, envSize/2};    
             }
-            else{
+            <span class="hljs-keyword">else</span>{
                 location &lt;- {rnd(envSize), rnd(envSize), rnd(envSize)};
             }
             color&lt;-°red;    
@@ -40,14 +40,14 @@
         }
         
         <span class="hljs-keyword">if</span>(movingType = <span class="hljs-string">"wander"</span> or movingType = <span class="hljs-string">"complete"</span>){
-            create wanderAgent number: number_of_agents{
+            <span class="hljs-keyword">create</span> wanderAgent <span class="hljs-symbol">number:</span> number_of_agents{
               location &lt;- {rnd(envSize), rnd(envSize), rnd(envSize)};
               color&lt;-°green;    
             }
         }
         
         <span class="hljs-keyword">if</span>(movingType = <span class="hljs-string">"goto"</span> or movingType = <span class="hljs-string">"complete"</span>){
-            create gotoAgent number: number_of_agents{
+            <span class="hljs-keyword">create</span> gotoAgent <span class="hljs-symbol">number:</span> number_of_agents{
               location &lt;- {rnd(envSize), rnd(envSize), rnd(envSize)};
               myTarget &lt;-{rnd(envSize),rnd(envSize),rnd(envSize)};
               color&lt;-°yellow;
@@ -56,16 +56,16 @@
         
         <span class="hljs-keyword">if</span>(movingType = <span class="hljs-string">"gotoOnNetwork"</span> or movingType = <span class="hljs-string">"complete"</span>){
             
-            loop i from:0 to:mazeSize{
-              loop j from:0 to: mazeSize{
-                loop k from:0 to:mazeSize{
-                  create cell{
+            <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span>0 <span class="hljs-symbol">to:</span>mazeSize{
+              <span class="hljs-keyword">loop</span> j <span class="hljs-symbol">from:</span>0 <span class="hljs-symbol">to:</span> mazeSize{
+                <span class="hljs-keyword">loop</span> k <span class="hljs-symbol">from:</span>0 <span class="hljs-symbol">to:</span>mazeSize{
+                  <span class="hljs-keyword">create</span> cell{
                     location &lt;-{(i)*envSize/mazeSize,(j)*envSize/mazeSize, (k)*envSize/mazeSize};
                   } 
                 }   
               }
             }
-            create gotoAgentOnNetwork number: number_of_agents{
+            <span class="hljs-keyword">create</span> gotoAgentOnNetwork <span class="hljs-symbol">number:</span> number_of_agents{
               location &lt;- {floor(rnd(envSize)/mazeSize)*10, floor(rnd(envSize)/mazeSize)*10, floor(rnd(envSize)/mazeSize)*10};
               myTarget &lt;-{0,0,0};
               speed &lt;-0.1;
@@ -76,144 +76,144 @@
      }
 }
 
-<span class="hljs-class">species <span class="hljs-title">abstractAgent</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving3D</span>]</span>{
+<span class="hljs-literal">species</span> abstractAgent <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving3D</span>]{
     <span class="hljs-literal">rgb</span> color;
-    aspect default {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
         <span class="hljs-keyword">if</span>(agentAspect = <span class="hljs-string">"sphere"</span>){
-            draw sphere(radius) color:color;
+            <span class="hljs-keyword">draw</span> sphere(radius) <span class="hljs-symbol">color:</span>color;
         }
         <span class="hljs-keyword">if</span>(agentAspect = <span class="hljs-string">"circle"</span>){
-            draw circle(radius) color:color;
+            <span class="hljs-keyword">draw</span> circle(radius) <span class="hljs-symbol">color:</span>color;
         }
         <span class="hljs-keyword">if</span>(agentAspect = <span class="hljs-string">"direction"</span>){
-          draw sphere(radius) color:color;
-          draw line([{location.x,location.y,location.z},{location.x+directionSize*cos(pitch)*cos(heading),location.y+directionSize*cos(pitch)*sin(heading),location.z+directionSize*sin(pitch)}]) end_arrow:1.0 color:color;    
+          <span class="hljs-keyword">draw</span> sphere(radius) <span class="hljs-symbol">color:</span>color;
+          <span class="hljs-keyword">draw</span> line([{location.x,location.y,location.z},{location.x+directionSize*cos(pitch)*cos(heading),location.y+directionSize*cos(pitch)*sin(heading),location.z+directionSize*sin(pitch)}]) <span class="hljs-symbol">end_arrow:</span>1.0 <span class="hljs-symbol">color:</span>color;    
         }       
     }
 } 
 
-<span class="hljs-class">species <span class="hljs-title">movingAgent</span>  <span class="hljs-title">parent</span>:<span class="hljs-title">abstractAgent</span></span>{ 
-    <span class="hljs-class">reflex <span class="hljs-title">move</span></span>{
-      do move;
+<span class="hljs-literal">species</span> movingAgent  <span class="hljs-symbol">parent:</span>abstractAgent{ 
+    <span class="hljs-builtin">reflex</span> move{
+      <span class="hljs-keyword">do</span> move;
     }       
 }
 
-<span class="hljs-class">species <span class="hljs-title">wanderAgent</span> <span class="hljs-title">parent</span>:<span class="hljs-title">abstractAgent</span></span>{ 
-    <span class="hljs-class">reflex <span class="hljs-title">wander</span></span>{
-      do wander amplitude:90;
+<span class="hljs-literal">species</span> wanderAgent <span class="hljs-symbol">parent:</span>abstractAgent{ 
+    <span class="hljs-builtin">reflex</span> wander{
+      <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span>90;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">gotoAgent</span> <span class="hljs-title">parent</span>:<span class="hljs-title">abstractAgent</span></span>{ 
+<span class="hljs-literal">species</span> gotoAgent <span class="hljs-symbol">parent:</span>abstractAgent{ 
     <span class="hljs-literal">point</span> myTarget;
     <span class="hljs-literal">string</span> gotoType;
-    <span class="hljs-class">reflex <span class="hljs-title">goto</span></span>{
+    <span class="hljs-builtin">reflex</span> goto{
         <span class="hljs-keyword">if</span>(effectType = <span class="hljs-string">"blob"</span>){
             myTarget&lt;-{rnd(envSize),rnd(envSize),rnd(envSize)};
         }
-        do goto target:myTarget;      
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>myTarget;      
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">gotoAgentOnNetwork</span> <span class="hljs-title">parent</span>:<span class="hljs-title">abstractAgent</span></span>{ 
+<span class="hljs-literal">species</span> gotoAgentOnNetwork <span class="hljs-symbol">parent:</span>abstractAgent{ 
     <span class="hljs-literal">point</span> myTarget;
     <span class="hljs-literal">string</span> gotoType;
-    <span class="hljs-class">reflex <span class="hljs-title">goto</span></span>{
-        do goto target:myTarget on: mazeGraph;
+    <span class="hljs-builtin">reflex</span> goto{
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>myTarget <span class="hljs-symbol">on:</span> mazeGraph;
     }       
 }
 
-<span class="hljs-class">species <span class="hljs-title">followAgent</span> <span class="hljs-title">parent</span>:<span class="hljs-title">abstractAgent</span></span>{ 
+<span class="hljs-literal">species</span> followAgent <span class="hljs-symbol">parent:</span>abstractAgent{ 
     <span class="hljs-literal">point</span> myTarget;
     <span class="hljs-literal">string</span> gotoType;
-    <span class="hljs-class">reflex <span class="hljs-title">goto</span></span>{
+    <span class="hljs-builtin">reflex</span> goto{
       <span class="hljs-keyword">if</span>(gotoType = <span class="hljs-string">"goto"</span>){
-        do goto target:myTarget;
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>myTarget;
       }
       <span class="hljs-keyword">if</span>(gotoType = <span class="hljs-string">"gotoOnNetwork"</span>){
-        do goto target:myTarget on: mazeGraph;
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>myTarget <span class="hljs-symbol">on:</span> mazeGraph;
       }
       
     }   
 }
     
-<span class="hljs-class">species <span class="hljs-title">cell</span> <span class="hljs-title">schedules</span>:[]</span>{
+<span class="hljs-literal">species</span> cell <span class="hljs-symbol">schedules:</span>[]{
     
-    aspect myPoint{
-        draw sphere(0.01 * envSize/mazeSize) color:<span class="hljs-literal">rgb</span>(255,255,255,0.5) at:location ;
+    <span class="hljs-keyword">aspect</span> myPoint{
+        <span class="hljs-keyword">draw</span> sphere(0.01 * envSize/mazeSize) <span class="hljs-symbol">color:</span><span class="hljs-literal">rgb</span>(255,255,255,0.5) <span class="hljs-symbol">at:</span>location ;
     }
     
 }
 
-<span class="hljs-class">species <span class="hljs-title">edge_agent</span> <span class="hljs-title">schedules</span>:[]</span>{
-    aspect base2 {
-        draw shape color: <span class="hljs-literal">rgb</span>(255,255,255);
+<span class="hljs-literal">species</span> edge_agent <span class="hljs-symbol">schedules:</span>[]{
+    <span class="hljs-keyword">aspect</span> base2 {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(255,255,255);
     }
 }
     
 
-<span class="hljs-class">experiment <span class="hljs-title">Moving</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Trace"</span> var:trace &lt;- false;
-    parameter <span class="hljs-string">"Movement"</span> var:movingType &lt;- <span class="hljs-string">"move"</span>;
-    parameter <span class="hljs-string">"Agent Aspect"</span> var:agentAspect &lt;- <span class="hljs-string">"direction"</span>;
-    parameter <span class="hljs-string">"Effect type"</span> var:effectType &lt;- <span class="hljs-string">""</span> among:[<span class="hljs-string">""</span>,<span class="hljs-string">"firework"</span>];
-    output {    
-        <span class="hljs-class">display <span class="hljs-title">MovingAgent</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span>  <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55) </span>{
-            <span class="hljs-class">species <span class="hljs-title">movingAgent</span> <span class="hljs-title">trace</span>:<span class="hljs-title">trace</span>;</span>
+<span class="hljs-builtin">experiment</span> Moving  <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Trace"</span> <span class="hljs-symbol">var:</span><span class="hljs-keyword">trace</span> &lt;- false;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Movement"</span> <span class="hljs-symbol">var:</span>movingType &lt;- <span class="hljs-string">"move"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Agent Aspect"</span> <span class="hljs-symbol">var:</span>agentAspect &lt;- <span class="hljs-string">"direction"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Effect type"</span> <span class="hljs-symbol">var:</span>effectType &lt;- <span class="hljs-string">""</span> <span class="hljs-symbol">among:</span>[<span class="hljs-string">""</span>,<span class="hljs-string">"firework"</span>];
+    <span class="hljs-keyword">output</span> {    
+        <span class="hljs-keyword">display</span> MovingAgent <span class="hljs-symbol">type:</span>opengl  <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55) {
+            <span class="hljs-literal">species</span> movingAgent <span class="hljs-symbol">trace:</span><span class="hljs-keyword">trace</span>;
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Wandering</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Trace"</span> var:trace &lt;- false;
-    parameter <span class="hljs-string">"Movement"</span> var:movingType &lt;- <span class="hljs-string">"wander"</span>;
-    parameter <span class="hljs-string">"Agent Aspect"</span> var:agentAspect &lt;- <span class="hljs-string">"direction"</span>;
-    output {    
-        <span class="hljs-class">display <span class="hljs-title">WanderingAgent</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span>  <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55) </span>{
-            <span class="hljs-class">species <span class="hljs-title">wanderAgent</span> <span class="hljs-title">trace</span>:<span class="hljs-title">trace</span>;</span>
+<span class="hljs-builtin">experiment</span> Wandering  <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Trace"</span> <span class="hljs-symbol">var:</span><span class="hljs-keyword">trace</span> &lt;- false;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Movement"</span> <span class="hljs-symbol">var:</span>movingType &lt;- <span class="hljs-string">"wander"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Agent Aspect"</span> <span class="hljs-symbol">var:</span>agentAspect &lt;- <span class="hljs-string">"direction"</span>;
+    <span class="hljs-keyword">output</span> {    
+        <span class="hljs-keyword">display</span> WanderingAgent <span class="hljs-symbol">type:</span>opengl  <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55) {
+            <span class="hljs-literal">species</span> wanderAgent <span class="hljs-symbol">trace:</span><span class="hljs-keyword">trace</span>;
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Goto</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Trace"</span> var:trace &lt;- false;
-    parameter <span class="hljs-string">"Movement"</span> var:movingType &lt;- <span class="hljs-string">"goto"</span>;
-    parameter <span class="hljs-string">"Agent Aspect"</span> var:agentAspect &lt;- <span class="hljs-string">"direction"</span>;
-    parameter <span class="hljs-string">"Effect Type"</span> var:effectType &lt;- <span class="hljs-string">""</span> among:[<span class="hljs-string">""</span>,<span class="hljs-string">"blob"</span>];
-    output {    
-        <span class="hljs-class">display <span class="hljs-title">GotoAgent</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span>  <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55) </span>{
-            <span class="hljs-class">species <span class="hljs-title">gotoAgent</span> <span class="hljs-title">trace</span>:<span class="hljs-title">trace</span>;</span>
+<span class="hljs-builtin">experiment</span> Goto  <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Trace"</span> <span class="hljs-symbol">var:</span><span class="hljs-keyword">trace</span> &lt;- false;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Movement"</span> <span class="hljs-symbol">var:</span>movingType &lt;- <span class="hljs-string">"goto"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Agent Aspect"</span> <span class="hljs-symbol">var:</span>agentAspect &lt;- <span class="hljs-string">"direction"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Effect Type"</span> <span class="hljs-symbol">var:</span>effectType &lt;- <span class="hljs-string">""</span> <span class="hljs-symbol">among:</span>[<span class="hljs-string">""</span>,<span class="hljs-string">"blob"</span>];
+    <span class="hljs-keyword">output</span> {    
+        <span class="hljs-keyword">display</span> GotoAgent <span class="hljs-symbol">type:</span>opengl  <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55) {
+            <span class="hljs-literal">species</span> gotoAgent <span class="hljs-symbol">trace:</span><span class="hljs-keyword">trace</span>;
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">GotoOnNetwork</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Trace"</span> var:trace &lt;- false;
-    parameter <span class="hljs-string">"Movement"</span> var:movingType &lt;- <span class="hljs-string">"gotoOnNetwork"</span>;
-    parameter <span class="hljs-string">"Agent Aspect"</span> var:agentAspect &lt;- <span class="hljs-string">"direction"</span>;
-    output {
+<span class="hljs-builtin">experiment</span> GotoOnNetwork  <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Trace"</span> <span class="hljs-symbol">var:</span><span class="hljs-keyword">trace</span> &lt;- false;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Movement"</span> <span class="hljs-symbol">var:</span>movingType &lt;- <span class="hljs-string">"gotoOnNetwork"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Agent Aspect"</span> <span class="hljs-symbol">var:</span>agentAspect &lt;- <span class="hljs-string">"direction"</span>;
+    <span class="hljs-keyword">output</span> {
             
-        <span class="hljs-class">display <span class="hljs-title">GotoOnNetworkAgent</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55) </span>{
-            <span class="hljs-class">species <span class="hljs-title">gotoAgentOnNetwork</span> <span class="hljs-title">trace</span>:<span class="hljs-title">trace</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">cell</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">myPoint</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">edge_agent</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base2</span> ;</span>
+        <span class="hljs-keyword">display</span> GotoOnNetworkAgent <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55) {
+            <span class="hljs-literal">species</span> gotoAgentOnNetwork <span class="hljs-symbol">trace:</span><span class="hljs-keyword">trace</span>;
+            <span class="hljs-literal">species</span> cell <span class="hljs-symbol">aspect:</span>myPoint;
+            <span class="hljs-literal">species</span> edge_agent <span class="hljs-symbol">aspect:</span> base2 ;
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Complete</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Trace"</span> var:trace &lt;- false;
-    parameter <span class="hljs-string">"Movement"</span> var:movingType &lt;- <span class="hljs-string">"complete"</span>;
-    parameter <span class="hljs-string">"Agent Aspect"</span> var:agentAspect &lt;- <span class="hljs-string">"direction"</span>;
-    output {
+<span class="hljs-builtin">experiment</span> Complete  <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Trace"</span> <span class="hljs-symbol">var:</span><span class="hljs-keyword">trace</span> &lt;- false;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Movement"</span> <span class="hljs-symbol">var:</span>movingType &lt;- <span class="hljs-string">"complete"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Agent Aspect"</span> <span class="hljs-symbol">var:</span>agentAspect &lt;- <span class="hljs-string">"direction"</span>;
+    <span class="hljs-keyword">output</span> {
             
-        <span class="hljs-class">display <span class="hljs-title">GotoOnNetworkAgent</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55) </span>{
-            <span class="hljs-class">species <span class="hljs-title">movingAgent</span> <span class="hljs-title">position</span>:</span>{0,0,0} trace:trace;
-            <span class="hljs-class">species <span class="hljs-title">wanderAgent</span> <span class="hljs-title">position</span>:</span>{envSize,0,0} trace:trace;
-            <span class="hljs-class">species <span class="hljs-title">gotoAgent</span> <span class="hljs-title">position</span>:</span>{envSize*2,0,0} trace:trace;
-            <span class="hljs-class">species <span class="hljs-title">gotoAgentOnNetwork</span> <span class="hljs-title">position</span>:</span>{envSize*3,0,0} trace:trace;
-            <span class="hljs-class">species <span class="hljs-title">cell</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">myPoint</span> <span class="hljs-title">position</span>:</span>{envSize*3,0,0};
-            <span class="hljs-class">species <span class="hljs-title">edge_agent</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base2</span> <span class="hljs-title">position</span>:</span>{envSize*3,0,0};
+        <span class="hljs-keyword">display</span> GotoOnNetworkAgent <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55) {
+            <span class="hljs-literal">species</span> movingAgent <span class="hljs-symbol">position:</span>{0,0,0} <span class="hljs-symbol">trace:</span><span class="hljs-keyword">trace</span>;
+            <span class="hljs-literal">species</span> wanderAgent <span class="hljs-symbol">position:</span>{envSize,0,0} <span class="hljs-symbol">trace:</span><span class="hljs-keyword">trace</span>;
+            <span class="hljs-literal">species</span> gotoAgent <span class="hljs-symbol">position:</span>{envSize*2,0,0} <span class="hljs-symbol">trace:</span><span class="hljs-keyword">trace</span>;
+            <span class="hljs-literal">species</span> gotoAgentOnNetwork <span class="hljs-symbol">position:</span>{envSize*3,0,0} <span class="hljs-symbol">trace:</span><span class="hljs-keyword">trace</span>;
+            <span class="hljs-literal">species</span> cell <span class="hljs-symbol">aspect:</span>myPoint <span class="hljs-symbol">position:</span>{envSize*3,0,0};
+            <span class="hljs-literal">species</span> edge_agent <span class="hljs-symbol">aspect:</span> base2 <span class="hljs-symbol">position:</span>{envSize*3,0,0};
         }
     }
 }

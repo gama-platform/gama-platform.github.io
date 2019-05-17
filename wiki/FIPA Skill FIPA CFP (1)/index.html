@@ -9,48 +9,48 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> cfp_cfp_1
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nbOfParticipants &lt;- 5;
     
     init {
-        create initiator;
-        create participant number: nbOfParticipants;
+        <span class="hljs-keyword">create</span> initiator;
+        <span class="hljs-keyword">create</span> participant <span class="hljs-symbol">number:</span> nbOfParticipants;
 
-        write 'Please step the simulation to observe the outcome in the console';
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'Please step the simulation to observe the outcome in the console'</span>;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">initiator</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">fipa</span>] </span>{ 
+<span class="hljs-literal">species</span> initiator <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">fipa</span>] { 
     
-    <span class="hljs-class">reflex <span class="hljs-title">send_cfp_to_participants</span> <span class="hljs-title">when</span>: (<span class="hljs-title">time</span> = 1) </span>{
+    <span class="hljs-builtin">reflex</span> send_cfp_to_participants <span class="hljs-symbol">when:</span> (time = 1) {
         <span class="hljs-comment">//list&lt;participant&gt; participants &lt;- list(participant);</span>
         
-        write '(Time ' + time + '): ' + name + ' sends a cfp message to all participants';
-        do start_conversation (to: <span class="hljs-literal">list</span>(participant), protocol: '<span class="hljs-builtin">fipa</span>-contract-net', performative: 'cfp', contents: ['Go swimming']);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'(Time '</span> + time + <span class="hljs-string">'): '</span> + name + <span class="hljs-string">' sends a cfp message to all participants'</span>;
+        <span class="hljs-keyword">do</span> start_conversation (<span class="hljs-symbol">to:</span> <span class="hljs-literal">list</span>(participant), <span class="hljs-symbol">protocol:</span> <span class="hljs-string">'fipa-contract-net'</span>, <span class="hljs-symbol">performative:</span> <span class="hljs-string">'cfp'</span>, <span class="hljs-symbol">contents:</span> [<span class="hljs-string">'Go swimming'</span>]);
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">receive_refuse_messages</span> <span class="hljs-title">when</span>: !<span class="hljs-title">empty</span>(<span class="hljs-title">refuses</span>) </span>{
-        write '(Time ' + time + '): ' + name + ' receives refuse messages';
+    <span class="hljs-builtin">reflex</span> receive_refuse_messages <span class="hljs-symbol">when:</span> !empty(refuses) {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'(Time '</span> + time + <span class="hljs-string">'): '</span> + name + <span class="hljs-string">' receives refuse messages'</span>;
         
-        loop r over: refuses {
-            write '\t' + name + ' receives a refuse message from ' + r.sender + ' with content ' + r.contents ;
+        <span class="hljs-keyword">loop</span> r <span class="hljs-symbol">over:</span> refuses {
+            <span class="hljs-keyword">write</span> <span class="hljs-string">'\t'</span> + name + <span class="hljs-string">' receives a refuse message from '</span> + r.sender + <span class="hljs-string">' with content '</span> + r.contents ;
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">participant</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">fipa</span>] </span>{
+<span class="hljs-literal">species</span> participant <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">fipa</span>] {
     
-    <span class="hljs-class">reflex <span class="hljs-title">receive_cfp_from_initiator</span> <span class="hljs-title">when</span>: !<span class="hljs-title">empty</span>(<span class="hljs-title">cfps</span>) </span>{
+    <span class="hljs-builtin">reflex</span> receive_cfp_from_initiator <span class="hljs-symbol">when:</span> !empty(cfps) {
         
         message proposalFromInitiator &lt;- cfps[0];
-        write '(Time ' + time + '): ' + name + ' receives a cfp message from ' + <span class="hljs-literal">agent</span>(proposalFromInitiator.sender).name + ' and replies with a refuse message';
-        do refuse (message: proposalFromInitiator, contents: ['I am busy today'] );
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'(Time '</span> + time + <span class="hljs-string">'): '</span> + name + <span class="hljs-string">' receives a cfp message from '</span> + <span class="hljs-literal">agent</span>(proposalFromInitiator.sender).name + <span class="hljs-string">' and replies with a refuse message'</span>;
+        <span class="hljs-keyword">do</span> refuse (<span class="hljs-symbol">message:</span> proposalFromInitiator, <span class="hljs-symbol">contents:</span> [<span class="hljs-string">'I am busy today'</span>] );
         
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">test</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{ 
-    output {
+<span class="hljs-builtin">experiment</span> <span class="hljs-keyword">test</span> <span class="hljs-symbol">type:</span> gui { 
+    <span class="hljs-keyword">output</span> {
         
     }
 }

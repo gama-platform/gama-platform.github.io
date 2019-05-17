@@ -10,23 +10,23 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> simple_ODE_SIR
 
-<span class="hljs-class">global </span>{
+global {
     init{
-        create aSIR number:10{
+        <span class="hljs-keyword">create</span> aSIR <span class="hljs-symbol">number:</span>10{
             S&lt;-S-(<span class="hljs-literal">int</span>(self)*10000);
         }
     }
     <span class="hljs-literal">list</span> S_3d-&gt;{aSIR collect each.S};
     <span class="hljs-literal">list</span> I_3d-&gt;{aSIR collect each.I};
     <span class="hljs-literal">list</span> R_3d-&gt;{aSIR collect each.R};
-    <span class="hljs-class">reflex <span class="hljs-title">ss</span> <span class="hljs-title">when</span>: <span class="hljs-title">cycle</span>&gt;=40</span>{
-        do pause;
+    <span class="hljs-builtin">reflex</span> ss <span class="hljs-symbol">when:</span> cycle&gt;=40{
+        <span class="hljs-keyword">do</span> pause;
         
     }
 }
 
 
-<span class="hljs-class">species <span class="hljs-title">aSIR</span> </span>{
+<span class="hljs-literal">species</span> aSIR {
     <span class="hljs-literal">int</span> N &lt;- 150000 ;
     <span class="hljs-literal">int</span> iInit &lt;- 1000;      
 
@@ -35,81 +35,81 @@
     <span class="hljs-literal">float</span> I &lt;- <span class="hljs-literal">float</span>(iInit); 
     <span class="hljs-literal">float</span> R &lt;- 0.0; 
     
-    <span class="hljs-literal">float</span> alpha &lt;- 0.2 min: 0.0 max: 1.0;
-    <span class="hljs-literal">float</span> beta &lt;- 0.8  min: 0.0 max: 1.0;
+    <span class="hljs-literal">float</span> alpha &lt;- 0.2 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0;
+    <span class="hljs-literal">float</span> beta &lt;- 0.8  <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0;
 
     <span class="hljs-literal">float</span> h &lt;- 0.1;
    
-    equation SIR{ 
+    <span class="hljs-keyword">equation</span> SIR{ 
         diff(S,t) = (- beta * S * I / N);
         diff(I,t) = (beta * S * I / N) - (alpha * I);
         diff(R,t) = (alpha * I);
     }
                 
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{
-        solve SIR method: <span class="hljs-string">"rk4"</span> step: h ;<span class="hljs-comment">//cycle_length: 1/h ;</span>
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span> <span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span> h ;<span class="hljs-comment">//cycle_length: 1/h ;</span>
     }    
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">maths</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> maths <span class="hljs-symbol">type:</span> gui {
         <span class="hljs-literal">float</span> minimum_cycle_duration&lt;-0.2;
     
-    output { 
-        <span class="hljs-class">display <span class="hljs-title">display_charts</span> </span>{
-            chart <span class="hljs-string">"SIR_agent"</span> type: series background: #white {
-                data 'S0' value: (aSIR[0]).S color: #green ;                
-                data 'S1' value: (aSIR[1]).S color: #green ;                
-                data 'S2' value: (aSIR[2]).S color: #green ;                
-                data 'S3' value: (aSIR[3]).S color: #green ;                
-                data 'S4' value: (aSIR[4]).S color: #green ;                
-                data 'S5' value: (aSIR[5]).S color: #green ;                
-                data 'S6' value: (aSIR[6]).S color: #green ;                
-                data 'S7' value: (aSIR[7]).S color: #green ;                
-                data 'S8' value: (aSIR[8]).S color: #green ;        
-                data 'S9' value: (aSIR[9]).S color: #green ;                
+    <span class="hljs-keyword">output</span> { 
+        <span class="hljs-keyword">display</span> display_charts {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"SIR_agent"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S0'</span> <span class="hljs-symbol">value:</span> (aSIR[0]).S <span class="hljs-symbol">color:</span> #green ;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S1'</span> <span class="hljs-symbol">value:</span> (aSIR[1]).S <span class="hljs-symbol">color:</span> #green ;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S2'</span> <span class="hljs-symbol">value:</span> (aSIR[2]).S <span class="hljs-symbol">color:</span> #green ;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S3'</span> <span class="hljs-symbol">value:</span> (aSIR[3]).S <span class="hljs-symbol">color:</span> #green ;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S4'</span> <span class="hljs-symbol">value:</span> (aSIR[4]).S <span class="hljs-symbol">color:</span> #green ;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S5'</span> <span class="hljs-symbol">value:</span> (aSIR[5]).S <span class="hljs-symbol">color:</span> #green ;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S6'</span> <span class="hljs-symbol">value:</span> (aSIR[6]).S <span class="hljs-symbol">color:</span> #green ;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S7'</span> <span class="hljs-symbol">value:</span> (aSIR[7]).S <span class="hljs-symbol">color:</span> #green ;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S8'</span> <span class="hljs-symbol">value:</span> (aSIR[8]).S <span class="hljs-symbol">color:</span> #green ;        
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S9'</span> <span class="hljs-symbol">value:</span> (aSIR[9]).S <span class="hljs-symbol">color:</span> #green ;                
                         
-                data 'I0' value: (aSIR[0]).I color: #red ;              
-                data 'I1' value: (aSIR[1]).I color: #red ;              
-                data 'I2' value: (aSIR[2]).I color: #red ;              
-                data 'I3' value: (aSIR[3]).I color: #red ;              
-                data 'I4' value: (aSIR[4]).I color: #red ;              
-                data 'I5' value: (aSIR[5]).I color: #red ;              
-                data 'I6' value: (aSIR[6]).I color: #red ;              
-                data 'I7' value: (aSIR[7]).I color: #red ;              
-                data 'I8' value: (aSIR[8]).I color: #red ;      
-                data 'I9' value: (aSIR[9]).I color: #red ;              
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I0'</span> <span class="hljs-symbol">value:</span> (aSIR[0]).I <span class="hljs-symbol">color:</span> #red ;              
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I1'</span> <span class="hljs-symbol">value:</span> (aSIR[1]).I <span class="hljs-symbol">color:</span> #red ;              
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I2'</span> <span class="hljs-symbol">value:</span> (aSIR[2]).I <span class="hljs-symbol">color:</span> #red ;              
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I3'</span> <span class="hljs-symbol">value:</span> (aSIR[3]).I <span class="hljs-symbol">color:</span> #red ;              
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I4'</span> <span class="hljs-symbol">value:</span> (aSIR[4]).I <span class="hljs-symbol">color:</span> #red ;              
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I5'</span> <span class="hljs-symbol">value:</span> (aSIR[5]).I <span class="hljs-symbol">color:</span> #red ;              
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I6'</span> <span class="hljs-symbol">value:</span> (aSIR[6]).I <span class="hljs-symbol">color:</span> #red ;              
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I7'</span> <span class="hljs-symbol">value:</span> (aSIR[7]).I <span class="hljs-symbol">color:</span> #red ;              
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I8'</span> <span class="hljs-symbol">value:</span> (aSIR[8]).I <span class="hljs-symbol">color:</span> #red ;      
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I9'</span> <span class="hljs-symbol">value:</span> (aSIR[9]).I <span class="hljs-symbol">color:</span> #red ;              
                         
-                data 'R0' value: (aSIR[0]).R color: #blue ;             
-                data 'R1' value: (aSIR[1]).R color: #blue ;             
-                data 'R2' value: (aSIR[2]).R color: #blue ;             
-                data 'R3' value: (aSIR[3]).R color: #blue ;             
-                data 'R4' value: (aSIR[4]).R color: #blue ;             
-                data 'R5' value: (aSIR[5]).R color: #blue ;             
-                data 'R6' value: (aSIR[6]).R color: #blue ;             
-                data 'R7' value: (aSIR[7]).R color: #blue ;             
-                data 'R8' value: (aSIR[8]).R color: #blue ;     
-                data 'R9' value: (aSIR[9]).R color: #blue ;         
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R0'</span> <span class="hljs-symbol">value:</span> (aSIR[0]).R <span class="hljs-symbol">color:</span> #blue ;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R1'</span> <span class="hljs-symbol">value:</span> (aSIR[1]).R <span class="hljs-symbol">color:</span> #blue ;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R2'</span> <span class="hljs-symbol">value:</span> (aSIR[2]).R <span class="hljs-symbol">color:</span> #blue ;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R3'</span> <span class="hljs-symbol">value:</span> (aSIR[3]).R <span class="hljs-symbol">color:</span> #blue ;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R4'</span> <span class="hljs-symbol">value:</span> (aSIR[4]).R <span class="hljs-symbol">color:</span> #blue ;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R5'</span> <span class="hljs-symbol">value:</span> (aSIR[5]).R <span class="hljs-symbol">color:</span> #blue ;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R6'</span> <span class="hljs-symbol">value:</span> (aSIR[6]).R <span class="hljs-symbol">color:</span> #blue ;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R7'</span> <span class="hljs-symbol">value:</span> (aSIR[7]).R <span class="hljs-symbol">color:</span> #blue ;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R8'</span> <span class="hljs-symbol">value:</span> (aSIR[8]).R <span class="hljs-symbol">color:</span> #blue ;     
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R9'</span> <span class="hljs-symbol">value:</span> (aSIR[9]).R <span class="hljs-symbol">color:</span> #blue ;         
             }
         }
         
-        <span class="hljs-class">display <span class="hljs-title">display_charts_radar</span> </span>{
-            chart <span class="hljs-string">"SIR_agent"</span> type: radar background: #white axes:#white {
-                data 'S0' value: (aSIR[0]).S[] color: #green ;          
-                data 'I0' value: (aSIR[0]).I[] color: #red ;    
-                data 'R0' value: (aSIR[0]).R[] color: #blue ;       
+        <span class="hljs-keyword">display</span> display_charts_radar {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"SIR_agent"</span> <span class="hljs-symbol">type:</span> radar <span class="hljs-symbol">background:</span> #white <span class="hljs-symbol">axes:</span>#white {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S0'</span> <span class="hljs-symbol">value:</span> (aSIR[0]).S[] <span class="hljs-symbol">color:</span> #green ;          
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I0'</span> <span class="hljs-symbol">value:</span> (aSIR[0]).I[] <span class="hljs-symbol">color:</span> #red ;    
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R0'</span> <span class="hljs-symbol">value:</span> (aSIR[0]).R[] <span class="hljs-symbol">color:</span> #blue ;       
             }
         }
         
         
         
-        <span class="hljs-class">display <span class="hljs-title">display_chartsH</span> </span>{
-            chart <span class="hljs-string">"SIR_agent"</span> type: heatmap background: #white
-            reverse_axes: true
+        <span class="hljs-keyword">display</span> display_chartsH {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"SIR_agent"</span> <span class="hljs-symbol">type:</span> heatmap <span class="hljs-symbol">background:</span> #white
+            <span class="hljs-symbol">reverse_axes:</span> true
              {
-                data 'S0' value: S_3d color: #green ;   
-                data 'I0' value: I_3d color: #red ; 
-                data 'R0' value: R_3d color: #blue ;    
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S0'</span> <span class="hljs-symbol">value:</span> S_3d <span class="hljs-symbol">color:</span> #green ;   
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I0'</span> <span class="hljs-symbol">value:</span> I_3d <span class="hljs-symbol">color:</span> #red ; 
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R0'</span> <span class="hljs-symbol">value:</span> R_3d <span class="hljs-symbol">color:</span> #blue ;    
             }
         }
     }

@@ -9,7 +9,7 @@
 <pre><code class="hljs"> 
 <span class="hljs-builtin">model</span> model4 
  
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_people &lt;- 500;
     <span class="hljs-literal">float</span> step &lt;- 1 #minutes;
     <span class="hljs-literal">float</span> infection_distance &lt;- 2.0 #m; 
@@ -18,89 +18,89 @@
     <span class="hljs-literal">file</span> roads_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/road.shp"</span>);
     <span class="hljs-literal">file</span> buildings_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/building.shp"</span>);
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(roads_shapefile);
-    <span class="hljs-literal">int</span> current_hour update: (cycle / 60) mod 24;
+    <span class="hljs-literal">int</span> current_hour <span class="hljs-symbol">update:</span> (cycle / 60) mod 24;
     <span class="hljs-literal">graph</span> road_network;
-    <span class="hljs-literal">float</span> staying_coeff update: 10.0 ^ (1 + min([abs(current_hour - 9), abs(current_hour - 12), abs(current_hour - 18)]));
-    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
-    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
+    <span class="hljs-literal">float</span> staying_coeff <span class="hljs-symbol">update:</span> 10.0 ^ (1 + min([abs(current_hour - 9), abs(current_hour - 12), abs(current_hour - 18)]));
+    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init <span class="hljs-symbol">update:</span> people count (each.is_infected);
+    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init <span class="hljs-symbol">update:</span> nb_people - nb_people_infected;
     
-    <span class="hljs-literal">float</span> infected_rate update: nb_people_infected/length(people);
+    <span class="hljs-literal">float</span> infected_rate <span class="hljs-symbol">update:</span> nb_people_infected/length(people);
     init {
-        create road from: roads_shapefile;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> roads_shapefile;
         road_network &lt;- as_edge_graph(road);
-        create building from: buildings_shapefile; 
-        create people number:nb_people {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> buildings_shapefile; 
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people {
             speed &lt;- 5.0 #km/#h;
             building bd &lt;- one_of(building); 
             location &lt;- any_location_in(bd);
         }
-        ask nb_infected_init among people {
+        <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
         }
     }
-    <span class="hljs-class">reflex <span class="hljs-title">end_simulation</span> <span class="hljs-title">when</span>: <span class="hljs-title">infected_rate</span> = 1.0 </span>{
-        do halt;
+    <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> infected_rate = 1.0 {
+        <span class="hljs-keyword">do</span> halt;
     }  
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
     <span class="hljs-literal">point</span> target;
     <span class="hljs-literal">int</span> staying_counter;
-    <span class="hljs-class">reflex <span class="hljs-title">staying</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> = <span class="hljs-title">nil</span> </span>{
+    <span class="hljs-builtin">reflex</span> staying <span class="hljs-symbol">when:</span> target = nil {
         staying_counter &lt;- staying_counter + 1;
         <span class="hljs-keyword">if</span> flip(staying_counter / staying_coeff) {
             target &lt;- any_location_in (one_of(building));
         }
     }
         
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> != <span class="hljs-title">nil</span></span>{
-        do goto target:target on: road_network;
+    <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> target != nil{
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>target <span class="hljs-symbol">on:</span> road_network;
         <span class="hljs-keyword">if</span> (location = target) {
             target &lt;- nil;
             staying_counter &lt;- 0;
         } 
     }
-    <span class="hljs-class">reflex <span class="hljs-title">infect</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_infected</span></span>{
-        ask people at_distance infection_distance {
+    <span class="hljs-builtin">reflex</span> infect <span class="hljs-symbol">when:</span> is_infected{
+        <span class="hljs-keyword">ask</span> people at_distance infection_distance {
             <span class="hljs-keyword">if</span> flip(proba_infection) {
                 is_infected &lt;- true;
             }
         }
     }
-    aspect circle{
-        draw circle(5) color:is_infected ? #red : #green;
+    <span class="hljs-keyword">aspect</span> circle{
+        <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">color:</span>is_infected ? #red : #green;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span> </span>{
-    aspect geom {
-        draw shape color: #black;
+<span class="hljs-literal">species</span> road {
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
-    aspect geom {
-        draw shape color: #gray;
+<span class="hljs-literal">species</span> building {
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span></span>{
-    parameter <span class="hljs-string">"Infection distance"</span> var: infection_distance;
-    parameter <span class="hljs-string">"Proba infection"</span> var: proba_infection min: 0.0 max: 1.0;
-    parameter <span class="hljs-string">"Nb people infected at init"</span> var: nb_infected_init ;
-    output {
-        monitor <span class="hljs-string">"Current hour"</span> value: current_hour;
-        monitor <span class="hljs-string">"Infected people rate"</span> value: infected_rate;
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">circle</span>;           </span>
+<span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span>gui{
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Infection distance"</span> <span class="hljs-symbol">var:</span> infection_distance;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Proba infection"</span> <span class="hljs-symbol">var:</span> proba_infection <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Nb people infected at init"</span> <span class="hljs-symbol">var:</span> nb_infected_init ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Current hour"</span> <span class="hljs-symbol">value:</span> current_hour;
+        <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Infected people rate"</span> <span class="hljs-symbol">value:</span> infected_rate;
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;           
         }
-        <span class="hljs-class">display <span class="hljs-title">chart</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">every</span>(10) </span>{
-            chart <span class="hljs-string">"Disease spreading"</span> type: series {
-                data <span class="hljs-string">"susceptible"</span> value: nb_people_not_infected color: #green;
-                data <span class="hljs-string">"infected"</span> value: nb_people_infected color: #red;
+        <span class="hljs-keyword">display</span> <span class="hljs-keyword">chart</span> <span class="hljs-symbol">refresh:</span> every(10) {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Disease spreading"</span> <span class="hljs-symbol">type:</span> series {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"susceptible"</span> <span class="hljs-symbol">value:</span> nb_people_not_infected <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> nb_people_infected <span class="hljs-symbol">color:</span> #red;
             }
         }
     }

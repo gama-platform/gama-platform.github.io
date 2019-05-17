@@ -10,27 +10,27 @@
 <pre><code class="hljs"><span class="hljs-builtin">model</span> CreateBuildingTable_MSSQL
 
 
-<span class="hljs-class">global</span>
+global
 {
-    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- ['host'::'127.0.0.1', 'dbtype'::'sqlserver', 'database'::'', 'port'::'1433', 'user'::'sa', 'passwd'::'tmt'];
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; PARAMS &lt;- [<span class="hljs-string">'host'</span>::<span class="hljs-string">'127.0.0.1'</span>, <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlserver'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">''</span>, <span class="hljs-string">'port'</span>::<span class="hljs-string">'1433'</span>, <span class="hljs-string">'user'</span>::<span class="hljs-string">'sa'</span>, <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'tmt'</span>];
     init
     {
-        create dummy;
-        ask dummy
+        <span class="hljs-keyword">create</span> dummy;
+        <span class="hljs-keyword">ask</span> dummy
         {
             <span class="hljs-keyword">if</span> (self testConnection [params::PARAMS])
             {
-                do executeUpdate params: PARAMS updateComm: <span class="hljs-string">"CREATE DATABASE spatial_DB"</span>;
-                write <span class="hljs-string">"spatial_BD database was created "</span>;
-                remove  <span class="hljs-string">"database"</span> from: PARAMS;
-                put <span class="hljs-string">"spatial_DB"</span> key: <span class="hljs-string">"database"</span> in: PARAMS;
-                do executeUpdate params: PARAMS updateComm: <span class="hljs-string">"CREATE TABLE bounds"</span> + <span class="hljs-string">"( "</span> + <span class="hljs-string">" geom GEOMETRY "</span> + <span class="hljs-string">")"</span>;
-                write <span class="hljs-string">"bounds table was created "</span>;
-                do executeUpdate params: PARAMS updateComm: <span class="hljs-string">"CREATE TABLE buildings "</span> + <span class="hljs-string">"( "</span> + <span class="hljs-string">" name VARCHAR(255), "</span> + <span class="hljs-string">" type VARCHAR(255), "</span> + <span class="hljs-string">" geom GEOMETRY "</span> + <span class="hljs-string">")"</span>;
-                write <span class="hljs-string">"buildings table was created "</span>;
-            } else
+                <span class="hljs-keyword">do</span> executeUpdate <span class="hljs-symbol">params:</span> PARAMS <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"CREATE DATABASE spatial_DB"</span>;
+                <span class="hljs-keyword">write</span> <span class="hljs-string">"spatial_BD database was created "</span>;
+                <span class="hljs-keyword">remove</span>  <span class="hljs-string">"database"</span> <span class="hljs-symbol">from:</span> PARAMS;
+                <span class="hljs-keyword">put</span> <span class="hljs-string">"spatial_DB"</span> <span class="hljs-symbol">key:</span> <span class="hljs-string">"database"</span> <span class="hljs-symbol">in:</span> PARAMS;
+                <span class="hljs-keyword">do</span> executeUpdate <span class="hljs-symbol">params:</span> PARAMS <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"CREATE TABLE bounds"</span> + <span class="hljs-string">"( "</span> + <span class="hljs-string">" geom GEOMETRY "</span> + <span class="hljs-string">")"</span>;
+                <span class="hljs-keyword">write</span> <span class="hljs-string">"bounds table was created "</span>;
+                <span class="hljs-keyword">do</span> executeUpdate <span class="hljs-symbol">params:</span> PARAMS <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"CREATE TABLE buildings "</span> + <span class="hljs-string">"( "</span> + <span class="hljs-string">" name VARCHAR(255), "</span> + <span class="hljs-string">" type VARCHAR(255), "</span> + <span class="hljs-string">" geom GEOMETRY "</span> + <span class="hljs-string">")"</span>;
+                <span class="hljs-keyword">write</span> <span class="hljs-string">"buildings table was created "</span>;
+            } <span class="hljs-keyword">else</span>
             {
-                write <span class="hljs-string">"Connection to MySQL can not be established "</span>;
+                <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection to MySQL can not be established "</span>;
             }
 
         }
@@ -39,11 +39,11 @@
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">SQLSKILL</span>]</span>
+<span class="hljs-literal">species</span> dummy <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">SQLSKILL</span>]
 {
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">default_expr</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> default_expr <span class="hljs-symbol">type:</span> gui
 {
 }
 </code></pre>

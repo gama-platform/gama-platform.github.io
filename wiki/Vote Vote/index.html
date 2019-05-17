@@ -10,7 +10,7 @@
 <pre><code class="hljs"> 
 <span class="hljs-builtin">model</span> vote
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Shape of the environment</span>
     <span class="hljs-literal">geometry</span> shape &lt;- rectangle({200, 200});
     
@@ -30,11 +30,11 @@
     <span class="hljs-comment">//Distance traveled</span>
     <span class="hljs-literal">float</span> distance_traveled &lt;- 7.0;
     <span class="hljs-comment">//Distribution of the electors</span>
-    <span class="hljs-literal">string</span> distribution_electors &lt;- <span class="hljs-string">"Uniform"</span> among: [<span class="hljs-string">"Uniform"</span>, <span class="hljs-string">"Normal"</span>];
+    <span class="hljs-literal">string</span> distribution_electors &lt;- <span class="hljs-string">"Uniform"</span> <span class="hljs-symbol">among:</span> [<span class="hljs-string">"Uniform"</span>, <span class="hljs-string">"Normal"</span>];
     <span class="hljs-comment">//Distribution of candidates</span>
-    <span class="hljs-literal">string</span> distribution_candidates &lt;- <span class="hljs-string">"Polygon"</span> among: [<span class="hljs-string">"Random"</span>, <span class="hljs-string">"Polygon"</span>, <span class="hljs-string">"Line"</span>, <span class="hljs-string">"Diagonal"</span>];
+    <span class="hljs-literal">string</span> distribution_candidates &lt;- <span class="hljs-string">"Polygon"</span> <span class="hljs-symbol">among:</span> [<span class="hljs-string">"Random"</span>, <span class="hljs-string">"Polygon"</span>, <span class="hljs-string">"Line"</span>, <span class="hljs-string">"Diagonal"</span>];
     <span class="hljs-comment">//Strategy of the candidates</span>
-    <span class="hljs-literal">string</span> strategy_candidates &lt;- <span class="hljs-string">"No strategy"</span> among: [<span class="hljs-string">"No strategy"</span>, <span class="hljs-string">"Search electors"</span>, <span class="hljs-string">"Distinction"</span>, <span class="hljs-string">"Group"</span>, <span class="hljs-string">"Go closer to the best"</span>,<span class="hljs-string">"Random"</span> ];
+    <span class="hljs-literal">string</span> strategy_candidates &lt;- <span class="hljs-string">"No strategy"</span> <span class="hljs-symbol">among:</span> [<span class="hljs-string">"No strategy"</span>, <span class="hljs-string">"Search electors"</span>, <span class="hljs-string">"Distinction"</span>, <span class="hljs-string">"Group"</span>, <span class="hljs-string">"Go closer to the best"</span>,<span class="hljs-string">"Random"</span> ];
     <span class="hljs-comment">//Count of max group</span>
     <span class="hljs-literal">int</span> cpt_Group_max &lt;- 5;
     <span class="hljs-comment">//Count  of group</span>
@@ -47,24 +47,24 @@
     
     init {
         <span class="hljs-comment">//Creation of the elector</span>
-        create elector number: nb_electors;
-        do creation_candidates;
+        <span class="hljs-keyword">create</span> elector <span class="hljs-symbol">number:</span> nb_electors;
+        <span class="hljs-keyword">do</span> creation_candidates;
     }
     <span class="hljs-comment">//Action to create the candidates according to the distribution of candidates</span>
-    action creation_candidates {
-        switch distribution_candidates { 
-            match <span class="hljs-string">"Polygon"</span> {
+    <span class="hljs-keyword">action</span> creation_candidates {
+        <span class="hljs-keyword">switch</span> distribution_candidates { 
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"Polygon"</span> {
                 <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; liste_points &lt;- <span class="hljs-literal">list</span>(nb_candidates points_at 50.0);
                 <span class="hljs-literal">int</span> cpt &lt;- 0;
-                create candidate number: nb_candidates{
+                <span class="hljs-keyword">create</span> candidate <span class="hljs-symbol">number:</span> nb_candidates{
                      color &lt;- <span class="hljs-literal">rgb</span> (rnd(255), rnd(255), rnd(255)); 
                      location &lt;- liste_points at cpt;
                      cpt &lt;- cpt + 1; 
                 }
             }
-            match <span class="hljs-string">"Line"</span> {
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"Line"</span> {
                 <span class="hljs-literal">int</span> cpt  &lt;- 0;
-                create candidate number: nb_candidates{
+                <span class="hljs-keyword">create</span> candidate <span class="hljs-symbol">number:</span> nb_candidates{
                     color &lt;- <span class="hljs-literal">rgb</span> ([rnd(255), rnd(255), rnd(255)]); 
                     <span class="hljs-literal">float</span> x_cord  &lt;- 200 * cpt / nb_candidates;
                     <span class="hljs-literal">float</span> y_cord &lt;- 100.0;
@@ -72,9 +72,9 @@
                     cpt &lt;- cpt + 1;
                 }
             }
-            match <span class="hljs-string">"Diagonal"</span> {
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"Diagonal"</span> {
                 <span class="hljs-literal">int</span> cpt &lt;- 0;
-                create candidate number: nb_candidates{
+                <span class="hljs-keyword">create</span> candidate <span class="hljs-symbol">number:</span> nb_candidates{
                     color &lt;- <span class="hljs-literal">rgb</span> ([rnd(255), rnd(255), rnd(255)]); 
                     <span class="hljs-literal">float</span> x_cord &lt;- 200 * cpt / nb_candidates;
                     <span class="hljs-literal">float</span> y_cord &lt;- x_cord;
@@ -87,25 +87,25 @@
         active_candidates &lt;- <span class="hljs-literal">list</span>(copy(candidate)); 
     }
     <span class="hljs-comment">//Reflex representing the dynamics of the models</span>
-    <span class="hljs-class">reflex <span class="hljs-title">dynamique</span> </span>{
+    <span class="hljs-builtin">reflex</span> dynamique {
         <span class="hljs-comment">//For each elector, ask to move</span>
-        ask elector {
-            do <span class="hljs-builtin">moving</span>;
+        <span class="hljs-keyword">ask</span> elector {
+            <span class="hljs-keyword">do</span> <span class="hljs-builtin">moving</span>;
         }
         <span class="hljs-comment">//For each candidate, ask to move</span>
-        ask active_candidates{
-            do <span class="hljs-builtin">moving</span>;
+        <span class="hljs-keyword">ask</span> active_candidates{
+            <span class="hljs-keyword">do</span> <span class="hljs-builtin">moving</span>;
             my_electors &lt;- <span class="hljs-literal">list</span>&lt;elector&gt;([]);
         }
         <span class="hljs-comment">//For each elector, do its definition</span>
-        ask elector {
-            do definition_candidate;
+        <span class="hljs-keyword">ask</span> elector {
+            <span class="hljs-keyword">do</span> definition_candidate;
         }
         <span class="hljs-literal">int</span> nb_electors_max &lt;- 0;
         candidate candidat_elected &lt;- nil; 
         
         <span class="hljs-comment">//Ask to all the active candidates to compute their percentage of vote and set the number of maximum electors to know which candidate is elected</span>
-        ask active_candidates{ 
+        <span class="hljs-keyword">ask</span> active_candidates{ 
             <span class="hljs-literal">int</span> nb_el &lt;- length(my_electors) ;
             percentage_vote &lt;- (nb_el/nb_electors * 100) with_precision 2;
             <span class="hljs-keyword">if</span> (nb_el &gt; nb_electors_max) {
@@ -114,40 +114,40 @@
             }
         }
         <span class="hljs-comment">//update of the state of the candidate</span>
-        ask candidate {
+        <span class="hljs-keyword">ask</span> candidate {
             is_elected &lt;- false; 
         }
-        ask candidat_elected {
+        <span class="hljs-keyword">ask</span> candidat_elected {
             is_elected &lt;- true; 
         }
     }
     <span class="hljs-comment">//Reflex to show the final results</span>
-    <span class="hljs-class">reflex <span class="hljs-title">resultats_finaux</span> <span class="hljs-title">when</span>: <span class="hljs-title">time</span> = 72 </span>{
+    <span class="hljs-builtin">reflex</span> resultats_finaux <span class="hljs-symbol">when:</span> time = 72 {
         candidate elected &lt;- active_candidates with_max_of (each.percentage_vote);
         <span class="hljs-comment">//Display a window telling who is the winner and halt the model</span>
-        do tell message: <span class="hljs-string">"The winner is "</span> + elected.name; 
-        do halt;
+        <span class="hljs-keyword">do</span> tell <span class="hljs-symbol">message:</span> <span class="hljs-string">"The winner is "</span> + elected.name; 
+        <span class="hljs-keyword">do</span> halt;
     }
     
     <span class="hljs-comment">//Reflex to compute the creation of group when one candidate chooses this strategy</span>
-    <span class="hljs-class">reflex <span class="hljs-title">creation_Group</span> <span class="hljs-title">when</span>: (<span class="hljs-title">strategy_candidates</span> <span class="hljs-title">in</span> ["<span class="hljs-title">Group</span>", "<span class="hljs-title">Random</span>"]) </span>{
+    <span class="hljs-builtin">reflex</span> creation_Group <span class="hljs-symbol">when:</span> (strategy_candidates in [<span class="hljs-string">"Group"</span>, <span class="hljs-string">"Random"</span>]) {
          <span class="hljs-keyword">if</span> (cpt_Group = cpt_Group_max) {
             <span class="hljs-comment">//Kill all the group of electors</span>
-            ask Group_electors as <span class="hljs-literal">list</span> {
-                do die;
+            <span class="hljs-keyword">ask</span> Group_electors as <span class="hljs-literal">list</span> {
+                <span class="hljs-keyword">do</span> die;
             }
             <span class="hljs-comment">//Compute the list of elector according to their distance</span>
             <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;elector&gt;&gt; Groups;
             <span class="hljs-literal">geometry</span> geoms &lt;- union(elector collect ((each.shape) buffer ([<span class="hljs-string">"distance"</span>::<span class="hljs-literal">float</span>(threshold_attraction_electors) , <span class="hljs-string">"quadrantSegments"</span>::4, <span class="hljs-string">"endCapStyle"</span>::1])));
-            loop geom over: geoms.geometries { 
+            <span class="hljs-keyword">loop</span> geom <span class="hljs-symbol">over:</span> geoms.geometries { 
                 <span class="hljs-keyword">if</span> (geom != nil and !empty(geom.points)) {
                     <span class="hljs-literal">list</span>&lt;elector&gt; els  &lt;- (elector inside geom); 
-                    add els to: Groups;
+                    <span class="hljs-keyword">add</span> els <span class="hljs-symbol">to:</span> Groups;
                 }
             }
             <span class="hljs-comment">//Create new groups of electors according to the list of electors</span>
-            loop gp over: Groups {
-                create Group_electors {
+            <span class="hljs-keyword">loop</span> gp <span class="hljs-symbol">over:</span> Groups {
+                <span class="hljs-keyword">create</span> Group_electors {
                      effectif &lt;- length(gp);
                      electors_dans_Group &lt;- gp;
                      location &lt;- mean(electors_dans_Group collect (each.location)) ;
@@ -158,7 +158,7 @@
         <span class="hljs-keyword">if</span> (cpt_Group = 0) { cpt_Group &lt;- cpt_Group_max;}   
     }
     <span class="hljs-comment">//Reflex to compute the entropy</span>
-    <span class="hljs-class">reflex <span class="hljs-title">calcule_entropy</span> </span>{
+    <span class="hljs-builtin">reflex</span> calcule_entropy {
         entropy &lt;- 0.0;
         <span class="hljs-comment">//Compute the abstinence rate</span>
         <span class="hljs-literal">float</span> abst &lt;- (nb_electors - sum (active_candidates  collect (length(each.my_electors)))) / nb_electors;
@@ -166,7 +166,7 @@
             entropy &lt;- entropy - (abst * ln(abst));
         }
         <span class="hljs-comment">//Ask to all the active candidates their number of electors to compute the entropy</span>
-        ask active_candidates {
+        <span class="hljs-keyword">ask</span> active_candidates {
             <span class="hljs-literal">float</span> p &lt;- length(my_electors) / nb_electors;
             <span class="hljs-keyword">if</span> (p &gt; 0) {
                 entropy &lt;- entropy - (p * ln(p));
@@ -179,17 +179,17 @@
 
 
 <span class="hljs-comment">//Species representing a group of electors</span>
-<span class="hljs-class">species <span class="hljs-title">Group_electors</span> </span>{
+<span class="hljs-literal">species</span> Group_electors {
     <span class="hljs-literal">int</span> effectif &lt;- 0;
     <span class="hljs-comment">//List of all the elector agents in the group</span>
     <span class="hljs-literal">list</span>&lt;elector&gt; electors_dans_Group ;
-    aspect default {
-        draw square(2) color: #orange;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> square(2) <span class="hljs-symbol">color:</span> #orange;
     } 
     
 }
 <span class="hljs-comment">//Species representing the elector moving </span>
-<span class="hljs-class">species <span class="hljs-title">elector</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>]</span>{
+<span class="hljs-literal">species</span> elector <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>]{
     
     init {
         <span class="hljs-comment">//At initialization, place the elector in a certain place according to the distribution of electors</span>
@@ -203,36 +203,36 @@
     <span class="hljs-comment">//Candidate chosen by the elector</span>
     candidate my_candidate;  
     
-    aspect base {
-        draw triangle(2) color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> triangle(2) <span class="hljs-symbol">color:</span> color ;
     } 
     <span class="hljs-comment">//Action to define the candidate</span>
-    action definition_candidate {
+    <span class="hljs-keyword">action</span> definition_candidate {
         <span class="hljs-comment">//The candidate chosen is the one closest to the elector in the attraction range</span>
         my_candidate &lt;- active_candidates with_min_of (self distance_to each);
         my_candidate &lt;- (self distance_to my_candidate &lt; threshold_attraction_candidates) ? my_candidate : nil;
         <span class="hljs-keyword">if</span> (my_candidate != nil) {
-            add self to: my_candidate.my_electors; 
+            <span class="hljs-keyword">add</span> self <span class="hljs-symbol">to:</span> my_candidate.my_electors; 
             color &lt;- my_candidate.color;
         }
     }
     <span class="hljs-comment">//Action to move the elector</span>
-    action <span class="hljs-builtin">moving</span> {
+    <span class="hljs-keyword">action</span> <span class="hljs-builtin">moving</span> {
         <span class="hljs-comment">//Make the agent move closer to another elector, representing the influence of this one</span>
         <span class="hljs-keyword">if</span> ( rnd(100) &gt; (weight_candidates)) {
             elector my_elector &lt;- shuffle(elector) first_with ((self distance_to each) &lt; threshold_attraction_electors);
             <span class="hljs-keyword">if</span> (my_elector != nil) {
-                do goto target:my_elector speed: distance_traveled;
+                <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>my_elector <span class="hljs-symbol">speed:</span> distance_traveled;
             } 
-        } else {
+        } <span class="hljs-keyword">else</span> {
             <span class="hljs-comment">//Move the elector closer to one of the candidate to represent its repulsion or attraction</span>
             candidate the_candidate &lt;- one_of(candidate) ;
             <span class="hljs-keyword">if</span> (the_candidate != nil) {
                 <span class="hljs-literal">float</span> dist &lt;- self distance_to the_candidate;
                 <span class="hljs-keyword">if</span> dist &lt; threshold_attraction_candidates {
-                    do goto target: the_candidate speed: distance_traveled;
-                } else <span class="hljs-keyword">if</span> dist &gt; threshold_repulsion_candidates {
-                    do goto target: location + location - the_candidate.location speed: distance_traveled;
+                    <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> the_candidate <span class="hljs-symbol">speed:</span> distance_traveled;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> dist &gt; threshold_repulsion_candidates {
+                    <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> location + location - the_candidate.location <span class="hljs-symbol">speed:</span> distance_traveled;
                 }
             }
         }
@@ -241,124 +241,124 @@
     
 }
 <span class="hljs-comment">//Species candidate using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">candidate</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{
+<span class="hljs-literal">species</span> candidate <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>([100 + rnd(155),100 + rnd(155),100 + rnd(155)]);
     <span class="hljs-comment">//Boolean to know if the candidate is active</span>
     <span class="hljs-literal">bool</span> active &lt;- true;
     <span class="hljs-comment">//Float representing the percentage of vote for the candidate</span>
     <span class="hljs-literal">float</span> percentage_vote; 
     <span class="hljs-comment">//List of all the electors of the candidate</span>
-    <span class="hljs-literal">list</span> my_electors of: elector;
+    <span class="hljs-literal">list</span> my_electors <span class="hljs-symbol">of:</span> elector;
     <span class="hljs-comment">//Boolean to know if the candidate is elected</span>
     <span class="hljs-literal">bool</span> is_elected &lt;- false;
-    aspect default {
-        draw circle(3) color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(3) <span class="hljs-symbol">color:</span> color;
     } 
-    aspect dynamic {
+    <span class="hljs-keyword">aspect</span> dynamic {
         <span class="hljs-keyword">if</span> (active) {
             <span class="hljs-literal">float</span> radius  &lt;- 1 + (percentage_vote / 4.0);
             <span class="hljs-keyword">if</span> (is_elected) {
-                draw square( radius *1.5) color: #red; 
-                draw circle(radius) color: color;
-            } else {
-                draw circle(radius) color: color;
+                <span class="hljs-keyword">draw</span> square( radius *1.5) <span class="hljs-symbol">color:</span> #red; 
+                <span class="hljs-keyword">draw</span> circle(radius) <span class="hljs-symbol">color:</span> color;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">draw</span> circle(radius) <span class="hljs-symbol">color:</span> color;
             }
-            draw <span class="hljs-literal">string</span>(percentage_vote) size: 5 color: #white;
+            <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span>(percentage_vote) <span class="hljs-symbol">size:</span> 5 <span class="hljs-symbol">color:</span> #white;
         }
     }
     <span class="hljs-comment">//Action to move the candidate according to its strategy</span>
-    action <span class="hljs-builtin">moving</span> {
-        switch strategy_candidates {
-            match <span class="hljs-string">"No strategy"</span> {}
-            match <span class="hljs-string">"Search electors"</span> {do strategy_1;}
-            match <span class="hljs-string">"Distinction"</span> {do strategy_2;}
-            match <span class="hljs-string">"Group"</span> {do strategy_3;}
-            match <span class="hljs-string">"Go closer to the best"</span> {do strategy_4;}
-            match <span class="hljs-string">"Random"</span> { 
-                switch (rnd(4)) {
-                    match 0 {}
-                    match 1 {do strategy_1;}    
-                    match 2 {do strategy_2;}    
-                    match 3 {do strategy_3;}    
-                    match 4 {do strategy_4;}        
+    <span class="hljs-keyword">action</span> <span class="hljs-builtin">moving</span> {
+        <span class="hljs-keyword">switch</span> strategy_candidates {
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"No strategy"</span> {}
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"Search electors"</span> {<span class="hljs-keyword">do</span> strategy_1;}
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"Distinction"</span> {<span class="hljs-keyword">do</span> strategy_2;}
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"Group"</span> {<span class="hljs-keyword">do</span> strategy_3;}
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"Go closer to the best"</span> {<span class="hljs-keyword">do</span> strategy_4;}
+            <span class="hljs-keyword">match</span> <span class="hljs-string">"Random"</span> { 
+                <span class="hljs-keyword">switch</span> (rnd(4)) {
+                    <span class="hljs-keyword">match</span> 0 {}
+                    <span class="hljs-keyword">match</span> 1 {<span class="hljs-keyword">do</span> strategy_1;}    
+                    <span class="hljs-keyword">match</span> 2 {<span class="hljs-keyword">do</span> strategy_2;}    
+                    <span class="hljs-keyword">match</span> 3 {<span class="hljs-keyword">do</span> strategy_3;}    
+                    <span class="hljs-keyword">match</span> 4 {<span class="hljs-keyword">do</span> strategy_4;}        
                 }
             }
         }
     }
     
-    action strategy_1 {
+    <span class="hljs-keyword">action</span> strategy_1 {
         <span class="hljs-comment">//go closer to electors</span>
         elector my_elector &lt;- shuffle(elector) first_with ((self distance_to each) &lt; threshold_attraction_electors);
         <span class="hljs-keyword">if</span> (my_elector != nil) {
-            do goto target:my_elector speed: distance_traveled;
+            <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>my_elector <span class="hljs-symbol">speed:</span> distance_traveled;
         } 
     }
     
-    action strategy_2 {
+    <span class="hljs-keyword">action</span> strategy_2 {
         <span class="hljs-comment">//go in opposite directions to other candidates</span>
         <span class="hljs-literal">list</span>&lt;candidate&gt; cands &lt;- <span class="hljs-literal">list</span>(copy(candidate));
-        remove self from: cands;
+        <span class="hljs-keyword">remove</span> self <span class="hljs-symbol">from:</span> cands;
         candidate the_candidate &lt;- one_of(cands) ;
         <span class="hljs-keyword">if</span> (the_candidate != nil) {
-            do goto target: (location + location - the_candidate.location) speed: distance_traveled;    
+            <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> (location + location - the_candidate.location) <span class="hljs-symbol">speed:</span> distance_traveled;    
         }
     }
     
-    action strategy_3 {
+    <span class="hljs-keyword">action</span> strategy_3 {
         <span class="hljs-comment">//go closer to a group of electors</span>
         Group_electors mon_Group  &lt;- (Group_electors where ((self distance_to each) &lt; threshold_attraction_electors)) with_max_of (each.effectif);
         <span class="hljs-keyword">if</span> (mon_Group != nil) {
-            do goto target:mon_Group speed: distance_traveled;
+            <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>mon_Group <span class="hljs-symbol">speed:</span> distance_traveled;
         } 
     }
     
-    action strategy_4 {
+    <span class="hljs-keyword">action</span> strategy_4 {
         <span class="hljs-comment">//go toward the candidate with max of votes</span>
         candidate the_candidate &lt;- candidate with_max_of (percentage_vote) ;
         <span class="hljs-keyword">if</span> (the_candidate != nil) {
-            do goto target:the_candidate speed: distance_traveled;  
+            <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>the_candidate <span class="hljs-symbol">speed:</span> distance_traveled;  
         }
     }
     
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">vote</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> vote <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-comment">/** Insert here the definition of the input and output of the model */</span>
-    parameter <span class="hljs-string">"Number of electors : "</span> var: nb_electors category: <span class="hljs-string">"elector"</span>;
-    parameter <span class="hljs-string">"Moving speed of electors toward another electors : "</span> var: distance_traveled category: <span class="hljs-string">"elector"</span>;
-    parameter <span class="hljs-string">"Attraction distance between electors : "</span> var: threshold_attraction_electors category: <span class="hljs-string">"elector"</span>;
-    parameter <span class="hljs-string">"Number of candidates : "</span> var: nb_candidates category: <span class="hljs-string">"Candidate"</span>;
-    parameter <span class="hljs-string">"Attraction distance between candidates and electors : "</span> var: threshold_attraction_candidates category: <span class="hljs-string">"elector"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of electors : "</span> <span class="hljs-symbol">var:</span> nb_electors <span class="hljs-symbol">category:</span> <span class="hljs-string">"elector"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Moving speed of electors toward another electors : "</span> <span class="hljs-symbol">var:</span> distance_traveled <span class="hljs-symbol">category:</span> <span class="hljs-string">"elector"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Attraction distance between electors : "</span> <span class="hljs-symbol">var:</span> threshold_attraction_electors <span class="hljs-symbol">category:</span> <span class="hljs-string">"elector"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of candidates : "</span> <span class="hljs-symbol">var:</span> nb_candidates <span class="hljs-symbol">category:</span> <span class="hljs-string">"Candidate"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Attraction distance between candidates and electors : "</span> <span class="hljs-symbol">var:</span> threshold_attraction_candidates <span class="hljs-symbol">category:</span> <span class="hljs-string">"elector"</span>;
     
-    parameter <span class="hljs-string">"Repulsion distance between candidates : "</span> var: threshold_repulsion_candidates category: <span class="hljs-string">"elector"</span>;
-    parameter <span class="hljs-string">"weight of candidates : "</span> var: weight_candidates category: <span class="hljs-string">"Candidate"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Repulsion distance between candidates : "</span> <span class="hljs-symbol">var:</span> threshold_repulsion_candidates <span class="hljs-symbol">category:</span> <span class="hljs-string">"elector"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"weight of candidates : "</span> <span class="hljs-symbol">var:</span> weight_candidates <span class="hljs-symbol">category:</span> <span class="hljs-string">"Candidate"</span>;
     
-    parameter <span class="hljs-string">"Distribution type of electors : "</span> var: distribution_electors category: <span class="hljs-string">"elector"</span>;
-    parameter <span class="hljs-string">"Distribution type of  candidates : "</span> var: distribution_candidates category: <span class="hljs-string">"Candidate"</span>;
-    parameter <span class="hljs-string">"Strategy of candidates : "</span> var: strategy_candidates category: <span class="hljs-string">"Candidate"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Distribution type of electors : "</span> <span class="hljs-symbol">var:</span> distribution_electors <span class="hljs-symbol">category:</span> <span class="hljs-string">"elector"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Distribution type of  candidates : "</span> <span class="hljs-symbol">var:</span> distribution_candidates <span class="hljs-symbol">category:</span> <span class="hljs-string">"Candidate"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Strategy of candidates : "</span> <span class="hljs-symbol">var:</span> strategy_candidates <span class="hljs-symbol">category:</span> <span class="hljs-string">"Candidate"</span>;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">main</span> <span class="hljs-title">background</span>: #<span class="hljs-title">black</span> </span>{ 
-            <span class="hljs-class">species <span class="hljs-title">elector</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">candidate</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">dynamic</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">Group_electors</span>;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> main <span class="hljs-symbol">background:</span> #black { 
+            <span class="hljs-literal">species</span> elector <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> candidate <span class="hljs-symbol">aspect:</span> dynamic;
+            <span class="hljs-literal">species</span> Group_electors;
             
         }
-        <span class="hljs-class">display <span class="hljs-title">votants</span> </span>{
-            chart <span class="hljs-string">"Distribution of electors"</span> type: pie background: #white  {
-                loop cand over: candidate {
-                    data  cand.name value:cand.percentage_vote color: cand.color ;
+        <span class="hljs-keyword">display</span> votants {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Distribution of electors"</span> <span class="hljs-symbol">type:</span> pie <span class="hljs-symbol">background:</span> #white  {
+                <span class="hljs-keyword">loop</span> cand <span class="hljs-symbol">over:</span> candidate {
+                    <span class="hljs-keyword">data</span>  cand.name <span class="hljs-symbol">value:</span>cand.percentage_vote <span class="hljs-symbol">color:</span> cand.color ;
                 }   
             }
             
             }
-        <span class="hljs-class">display <span class="hljs-title">indicateurs</span> </span>{
-            chart <span class="hljs-string">"Shannon Entropy"</span> type: series background: #white size: {1,0.5} position: {0, 0} {
-                data <span class="hljs-string">"entropy"</span> value: entropy color: #blue ;
+        <span class="hljs-keyword">display</span> indicateurs {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Shannon Entropy"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white <span class="hljs-symbol">size:</span> {1,0.5} <span class="hljs-symbol">position:</span> {0, 0} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"entropy"</span> <span class="hljs-symbol">value:</span> entropy <span class="hljs-symbol">color:</span> #blue ;
             }
-            chart <span class="hljs-string">"Opinion distribution"</span> type: series background: #white size: {1,0.5} position: {0, 0.5} {
-                data <span class="hljs-string">"Space area covered"</span> value: (union(candidate collect (each.shape buffer threshold_attraction_candidates))).area / 40000 color: #blue ;
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Opinion distribution"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white <span class="hljs-symbol">size:</span> {1,0.5} <span class="hljs-symbol">position:</span> {0, 0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"Space area covered"</span> <span class="hljs-symbol">value:</span> (union(candidate collect (each.shape buffer threshold_attraction_candidates))).area / 40000 <span class="hljs-symbol">color:</span> #blue ;
             }
         }
     }

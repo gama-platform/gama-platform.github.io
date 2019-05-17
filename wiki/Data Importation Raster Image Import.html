@@ -10,17 +10,17 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> HowToImportRaster
 
-<span class="hljs-class">global </span>{    
+global {    
     <span class="hljs-comment">// Constants </span>
-    <span class="hljs-literal">int</span> heightImg const: true &lt;- 5587;
-    <span class="hljs-literal">int</span> widthImg const: true &lt;- 6201;    
+    <span class="hljs-literal">int</span> heightImg <span class="hljs-symbol">const:</span> true &lt;- 5587;
+    <span class="hljs-literal">int</span> widthImg <span class="hljs-symbol">const:</span> true &lt;- 6201;    
       
     <span class="hljs-comment">// Global variables</span>
     <span class="hljs-literal">int</span> factorDiscret &lt;- 30 ;
-    <span class="hljs-literal">file</span> mntImageRaster &lt;- image_file('../images/mnt/testAG.jpg') ;
+    <span class="hljs-literal">file</span> mntImageRaster &lt;- image_file(<span class="hljs-string">'../images/mnt/testAG.jpg'</span>) ;
     
     <span class="hljs-literal">int</span> nbIzard &lt;- 250 ; 
-    <span class="hljs-literal">file</span> izardShape &lt;- <span class="hljs-literal">file</span>('../images/icons/izard.gif');
+    <span class="hljs-literal">file</span> izardShape &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../images/icons/izard.gif'</span>);
             
     <span class="hljs-comment">// Initialization of grid and creation of the izard agents</span>
     <span class="hljs-comment">// - we use the as_matrix operator to transform a image file into a matrix of colors </span>
@@ -28,10 +28,10 @@
     <span class="hljs-comment">// - we then set the color built-in attribute of the cell with the value of the corresponding matrix cell     </span>
     init {
         <span class="hljs-comment">// set mapColor value: mntImageRaster as_matrix {widthImg/factorDiscret,heightImg/factorDiscret} ;</span>
-        ask cell {      
+        <span class="hljs-keyword">ask</span> cell {      
             color &lt;-<span class="hljs-literal">rgb</span>( (mntImageRaster) at {grid_x,grid_y}) ;
         }
-        create izard number: nbIzard; 
+        <span class="hljs-keyword">create</span> izard <span class="hljs-symbol">number:</span> nbIzard; 
     }
 }
  
@@ -41,15 +41,15 @@
 <span class="hljs-comment">// the shuffle operator is used to randomized the list of cells</span>
 
 
-<span class="hljs-class">species <span class="hljs-title">izard</span> </span>{ 
+<span class="hljs-literal">species</span> izard { 
     init{
         location &lt;- (shuffle(cell) first_with ((each.color != #white) and (empty(izard inside each)))).location ;
     }       
-    aspect default{
-        draw square(1) color: #orange;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>{
+        <span class="hljs-keyword">draw</span> square(1) <span class="hljs-symbol">color:</span> #orange;
     }
-    aspect image{
-        draw izardShape size: 3;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">image</span>{
+        <span class="hljs-keyword">draw</span> izardShape <span class="hljs-symbol">size:</span> 3;
     }
 }
 
@@ -58,22 +58,22 @@
 <span class="hljs-comment">// - in the creation of a matrix: ([...] as_matrix {widthImg/factorDiscret,heightImg/factorDiscret} ;)</span>
 <span class="hljs-comment">// - in the creation of the grid: grid cellule width: widthImg/factorDiscret height: heightImg/factorDiscret;</span>
 
-<span class="hljs-class">grid <span class="hljs-title">cell</span>  <span class="hljs-title">width</span>: <span class="hljs-title">widthImg</span>/<span class="hljs-title">factorDiscret</span> <span class="hljs-title">height</span>: <span class="hljs-title">heightImg</span>/<span class="hljs-title">factorDiscret</span>;</span>
+grid cell  <span class="hljs-symbol">width:</span> widthImg/factorDiscret <span class="hljs-symbol">height:</span> heightImg/factorDiscret;
 
 
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{ 
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui { 
     <span class="hljs-comment">// We display:</span>
     <span class="hljs-comment">// - the grid</span>
     <span class="hljs-comment">// - the original MNT image as background</span>
     <span class="hljs-comment">// - izard agents</span>
     <span class="hljs-comment">// We can thus compare the original MNT image and the discretized image in the grid.</span>
     <span class="hljs-comment">// For cosmetic need, we can choose to not display the grid. </span>
-    output {
-        <span class="hljs-class">display <span class="hljs-title">HowToImportRaster</span> </span>{
-           <span class="hljs-class">grid <span class="hljs-title">cell</span>;</span>
-           image 'Background' <span class="hljs-literal">file</span>: mntImageRaster.<span class="hljs-literal">path</span>;
-           <span class="hljs-class">species <span class="hljs-title">izard</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>; </span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> HowToImportRaster {
+           grid cell;
+           <span class="hljs-keyword">image</span> <span class="hljs-string">'Background'</span> <span class="hljs-symbol">file:</span> mntImageRaster.<span class="hljs-literal">path</span>;
+           <span class="hljs-literal">species</span> izard <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span>; 
         }   
     }   
 }

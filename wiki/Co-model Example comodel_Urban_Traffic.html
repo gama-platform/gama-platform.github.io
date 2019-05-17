@@ -11,21 +11,21 @@
 <span class="hljs-builtin">model</span> raster3
 
 
-<span class="hljs-class">global</span>
+global
 { 
     <span class="hljs-comment">//File for the ascii grid</span>
-    <span class="hljs-literal">file</span> asc_<span class="hljs-class">grid &lt;- <span class="hljs-title">grid_file</span>("../<span class="hljs-title">includes</span>/<span class="hljs-title">cantho_1999_v6</span>.<span class="hljs-title">asc</span>");</span>
+    <span class="hljs-literal">file</span> asc_grid &lt;- grid_file(<span class="hljs-string">"../includes/cantho_1999_v6.asc"</span>);
     <span class="hljs-comment">//Shapefile for the road</span>
     <span class="hljs-literal">file</span> road_shapefile &lt;- shape_file(<span class="hljs-string">"../includes/roads15_3.shp"</span>);
     <span class="hljs-comment">//Shapefile for the city</span>
     <span class="hljs-literal">file</span> city_center_shapefile &lt;- shape_file(<span class="hljs-string">"../includes/city center.shp"</span>);
     <span class="hljs-comment">//Shape of the environment</span>
-    <span class="hljs-literal">geometry</span> shape &lt;- envelope(asc_<span class="hljs-class">grid);</span>
+    <span class="hljs-literal">geometry</span> shape &lt;- envelope(asc_grid);
     <span class="hljs-comment">//Graph of the roads</span>
     <span class="hljs-literal">graph</span> roads_network;
     
     <span class="hljs-comment">// Dynamic list of the cells to consider at each cycle</span>
-    <span class="hljs-literal">list</span>&lt;plot&gt; empty_plots &lt;- plot where (each.grid_value = 0.0) update: shuffle(plot where (each.grid_value = 0.0));
+    <span class="hljs-literal">list</span>&lt;plot&gt; empty_plots &lt;- plot where (each.grid_value = 0.0) <span class="hljs-symbol">update:</span> shuffle(plot where (each.grid_value = 0.0));
     
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">rgb</span>&gt; plot_colors &lt;- [ 
         #lightgray, <span class="hljs-comment">//empty</span>
@@ -46,31 +46,31 @@
     init
     {
         <span class="hljs-comment">//Creation of the roads using the shapefile of the road</span>
-        create roads from: road_shapefile;
+        <span class="hljs-keyword">create</span> roads <span class="hljs-symbol">from:</span> road_shapefile;
         <span class="hljs-comment">//Creation of the city center using the city center shapefile</span>
-        create city_center from: city_center_shapefile;
+        <span class="hljs-keyword">create</span> city_center <span class="hljs-symbol">from:</span> city_center_shapefile;
         <span class="hljs-comment">//Creation of the graph of the road network</span>
         roads_network &lt;- as_edge_graph(roads);
         
         <span class="hljs-comment">//Each road has to compute its distance from the city center</span>
-        ask roads {
-            do compute_cc_dist;
+        <span class="hljs-keyword">ask</span> roads {
+            <span class="hljs-keyword">do</span> compute_cc_dist;
         }
         <span class="hljs-comment">//Compute the city distance for each plot</span>
-        ask empty_plots {
-            do compute_distances;
+        <span class="hljs-keyword">ask</span> empty_plots {
+            <span class="hljs-keyword">do</span> compute_distances;
         }
         <span class="hljs-comment">//Normalization of the distance</span>
-        do normalize_distances;
+        <span class="hljs-keyword">do</span> normalize_distances;
     }
     <span class="hljs-comment">//Action to normalize the distance</span>
-    action normalize_distances {
+    <span class="hljs-keyword">action</span> normalize_distances {
         <span class="hljs-comment">//Maximum distance from the road of all the plots</span>
         <span class="hljs-literal">float</span> max_road_dist &lt;- empty_plots max_of each.dist_route;
         <span class="hljs-comment">//Maximum distance from the city center for all the plots</span>
         <span class="hljs-literal">float</span> max_cc_dist &lt;- empty_plots max_of each.dist_cv;
         <span class="hljs-comment">//Normalization of  each empty plot according to the maximal value of each attribute</span>
-        ask empty_plots {
+        <span class="hljs-keyword">ask</span> empty_plots {
             dist_cv &lt;- 1 - dist_cv / max_cc_dist;
             dist_route &lt;- 1 - dist_route / max_road_dist;
         }
@@ -78,43 +78,43 @@
     
     
     <span class="hljs-comment">//Reflex representing the global dynamic of the model</span>
-    <span class="hljs-class">reflex <span class="hljs-title">dynamique_globale</span> <span class="hljs-title">when</span>: <span class="hljs-title">weight_density</span> != 0 <span class="hljs-title">or</span> <span class="hljs-title">weight_road_dist</span> != 0 <span class="hljs-title">or</span> <span class="hljs-title">weight_cc_dist</span> != 0 </span>{
+    <span class="hljs-builtin">reflex</span> dynamique_globale <span class="hljs-symbol">when:</span> weight_density != 0 or weight_road_dist != 0 or weight_cc_dist != 0 {
         <span class="hljs-comment">//Ask to each empty plot to compute its constructability</span>
-        ask empty_plots {
+        <span class="hljs-keyword">ask</span> empty_plots {
             constructability &lt;- compute_constructability();
         }
         <span class="hljs-literal">list</span>&lt;plot&gt; ordered_plots &lt;- empty_plots sort_by (each.constructability);
         ordered_plots &lt;- nb_plots_to_build last ordered_plots;
         <span class="hljs-comment">//Build on each empty plot having the highest constructability</span>
-        ask ordered_plots
+        <span class="hljs-keyword">ask</span> ordered_plots
         {
-            do build;
+            <span class="hljs-keyword">do</span> build;
         }
     }   
 }
 <span class="hljs-comment">//Species representing the city center</span>
-<span class="hljs-class">species <span class="hljs-title">city_center</span> </span>{
-    aspect default {
-        draw circle(300) color: #cyan;
+<span class="hljs-literal">species</span> city_center {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(300) <span class="hljs-symbol">color:</span> #cyan;
     }   
 }
 <span class="hljs-comment">//Species representing the roads</span>
-<span class="hljs-class">species <span class="hljs-title">roads</span></span>
+<span class="hljs-literal">species</span> roads
 {
     <span class="hljs-literal">float</span> dist_cv;
     <span class="hljs-comment">//Action to compute the city center distance for the road</span>
-    action compute_cc_dist {
-        using <span class="hljs-literal">topology</span>(roads_network)
+    <span class="hljs-keyword">action</span> compute_cc_dist {
+        <span class="hljs-keyword">using</span> <span class="hljs-literal">topology</span>(roads_network)
         {
             dist_cv &lt;- self distance_to first(city_center);
         }
     }
-    aspect default {
-        draw shape color: #black;   
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;   
     }
 }
 <span class="hljs-comment">//Grid species to represent the different building plots</span>
-<span class="hljs-class">grid <span class="hljs-title">plot</span> <span class="hljs-title">file</span>: <span class="hljs-title">asc_grid</span> <span class="hljs-title">use_individual_shapes</span>: <span class="hljs-title">false</span> <span class="hljs-title">use_regular_agents</span>: <span class="hljs-title">false</span> <span class="hljs-title">neighbors</span>: 4</span>
+grid plot <span class="hljs-symbol">file:</span> asc_grid <span class="hljs-symbol">use_individual_shapes:</span> false <span class="hljs-symbol">use_regular_agents:</span> false <span class="hljs-symbol">neighbors:</span> 4
 {
     <span class="hljs-literal">rgb</span> color &lt;- grid_value = -1 ? #white : plot_colors[<span class="hljs-literal">int</span>(grid_value)];
     <span class="hljs-comment">//Distance from the road</span>
@@ -125,14 +125,14 @@
     <span class="hljs-literal">float</span> constructability;
     
     <span class="hljs-comment">//Action to compute all the distances for the cell</span>
-    action compute_distances
+    <span class="hljs-keyword">action</span> compute_distances
     {
         roads route_pp &lt;- roads closest_to self;
-        dist_route &lt;- (self distance_to route_pp) using <span class="hljs-literal">topology</span>(world);
+        dist_route &lt;- (self distance_to route_pp) <span class="hljs-keyword">using</span> <span class="hljs-literal">topology</span>(world);
         dist_cv &lt;- dist_route + route_pp.dist_cv;
     }
     <span class="hljs-comment">//Action to build on the cell</span>
-    action build
+    <span class="hljs-keyword">action</span> build
     {
         grid_value &lt;- 1.0;
         color &lt;- plot_colors[1];
@@ -144,19 +144,19 @@
         <span class="hljs-literal">list</span>&lt;plot&gt; voisins &lt;- (self neighbors_at density_radius);
         <span class="hljs-comment">//Compute the density of all the neighbors plots</span>
         <span class="hljs-literal">float</span> densite &lt;- (voisins count (each.grid_value = 1.0)) / length(voisins);
-        return (densite * weight_density + dist_route * weight_road_dist + dist_cv * weight_cc_dist) / (weight_density + weight_road_dist + weight_cc_dist);
+        <span class="hljs-keyword">return</span> (densite * weight_density + dist_route * weight_road_dist + dist_cv * weight_cc_dist) / (weight_density + weight_road_dist + weight_cc_dist);
     }           
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">raster</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Weight of the density criteria"</span> var: weight_density;
-    parameter <span class="hljs-string">"Weight of the distance to roads criteria"</span> var: weight_road_dist;
-    parameter <span class="hljs-string">"Weight of the distance to city center criteria"</span> var: weight_cc_dist;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">plot</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">roads</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">city_center</span>;</span>
+<span class="hljs-builtin">experiment</span> raster <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Weight of the density criteria"</span> <span class="hljs-symbol">var:</span> weight_density;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Weight of the distance to roads criteria"</span> <span class="hljs-symbol">var:</span> weight_road_dist;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Weight of the distance to city center criteria"</span> <span class="hljs-symbol">var:</span> weight_cc_dist;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+            grid plot;
+            <span class="hljs-literal">species</span> roads;
+            <span class="hljs-literal">species</span> city_center;
         }
     }
 }
@@ -165,11 +165,11 @@
 <pre><code class="hljs"><span class="hljs-builtin">model</span> Urban_coupling
 
 import <span class="hljs-string">"../../../Toy Models/Urban Growth/models/raster model.gaml"</span>
-<span class="hljs-class">experiment <span class="hljs-title">Urban_coupling_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> <span class="hljs-title">parent</span>: <span class="hljs-title">raster</span></span>
+<span class="hljs-builtin">experiment</span> Urban_coupling_exp <span class="hljs-symbol">type:</span> gui <span class="hljs-symbol">parent:</span> raster
 {
     <span class="hljs-literal">list</span>&lt;plot&gt; getPlot
     {
-        return <span class="hljs-literal">list</span>(plot);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">list</span>(plot);
     }
 
 }
@@ -177,7 +177,7 @@ import <span class="hljs-string">"../../../Toy Models/Urban Growth/models/raster
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> traffic
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Shapefile of the buildings</span>
     <span class="hljs-literal">file</span> building_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/buildings.shp"</span>);
     <span class="hljs-comment">//Shapefile of the roads</span>
@@ -193,12 +193,12 @@ import <span class="hljs-string">"../../../Toy Models/Urban Growth/models/raster
     
     init {
         <span class="hljs-comment">//Initialization of the building using the shapefile of buildings</span>
-        create building from: building_shapefile;
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> building_shapefile;
         <span class="hljs-comment">//Initialization of the road using the shapefile of roads</span>
-        create road from: road_shapefile;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> road_shapefile;
         
         <span class="hljs-comment">//Creation of the people agents</span>
-        create people number: 1000{
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> 1000{
             <span class="hljs-comment">//People agents are located anywhere in one of the building</span>
             location &lt;- any_location_in(one_of(building));
         }
@@ -207,13 +207,13 @@ import <span class="hljs-string">"../../../Toy Models/Urban Growth/models/raster
         road_network &lt;- as_edge_graph(road);
     }
     <span class="hljs-comment">//Reflex to update the speed of the roads according to the weights</span>
-    <span class="hljs-class">reflex <span class="hljs-title">update_road_speed</span>  </span>{
+    <span class="hljs-builtin">reflex</span> update_road_speed  {
         road_weights &lt;- road as_map (each::each.shape.perimeter / each.speed_coeff);
         road_network &lt;- road_network with_weights road_weights;
     }
 }
 <span class="hljs-comment">//Species to represent the people using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>]</span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>]{
     <span class="hljs-comment">//Target point of the agent</span>
     <span class="hljs-literal">point</span> target;
     <span class="hljs-comment">//Probability of leaving the building</span>
@@ -222,47 +222,47 @@ import <span class="hljs-string">"../../../Toy Models/Urban Growth/models/raster
     <span class="hljs-literal">float</span> speed &lt;- 5 #km/#h;
     <span class="hljs-literal">rgb</span> color &lt;- rnd_color(255);
     <span class="hljs-comment">//Reflex to leave the building to another building</span>
-    <span class="hljs-class">reflex <span class="hljs-title">leave</span> <span class="hljs-title">when</span>: (<span class="hljs-title">target</span> = <span class="hljs-title">nil</span>) <span class="hljs-title">and</span> (<span class="hljs-title">flip</span>(<span class="hljs-title">leaving_proba</span>)) </span>{
+    <span class="hljs-builtin">reflex</span> leave <span class="hljs-symbol">when:</span> (target = nil) and (flip(leaving_proba)) {
         target &lt;- any_location_in(one_of(building));
     }
     <span class="hljs-comment">//Reflex to move to the target building moving on the road network</span>
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> != <span class="hljs-title">nil</span> </span>{
-        do goto target: target on: road_network recompute_path: false move_weights: road_weights;
+    <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> target != nil {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> target <span class="hljs-symbol">on:</span> road_network <span class="hljs-symbol">recompute_path:</span> false <span class="hljs-symbol">move_weights:</span> road_weights;
         <span class="hljs-keyword">if</span> (location = target) {
             target &lt;- nil;
         }   
     }
     
-    aspect default {
-        draw circle(5) color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">color:</span> color;
     }
 }
 <span class="hljs-comment">//Species to represent the buildings</span>
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
-    aspect default {
-        draw shape color: #gray;
+<span class="hljs-literal">species</span> building {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray;
     }
 }
 <span class="hljs-comment">//Species to represent the roads</span>
-<span class="hljs-class">species <span class="hljs-title">road</span> </span>{
+<span class="hljs-literal">species</span> road {
     <span class="hljs-comment">//Capacity of the road considering its perimeter</span>
     <span class="hljs-literal">float</span> capacity &lt;- 1 + shape.perimeter/30;
     <span class="hljs-comment">//Number of people on the road</span>
-    <span class="hljs-literal">int</span> nb_people &lt;- 0 update: length(people at_distance 1);
+    <span class="hljs-literal">int</span> nb_people &lt;- 0 <span class="hljs-symbol">update:</span> length(people at_distance 1);
     <span class="hljs-comment">//Speed coefficient computed using the number of people on the road and the capicity of the road</span>
-    <span class="hljs-literal">float</span> speed_coeff &lt;- 1.0 update:  exp(-nb_people/capacity) min: 0.1;
+    <span class="hljs-literal">float</span> speed_coeff &lt;- 1.0 <span class="hljs-symbol">update:</span>  exp(-nb_people/capacity) <span class="hljs-symbol">min:</span> 0.1;
     
-    aspect default {
-        draw (shape + 3 * speed_coeff) color: #red;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> (shape + 3 * speed_coeff) <span class="hljs-symbol">color:</span> #red;
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">trafic</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> trafic <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.01;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">carte</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">road</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> carte <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">refresh:</span> false;
+            <span class="hljs-literal">species</span> road ;
+            <span class="hljs-literal">species</span> people ;
         }
     }
 }
@@ -270,21 +270,21 @@ import <span class="hljs-string">"../../../Toy Models/Urban Growth/models/raster
 <pre><code class="hljs"><span class="hljs-builtin">model</span> Traffic_coupling
 
 import <span class="hljs-string">"../../../Toy Models/Traffic/models/Simple traffic model.gaml"</span>
-<span class="hljs-class">experiment <span class="hljs-title">Traffic_coupling_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> <span class="hljs-title">parent</span>: <span class="hljs-title">trafic</span></span>
+<span class="hljs-builtin">experiment</span> Traffic_coupling_exp <span class="hljs-symbol">type:</span> gui <span class="hljs-symbol">parent:</span> trafic
 {
     <span class="hljs-literal">list</span>&lt;building&gt; getBuilding
     {
-        return <span class="hljs-literal">list</span>(building);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">list</span>(building);
     }
 
     <span class="hljs-literal">list</span>&lt;people&gt; getPeople
     {
-        return <span class="hljs-literal">list</span>(people);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">list</span>(people);
     }
 
     <span class="hljs-literal">list</span>&lt;road&gt; getRoad
     {
-        return <span class="hljs-literal">list</span>(road);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">list</span>(road);
     }
 
 }
@@ -296,34 +296,34 @@ import <span class="hljs-string">"Traffic_coupling.gaml"</span> as myTraffic
 import <span class="hljs-string">"Urban_coupling.gaml"</span> as myUrban
 
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-comment">//set the bound of the world</span>
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file(<span class="hljs-string">"../../../Toy Models/Traffic/includes/roads.shp"</span>));
     init
     {
         <span class="hljs-comment">//create Traffic micro-model's experiment</span>
-        create myTraffic.Traffic_coupling_exp with:
+        <span class="hljs-keyword">create</span> myTraffic.Traffic_coupling_exp <span class="hljs-symbol">with:</span>
         [building_shapefile::<span class="hljs-literal">file</span>(<span class="hljs-string">"../../../Toy Models/Traffic/includes/buildings.shp"</span>), road_shapefile::<span class="hljs-literal">file</span>(<span class="hljs-string">"../../../Toy Models/Traffic/includes/roads.shp"</span>)];
         <span class="hljs-comment">//create Urban micro-model;s experiment</span>
-        create myUrban.Urban_coupling_exp with:
-        [asc_<span class="hljs-class">grid::<span class="hljs-title">grid_file</span>("../../../<span class="hljs-title">Toy</span> <span class="hljs-title">Models</span>/<span class="hljs-title">Urban</span> <span class="hljs-title">Growth</span>/<span class="hljs-title">includes</span>/<span class="hljs-title">cantho_1999_v6</span>.<span class="hljs-title">asc</span>"), <span class="hljs-title">road_shapefile</span>::<span class="hljs-title">shape_file</span>("../../../<span class="hljs-title">Toy</span> <span class="hljs-title">Models</span>/<span class="hljs-title">Urban</span> <span class="hljs-title">Growth</span>/<span class="hljs-title">includes</span>/<span class="hljs-title">roads15_3</span>.<span class="hljs-title">shp</span>"), <span class="hljs-title">city_center_shapefile</span>::<span class="hljs-title">shape_file</span>("../../../<span class="hljs-title">Toy</span> <span class="hljs-title">Models</span>/<span class="hljs-title">Urban</span> <span class="hljs-title">Growth</span>/<span class="hljs-title">includes</span>/<span class="hljs-title">city</span> <span class="hljs-title">center</span>.<span class="hljs-title">shp</span>")];</span>
+        <span class="hljs-keyword">create</span> myUrban.Urban_coupling_exp <span class="hljs-symbol">with:</span>
+        [asc_grid::grid_file(<span class="hljs-string">"../../../Toy Models/Urban Growth/includes/cantho_1999_v6.asc"</span>), road_shapefile::shape_file(<span class="hljs-string">"../../../Toy Models/Urban Growth/includes/roads15_3.shp"</span>), city_center_shapefile::shape_file(<span class="hljs-string">"../../../Toy Models/Urban Growth/includes/city center.shp"</span>)];
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">simulate_micro_models</span></span>
+    <span class="hljs-builtin">reflex</span> simulate_micro_models
     {
         <span class="hljs-comment">//ask simulation of micro-model step one</span>
-        ask myTraffic.Traffic_coupling_exp collect each.simulation
+        <span class="hljs-keyword">ask</span> myTraffic.Traffic_coupling_exp collect each.simulation
         {
-            do _step_;
+            <span class="hljs-keyword">do</span> _step_;
         }
 
         <span class="hljs-comment">// tell the urban to grow up every 200 step</span>
-        ask myUrban.Urban_coupling_exp collect each.simulation
+        <span class="hljs-keyword">ask</span> myUrban.Urban_coupling_exp collect each.simulation
         {
             <span class="hljs-keyword">if</span> (cycle mod 200 = 0)
             {
-                do _step_;
+                <span class="hljs-keyword">do</span> _step_;
             }
 
         }
@@ -332,16 +332,16 @@ import <span class="hljs-string">"Urban_coupling.gaml"</span> as myUrban
 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">comodel_Urban_Traffic_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> comodel_Urban_Traffic_exp <span class="hljs-symbol">type:</span> gui
 {
-    output
+    <span class="hljs-keyword">output</span>
     {
-        <span class="hljs-class">display "<span class="hljs-title">comodel_disp</span>"</span>
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"comodel_disp"</span>
         {
-            agents <span class="hljs-string">"Plotgrid"</span> value: first(myUrban.Urban_coupling_exp).getPlot() size: { 0.037, 0.052 };
-            agents <span class="hljs-string">"building"</span> value: first(myTraffic.Traffic_coupling_exp).getBuilding();
-            agents <span class="hljs-string">"people"</span> value: first(myTraffic.Traffic_coupling_exp).getPeople();
-            agents <span class="hljs-string">"road"</span> value: first(myTraffic.Traffic_coupling_exp).getRoad();
+            <span class="hljs-keyword">agents</span> <span class="hljs-string">"Plotgrid"</span> <span class="hljs-symbol">value:</span> first(myUrban.Urban_coupling_exp).getPlot() <span class="hljs-symbol">size:</span> { 0.037, 0.052 };
+            <span class="hljs-keyword">agents</span> <span class="hljs-string">"building"</span> <span class="hljs-symbol">value:</span> first(myTraffic.Traffic_coupling_exp).getBuilding();
+            <span class="hljs-keyword">agents</span> <span class="hljs-string">"people"</span> <span class="hljs-symbol">value:</span> first(myTraffic.Traffic_coupling_exp).getPeople();
+            <span class="hljs-keyword">agents</span> <span class="hljs-string">"road"</span> <span class="hljs-symbol">value:</span> first(myTraffic.Traffic_coupling_exp).getRoad();
         }
 
     }

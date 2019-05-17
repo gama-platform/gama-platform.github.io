@@ -90,16 +90,16 @@
 <h2><a class="anchor" aria-hidden="true" id="using-actions-as-operators"></a><a href="#using-actions-as-operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using actions as operators</h2>
 <p>Actions defined in species can be used as operators, provided they are called on the correct agent. The syntax is that of normal functional operators, but the agent that will perform the action must be added as the first operand.</p>
 <p>For instance, if the following species is defined:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">spec1</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> spec1 {
         <span class="hljs-literal">int</span> min(<span class="hljs-literal">int</span> x, <span class="hljs-literal">int</span> y) {
-                return x &gt; y ? x : y;
+                <span class="hljs-keyword">return</span> x &gt; y ? x : y;
         }
 }
 </code></pre>
 <p>Any agent instance of spec1 can use <code>min</code> as an operator (if the action conflicts with an existing operator, a warning will be emitted). For instance, in the same model, the following line is perfectly acceptable:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
         init {
-                create spec1;
+                <span class="hljs-keyword">create</span> spec1;
                 spec1 my_agent &lt;- spec1[0];
                 <span class="hljs-literal">int</span> the_min &lt;- my_agent min(10,20); <span class="hljs-comment">// or min(my_agent, 10, 20);</span>
         }
@@ -336,7 +336,7 @@ If it is used as an unary operator, it returns the opposite of the operand.</p>
 <li>if one of the operands is a date and the other a number, returns a date corresponding to the date minus the given number as duration (in seconds)</li>
 </ul>
 <pre><code class="hljs"> 
-date var22 &lt;- date('2000-01-01') - 86400; <span class="hljs-comment">// var22 equals date('1999-12-31')</span>
+date var22 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) - 86400; <span class="hljs-comment">// var22 equals date('1999-12-31')</span>
 </code></pre>
 <ul>
 <li>if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float.</li>
@@ -354,7 +354,7 @@ date var22 &lt;- date('2000-01-01') - 86400; <span class="hljs-comment">// var22
 <li>if both operands are dates, returns the duration in seconds between date2 and date1. To obtain a more precise duration, in milliseconds, use milliseconds_between(date1, date2)</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var25 &lt;- date('2000-01-02') - date('2000-01-01'); <span class="hljs-comment">// var25 equals 86400</span>
+<span class="hljs-literal">float</span> var25 &lt;- date(<span class="hljs-string">'2000-01-02'</span>) - date(<span class="hljs-string">'2000-01-01'</span>); <span class="hljs-comment">// var25 equals 86400</span>
 </code></pre>
 <ul>
 <li>if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one</li>
@@ -392,7 +392,7 @@ date var22 &lt;- date('2000-01-01') - 86400; <span class="hljs-comment">// var22
 <li>if both operands are colors, returns a new color resulting from the subtraction of the two operands, component by component</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var33 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) - <span class="hljs-literal">rgb</span>('red'); <span class="hljs-comment">// var33 equals rgb([0,128,32])</span>
+<span class="hljs-literal">rgb</span> var33 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) - <span class="hljs-literal">rgb</span>(<span class="hljs-string">'red'</span>); <span class="hljs-comment">// var33 equals rgb([0,128,32])</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
@@ -407,11 +407,11 @@ date var22 &lt;- date('2000-01-01') - 86400; <span class="hljs-comment">// var22
 <span class="hljs-literal">float</span> var8 &lt;- 3.0 - 1; <span class="hljs-comment">// var8 equals 2.0 </span>
 <span class="hljs-literal">int</span> var9 &lt;- - (-56); <span class="hljs-comment">// var9 equals 56 </span>
 <span class="hljs-literal">point</span> var10 &lt;- {2.0,3.0,4.0} - 1; <span class="hljs-comment">// var10 equals {1.0,2.0,3.0} </span>
-date var11 &lt;- date('2000-01-01') - 86400; <span class="hljs-comment">// var11 equals date('1999-12-31') </span>
-<span class="hljs-literal">map</span> var12 &lt;- ['a'::1,'b'::2] - ['b'::2]; <span class="hljs-comment">// var12 equals ['a'::1] </span>
-<span class="hljs-literal">map</span> var13 &lt;- ['a'::1,'b'::2] - ['b'::2,'c'::3]; <span class="hljs-comment">// var13 equals ['a'::1] </span>
-<span class="hljs-literal">map</span> var14 &lt;- ['a'::1,'b'::2] - ('b'::2); <span class="hljs-comment">// var14 equals ['a'::1] </span>
-<span class="hljs-literal">map</span> var15 &lt;- ['a'::1,'b'::2] - ('c'::3); <span class="hljs-comment">// var15 equals ['a'::1,'b'::2] </span>
+date var11 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) - 86400; <span class="hljs-comment">// var11 equals date('1999-12-31') </span>
+<span class="hljs-literal">map</span> var12 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] - [<span class="hljs-string">'b'</span>::2]; <span class="hljs-comment">// var12 equals ['a'::1] </span>
+<span class="hljs-literal">map</span> var13 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] - [<span class="hljs-string">'b'</span>::2,<span class="hljs-string">'c'</span>::3]; <span class="hljs-comment">// var13 equals ['a'::1] </span>
+<span class="hljs-literal">map</span> var14 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] - (<span class="hljs-string">'b'</span>::2); <span class="hljs-comment">// var14 equals ['a'::1] </span>
+<span class="hljs-literal">map</span> var15 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] - (<span class="hljs-string">'c'</span>::3); <span class="hljs-comment">// var15 equals ['a'::1,'b'::2] </span>
 <span class="hljs-literal">point</span> var16 &lt;- -{3.0,5.0}; <span class="hljs-comment">// var16 equals {-3.0,-5.0} </span>
 <span class="hljs-literal">point</span> var17 &lt;- -{1.0,6.0,7.0}; <span class="hljs-comment">// var17 equals {-1.0,-6.0,-7.0}</span>
 
@@ -429,7 +429,7 @@ date var11 &lt;- date('2000-01-01') - 86400; <span class="hljs-comment">// var11
 <p>It is used in combination with the ? operator. If the left-hand of ? operand evaluates to true, returns the value of the left-hand operand of the :, otherwise that of the right-hand operand of the :</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-1"></a><a href="#examples-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; var0 &lt;- [10, 19, 43, 12, 7, 22] collect ((each &gt; 20) ? 'above' : 'below'); <span class="hljs-comment">// var0 equals ['below', 'below', 'above', 'below', 'below', 'above']</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; var0 &lt;- [10, 19, 43, 12, 7, 22] collect ((each &gt; 20) ? <span class="hljs-string">'above'</span> : <span class="hljs-string">'below'</span>); <span class="hljs-comment">// var0 equals ['below', 'below', 'above', 'below', 'below', 'above']</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-1"></a><a href="#see-also-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -511,7 +511,7 @@ date var11 &lt;- date('2000-01-01') - 86400; <span class="hljs-comment">// var11
 <p>These functional tests can be combined together.</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-4"></a><a href="#examples-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; var0 &lt;- [10, 19, 43, 12, 7, 22] collect ((each &gt; 20) ? 'above' : 'below'); <span class="hljs-comment">// var0 equals ['below', 'below', 'above', 'below', 'below', 'above']rgb col &lt;- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green)); </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; var0 &lt;- [10, 19, 43, 12, 7, 22] collect ((each &gt; 20) ? <span class="hljs-string">'above'</span> : <span class="hljs-string">'below'</span>); <span class="hljs-comment">// var0 equals ['below', 'below', 'above', 'below', 'below', 'above']rgb col &lt;- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green)); </span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-4"></a><a href="#see-also-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -789,7 +789,7 @@ unknown var0 &lt;- agent1.location; <span class="hljs-comment">// var0 equals th
 <li>if one of the operands is a date and the other a number, returns a date corresponding to the date plus the given number as duration (in seconds)</li>
 </ul>
 <pre><code class="hljs"> 
-date var9 &lt;- date('2000-01-01') + 86400; <span class="hljs-comment">// var9 equals date('2000-01-02')</span>
+date var9 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) + 86400; <span class="hljs-comment">// var9 equals date('2000-01-02')</span>
 </code></pre>
 <ul>
 <li>if both operands are list, +returns the concatenation of both lists.</li>
@@ -827,7 +827,7 @@ date var9 &lt;- date('2000-01-01') + 86400; <span class="hljs-comment">// var9 e
 <li>if both operands are colors, returns a new color resulting from the sum of the two operands, component by component</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var17 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) + <span class="hljs-literal">rgb</span>('red'); <span class="hljs-comment">// var17 equals rgb([255,128,32])</span>
+<span class="hljs-literal">rgb</span> var17 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) + <span class="hljs-literal">rgb</span>(<span class="hljs-string">'red'</span>); <span class="hljs-comment">// var17 equals rgb([255,128,32])</span>
 </code></pre>
 <ul>
 <li>if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the right-hand operand distance. The number of segments used by default is 8 and the end cap style is #round</li>
@@ -880,14 +880,14 @@ date var9 &lt;- date('2000-01-01') + 86400; <span class="hljs-comment">// var9 e
 <h4><a class="anchor" aria-hidden="true" id="examples-7"></a><a href="#examples-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
 <span class="hljs-literal">point</span> var0 &lt;- {1, 2} + 4; <span class="hljs-comment">// var0 equals {5.0, 6.0,4.0} </span>
-<span class="hljs-literal">string</span> var1 &lt;- date('2000-01-01 00:00:00') + '_Test'; <span class="hljs-comment">// var1 equals '2000-01-01 00:00:00_Test' </span>
-<span class="hljs-literal">map</span> var2 &lt;- ['a'::1,'b'::2] + ('c'::3); <span class="hljs-comment">// var2 equals ['a'::1,'b'::2,'c'::3] </span>
-<span class="hljs-literal">map</span> var3 &lt;- ['a'::1,'b'::2] + ('c'::3); <span class="hljs-comment">// var3 equals ['a'::1,'b'::2,'c'::3] </span>
+<span class="hljs-literal">string</span> var1 &lt;- date(<span class="hljs-string">'2000-01-01 00:00:00'</span>) + <span class="hljs-string">'_Test'</span>; <span class="hljs-comment">// var1 equals '2000-01-01 00:00:00_Test' </span>
+<span class="hljs-literal">map</span> var2 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] + (<span class="hljs-string">'c'</span>::3); <span class="hljs-comment">// var2 equals ['a'::1,'b'::2,'c'::3] </span>
+<span class="hljs-literal">map</span> var3 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] + (<span class="hljs-string">'c'</span>::3); <span class="hljs-comment">// var3 equals ['a'::1,'b'::2,'c'::3] </span>
 <span class="hljs-literal">float</span> var4 &lt;- 1.0 + 1; <span class="hljs-comment">// var4 equals 2.0 </span>
 <span class="hljs-literal">float</span> var5 &lt;- 1.0 + 2.5; <span class="hljs-comment">// var5 equals 3.5 </span>
-<span class="hljs-literal">map</span> var6 &lt;- ['a'::1,'b'::2] + ['c'::3]; <span class="hljs-comment">// var6 equals ['a'::1,'b'::2,'c'::3] </span>
-<span class="hljs-literal">map</span> var7 &lt;- ['a'::1,'b'::2] + [5::3.0]; <span class="hljs-comment">// var7 equals ['a'::1,'b'::2,5::3.0] </span>
-date var8 &lt;- date('2016-01-01 00:00:01') + 86400; <span class="hljs-comment">// var8 equals date('2016-01-02 00:00:01')</span>
+<span class="hljs-literal">map</span> var6 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] + [<span class="hljs-string">'c'</span>::3]; <span class="hljs-comment">// var6 equals ['a'::1,'b'::2,'c'::3] </span>
+<span class="hljs-literal">map</span> var7 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] + [5::3.0]; <span class="hljs-comment">// var7 equals ['a'::1,'b'::2,5::3.0] </span>
+date var8 &lt;- date(<span class="hljs-string">'2016-01-01 00:00:01'</span>) + 86400; <span class="hljs-comment">// var8 equals date('2016-01-02 00:00:01')</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-8"></a><a href="#see-also-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -926,7 +926,7 @@ date var8 &lt;- date('2016-01-01 00:00:01') + 86400; <span class="hljs-comment">
 <li>if both operands are String, uses a lexicographic comparison of two strings</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var2 &lt;- 'abc' &lt; 'aeb'; <span class="hljs-comment">// var2 equals true</span>
+<span class="hljs-literal">bool</span> var2 &lt;- <span class="hljs-string">'abc'</span> &lt; <span class="hljs-string">'aeb'</span>; <span class="hljs-comment">// var2 equals true</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-8"></a><a href="#examples-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
@@ -966,7 +966,7 @@ date var8 &lt;- date('2016-01-01 00:00:01') + 86400; <span class="hljs-comment">
 <li>if both operands are String, uses a lexicographic comparison of two strings</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var5 &lt;- 'abc' &lt;= 'aeb'; <span class="hljs-comment">// var5 equals true</span>
+<span class="hljs-literal">bool</span> var5 &lt;- <span class="hljs-string">'abc'</span> &lt;= <span class="hljs-string">'aeb'</span>; <span class="hljs-comment">// var5 equals true</span>
 </code></pre>
 <ul>
 <li>if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.</li>
@@ -1052,7 +1052,7 @@ returns true if both operands are equal, false otherwise</p>
 <li>if both operands are String, uses a lexicographic comparison of two strings</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- 'abc' &gt; 'aeb'; <span class="hljs-comment">// var0 equals false</span>
+<span class="hljs-literal">bool</span> var0 &lt;- <span class="hljs-string">'abc'</span> &gt; <span class="hljs-string">'aeb'</span>; <span class="hljs-comment">// var0 equals false</span>
 </code></pre>
 <ul>
 <li>if both operands are points, returns true if and only if the left component (x) of the left operand if greater than x of the right one and if the right component (y) of the left operand is greater than y of the right one.</li>
@@ -1099,8 +1099,8 @@ returns true if both operands are equal, false otherwise</p>
 <li>if both operands are string, uses a lexicographic comparison of the two strings</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- 'abc' &gt;= 'aeb'; <span class="hljs-comment">// var0 equals false </span>
-<span class="hljs-literal">bool</span> var1 &lt;- 'abc' &gt;= 'abc'; <span class="hljs-comment">// var1 equals true</span>
+<span class="hljs-literal">bool</span> var0 &lt;- <span class="hljs-string">'abc'</span> &gt;= <span class="hljs-string">'aeb'</span>; <span class="hljs-comment">// var0 equals false </span>
+<span class="hljs-literal">bool</span> var1 &lt;- <span class="hljs-string">'abc'</span> &gt;= <span class="hljs-string">'abc'</span>; <span class="hljs-comment">// var1 equals true</span>
 </code></pre>
 <ul>
 <li>if both operands are points, returns true if and only if the left component (x) of the left operand if greater or equal than x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.</li>
@@ -1314,7 +1314,7 @@ the kml export manager with new icons: take the following argument: (kml, locati
 <h4><a class="anchor" aria-hidden="true" id="result-26"></a><a href="#result-26" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns true if the current_date of the model is strictly after the date passed in argument. Synonym of 'current_date &gt; argument'. Can be used in its composed form with 2 arguments to express the lower boundary for the computation of a frequency. Note that only dates strictly after this one will be tested against the frequency</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-19"></a><a href="#examples-19" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-class">reflex <span class="hljs-title">when</span>: <span class="hljs-title">after</span>(<span class="hljs-title">starting_date</span>) </span>{}    <span class="hljs-comment">// this reflex will always be run after the first step reflex when: false after(starting date + #10days) {}     // This reflex will not be run after this date. Better to use 'until' or 'before' in that case every(2#days) after (starting_date + 1#day)  // the computation will return true every two days (using the starting_date of the model as the starting point) only for the dates strictly after this starting_date + 1#day </span>
+<pre><code class="hljs"><span class="hljs-builtin">reflex</span> <span class="hljs-symbol">when:</span> after(starting_date) {}    <span class="hljs-comment">// this reflex will always be run after the first step reflex when: false after(starting date + #10days) {}     // This reflex will not be run after this date. Better to use 'until' or 'before' in that case every(2#days) after (starting_date + 1#day)  // the computation will return true every two days (using the starting_date of the model as the starting point) only for the dates strictly after this starting_date + 1#day </span>
 
 </code></pre>
 <hr>
@@ -1674,7 +1674,7 @@ An arc, which radius is equal to the first operand, heading to the second and am
 <p>A matrix of square geometries (grid with 4-neighborhood) with dimension given by the right-hand operand ({nb_cols, nb_lines}) corresponding to the square tessellation of the left-hand operand geometry (geometry, agent)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-39"></a><a href="#examples-39" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">matrix</span> var0 &lt;- self as_4_<span class="hljs-class">grid </span>{10, 5}; <span class="hljs-comment">// var0 equals the matrix of square geometries (grid with 4-neighborhood) with 10 columns and 5 lines corresponding to the square tessellation of the geometry of the agent applying the operator.</span>
+<span class="hljs-literal">matrix</span> var0 &lt;- self as_4_grid {10, 5}; <span class="hljs-comment">// var0 equals the matrix of square geometries (grid with 4-neighborhood) with 10 columns and 5 lines corresponding to the square tessellation of the geometry of the agent applying the operator.</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-33"></a><a href="#see-also-33" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1709,7 +1709,7 @@ An arc, which radius is equal to the first operand, heading to the second and am
 <h4><a class="anchor" aria-hidden="true" id="result-48"></a><a href="#result-48" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>creates a graph from the list/map of edges given as operand and connect the node to the edge</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-41"></a><a href="#examples-41" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">as_driving_graph(road,node)  --:  build a <span class="hljs-literal">graph</span> <span class="hljs-keyword">while</span> using the road agents as edges and the node agents as nodes 
+<pre><code class="hljs">as_driving_graph(road,node)  --:  build a <span class="hljs-literal">graph</span> while <span class="hljs-keyword">using</span> the road <span class="hljs-keyword">agents</span> as edges and the node <span class="hljs-keyword">agents</span> as nodes 
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-35"></a><a href="#see-also-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1757,7 +1757,7 @@ An arc, which radius is equal to the first operand, heading to the second and am
 <p>A matrix of square geometries (grid with 8-neighborhood) with dimension given by the right-hand operand ({nb_cols, nb_lines}) corresponding to the square tessellation of the left-hand operand geometry (geometry, agent)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-42"></a><a href="#examples-42" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">matrix</span> var0 &lt;- self as_<span class="hljs-class">grid </span>{10, 5}; <span class="hljs-comment">// var0 equals a matrix of square geometries (grid with 8-neighborhood) with 10 columns and 5 lines corresponding to the square tessellation of the geometry of the agent applying the operator.</span>
+<span class="hljs-literal">matrix</span> var0 &lt;- self as_grid {10, 5}; <span class="hljs-comment">// var0 equals a matrix of square geometries (grid with 8-neighborhood) with 10 columns and 5 lines corresponding to the square tessellation of the geometry of the agent applying the operator.</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-37"></a><a href="#see-also-37" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1773,7 +1773,7 @@ An arc, which radius is equal to the first operand, heading to the second and am
 <p>A list of geometries (hexagonal) corresponding to the hexagonal tesselation of the first operand geometry</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-43"></a><a href="#examples-43" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- self as_hexagonal_<span class="hljs-class">grid </span>{10, 5}; <span class="hljs-comment">// var0 equals list of geometries (hexagonal) corresponding to the hexagonal tesselation of the first operand geometry</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- self as_hexagonal_grid {10, 5}; <span class="hljs-comment">// var0 equals list of geometries (hexagonal) corresponding to the hexagonal tesselation of the first operand geometry</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-38"></a><a href="#see-also-38" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1794,11 +1794,11 @@ An arc, which radius is equal to the first operand, heading to the second and am
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-44"></a><a href="#examples-44" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">int</span> var0 &lt;- '20' as_int 10; <span class="hljs-comment">// var0 equals 20 </span>
-<span class="hljs-literal">int</span> var1 &lt;- '20' as_int 8; <span class="hljs-comment">// var1 equals 16 </span>
-<span class="hljs-literal">int</span> var2 &lt;- '20' as_int 16; <span class="hljs-comment">// var2 equals 32 </span>
-<span class="hljs-literal">int</span> var3 &lt;- '1F' as_int 16; <span class="hljs-comment">// var3 equals 31 </span>
-<span class="hljs-literal">int</span> var4 &lt;- 'hello' as_int 32; <span class="hljs-comment">// var4 equals 18306744</span>
+<span class="hljs-literal">int</span> var0 &lt;- <span class="hljs-string">'20'</span> as_int 10; <span class="hljs-comment">// var0 equals 20 </span>
+<span class="hljs-literal">int</span> var1 &lt;- <span class="hljs-string">'20'</span> as_int 8; <span class="hljs-comment">// var1 equals 16 </span>
+<span class="hljs-literal">int</span> var2 &lt;- <span class="hljs-string">'20'</span> as_int 16; <span class="hljs-comment">// var2 equals 32 </span>
+<span class="hljs-literal">int</span> var3 &lt;- <span class="hljs-string">'1F'</span> as_int 16; <span class="hljs-comment">// var3 equals 31 </span>
+<span class="hljs-literal">int</span> var4 &lt;- <span class="hljs-string">'hello'</span> as_int 32; <span class="hljs-comment">// var4 equals 18306744</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-39"></a><a href="#see-also-39" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1921,7 +1921,7 @@ An arc, which radius is equal to the first operand, heading to the second and am
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-49"></a><a href="#examples-49" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">string</span> var2 &lt;- 'abcdef' at 0; <span class="hljs-comment">// var2 equals 'a'</span>
+<span class="hljs-literal">string</span> var2 &lt;- <span class="hljs-string">'abcdef'</span> at 0; <span class="hljs-comment">// var2 equals 'a'</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-43"></a><a href="#see-also-43" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>

@@ -73,30 +73,30 @@
 <li><strong><code>name</code></strong> (identifier) : Specify which event do you want to trigger (among the following values : <code>mouse_down</code>, <code>mouse_up</code>, <code>mouse_move</code>, <code>mouse_enter</code>, <code>mouse_exit</code> or any alphanumeric symbol/key of the keyboard, such as, <code>'a'</code>, <code>'b'</code>...).</li>
 <li><strong><code>action</code></strong> (identifier) : Specify the name of the global action to call.</li>
 </ul>
-<pre><code class="hljs">event mouse_down action: my_action;
+<pre><code class="hljs"><span class="hljs-keyword">event</span> mouse_down <span class="hljs-symbol">action:</span> my_action;
 </code></pre>
 <p>The <code>event</code> statement has to be defined in the <code>experiment</code>/<code>output</code>/<code>display</code> scope. Once the event is triggered, the global action linked will be called. The action linked cannot have arguments. To get the location of the mouse click, the <code>#user_location</code> can be used; to get the agents on which the mouse has clicked, you can use spatial query (e.g. <code>my_species overlapping #user_location</code>).</p>
-<pre><code class="hljs"><span class="hljs-class">global</span>
+<pre><code class="hljs">global
 {
-    action my_action
+    <span class="hljs-keyword">action</span> my_action
     {
-        write <span class="hljs-string">"do action"</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"do action"</span>;
     }
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">my_species</span></span>
+<span class="hljs-literal">species</span> my_species
 {
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span> gui
 {
-    output
+    <span class="hljs-keyword">output</span>
     {
-        <span class="hljs-class">display <span class="hljs-title">my_display</span></span>
+        <span class="hljs-keyword">display</span> my_display
         {
-            <span class="hljs-class">species <span class="hljs-title">my_species</span>;</span>
-            event mouse_down action: my_action;
+            <span class="hljs-literal">species</span> my_species;
+            <span class="hljs-keyword">event</span> mouse_down <span class="hljs-symbol">action:</span> my_action;
         }
     }
 }
@@ -104,21 +104,21 @@
 <h2><a class="anchor" aria-hidden="true" id="define-user-command"></a><a href="#define-user-command" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define User command</h2>
 <p>Anywhere in the global block, in a species or in an (GUI) experiment, <code>user_command</code> statements can be implemented. They can either call directly an existing action (with or without arguments) or be followed by a block that describes what to do when this command is run.</p>
 <p>Their syntax can be (depending of the modeler needs) either:</p>
-<pre><code class="hljs">user_command cmd_name action: action_without_arg_name;
+<pre><code class="hljs"><span class="hljs-keyword">user_command</span> cmd_name <span class="hljs-symbol">action:</span> action_without_arg_name;
 <span class="hljs-comment">//or</span>
-user_command cmd_name action: action_name with: [arg1::val1, arg2::val2];
+<span class="hljs-keyword">user_command</span> cmd_name <span class="hljs-symbol">action:</span> action_name <span class="hljs-symbol">with:</span> [arg1::val1, arg2::val2];
 <span class="hljs-comment">//or</span>
-user_command cmd_name {
+<span class="hljs-keyword">user_command</span> cmd_name {
    <span class="hljs-comment">// statements</span>
 }
 </code></pre>
 <p>For instance:</p>
-<pre><code class="hljs">user_command kill_myself action: die;
+<pre><code class="hljs"><span class="hljs-keyword">user_command</span> kill_myself <span class="hljs-symbol">action:</span> die;
 <span class="hljs-comment">//or</span>
-user_command kill_myself action: some_action with: [arg1::5, arg2::3];
+<span class="hljs-keyword">user_command</span> kill_myself <span class="hljs-symbol">action:</span> some_action <span class="hljs-symbol">with:</span> [arg1::5, arg2::3];
 <span class="hljs-comment">//or</span>
-user_command kill_myself {
-    do die;
+<span class="hljs-keyword">user_command</span> kill_myself {
+    <span class="hljs-keyword">do</span> die;
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="defining-user-command-in-gui-experiment-scope"></a><a href="#defining-user-command-in-gui-experiment-scope" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining User command in GUI Experiment scope</h3>
@@ -126,24 +126,24 @@ user_command kill_myself {
 <p>Here is a very short code example :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> quick_user_command_model
 
-<span class="hljs-class">global </span>{
-    action createAgent
+global {
+    <span class="hljs-keyword">action</span> createAgent
     {
-        create my_<span class="hljs-class">species;</span>
+        <span class="hljs-keyword">create</span> my_species;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">my_species</span> </span>{
-    aspect base {
-        draw circle(1) color:#blue;
+<span class="hljs-literal">species</span> my_species {
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span>#blue;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">expe</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    user_command cmd_inside_<span class="hljs-class">experiment <span class="hljs-title">action</span>:<span class="hljs-title">createAgent</span>;</span>
-    output {
-        <span class="hljs-class">display <span class="hljs-title">my_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">my_species</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>;</span>
+<span class="hljs-builtin">experiment</span> expe <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">user_command</span> cmd_inside_experiment <span class="hljs-symbol">action:</span>createAgent;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> my_display {
+            <span class="hljs-literal">species</span> my_species <span class="hljs-symbol">aspect:</span>base;
         }
     }
 }
@@ -154,23 +154,23 @@ user_command kill_myself {
 <p>The user command can also be defined inside a species scope (either global or regular one). Here is a quick example of model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> quick_user_command_model
 
-<span class="hljs-class">global </span>{
+global {
     init {
-        create my_<span class="hljs-class">species <span class="hljs-title">number</span>:10;</span>
+        <span class="hljs-keyword">create</span> my_species <span class="hljs-symbol">number:</span>10;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">my_species</span> </span>{
-    user_command cmd_inside_<span class="hljs-class">experiment <span class="hljs-title">action</span>:<span class="hljs-title">die</span>;</span>
-    aspect base {
-        draw circle(1) color:#blue;
+<span class="hljs-literal">species</span> my_species {
+    <span class="hljs-keyword">user_command</span> cmd_inside_experiment <span class="hljs-symbol">action:</span>die;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span>#blue;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">expe</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">my_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">my_species</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>;</span>
+<span class="hljs-builtin">experiment</span> expe <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> my_display {
+            <span class="hljs-literal">species</span> my_species <span class="hljs-symbol">aspect:</span>base;
         }
     }
 }
@@ -192,9 +192,9 @@ user_command kill_myself {
 <h3><a class="anchor" aria-hidden="true" id="user_location"></a><a href="#user_location" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>user_location</h3>
 <p>In the special case when the <code>user_command</code> is called from the pop-up menu (from a right-click on an agent in a display), the location chosen by the user (translated into the model coordinates) is passed to the execution scope under the name <code>user_location</code>.</p>
 <p>Example:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
-   user_command <span class="hljs-string">"Create agents here"</span> {
-      create my_<span class="hljs-class">species <span class="hljs-title">number</span>: 10 <span class="hljs-title">with</span>: [<span class="hljs-title">location</span>::<span class="hljs-title">user_location</span>];</span>
+<pre><code class="hljs">global {
+   <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Create agents here"</span> {
+      <span class="hljs-keyword">create</span> my_species <span class="hljs-symbol">number:</span> 10 <span class="hljs-symbol">with:</span> [location::user_location];
    }
 }
 </code></pre>
@@ -205,23 +205,23 @@ user_command kill_myself {
 <p>Here is an example of implementation:</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> quick_user_command_model
 
-<span class="hljs-class">global </span>{
+global {
    init {
-      <span class="hljs-literal">map</span> values &lt;- user_input(<span class="hljs-string">"Choose a number of agent to create"</span>,[<span class="hljs-string">"Number"</span> :: 100]);
-      create my_<span class="hljs-class">species <span class="hljs-title">number</span>: <span class="hljs-title">int</span>(<span class="hljs-title">values</span> <span class="hljs-title">at</span> "<span class="hljs-title">Number</span>");</span>
+      <span class="hljs-literal">map</span> values &lt;- <span class="hljs-keyword">user_input</span>(<span class="hljs-string">"Choose a number of agent to create"</span>,[<span class="hljs-string">"Number"</span> :: 100]);
+      <span class="hljs-keyword">create</span> my_species <span class="hljs-symbol">number:</span> <span class="hljs-literal">int</span>(values at <span class="hljs-string">"Number"</span>);
    }
 }
 
-<span class="hljs-class">species <span class="hljs-title">my_species</span> </span>{
-    aspect base {
-        draw circle(1) color:#blue;
+<span class="hljs-literal">species</span> my_species {
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span>#blue;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">expe</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">my_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">my_species</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>;</span>
+<span class="hljs-builtin">experiment</span> expe <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> my_display {
+            <span class="hljs-literal">species</span> my_species <span class="hljs-symbol">aspect:</span>base;
         }
     }
 }

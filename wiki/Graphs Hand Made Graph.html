@@ -11,7 +11,7 @@
 @no_warning
 <span class="hljs-builtin">model</span> handMadeGraph
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">graph</span>&lt;<span class="hljs-literal">geometry</span>, <span class="hljs-literal">geometry</span>&gt; the_graph1 ;
     <span class="hljs-literal">graph</span>&lt;<span class="hljs-literal">geometry</span>, <span class="hljs-literal">geometry</span>&gt; the_graph2;
     
@@ -30,38 +30,38 @@
     
 }
 
-<span class="hljs-class">species <span class="hljs-title">edge_agent</span> </span>{
-    aspect default {    
-        draw shape color: #black;
+<span class="hljs-literal">species</span> edge_agent {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {    
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">node_agent</span> </span>{
-    aspect default {    
-        draw circle(1) color: #red;
+<span class="hljs-literal">species</span> node_agent {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {    
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span> #red;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">create_graph</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> create_graph <span class="hljs-symbol">type:</span> gui {
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">graph1</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            graphics <span class="hljs-string">"the graph 1"</span> {
-                loop e over: the_graph1.edges {
-                    draw e color: °blue; 
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> graph1 <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"the graph 1"</span> {
+                <span class="hljs-keyword">loop</span> e <span class="hljs-symbol">over:</span> the_graph1.edges {
+                    <span class="hljs-keyword">draw</span> e <span class="hljs-symbol">color:</span> °blue; 
                 }
-                loop n over: the_graph1.vertices {
-                    draw circle(2) at: <span class="hljs-literal">point</span>(n) color: °blue; 
+                <span class="hljs-keyword">loop</span> n <span class="hljs-symbol">over:</span> the_graph1.vertices {
+                    <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">at:</span> <span class="hljs-literal">point</span>(n) <span class="hljs-symbol">color:</span> °blue; 
                 }
             }
         }
-        <span class="hljs-class">display <span class="hljs-title">graph2</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            graphics <span class="hljs-string">"the graph 2"</span> {
-                loop e over: the_graph2.edges {
-                    draw e color: °red; 
+        <span class="hljs-keyword">display</span> graph2 <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"the graph 2"</span> {
+                <span class="hljs-keyword">loop</span> e <span class="hljs-symbol">over:</span> the_graph2.edges {
+                    <span class="hljs-keyword">draw</span> e <span class="hljs-symbol">color:</span> °red; 
                 }
-                loop n over: the_graph2.vertices {
-                    draw circle(2) at: <span class="hljs-literal">point</span>(n) color: °red; 
+                <span class="hljs-keyword">loop</span> n <span class="hljs-symbol">over:</span> the_graph2.vertices {
+                    <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">at:</span> <span class="hljs-literal">point</span>(n) <span class="hljs-symbol">color:</span> °red; 
                 }
             }
         }

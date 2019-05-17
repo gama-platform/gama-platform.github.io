@@ -10,35 +10,35 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> SimpleTimedefinition
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//redifitiion of the duration of one simulation step to 1 hour. By default the duration is one second.</span>
     <span class="hljs-literal">float</span> step &lt;- 1 #hour;
     
     
     init {
         <span class="hljs-comment">//GAMA provides different values for temporal unities - these values are given in seconds</span>
-        write <span class="hljs-string">"1#s: "</span> + 1#s;
-        write <span class="hljs-string">"1#mn: "</span> + 1#mn;
-        write <span class="hljs-string">"1#hour: "</span> + 1#hour;
-        write <span class="hljs-string">"1#day: "</span> + 1#day;
-        write <span class="hljs-string">"1#month: "</span> + 1#month;
-        write <span class="hljs-string">"1#year: "</span> + 1#year;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"1#s: "</span> + 1#s;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"1#mn: "</span> + 1#mn;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"1#hour: "</span> + 1#hour;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"1#day: "</span> + 1#day;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"1#month: "</span> + 1#month;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"1#year: "</span> + 1#year;
         
         <span class="hljs-comment">//Note that these values are constant: the value #month is always equal to 30 #day. </span>
     }
-    <span class="hljs-class">reflex <span class="hljs-title">info_time</span> </span>{
-        write <span class="hljs-string">"\n-------------------------------------------"</span>;
+    <span class="hljs-builtin">reflex</span> info_time {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"\n-------------------------------------------"</span>;
         <span class="hljs-comment">//the global variable cycle gives the current step of the simulation</span>
-        write <span class="hljs-string">"cycle: "</span> + cycle;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"cycle: "</span> + cycle;
         
         <span class="hljs-comment">//the global variable time gives the current duration (in seconds) since the beginning of the simulation: time = cycle * step</span>
         <span class="hljs-comment">//The value of the time facet can be seen - in a date-time presentation - in the top-left green info panel (click on the number of cycle to see the time value).</span>
         <span class="hljs-comment">//When presenting the time value, a month is considered as being composed of 30 days. For a more realistic calendar, use the starting_date global value (see the Date type and Real dates model)</span>
-        write <span class="hljs-string">"time: "</span> + time;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"time: "</span> + time;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">SimpleTimedefinition</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> ;</span>
+<span class="hljs-builtin">experiment</span> SimpleTimedefinition <span class="hljs-symbol">type:</span> gui ;
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

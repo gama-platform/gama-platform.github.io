@@ -70,12 +70,12 @@ Moreover, in addition to classic built-in variables, grid a provided with a set 
 <p>Instead of using the <code>species</code> keyword, use the keyword <code>grid</code> to declare a grid species. The grid species has exactly the same facets of the regular species, plus some others.
 To declare a grid, you have to specify the number of columns and rows first. You can do it two different ways:</p>
 <p>Using the two facets <code>width:</code> and <code>height:</code> to fix the number of cells (the size of each cells will be determined thanks to the environment dimension).</p>
-<pre><code class="hljs"><span class="hljs-class">grid <span class="hljs-title">my_grid</span> <span class="hljs-title">width</span>:8 <span class="hljs-title">height</span>:10 </span>{
+<pre><code class="hljs">grid my_grid <span class="hljs-symbol">width:</span>8 <span class="hljs-symbol">height:</span>10 {
 <span class="hljs-comment">// my_grid has 8 columns and 10 rows</span>
 }
 </code></pre>
 <p>Using the two facets <code>cell_width:</code> and <code>cell_height:</code> to fix the size of each cells (the number cells will be determined thanks to the environment dimension).</p>
-<pre><code class="hljs"><span class="hljs-class">grid <span class="hljs-title">my_grid</span> <span class="hljs-title">cell_width</span>:3 <span class="hljs-title">cell_height</span>:2 </span>{
+<pre><code class="hljs">grid my_grid <span class="hljs-symbol">cell_width:</span>3 <span class="hljs-symbol">cell_height:</span>2 {
 <span class="hljs-comment">// my_grid has cells with dimension 3m width by 2m height</span>
 }
 </code></pre>
@@ -86,17 +86,17 @@ To declare a grid, you have to specify the number of columns and rows first. You
 <h2><a class="anchor" aria-hidden="true" id="built-in-attributes"></a><a href="#built-in-attributes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Built-in attributes</h2>
 <h3><a class="anchor" aria-hidden="true" id="grid-_x"></a><a href="#grid-_x" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>grid_x</h3>
 <p>This variable stores the column index of a cell.</p>
-<pre><code class="hljs">   <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 10 <span class="hljs-title">height</span>: 10 <span class="hljs-title">neighbors</span>: 4 </span>{
+<pre><code class="hljs">   grid cell <span class="hljs-symbol">width:</span> 10 <span class="hljs-symbol">height:</span> 10 <span class="hljs-symbol">neighbors:</span> 4 {
         init {
-             write <span class="hljs-string">"my column index is:"</span> + grid_x;
+             <span class="hljs-keyword">write</span> <span class="hljs-string">"my column index is:"</span> + grid_x;
         }
    }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="grid-_y"></a><a href="#grid-_y" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>grid_y</h3>
 <p>This variable stores the row index of a cell.</p>
-<pre><code class="hljs">   <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 10 <span class="hljs-title">height</span>: 10 <span class="hljs-title">neighbors</span>: 4 </span>{
+<pre><code class="hljs">   grid cell <span class="hljs-symbol">width:</span> 10 <span class="hljs-symbol">height:</span> 10 <span class="hljs-symbol">neighbors:</span> 4 {
         init {
-             write <span class="hljs-string">"my row index is:"</span> + grid_y;
+             <span class="hljs-keyword">write</span> <span class="hljs-string">"my row index is:"</span> + grid_y;
         }
    }
 </code></pre>
@@ -104,26 +104,26 @@ To declare a grid, you have to specify the number of columns and rows first. You
 <p>return the set of agents located inside the cell. Note the use of this variable is deprecated.
 It is preferable to use the <code>inside</code> operator:
 <a href="#" title="startConcept|grid">//</a>: # (keyword|operator_inside)</p>
-<pre><code class="hljs"> <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 10 <span class="hljs-title">height</span>: 10 <span class="hljs-title">neighbors</span>: 4 </span>{ 
+<pre><code class="hljs"> grid cell <span class="hljs-symbol">width:</span> 10 <span class="hljs-symbol">height:</span> 10 <span class="hljs-symbol">neighbors:</span> 4 { 
         <span class="hljs-literal">list</span>&lt;bug&gt; bugs_inside -&gt; {bug inside self};
    }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="color"></a><a href="#color" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>color</h3>
 <p>The <strong>color</strong> built-in variable is used by the optimized grid display. Indeed, it is possible to use for grid agents an optimized aspect by using in a display the <strong>grid</strong> keyword. In this case, the grid will be displayed using the color defined by the <strong>color</strong> variable. The border of the cells can be displayed with a specific color by using the <strong>lines</strong> facet.</p>
 <p>Here an example of the display of a grid species named <strong>cell</strong> with black border.</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">main_xp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">lines</span>: <span class="hljs-title">rgb</span>("<span class="hljs-title">black</span>") ;</span>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_xp <span class="hljs-symbol">type:</span> gui{
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            grid cell <span class="hljs-symbol">lines:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-string">"black"</span>) ;
         }
     }
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="neighbors"></a><a href="#neighbors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>neighbors</h3>
 <p>The <strong>neighbors</strong> built-in variable returns the list of cells at a distance of 1.</p>
-<pre><code class="hljs"><span class="hljs-class">grid <span class="hljs-title">my_grid</span> </span>{
-  <span class="hljs-class">reflex <span class="hljs-title">writeNeighbors</span> </span>{
-    write neighbors;
+<pre><code class="hljs">grid my_grid {
+  <span class="hljs-builtin">reflex</span> writeNeighbors {
+    <span class="hljs-keyword">write</span> neighbors;
   }
 }
 </code></pre>
@@ -134,63 +134,63 @@ It is preferable to use the <code>inside</code> operator:
 <ul>
 <li>by a location: by casting a location to a cell (the unity (<code>#m</code>, <code>#cm</code>, etc...) is defined when you choose your environment size, in the <a href="GlobalSpecies">global species</a>.</li>
 </ul>
-<pre><code class="hljs">   <span class="hljs-class">global </span>{
+<pre><code class="hljs">   global {
          init {
-             write <span class="hljs-string">"cell at {57.5, 45} :"</span> + cell({57.5, 45});
+             <span class="hljs-keyword">write</span> <span class="hljs-string">"cell at {57.5, 45} :"</span> + cell({57.5, 45});
          }
    }
 
-   <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 10 <span class="hljs-title">height</span>: 10 <span class="hljs-title">neighbors</span>: 4 </span>{
+   grid cell <span class="hljs-symbol">width:</span> 10 <span class="hljs-symbol">height:</span> 10 <span class="hljs-symbol">neighbors:</span> 4 {
    }
 </code></pre>
 <ul>
 <li>by the row and column indexes: like matrix, it is possible to directly access to a cell from its indexes</li>
 </ul>
-<pre><code class="hljs">   <span class="hljs-class">global </span>{
+<pre><code class="hljs">   global {
          init {
-             write <span class="hljs-string">"cell [5,8] :"</span> + cell[5,8];
+             <span class="hljs-keyword">write</span> <span class="hljs-string">"cell [5,8] :"</span> + cell[5,8];
          }
    }
-   <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 10 <span class="hljs-title">height</span>: 10 <span class="hljs-title">neighbors</span>: 4 </span>{
+   grid cell <span class="hljs-symbol">width:</span> 10 <span class="hljs-symbol">height:</span> 10 <span class="hljs-symbol">neighbors:</span> 4 {
    }
 </code></pre>
 <p>The operator <code>grid_at</code> also exists to get a particular cell. You just have to specify the index of the cell you want (in x and y):</p>
-<pre><code class="hljs">   <span class="hljs-class">global </span>{
+<pre><code class="hljs">   global {
          init {
              <span class="hljs-literal">agent</span> cellAgent &lt;- cell grid_at {5,8};
-             write <span class="hljs-string">"cell [5,8] :"</span> + cellAgent;
+             <span class="hljs-keyword">write</span> <span class="hljs-string">"cell [5,8] :"</span> + cellAgent;
          }
    }
-   <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 10 <span class="hljs-title">height</span>: 10 <span class="hljs-title">neighbors</span>: 4 </span>{
+   grid cell <span class="hljs-symbol">width:</span> 10 <span class="hljs-symbol">height:</span> 10 <span class="hljs-symbol">neighbors:</span> 4 {
    }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="display-grid"></a><a href="#display-grid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Display Grid</h2>
 <p>You can easily display your grid in your experiment as followed :</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">MyExperiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">MyDisplay</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">MyGrid</span>;</span>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> MyExperiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> MyDisplay <span class="hljs-symbol">type:</span> opengl {
+            grid MyGrid;
         }
     }
 }
 </code></pre>
 <p>The grid will be displayed, using the color you defined for each cell (with the &quot;color&quot; built-in attribute). You can also show border of each cell by using the facet &quot;lines:&quot; and choosing a rgb color:</p>
-<pre><code class="hljs"><span class="hljs-class">grid <span class="hljs-title">MyGrid</span> <span class="hljs-title">lines</span>:#<span class="hljs-title">black</span>;</span>
+<pre><code class="hljs">grid MyGrid <span class="hljs-symbol">lines:</span>#black;
 </code></pre>
 <p>An other way to display a grid will be to define an aspect in your grid agent (the same way as for a <a href="RegularSpecies">regular species</a>), and define your grid as a regular species then in your experiment, choosing your aspect :</p>
-<pre><code class="hljs"><span class="hljs-class">grid <span class="hljs-title">MyGrid</span> </span>{
-    aspect firstAspect {
-        draw square(1);
+<pre><code class="hljs">grid MyGrid {
+    <span class="hljs-keyword">aspect</span> firstAspect {
+        <span class="hljs-keyword">draw</span> square(1);
     }
-    aspect secondAspect {
-        draw circle(1);
+    <span class="hljs-keyword">aspect</span> secondAspect {
+        <span class="hljs-keyword">draw</span> circle(1);
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">MyExperiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">MyDisplay</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">MyGrid</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">firstAspect</span>;</span>
+<span class="hljs-builtin">experiment</span> MyExperiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> MyDisplay <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> MyGrid <span class="hljs-symbol">aspect:</span>firstAspect;
         }
     }
 }
@@ -198,11 +198,11 @@ It is preferable to use the <code>inside</code> operator:
 <p>Beware : don't use this second display when you have large grids : it's much slower.</p>
 <h2><a class="anchor" aria-hidden="true" id="grid-from-a-matrix"></a><a href="#grid-from-a-matrix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Grid from a matrix</h2>
 <p>An easy way to load some values in a grid is to use matrix data. A <code>matrix</code> is a type of container (we invite you to learn some more about this useful type <a href="DataTypes#matrix">here</a>). Once you have declared your matrix, you can set the values of your cells using the <code>ask</code> statement :</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
   init {
-    <span class="hljs-literal">matrix</span> data &lt;- <span class="hljs-literal">matrix</span>([[0,1,1],[1,2,0]]);
-    ask cell {
-      grid_value &lt;- <span class="hljs-literal">float</span>(data[grid_x, grid_y]);
+    <span class="hljs-literal">matrix</span> <span class="hljs-keyword">data</span> &lt;- <span class="hljs-literal">matrix</span>([[0,1,1],[1,2,0]]);
+    <span class="hljs-keyword">ask</span> cell {
+      grid_value &lt;- <span class="hljs-literal">float</span>(<span class="hljs-keyword">data</span>[grid_x, grid_y]);
     } 
   }
 }
@@ -224,28 +224,28 @@ It is preferable to use the <code>inside</code> operator:
 <p>With the following model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> import_csv
 
-<span class="hljs-class">global </span>{
+global {
   <span class="hljs-literal">file</span> my_csv_file &lt;- csv_file(<span class="hljs-string">"../includes/test.csv"</span>,<span class="hljs-string">","</span>);
   init {
-    <span class="hljs-literal">matrix</span> data &lt;- <span class="hljs-literal">matrix</span>(my_csv_file);
-    ask my_gama_<span class="hljs-class">grid </span>{
-      grid_value &lt;- <span class="hljs-literal">float</span>(data[grid_x,grid_y]);
-      write data[grid_x,grid_y];
+    <span class="hljs-literal">matrix</span> <span class="hljs-keyword">data</span> &lt;- <span class="hljs-literal">matrix</span>(my_csv_file);
+    <span class="hljs-keyword">ask</span> my_gama_grid {
+      grid_value &lt;- <span class="hljs-literal">float</span>(<span class="hljs-keyword">data</span>[grid_x,grid_y]);
+      <span class="hljs-keyword">write</span> <span class="hljs-keyword">data</span>[grid_x,grid_y];
     }
   }
 }
 
-<span class="hljs-class">grid <span class="hljs-title">my_gama_grid</span> <span class="hljs-title">width</span>: 11 <span class="hljs-title">height</span>: 8 </span>{
-  <span class="hljs-class">reflex <span class="hljs-title">update_color</span> </span>{
-    write grid_value;
+grid my_gama_grid <span class="hljs-symbol">width:</span> 11 <span class="hljs-symbol">height:</span> 8 {
+  <span class="hljs-builtin">reflex</span> update_color {
+    <span class="hljs-keyword">write</span> grid_value;
     color &lt;- (grid_value = 1) ? #blue : #white;
   }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>{
-  output {
-    <span class="hljs-class">display <span class="hljs-title">display_grid</span> </span>{
-      <span class="hljs-class">grid <span class="hljs-title">my_gama_grid</span>;</span>
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui{
+  <span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">display</span> <span class="hljs-keyword">display_grid</span> {
+      grid my_gama_grid;
     }
   }
 }
@@ -257,61 +257,61 @@ It is preferable to use the <code>inside</code> operator:
 <p>Here is an example of implementation:</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> my_grid_model
 
-<span class="hljs-class">global</span>{
+global{
     <span class="hljs-literal">float</span> max_range &lt;- 5.0;
     <span class="hljs-literal">int</span> number_of_agents &lt;- 5;
     init {
-        create my_<span class="hljs-class">species <span class="hljs-title">number</span>:<span class="hljs-title">number_of_agents</span>;</span>
+        <span class="hljs-keyword">create</span> my_species <span class="hljs-symbol">number:</span>number_of_agents;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">update</span> </span>{
-        ask my_<span class="hljs-class">species </span>{
-            do wander amplitude:180;    
-            ask my_<span class="hljs-class">grid <span class="hljs-title">at_distance</span>(<span class="hljs-title">max_range</span>)</span>
+    <span class="hljs-builtin">reflex</span> update {
+        <span class="hljs-keyword">ask</span> my_species {
+            <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span>180;    
+            <span class="hljs-keyword">ask</span> my_grid at_distance(max_range)
             {
                 <span class="hljs-keyword">if</span>(self overlaps myself)
                 {
                     self.color_value &lt;- 2;
                 }
-                else <span class="hljs-keyword">if</span> (self.color_value != 2)
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (self.color_value != 2)
                 {
                     self.color_value &lt;- 1;
                 }
             }
         }
-        ask my_<span class="hljs-class">grid </span>{
-            do update_color;
+        <span class="hljs-keyword">ask</span> my_grid {
+            <span class="hljs-keyword">do</span> update_color;
         }   
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">my_species</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> my_species <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">float</span> speed &lt;- 2.0;
-    aspect default {
-        draw circle(1) color:#blue;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span>#blue;
     }
 }
 
-<span class="hljs-class">grid <span class="hljs-title">my_grid</span> <span class="hljs-title">width</span>:30 <span class="hljs-title">height</span>:30 </span>{
+grid my_grid <span class="hljs-symbol">width:</span>30 <span class="hljs-symbol">height:</span>30 {
     <span class="hljs-literal">int</span> color_value &lt;- 0;
-    action update_color {
+    <span class="hljs-keyword">action</span> update_color {
         <span class="hljs-keyword">if</span> (color_value = 0) {
             color &lt;- #green;
         }
-        else <span class="hljs-keyword">if</span> (color_value = 1) {
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color_value = 1) {
             color &lt;- #yellow;
         }
-        else <span class="hljs-keyword">if</span> (color_value = 2) {
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color_value = 2) {
             color &lt;- #red;
         }
         color_value &lt;- 0;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">MyExperiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">MyDisplay</span> <span class="hljs-title">type</span>: <span class="hljs-title">java2D</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">my_grid</span> <span class="hljs-title">lines</span>:#<span class="hljs-title">black</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">my_species</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>; </span>
+<span class="hljs-builtin">experiment</span> MyExperiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> MyDisplay <span class="hljs-symbol">type:</span> java2D {
+            grid my_grid <span class="hljs-symbol">lines:</span>#black;
+            <span class="hljs-literal">species</span> my_species <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>; 
         }
     }
 }

@@ -9,27 +9,27 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> shapefile_loading
 
-<span class="hljs-class">global </span>{
+global {
     
     <span class="hljs-comment">//file variable that will store the shape file</span>
-    <span class="hljs-literal">file</span> shape_file_gis_3d_objects &lt;- shape_file('../includes/Mobilier.shp', 0);
+    <span class="hljs-literal">file</span> shape_file_gis_3d_objects &lt;- shape_file(<span class="hljs-string">'../includes/Mobilier.shp'</span>, 0);
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_gis_3d_objects);
     init {
-        create gis_3d_object from: shape_file_gis_3d_objects;
+        <span class="hljs-keyword">create</span> gis_3d_object <span class="hljs-symbol">from:</span> shape_file_gis_3d_objects;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">gis_3d_object</span> </span>{
-    aspect base {
-        draw shape at:{world.shape.width/2,world.shape.height/2,0};
+<span class="hljs-literal">species</span> gis_3d_object {
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">at:</span>{world.shape.width/2,world.shape.height/2,0};
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">display_shape</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> display_shape <span class="hljs-symbol">type:</span> gui {
 
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> <span class="hljs-title">draw_env</span>:<span class="hljs-title">false</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">gis_3d_object</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">draw_env:</span>false{
+            <span class="hljs-literal">species</span> gis_3d_object <span class="hljs-symbol">aspect:</span> base;
         }
 
     }

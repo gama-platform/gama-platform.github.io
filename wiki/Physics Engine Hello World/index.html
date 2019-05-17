@@ -12,14 +12,14 @@
 
 
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> environment_size &lt;- 500; 
  
      
-    <span class="hljs-literal">int</span> number_of_ball parameter: 'Number of ball' min:1 &lt;- 100  category: 'Model'; 
-    <span class="hljs-literal">int</span> ball_radius parameter: 'Ball radius' min:1 &lt;- 25  category: 'Model'; 
+    <span class="hljs-literal">int</span> number_of_ball <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Number of ball'</span> <span class="hljs-symbol">min:</span>1 &lt;- 100  <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span>; 
+    <span class="hljs-literal">int</span> ball_radius <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Ball radius'</span> <span class="hljs-symbol">min:</span>1 &lt;- 25  <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span>; 
     
-    <span class="hljs-literal">file</span> imageRaster &lt;- <span class="hljs-literal">file</span>('./../images/wood-floor.jpg') ;
+    <span class="hljs-literal">file</span> imageRaster &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'./../images/wood-floor.jpg'</span>) ;
     <span class="hljs-literal">geometry</span> shape &lt;- square(environment_size);
     
     
@@ -28,7 +28,7 @@
     
     
     init {
-        create ball number: number_of_ball{
+        <span class="hljs-keyword">create</span> ball <span class="hljs-symbol">number:</span> number_of_ball{
             location &lt;-  {rnd(environment_size),rnd(environment_size),rnd(environment_size)};
             radius &lt;-<span class="hljs-literal">float</span>(rnd(ball_radius)+1);
             <span class="hljs-comment">//Bounds to compute the collision for the ball agents</span>
@@ -36,54 +36,54 @@
             mass &lt;-1.0;
         }
         
-        create ground {
+        <span class="hljs-keyword">create</span> ground {
             location &lt;- {environment_size/2,environment_size/2,0};
             <span class="hljs-comment">//Bounds to compute the collision for the floor agent</span>
             collisionBound &lt;-  [<span class="hljs-string">"shape"</span>::<span class="hljs-string">"floor"</span>,<span class="hljs-string">"x"</span>::environment_size/2, <span class="hljs-string">"y"</span>:: environment_size/2, <span class="hljs-string">"z"</span>::0];
             mass &lt;-0.0;
         }
 
-        create physic_world{
+        <span class="hljs-keyword">create</span> physic_world{
           world2 &lt;- self;
           <span class="hljs-comment">//Add to the agents that will be used to compute the forces.</span>
-          ask world2 {agents &lt;-  (ball as <span class="hljs-literal">list</span>) + (ground as <span class="hljs-literal">list</span>);}
+          <span class="hljs-keyword">ask</span> world2 {<span class="hljs-keyword">agents</span> &lt;-  (ball as <span class="hljs-literal">list</span>) + (ground as <span class="hljs-literal">list</span>);}
           <span class="hljs-comment">//Boolean to set gravity  </span>
           world2.gravity &lt;- true;
         }
     }
     
     <span class="hljs-comment">//Reflex to compute the forces at each step</span>
-    <span class="hljs-class">reflex <span class="hljs-title">computeForces</span>  </span>{
-      ask world2 {do compute_forces step: 1;}
+    <span class="hljs-builtin">reflex</span> computeForces  {
+      <span class="hljs-keyword">ask</span> world2 {<span class="hljs-keyword">do</span> compute_forces <span class="hljs-symbol">step:</span> 1;}
     }           
 } 
 
 
-<span class="hljs-class">species <span class="hljs-title">physic_world</span> <span class="hljs-title">parent</span>: <span class="hljs-title">physical_world</span> ;</span>
+<span class="hljs-literal">species</span> physic_world <span class="hljs-symbol">parent:</span> physical_world ;
 
-<span class="hljs-class">species <span class="hljs-title">ground</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">physics</span>]</span>{       
-    aspect image{
-        draw imageRaster size: environment_size;
+<span class="hljs-literal">species</span> ground <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">physics</span>]{       
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">image</span>{
+        <span class="hljs-keyword">draw</span> imageRaster <span class="hljs-symbol">size:</span> environment_size;
     }
 }
  
-<span class="hljs-class">species <span class="hljs-title">ball</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">physics</span>] </span>{  
+<span class="hljs-literal">species</span> ball <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">physics</span>] {  
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span> (217,229,143); 
     <span class="hljs-literal">float</span> radius;
 
-    aspect sphere{
-        draw sphere(radius) color: color ;
+    <span class="hljs-keyword">aspect</span> sphere{
+        <span class="hljs-keyword">draw</span> sphere(radius) <span class="hljs-symbol">color:</span> color ;
     }   
 }
-<span class="hljs-class">experiment <span class="hljs-title">Falling_Hello_world</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> Falling_Hello_world <span class="hljs-symbol">type:</span> gui {
     init{
         minimum_cycle_duration &lt;-0.001;
     }
     
-    output {        
-        <span class="hljs-class">display <span class="hljs-title">Rain</span>  <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(0,58,64) <span class="hljs-title">draw_env</span>:<span class="hljs-title">false</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">ground</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">image</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">ball</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">sphere</span>;         </span>
+    <span class="hljs-keyword">output</span> {        
+        <span class="hljs-keyword">display</span> Rain  <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(0,58,64) <span class="hljs-symbol">draw_env:</span>false{
+            <span class="hljs-literal">species</span> ground <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">image</span>;
+            <span class="hljs-literal">species</span> ball <span class="hljs-symbol">aspect:</span>sphere;         
         }
     }
 }

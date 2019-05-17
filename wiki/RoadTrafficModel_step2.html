@@ -65,11 +65,11 @@
 <h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
 <h3><a class="anchor" aria-hidden="true" id="species"></a><a href="#species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>species</h3>
 <p>We define a new species of agents: the <strong>people</strong> agents. In this model, these agents will not have a specific behavior yet. They will be just displayed. Thus, we just have to define an aspect for the agents. We want to represent the <strong>people</strong> agents by a yellow circle of radius 10m. We then use the <strong>circle</strong> value for the <strong>shape</strong> facet of the <strong>draw</strong> command, with the expected color and radius size (defined by the facet <strong>size</strong>).</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">people</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> people {
     <span class="hljs-literal">rgb</span> color &lt;- #yellow ;
     
-    aspect base {
-        draw circle(10) color: color;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span> color;
     }
 }
 </code></pre>
@@ -79,21 +79,21 @@
 <pre><code class="hljs">   <span class="hljs-literal">int</span> nb_people &lt;- 100;
 </code></pre>
 <p>In the experiment section, definition of the parameter:</p>
-<pre><code class="hljs">   parameter <span class="hljs-string">"Number of people agents"</span> var: nb_people category: <span class="hljs-string">"People"</span> ;
+<pre><code class="hljs">   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of people agents"</span> <span class="hljs-symbol">var:</span> nb_people <span class="hljs-symbol">category:</span> <span class="hljs-string">"People"</span> ;
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="creation-and-placement-of-the-people-agents"></a><a href="#creation-and-placement-of-the-people-agents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>creation and placement of the people agents</h3>
 <p>We have to create <strong>nb_people</strong> <strong>people</strong> agents. Each <strong>people</strong> is placed in a buildings of type 'Residential' randomly selected. In order to simplify the GAML code, we defined a local variable <strong>residential_buildings</strong> that represent the list of buildings of type 'Residential'. To filter the list of <strong>building</strong> agents (obtained by <strong>building</strong>), we use the <strong>where</strong> operator. We use the operator <strong>one_of</strong> to randomly select one agent of this list. There are several ways to place a <strong>people</strong> agent inside this building. In this tutorial, we choose to use the <strong>any_location_in</strong> operator. This operator returns a random point situated inside the operand geometry.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     ...
     init {
-        create building from: shape_file_buildings with: [type::<span class="hljs-literal">string</span>(read (<span class="hljs-string">"NATURE"</span>))] {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> shape_file_buildings <span class="hljs-symbol">with:</span> [type::<span class="hljs-literal">string</span>(read (<span class="hljs-string">"NATURE"</span>))] {
             <span class="hljs-keyword">if</span> type=<span class="hljs-string">"Industrial"</span> {
                 color &lt;- #blue ;
             }
         }
-        create road from: shape_file_roads ;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_roads ;
         <span class="hljs-literal">list</span>&lt;building&gt; residential_buildings &lt;- building where (each.type=<span class="hljs-string">"Residential"</span>);
-        create people number: nb_people {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> nb_people {
             location &lt;- any_location_in (one_of (residential_buildings));
         }
     }
@@ -101,18 +101,18 @@
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="display"></a><a href="#display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>display</h3>
 <p>We add the <strong>people</strong> agent in the defined display.</p>
-<pre><code class="hljs">   output {
-      <span class="hljs-class">display <span class="hljs-title">city_display</span> </span>{
-         <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-         <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-         <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+<pre><code class="hljs">   <span class="hljs-keyword">output</span> {
+      <span class="hljs-keyword">display</span> city_display {
+         <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base ;
+         <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base ;
+         <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base ;
       }
    }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> tutorial_gis_city_traffic
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">file</span> shape_file_buildings &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/building.shp"</span>);
     <span class="hljs-literal">file</span> shape_file_roads &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/road.shp"</span>);
     <span class="hljs-literal">file</span> shape_file_bounds &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/bounds.shp"</span>);
@@ -121,54 +121,54 @@
     <span class="hljs-literal">int</span> nb_people &lt;- 100;
     
     init {
-        create building from: shape_file_buildings with: [type::<span class="hljs-literal">string</span>(read (<span class="hljs-string">"NATURE"</span>))] {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> shape_file_buildings <span class="hljs-symbol">with:</span> [type::<span class="hljs-literal">string</span>(read (<span class="hljs-string">"NATURE"</span>))] {
             <span class="hljs-keyword">if</span> type=<span class="hljs-string">"Industrial"</span> {
                 color &lt;- #blue ;
             }
         }
-        create road from: shape_file_roads ;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_roads ;
         <span class="hljs-literal">list</span>&lt;building&gt; residential_buildings &lt;- building where (each.type=<span class="hljs-string">"Residential"</span>);
-        create people number: nb_people {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> nb_people {
             location &lt;- any_location_in (one_of (residential_buildings));
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
+<span class="hljs-literal">species</span> building {
     <span class="hljs-literal">string</span> type; 
     <span class="hljs-literal">rgb</span> color &lt;- #gray  ;
     
-    aspect base {
-        draw shape color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{
+<span class="hljs-literal">species</span> road  {
     <span class="hljs-literal">rgb</span> color &lt;- #black ;
-    aspect base {
-        draw shape color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> </span>{
+<span class="hljs-literal">species</span> people {
     <span class="hljs-literal">rgb</span> color &lt;- #yellow ;
     
-    aspect base {
-        draw circle(10) color: color;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span> color;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">road_traffic</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Shapefile for the buildings:"</span> var: shape_file_buildings category: <span class="hljs-string">"GIS"</span> ;
-    parameter <span class="hljs-string">"Shapefile for the roads:"</span> var: shape_file_roads category: <span class="hljs-string">"GIS"</span> ;
-    parameter <span class="hljs-string">"Shapefile for the bounds:"</span> var: shape_file_bounds category: <span class="hljs-string">"GIS"</span> ;
-    parameter <span class="hljs-string">"Number of people agents"</span> var: nb_people category: <span class="hljs-string">"People"</span> ;
+<span class="hljs-builtin">experiment</span> road_traffic <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the buildings:"</span> <span class="hljs-symbol">var:</span> shape_file_buildings <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the roads:"</span> <span class="hljs-symbol">var:</span> shape_file_roads <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the bounds:"</span> <span class="hljs-symbol">var:</span> shape_file_bounds <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of people agents"</span> <span class="hljs-symbol">var:</span> nb_people <span class="hljs-symbol">category:</span> <span class="hljs-string">"People"</span> ;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base ;
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base ;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base ;
         }
     }
 }

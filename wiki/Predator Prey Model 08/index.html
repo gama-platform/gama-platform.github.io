@@ -9,7 +9,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> prey_predator
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_preys_init &lt;- 200;
     <span class="hljs-literal">int</span> nb_predators_init &lt;- 20;
     <span class="hljs-literal">float</span> prey_max_energy &lt;- 1.0;
@@ -29,12 +29,12 @@
     <span class="hljs-literal">int</span> nb_predators -&gt; {length (predator)};
     
     init {
-        create prey number: nb_preys_init ; 
-        create predator number: nb_predators_init ;
+        <span class="hljs-keyword">create</span> prey <span class="hljs-symbol">number:</span> nb_preys_init ; 
+        <span class="hljs-keyword">create</span> predator <span class="hljs-symbol">number:</span> nb_predators_init ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">generic_species</span> </span>{
+<span class="hljs-literal">species</span> generic_species {
     <span class="hljs-literal">float</span> size &lt;- 1.0;
     <span class="hljs-literal">rgb</span> color  ;
     <span class="hljs-literal">float</span> max_energy;
@@ -45,28 +45,28 @@
     <span class="hljs-literal">float</span> energy_reproduce;
     image_file my_icon;
     vegetation_cell myCell &lt;- one_of (vegetation_cell) ;
-    <span class="hljs-literal">float</span> energy &lt;- (rnd(1000) / 1000) * max_energy  update: energy - energy_consum max: max_energy ;
+    <span class="hljs-literal">float</span> energy &lt;- (rnd(1000) / 1000) * max_energy  <span class="hljs-symbol">update:</span> energy - energy_consum <span class="hljs-symbol">max:</span> max_energy ;
     
     init {
         location &lt;- myCell.location;
     }
         
-    <span class="hljs-class">reflex <span class="hljs-title">basic_move</span> </span>{
+    <span class="hljs-builtin">reflex</span> basic_move {
             myCell &lt;- choose_cell();
             location &lt;- myCell.location; 
     } 
     
     vegetation_cell choose_cell {
-        return nil;
+        <span class="hljs-keyword">return</span> nil;
     }
         
-    <span class="hljs-class">reflex <span class="hljs-title">die</span> <span class="hljs-title">when</span>: <span class="hljs-title">energy</span> &lt;= 0 </span>{
-        do die ;
+    <span class="hljs-builtin">reflex</span> die <span class="hljs-symbol">when:</span> energy &lt;= 0 {
+        <span class="hljs-keyword">do</span> die ;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">reproduce</span> <span class="hljs-title">when</span>: (<span class="hljs-title">energy</span> &gt;= <span class="hljs-title">energy_reproduce</span>) <span class="hljs-title">and</span> (<span class="hljs-title">flip</span>(<span class="hljs-title">proba_reproduce</span>)) </span>{
+    <span class="hljs-builtin">reflex</span> reproduce <span class="hljs-symbol">when:</span> (energy &gt;= energy_reproduce) and (flip(proba_reproduce)) {
             <span class="hljs-literal">int</span> nb_offsprings &lt;- <span class="hljs-literal">int</span>(1 + rnd(nb_max_offsprings -1));
-            create <span class="hljs-class">species(<span class="hljs-title">self</span>) <span class="hljs-title">number</span>: <span class="hljs-title">nb_offsprings</span> </span>{
+            <span class="hljs-keyword">create</span> <span class="hljs-literal">species</span>(self) <span class="hljs-symbol">number:</span> nb_offsprings {
                 myCell &lt;- myself.myCell ;
                 location &lt;- myCell.location ;
                 energy &lt;- myself.energy / nb_offsprings ;
@@ -74,19 +74,19 @@
             energy &lt;- energy / nb_offsprings ;
         }
     
-    aspect base {
-        draw circle(size) color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> color ;
     }
-    aspect icon {
-        draw my_icon size: 2 * size ;
+    <span class="hljs-keyword">aspect</span> icon {
+        <span class="hljs-keyword">draw</span> my_icon <span class="hljs-symbol">size:</span> 2 * size ;
     }
-    aspect info {
-        draw square(size) color: color ;
-        draw <span class="hljs-literal">string</span>(energy with_precision 2) size: 3 color: #black ;
+    <span class="hljs-keyword">aspect</span> info {
+        <span class="hljs-keyword">draw</span> square(size) <span class="hljs-symbol">color:</span> color ;
+        <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span>(energy with_precision 2) <span class="hljs-symbol">size:</span> 3 <span class="hljs-symbol">color:</span> #black ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">prey</span> <span class="hljs-title">parent</span>: <span class="hljs-title">generic_species</span> </span>{
+<span class="hljs-literal">species</span> prey <span class="hljs-symbol">parent:</span> generic_species {
     <span class="hljs-literal">rgb</span> color &lt;- #blue;
     <span class="hljs-literal">float</span> max_energy &lt;- prey_max_energy ;
     <span class="hljs-literal">float</span> max_transfert &lt;- prey_max_transfert ;
@@ -96,31 +96,31 @@
     <span class="hljs-literal">float</span> energy_reproduce &lt;- prey_energy_reproduce ;
     <span class="hljs-literal">file</span> my_icon &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/data/sheep.png"</span>) ;
         
-    <span class="hljs-class">reflex <span class="hljs-title">eat</span> <span class="hljs-title">when</span>: <span class="hljs-title">myCell</span>.<span class="hljs-title">food</span> &gt; 0 </span>{
+    <span class="hljs-builtin">reflex</span> eat <span class="hljs-symbol">when:</span> myCell.food &gt; 0 {
         <span class="hljs-literal">float</span> energy_transfert &lt;- min([max_transfert, myCell.food]) ;
         myCell.food &lt;- myCell.food - energy_transfert ;
         energy &lt;- energy + energy_transfert ;
     }
     
     vegetation_cell choose_cell {
-        return (myCell.neighbors) with_max_of (each.food);
+        <span class="hljs-keyword">return</span> (myCell.neighbors) with_max_of (each.food);
     }
 }
     
-<span class="hljs-class">species <span class="hljs-title">predator</span> <span class="hljs-title">parent</span>: <span class="hljs-title">generic_species</span> </span>{
+<span class="hljs-literal">species</span> predator <span class="hljs-symbol">parent:</span> generic_species {
     <span class="hljs-literal">rgb</span> color &lt;- #red ;
     <span class="hljs-literal">float</span> max_energy &lt;- predator_max_energy ;
     <span class="hljs-literal">float</span> energy_transfert &lt;- predator_energy_transfert ;
     <span class="hljs-literal">float</span> energy_consum &lt;- predator_energy_consum ;
-    <span class="hljs-literal">list</span>&lt;prey&gt; reachable_preys update: prey inside (myCell);
+    <span class="hljs-literal">list</span>&lt;prey&gt; reachable_preys <span class="hljs-symbol">update:</span> prey inside (myCell);
     <span class="hljs-literal">float</span> proba_reproduce &lt;- predator_proba_reproduce ;
     <span class="hljs-literal">int</span> nb_max_offsprings &lt;- predator_nb_max_offsprings ;
     <span class="hljs-literal">float</span> energy_reproduce &lt;- predator_energy_reproduce ;
     <span class="hljs-literal">file</span> my_icon &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/data/wolf.png"</span>) ;
     
-    <span class="hljs-class">reflex <span class="hljs-title">eat</span> <span class="hljs-title">when</span>: ! <span class="hljs-title">empty</span>(<span class="hljs-title">reachable_preys</span>) </span>{
-        ask one_of (reachable_preys) {
-            do die ;
+    <span class="hljs-builtin">reflex</span> eat <span class="hljs-symbol">when:</span> ! empty(reachable_preys) {
+        <span class="hljs-keyword">ask</span> one_of (reachable_preys) {
+            <span class="hljs-keyword">do</span> die ;
         }
         energy &lt;- energy + energy_transfert ;
     }
@@ -128,50 +128,50 @@
     vegetation_cell choose_cell {
         vegetation_cell myCell_tmp &lt;- shuffle(myCell.neighbors) first_with (!(empty (prey inside (each))));
         <span class="hljs-keyword">if</span> myCell_tmp != nil {
-            return myCell_tmp;
-        } else {
-            return one_of (myCell.neighbors);
+            <span class="hljs-keyword">return</span> myCell_tmp;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> one_of (myCell.neighbors);
         } 
     }
 }
     
-<span class="hljs-class">grid <span class="hljs-title">vegetation_cell</span> <span class="hljs-title">width</span>: 50 <span class="hljs-title">height</span>: 50 <span class="hljs-title">neighbors</span>: 4 </span>{
+grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hljs-symbol">height:</span> 50 <span class="hljs-symbol">neighbors:</span> 4 {
     <span class="hljs-literal">float</span> maxFood &lt;- 1.0 ;
     <span class="hljs-literal">float</span> foodProd &lt;- (rnd(1000) / 1000) * 0.01 ;
-    <span class="hljs-literal">float</span> food &lt;- (rnd(1000) / 1000) max: maxFood update: food + foodProd ;
-    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) update: <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 *(1 - food))) ;
+    <span class="hljs-literal">float</span> food &lt;- (rnd(1000) / 1000) <span class="hljs-symbol">max:</span> maxFood <span class="hljs-symbol">update:</span> food + foodProd ;
+    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) <span class="hljs-symbol">update:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 *(1 - food))) ;
     <span class="hljs-literal">list</span>&lt;vegetation_cell&gt; neighbors  &lt;- (self neighbors_at 2); 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">prey_predator</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Initial number of preys: "</span> var: nb_preys_init  min: 0 max: 1000 category: <span class="hljs-string">"Prey"</span> ;
-    parameter <span class="hljs-string">"Prey max energy: "</span> var: prey_max_energy category: <span class="hljs-string">"Prey"</span> ;
-    parameter <span class="hljs-string">"Prey max transfert: "</span> var: prey_max_transfert  category: <span class="hljs-string">"Prey"</span> ;
-    parameter <span class="hljs-string">"Prey energy consumption: "</span> var: prey_energy_consum  category: <span class="hljs-string">"Prey"</span> ;
-    parameter <span class="hljs-string">"Initial number of predators: "</span> var: nb_predators_init  min: 0 max: 200 category: <span class="hljs-string">"Predator"</span> ;
-    parameter <span class="hljs-string">"Predator max energy: "</span> var: predator_max_energy category: <span class="hljs-string">"Predator"</span> ;
-    parameter <span class="hljs-string">"Predator energy transfert: "</span> var: predator_energy_transfert  category: <span class="hljs-string">"Predator"</span> ;
-    parameter <span class="hljs-string">"Predator energy consumption: "</span> var: predator_energy_consum  category: <span class="hljs-string">"Predator"</span> ;
-    parameter 'Prey probability reproduce: ' var: prey_proba_reproduce category: 'Prey' ;
-    parameter 'Prey nb max offsprings: ' var: prey_nb_max_offsprings category: 'Prey' ;
-    parameter 'Prey energy reproduce: ' var: prey_energy_reproduce category: 'Prey' ;
-    parameter 'Predator probability reproduce: ' var: predator_proba_reproduce category: 'Predator' ;
-    parameter 'Predator nb max offsprings: ' var: predator_nb_max_offsprings category: 'Predator' ;
-    parameter 'Predator energy reproduce: ' var: predator_energy_reproduce category: 'Predator' ;
+<span class="hljs-builtin">experiment</span> prey_predator <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of preys: "</span> <span class="hljs-symbol">var:</span> nb_preys_init  <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey max energy: "</span> <span class="hljs-symbol">var:</span> prey_max_energy <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey max transfert: "</span> <span class="hljs-symbol">var:</span> prey_max_transfert  <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey energy consumption: "</span> <span class="hljs-symbol">var:</span> prey_energy_consum  <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of predators: "</span> <span class="hljs-symbol">var:</span> nb_predators_init  <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 200 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator max energy: "</span> <span class="hljs-symbol">var:</span> predator_max_energy <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator energy transfert: "</span> <span class="hljs-symbol">var:</span> predator_energy_transfert  <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator energy consumption: "</span> <span class="hljs-symbol">var:</span> predator_energy_consum  <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Prey probability reproduce: '</span> <span class="hljs-symbol">var:</span> prey_proba_reproduce <span class="hljs-symbol">category:</span> <span class="hljs-string">'Prey'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Prey nb max offsprings: '</span> <span class="hljs-symbol">var:</span> prey_nb_max_offsprings <span class="hljs-symbol">category:</span> <span class="hljs-string">'Prey'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Prey energy reproduce: '</span> <span class="hljs-symbol">var:</span> prey_energy_reproduce <span class="hljs-symbol">category:</span> <span class="hljs-string">'Prey'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Predator probability reproduce: '</span> <span class="hljs-symbol">var:</span> predator_proba_reproduce <span class="hljs-symbol">category:</span> <span class="hljs-string">'Predator'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Predator nb max offsprings: '</span> <span class="hljs-symbol">var:</span> predator_nb_max_offsprings <span class="hljs-symbol">category:</span> <span class="hljs-string">'Predator'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Predator energy reproduce: '</span> <span class="hljs-symbol">var:</span> predator_energy_reproduce <span class="hljs-symbol">category:</span> <span class="hljs-string">'Predator'</span> ;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">main_display</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">vegetation_cell</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">prey</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">icon</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">predator</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">icon</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> main_display {
+            grid vegetation_cell <span class="hljs-symbol">lines:</span> #black ;
+            <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> icon ;
+            <span class="hljs-literal">species</span> predator <span class="hljs-symbol">aspect:</span> icon ;
         }
-        <span class="hljs-class">display <span class="hljs-title">info_display</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">vegetation_cell</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">prey</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">info</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">predator</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">info</span> ;</span>
+        <span class="hljs-keyword">display</span> info_display {
+            grid vegetation_cell <span class="hljs-symbol">lines:</span> #black ;
+            <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> info ;
+            <span class="hljs-literal">species</span> predator <span class="hljs-symbol">aspect:</span> info ;
         }
-        monitor <span class="hljs-string">"Number of preys"</span> value: nb_preys;
-        monitor <span class="hljs-string">"Number of predators"</span> value: nb_predators;
+        <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Number of preys"</span> <span class="hljs-symbol">value:</span> nb_preys;
+        <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Number of predators"</span> <span class="hljs-symbol">value:</span> nb_predators;
     }
 }
 </code></pre>

@@ -87,7 +87,7 @@ import <span class="hljs-string">"relative_path_to_another_model_file"</span>
 <p>When importing models using the first form, all the declarations of the model(s) imported will be merged with those of the current model (in the order with which the import statements are declared, i.e. the latest definitions of global attributes or behaviors superseding the previous ones).
 The second form is reserved for using models as <em>micro-models</em> of the current model. This possibility is still experimental in the current version of GAMA.</p>
 <p>The last part of the <em>header</em> is the definition of the <a href="GlobalSpecies"><code>global</code> species</a>, which is the actual definition of the <em>model species</em> itself.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-comment">// Definition of [global attributes](GlobalSpecies#declaration), [actions and behaviors](DefiningActionsAndBehaviors)</span>
 }
 </code></pre>
@@ -95,43 +95,43 @@ The second form is reserved for using models as <em>micro-models</em> of the cur
 <h2><a class="anchor" aria-hidden="true" id="species-declarations"></a><a href="#species-declarations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Species declarations</h2>
 <p>The header is followed by the declaration of the different species of agents that populate the model.</p>
 <p>The <a href="GlobalSpecies">special species <code>global</code></a> is the world species. You will declare here all the global attributes/actions/behaviors. The global species does not have name, and is unique in your model.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-comment">// definition of global attributes, actions, behaviors</span>
 }
 </code></pre>
 <p><a href="RegularSpecies">Regular species</a> can be declared with the keyword <code>species</code>. You can declare several regular species, and they all have to be named.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">nameOfSpecies</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> nameOfSpecies {
     <span class="hljs-comment">// definition of your [species attributes](RegularSpecies#declaration), [actions and behaviors](DefiningActionsAndBehaviors)</span>
 }
 </code></pre>
 <p>Note that the possibility to define the species <em>after</em> the <code>global</code> definition is actually a convenience: these species are micro-species of the model species and, hence, could be perfectly defined as nested species of <code>global</code>. For instance:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-comment">// definition of global attributes, actions, behaviors</span>
 }
 
-<span class="hljs-class">species <span class="hljs-title">A</span> </span>{...}
+<span class="hljs-literal">species</span> A {...}
 
-<span class="hljs-class">species <span class="hljs-title">B</span> </span>{...}
+<span class="hljs-literal">species</span> B {...}
 </code></pre>
 <p>is completely equivalent to:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-comment">// definition of [global attributes](GlobalSpecies#declaration), actions, behaviors</span>
 
-    <span class="hljs-class">species <span class="hljs-title">A</span> </span>{...}
+    <span class="hljs-literal">species</span> A {...}
 
-    <span class="hljs-class">species <span class="hljs-title">B</span> </span>{...}
+    <span class="hljs-literal">species</span> B {...}
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="experiment-declarations"></a><a href="#experiment-declarations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Experiment declarations</h2>
 <p>Experiments are usually declared at the end of the file. They start with the keyword <code>experiment</code>. They contains the <a href="DefiningParameters">simulation parameters</a>, and the definition of the output (such as <a href="DefiningDisplaysGeneralities">displays</a>, <a href="DefiningMonitorsAndInspectors">monitors or inspectors</a>). You can declare as much experiments as you want.</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">first_experiment</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> first_experiment {
     <span class="hljs-comment">// definition of parameters (intputs)</span>
 
     <span class="hljs-comment">// definition of output</span>
-    output {...}
+    <span class="hljs-keyword">output</span> {...}
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">second_experiment</span> </span>{
+<span class="hljs-builtin">experiment</span> second_experiment {
     <span class="hljs-comment">// definition of parameters (inputs)</span>
 
     <span class="hljs-comment">// definition of output</span>
@@ -139,12 +139,12 @@ The second form is reserved for using models as <em>micro-models</em> of the cur
 </code></pre>
 <p>Note that you have two types of experiments:
 A <a href="DefiningGUIExperiment">GUI experiment</a> allows to display a graphical interface with input parameters and outputs. It is declared with the following structure :</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">gui_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> gui_experiment <span class="hljs-symbol">type:</span>gui {
     [...]
 }
 </code></pre>
 <p>A <a href="BatchExperiments">Batch experiment</a> allows to execute numerous successive simulation runs (often used for model exploration). It is declared with the following structure :</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">batch_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">batch</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> batch_experiment <span class="hljs-symbol">type:</span>batch {
     [...]
 }
 </code></pre>
@@ -152,19 +152,19 @@ A <a href="DefiningGUIExperiment">GUI experiment</a> allows to display a graphic
 <p>Here is the basic skeleton of a model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> name_of_the_model
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">// definition of [global attributes](GlobalSpecies#declaration), actions, behaviours</span>
 }
 
-<span class="hljs-class">species <span class="hljs-title">my_specie</span> </span>{
+<span class="hljs-literal">species</span> my_specie {
     <span class="hljs-comment">// definition of attributes, actions, behaviours</span>
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> /* + <span class="hljs-title">specify</span> <span class="hljs-title">the</span> <span class="hljs-title">type</span> : "<span class="hljs-title">type</span>:<span class="hljs-title">gui</span>" <span class="hljs-title">or</span> "<span class="hljs-title">type</span>:<span class="hljs-title">batch</span>" */</span>
+<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-comment">/* + specify the type : "type:gui" or "type:batch" */</span>
 {
     <span class="hljs-comment">// here the definition of your experiment, with...</span>
     <span class="hljs-comment">// ... your inputs</span>
-    output {
+    <span class="hljs-keyword">output</span> {
         <span class="hljs-comment">// ... and your outputs</span>
     }
 }

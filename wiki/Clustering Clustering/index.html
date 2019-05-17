@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> clustering
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//the number of groups to create (kmeans)</span>
     <span class="hljs-literal">int</span> k &lt;- 4;
     
@@ -22,10 +22,10 @@
     
     init {
         <span class="hljs-comment">//create dummy agents</span>
-        create dummy number: 100;
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">number:</span> 100;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">cluster_building</span> </span>{
+    <span class="hljs-builtin">reflex</span> cluster_building {
         <span class="hljs-comment">//create a list of list containing for each dummy agent a list composed of its x and y values</span>
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; instances &lt;- dummy collect ([each.location.x, each.location.y]);
         
@@ -33,10 +33,10 @@
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt; clusters_dbscan &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt;(dbscan(instances, eps,minPoints));
         
         <span class="hljs-comment">//We give a random color to each group (i.e. to each dummy agents of the group)</span>
-       loop cluster over: clusters_dbscan {
+       <span class="hljs-keyword">loop</span> cluster <span class="hljs-symbol">over:</span> clusters_dbscan {
             <span class="hljs-literal">rgb</span> col &lt;- rnd_color(255);
-            loop i over: cluster {
-                ask dummy[i] {color_dbscan &lt;- col;}
+            <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">over:</span> cluster {
+                <span class="hljs-keyword">ask</span> dummy[i] {color_dbscan &lt;- col;}
             }
         }
         
@@ -44,37 +44,37 @@
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt; clusters_kmeans &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt;(kmeans(instances, k));
         
         <span class="hljs-comment">//We give a random color to each group (i.e. to each dummy agents of the group)</span>
-        loop cluster over: clusters_kmeans {
+        <span class="hljs-keyword">loop</span> cluster <span class="hljs-symbol">over:</span> clusters_kmeans {
             <span class="hljs-literal">rgb</span> col &lt;- rnd_color(255);
-            loop i over: cluster {
-                ask dummy[i] {color_kmeans &lt;- col;}
+            <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">over:</span> cluster {
+                <span class="hljs-keyword">ask</span> dummy[i] {color_kmeans &lt;- col;}
             }
         }
     }
     
 }
 
-<span class="hljs-class">species <span class="hljs-title">dummy</span> </span>{
+<span class="hljs-literal">species</span> dummy {
     <span class="hljs-literal">rgb</span> color_dbscan &lt;- #grey;
     <span class="hljs-literal">rgb</span> color_kmeans &lt;- #grey;
-    aspect dbscan_aspect {
-        draw circle(2) color: color_dbscan;
+    <span class="hljs-keyword">aspect</span> dbscan_aspect {
+        <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">color:</span> color_dbscan;
     }
-    aspect kmeans_aspect {
-        draw circle(2) color: color_kmeans;
+    <span class="hljs-keyword">aspect</span> kmeans_aspect {
+        <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">color:</span> color_kmeans;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">clustering</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Number of clusters to split the data into"</span> var: k category: <span class="hljs-string">"KMEANS"</span>;
-    parameter <span class="hljs-string">"Maximum radius of the neighborhood to be considered"</span> var: eps category: <span class="hljs-string">"DBSCAN"</span>;
-    parameter <span class="hljs-string">"Minimum number of points needed for a cluster "</span> var: minPoints category: <span class="hljs-string">"DBSCAN"</span>;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map_dbscan</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">dbscan_aspect</span>;</span>
+<span class="hljs-builtin">experiment</span> clustering <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of clusters to split the data into"</span> <span class="hljs-symbol">var:</span> k <span class="hljs-symbol">category:</span> <span class="hljs-string">"KMEANS"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Maximum radius of the neighborhood to be considered"</span> <span class="hljs-symbol">var:</span> eps <span class="hljs-symbol">category:</span> <span class="hljs-string">"DBSCAN"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Minimum number of points needed for a cluster "</span> <span class="hljs-symbol">var:</span> minPoints <span class="hljs-symbol">category:</span> <span class="hljs-string">"DBSCAN"</span>;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> map_dbscan{
+            <span class="hljs-literal">species</span> dummy <span class="hljs-symbol">aspect:</span> dbscan_aspect;
         }
-        <span class="hljs-class">display <span class="hljs-title">map_kmeans</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">kmeans_aspect</span>;</span>
+        <span class="hljs-keyword">display</span> map_kmeans{
+            <span class="hljs-literal">species</span> dummy <span class="hljs-symbol">aspect:</span> kmeans_aspect;
         }
     }
 }

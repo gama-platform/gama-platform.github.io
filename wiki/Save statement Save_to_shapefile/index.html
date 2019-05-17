@@ -10,32 +10,32 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> Savetoshapefile
 
-<span class="hljs-class">global </span>{
+global {
     init {
         <span class="hljs-literal">geometry</span> free_space &lt;- copy(shape);
         
         <span class="hljs-comment">//creation of the building agents that will be saved</span>
-        create building number: 50 {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">number:</span> 50 {
             shape &lt;- square(5.0);
             location &lt;- any_location_in (free_space - 5.0);
             free_space &lt;- free_space - shape;
         }
         <span class="hljs-comment">//save building geometry into the shapefile: add the attribute TYPE which value is set by the type variable of the building agent</span>
-        save building to:<span class="hljs-string">"../results/buildings.shp"</span> type:<span class="hljs-string">"shp"</span> with:[type::<span class="hljs-string">"TYPE"</span>];
+        <span class="hljs-keyword">save</span> building <span class="hljs-symbol">to:</span><span class="hljs-string">"../results/buildings.shp"</span> <span class="hljs-symbol">type:</span><span class="hljs-string">"shp"</span> <span class="hljs-symbol">with:</span>[type::<span class="hljs-string">"TYPE"</span>];
     }
 }
 
 <span class="hljs-comment">//species that represent the building agents that will be saved</span>
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
+<span class="hljs-literal">species</span> building {
     <span class="hljs-literal">string</span> type &lt;- flip(0.8) ? <span class="hljs-string">"residential"</span> : <span class="hljs-string">"industrial"</span>;
-    aspect default {
-        draw shape color: type = <span class="hljs-string">"residential"</span> ? #gray : #pink;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> type = <span class="hljs-string">"residential"</span> ? #gray : #pink;
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span>;</span>
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> building;
         }
     }
 }

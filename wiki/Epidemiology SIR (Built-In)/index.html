@@ -10,14 +10,14 @@
 <pre><code class="hljs"> 
 <span class="hljs-builtin">model</span> simple_ODE_SIR_Predefined
 
-<span class="hljs-class">global </span>{
+global {
     init {
-        create predefined_ODE_SIR_agent number: 1;
+        <span class="hljs-keyword">create</span> predefined_ODE_SIR_agent <span class="hljs-symbol">number:</span> 1;
     }
 }
 
 <span class="hljs-comment">//Species which represent the Ordinary Differential Equations System </span>
-<span class="hljs-class">species <span class="hljs-title">predefined_ODE_SIR_agent</span> </span>{
+<span class="hljs-literal">species</span> predefined_ODE_SIR_agent {
     <span class="hljs-comment">//Variable to represent the discrete time for integration</span>
     <span class="hljs-literal">float</span> t;
     <span class="hljs-comment">//Total Population </span>
@@ -37,19 +37,19 @@
     <span class="hljs-literal">float</span> h &lt;- 0.1;
 
     <span class="hljs-comment">// Parameters must follow exact order S, I, R, t  and N,beta,gamma      </span>
-    equation eqSIR type:SIR vars: [S,I,R,t] params: [N,beta,gamma] ;
+    <span class="hljs-keyword">equation</span> eqSIR <span class="hljs-symbol">type:</span>SIR <span class="hljs-symbol">vars:</span> [S,I,R,t] <span class="hljs-symbol">params:</span> [N,beta,gamma] ;
 
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve eqSIR method:rk4 step:h ;}<span class="hljs-comment">//cycle_length:int(1/h);}</span>
+    <span class="hljs-builtin">reflex</span> solving {<span class="hljs-keyword">solve</span> eqSIR <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h ;}<span class="hljs-comment">//cycle_length:int(1/h);}</span>
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">mysimulation</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {    
-        <span class="hljs-class">display <span class="hljs-title">display_charts</span> </span>{
-            chart 'SIR_agent' type: series background: #lightgray {
-                data <span class="hljs-string">"S"</span> value: first(predefined_ODE_SIR_agent).S color: #green;
-                data <span class="hljs-string">"I"</span> value: first(predefined_ODE_SIR_agent).I color: #red;
-                data <span class="hljs-string">"R"</span> value: first(predefined_ODE_SIR_agent).R color: #blue;
+<span class="hljs-builtin">experiment</span> mysimulation <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {    
+        <span class="hljs-keyword">display</span> display_charts {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'SIR_agent'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(predefined_ODE_SIR_agent).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(predefined_ODE_SIR_agent).I <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"R"</span> <span class="hljs-symbol">value:</span> first(predefined_ODE_SIR_agent).R <span class="hljs-symbol">color:</span> #blue;
             }
         }
     }

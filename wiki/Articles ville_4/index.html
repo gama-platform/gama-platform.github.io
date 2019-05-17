@@ -9,77 +9,77 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> ville
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">file</span> shape_file_batiments &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/batiments.shp"</span>);
     <span class="hljs-literal">file</span> shape_file_routes &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/routes.shp"</span>);
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_routes);
     <span class="hljs-literal">graph</span>&lt;<span class="hljs-literal">point</span>, route&gt; reseau_route;
     init {
-        create route from: shape_file_routes;
+        <span class="hljs-keyword">create</span> route <span class="hljs-symbol">from:</span> shape_file_routes;
         reseau_route &lt;- as_edge_graph(route);
-        create batiment from: shape_file_batiments with: [type:: <span class="hljs-literal">string</span>(read(<span class="hljs-string">"NATURE"</span>))];
-        create foyer number: 500;
+        <span class="hljs-keyword">create</span> batiment <span class="hljs-symbol">from:</span> shape_file_batiments <span class="hljs-symbol">with:</span> [type:: <span class="hljs-literal">string</span>(read(<span class="hljs-string">"NATURE"</span>))];
+        <span class="hljs-keyword">create</span> foyer <span class="hljs-symbol">number:</span> 500;
     }
 }
-<span class="hljs-class">species <span class="hljs-title">foyer</span> </span>{
+<span class="hljs-literal">species</span> foyer {
     <span class="hljs-literal">float</span> revenu &lt;- gauss(1500, 500);
-    <span class="hljs-literal">bool</span> est_satisfait update: calculer_satisfaction();
+    <span class="hljs-literal">bool</span> est_satisfait <span class="hljs-symbol">update:</span> calculer_satisfaction();
     batiment habitation;
     batiment lieu_travail;
     init {
         lieu_travail &lt;- one_of(batiment where (each.type = <span class="hljs-string">"Industrial"</span>));
         habitation &lt;- choisir_batiment(); 
-        do emmenager;
+        <span class="hljs-keyword">do</span> emmenager;
     }
     <span class="hljs-literal">bool</span> calculer_satisfaction {
         <span class="hljs-literal">list</span>&lt;foyer&gt; voisins &lt;- foyer at_distance 50.0;
         <span class="hljs-literal">float</span> revenu_moyen &lt;- mean(voisins collect (each.revenu));
-        return empty(voisins) or (revenu_moyen &gt; (revenu * 0.7) and revenu_moyen &lt; (revenu / 0.7));
+        <span class="hljs-keyword">return</span> empty(voisins) or (revenu_moyen &gt; (revenu * 0.7) and revenu_moyen &lt; (revenu / 0.7));
     }
-    action emmenager {
+    <span class="hljs-keyword">action</span> emmenager {
         habitation.capacite &lt;- habitation.capacite - 1;
         location &lt;- any_location_in(habitation.shape);
     }
-    action demenager {
+    <span class="hljs-keyword">action</span> demenager {
         habitation.capacite &lt;- habitation.capacite + 1;
     }
     batiment choisir_batiment {
-        return one_of(batiment where ((each.capacite &gt;0) and ( each.distances[lieu_travail]&lt; 1000.0)));
+        <span class="hljs-keyword">return</span> one_of(batiment where ((each.capacite &gt;0) and ( each.distances[lieu_travail]&lt; 1000.0)));
     }
-    <span class="hljs-class">reflex <span class="hljs-title">demenagement</span> <span class="hljs-title">when</span>: !<span class="hljs-title">est_satisfait</span> </span>{
-        do demenager;
+    <span class="hljs-builtin">reflex</span> demenagement <span class="hljs-symbol">when:</span> !est_satisfait {
+        <span class="hljs-keyword">do</span> demenager;
         habitation &lt;- choisir_batiment();
-        do emmenager;
+        <span class="hljs-keyword">do</span> emmenager;
     }
-    aspect revenu {
+    <span class="hljs-keyword">aspect</span> revenu {
         <span class="hljs-literal">int</span> val &lt;- <span class="hljs-literal">int</span>(255 * (revenu / 3000));
-        draw circle(5) color: <span class="hljs-literal">rgb</span>(255 - val, val, 0);
+        <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(255 - val, val, 0);
     }
 }
-<span class="hljs-class">species <span class="hljs-title">batiment</span> </span>{
+<span class="hljs-literal">species</span> batiment {
     <span class="hljs-literal">string</span> type;
     <span class="hljs-literal">int</span> capacite &lt;- type = <span class="hljs-string">"Industrial"</span> ? 0 : <span class="hljs-literal">int</span>(shape.area / 70.0);
     <span class="hljs-literal">map</span>&lt;batiment,<span class="hljs-literal">float</span>&gt; distances;
     init {
-        loop bat over: batiment where (each.type = <span class="hljs-string">"Industrial"</span>) {
-            put (<span class="hljs-literal">topology</span>(reseau_route) distance_between [self,bat]) at: bat in: distances;
+        <span class="hljs-keyword">loop</span> bat <span class="hljs-symbol">over:</span> batiment where (each.type = <span class="hljs-string">"Industrial"</span>) {
+            <span class="hljs-keyword">put</span> (<span class="hljs-literal">topology</span>(reseau_route) distance_between [self,bat]) <span class="hljs-symbol">at:</span> bat <span class="hljs-symbol">in:</span> distances;
         }
     }
-    aspect geometrie {
-        draw shape color: type = <span class="hljs-string">"Industrial"</span> ? #pink : #gray;
+    <span class="hljs-keyword">aspect</span> geometrie {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> type = <span class="hljs-string">"Industrial"</span> ? #pink : #gray;
     }
 }
-<span class="hljs-class">species <span class="hljs-title">route</span> </span>{
-    aspect geometrie {
-        draw shape color: #black;
+<span class="hljs-literal">species</span> route {
+    <span class="hljs-keyword">aspect</span> geometrie {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">ville</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">carte_principale</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">batiment</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geometrie</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">route</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geometrie</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">foyer</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">revenu</span>;</span>
+<span class="hljs-builtin">experiment</span> ville <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> carte_principale {
+            <span class="hljs-literal">species</span> batiment <span class="hljs-symbol">aspect:</span> geometrie;
+            <span class="hljs-literal">species</span> route <span class="hljs-symbol">aspect:</span> geometrie;
+            <span class="hljs-literal">species</span> foyer <span class="hljs-symbol">aspect:</span> revenu;
         }
     }
 }

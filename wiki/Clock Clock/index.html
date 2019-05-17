@@ -8,75 +8,75 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> Clock
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Background of the clock</span>
-    <span class="hljs-literal">file</span> clock_normal     const: true &lt;- image_file(<span class="hljs-string">"../images/clock.png"</span>);
+    <span class="hljs-literal">file</span> clock_normal     <span class="hljs-symbol">const:</span> true &lt;- image_file(<span class="hljs-string">"../images/clock.png"</span>);
     <span class="hljs-comment">//Image for the big hand </span>
-    <span class="hljs-literal">file</span> clock_big_hand   const: true &lt;- image_file(<span class="hljs-string">"../images/big_hand.png"</span>);
+    <span class="hljs-literal">file</span> clock_big_hand   <span class="hljs-symbol">const:</span> true &lt;- image_file(<span class="hljs-string">"../images/big_hand.png"</span>);
     <span class="hljs-comment">//Image for the small hand</span>
-    <span class="hljs-literal">file</span> clock_small_hand const: true &lt;- image_file(<span class="hljs-string">"../images/small_hand.png"</span>);
+    <span class="hljs-literal">file</span> clock_small_hand <span class="hljs-symbol">const:</span> true &lt;- image_file(<span class="hljs-string">"../images/small_hand.png"</span>);
     <span class="hljs-comment">//Image for the clock alarm</span>
-    <span class="hljs-literal">file</span> clock_alarm      const: true &lt;- image_file(<span class="hljs-string">"../images/alarm_hand.png"</span>);
+    <span class="hljs-literal">file</span> clock_alarm      <span class="hljs-symbol">const:</span> true &lt;- image_file(<span class="hljs-string">"../images/alarm_hand.png"</span>);
     <span class="hljs-comment">//Zoom to take in consideration the zoom in the display, to better write the cycle values</span>
-    <span class="hljs-literal">int</span> zoom &lt;- 4 min:1 max:100;
+    <span class="hljs-literal">int</span> zoom &lt;- 4 <span class="hljs-symbol">min:</span>1 <span class="hljs-symbol">max:</span>100;
     <span class="hljs-comment">//Time value for a cycle</span>
-    <span class="hljs-literal">float</span> step&lt;-360000.0#ms min: 1.0 max: 360000.0;
+    <span class="hljs-literal">float</span> step&lt;-360000.0#ms <span class="hljs-symbol">min:</span> 1.0 <span class="hljs-symbol">max:</span> 360000.0;
     
     <span class="hljs-comment">//Alarm parameters</span>
-    <span class="hljs-literal">int</span> alarm_days &lt;- 0 min:0 max:365;
-    <span class="hljs-literal">int</span> alarm_hours &lt;- 2 min:0 max:11;
-    <span class="hljs-literal">int</span> alarm_minutes &lt;- 0 min:0 max:59;
-    <span class="hljs-literal">int</span> alarm_seconds &lt;- 0 min:0 max:59;
+    <span class="hljs-literal">int</span> alarm_days &lt;- 0 <span class="hljs-symbol">min:</span>0 <span class="hljs-symbol">max:</span>365;
+    <span class="hljs-literal">int</span> alarm_hours &lt;- 2 <span class="hljs-symbol">min:</span>0 <span class="hljs-symbol">max:</span>11;
+    <span class="hljs-literal">int</span> alarm_minutes &lt;- 0 <span class="hljs-symbol">min:</span>0 <span class="hljs-symbol">max:</span>59;
+    <span class="hljs-literal">int</span> alarm_seconds &lt;- 0 <span class="hljs-symbol">min:</span>0 <span class="hljs-symbol">max:</span>59;
     <span class="hljs-literal">bool</span> alarm_am &lt;- true;
     <span class="hljs-literal">int</span> alarmCycle &lt;-  <span class="hljs-literal">int</span>((alarm_seconds+alarm_minutes*60+alarm_hours*3600 + (alarm_am ? 0 : 3600*12) + alarm_days*3600*24) * 1000 / step);
     
     <span class="hljs-comment">//Time elapsed since the beginning of the experiment</span>
-    <span class="hljs-literal">int</span> timeElapsed &lt;- 0 update:  <span class="hljs-literal">int</span>(cycle * step);
+    <span class="hljs-literal">int</span> timeElapsed &lt;- 0 <span class="hljs-symbol">update:</span>  <span class="hljs-literal">int</span>(cycle * step);
     <span class="hljs-literal">string</span> reflexType &lt;-<span class="hljs-string">""</span>;
     init {
         <span class="hljs-comment">//Creation of the clock</span>
-        create clock number: 1 {
+        <span class="hljs-keyword">create</span> clock <span class="hljs-symbol">number:</span> 1 {
             location &lt;- {world.shape.width/5,world.shape.height/5};
         }
     }
 }
 <span class="hljs-comment">//Species that will represent the clock</span>
-<span class="hljs-class">species  <span class="hljs-title">clock</span> </span>{ 
-        <span class="hljs-literal">float</span> nb_minutes&lt;-0.0 update: ((timeElapsed mod 3600000#ms))/60000#ms; <span class="hljs-comment">//Mod with 60 minutes or 1 hour, then divided by one minute value to get the number of minutes</span>
-        <span class="hljs-literal">float</span> nb_hours&lt;-0.0 update:((timeElapsed mod 43200000#ms))/3600000#ms;
-        <span class="hljs-class">reflex <span class="hljs-title">update</span> </span>{
-            write <span class="hljs-literal">string</span>(nb_hours)+<span class="hljs-string">" : "</span>+nb_minutes;
+<span class="hljs-literal">species</span>  clock { 
+        <span class="hljs-literal">float</span> nb_minutes&lt;-0.0 <span class="hljs-symbol">update:</span> ((timeElapsed mod 3600000#ms))/60000#ms; <span class="hljs-comment">//Mod with 60 minutes or 1 hour, then divided by one minute value to get the number of minutes</span>
+        <span class="hljs-literal">float</span> nb_hours&lt;-0.0 <span class="hljs-symbol">update:</span>((timeElapsed mod 43200000#ms))/3600000#ms;
+        <span class="hljs-builtin">reflex</span> update {
+            <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(nb_hours)+<span class="hljs-string">" : "</span>+nb_minutes;
             <span class="hljs-keyword">if</span> (cycle = alarmCycle) 
             {
-                 write <span class="hljs-string">"Time to leave"</span> ; 
+                 <span class="hljs-keyword">write</span> <span class="hljs-string">"Time to leave"</span> ; 
 
                  <span class="hljs-comment">// Uncomment the following statement to play the Alarm.mp3</span>
                  <span class="hljs-comment">// But firstly, you need to go to "Help -&gt; Install New Software..." to install the "Audio" feature (which is still in the experimental stage). </span>
                 <span class="hljs-comment">//start_sound source:"../includes/Alarm.mp3" ;</span>
             }
         }
-        aspect default {
-            draw <span class="hljs-literal">string</span>(<span class="hljs-string">"#cycles: "</span> + cycle + <span class="hljs-string">" cycles"</span>)  size:zoom/2 font:<span class="hljs-string">"times"</span> color:°black at:{world.shape.width/3,0};
-            draw clock_big_hand rotate: nb_minutes*(360/60)  + 90  size: {7 * zoom, 2}; <span class="hljs-comment">//Modulo with the representation of a minute in ms and divided by 10000 to get the degree of rotation</span>
-            draw clock_small_hand rotate: nb_hours*(360/12)  + 90  size:{5*zoom, 2} ;           
-            draw clock_alarm rotate:      (alarmCycle/12000)  size: zoom/3 ; <span class="hljs-comment">// Alarm time</span>
+        <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+            <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span>(<span class="hljs-string">"#cycles: "</span> + cycle + <span class="hljs-string">" cycles"</span>)  <span class="hljs-symbol">size:</span>zoom/2 <span class="hljs-symbol">font:</span><span class="hljs-string">"times"</span> <span class="hljs-symbol">color:</span>°black <span class="hljs-symbol">at:</span>{world.shape.width/3,0};
+            <span class="hljs-keyword">draw</span> clock_big_hand <span class="hljs-symbol">rotate:</span> nb_minutes*(360/60)  + 90  <span class="hljs-symbol">size:</span> {7 * zoom, 2}; <span class="hljs-comment">//Modulo with the representation of a minute in ms and divided by 10000 to get the degree of rotation</span>
+            <span class="hljs-keyword">draw</span> clock_small_hand <span class="hljs-symbol">rotate:</span> nb_hours*(360/12)  + 90  <span class="hljs-symbol">size:</span>{5*zoom, 2} ;           
+            <span class="hljs-keyword">draw</span> clock_alarm <span class="hljs-symbol">rotate:</span>      (alarmCycle/12000)  <span class="hljs-symbol">size:</span> zoom/3 ; <span class="hljs-comment">// Alarm time</span>
         }
  
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Display</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> Display <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.1#s;
-    parameter 'Zoom: ' var: zoom category: 'Init' ;
-    parameter 'Milliseconds/cycle' var: step category: 'Init';
-    parameter 'alarm Day' var: alarm_days;
-    parameter 'alarm Hour' var: alarm_hours;
-    parameter 'alarm Am' var: alarm_am;
-    parameter 'alarm Minutes' var: alarm_minutes;
-    parameter 'alarm Seconds' var: alarm_seconds;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">ClockView</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{ 
-            graphics <span class="hljs-string">"c"</span> refresh: false {draw clock_normal size: 10*zoom at:{world.shape.width/5,world.shape.height/5} ;}
-            <span class="hljs-class">species <span class="hljs-title">clock</span> ;</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Zoom: '</span> <span class="hljs-symbol">var:</span> zoom <span class="hljs-symbol">category:</span> <span class="hljs-string">'Init'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Milliseconds/cycle'</span> <span class="hljs-symbol">var:</span> step <span class="hljs-symbol">category:</span> <span class="hljs-string">'Init'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'alarm Day'</span> <span class="hljs-symbol">var:</span> alarm_days;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'alarm Hour'</span> <span class="hljs-symbol">var:</span> alarm_hours;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'alarm Am'</span> <span class="hljs-symbol">var:</span> alarm_am;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'alarm Minutes'</span> <span class="hljs-symbol">var:</span> alarm_minutes;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'alarm Seconds'</span> <span class="hljs-symbol">var:</span> alarm_seconds;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> ClockView <span class="hljs-symbol">type:</span> opengl { 
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"c"</span> <span class="hljs-symbol">refresh:</span> false {<span class="hljs-keyword">draw</span> clock_normal <span class="hljs-symbol">size:</span> 10*zoom <span class="hljs-symbol">at:</span>{world.shape.width/5,world.shape.height/5} ;}
+            <span class="hljs-literal">species</span> clock ;
         }
     }
 

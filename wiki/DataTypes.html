@@ -195,8 +195,8 @@ ltype_attr attr_var &lt;- nom_var.attr_name;
 <pre><code class="hljs">folder(a_string)  <span class="hljs-comment">// returns a file managing a existing folder</span>
 <span class="hljs-literal">file</span>(a_string) <span class="hljs-comment">// returns any kind of file in read-only mode</span>
 read(text(a_string)) <span class="hljs-comment">// returns a text file in read-only mode</span>
-read(image(a_string)) <span class="hljs-comment">// does the same with an image file.</span>
-write(properties(a_string)) <span class="hljs-comment">// returns a property file which is available for writing </span>
+read(<span class="hljs-keyword">image</span>(a_string)) <span class="hljs-comment">// does the same with an image file.</span>
+<span class="hljs-keyword">write</span>(properties(a_string)) <span class="hljs-comment">// returns a property file which is available for writing </span>
                             <span class="hljs-comment">// (if it exists, contents will be appended unless it is cleared </span>
                             <span class="hljs-comment">// using the standard container operations).</span>
 
@@ -250,12 +250,12 @@ write(properties(a_string)) <span class="hljs-comment">// returns a property fil
 <li><strong>See also:</strong> <a href="Operators#graph-related-operators">Graph operators</a></li>
 <li><strong>Declaration:</strong> graphs can be built from a list of vertices (agents or geometries) or from a list of edges (agents or geometries) by using specific operators. They are often used to deal with a road network and are built from a shapefile.</li>
 </ul>
-<pre><code class="hljs">create road from: shape_file_road;
+<pre><code class="hljs"><span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_road;
 <span class="hljs-literal">graph</span> the_graph &lt;- as_edge_graph(road);
 
 <span class="hljs-literal">graph</span>([1,9,5])        --: ([1: in[] + out[], 5: in[] + out[], 9: in[] + out[]], [])
 <span class="hljs-literal">graph</span>([node(0), node(1), node(2)]      <span class="hljs-comment">// if node is a species</span>
-<span class="hljs-literal">graph</span>(['a'::345, 'b'::13])  --:  ([b: in[] + out[b::13], a: in[] + out[a::345], 13: in[b::13] + out[], 345: in[a::345] + out[]], [a::345=(a,345), b::13=(b,13)])
+<span class="hljs-literal">graph</span>([<span class="hljs-string">'a'</span>::345, <span class="hljs-string">'b'</span>::13])  --:  ([<span class="hljs-symbol">b:</span> in[] + out[b::13], <span class="hljs-symbol">a:</span> in[] + out[a::345], 13: in[b::13] + out[], 345: in[a::345] + out[]], [a::345=(a,345), b::13=(b,13)])
 <span class="hljs-literal">graph</span>(a_graph)  --: a_graph
 <span class="hljs-literal">graph</span>(node1)    --: null
 </code></pre>
@@ -407,8 +407,8 @@ path_between (a_graph, a_source, a_target) <span class="hljs-comment">// idem wi
 <li><strong>Declaration:</strong></li>
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">rgb</span> cssRed &lt;- #red;   <span class="hljs-comment">// Since 1.6.1</span>
-<span class="hljs-literal">rgb</span> testColor &lt;- <span class="hljs-literal">rgb</span>('white');                 <span class="hljs-comment">// rgb [255,255,255]</span>
-<span class="hljs-literal">rgb</span> test &lt;- <span class="hljs-literal">rgb</span>(3,5,67);                     <span class="hljs-comment">// rgb [3,5,67]</span>
+<span class="hljs-literal">rgb</span> testColor &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'white'</span>);                 <span class="hljs-comment">// rgb [255,255,255]</span>
+<span class="hljs-literal">rgb</span> <span class="hljs-keyword">test</span> &lt;- <span class="hljs-literal">rgb</span>(3,5,67);                     <span class="hljs-comment">// rgb [3,5,67]</span>
 <span class="hljs-literal">rgb</span> te &lt;- <span class="hljs-literal">rgb</span>(340);                            <span class="hljs-comment">// rgb [0,1,84]</span>
 <span class="hljs-literal">rgb</span> tete &lt;- <span class="hljs-literal">rgb</span>([<span class="hljs-string">"r"</span>::34, <span class="hljs-string">"g"</span>::56, <span class="hljs-string">"b"</span>::345]); <span class="hljs-comment">// rgb [34,56,255]</span>
 </code></pre>
@@ -433,16 +433,16 @@ path_between (a_graph, a_source, a_target) <span class="hljs-comment">// idem wi
 <li>It can be used as a casting operator (with the same capabilities as the built-in type agent)</li>
 </ul>
 <p>In the simple following example, we create a set of &quot;humans&quot; and initialize a random &quot;friendship network&quot; among them. See how the name of the species, human, is used in the create command, as an argument to the list casting operator, and as the type of the variable named friend.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     init {
-         create human number: 10;
-         ask human {
+         <span class="hljs-keyword">create</span> human <span class="hljs-symbol">number:</span> 10;
+         <span class="hljs-keyword">ask</span> human {
                friend &lt;- one_of (human - self);
          }
      }
 }
 entities {
-    <span class="hljs-class">species <span class="hljs-title">human</span> </span>{
+    <span class="hljs-literal">species</span> human {
         human friend &lt;- nil;
     }
 }
@@ -472,48 +472,48 @@ More complex topologies can also be built using dedicated operators, e.g. to dec
 <p><a href="#table-of-contents">Top of the page</a></p>
 <h2><a class="anchor" aria-hidden="true" id="defining-custom-types"></a><a href="#defining-custom-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining custom types</h2>
 <p>Sometimes, besides the species of agents that compose the model, it can be necessary to declare custom datatypes. Species serve this purpose as well, and can be seen as &quot;classes&quot; that can help to instantiate simple &quot;objects&quot;. In the following example, we declare a new kind of &quot;object&quot;, bottle, that lacks the skills habitually associated with agents (moving, visible, etc.), but can nevertheless group together attributes and behaviors within the same closure. The following example demonstrates how to create the species:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">bottle</span> </span>{
-    <span class="hljs-literal">float</span> volume &lt;- 0.0 max:1 min:0.0;
+<pre><code class="hljs"><span class="hljs-literal">species</span> bottle {
+    <span class="hljs-literal">float</span> volume &lt;- 0.0 <span class="hljs-symbol">max:</span>1 <span class="hljs-symbol">min:</span>0.0;
     <span class="hljs-literal">bool</span> is_empty -&gt; {volume = 0.0};
-    action fill {
+    <span class="hljs-keyword">action</span> fill {
          volume &lt;- 1.0;
     }
 }
 </code></pre>
 <p>How to use this species to declare new bottles :</p>
-<pre><code class="hljs">create bottle {
+<pre><code class="hljs"><span class="hljs-keyword">create</span> bottle {
     volume &lt;- 0.5;
 }
 </code></pre>
 <p>And how to use bottles as any other agent in a species (a drinker owns a bottle; when he gets thirsty, it drinks a random quantity from it; when it is empty, it refills it):</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">drinker</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> drinker {
      ...
     bottle my_bottle&lt;- nil;
     <span class="hljs-literal">float</span> quantity &lt;- rnd (100) / 100;
-    <span class="hljs-literal">bool</span> thirsty &lt;- false update: flip (0.1);
+    <span class="hljs-literal">bool</span> thirsty &lt;- false <span class="hljs-symbol">update:</span> flip (0.1);
     ...
-    action drink {
-         <span class="hljs-keyword">if</span> condition: ! bottle.is_empty {
+    <span class="hljs-keyword">action</span> drink {
+         <span class="hljs-keyword">if</span> <span class="hljs-symbol">condition:</span> ! bottle.is_empty {
               bottle.volume &lt;-bottle.volume - quantity;
               thirsty &lt;- false;
          }
     }
     ...
     init {
-          create bottle return: created_bottle;
+          <span class="hljs-keyword">create</span> bottle <span class="hljs-symbol">return:</span> created_bottle;
               volume &lt;- 0.5;
           }
           my_bottle &lt;- first(created_bottle);
     }
     ...
-    <span class="hljs-class">reflex <span class="hljs-title">filling_bottle</span> <span class="hljs-title">when</span>: <span class="hljs-title">bottle</span>.<span class="hljs-title">is_empty</span> </span>{
-         ask  my_bottle {
-              do fill;
+    <span class="hljs-builtin">reflex</span> filling_bottle <span class="hljs-symbol">when:</span> bottle.is_empty {
+         <span class="hljs-keyword">ask</span>  my_bottle {
+              <span class="hljs-keyword">do</span> fill;
          }
     }
     ...
-    <span class="hljs-class">reflex <span class="hljs-title">drinking</span> <span class="hljs-title">when</span>: <span class="hljs-title">thirsty</span> </span>{
-         do drink;
+    <span class="hljs-builtin">reflex</span> drinking <span class="hljs-symbol">when:</span> thirsty {
+         <span class="hljs-keyword">do</span> drink;
     }
 }
 </code></pre>

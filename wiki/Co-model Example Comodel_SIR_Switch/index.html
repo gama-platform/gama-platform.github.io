@@ -11,49 +11,49 @@ SIR_EBM_coupling is the coupling that manipulates the elements inside SIR_EBM mo
 <p>Imported models :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> SIR_ABM 
 
-<span class="hljs-class">global</span>{
+global{
     <span class="hljs-literal">geometry</span> shape&lt;-envelope(square(100));
     <span class="hljs-literal">float</span> beta &lt;- 0.5 ;      
     <span class="hljs-literal">float</span> nu &lt;- 0.001 ;
     <span class="hljs-literal">float</span> delta &lt;- 0.01;
     init{
-        create Host number:495 ;
-        create Host number:5{state&lt;-1;}
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span>495 ;
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span>5{<span class="hljs-keyword">state</span>&lt;-1;}
         
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">Host</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{
-    <span class="hljs-literal">int</span> state&lt;-0;
+<span class="hljs-literal">species</span> Host <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{
+    <span class="hljs-literal">int</span> <span class="hljs-keyword">state</span>&lt;-0;
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">rgb</span>&gt; color&lt;-[#green, #red, #yellow];
-    <span class="hljs-class">reflex <span class="hljs-title">moving</span></span>{
-        do wander;
+    <span class="hljs-builtin">reflex</span> <span class="hljs-builtin">moving</span>{
+        <span class="hljs-keyword">do</span> wander;
     }
 
 
     
-    <span class="hljs-class">reflex <span class="hljs-title">become_infected</span> <span class="hljs-title">when</span>: <span class="hljs-title">state</span>=1 </span>{
+    <span class="hljs-builtin">reflex</span> become_infected <span class="hljs-symbol">when:</span> <span class="hljs-keyword">state</span>=1 {
         <span class="hljs-literal">list</span> n&lt;- self neighbors_at(1);
-        ask n{          
+        <span class="hljs-keyword">ask</span> n{          
             <span class="hljs-keyword">if</span> (flip(beta)) {
-                state&lt;-1;    
+                <span class="hljs-keyword">state</span>&lt;-1;    
             }
         }
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">become_immune</span> <span class="hljs-title">when</span>: (<span class="hljs-title">state</span>=1 <span class="hljs-title">and</span> <span class="hljs-title">flip</span>(<span class="hljs-title">delta</span>)) </span>{
-        state&lt;-2;
+    <span class="hljs-builtin">reflex</span> become_immune <span class="hljs-symbol">when:</span> (<span class="hljs-keyword">state</span>=1 and flip(delta)) {
+        <span class="hljs-keyword">state</span>&lt;-2;
     }
     
             
-    aspect base{
-        draw circle(1) color: color[state];
+    <span class="hljs-keyword">aspect</span> base{
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span> color[<span class="hljs-keyword">state</span>];
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">SIR_ABM_exp</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span></span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">gridDisp</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">Host</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>;</span>
+<span class="hljs-builtin">experiment</span> SIR_ABM_exp <span class="hljs-symbol">type:</span>gui{
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> gridDisp{
+            <span class="hljs-literal">species</span> Host <span class="hljs-symbol">aspect:</span>base;
         }
     }
 }
@@ -61,24 +61,24 @@ SIR_EBM_coupling is the coupling that manipulates the elements inside SIR_EBM mo
 <pre><code class="hljs"><span class="hljs-builtin">model</span> SIR_ABM_coupling
 
 import <span class="hljs-string">"SIR_ABM.gaml"</span>
-<span class="hljs-class">experiment <span class="hljs-title">SIR_ABM_coupling_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> <span class="hljs-title">parent</span>: <span class="hljs-title">SIR_ABM_exp</span></span>
+<span class="hljs-builtin">experiment</span> SIR_ABM_coupling_exp <span class="hljs-symbol">type:</span> gui <span class="hljs-symbol">parent:</span> SIR_ABM_exp
 {
     <span class="hljs-literal">int</span> get_num_S
     {
-        return length(Host where (each.state = 0));
+        <span class="hljs-keyword">return</span> length(Host where (each.<span class="hljs-keyword">state</span> = 0));
     }
 
     <span class="hljs-literal">int</span> get_num_I
     {
-        return length(Host where (each.state = 1));
+        <span class="hljs-keyword">return</span> length(Host where (each.<span class="hljs-keyword">state</span> = 1));
     }
 
     <span class="hljs-literal">int</span> get_num_R
     {
-        return length(Host where (each.state = 2));
+        <span class="hljs-keyword">return</span> length(Host where (each.<span class="hljs-keyword">state</span> = 2));
     }
 
-    action set_num_S_I_R (<span class="hljs-literal">int</span> numS, <span class="hljs-literal">int</span> numI, <span class="hljs-literal">int</span> numR)
+    <span class="hljs-keyword">action</span> set_num_S_I_R (<span class="hljs-literal">int</span> numS, <span class="hljs-literal">int</span> numI, <span class="hljs-literal">int</span> numR)
     {
         unknown call;
         call &lt;- set_num_S(numS);
@@ -86,49 +86,49 @@ import <span class="hljs-string">"SIR_ABM.gaml"</span>
         call &lt;- set_num_R(numR);
     }
 
-    action set_num_S (<span class="hljs-literal">int</span> num)
+    <span class="hljs-keyword">action</span> set_num_S (<span class="hljs-literal">int</span> num)
     {
-        ask (Host where (each.state = 0))
+        <span class="hljs-keyword">ask</span> (Host where (each.<span class="hljs-keyword">state</span> = 0))
         {
-            do die;
+            <span class="hljs-keyword">do</span> die;
         }
 
-        create Host number: num
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span> num
         {
-            state &lt;- 0;
+            <span class="hljs-keyword">state</span> &lt;- 0;
         }
 
     }
 
-    action set_num_I (<span class="hljs-literal">int</span> num)
+    <span class="hljs-keyword">action</span> set_num_I (<span class="hljs-literal">int</span> num)
     {
-        ask (Host where (each.state = 1))
+        <span class="hljs-keyword">ask</span> (Host where (each.<span class="hljs-keyword">state</span> = 1))
         {
-            do die;
+            <span class="hljs-keyword">do</span> die;
         }
 
-        create Host number: num
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span> num
         {
-            state &lt;- 1;
+            <span class="hljs-keyword">state</span> &lt;- 1;
         }
 
     }
 
-    action set_num_R (<span class="hljs-literal">int</span> num)
+    <span class="hljs-keyword">action</span> set_num_R (<span class="hljs-literal">int</span> num)
     {
-        ask (Host where (each.state = 2))
+        <span class="hljs-keyword">ask</span> (Host where (each.<span class="hljs-keyword">state</span> = 2))
         {
-            do die;
+            <span class="hljs-keyword">do</span> die;
         }
 
-        create Host number: num
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span> num
         {
-            state &lt;- 2;
+            <span class="hljs-keyword">state</span> &lt;- 2;
         }
 
     }
 
-    output
+    <span class="hljs-keyword">output</span>
     {
     }
 
@@ -136,14 +136,14 @@ import <span class="hljs-string">"SIR_ABM.gaml"</span>
 </code></pre>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> SIR_EBM
 
-<span class="hljs-class">global </span>{
+global {
     init{
-        create agent_with_SIR_dynamic;
+        <span class="hljs-keyword">create</span> agent_with_SIR_dynamic;
     } 
 }
 
 
-<span class="hljs-class">species <span class="hljs-title">agent_with_SIR_dynamic</span> </span>{
+<span class="hljs-literal">species</span> agent_with_SIR_dynamic {
     <span class="hljs-literal">int</span> N &lt;- 495 ;
     <span class="hljs-literal">int</span> iInit &lt;- 5;     
 
@@ -157,26 +157,26 @@ import <span class="hljs-string">"SIR_ABM.gaml"</span>
 
     <span class="hljs-literal">float</span> h &lt;- 0.01;
    
-    equation SIR{ 
+    <span class="hljs-keyword">equation</span> SIR{ 
         diff(S,t) = (- beta *   S * I / N);
         diff(I,t) = (  beta*  S * I / N) - (alpha * I)  ;
         diff(R,t) = (  alpha  *  I) ;
     }
                 
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{
+    <span class="hljs-builtin">reflex</span> solving {
 <span class="hljs-comment">//      write S;</span>
-        solve SIR method: <span class="hljs-string">"rk4"</span> step: h;<span class="hljs-comment">// cycle_length: 1/h ;</span>
+        <span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span> <span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span> h;<span class="hljs-comment">// cycle_length: 1/h ;</span>
     }    
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">SIR_EBM_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output { 
-        <span class="hljs-class">display <span class="hljs-title">display_charts</span> </span>{
-            chart <span class="hljs-string">"SIR_agent"</span> type: series background: #white {
-                data 'S' value: first(<span class="hljs-literal">list</span>(agent_with_SIR_dynamic)).S color: #green ;               
-                data 'I' value: first(<span class="hljs-literal">list</span>(agent_with_SIR_dynamic)).I color: #red ;
-                data 'R' value: first(<span class="hljs-literal">list</span>(agent_with_SIR_dynamic)).R color: #blue ;
+<span class="hljs-builtin">experiment</span> SIR_EBM_exp <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> { 
+        <span class="hljs-keyword">display</span> display_charts {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"SIR_agent"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S'</span> <span class="hljs-symbol">value:</span> first(<span class="hljs-literal">list</span>(agent_with_SIR_dynamic)).S <span class="hljs-symbol">color:</span> #green ;               
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I'</span> <span class="hljs-symbol">value:</span> first(<span class="hljs-literal">list</span>(agent_with_SIR_dynamic)).I <span class="hljs-symbol">color:</span> #red ;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R'</span> <span class="hljs-symbol">value:</span> first(<span class="hljs-literal">list</span>(agent_with_SIR_dynamic)).R <span class="hljs-symbol">color:</span> #blue ;
             }
         }
     }
@@ -185,24 +185,24 @@ import <span class="hljs-string">"SIR_ABM.gaml"</span>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> SIR_EBM_coupling
 
 import <span class="hljs-string">"SIR_EBM.gaml"</span>
-<span class="hljs-class">experiment <span class="hljs-title">SIR_EBM_coupling_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> <span class="hljs-title">parent</span>: <span class="hljs-title">SIR_EBM_exp</span></span>
+<span class="hljs-builtin">experiment</span> SIR_EBM_coupling_exp <span class="hljs-symbol">type:</span> gui <span class="hljs-symbol">parent:</span> SIR_EBM_exp
 {
     <span class="hljs-literal">int</span> get_num_S
     {
-        return first(agent_with_SIR_dynamic).S;
+        <span class="hljs-keyword">return</span> first(agent_with_SIR_dynamic).S;
     }
 
     <span class="hljs-literal">int</span> get_num_I
     {
-        return first(agent_with_SIR_dynamic).I;
+        <span class="hljs-keyword">return</span> first(agent_with_SIR_dynamic).I;
     }
 
     <span class="hljs-literal">int</span> get_num_R
     {
-        return first(agent_with_SIR_dynamic).R;
+        <span class="hljs-keyword">return</span> first(agent_with_SIR_dynamic).R;
     }
 
-    action set_num_S_I_R (<span class="hljs-literal">int</span> numS, <span class="hljs-literal">int</span> numI, <span class="hljs-literal">int</span> numR)
+    <span class="hljs-keyword">action</span> set_num_S_I_R (<span class="hljs-literal">int</span> numS, <span class="hljs-literal">int</span> numI, <span class="hljs-literal">int</span> numR)
     {
         unknown call;
         call &lt;- set_num_S(numS);
@@ -210,22 +210,22 @@ import <span class="hljs-string">"SIR_EBM.gaml"</span>
         call &lt;- set_num_R(numR);
     }
 
-    action set_num_S (<span class="hljs-literal">int</span> num)
+    <span class="hljs-keyword">action</span> set_num_S (<span class="hljs-literal">int</span> num)
     {
         first(agent_with_SIR_dynamic).S &lt;- <span class="hljs-literal">float</span>(num);
     }
 
-    action set_num_I (<span class="hljs-literal">int</span> num)
+    <span class="hljs-keyword">action</span> set_num_I (<span class="hljs-literal">int</span> num)
     {
         first(agent_with_SIR_dynamic).I &lt;- <span class="hljs-literal">float</span>(num);
     }
 
-    action set_num_R (<span class="hljs-literal">int</span> num)
+    <span class="hljs-keyword">action</span> set_num_R (<span class="hljs-literal">int</span> num)
     {
         first(agent_with_SIR_dynamic).R &lt;- <span class="hljs-literal">float</span>(num);
     }
 
-    output
+    <span class="hljs-keyword">output</span>
     {
     }
 
@@ -238,7 +238,7 @@ import <span class="hljs-string">"Legacy_models/SIR_EBM_coupling.gaml"</span> as
 import <span class="hljs-string">"Legacy_models/SIR_ABM_coupling.gaml"</span> as SIR_2
 
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(square(100));
     <span class="hljs-literal">int</span> switch_threshold &lt;- 120; <span class="hljs-comment">// threshold for switching models</span>
@@ -246,32 +246,32 @@ import <span class="hljs-string">"Legacy_models/SIR_ABM_coupling.gaml"</span> as
     <span class="hljs-literal">int</span> threshold_to_Maths &lt;- 20;
     init
     {
-        create SIR_1.SIR_EBM_coupling_exp;
-        create SIR_2.SIR_ABM_coupling_exp;
-        create Switch;
+        <span class="hljs-keyword">create</span> SIR_1.SIR_EBM_coupling_exp;
+        <span class="hljs-keyword">create</span> SIR_2.SIR_ABM_coupling_exp;
+        <span class="hljs-keyword">create</span> Switch;
     }
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">Switch</span></span>
+<span class="hljs-literal">species</span> Switch
 {
     <span class="hljs-literal">int</span> S &lt;- 495;
     <span class="hljs-literal">int</span> I &lt;- 5;
     <span class="hljs-literal">int</span> R &lt;- 0;
-    <span class="hljs-class">reflex <span class="hljs-title">request_from_micro_model</span></span>
+    <span class="hljs-builtin">reflex</span> request_from_micro_model
     {
         <span class="hljs-comment">//if the size of S population and I population are bigger than a threshold, use the EBM</span>
         <span class="hljs-keyword">if</span> (S &gt; threshold_to_Maths and I &gt; threshold_to_Maths)
         {
-            ask world
+            <span class="hljs-keyword">ask</span> world
             {
                 unknown call;
                 call &lt;- first(SIR_1.SIR_EBM_coupling_exp).set_num_S_I_R(myself.S, myself.I, myself.R);
-                ask first(SIR_1.SIR_EBM_coupling_exp).simulation
+                <span class="hljs-keyword">ask</span> first(SIR_1.SIR_EBM_coupling_exp).simulation
                 {
-                    loop times: 5
+                    <span class="hljs-keyword">loop</span> <span class="hljs-symbol">times:</span> 5
                     {
-                        do _step_;
+                        <span class="hljs-keyword">do</span> _step_;
                     }
 
                 }
@@ -286,15 +286,15 @@ import <span class="hljs-string">"Legacy_models/SIR_ABM_coupling.gaml"</span> as
         <span class="hljs-comment">//if the size of S population or  I population are smaller  than a threshold, use the ABM</span>
         <span class="hljs-keyword">if</span> (I &lt; threshold_to_IBM or S &lt; threshold_to_IBM)
         {
-            ask world
+            <span class="hljs-keyword">ask</span> world
             {
                 unknown call;
                 call &lt;- first(SIR_2.SIR_ABM_coupling_exp).set_num_S_I_R(myself.S, myself.I, myself.R);
-                ask first(SIR_2.SIR_ABM_coupling_exp).simulation
+                <span class="hljs-keyword">ask</span> first(SIR_2.SIR_ABM_coupling_exp).simulation
                 {
-                    loop times: 1
+                    <span class="hljs-keyword">loop</span> <span class="hljs-symbol">times:</span> 1
                     {
-                        do _step_;
+                        <span class="hljs-keyword">do</span> _step_;
                     }
 
                 }
@@ -308,24 +308,24 @@ import <span class="hljs-string">"Legacy_models/SIR_ABM_coupling.gaml"</span> as
 
     }
 
-    aspect base
+    <span class="hljs-keyword">aspect</span> base
     {
-        draw square(100);
+        <span class="hljs-keyword">draw</span> square(100);
     }
 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Simple_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> Simple_exp <span class="hljs-symbol">type:</span> gui
 {
-    output
+    <span class="hljs-keyword">output</span>
     {
-        <span class="hljs-class">display <span class="hljs-title">co_SIR_chart</span></span>
+        <span class="hljs-keyword">display</span> co_SIR_chart
         {
-            chart <span class="hljs-string">"SIR_agent"</span> type: series background: # white
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"SIR_agent"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> # white
             {
-                data 'S' value: first(Switch).S color: # green;
-                data 'I' value: first(Switch).I color: # red;
-                data 'R' value: first(Switch).R color: # yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S'</span> <span class="hljs-symbol">value:</span> first(Switch).S <span class="hljs-symbol">color:</span> # green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I'</span> <span class="hljs-symbol">value:</span> first(Switch).I <span class="hljs-symbol">color:</span> # red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R'</span> <span class="hljs-symbol">value:</span> first(Switch).R <span class="hljs-symbol">color:</span> # yellow;
             }
 
         }

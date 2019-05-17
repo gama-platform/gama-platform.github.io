@@ -9,14 +9,14 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> prey_predator
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_preys_init &lt;- 200;
     init {
-        create prey number: nb_preys_init ;
+        <span class="hljs-keyword">create</span> prey <span class="hljs-symbol">number:</span> nb_preys_init ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">prey</span> </span>{
+<span class="hljs-literal">species</span> prey {
     <span class="hljs-literal">float</span> size &lt;- 1.0 ;
     <span class="hljs-literal">rgb</span> color &lt;- #blue;
     vegetation_cell myCell &lt;- one_of (vegetation_cell) ;
@@ -25,24 +25,24 @@
         location &lt;- myCell.location;
     }
         
-    aspect base {
-        draw circle(size) color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">grid <span class="hljs-title">vegetation_cell</span> <span class="hljs-title">width</span>: 50 <span class="hljs-title">height</span>: 50 <span class="hljs-title">neighbors</span>: 4 </span>{
+grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hljs-symbol">height:</span> 50 <span class="hljs-symbol">neighbors:</span> 4 {
     <span class="hljs-literal">float</span> maxFood &lt;- 1.0 ;
     <span class="hljs-literal">float</span> foodProd &lt;- (rnd(1000) / 1000) * 0.01 ;
-    <span class="hljs-literal">float</span> food &lt;- (rnd(1000) / 1000) max: maxFood update: food + foodProd ;
-    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) update: <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 *(1 - food))) ;
+    <span class="hljs-literal">float</span> food &lt;- (rnd(1000) / 1000) <span class="hljs-symbol">max:</span> maxFood <span class="hljs-symbol">update:</span> food + foodProd ;
+    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) <span class="hljs-symbol">update:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 *(1 - food))) ;
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">prey_predator</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Initial number of preys: "</span> var: nb_preys_init min: 1 max: 1000 category: <span class="hljs-string">"Prey"</span> ;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">main_display</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">vegetation_cell</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">prey</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+<span class="hljs-builtin">experiment</span> prey_predator <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of preys: "</span> <span class="hljs-symbol">var:</span> nb_preys_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span> ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> main_display {
+            grid vegetation_cell <span class="hljs-symbol">lines:</span> #black ;
+            <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> base ;
         }
     }
 }

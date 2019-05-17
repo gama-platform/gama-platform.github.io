@@ -13,73 +13,73 @@ NOTE: You should have imported the database (spatial_DB.sql) into the MySQL serv
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> agent2DB_MySQL 
   
-<span class="hljs-class">global </span>{ 
-    <span class="hljs-literal">file</span> buildingsShp &lt;- <span class="hljs-literal">file</span>('../../includes/building.shp');
-    <span class="hljs-literal">file</span> boundsShp &lt;- <span class="hljs-literal">file</span>('../../includes/bounds.shp');
+global { 
+    <span class="hljs-literal">file</span> buildingsShp &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../../includes/building.shp'</span>);
+    <span class="hljs-literal">file</span> boundsShp &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../../includes/bounds.shp'</span>);
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(boundsShp);
      
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; PARAMS &lt;-  [<span class="hljs-comment">//'srid'::'4326', // optinal</span>
-                                   'host'::'localhost','dbtype'::'Postgres','database'::'spatial_DB',
-                                   'port'::'5433','user'::'postgres','passwd'::'tmt'];
+                                   <span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>,<span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'Postgres'</span>,<span class="hljs-string">'database'</span>::<span class="hljs-string">'spatial_DB'</span>,
+                                   <span class="hljs-string">'port'</span>::<span class="hljs-string">'5433'</span>,<span class="hljs-string">'user'</span>::<span class="hljs-string">'postgres'</span>,<span class="hljs-string">'passwd'</span>::<span class="hljs-string">'tmt'</span>];
 
     init {
-        create buildings from: buildingsShp with: [type::<span class="hljs-literal">string</span>(read ('NATURE'))];
-        create bounds from: boundsShp;
+        <span class="hljs-keyword">create</span> buildings <span class="hljs-symbol">from:</span> buildingsShp <span class="hljs-symbol">with:</span> [type::<span class="hljs-literal">string</span>(read (<span class="hljs-string">'NATURE'</span>))];
+        <span class="hljs-keyword">create</span> bounds <span class="hljs-symbol">from:</span> boundsShp;
         
-        create DB_Accessor
+        <span class="hljs-keyword">create</span> DB_Accessor
         {           
-            do executeUpdate params: PARAMS updateComm: <span class="hljs-string">"DELETE FROM buildings"</span>;    
-            do executeUpdate params: PARAMS updateComm: <span class="hljs-string">"DELETE FROM bounds"</span>;
+            <span class="hljs-keyword">do</span> executeUpdate <span class="hljs-symbol">params:</span> PARAMS <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"DELETE FROM buildings"</span>;    
+            <span class="hljs-keyword">do</span> executeUpdate <span class="hljs-symbol">params:</span> PARAMS <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"DELETE FROM bounds"</span>;
         }
-        write <span class="hljs-string">"Click on &lt;&lt;Step&gt;&gt; button to save data of agents to DB"</span>;       
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Click on &lt;&lt;Step&gt;&gt; button to save data of agents to DB"</span>;       
     }
 }   
   
-<span class="hljs-class">species <span class="hljs-title">DB_Accessor</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">SQLSKILL</span>] ;   </span>
+<span class="hljs-literal">species</span> DB_Accessor <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">SQLSKILL</span>] ;   
 
-<span class="hljs-class">species <span class="hljs-title">bounds</span> </span>{
-    <span class="hljs-class">reflex <span class="hljs-title">printdata</span></span>{
-         write <span class="hljs-string">" name : "</span> + (name) ;
+<span class="hljs-literal">species</span> bounds {
+    <span class="hljs-builtin">reflex</span> printdata{
+         <span class="hljs-keyword">write</span> <span class="hljs-string">" name : "</span> + (name) ;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">savetosql</span></span>{  <span class="hljs-comment">// save data into Postgres</span>
-        write <span class="hljs-string">"begin"</span>+ name;
-        ask DB_Accessor {
-            do insert params: PARAMS into: <span class="hljs-string">"bounds"</span>
-                      columns: [<span class="hljs-string">"geom"</span>]
-                      values: [myself.shape];
+    <span class="hljs-builtin">reflex</span> savetosql{  <span class="hljs-comment">// save data into Postgres</span>
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"begin"</span>+ name;
+        <span class="hljs-keyword">ask</span> DB_Accessor {
+            <span class="hljs-keyword">do</span> insert <span class="hljs-symbol">params:</span> PARAMS <span class="hljs-symbol">into:</span> <span class="hljs-string">"bounds"</span>
+                      <span class="hljs-symbol">columns:</span> [<span class="hljs-string">"geom"</span>]
+                      <span class="hljs-symbol">values:</span> [myself.shape];
         }
-        write <span class="hljs-string">"finish "</span>+ name;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"finish "</span>+ name;
     }       
 }
 
-<span class="hljs-class">species <span class="hljs-title">buildings</span> </span>{
+<span class="hljs-literal">species</span> buildings {
     <span class="hljs-literal">string</span> type;
     
-    <span class="hljs-class">reflex <span class="hljs-title">printdata</span></span>{
-        write <span class="hljs-string">" name : "</span> + (name) + <span class="hljs-string">"; type: "</span> + (type) + <span class="hljs-string">"shape:"</span> + shape;
+    <span class="hljs-builtin">reflex</span> printdata{
+        <span class="hljs-keyword">write</span> <span class="hljs-string">" name : "</span> + (name) + <span class="hljs-string">"; type: "</span> + (type) + <span class="hljs-string">"shape:"</span> + shape;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">savetosql</span></span>{  <span class="hljs-comment">// save data into Postgres</span>
-        write <span class="hljs-string">"begin"</span>+ name;
-        ask DB_Accessor {
-            do insert params: PARAMS into: <span class="hljs-string">"buildings"</span>
-                      columns: [<span class="hljs-string">"name"</span>, <span class="hljs-string">"type"</span>,<span class="hljs-string">"geom"</span>]
-                      values: [myself.name,myself.type,myself.shape];
+    <span class="hljs-builtin">reflex</span> savetosql{  <span class="hljs-comment">// save data into Postgres</span>
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"begin"</span>+ name;
+        <span class="hljs-keyword">ask</span> DB_Accessor {
+            <span class="hljs-keyword">do</span> insert <span class="hljs-symbol">params:</span> PARAMS <span class="hljs-symbol">into:</span> <span class="hljs-string">"buildings"</span>
+                      <span class="hljs-symbol">columns:</span> [<span class="hljs-string">"name"</span>, <span class="hljs-string">"type"</span>,<span class="hljs-string">"geom"</span>]
+                      <span class="hljs-symbol">values:</span> [myself.name,myself.type,myself.shape];
         }
-        write <span class="hljs-string">"finish "</span>+ name;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"finish "</span>+ name;
     }   
     
-    aspect default {
-        draw shape color: #gray ;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray ;
     }
 }   
 
-<span class="hljs-class">experiment <span class="hljs-title">default_expr</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
+<span class="hljs-builtin">experiment</span> default_expr <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
         
-        <span class="hljs-class">display <span class="hljs-title">GlobalView</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">buildings</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span>;</span>
+        <span class="hljs-keyword">display</span> GlobalView {
+            <span class="hljs-literal">species</span> buildings <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span>;
         }
     }
 }

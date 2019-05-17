@@ -9,24 +9,24 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> path_and_follow
 
-<span class="hljs-class">global</span>{
+global{
     <span class="hljs-literal">graph</span> the_graph;
     init{
             <span class="hljs-comment">//It is possible to define a road by defining its shape, being a line. The line need to be created by passing the location of the vertices</span>
-       create road {
+       <span class="hljs-keyword">create</span> road {
             shape &lt;- line([{0,50},{40,60}]);
        }
-       create road {
+       <span class="hljs-keyword">create</span> road {
             shape &lt;- line([{40,60},{50,50},{55,60}]);
        }
-       create road {
+       <span class="hljs-keyword">create</span> road {
             shape &lt;- line([{55,60},{65,40}]);
        }
        
-       create road_of_graph {
+       <span class="hljs-keyword">create</span> road_of_graph {
             shape &lt;- line([{65,40},{75,35}]);
        }
-       create road_of_graph {
+       <span class="hljs-keyword">create</span> road_of_graph {
             shape &lt;- line([{75,35},{85,40},{80,60}]);
        }
        <span class="hljs-comment">//It is possible to define a weights map by linking the road and their weights (the road will be the key of the weight)</span>
@@ -37,14 +37,14 @@
        <span class="hljs-comment">//The as_edge_graph operator is an operator creating a graph using the list of agents passed as edges of the graph</span>
        the_graph &lt;- as_edge_graph(road_of_graph) with_weights weight_map;
       
-       create myCircle {
+       <span class="hljs-keyword">create</span> myCircle {
             location &lt;- {0,0};
        }
       
     }  
 }
 
-<span class="hljs-class">species <span class="hljs-title">myCircle</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{
+<span class="hljs-literal">species</span> myCircle <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{
     <span class="hljs-comment">//The different ways to declare a path : declaring all the lines of the path using their vertices</span>
     <span class="hljs-comment">//                            using a list of agents representing the lines of the path</span>
     <span class="hljs-comment">//                            using the graph as a path</span>
@@ -58,16 +58,16 @@
     <span class="hljs-literal">path</span> path_following&lt;- path_to_follow1;
     <span class="hljs-literal">rgb</span> color &lt;- #green;
     
-    <span class="hljs-class">reflex <span class="hljs-title">myfollow</span></span>{ 
+    <span class="hljs-builtin">reflex</span> myfollow{ 
         <span class="hljs-comment">//The operator follow make the agent move from the starting vertice of the starting edge of a path to the last vertice of the last edge of the path</span>
         <span class="hljs-comment">// but following the edges of the concerned path</span>
-        do follow <span class="hljs-literal">path</span>: path_following; 
+        <span class="hljs-keyword">do</span> follow <span class="hljs-symbol">path:</span> path_following; 
         <span class="hljs-keyword">if</span>(cycle&gt;200)
         {
             path_following&lt;- path_to_follow3;   
             color&lt;-#pink;
         }
-        else
+        <span class="hljs-keyword">else</span>
         {
             <span class="hljs-keyword">if</span>(cycle&gt;100)
             {
@@ -77,35 +77,35 @@
         }
     }
     
-    aspect base {
-      draw circle(1) color:#red ;   
+    <span class="hljs-keyword">aspect</span> base {
+      <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span>#red ;   
       <span class="hljs-comment">//We loop on all the edges of the path the agent follow to display them</span>
-        loop seg over: path_following.edges {
-            draw seg color: color;
+        <span class="hljs-keyword">loop</span> seg <span class="hljs-symbol">over:</span> path_following.edges {
+            <span class="hljs-keyword">draw</span> seg <span class="hljs-symbol">color:</span> color;
          }
       
     } 
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span> </span>{
-    aspect base {
-      draw shape color:#blue ;  
+<span class="hljs-literal">species</span> road {
+    <span class="hljs-keyword">aspect</span> base {
+      <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>#blue ;  
       
     } 
 }
 
-<span class="hljs-class">species <span class="hljs-title">road_of_graph</span> </span>{
-    aspect base {
-      draw shape color:#red ;   
+<span class="hljs-literal">species</span> road_of_graph {
+    <span class="hljs-keyword">aspect</span> base {
+      <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>#red ;   
       
     } 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.10;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">myView</span> </span>{ 
-            <span class="hljs-class">species <span class="hljs-title">myCircle</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>; </span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> myView { 
+            <span class="hljs-literal">species</span> myCircle <span class="hljs-symbol">aspect:</span>base; 
         }
     }
 }

@@ -9,7 +9,7 @@
 <pre><code class="hljs"><span class="hljs-builtin">model</span> MASKMEANS
 
 
-<span class="hljs-class">global</span>
+global
 {
 <span class="hljs-comment">// the number of classes to create (kmeans)</span>
 <span class="hljs-comment">// It corresponds to the centroids</span>
@@ -21,7 +21,7 @@
     init
     {
     <span class="hljs-comment">//create datapoints agents</span>
-        create datapoints number: N
+        <span class="hljs-keyword">create</span> datapoints <span class="hljs-symbol">number:</span> N
         {
             <span class="hljs-keyword">if</span> (dimensions = 3)
             {
@@ -36,7 +36,7 @@
         }
 
         <span class="hljs-comment">//create centroid agents</span>
-        create centroids number: k
+        <span class="hljs-keyword">create</span> centroids <span class="hljs-symbol">number:</span> k
         {
             <span class="hljs-keyword">if</span> (dimensions = 3)
             {
@@ -51,10 +51,10 @@
         }
 
         <span class="hljs-comment">//give a random color to each centroid (i.e. to each datapoints agents of the group)</span>
-        loop c over: centroids
+        <span class="hljs-keyword">loop</span> c <span class="hljs-symbol">over:</span> centroids
         {
             <span class="hljs-literal">rgb</span> col &lt;- rnd_color(255);
-            ask c
+            <span class="hljs-keyword">ask</span> c
             {
                 color_kmeans &lt;- col;
             }
@@ -63,34 +63,34 @@
 
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">assign_points_to_centroid</span> <span class="hljs-title">when</span>: <span class="hljs-title">even</span>(<span class="hljs-title">cycle</span>)</span>
+    <span class="hljs-builtin">reflex</span> assign_points_to_centroid <span class="hljs-symbol">when:</span> even(cycle)
     {
     <span class="hljs-comment">// The "assignment" step is also referred to as expectation step,</span>
-        ask centroids
+        <span class="hljs-keyword">ask</span> centroids
         {
             mypoints &lt;- <span class="hljs-literal">list</span>&lt;datapoints&gt; ([]);
         }
 
-        loop pt over: datapoints
+        <span class="hljs-keyword">loop</span> pt <span class="hljs-symbol">over:</span> datapoints
         {
-            ask pt
+            <span class="hljs-keyword">ask</span> pt
             {
                 mycenter &lt;- (centroids) closest_to self;
                 color_kmeans &lt;- mycenter.color_kmeans;
-                add self to: mycenter.mypoints;
+                <span class="hljs-keyword">add</span> self <span class="hljs-symbol">to:</span> mycenter.mypoints;
             }
 
         }
 
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">update_centroids</span> <span class="hljs-title">when</span>: <span class="hljs-title">not</span> <span class="hljs-title">even</span>(<span class="hljs-title">cycle</span>)</span>
+    <span class="hljs-builtin">reflex</span> update_centroids <span class="hljs-symbol">when:</span> not even(cycle)
     {
     <span class="hljs-comment">// the "update step" as maximization step,</span>
     <span class="hljs-comment">// making this algorithm a variant of the generalized expectation-maximization algorithm.</span>
 
     <span class="hljs-comment">//We give a random color to each group (i.e. to each datapoints agents of the group)</span>
-        loop center over: centroids
+        <span class="hljs-keyword">loop</span> center <span class="hljs-symbol">over:</span> centroids
         {
         <span class="hljs-comment">//old code... center.location &lt;- geometry(center.mypoints).location;</span>
             center.location &lt;- mean(center.mypoints collect each.location);
@@ -100,70 +100,70 @@
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">datapoints</span></span>
+<span class="hljs-literal">species</span> datapoints
 {
     <span class="hljs-literal">rgb</span> color_kmeans &lt;- # grey;
     centroids mycenter;
-    aspect kmeans_aspect2D
+    <span class="hljs-keyword">aspect</span> kmeans_aspect2D
     {
-        draw circle(2) color: color_kmeans;
+        <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">color:</span> color_kmeans;
     }
 
-    aspect kmeans_aspect3D
+    <span class="hljs-keyword">aspect</span> kmeans_aspect3D
     {
-        draw sphere(2) color: color_kmeans;
+        <span class="hljs-keyword">draw</span> sphere(2) <span class="hljs-symbol">color:</span> color_kmeans;
     }
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">centroids</span></span>
+<span class="hljs-literal">species</span> centroids
 {
     <span class="hljs-literal">rgb</span> color_kmeans &lt;- # grey;
     <span class="hljs-literal">list</span>&lt;datapoints&gt; mypoints;
-    aspect kmeans_aspect2D
+    <span class="hljs-keyword">aspect</span> kmeans_aspect2D
     {
-        draw cross(3, 0.5) color: color_kmeans border: # black;
-        loop pt over: mypoints
+        <span class="hljs-keyword">draw</span> cross(3, 0.5) <span class="hljs-symbol">color:</span> color_kmeans <span class="hljs-symbol">border:</span> # black;
+        <span class="hljs-keyword">loop</span> pt <span class="hljs-symbol">over:</span> mypoints
         {
-            draw line([location, pt]) + 0.1 color: color_kmeans;
+            <span class="hljs-keyword">draw</span> line([location, pt]) + 0.1 <span class="hljs-symbol">color:</span> color_kmeans;
         }
     }
 
-    aspect kmeans_aspect3D
+    <span class="hljs-keyword">aspect</span> kmeans_aspect3D
     {
-        draw cube(5) color: color_kmeans border: # black;
-        loop pt over: mypoints
+        <span class="hljs-keyword">draw</span> cube(5) <span class="hljs-symbol">color:</span> color_kmeans <span class="hljs-symbol">border:</span> # black;
+        <span class="hljs-keyword">loop</span> pt <span class="hljs-symbol">over:</span> mypoints
         {
-            draw line([location, pt], 0.2) color: color_kmeans;
+            <span class="hljs-keyword">draw</span> line([location, pt], 0.2) <span class="hljs-symbol">color:</span> color_kmeans;
         }
     }
 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">clustering2D</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> clustering2D <span class="hljs-symbol">type:</span> gui
 {
-    parameter <span class="hljs-string">"Number of clusters to split the data into"</span> var: k category: <span class="hljs-string">"KMEANS"</span>;
-    parameter <span class="hljs-string">"Number of points to be clustered"</span> var: N init: 100;
-    parameter <span class="hljs-string">"Number of dimensions"</span> var: dimensions init: 2 min: 2 max: 2;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of clusters to split the data into"</span> <span class="hljs-symbol">var:</span> k <span class="hljs-symbol">category:</span> <span class="hljs-string">"KMEANS"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of points to be clustered"</span> <span class="hljs-symbol">var:</span> N <span class="hljs-symbol">init:</span> 100;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of dimensions"</span> <span class="hljs-symbol">var:</span> dimensions <span class="hljs-symbol">init:</span> 2 <span class="hljs-symbol">min:</span> 2 <span class="hljs-symbol">max:</span> 2;
     font regular &lt;- font(<span class="hljs-string">"Helvetica"</span>, 14, # bold);
         
     <span class="hljs-literal">point</span> target &lt;- { 20, 95 };
-    output
+    <span class="hljs-keyword">output</span>
     {
-        <span class="hljs-class">display <span class="hljs-title">map_kmeans</span></span>
+        <span class="hljs-keyword">display</span> map_kmeans
         {
-            <span class="hljs-class">species <span class="hljs-title">datapoints</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">kmeans_aspect2D</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">centroids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">kmeans_aspect2D</span>;</span>
-            graphics <span class="hljs-string">"Full target"</span>
+            <span class="hljs-literal">species</span> datapoints <span class="hljs-symbol">aspect:</span> kmeans_aspect2D;
+            <span class="hljs-literal">species</span> centroids <span class="hljs-symbol">aspect:</span> kmeans_aspect2D;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"Full target"</span>
             {
-                draw rectangle(100, 4) color: # yellow at: target + { 30, 0 };
+                <span class="hljs-keyword">draw</span> rectangle(100, 4) <span class="hljs-symbol">color:</span> # yellow <span class="hljs-symbol">at:</span> target + { 30, 0 };
                 <span class="hljs-keyword">if</span> (not even(cycle))
                 {
                 <span class="hljs-comment">// the "update step" as maximization step, (a mean is done to recenter)</span>
-                    draw <span class="hljs-string">"Next step is maximisation step the centroid will move to the means of its points"</span> at: target + { 0, 0 } font: regular color: # red;
-                } else
+                    <span class="hljs-keyword">draw</span> <span class="hljs-string">"Next step is maximisation step the centroid will move to the means of its points"</span> <span class="hljs-symbol">at:</span> target + { 0, 0 } <span class="hljs-symbol">font:</span> regular <span class="hljs-symbol">color:</span> # red;
+                } <span class="hljs-keyword">else</span>
                 {
-                    draw <span class="hljs-string">"Next step is estimation Step (each point is assigned the color of his nearest centroid"</span> at: target + { 0, 0 } font: regular color: # green;
+                    <span class="hljs-keyword">draw</span> <span class="hljs-string">"Next step is estimation Step (each point is assigned the color of his nearest centroid"</span> <span class="hljs-symbol">at:</span> target + { 0, 0 } <span class="hljs-symbol">font:</span> regular <span class="hljs-symbol">color:</span> # green;
                 }
 
             }
@@ -173,22 +173,22 @@
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">clustering3D</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> clustering3D <span class="hljs-symbol">type:</span> gui
 {
-    parameter <span class="hljs-string">"Number of clusters to split the data into"</span> var: k category: <span class="hljs-string">"KMEANS"</span>;
-    parameter <span class="hljs-string">"Number of points to be clustered"</span> var: N init: 100;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of clusters to split the data into"</span> <span class="hljs-symbol">var:</span> k <span class="hljs-symbol">category:</span> <span class="hljs-string">"KMEANS"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of points to be clustered"</span> <span class="hljs-symbol">var:</span> N <span class="hljs-symbol">init:</span> 100;
     font regular &lt;- font(<span class="hljs-string">"Helvetica"</span>, 14, # bold);
     <span class="hljs-literal">point</span> target &lt;- { 20, 95 };
-    parameter <span class="hljs-string">"Number of dimensions"</span> var: dimensions init: 3 min: 3 max: 3;
-    action _init_ {
-        create MASKMEANS_model with: [dimensions::3];
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of dimensions"</span> <span class="hljs-symbol">var:</span> dimensions <span class="hljs-symbol">init:</span> 3 <span class="hljs-symbol">min:</span> 3 <span class="hljs-symbol">max:</span> 3;
+    <span class="hljs-keyword">action</span> _init_ {
+        <span class="hljs-keyword">create</span> MASKMEANS_model <span class="hljs-symbol">with:</span> [dimensions::3];
     }
-    output
+    <span class="hljs-keyword">output</span>
     {
-        <span class="hljs-class">display <span class="hljs-title">map_kmeans</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>
+        <span class="hljs-keyword">display</span> map_kmeans <span class="hljs-symbol">type:</span> opengl
         {
-            <span class="hljs-class">species <span class="hljs-title">datapoints</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">kmeans_aspect3D</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">centroids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">kmeans_aspect3D</span>;</span>
+            <span class="hljs-literal">species</span> datapoints <span class="hljs-symbol">aspect:</span> kmeans_aspect3D;
+            <span class="hljs-literal">species</span> centroids <span class="hljs-symbol">aspect:</span> kmeans_aspect3D;
         }
 
     }

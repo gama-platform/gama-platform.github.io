@@ -15,33 +15,33 @@
 
 <span class="hljs-builtin">model</span> test_unitTest_framework
 
-<span class="hljs-class">global </span>{
+global {
     init {
         <span class="hljs-comment">//Create agents : one to test the population of test_species1 and the test_species1 agents</span>
-        create test_species2 number: 1;
-        create test_species1 number: 10;
+        <span class="hljs-keyword">create</span> test_species2 <span class="hljs-symbol">number:</span> 1;
+        <span class="hljs-keyword">create</span> test_species1 <span class="hljs-symbol">number:</span> 10;
     }
     <span class="hljs-comment">//At each step, one of the agents of test_species1 dies</span>
-    <span class="hljs-class">reflex <span class="hljs-title">one_should_die</span> </span>{
-        ask one_of(test_species1){
-            do die;
+    <span class="hljs-builtin">reflex</span> one_should_die {
+        <span class="hljs-keyword">ask</span> one_of(test_species1){
+            <span class="hljs-keyword">do</span> die;
         }
     }
 }
 
 
-<span class="hljs-class">species <span class="hljs-title">test_species2</span> </span>{
+<span class="hljs-literal">species</span> test_species2 {
     <span class="hljs-comment">//The step is computed each step to test if there is still at least 5 agents of test_species1</span>
-    test t1 {
-        assert (length(test_species1) &gt; 5) equals: true;
+    <span class="hljs-keyword">test</span> t1 {
+        <span class="hljs-keyword">assert</span> (length(test_species1) &gt; 5) <span class="hljs-symbol">equals:</span> true;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">test_species1</span> </span>{
+<span class="hljs-literal">species</span> test_species1 {
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">new</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{}
+<span class="hljs-builtin">experiment</span> new <span class="hljs-symbol">type:</span> gui {}
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

@@ -12,7 +12,7 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
 
 <span class="hljs-builtin">model</span> TraficGroup
 
-<span class="hljs-class">global </span>{
+global {
         
     <span class="hljs-literal">float</span> road_size &lt;- 10 #km ;                         <span class="hljs-comment">// Size of the road</span>
     
@@ -29,15 +29,15 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
             
             <span class="hljs-comment">// Creation of the nb_sections sections which compose the road. </span>
             
-           loop i from: 0 to: (nb_sections - 1){
-              create section with: [shape:: line([{i * section_size , 100},{(i +1) * section_size , 100}])];
+           <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> (nb_sections - 1){
+              <span class="hljs-keyword">create</span> section <span class="hljs-symbol">with:</span> [shape:: line([{i * section_size , 100},{(i +1) * section_size , 100}])];
            }
             
             <span class="hljs-comment">// For each section, as we need to have information concerning the previous and the next one, we define which section is the previous and which is the next.</span>
             <span class="hljs-comment">// The previous section is the one which last point corresponds to the first point of the actual section. </span>
             <span class="hljs-comment">// The next section is the one which first point corresponds to the last point of the actual section. </span>
             
-            ask section{
+            <span class="hljs-keyword">ask</span> section{
                 previous &lt;- section first_with (last(each.shape.points) = first(self.shape.points)) ;
                 next &lt;- section first_with (first(each.shape.points) = last(self.shape.points)) ;
             }
@@ -45,7 +45,7 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
             <span class="hljs-comment">// For each section, we define a critical concentration (see the fundamental diagram), a maximum speed, a concentration and a flow (which are = 0 at initialization). </span>
             <span class="hljs-comment">// A fundamental relation about trafic gives : flow = concentration * speed.</span>
             
-            ask section{
+            <span class="hljs-keyword">ask</span> section{
                 critical_concentration &lt;- 125.0 ; <span class="hljs-comment">//Kc</span>
                 max_speed &lt;- 50 #km/#h; <span class="hljs-comment">// Vl</span>
                 current_concentration &lt;- 0.0 ;
@@ -55,7 +55,7 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
                         
             <span class="hljs-comment">// The concentration and flow ot first section are initialized.</span>
             
-            ask section[0]{
+            <span class="hljs-keyword">ask</span> section[0]{
                 current_concentration &lt;- nb_max_cars_on_section ;
                 current_flow &lt;- current_concentration * max_speed ;
             }
@@ -63,7 +63,7 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
             <span class="hljs-comment">// The middle section is supposed to have a different maximum speed and a different critical concentration so that we can observe congestion phenomenon.</span>
             <span class="hljs-comment">// This middle section is green.</span>
             
-            ask section[<span class="hljs-literal">int</span>(nb_sections/2)] {
+            <span class="hljs-keyword">ask</span> section[<span class="hljs-literal">int</span>(nb_sections/2)] {
                     critical_concentration &lt;- 10.0 ; 
                     max_flow &lt;- critical_concentration * max_speed ; 
                     max_speed &lt;- 10 #km/#h; 
@@ -74,24 +74,24 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
    <span class="hljs-comment">// To update flow and concentration at each time step in each section, we use an offer and a demand function. </span>
    <span class="hljs-comment">// These functions define the welcome capacity (offer) and the emission capacity (demand) of a section.</span>
    
-    <span class="hljs-class">reflex <span class="hljs-title">offer_function</span> </span>{
-         ask section {
+    <span class="hljs-builtin">reflex</span> offer_function {
+         <span class="hljs-keyword">ask</span> section {
               <span class="hljs-keyword">if</span> current_concentration &lt;= critical_concentration {
                 offer &lt;- max_flow ;
               }
-              else {
+              <span class="hljs-keyword">else</span> {
                 offer &lt;- max([0 , (- max_flow / critical_concentration) * current_concentration + 2 * max_flow ]);
               }
           
       }
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">demand_function</span> </span>{
-        ask section{
+    <span class="hljs-builtin">reflex</span> demand_function {
+        <span class="hljs-keyword">ask</span> section{
               <span class="hljs-keyword">if</span> current_concentration &lt;= critical_concentration {
                     demand &lt;- max([0 , ( max_flow / critical_concentration) * current_concentration]) ;
               }
-              else {
+              <span class="hljs-keyword">else</span> {
                     demand &lt;- max_flow ;
               }
         }
@@ -102,8 +102,8 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
     <span class="hljs-comment">// During a time step, the flow of a section take the minimum value between its demand and the offer of the next section.</span>
     <span class="hljs-comment">// The flow of the last section is equal to its demand. </span>
     
-    <span class="hljs-class">reflex <span class="hljs-title">update_flow</span></span>{
-        ask section  {
+    <span class="hljs-builtin">reflex</span> update_flow{
+        <span class="hljs-keyword">ask</span> section  {
             <span class="hljs-literal">float</span> next_offer &lt;-  (self.next != nil) ? (self.next).offer : self.demand;
             current_flow &lt;- min([self.demand, next_offer]);
         }
@@ -113,8 +113,8 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
     <span class="hljs-comment">// After a time step, the concentration is updated from the current concentration, according to the incoming and outgoing concentrations.</span>
     <span class="hljs-comment">// The first section concentration on ly takes into account the outgoing concentration of vehicles.</span>
     
-    <span class="hljs-class">reflex <span class="hljs-title">update_concentration</span></span>{
-        ask section   {
+    <span class="hljs-builtin">reflex</span> update_concentration{
+        <span class="hljs-keyword">ask</span> section   {
             <span class="hljs-literal">float</span> previous_flow &lt;- (self.previous != nil) ? (self.previous).current_flow : 0.0;
             current_concentration &lt;- current_concentration + time_step/section_size *(previous_flow - self.current_flow) ;
         }   
@@ -122,8 +122,8 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
     
     <span class="hljs-comment">// When there is less than one car left on the road, the simulation stops.</span>
     
-    <span class="hljs-class">reflex <span class="hljs-title">stop_simulation</span> <span class="hljs-title">when</span>: <span class="hljs-title">sum</span>(<span class="hljs-title">section</span> <span class="hljs-title">collect</span> <span class="hljs-title">each</span>.<span class="hljs-title">current_concentration</span>) &lt; 1.0 </span>{
-        do pause;
+    <span class="hljs-builtin">reflex</span> stop_simulation <span class="hljs-symbol">when:</span> sum(section collect each.current_concentration) &lt; 1.0 {
+        <span class="hljs-keyword">do</span> pause;
     }
 }
 
@@ -131,7 +131,7 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
 <span class="hljs-comment">// Each section has a concentration, a flow, an offer and a demand, a critical concentration, a maximum speed and a maximum flow, </span>
 <span class="hljs-comment">// and a previous and a next section.</span>
 
-<span class="hljs-class">species <span class="hljs-title">section</span> </span>{
+<span class="hljs-literal">species</span> section {
     <span class="hljs-literal">float</span> current_concentration  ;
     <span class="hljs-literal">float</span> current_flow  ;
     
@@ -149,62 +149,62 @@ In this model, a road is divided into sections and we arbitrarily give to the mi
     
     <span class="hljs-comment">// The width of a section depends on its concentration.</span>
     
-    aspect shape_section {
-        draw shape + (1 + 15 * ln (current_concentration + 1)) color: color;        
+    <span class="hljs-keyword">aspect</span> shape_section {
+        <span class="hljs-keyword">draw</span> shape + (1 + 15 * ln (current_concentration + 1)) <span class="hljs-symbol">color:</span> color;        
     } 
 
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">TraficGroup</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> TraficGroup <span class="hljs-symbol">type:</span> gui {
 
     <span class="hljs-comment">// Users can chose the number of sections and the time step.</span>
 
-    parameter 'Number of sections' var: nb_sections category: <span class="hljs-string">"Section parameter"</span>;
-    parameter 'Time step - DeltaT' var: time_step category: <span class="hljs-string">"Time parameter"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of sections'</span> <span class="hljs-symbol">var:</span> nb_sections <span class="hljs-symbol">category:</span> <span class="hljs-string">"Section parameter"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Time step - DeltaT'</span> <span class="hljs-symbol">var:</span> time_step <span class="hljs-symbol">category:</span> <span class="hljs-string">"Time parameter"</span>;
         
-    output {
+    <span class="hljs-keyword">output</span> {
         
         <span class="hljs-comment">// A monitor gives the number of cars on the road at every time step.</span>
         
-        monitor <span class="hljs-string">"Sum Concentrations"</span> value: sum(section collect each.current_concentration);
+        <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Sum Concentrations"</span> <span class="hljs-symbol">value:</span> sum(section collect each.current_concentration);
         
         <span class="hljs-comment">// A display shows the road. Section width depend on their concentration.</span>
         
-        <span class="hljs-class">display <span class="hljs-title">TheRoad</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">section</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">shape_section</span> ;</span>
+        <span class="hljs-keyword">display</span> TheRoad{
+            <span class="hljs-literal">species</span> section <span class="hljs-symbol">aspect:</span> shape_section ;
         }
         
         <span class="hljs-comment">// The greeen time series correspond to the middle section (on which concentration and maximum speed are lower).</span>
         <span class="hljs-comment">// The red time series correspond to the section just before the middle one.</span>
                 
-        <span class="hljs-class">display <span class="hljs-title">Concentrations</span> </span>{
-            chart <span class="hljs-string">"Concentrations"</span> type: series  {
-                data 'Section 0' value: section[0].current_concentration color: #gray marker: false ;               
-                data 'Section 1' value: section[1].current_concentration color: #gray marker: false;
-                data 'Section 2' value: section[2].current_concentration color: #gray marker: false;
-                data 'Section 3' value: section[3].current_concentration color: #gray marker: false;                
-                data 'Section 4' value: section[<span class="hljs-literal">int</span>(nb_sections/2 - 1 ) ].current_concentration color: #red marker: false;
-                data 'Section 5' value: section[<span class="hljs-literal">int</span>(nb_sections/2)].current_concentration color: #green marker: false;
-                data 'Section 6' value: section[6].current_concentration color: #gray marker: false;                
-                data 'Section 7' value: section[7].current_concentration color: #gray marker: false;
-                data 'Section 8' value: section[8].current_concentration color: #gray marker: false;
-                data 'Section 9' value: section[9].current_concentration color: #gray marker: false;
+        <span class="hljs-keyword">display</span> Concentrations {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Concentrations"</span> <span class="hljs-symbol">type:</span> series  {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 0'</span> <span class="hljs-symbol">value:</span> section[0].current_concentration <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false ;               
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 1'</span> <span class="hljs-symbol">value:</span> section[1].current_concentration <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 2'</span> <span class="hljs-symbol">value:</span> section[2].current_concentration <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 3'</span> <span class="hljs-symbol">value:</span> section[3].current_concentration <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 4'</span> <span class="hljs-symbol">value:</span> section[<span class="hljs-literal">int</span>(nb_sections/2 - 1 ) ].current_concentration <span class="hljs-symbol">color:</span> #red <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 5'</span> <span class="hljs-symbol">value:</span> section[<span class="hljs-literal">int</span>(nb_sections/2)].current_concentration <span class="hljs-symbol">color:</span> #green <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 6'</span> <span class="hljs-symbol">value:</span> section[6].current_concentration <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 7'</span> <span class="hljs-symbol">value:</span> section[7].current_concentration <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 8'</span> <span class="hljs-symbol">value:</span> section[8].current_concentration <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 9'</span> <span class="hljs-symbol">value:</span> section[9].current_concentration <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
                 }
             }
             
-            <span class="hljs-class">display <span class="hljs-title">Flows</span> </span>{
-                chart <span class="hljs-string">"Flows"</span> type: series  {
-                data 'Section 0' value: section[0].current_flow color: #gray marker: false;             
-                data 'Section 1' value: section[1].current_flow color: #gray marker: false;
-                data 'Section 2' value: section[2].current_flow color: #gray marker: false;
-                data 'Section 3' value: section[3].current_flow color: #gray marker: false;             
-                data 'Section 4' value: section[<span class="hljs-literal">int</span>(nb_sections/2 - 1)].current_flow color: #red marker: false;
-                data 'Section 5' value: section[<span class="hljs-literal">int</span>(nb_sections/2)].current_flow color: #green marker: false;
-                data 'Section 6' value: section[6].current_flow color: #gray marker: false;             
-                data 'Section 7' value: section[7].current_flow color: #gray marker: false;
-                data 'Section 8' value: section[8].current_flow color: #gray marker: false;
-                data 'Section 9' value: section[9].current_flow color: #gray marker: false;
+            <span class="hljs-keyword">display</span> Flows {
+                <span class="hljs-keyword">chart</span> <span class="hljs-string">"Flows"</span> <span class="hljs-symbol">type:</span> series  {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 0'</span> <span class="hljs-symbol">value:</span> section[0].current_flow <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 1'</span> <span class="hljs-symbol">value:</span> section[1].current_flow <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 2'</span> <span class="hljs-symbol">value:</span> section[2].current_flow <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 3'</span> <span class="hljs-symbol">value:</span> section[3].current_flow <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 4'</span> <span class="hljs-symbol">value:</span> section[<span class="hljs-literal">int</span>(nb_sections/2 - 1)].current_flow <span class="hljs-symbol">color:</span> #red <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 5'</span> <span class="hljs-symbol">value:</span> section[<span class="hljs-literal">int</span>(nb_sections/2)].current_flow <span class="hljs-symbol">color:</span> #green <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 6'</span> <span class="hljs-symbol">value:</span> section[6].current_flow <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 7'</span> <span class="hljs-symbol">value:</span> section[7].current_flow <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 8'</span> <span class="hljs-symbol">value:</span> section[8].current_flow <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Section 9'</span> <span class="hljs-symbol">value:</span> section[9].current_flow <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">marker:</span> false;
                 }
             }
     }

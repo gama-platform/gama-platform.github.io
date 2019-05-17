@@ -10,31 +10,31 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> InitAction
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> agent_number &lt;- 100;
     <span class="hljs-literal">rgb</span> agent_color &lt;- #red;
     
     init {
-        create my_agents number: agent_number;
+        <span class="hljs-keyword">create</span> my_agents <span class="hljs-symbol">number:</span> agent_number;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">my_agents</span> </span>{
-    aspect default {
-        draw square(5) color: agent_color;
+<span class="hljs-literal">species</span> my_agents {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> square(5) <span class="hljs-symbol">color:</span> agent_color;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">InitAction</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> InitAction <span class="hljs-symbol">type:</span> gui {
     
-    action _init_ {
-        <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">int</span>&gt; params &lt;- user_input([<span class="hljs-string">"Number of agents"</span>::100, <span class="hljs-string">"Color"</span>::#red, <span class="hljs-string">"2D"</span>::true]);
-        create InitAction_model with: [agent_number::params[<span class="hljs-string">"Number of agents"</span>], agent_color::<span class="hljs-literal">rgb</span>(params[<span class="hljs-string">"Color"</span>])];
+    <span class="hljs-keyword">action</span> _init_ {
+        <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">int</span>&gt; params &lt;- <span class="hljs-keyword">user_input</span>([<span class="hljs-string">"Number of agents"</span>::100, <span class="hljs-string">"Color"</span>::#red, <span class="hljs-string">"2D"</span>::true]);
+        <span class="hljs-keyword">create</span> InitAction_model <span class="hljs-symbol">with:</span> [agent_number::params[<span class="hljs-string">"Number of agents"</span>], agent_color::<span class="hljs-literal">rgb</span>(params[<span class="hljs-string">"Color"</span>])];
     }
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Simple</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">my_agents</span>;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Simple {
+            <span class="hljs-literal">species</span> my_agents;
         }
     }
     

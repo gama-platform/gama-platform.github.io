@@ -9,90 +9,90 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> circle_model
 
-<span class="hljs-class">global </span>{ 
+global { 
     <span class="hljs-comment">//Number of agents to create</span>
-    <span class="hljs-literal">int</span> number_of_agents min: 1 &lt;- 50 ;
+    <span class="hljs-literal">int</span> number_of_agents <span class="hljs-symbol">min:</span> 1 &lt;- 50 ;
     <span class="hljs-comment">//Radius of the circle that the cells will make</span>
-    <span class="hljs-literal">int</span> radius_of_circle min: 10 &lt;- 1000 ;
+    <span class="hljs-literal">int</span> radius_of_circle <span class="hljs-symbol">min:</span> 10 &lt;- 1000 ;
     <span class="hljs-comment">//Repulsion strength of one cell to the others</span>
-    <span class="hljs-literal">int</span> repulsion_strength min: 1 &lt;- 5 ;
+    <span class="hljs-literal">int</span> repulsion_strength <span class="hljs-symbol">min:</span> 1 &lt;- 5 ;
     <span class="hljs-comment">//Size of the environment</span>
-    <span class="hljs-literal">int</span> width_and_height_of_environment min: 10 &lt;- 3000 ; 
+    <span class="hljs-literal">int</span> width_and_height_of_environment <span class="hljs-symbol">min:</span> 10 &lt;- 3000 ; 
     <span class="hljs-comment">//Range of the agents</span>
-    <span class="hljs-literal">int</span> range_of_agents min: 1 &lt;- 25 ;
+    <span class="hljs-literal">int</span> range_of_agents <span class="hljs-symbol">min:</span> 1 &lt;- 25 ;
     <span class="hljs-comment">//Speed of the agents</span>
-    <span class="hljs-literal">float</span> speed_of_agents min: 0.1  &lt;- 2.0 ; 
+    <span class="hljs-literal">float</span> speed_of_agents <span class="hljs-symbol">min:</span> 0.1  &lt;- 2.0 ; 
     <span class="hljs-comment">//Size of the agents</span>
     <span class="hljs-literal">int</span> size_of_agents &lt;- 100;
     <span class="hljs-comment">//Center of the considered circle created by the cells</span>
-    <span class="hljs-literal">point</span> center const: true &lt;- {width_and_height_of_environment/2,width_and_height_of_environment/2};
+    <span class="hljs-literal">point</span> center <span class="hljs-symbol">const:</span> true &lt;- {width_and_height_of_environment/2,width_and_height_of_environment/2};
     <span class="hljs-literal">geometry</span> shape &lt;- square(width_and_height_of_environment);
     init { 
         <span class="hljs-comment">//Creation of the cell agents</span>
-        create cell number: number_of_agents;
+        <span class="hljs-keyword">create</span> cell <span class="hljs-symbol">number:</span> number_of_agents;
     }  
 }  
   
 <span class="hljs-comment">//Species cell which represents the cell agents, using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">cell</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{  
+<span class="hljs-literal">species</span> cell <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {  
     <span class="hljs-comment">//Color of the cell, randomly chosen</span>
-    <span class="hljs-literal">rgb</span> color const: true &lt;- [100 + rnd (155),100 + rnd (155), 100 + rnd (155)] as <span class="hljs-literal">rgb</span>;
+    <span class="hljs-literal">rgb</span> color <span class="hljs-symbol">const:</span> true &lt;- [100 + rnd (155),100 + rnd (155), 100 + rnd (155)] as <span class="hljs-literal">rgb</span>;
     <span class="hljs-comment">//Size of the cell</span>
-    <span class="hljs-literal">float</span> size const: true &lt;- <span class="hljs-literal">float</span>(size_of_agents);
+    <span class="hljs-literal">float</span> size <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">float</span>(size_of_agents);
     <span class="hljs-comment">//Range of the cell</span>
-    <span class="hljs-literal">float</span> range const: true &lt;- <span class="hljs-literal">float</span>(range_of_agents); 
+    <span class="hljs-literal">float</span> range <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">float</span>(range_of_agents); 
     <span class="hljs-comment">//Speed of the cell</span>
-    <span class="hljs-literal">float</span> speed const: true &lt;- speed_of_agents;   
+    <span class="hljs-literal">float</span> speed <span class="hljs-symbol">const:</span> true &lt;- speed_of_agents;   
     <span class="hljs-comment">//Heading of the cell, the direction it 'watches'</span>
     <span class="hljs-literal">int</span> heading &lt;- rnd(359);
     
     <span class="hljs-comment">//Reflex to make the cell agent fo to the center, calling the derivated action move</span>
-    <span class="hljs-class">reflex <span class="hljs-title">go_to_center</span> </span>{
+    <span class="hljs-builtin">reflex</span> go_to_center {
         heading &lt;- (((self distance_to center) &gt; radius_of_circle) ? self towards center : (self towards center) - 180);
-        do move speed: speed; 
+        <span class="hljs-keyword">do</span> move <span class="hljs-symbol">speed:</span> speed; 
     }
     <span class="hljs-comment">//Reflex to flee of the other cells agents, which will help to design the circle shape</span>
-    <span class="hljs-class">reflex <span class="hljs-title">flee_others</span> </span>{
-        cell close &lt;- one_of ( ( (self neighbors_at range) of_<span class="hljs-class">species <span class="hljs-title">cell</span>) <span class="hljs-title">sort_by</span> (<span class="hljs-title">self</span> <span class="hljs-title">distance_to</span> <span class="hljs-title">each</span>) );</span>
+    <span class="hljs-builtin">reflex</span> flee_others {
+        cell close &lt;- one_of ( ( (self neighbors_at range) of_species cell) sort_by (self distance_to each) );
         <span class="hljs-keyword">if</span> close != nil {
             heading &lt;- (self towards close) - 180;
             <span class="hljs-literal">float</span> dist &lt;- self distance_to close;
-            do move speed: dist / repulsion_strength heading: heading;
+            <span class="hljs-keyword">do</span> move <span class="hljs-symbol">speed:</span> dist / repulsion_strength <span class="hljs-symbol">heading:</span> heading;
         }
     }
     
-    aspect default { 
-        draw circle(size)  color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> { 
+        <span class="hljs-keyword">draw</span> circle(size)  <span class="hljs-symbol">color:</span> color;
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter 'Number of Agents' var: number_of_agents;
-    parameter 'Radius of Circle' var: radius_of_circle; 
-    parameter 'Strength of Repulsion' var: repulsion_strength; 
-    parameter 'Dimensions' var: width_and_height_of_environment;
-    parameter 'Range of Agents' var: range_of_agents;
-    parameter 'Speed of Agents' var: speed_of_agents ; 
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of Agents'</span> <span class="hljs-symbol">var:</span> number_of_agents;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Radius of Circle'</span> <span class="hljs-symbol">var:</span> radius_of_circle; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Strength of Repulsion'</span> <span class="hljs-symbol">var:</span> repulsion_strength; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Dimensions'</span> <span class="hljs-symbol">var:</span> width_and_height_of_environment;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Range of Agents'</span> <span class="hljs-symbol">var:</span> range_of_agents;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Speed of Agents'</span> <span class="hljs-symbol">var:</span> speed_of_agents ; 
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Circle</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">cell</span>;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Circle {
+            <span class="hljs-literal">species</span> cell;
         }
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">main2</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span>  </span>{
-    parameter <span class="hljs-string">"Size of Agents"</span> var: size_of_agents &lt;- 100;
-    parameter 'Number of Agents' var: number_of_agents &lt;- 300;
-    parameter 'Radius of Circle' var: radius_of_circle min: 10 &lt;- 15000;
-    parameter 'Strength of Repulsion' var: repulsion_strength min: 1 &lt;- 50;
-    parameter 'Dimensions' var: width_and_height_of_environment  min: 10 &lt;- 40000;
-    parameter 'Range of Agents' var: range_of_agents min: 1 &lt;- 250;
-    parameter 'Speed of Agents' var: speed_of_agents min: 0.1 &lt;- 100.0 ;
+<span class="hljs-builtin">experiment</span> main2 <span class="hljs-symbol">type:</span> gui  {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Size of Agents"</span> <span class="hljs-symbol">var:</span> size_of_agents &lt;- 100;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of Agents'</span> <span class="hljs-symbol">var:</span> number_of_agents &lt;- 300;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Radius of Circle'</span> <span class="hljs-symbol">var:</span> radius_of_circle <span class="hljs-symbol">min:</span> 10 &lt;- 15000;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Strength of Repulsion'</span> <span class="hljs-symbol">var:</span> repulsion_strength <span class="hljs-symbol">min:</span> 1 &lt;- 50;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Dimensions'</span> <span class="hljs-symbol">var:</span> width_and_height_of_environment  <span class="hljs-symbol">min:</span> 10 &lt;- 40000;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Range of Agents'</span> <span class="hljs-symbol">var:</span> range_of_agents <span class="hljs-symbol">min:</span> 1 &lt;- 250;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Speed of Agents'</span> <span class="hljs-symbol">var:</span> speed_of_agents <span class="hljs-symbol">min:</span> 0.1 &lt;- 100.0 ;
 
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Circle</span>  </span>{
-            <span class="hljs-class">species <span class="hljs-title">cell</span>;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Circle  {
+            <span class="hljs-literal">species</span> cell;
         }
     }
 }

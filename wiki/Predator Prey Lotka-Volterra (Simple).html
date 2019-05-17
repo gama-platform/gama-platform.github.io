@@ -9,7 +9,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> ODE_LotkaVolterra
 
-<span class="hljs-class">global </span>{
+global {
 
     <span class="hljs-literal">float</span> prey_birth_rate&lt;- 0.05 ;      <span class="hljs-comment">// natural birth rate of preys</span>
     <span class="hljs-literal">float</span> predation_rate &lt;- 0.001;          <span class="hljs-comment">// death rate of preys due to predators</span>
@@ -23,48 +23,48 @@
     <span class="hljs-literal">float</span> t;                        <span class="hljs-comment">// simulation time : t = n * integration_time_step  where n is the number of already computed time step</span>
 
     init{
-        create LotkaVolterra_agent number:1 ;   <span class="hljs-comment">// creation of an agent containing the ODE model</span>
+        <span class="hljs-keyword">create</span> LotkaVolterra_agent <span class="hljs-symbol">number:</span>1 ;   <span class="hljs-comment">// creation of an agent containing the ODE model</span>
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">LotkaVolterra_agent</span> </span>{
+<span class="hljs-literal">species</span> LotkaVolterra_agent {
 
     <span class="hljs-literal">float</span> nb_prey &lt;- nb_prey_init ;             <span class="hljs-comment">// number of preys initialized with the values given by the user</span>
     <span class="hljs-literal">float</span> nb_predator &lt;- nb_predator_init ;         <span class="hljs-comment">// number of predators initialized with the values given by the user</span>
 
-    equation lotka_volterra {
+    <span class="hljs-keyword">equation</span> lotka_volterra {
         diff(nb_prey,t) =   nb_prey * (prey_birth_rate - predation_rate * nb_predator);                     <span class="hljs-comment">// evolution of the number of preys duting an integration time step</span>
         diff(nb_predator,t) = - nb_predator * (predator_death_rate - predation_efficiency * nb_prey);       <span class="hljs-comment">// evolution of the number of predator during an integration time step</span>
       }
-      <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{
-        solve lotka_volterra method: <span class="hljs-string">"rk4"</span> step:integration_time_step ;<span class="hljs-comment">//cycle_length:1/step;           // use of runge kutta 4 method with an integration time step of value integration_time_step</span>
+      <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> lotka_volterra <span class="hljs-symbol">method:</span> <span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span>integration_time_step ;<span class="hljs-comment">//cycle_length:1/step;           // use of runge kutta 4 method with an integration time step of value integration_time_step</span>
        }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">maths</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> maths <span class="hljs-symbol">type:</span> gui {
 
-    parameter <span class="hljs-string">"Prey birth rate"</span> var: prey_birth_rate &lt;- 0.05 min: 0.0 max: 1.0 category: <span class="hljs-string">"Prey"</span>;                        <span class="hljs-comment">// the user defines the value of parameter prey_birth_rate on the interface, the default value is 0.05 and this value must be between 0 and 1</span>
-    parameter <span class="hljs-string">"Predation rate"</span> var: predation_rate &lt;- 0.001 min: 0.0 max: 1.0 category: <span class="hljs-string">"Prey"</span>;                         <span class="hljs-comment">// the user defines the value of parameter prey_birth_rate on the interface, the default value is 0.001 and this value must be between 0 and 1</span>
-    parameter <span class="hljs-string">"Predator death rate"</span> var: predator_death_rate &lt;- 0.03 min: 0.0 max: 1.0 category: <span class="hljs-string">"Predator"</span>;            <span class="hljs-comment">// the user defines the value of parameter predator_death_rate on the interface, the default value is 0.03 and this value must be between 0 and 1</span>
-    parameter <span class="hljs-string">"Predation efficiency"</span> var: predation_efficiency &lt;- 0.0002 min: 0.0 max: 1.0 category: <span class="hljs-string">"Predator"</span>;        <span class="hljs-comment">// the user defines the value of parameter predation_efficiency on the interface, the default value is 0.0002 and this value must be between 0 and 1</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey birth rate"</span> <span class="hljs-symbol">var:</span> prey_birth_rate &lt;- 0.05 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;                        <span class="hljs-comment">// the user defines the value of parameter prey_birth_rate on the interface, the default value is 0.05 and this value must be between 0 and 1</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predation rate"</span> <span class="hljs-symbol">var:</span> predation_rate &lt;- 0.001 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;                         <span class="hljs-comment">// the user defines the value of parameter prey_birth_rate on the interface, the default value is 0.001 and this value must be between 0 and 1</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator death rate"</span> <span class="hljs-symbol">var:</span> predator_death_rate &lt;- 0.03 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;            <span class="hljs-comment">// the user defines the value of parameter predator_death_rate on the interface, the default value is 0.03 and this value must be between 0 and 1</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predation efficiency"</span> <span class="hljs-symbol">var:</span> predation_efficiency &lt;- 0.0002 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;        <span class="hljs-comment">// the user defines the value of parameter predation_efficiency on the interface, the default value is 0.0002 and this value must be between 0 and 1</span>
 
-    parameter <span class="hljs-string">"Initial number of prey"</span> var: nb_prey_init &lt;- 250.0 min: 1.0 category: <span class="hljs-string">"Prey"</span>;                            <span class="hljs-comment">// the user defines the value of parameter predation_efficiency on the interface, the default value is 250, the minimum possible value is 1</span>
-    parameter <span class="hljs-string">"Initial number of predator"</span> var: nb_predator_init &lt;- 45.0 min: 1.0 category: <span class="hljs-string">"Predator"</span>;                 <span class="hljs-comment">// the user defines the value of parameter predation_efficiency on the interface, the default value is 45, the minimum possible value is 1</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of prey"</span> <span class="hljs-symbol">var:</span> nb_prey_init &lt;- 250.0 <span class="hljs-symbol">min:</span> 1.0 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;                            <span class="hljs-comment">// the user defines the value of parameter predation_efficiency on the interface, the default value is 250, the minimum possible value is 1</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of predator"</span> <span class="hljs-symbol">var:</span> nb_predator_init &lt;- 45.0 <span class="hljs-symbol">min:</span> 1.0 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;                 <span class="hljs-comment">// the user defines the value of parameter predation_efficiency on the interface, the default value is 45, the minimum possible value is 1</span>
 
-    parameter <span class="hljs-string">"Integration time step"</span> var: integration_time_step &lt;- 0.01 min: 0.0 max:0.1 category: <span class="hljs-string">"Integration method"</span>;  <span class="hljs-comment">// the user defines the value of the integration step, the default value is 0.01 and this value must be between 0 and 1</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Integration time step"</span> <span class="hljs-symbol">var:</span> integration_time_step &lt;- 0.01 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span>0.1 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Integration method"</span>;  <span class="hljs-comment">// the user defines the value of the integration step, the default value is 0.01 and this value must be between 0 and 1</span>
 
-    output {
-        <span class="hljs-class">display <span class="hljs-title">TimeSeries</span>  </span>{                                                                   <span class="hljs-comment">// creation of a display to show time series of the model, values are plotted at every step</span>
-            chart <span class="hljs-string">"Lotka Volterra Time Series"</span> type: series background: #white {                        <span class="hljs-comment">// the chart, of type 'serie', is named Lotka Volterra Time Series, it shows quantities according to time, and the background is white</span>
-                data 'Number of preys' value: first(LotkaVolterra_agent).nb_prey color: #green ;            <span class="hljs-comment">// number of preys is plotted in green</span>
-                data 'Number of predators' value: first(LotkaVolterra_agent).nb_predator color: #red ;  <span class="hljs-comment">// number of predators is plotted in red</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> TimeSeries  {                                                                   <span class="hljs-comment">// creation of a display to show time series of the model, values are plotted at every step</span>
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Lotka Volterra Time Series"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white {                        <span class="hljs-comment">// the chart, of type 'serie', is named Lotka Volterra Time Series, it shows quantities according to time, and the background is white</span>
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Number of preys'</span> <span class="hljs-symbol">value:</span> first(LotkaVolterra_agent).nb_prey <span class="hljs-symbol">color:</span> #green ;            <span class="hljs-comment">// number of preys is plotted in green</span>
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'Number of predators'</span> <span class="hljs-symbol">value:</span> first(LotkaVolterra_agent).nb_predator <span class="hljs-symbol">color:</span> #red ;  <span class="hljs-comment">// number of predators is plotted in red</span>
             }
         }
-        <span class="hljs-class">display <span class="hljs-title">PhasePortrait</span>  </span>{                                                                <span class="hljs-comment">// creation of a display to show the phase portait, values are plotted at every time step</span>
-            chart <span class="hljs-string">"Lotka Volterra Phase Portrait"</span> type: xy background: #white {                         <span class="hljs-comment">// the chart, os type 'xy', is named Lotka Volterra Phase portrait, it shows a quantity according to another one, and the background is white</span>
-            data ' ' value: {predator_death_rate / predation_efficiency, prey_birth_rate/predation_rate} color: °blue; <span class="hljs-comment">// equilibrium point</span>
-            data 'Number of preys according to number of predators' value:{first(LotkaVolterra_agent).nb_prey, first(LotkaVolterra_agent).nb_predator} color: #black ;  <span class="hljs-comment">// number of predators according to the number of preys plotted in black</span>
+        <span class="hljs-keyword">display</span> PhasePortrait  {                                                                <span class="hljs-comment">// creation of a display to show the phase portait, values are plotted at every time step</span>
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Lotka Volterra Phase Portrait"</span> <span class="hljs-symbol">type:</span> xy <span class="hljs-symbol">background:</span> #white {                         <span class="hljs-comment">// the chart, os type 'xy', is named Lotka Volterra Phase portrait, it shows a quantity according to another one, and the background is white</span>
+            <span class="hljs-keyword">data</span> <span class="hljs-string">' '</span> <span class="hljs-symbol">value:</span> {predator_death_rate / predation_efficiency, prey_birth_rate/predation_rate} <span class="hljs-symbol">color:</span> °blue; <span class="hljs-comment">// equilibrium point</span>
+            <span class="hljs-keyword">data</span> <span class="hljs-string">'Number of preys according to number of predators'</span> <span class="hljs-symbol">value:</span>{first(LotkaVolterra_agent).nb_prey, first(LotkaVolterra_agent).nb_predator} <span class="hljs-symbol">color:</span> #black ;  <span class="hljs-comment">// number of predators according to the number of preys plotted in black</span>
             }
         }
     }

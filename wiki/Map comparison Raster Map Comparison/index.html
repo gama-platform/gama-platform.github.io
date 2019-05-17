@@ -15,7 +15,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> mapcomparison
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; categories &lt;- [<span class="hljs-string">"type 1"</span>, <span class="hljs-string">"type 2"</span>, <span class="hljs-string">"type 3"</span>, <span class="hljs-string">"type 4"</span>];
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">rgb</span>&gt; color_cat &lt;- [<span class="hljs-string">"type 1"</span>::#blue, <span class="hljs-string">"type 2"</span>::#green, <span class="hljs-string">"type 3"</span>::#yellow, <span class="hljs-string">"type 4"</span>::#red];
     <span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">float</span>&gt; fuzzy_categories;
@@ -25,7 +25,7 @@
      
     init {
         <span class="hljs-comment">//Initialize randomly the category of each cell</span>
-        ask shuffle(cell) {
+        <span class="hljs-keyword">ask</span> shuffle(cell) {
             <span class="hljs-literal">string</span> neigh_cat &lt;-one_of(neighbors).cat_observed;
             cat_init &lt;- neigh_cat in categories ? neigh_cat : one_of(categories);
             color_init &lt;- color_cat[cat_init];
@@ -34,43 +34,43 @@
         <span class="hljs-comment">//Initialize the category observed and the cat attributes of the cells according to probability : </span>
         <span class="hljs-comment">// 60% of cases, the category observed will be the same than the category initialized</span>
         <span class="hljs-comment">//60% of cases, the category will be the same than the category observed</span>
-        ask cell {
+        <span class="hljs-keyword">ask</span> cell {
             cat_observed &lt;- flip(0.6) ?  cat_init : one_of(categories);
             cat &lt;- flip(0.6) ?  cat_observed : one_of(categories);
             color &lt;- color_cat[cat];
             color_obs &lt;- color_cat[cat_observed];
         }
         fuzzy_categories &lt;- 0.0 as_matrix {length(categories),length(categories)};
-        loop i from: 0 to: length(categories) - 1 {
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> length(categories) - 1 {
             fuzzy_categories[i,i] &lt;- 1.0;
         }
         fuzzy_transitions &lt;- 0.0 as_matrix {length(categories)*length(categories),length(categories)*length(categories)};
-        loop i from: 0 to: (length(categories) * length(categories)) - 1 {
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> (length(categories) * length(categories)) - 1 {
             fuzzy_transitions[i,i] &lt;- 1.0;  
         }
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; similarity_per_agents ;
-        write <span class="hljs-string">"kappa(map observed, map simulation, categories): "</span> + kappa( cell collect (each.cat_observed),cell collect (each.cat),categories);
-        write <span class="hljs-string">"kappa simulation(map init, map observed, map simulation,categories): "</span> + kappa_sim( cell collect (each.cat_init), cell collect (each.cat_observed),cell collect (each.cat),categories);
-        using <span class="hljs-literal">topology</span>(cell) {
-            write <span class="hljs-string">"fuzzy kappa(map observed, map simulation,categories): "</span> + fuzzy_kappa(<span class="hljs-literal">list</span>(cell), cell collect (each.cat_observed),cell collect (each.cat), similarity_per_agents,categories,fuzzy_categories, 10);
-            write <span class="hljs-string">"fuzzy kappa sim(map init, map observed, map simulation,categories): "</span> + fuzzy_kappa_sim(<span class="hljs-literal">list</span>(cell), cell collect (each.cat_init), cell collect (each.cat_observed),cell collect (each.cat), similarity_per_agents,categories,fuzzy_transitions, 10);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"kappa(map observed, map simulation, categories): "</span> + kappa( cell collect (each.cat_observed),cell collect (each.cat),categories);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"kappa simulation(map init, map observed, map simulation,categories): "</span> + kappa_sim( cell collect (each.cat_init), cell collect (each.cat_observed),cell collect (each.cat),categories);
+        <span class="hljs-keyword">using</span> <span class="hljs-literal">topology</span>(cell) {
+            <span class="hljs-keyword">write</span> <span class="hljs-string">"fuzzy kappa(map observed, map simulation,categories): "</span> + fuzzy_kappa(<span class="hljs-literal">list</span>(cell), cell collect (each.cat_observed),cell collect (each.cat), similarity_per_agents,categories,fuzzy_categories, 10);
+            <span class="hljs-keyword">write</span> <span class="hljs-string">"fuzzy kappa sim(map init, map observed, map simulation,categories): "</span> + fuzzy_kappa_sim(<span class="hljs-literal">list</span>(cell), cell collect (each.cat_init), cell collect (each.cat_observed),cell collect (each.cat), similarity_per_agents,categories,fuzzy_transitions, 10);
         }
-        loop i from: 0 to: length(cell) - 1 {
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> length(cell) - 1 {
             <span class="hljs-literal">int</span> val &lt;- <span class="hljs-literal">int</span>(255 * similarity_per_agents[i]);
-            ask cell[i] {color_fuzzy &lt;- <span class="hljs-literal">rgb</span>(val, val, val);}
+            <span class="hljs-keyword">ask</span> cell[i] {color_fuzzy &lt;- <span class="hljs-literal">rgb</span>(val, val, val);}
             
         }
-        loop c over: categories {
+        <span class="hljs-keyword">loop</span> c <span class="hljs-symbol">over:</span> categories {
             nb_per_cat_obs &lt;&lt; cell count (each.cat_observed = c);
             nb_per_cat_sim &lt;&lt; cell count (each.cat = c); 
         }
-        write <span class="hljs-string">"percent_absolute_deviation : "</span> + percent_absolute_deviation(nb_per_cat_obs,nb_per_cat_sim) + <span class="hljs-string">"%"</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"percent_absolute_deviation : "</span> + percent_absolute_deviation(nb_per_cat_obs,nb_per_cat_sim) + <span class="hljs-string">"%"</span>;
         
     }
     
 }
 
-<span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 50 <span class="hljs-title">height</span>: 50 </span>{
+grid cell <span class="hljs-symbol">width:</span> 50 <span class="hljs-symbol">height:</span> 50 {
     <span class="hljs-literal">string</span> cat_init;
     <span class="hljs-literal">string</span> cat_observed;
     <span class="hljs-literal">string</span> cat ;
@@ -80,30 +80,30 @@
     <span class="hljs-literal">rgb</span> color_fuzzy &lt;- #white;
     <span class="hljs-literal">list</span>&lt;cell&gt; neighbors &lt;- self neighbors_at 1;
     
-    aspect fuzzy_sim {
-        draw shape color:color_fuzzy border: color_fuzzy;
+    <span class="hljs-keyword">aspect</span> fuzzy_sim {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>color_fuzzy <span class="hljs-symbol">border:</span> color_fuzzy;
     }
-    aspect init {
-        draw shape color:color_init border: color_init;
+    <span class="hljs-keyword">aspect</span> init {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>color_init <span class="hljs-symbol">border:</span> color_init;
     }
-    aspect observed {
-        draw shape color:color_obs border: color_obs;
+    <span class="hljs-keyword">aspect</span> observed {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>color_obs <span class="hljs-symbol">border:</span> color_obs;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">mapcomparison</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map_sim</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">grid <span class="hljs-title">cell</span>;</span>
+<span class="hljs-builtin">experiment</span> mapcomparison <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> map_sim <span class="hljs-symbol">type:</span> opengl{
+            grid cell;
         }
-        <span class="hljs-class">display <span class="hljs-title">map_observed</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">cell</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">observed</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>;</span>
+        <span class="hljs-keyword">display</span> map_observed <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> cell <span class="hljs-symbol">aspect:</span> observed <span class="hljs-symbol">refresh:</span> false;
         }
-        <span class="hljs-class">display <span class="hljs-title">map_init</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">cell</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">init</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>;</span>
+        <span class="hljs-keyword">display</span> map_init <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> cell <span class="hljs-symbol">aspect:</span> init <span class="hljs-symbol">refresh:</span> false;
         }
-        <span class="hljs-class">display <span class="hljs-title">map_fuzzy</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">cell</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">fuzzy_sim</span> ;</span>
+        <span class="hljs-keyword">display</span> map_fuzzy <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> cell <span class="hljs-symbol">aspect:</span> fuzzy_sim ;
         }
     }
 }

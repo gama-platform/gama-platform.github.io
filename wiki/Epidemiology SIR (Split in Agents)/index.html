@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> SIR_split_in_agents
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> number_S &lt;- 495 ; <span class="hljs-comment">// The number of susceptible</span>
     <span class="hljs-literal">int</span> number_I &lt;- 5   ; <span class="hljs-comment">// The number of infected</span>
     <span class="hljs-literal">int</span> number_R &lt;- 0   ; <span class="hljs-comment">// The number of removed </span>
@@ -24,23 +24,23 @@
 
     init {
         <span class="hljs-comment">//Creation of the representation of the susceptible agents</span>
-        create S_agt {
+        <span class="hljs-keyword">create</span> S_agt {
             Ssize &lt;- <span class="hljs-literal">float</span>(number_S) ;
             self.beta &lt;- myself.beta ;
         }
         <span class="hljs-comment">//Creation of the representation of the infected agents</span>
-        create I_agt {
+        <span class="hljs-keyword">create</span> I_agt {
             Isize &lt;- <span class="hljs-literal">float</span>(number_I) ;
             self.beta &lt;- myself.beta ;
             self.delta &lt;- myself.delta ;
         }
         <span class="hljs-comment">//Creation of the representation of the recovered agents</span>
-        create R_agt {
+        <span class="hljs-keyword">create</span> R_agt {
             Rsize &lt;- <span class="hljs-literal">float</span>(number_R) ;
             self.delta &lt;- myself.delta ;
         }
         <span class="hljs-comment">//Creation of the representation of the SIR agent representing the non split system</span>
-        create SIR_agt {
+        <span class="hljs-keyword">create</span> SIR_agt {
             self.Sm &lt;- <span class="hljs-literal">float</span>(number_S) ;
             self.Im &lt;- <span class="hljs-literal">float</span>(number_I) ;
             self.Rm &lt;- <span class="hljs-literal">float</span>(number_R) ;
@@ -52,21 +52,21 @@
 }
 
 <span class="hljs-comment">//Species which represent the susceptible agents compartiment</span>
-<span class="hljs-class">species <span class="hljs-title">S_agt</span> </span>{
+<span class="hljs-literal">species</span> S_agt {
     <span class="hljs-literal">float</span> t ;       
     <span class="hljs-literal">float</span> Ssize ; <span class="hljs-comment">//number of susceptible</span>
     
     <span class="hljs-literal">float</span> beta ;
     <span class="hljs-comment">//Equation that will be solved simultaneously with the two other equations systems</span>
-    equation evol simultaneously: [  ( I_agt ) ,  ( R_agt ) ] {
+    <span class="hljs-keyword">equation</span> evol <span class="hljs-symbol">simultaneously:</span> [  ( I_agt ) ,  ( R_agt ) ] {
         diff ( first ( S_agt ) . Ssize , t ) = 
             ( - beta * first ( S_agt ) . Ssize * first (    I_agt ) . Isize / N ) ;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve evol method: <span class="hljs-string">"rk4"</span> step: 0.01 ;}
+    <span class="hljs-builtin">reflex</span> solving {<span class="hljs-keyword">solve</span> evol <span class="hljs-symbol">method:</span> <span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span> 0.01 ;}
 }
 <span class="hljs-comment">//Species which represent the infected agents compartiment</span>
-<span class="hljs-class">species <span class="hljs-title">I_agt</span> </span>{
+<span class="hljs-literal">species</span> I_agt {
     <span class="hljs-literal">float</span> t ;
     <span class="hljs-literal">float</span> Isize ; <span class="hljs-comment">// number of infected</span>
     
@@ -74,28 +74,28 @@
     <span class="hljs-literal">float</span> delta ;
 
     <span class="hljs-comment">//Equation that will be solved simultaneously with the two other equations systems</span>
-    equation evol simultaneously: [  ( S_agt ) ,  ( R_agt ) ] {
+    <span class="hljs-keyword">equation</span> evol <span class="hljs-symbol">simultaneously:</span> [  ( S_agt ) ,  ( R_agt ) ] {
         diff ( first ( I_agt ) . Isize , t ) = 
             ( beta * first ( S_agt ) . Ssize * first ( I_agt ) . Isize / N ) 
             - ( delta * first ( I_agt ) . Isize ) ;
     }
 }
 <span class="hljs-comment">//Species which represent the resistant agents compartiment</span>
-<span class="hljs-class">species <span class="hljs-title">R_agt</span> </span>{
+<span class="hljs-literal">species</span> R_agt {
     <span class="hljs-literal">float</span> t ;       
     <span class="hljs-literal">float</span> Rsize ; <span class="hljs-comment">//number of resistant</span>
     
     <span class="hljs-literal">float</span> delta ;
 
     <span class="hljs-comment">//Equation that will be solved simultaneously with the two other equations systems</span>
-    equation evol simultaneously: [ ( S_agt ) + ( I_agt ) ] {
+    <span class="hljs-keyword">equation</span> evol <span class="hljs-symbol">simultaneously:</span> [ ( S_agt ) + ( I_agt ) ] {
         diff ( first ( R_agt ) . Rsize , t ) = 
             ( delta * first ( I_agt ) . Isize ) ;
     }
 }
 
 <span class="hljs-comment">//Species which represent the ordinary differential equations system</span>
-<span class="hljs-class">species <span class="hljs-title">SIR_agt</span> </span>{
+<span class="hljs-literal">species</span> SIR_agt {
     <span class="hljs-literal">float</span> t ;
     <span class="hljs-literal">float</span> Im ;
     <span class="hljs-literal">float</span> Sm ;
@@ -104,37 +104,37 @@
     <span class="hljs-literal">float</span> beta ;
     <span class="hljs-literal">float</span> delta ;
     
-    equation SIR {
+    <span class="hljs-keyword">equation</span> SIR {
         diff ( Sm , t ) = ( - beta * Sm * Im / N ) ; 
         diff ( Im , t ) = ( beta * Sm   * Im / N ) - ( delta * Im ) ; 
         diff ( Rm , t ) = ( delta * Im ) ;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve SIR method: <span class="hljs-string">"rk4"</span> step: 0.01 ;}
+    <span class="hljs-builtin">reflex</span> solving {<span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span> <span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span> 0.01 ;}
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">Simulation</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter 'Number of Susceptible' type: <span class="hljs-literal">int</span> var: number_S &lt;- 495 category: <span class="hljs-string">"Initial population"</span>; <span class="hljs-comment">// The initial number of susceptibles</span>
-    parameter 'Number of Infected'    type: <span class="hljs-literal">int</span> var: number_I &lt;- 5   category: <span class="hljs-string">"Initial population"</span>;
-    parameter 'Number of Removed'     type: <span class="hljs-literal">int</span> var: number_R &lt;- 0   category: <span class="hljs-string">"Initial population"</span>;
+<span class="hljs-builtin">experiment</span> Simulation <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of Susceptible'</span> <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">var:</span> number_S &lt;- 495 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Initial population"</span>; <span class="hljs-comment">// The initial number of susceptibles</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of Infected'</span>    <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">var:</span> number_I &lt;- 5   <span class="hljs-symbol">category:</span> <span class="hljs-string">"Initial population"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of Removed'</span>     <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">var:</span> number_R &lt;- 0   <span class="hljs-symbol">category:</span> <span class="hljs-string">"Initial population"</span>;
 
-    parameter 'Beta (S-&gt;I)'  type: <span class="hljs-literal">float</span> var: beta &lt;- 1.0   category: <span class="hljs-string">"Parameters"</span>;
-    parameter 'Delta (I-&gt;R)' type: <span class="hljs-literal">float</span> var: delta &lt;- 0.01 category: <span class="hljs-string">"Parameters"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Beta (S-&gt;I)'</span>  <span class="hljs-symbol">type:</span> <span class="hljs-literal">float</span> <span class="hljs-symbol">var:</span> beta &lt;- 1.0   <span class="hljs-symbol">category:</span> <span class="hljs-string">"Parameters"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Delta (I-&gt;R)'</span> <span class="hljs-symbol">type:</span> <span class="hljs-literal">float</span> <span class="hljs-symbol">var:</span> delta &lt;- 0.01 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Parameters"</span>;
     
-    output {
-        <span class="hljs-class">display "<span class="hljs-title">split</span> <span class="hljs-title">system</span>" </span>{
-            chart 'Susceptible' type: series background: <span class="hljs-literal">rgb</span> ( 'lightGray' ) {
-                data 'susceptible' value: first ( S_agt ) . Ssize color: <span class="hljs-literal">rgb</span> ( 'green' ) ;
-                data 'infected' value: first ( I_agt ) . Isize color: <span class="hljs-literal">rgb</span> ( 'red' ) ;
-                data 'removed' value: first ( R_agt ) . Rsize color: <span class="hljs-literal">rgb</span> ( 'blue' ) ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"split system"</span> {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'Susceptible'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'lightGray'</span> ) {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'susceptible'</span> <span class="hljs-symbol">value:</span> first ( S_agt ) . Ssize <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'green'</span> ) ;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'infected'</span> <span class="hljs-symbol">value:</span> first ( I_agt ) . Isize <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'red'</span> ) ;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'removed'</span> <span class="hljs-symbol">value:</span> first ( R_agt ) . Rsize <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'blue'</span> ) ;
             }
         }
-        <span class="hljs-class">display "<span class="hljs-title">unified</span> <span class="hljs-title">system</span>"</span>{
-            chart 'Susceptible' type: series background: <span class="hljs-literal">rgb</span> ( 'lightGray' ) {
-                data 'susceptible_maths' value: first( SIR_agt ).Sm color: <span class="hljs-literal">rgb</span> ( 'green' ) ;
-                data 'infected_maths' value: first( SIR_agt ).Im color: <span class="hljs-literal">rgb</span> ( 'red' ) ;
-                data 'removed_maths' value: first( SIR_agt ).Rm color: <span class="hljs-literal">rgb</span> ( 'blue' ) ;
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"unified system"</span>{
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'Susceptible'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'lightGray'</span> ) {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'susceptible_maths'</span> <span class="hljs-symbol">value:</span> first( SIR_agt ).Sm <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'green'</span> ) ;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'infected_maths'</span> <span class="hljs-symbol">value:</span> first( SIR_agt ).Im <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'red'</span> ) ;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'removed_maths'</span> <span class="hljs-symbol">value:</span> first( SIR_agt ).Rm <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'blue'</span> ) ;
             }
         }
     }

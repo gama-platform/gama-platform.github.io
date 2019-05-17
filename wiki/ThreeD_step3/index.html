@@ -65,18 +65,18 @@
 <p>In this final step we will display edges between cells that are within a given distance.</p>
 <h3><a class="anchor" aria-hidden="true" id="cells-update"></a><a href="#cells-update" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cells update</h3>
 <p>We add a new reflex to collect the neighbors of the cell that are within a certain distance :</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">cells</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving3D</span>]</span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> cells <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving3D</span>]{
 ...
-<span class="hljs-class">reflex <span class="hljs-title">computeNeighbors</span> </span>{
+<span class="hljs-builtin">reflex</span> computeNeighbors {
                 neighbors &lt;- cells select ((each distance_to self) &lt; 10);
         }   
 }
 </code></pre>
 <p>Then we update the cell aspect as follows. For each elements (cells) of the <strong>neighbors</strong> list we draw a line between this neighbor's location and the current cell's location.</p>
-<pre><code class="hljs">aspect default {
-  draw sphere(environmentSize*0.01) color:#orange;
-  loop pp over: neighbors {
-    draw line([self.location,pp.location]);
+<pre><code class="hljs"><span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-keyword">draw</span> sphere(environmentSize*0.01) <span class="hljs-symbol">color:</span>#orange;
+  <span class="hljs-keyword">loop</span> pp <span class="hljs-symbol">over:</span> neighbors {
+    <span class="hljs-keyword">draw</span> line([self.location,pp.location]);
   } 
 }
 </code></pre>
@@ -84,47 +84,47 @@
 <p>The GIT version of the model can be found here <a href="https://github.com/gama-platform/gama/blob/master/msi.gama.models/models/Tutorials/3D/models/Model%2003.gaml">Model 03.gaml</a></p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> Tuto3D
 
-<span class="hljs-class">global </span>{
+global {
   <span class="hljs-literal">int</span> nb_cells &lt;-100;
   <span class="hljs-literal">int</span> environmentSize &lt;-100;
   <span class="hljs-literal">geometry</span> shape &lt;- cube(environmentSize);  
   init { 
-    create cells number: nb_cells { 
+    <span class="hljs-keyword">create</span> cells <span class="hljs-symbol">number:</span> nb_cells { 
       location &lt;- {rnd(environmentSize), rnd(environmentSize), rnd(environmentSize)};       
     } 
   }  
 } 
     
-<span class="hljs-class">species <span class="hljs-title">cells</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving3D</span>] </span>{  
+<span class="hljs-literal">species</span> cells <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving3D</span>] {  
     <span class="hljs-literal">rgb</span> color;
     <span class="hljs-literal">list</span>&lt;cells&gt; neighbors;
     <span class="hljs-literal">int</span> offset;
     
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> </span>{
-      do wander;    
+    <span class="hljs-builtin">reflex</span> move {
+      <span class="hljs-keyword">do</span> wander;    
     }   
     
-    <span class="hljs-class">reflex <span class="hljs-title">computeNeighbors</span> </span>{
+    <span class="hljs-builtin">reflex</span> computeNeighbors {
       neighbors &lt;- cells select ((each distance_to self) &lt; 10);
     }
         
-    aspect default {
-        draw sphere(environmentSize*0.01) color:#orange;
-        loop pp over: neighbors {
-            draw line([self.location,pp.location]);
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> sphere(environmentSize*0.01) <span class="hljs-symbol">color:</span>#orange;
+        <span class="hljs-keyword">loop</span> pp <span class="hljs-symbol">over:</span> neighbors {
+            <span class="hljs-keyword">draw</span> line([self.location,pp.location]);
         }   
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">Tuto3D</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-  parameter <span class="hljs-string">"Initial number of cells: "</span> var: nb_cells min: 1 max: 1000 category: <span class="hljs-string">"Cells"</span> ;
-  output {
-    <span class="hljs-class">display <span class="hljs-title">View1</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55)</span>{
-      graphics <span class="hljs-string">"env"</span>{
-        draw cube(environmentSize) color: #black empty:true;    
+<span class="hljs-builtin">experiment</span> Tuto3D  <span class="hljs-symbol">type:</span> gui {
+  <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of cells: "</span> <span class="hljs-symbol">var:</span> nb_cells <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Cells"</span> ;
+  <span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">display</span> View1 <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55){
+      <span class="hljs-keyword">graphics</span> <span class="hljs-string">"env"</span>{
+        <span class="hljs-keyword">draw</span> cube(environmentSize) <span class="hljs-symbol">color:</span> #black <span class="hljs-symbol">empty:</span>true;    
       }
-      <span class="hljs-class">species <span class="hljs-title">cells</span>;</span>
+      <span class="hljs-literal">species</span> cells;
     }
   }  
 }

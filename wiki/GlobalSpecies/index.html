@@ -66,13 +66,13 @@ In the global species you can define the attributes, actions and behaviors that 
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="declaration"></a><a href="#declaration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaration</h2>
 <p>A GAMA model contains a unique global section that defines the global species.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-comment">// definition of global attributes, actions, behaviours</span>
 }
 </code></pre>
 <p><code>global</code> can use facets, such as the <code>torus</code> facet, to make the environment a torus or not (if it is a torus, all the agents going out of the environment will appear in the other side. If it's not, the agents won't be able to go out of the environment). By default, the environment is not a torus.</p>
 <p><img src="../resources/images/manipulateBasicSpecies/torus.png" alt="images/torus.png"></p>
-<pre><code class="hljs"><span class="hljs-class">global <span class="hljs-title">torus</span>:<span class="hljs-title">true</span> </span>{
+<pre><code class="hljs">global <span class="hljs-symbol">torus:</span>true {
     <span class="hljs-comment">// definition of global attributes, actions, behaviours</span>
 }
 </code></pre>
@@ -102,7 +102,7 @@ In the global species you can define the attributes, actions and behaviors that 
 <li>float,  is the length, in model time, of an interval between two cycles, in seconds. Its default value is 1 (second). Each turn, the value of time is incremented by the value of step. The definition of step must be coherent with that of the agents' variables like speed. The use of time unit is particularly relevant for its definition.</li>
 </ul>
 <p>To learn more about time, please read the <a href="ManipulateDates">recipe about dates</a>.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
 ...
     <span class="hljs-literal">float</span> step &lt;- 10°h;
 ...
@@ -112,9 +112,9 @@ In the global species you can define the attributes, actions and behaviors that 
 <ul>
 <li>float, read-only, represents the current simulated time in seconds (the default unit). It is time in the model time. Begins at zero. Basically, we have:   <strong>time = cycle <code>*</code> step</strong>  .</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
 ...
-    <span class="hljs-literal">int</span> nb_minutes function: { <span class="hljs-literal">int</span>(time / 60)};
+    <span class="hljs-literal">int</span> nb_minutes <span class="hljs-symbol">function:</span> { <span class="hljs-literal">int</span>(time / 60)};
 ...
 }
 </code></pre>
@@ -139,12 +139,12 @@ In the global species you can define the attributes, actions and behaviors that 
 <ul>
 <li>list, read-only, returns a list of all the agents of the model that are considered as &quot;active&quot; (i.e. all the agents with behaviors, excluding the places). Note that obtaining this list can be quite time consuming, as the world has to go through all the species and get their agents before assembling the result. For instance, instead of writing something like:</li>
 </ul>
-<pre><code class="hljs">ask agents of_<span class="hljs-class">species <span class="hljs-title">my_species</span> </span>{
+<pre><code class="hljs"><span class="hljs-keyword">ask</span> <span class="hljs-keyword">agents</span> of_species my_species {
 ...
 }
 </code></pre>
 <p>one would prefer to write (which is much faster):</p>
-<pre><code class="hljs">ask my_<span class="hljs-class">species </span>{
+<pre><code class="hljs"><span class="hljs-keyword">ask</span> my_species {
 ...
 }
 </code></pre>
@@ -155,10 +155,10 @@ In the global species you can define the attributes, actions and behaviors that 
 <ul>
 <li>stops the simulation.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
      ...
-     <span class="hljs-class">reflex <span class="hljs-title">halting</span> <span class="hljs-title">when</span>: <span class="hljs-title">empty</span> (<span class="hljs-title">agents</span>) </span>{
-            do halt;
+     <span class="hljs-builtin">reflex</span> halting <span class="hljs-symbol">when:</span> empty (<span class="hljs-keyword">agents</span>) {
+            <span class="hljs-keyword">do</span> halt;
      }
 }
 </code></pre>
@@ -166,10 +166,10 @@ In the global species you can define the attributes, actions and behaviors that 
 <ul>
 <li>pauses the simulation, which can then be continued by the user.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
      ...
-     <span class="hljs-class">reflex <span class="hljs-title">toto</span> <span class="hljs-title">when</span>: <span class="hljs-title">time</span> = 100 </span>{
-            do pause;
+     <span class="hljs-builtin">reflex</span> toto <span class="hljs-symbol">when:</span> time = 100 {
+            <span class="hljs-keyword">do</span> pause;
      }
 }
 </code></pre>

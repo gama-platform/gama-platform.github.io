@@ -12,11 +12,11 @@
 
 
  
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">// Constants</span>
-    <span class="hljs-literal">int</span> heightImg const: true &lt;- 5587;
-    <span class="hljs-literal">int</span> widthImg const: true &lt;- 6201;   
-    <span class="hljs-literal">file</span> boundsMNT const: true &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../images/mnt/boundsMNT.shp"</span>); 
+    <span class="hljs-literal">int</span> heightImg <span class="hljs-symbol">const:</span> true &lt;- 5587;
+    <span class="hljs-literal">int</span> widthImg <span class="hljs-symbol">const:</span> true &lt;- 6201;   
+    <span class="hljs-literal">file</span> boundsMNT <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../images/mnt/boundsMNT.shp"</span>); 
     
     
 <span class="hljs-comment">// The environment bounds are defined using the hand-made boundsMNT shapefile.</span>
@@ -24,69 +24,69 @@
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(boundsMNT);
     
     <span class="hljs-comment">// Global variables related to the MNT</span>
-    <span class="hljs-literal">file</span> mntImageRaster &lt;- image_file('../images/mnt/testAG.jpg') ;
+    <span class="hljs-literal">file</span> mntImageRaster &lt;- image_file(<span class="hljs-string">'../images/mnt/testAG.jpg'</span>) ;
     <span class="hljs-literal">int</span> factorDiscret  &lt;- 10;
     
     <span class="hljs-comment">// Global variables  related to the Management units    </span>
-    <span class="hljs-literal">file</span> ManagementUnitShape &lt;- <span class="hljs-literal">file</span>('../images/ug/UGSelect.shp');
+    <span class="hljs-literal">file</span> ManagementUnitShape &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../images/ug/UGSelect.shp'</span>);
     
     <span class="hljs-comment">// Global variables  related to the water network</span>
-    <span class="hljs-literal">file</span> waterShape &lt;- <span class="hljs-literal">file</span>('../images/reseauHydro/reseauEau.shp');
+    <span class="hljs-literal">file</span> waterShape &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../images/reseauHydro/reseauEau.shp'</span>);
 
     <span class="hljs-comment">// Global variables  related to izard agents</span>
     <span class="hljs-literal">int</span> nbIzard &lt;- 25 ;
-    <span class="hljs-literal">file</span> izardShape &lt;-<span class="hljs-literal">file</span>('../images/icons/izard.gif') ;
+    <span class="hljs-literal">file</span> izardShape &lt;-<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/icons/izard.gif'</span>) ;
         
     <span class="hljs-comment">// Initialization of grid and creation of the izard agents.</span>
     <span class="hljs-comment">// Creation of managmentUnit and rivers agents from the corresponding shapefile</span>
     init {
-        create managementUnit from: ManagementUnitShape 
-                with: [MUcode::<span class="hljs-literal">int</span>(read('Code_UG')), MULabel::<span class="hljs-literal">string</span>(read('Libelle_UG')), pgeSAGE::<span class="hljs-literal">string</span>(read('PGE_SAGE'))] ;
+        <span class="hljs-keyword">create</span> managementUnit <span class="hljs-symbol">from:</span> ManagementUnitShape 
+                <span class="hljs-symbol">with:</span> [MUcode::<span class="hljs-literal">int</span>(read(<span class="hljs-string">'Code_UG'</span>)), MULabel::<span class="hljs-literal">string</span>(read(<span class="hljs-string">'Libelle_UG'</span>)), pgeSAGE::<span class="hljs-literal">string</span>(read(<span class="hljs-string">'PGE_SAGE'</span>))] ;
                 
-        create river from: waterShape;
+        <span class="hljs-keyword">create</span> river <span class="hljs-symbol">from:</span> waterShape;
                 
         <span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">int</span>&gt; mapColor &lt;- <span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">int</span>&gt;(mntImageRaster as_matrix {widthImg/factorDiscret,heightImg/factorDiscret}) ;
-        ask cell {      
+        <span class="hljs-keyword">ask</span> cell {      
             color &lt;- <span class="hljs-literal">rgb</span>( mapColor at {grid_x,grid_y} );
         }
-        create izard number: nbIzard;           
+        <span class="hljs-keyword">create</span> izard <span class="hljs-symbol">number:</span> nbIzard;           
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">river</span> </span>{
-    aspect default{
-        draw shape color: #blue;
+<span class="hljs-literal">species</span> river {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>{
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #blue;
     }   
 }
 
-<span class="hljs-class">species <span class="hljs-title">managementUnit</span></span>{
+<span class="hljs-literal">species</span> managementUnit{
     <span class="hljs-literal">int</span> MUcode;
     <span class="hljs-literal">string</span> MULabel;
     <span class="hljs-literal">string</span> pgeSAGE;
     
-    aspect default{
-        draw shape;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>{
+        <span class="hljs-keyword">draw</span> shape;
     }
 }   
-<span class="hljs-class">species <span class="hljs-title">izard</span> </span>{ 
+<span class="hljs-literal">species</span> izard { 
     init{
         location &lt;- (shuffle(cell) first_with ((each.color != #white) and (empty(izard inside each)))).location ;
     }   
-    aspect default{
-        draw square(5000) color: #orange;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>{
+        <span class="hljs-keyword">draw</span> square(5000) <span class="hljs-symbol">color:</span> #orange;
     }
-    aspect image{
-        draw izardShape size: 5000;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">image</span>{
+        <span class="hljs-keyword">draw</span> izardShape <span class="hljs-symbol">size:</span> 5000;
     }
 }   
 
 <span class="hljs-comment">// We create a grid as environment with the same dimensions as the matrix in which we want to store the image</span>
 
-<span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: <span class="hljs-title">widthImg</span>/<span class="hljs-title">factorDiscret</span> <span class="hljs-title">height</span>: <span class="hljs-title">heightImg</span>/<span class="hljs-title">factorDiscret</span>;</span>
+grid cell <span class="hljs-symbol">width:</span> widthImg/factorDiscret <span class="hljs-symbol">height:</span> heightImg/factorDiscret;
 
 
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
     
     <span class="hljs-comment">// We display:</span>
     <span class="hljs-comment">// - the original MNT image as background</span>
@@ -96,13 +96,13 @@
     <span class="hljs-comment">// - the river shapefile</span>
     <span class="hljs-comment">// We can thus compare the original MNT image and the discretized image in the grid.</span>
     <span class="hljs-comment">// For cosmetic need, we can choose to not display the grid. </span>
-    output {
-        <span class="hljs-class">display <span class="hljs-title">HowToImportVectorial</span> </span>{
-            image 'Background' <span class="hljs-literal">file</span>: mntImageRaster.<span class="hljs-literal">path</span>;       
-            <span class="hljs-class">grid <span class="hljs-title">cell</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">managementUnit</span> <span class="hljs-title">transparency</span>: 0.5;</span>
-            <span class="hljs-class">species <span class="hljs-title">river</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">izard</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>;  </span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> HowToImportVectorial {
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'Background'</span> <span class="hljs-symbol">file:</span> mntImageRaster.<span class="hljs-literal">path</span>;       
+            grid cell;
+            <span class="hljs-literal">species</span> managementUnit <span class="hljs-symbol">transparency:</span> 0.5;
+            <span class="hljs-literal">species</span> river ;
+            <span class="hljs-literal">species</span> izard <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span>;  
         }
     }
 }

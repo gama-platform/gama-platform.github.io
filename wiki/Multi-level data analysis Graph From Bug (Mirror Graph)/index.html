@@ -12,17 +12,17 @@
 <span class="hljs-builtin">model</span> Graph
 
 <span class="hljs-comment">//Import the model Common Bug Species model</span>
-import '../includes/Common Bug Species.gaml'
+import <span class="hljs-string">'../includes/Common Bug Species.gaml'</span>
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Distance to link two bugs</span>
-    <span class="hljs-literal">int</span> distance parameter: 'Distance' min: 1 &lt;- 25 category: 'Model';
+    <span class="hljs-literal">int</span> distance <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Distance'</span> <span class="hljs-symbol">min:</span> 1 &lt;- 25 <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span>;
     <span class="hljs-comment">//variable to start the animation of the model</span>
-    <span class="hljs-literal">int</span> startAnimation parameter: 'Start Animation ' min: 1 &lt;- 25 category: 'Animation View';
+    <span class="hljs-literal">int</span> startAnimation <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Start Animation '</span> <span class="hljs-symbol">min:</span> 1 &lt;- 25 <span class="hljs-symbol">category:</span> <span class="hljs-string">'Animation View'</span>;
     <span class="hljs-comment">//Variable to save the time animation</span>
     <span class="hljs-literal">int</span> timeAnim &lt;- 0;
     <span class="hljs-comment">//Reflex to update the time of animation</span>
-    <span class="hljs-class">reflex <span class="hljs-title">updateAnimation</span> </span>
+    <span class="hljs-builtin">reflex</span> updateAnimation 
     {
         <span class="hljs-keyword">if</span> (time &gt; startAnimation) 
         {
@@ -31,52 +31,52 @@ import '../includes/Common Bug Species.gaml'
     }
 }
 <span class="hljs-comment">//Species node_agent mirroring the bug species, represented as graph node</span>
-<span class="hljs-class">species <span class="hljs-title">node_agent</span> <span class="hljs-title">mirrors</span>: <span class="hljs-title">list</span>(<span class="hljs-title">bug</span>) <span class="hljs-title">parent</span>: <span class="hljs-title">graph_node</span> <span class="hljs-title">edge_species</span>: <span class="hljs-title">edge_agent</span> </span>{
+<span class="hljs-literal">species</span> node_agent <span class="hljs-symbol">mirrors:</span> <span class="hljs-literal">list</span>(bug) <span class="hljs-symbol">parent:</span> graph_node <span class="hljs-symbol">edge_species:</span> edge_agent {
     <span class="hljs-comment">//Their location is the one of the target location</span>
-    <span class="hljs-literal">point</span> location &lt;- target.location update: target.location;
+    <span class="hljs-literal">point</span> location &lt;- target.location <span class="hljs-symbol">update:</span> target.location;
     
     <span class="hljs-comment">//Action to know if an agent is related to another agent considering their distance</span>
     <span class="hljs-literal">bool</span> related_to (node_agent other) {
-        using <span class="hljs-literal">topology</span>(target) {
-            return (target.location distance_to other.target.location) &lt; distance;
+        <span class="hljs-keyword">using</span> <span class="hljs-literal">topology</span>(target) {
+            <span class="hljs-keyword">return</span> (target.location distance_to other.target.location) &lt; distance;
         }
 
     }
 
-    aspect base {
-        draw sphere(2) color: #green;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> sphere(2) <span class="hljs-symbol">color:</span> #green;
     }
 
-    aspect dynamic {
+    <span class="hljs-keyword">aspect</span> dynamic {
         <span class="hljs-literal">int</span> degree &lt;- (my_graph) degree_of (self);
-        draw sphere(1 + (degree / 5.0)) color: #blue;
+        <span class="hljs-keyword">draw</span> sphere(1 + (degree / 5.0)) <span class="hljs-symbol">color:</span> #blue;
     }
 
 }
 <span class="hljs-comment">//Species edge to represent the edges of the graph</span>
-<span class="hljs-class">species <span class="hljs-title">edge_agent</span> <span class="hljs-title">parent</span>: <span class="hljs-title">base_edge</span> </span>{
+<span class="hljs-literal">species</span> edge_agent <span class="hljs-symbol">parent:</span> base_edge {
     <span class="hljs-literal">rgb</span> color;
-    aspect base {
-        draw shape color: #green;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #green;
     }
     
-    aspect dynamic {
+    <span class="hljs-keyword">aspect</span> dynamic {
         shape &lt;- line([{ self.source.location.x, self.source.location.y, self.source.location.z }, { self.target.location.x, self.target.location.y, self.target.location.z }]);
         <span class="hljs-literal">float</span> val &lt;- 255.0 * (shape.perimeter / distance);
         color &lt;- hsb(val, 1.0, 1.0);
-        draw shape + 0.1 color: color border: color;
+        <span class="hljs-keyword">draw</span> shape + 0.1 <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">border:</span> color;
     }
 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">AdvancedView</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">graph_plus_bug_layered</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{ 
-          <span class="hljs-class">species <span class="hljs-title">bug</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-          <span class="hljs-class">species <span class="hljs-title">node_agent</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> <span class="hljs-title">position</span>: </span>{ 0, 0, 0.2 };
-          <span class="hljs-class">species <span class="hljs-title">edge_agent</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> <span class="hljs-title">position</span>: </span>{ 0, 0, 0.2 };
-          <span class="hljs-class">species <span class="hljs-title">node_agent</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">dynamic</span> <span class="hljs-title">position</span>: </span>{ 0, 0, 0.4 };
-          <span class="hljs-class">species <span class="hljs-title">edge_agent</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">dynamic</span> <span class="hljs-title">position</span>: </span>{ 0, 0, 0.4 };
+<span class="hljs-builtin">experiment</span> AdvancedView <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> graph_plus_bug_layered <span class="hljs-symbol">type:</span> opengl { 
+          <span class="hljs-literal">species</span> bug <span class="hljs-symbol">aspect:</span> base;
+          <span class="hljs-literal">species</span> node_agent <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span> { 0, 0, 0.2 };
+          <span class="hljs-literal">species</span> edge_agent <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span> { 0, 0, 0.2 };
+          <span class="hljs-literal">species</span> node_agent <span class="hljs-symbol">aspect:</span> dynamic <span class="hljs-symbol">position:</span> { 0, 0, 0.4 };
+          <span class="hljs-literal">species</span> edge_agent <span class="hljs-symbol">aspect:</span> dynamic <span class="hljs-symbol">position:</span> { 0, 0, 0.4 };
         }
     }
 }

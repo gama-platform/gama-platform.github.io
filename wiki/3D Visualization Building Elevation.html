@@ -10,11 +10,11 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> tutorial_gis_city_traffic
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Load of the different shapefiles used by the model</span>
-    <span class="hljs-literal">file</span> shape_file_buildings &lt;- shape_file('../includes/building.shp', 0);
-    <span class="hljs-literal">file</span> shape_file_roads &lt;- shape_file('../includes/road.shp', 0);
-    <span class="hljs-literal">file</span> shape_file_bounds &lt;- shape_file('../includes/bounds.shp', 0);
+    <span class="hljs-literal">file</span> shape_file_buildings &lt;- shape_file(<span class="hljs-string">'../includes/building.shp'</span>, 0);
+    <span class="hljs-literal">file</span> shape_file_roads &lt;- shape_file(<span class="hljs-string">'../includes/road.shp'</span>, 0);
+    <span class="hljs-literal">file</span> shape_file_bounds &lt;- shape_file(<span class="hljs-string">'../includes/bounds.shp'</span>, 0);
     
     <span class="hljs-literal">string</span> texture &lt;- <span class="hljs-string">"../images/building_texture/texture1.jpg"</span>;
     <span class="hljs-literal">string</span> roof_texture &lt;- <span class="hljs-string">"../images/building_texture/roof_top.png"</span>;   
@@ -23,7 +23,7 @@
     <span class="hljs-comment">// by the area delimited by the bounds</span>
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_bounds);
     <span class="hljs-literal">int</span> nb_people &lt;- 100;
-    <span class="hljs-literal">int</span> day_time update: cycle mod 144;
+    <span class="hljs-literal">int</span> day_time <span class="hljs-symbol">update:</span> cycle mod 144;
     <span class="hljs-literal">int</span> min_work_start &lt;- 36;
     <span class="hljs-literal">int</span> max_work_start &lt;- 60;
     <span class="hljs-literal">int</span> min_work_end &lt;- 84;
@@ -34,18 +34,18 @@
     <span class="hljs-comment">//Declaration of a graph that will represent our road network</span>
     <span class="hljs-literal">graph</span> the_graph;
     init {
-        create building from: shape_file_buildings with: [type:: <span class="hljs-literal">string</span>(read('NATURE'))] {
-            <span class="hljs-keyword">if</span> type = 'Industrial' {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> shape_file_buildings <span class="hljs-symbol">with:</span> [type:: <span class="hljs-literal">string</span>(read(<span class="hljs-string">'NATURE'</span>))] {
+            <span class="hljs-keyword">if</span> type = <span class="hljs-string">'Industrial'</span> {
                 color &lt;- #blue;
             }
             height &lt;- 10 + rnd(90);
         }
 
-        create road from: shape_file_roads;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_roads;
         the_graph &lt;- as_edge_graph(road);
-        <span class="hljs-literal">list</span>&lt;building&gt; residential_buildings &lt;- building where (each.type = 'Residential');
-        <span class="hljs-literal">list</span>&lt;building&gt; industrial_buildings &lt;- building where (each.type = 'Industrial');
-        create people number: nb_people {
+        <span class="hljs-literal">list</span>&lt;building&gt; residential_buildings &lt;- building where (each.type = <span class="hljs-string">'Residential'</span>);
+        <span class="hljs-literal">list</span>&lt;building&gt; industrial_buildings &lt;- building where (each.type = <span class="hljs-string">'Industrial'</span>);
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> nb_people {
             speed &lt;- min_speed + rnd(max_speed - min_speed);
             start_work &lt;- min_work_start + rnd(max_work_start - min_work_start);
             end_work &lt;- min_work_end + rnd(max_work_end - min_work_end);
@@ -59,24 +59,24 @@
 }
 
 
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
+<span class="hljs-literal">species</span> building {
     <span class="hljs-literal">string</span> type;
     <span class="hljs-literal">rgb</span> color &lt;- #gray;
     <span class="hljs-literal">int</span> height;
-    aspect base {
-        draw shape color: color depth: 100;<span class="hljs-comment">// texture:[roof_texture,texture];</span>
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">depth:</span> 100;<span class="hljs-comment">// texture:[roof_texture,texture];</span>
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span> </span>{
+<span class="hljs-literal">species</span> road {
     <span class="hljs-literal">rgb</span> color &lt;- #black;
-    aspect base {
-        draw shape color: color;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color;
     }
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">rgb</span> color &lt;- #yellow;
     building living_place &lt;- nil;
     building working_place &lt;- nil;
@@ -84,89 +84,89 @@
     <span class="hljs-literal">int</span> end_work;
     <span class="hljs-literal">string</span> objectif;
     <span class="hljs-literal">point</span> the_target &lt;- nil;
-    <span class="hljs-class">reflex <span class="hljs-title">time_to_work</span> <span class="hljs-title">when</span>: <span class="hljs-title">day_time</span> = <span class="hljs-title">start_work</span> </span>{
-        objectif &lt;- 'working';
+    <span class="hljs-builtin">reflex</span> time_to_work <span class="hljs-symbol">when:</span> day_time = start_work {
+        objectif &lt;- <span class="hljs-string">'working'</span>;
         the_target &lt;- any_location_in(working_place);
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">time_to_go_home</span> <span class="hljs-title">when</span>: <span class="hljs-title">day_time</span> = <span class="hljs-title">end_work</span> </span>{
-        objectif &lt;- 'go home';
+    <span class="hljs-builtin">reflex</span> time_to_go_home <span class="hljs-symbol">when:</span> day_time = end_work {
+        objectif &lt;- <span class="hljs-string">'go home'</span>;
         the_target &lt;- any_location_in(living_place);
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">the_target</span> != <span class="hljs-title">nil</span> </span>{
-        do goto target: the_target on: the_graph;
-        switch the_target {
-            match location {
+    <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> the_target != nil {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> the_target <span class="hljs-symbol">on:</span> the_graph;
+        <span class="hljs-keyword">switch</span> the_target {
+            <span class="hljs-keyword">match</span> location {
                 the_target &lt;- nil;
-                location &lt;- {location.x, location.y,objectif  = 'go home' ?  living_place.height : working_place.height};
+                location &lt;- {location.x, location.y,objectif  = <span class="hljs-string">'go home'</span> ?  living_place.height : working_place.height};
             }
 
         }
 
     }
 
-    aspect base {
-        draw sphere(10) color: color;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> sphere(10) <span class="hljs-symbol">color:</span> color;
     }
 
 }
 
 
 
-<span class="hljs-class">experiment <span class="hljs-title">road_traffic</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter 'Shapefile <span class="hljs-keyword">for</span> the buildings:' var: shape_file_buildings category: 'GIS';
-    parameter 'Shapefile <span class="hljs-keyword">for</span> the roads:' var: shape_file_roads category: 'GIS';
-    parameter 'Shapefile <span class="hljs-keyword">for</span> the bounds:' var: shape_file_bounds category: 'GIS';
-    parameter 'Number of people agents' var: nb_people category: 'People';
-    parameter 'Earliest hour to start work' var: min_work_start category: 'People';
-    parameter 'Latest hour to start work' var: max_work_start category: 'People';
-    parameter 'Earliest hour to end work' var: min_work_end category: 'People';
-    parameter 'Latest hour to end work' var: max_work_end category: 'People';
-    parameter 'minimal speed' var: min_speed category: 'People';
-    parameter 'maximal speed' var: max_speed category: 'People';
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
+<span class="hljs-builtin">experiment</span> road_traffic <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Shapefile for the buildings:'</span> <span class="hljs-symbol">var:</span> shape_file_buildings <span class="hljs-symbol">category:</span> <span class="hljs-string">'GIS'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Shapefile for the roads:'</span> <span class="hljs-symbol">var:</span> shape_file_roads <span class="hljs-symbol">category:</span> <span class="hljs-string">'GIS'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Shapefile for the bounds:'</span> <span class="hljs-symbol">var:</span> shape_file_bounds <span class="hljs-symbol">category:</span> <span class="hljs-string">'GIS'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of people agents'</span> <span class="hljs-symbol">var:</span> nb_people <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Earliest hour to start work'</span> <span class="hljs-symbol">var:</span> min_work_start <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Latest hour to start work'</span> <span class="hljs-symbol">var:</span> max_work_start <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Earliest hour to end work'</span> <span class="hljs-symbol">var:</span> min_work_end <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Latest hour to end work'</span> <span class="hljs-symbol">var:</span> max_work_end <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'minimal speed'</span> <span class="hljs-symbol">var:</span> min_speed <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'maximal speed'</span> <span class="hljs-symbol">var:</span> max_speed <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base;
         }
         
-        <span class="hljs-class">display <span class="hljs-title">city_display2</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
+        <span class="hljs-keyword">display</span> city_display2 {
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base;
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">road_traffic_multi_layer</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter 'Shapefile <span class="hljs-keyword">for</span> the buildings:' var: shape_file_buildings category: 'GIS';
-    parameter 'Shapefile <span class="hljs-keyword">for</span> the roads:' var: shape_file_roads category: 'GIS';
-    parameter 'Shapefile <span class="hljs-keyword">for</span> the bounds:' var: shape_file_bounds category: 'GIS';
-    parameter 'Number of people agents' var: nb_people category: 'People';
-    parameter 'Earliest hour to start work' var: min_work_start category: 'People';
-    parameter 'Latest hour to start work' var: max_work_start category: 'People';
-    parameter 'Earliest hour to end work' var: min_work_end category: 'People';
-    parameter 'Latest hour to end work' var: max_work_end category: 'People';
-    parameter 'minimal speed' var: min_speed category: 'People';
-    parameter 'maximal speed' var: max_speed category: 'People';
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> <span class="hljs-title">position</span>:</span>{0,0,0.25};
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> <span class="hljs-title">position</span>:</span>{0,0,0.5};
+<span class="hljs-builtin">experiment</span> road_traffic_multi_layer <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Shapefile for the buildings:'</span> <span class="hljs-symbol">var:</span> shape_file_buildings <span class="hljs-symbol">category:</span> <span class="hljs-string">'GIS'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Shapefile for the roads:'</span> <span class="hljs-symbol">var:</span> shape_file_roads <span class="hljs-symbol">category:</span> <span class="hljs-string">'GIS'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Shapefile for the bounds:'</span> <span class="hljs-symbol">var:</span> shape_file_bounds <span class="hljs-symbol">category:</span> <span class="hljs-string">'GIS'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of people agents'</span> <span class="hljs-symbol">var:</span> nb_people <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Earliest hour to start work'</span> <span class="hljs-symbol">var:</span> min_work_start <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Latest hour to start work'</span> <span class="hljs-symbol">var:</span> max_work_start <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Earliest hour to end work'</span> <span class="hljs-symbol">var:</span> min_work_end <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Latest hour to end work'</span> <span class="hljs-symbol">var:</span> max_work_end <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'minimal speed'</span> <span class="hljs-symbol">var:</span> min_speed <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'maximal speed'</span> <span class="hljs-symbol">var:</span> max_speed <span class="hljs-symbol">category:</span> <span class="hljs-string">'People'</span>;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span>{0,0,0.25};
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span>{0,0,0.5};
         }
     }
 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">road_traffic_flying_off</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">flyingOffAgents</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> <span class="hljs-title">position</span>: </span>{ 0, 0, (time * 2)/1000 };
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> <span class="hljs-title">position</span>: </span>{ 0, 0, (time * 4)/1000 };
+<span class="hljs-builtin">experiment</span> road_traffic_flying_off <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> flyingOffAgents <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span> { 0, 0, (time * 2)/1000 };
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span> { 0, 0, (time * 4)/1000 };
         }
     }
 }

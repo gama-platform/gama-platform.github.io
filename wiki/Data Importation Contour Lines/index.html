@@ -11,25 +11,25 @@
 
 <span class="hljs-builtin">model</span> contour_lines_import
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//the contour lines shapefile</span>
-    <span class="hljs-literal">file</span> shape_file_cl &lt;- <span class="hljs-literal">file</span>('../includes/contourLines.shp') ;
+    <span class="hljs-literal">file</span> shape_file_cl &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../includes/contourLines.shp'</span>) ;
     
     <span class="hljs-comment">//define the size of the world from the countour line shapefile</span>
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_cl);
     
     init {
         <span class="hljs-comment">//create the contour line agents from the shapefile, and init the elevation for each agent</span>
-        create contour_line from: shape_file_cl with: [elevation:: <span class="hljs-literal">float</span>(read(<span class="hljs-string">"ELEVATION"</span>))];
+        <span class="hljs-keyword">create</span> contour_line <span class="hljs-symbol">from:</span> shape_file_cl <span class="hljs-symbol">with:</span> [elevation:: <span class="hljs-literal">float</span>(read(<span class="hljs-string">"ELEVATION"</span>))];
         
         <span class="hljs-comment">//triangulate the contour lines</span>
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; triangles  &lt;- triangulate (<span class="hljs-literal">list</span>(contour_line));
         
         <span class="hljs-comment">//for each triangle geometry, create a triangle_ag agent and compute the elevation of each of its points (and modified their z value)</span>
-        loop tr over: triangles {
-            create triangle_ag {
+        <span class="hljs-keyword">loop</span> tr <span class="hljs-symbol">over:</span> triangles {
+            <span class="hljs-keyword">create</span> triangle_ag {
                 shape &lt;- tr;
-                loop i from: 0 to: length(shape.points) - 1{ 
+                <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> length(shape.points) - 1{ 
                     <span class="hljs-literal">float</span> val &lt;- (contour_line closest_to (shape.points at i)).elevation;
                     shape &lt;- shape set_z (i,val);
                 }
@@ -38,24 +38,24 @@
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">contour_line</span> </span>{
+<span class="hljs-literal">species</span> contour_line {
     <span class="hljs-literal">float</span> elevation;
-    aspect default {
-        draw shape + 5.0 color: #red depth: 10 at: {location.x,location.y, elevation}; 
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape + 5.0 <span class="hljs-symbol">color:</span> #red <span class="hljs-symbol">depth:</span> 10 <span class="hljs-symbol">at:</span> {location.x,location.y, elevation}; 
     }
 }
-<span class="hljs-class">species <span class="hljs-title">triangle_ag</span> </span>{
-    aspect default {
-        draw shape color: #grey ; 
+<span class="hljs-literal">species</span> triangle_ag {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #grey ; 
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">contour_lines_import</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">triangle_ag</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">contour_line</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>;</span>
+<span class="hljs-builtin">experiment</span> contour_lines_import <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> triangle_ag <span class="hljs-symbol">refresh:</span> false;
+            <span class="hljs-literal">species</span> contour_line <span class="hljs-symbol">refresh:</span> false;
         }
     }
 }

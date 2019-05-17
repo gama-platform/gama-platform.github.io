@@ -9,19 +9,19 @@
 <p>Imported model :</p>
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> boids 
-<span class="hljs-class">global <span class="hljs-title">torus</span>: <span class="hljs-title">torus_environment</span></span>{ 
+global <span class="hljs-symbol">torus:</span> torus_environment{ 
     <span class="hljs-comment">//Number of boids that will be created</span>
-    <span class="hljs-literal">int</span> number_of_agents &lt;- 50 min: 1 max: 1000000;
+    <span class="hljs-literal">int</span> number_of_agents &lt;- 50 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000000;
     <span class="hljs-comment">//Number of obstacles for the boids movement to represent</span>
-    <span class="hljs-literal">int</span> number_of_obstacles &lt;- 0 min: 0;
+    <span class="hljs-literal">int</span> number_of_obstacles &lt;- 0 <span class="hljs-symbol">min:</span> 0;
     <span class="hljs-comment">//Maximal speed of the boids</span>
-    <span class="hljs-literal">float</span> maximal_speed &lt;- 15.0 min: 0.1 max: 15.0;
+    <span class="hljs-literal">float</span> maximal_speed &lt;- 15.0 <span class="hljs-symbol">min:</span> 0.1 <span class="hljs-symbol">max:</span> 15.0;
     <span class="hljs-comment">//Factors for the group of boids</span>
     <span class="hljs-literal">int</span> cohesion_factor &lt;- 200;
     <span class="hljs-literal">int</span> alignment_factor &lt;- 100; 
     <span class="hljs-comment">//Variables for the movement of the boids</span>
     <span class="hljs-literal">float</span> minimal_distance &lt;- 10.0; 
-    <span class="hljs-literal">int</span> maximal_turn &lt;- 45 min: 0 max: 359; 
+    <span class="hljs-literal">int</span> maximal_turn &lt;- 45 <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 359; 
     
     <span class="hljs-literal">int</span> width_and_height_of_environment &lt;- 1000;  
     <span class="hljs-literal">bool</span> torus_environment &lt;- false; 
@@ -34,16 +34,16 @@
     <span class="hljs-literal">int</span> bounds &lt;- <span class="hljs-literal">int</span>(width_and_height_of_environment / 20); 
     <span class="hljs-comment">//Vector for the wind</span>
     <span class="hljs-literal">point</span> wind_vector &lt;- {0,0}; 
-    <span class="hljs-literal">list</span> images of: image_file &lt;- [<span class="hljs-literal">file</span>('../images/bird1.png'),<span class="hljs-literal">file</span>('../images/bird2.png'),<span class="hljs-literal">file</span>('../images/bird3.png')]; 
+    <span class="hljs-literal">list</span> images <span class="hljs-symbol">of:</span> image_file &lt;- [<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/bird1.png'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/bird2.png'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/bird3.png'</span>)]; 
     <span class="hljs-literal">int</span> xmin &lt;- bounds;   
     <span class="hljs-literal">int</span> ymin &lt;- bounds;  
     <span class="hljs-literal">int</span> xmax &lt;- (width_and_height_of_environment - bounds);     
     <span class="hljs-literal">int</span> ymax &lt;- (width_and_height_of_environment - bounds);   
     
     <span class="hljs-comment">//Action to move the goal to the mouse location</span>
-    action move_goal(<span class="hljs-literal">point</span> mouse) {
-        ask first(boids_goal) {
-            do goto target: mouse speed: 30;
+    <span class="hljs-keyword">action</span> move_goal(<span class="hljs-literal">point</span> mouse) {
+        <span class="hljs-keyword">ask</span> first(boids_goal) {
+            <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> mouse <span class="hljs-symbol">speed:</span> 30;
         }
     }
     
@@ -51,58 +51,58 @@
     
     init { 
         <span class="hljs-comment">//Create the boids agents</span>
-        create boids number: number_of_agents { 
+        <span class="hljs-keyword">create</span> boids <span class="hljs-symbol">number:</span> number_of_agents { 
              location &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 };
         } 
         <span class="hljs-comment">//Create the obstacles agents</span>
-        create obstacle number: number_of_obstacles {
+        <span class="hljs-keyword">create</span> obstacle <span class="hljs-symbol">number:</span> number_of_obstacles {
             location &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 }; 
         }
         <span class="hljs-comment">//Create the goal that boids will follow</span>
-        create  boids_goal; 
+        <span class="hljs-keyword">create</span>  boids_goal; 
     }   
 }
 
 <span class="hljs-comment">//Species boids goal which represents the goal that will be followed by boids agents using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> boids_goal <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">float</span> range  &lt;- 20.0;
     
     <span class="hljs-comment">//If the mouse is not used, then the goal just wander</span>
-    <span class="hljs-class">reflex <span class="hljs-title">wander</span> </span>{  
-        do  wander amplitude: 45 speed: 20;  
+    <span class="hljs-builtin">reflex</span> wander {  
+        <span class="hljs-keyword">do</span>  wander <span class="hljs-symbol">amplitude:</span> 45 <span class="hljs-symbol">speed:</span> 20;  
     }
     
-    aspect default {
-        draw circle(10) color: #red ;
-        draw circle(40) color: #orange empty: true;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span> #red ;
+        <span class="hljs-keyword">draw</span> circle(40) <span class="hljs-symbol">color:</span> #orange <span class="hljs-symbol">empty:</span> true;
     }
 } 
 <span class="hljs-comment">//Species boids which represents the boids agents whom follow the boid goal agents, using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> boids <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-comment">//Speed of the boids agents</span>
-    <span class="hljs-literal">float</span> speed max: maximal_speed &lt;- maximal_speed;
+    <span class="hljs-literal">float</span> speed <span class="hljs-symbol">max:</span> maximal_speed &lt;- maximal_speed;
     <span class="hljs-comment">//Range used to consider the group of the agent</span>
     <span class="hljs-literal">float</span> range &lt;- minimal_distance * 2;
     <span class="hljs-literal">point</span> velocity &lt;- {0,0};
         
     <span class="hljs-comment">//Reflex used when the separation is applied to change the velocity of the boid</span>
-    <span class="hljs-class">reflex <span class="hljs-title">separation</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_separation</span> </span>{
+    <span class="hljs-builtin">reflex</span> separation <span class="hljs-symbol">when:</span> apply_separation {
         <span class="hljs-literal">point</span> acc &lt;- {0,0};
-        ask (boids overlapping (circle(minimal_distance)))  {
+        <span class="hljs-keyword">ask</span> (boids overlapping (circle(minimal_distance)))  {
             acc &lt;- acc - ((location) - myself.location);
         }  
         velocity &lt;- velocity + acc;
     }
     
     <span class="hljs-comment">//Reflex to align the boid with the other boids in the range</span>
-    <span class="hljs-class">reflex <span class="hljs-title">alignment</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_alignment</span> </span>{
+    <span class="hljs-builtin">reflex</span> alignment <span class="hljs-symbol">when:</span> apply_alignment {
         <span class="hljs-literal">list</span> others  &lt;- ((boids overlapping (circle (range)))  - self);
         <span class="hljs-literal">point</span> acc &lt;- mean (others collect (each.velocity)) - velocity;
         velocity &lt;- velocity + (acc / alignment_factor);
     }
      
     <span class="hljs-comment">//Reflex to apply the cohesion of the boids group in the range of the agent</span>
-    <span class="hljs-class">reflex <span class="hljs-title">cohesion</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_cohesion</span> </span>{
+    <span class="hljs-builtin">reflex</span> cohesion <span class="hljs-symbol">when:</span> apply_cohesion {
         <span class="hljs-literal">list</span> others &lt;- ((boids overlapping (circle (range)))  - self);
         <span class="hljs-literal">point</span> mass_center &lt;- (length(others) &gt; 0) ? mean (others collect (each.location)) : location;
 
@@ -112,120 +112,120 @@
     }
     
     <span class="hljs-comment">//Reflex to avoid the obstacles</span>
-    <span class="hljs-class">reflex <span class="hljs-title">avoid</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_avoid</span> </span>{ 
+    <span class="hljs-builtin">reflex</span> avoid <span class="hljs-symbol">when:</span> apply_avoid { 
         <span class="hljs-literal">point</span> acc &lt;- {0,0};
         <span class="hljs-literal">list</span>&lt;obstacle&gt; nearby_obstacles &lt;- (obstacle overlapping (circle (range)) );
-        loop obs over: nearby_obstacles {
+        <span class="hljs-keyword">loop</span> obs <span class="hljs-symbol">over:</span> nearby_obstacles {
             acc &lt;- acc - ((location of obs) - my (location));
         }
         velocity &lt;- velocity + acc; 
     }
     
     <span class="hljs-comment">//action to represent the bounding of the environment considering the velocity of the boid</span>
-    action bounding {
+    <span class="hljs-keyword">action</span> bounding {
         <span class="hljs-keyword">if</span>  !(torus_environment) {
             <span class="hljs-keyword">if</span>  (location.x) &lt; xmin {
                 velocity &lt;- velocity + {bounds,0};
-            } else <span class="hljs-keyword">if</span> (location.x) &gt; xmax {
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (location.x) &gt; xmax {
                 velocity &lt;- velocity - {bounds,0};
             }
             
             <span class="hljs-keyword">if</span> (location.y) &lt; ymin {
                 velocity &lt;- velocity + {0,bounds};
-            } else <span class="hljs-keyword">if</span> (location.y) &gt; ymax {
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (location.y) &gt; ymax {
                 velocity &lt;- velocity - {0,bounds};
             }
             
         }
     }
     <span class="hljs-comment">//Reflex to follow the goal </span>
-    <span class="hljs-class">reflex <span class="hljs-title">follow_goal</span> </span>{
+    <span class="hljs-builtin">reflex</span> follow_goal {
         velocity &lt;- velocity + ((first(boids_goal).location - location) / cohesion_factor);
     }
     <span class="hljs-comment">//Reflex to apply the wind vector on the velocity</span>
-    <span class="hljs-class">reflex <span class="hljs-title">wind</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_wind</span> </span>{
+    <span class="hljs-builtin">reflex</span> wind <span class="hljs-symbol">when:</span> apply_wind {
         velocity &lt;- velocity + wind_vector;
     }
     
     <span class="hljs-comment">//Action to move the agent  </span>
-    action do_move {  
+    <span class="hljs-keyword">action</span> do_move {  
         <span class="hljs-keyword">if</span> (((velocity.x) as <span class="hljs-literal">int</span>) = 0) and (((velocity.y) as <span class="hljs-literal">int</span>) = 0) {
             velocity &lt;- {(rnd(4)) -2, (rnd(4)) - 2};
         }
         <span class="hljs-literal">point</span> old_location &lt;- copy(location);
-        do goto target: location + velocity;
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> location + velocity;
         velocity &lt;- location - old_location;
     }
     
     <span class="hljs-comment">//Reflex to apply the movement by calling the do_move action</span>
-    <span class="hljs-class">reflex <span class="hljs-title">movement</span> </span>{
-        do do_move;
+    <span class="hljs-builtin">reflex</span> movement {
+        <span class="hljs-keyword">do</span> do_move;
     }
     
-    aspect image {
-        draw (images at (rnd(2))) size: {50,50} rotate: heading ;      
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">image</span> {
+        <span class="hljs-keyword">draw</span> (images at (rnd(2))) <span class="hljs-symbol">size:</span> {50,50} <span class="hljs-symbol">rotate:</span> heading ;      
     }
-    aspect circle { 
-        draw circle(15)  color: #red;
+    <span class="hljs-keyword">aspect</span> circle { 
+        <span class="hljs-keyword">draw</span> circle(15)  <span class="hljs-symbol">color:</span> #red;
     }
     
-    aspect default { 
-        draw circle(20) color: #lightblue empty: true;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> { 
+        <span class="hljs-keyword">draw</span> circle(20) <span class="hljs-symbol">color:</span> #lightblue <span class="hljs-symbol">empty:</span> true;
     }
 } 
 
 <span class="hljs-comment">//Species obstacle that represents the obstacles avoided by the boids agents using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">obstacle</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> obstacle <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">float</span> speed &lt;- 2.0;
     <span class="hljs-literal">geometry</span> shape &lt;- triangle(15);
     
     <span class="hljs-comment">//Reflex to move the obstacles if it is available</span>
-    <span class="hljs-class">reflex <span class="hljs-title">move_obstacles</span> <span class="hljs-title">when</span>: <span class="hljs-title">moving_obstacles</span> </span>{
+    <span class="hljs-builtin">reflex</span> move_obstacles <span class="hljs-symbol">when:</span> moving_obstacles {
         <span class="hljs-comment">//Will make the agent go to a boid with a 50% probability</span>
         <span class="hljs-keyword">if</span> flip(0.5)  
         { 
-            do goto target: one_of(boids);
+            <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> one_of(boids);
         } 
-        else{ 
-            do wander amplitude: 360;   
+        <span class="hljs-keyword">else</span>{ 
+            <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span> 360;   
         }
     }
-    aspect default {
-        draw  triangle(20) color: #black ;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span>  triangle(20) <span class="hljs-symbol">color:</span> #black ;
     }
 
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">boids_gui</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter 'Number of agents' var: number_of_agents;
-    parameter 'Number of obstacles' var: number_of_obstacles;
-    parameter 'Maximal speed' var: maximal_speed;
-    parameter 'Cohesion Factor' var: cohesion_factor;
-    parameter 'Alignment Factor' var: alignment_factor; 
-    parameter 'Minimal Distance'  var: minimal_distance; 
-    parameter 'Maximal Turn'  var: maximal_turn; 
-    parameter 'Width/Height of the Environment' var: width_and_height_of_environment ;  
-    parameter 'Toroidal Environment ?'  var: torus_environment ; 
-    parameter 'Apply Cohesion ?' var: apply_cohesion ;
-    parameter 'Apply Alignment ?' var: apply_alignment ;   
-    parameter 'Apply Separation ?' var: apply_separation ;   
-    parameter 'Apply Avoidance ?' var: apply_avoid ;   
-    parameter 'Apply Wind ?' var: apply_wind ;     
-    parameter 'Moving Obstacles ?' var: moving_obstacles  ;    
-    parameter 'Direction of the wind' var: wind_vector ;  
+<span class="hljs-builtin">experiment</span> boids_gui <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of agents'</span> <span class="hljs-symbol">var:</span> number_of_agents;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of obstacles'</span> <span class="hljs-symbol">var:</span> number_of_obstacles;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Maximal speed'</span> <span class="hljs-symbol">var:</span> maximal_speed;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Cohesion Factor'</span> <span class="hljs-symbol">var:</span> cohesion_factor;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Alignment Factor'</span> <span class="hljs-symbol">var:</span> alignment_factor; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Minimal Distance'</span>  <span class="hljs-symbol">var:</span> minimal_distance; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Maximal Turn'</span>  <span class="hljs-symbol">var:</span> maximal_turn; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Width/Height of the Environment'</span> <span class="hljs-symbol">var:</span> width_and_height_of_environment ;  
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Toroidal Environment ?'</span>  <span class="hljs-symbol">var:</span> torus_environment ; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Cohesion ?'</span> <span class="hljs-symbol">var:</span> apply_cohesion ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Alignment ?'</span> <span class="hljs-symbol">var:</span> apply_alignment ;   
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Separation ?'</span> <span class="hljs-symbol">var:</span> apply_separation ;   
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Avoidance ?'</span> <span class="hljs-symbol">var:</span> apply_avoid ;   
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Wind ?'</span> <span class="hljs-symbol">var:</span> apply_wind ;     
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Moving Obstacles ?'</span> <span class="hljs-symbol">var:</span> moving_obstacles  ;    
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Direction of the wind'</span> <span class="hljs-symbol">var:</span> wind_vector ;  
     
     <span class="hljs-comment">//Minimum duration of a step to better see the movements</span>
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.01;
 
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Sky</span>  <span class="hljs-title">background</span>: #<span class="hljs-title">blue</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{ 
-            image '../images/sky.jpg' refresh: false;
-            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span> <span class="hljs-title">trace</span>: 10 <span class="hljs-title">fading</span>: <span class="hljs-title">true</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">obstacle</span>;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Sky  <span class="hljs-symbol">background:</span> #blue <span class="hljs-symbol">type:</span> opengl { 
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'../images/sky.jpg'</span> <span class="hljs-symbol">refresh:</span> false;
+            <span class="hljs-literal">species</span> boids <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span> <span class="hljs-symbol">trace:</span> 10 <span class="hljs-symbol">fading:</span> true ;
+            <span class="hljs-literal">species</span> boids_goal;
+            <span class="hljs-literal">species</span> obstacle;
             <span class="hljs-comment">//Event to call the action move_goal in global if the mouse move within the experiment</span>
-            event mouse_move action: move_goal;
+            <span class="hljs-keyword">event</span> mouse_move <span class="hljs-symbol">action:</span> move_goal;
         }
 
     }
@@ -235,7 +235,7 @@
 <pre><code class="hljs"><span class="hljs-builtin">model</span> boids_flock
 <span class="hljs-comment">//Import the boids model</span>
 import <span class="hljs-string">"Boids.gaml"</span>
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Size of the boids</span>
     <span class="hljs-literal">float</span> boids_size &lt;- <span class="hljs-literal">float</span>(3);
     <span class="hljs-comment">//Shape of the boids</span>
@@ -253,27 +253,27 @@ import <span class="hljs-string">"Boids.gaml"</span>
     <span class="hljs-comment">//Allow the creation of flock</span>
     <span class="hljs-literal">bool</span> create_flocks &lt;- false;
     <span class="hljs-comment">//Perception range of the boids</span>
-    <span class="hljs-literal">int</span> base_perception_range &lt;- <span class="hljs-literal">int</span>(xmax / 100) min: 1;
+    <span class="hljs-literal">int</span> base_perception_range &lt;- <span class="hljs-literal">int</span>(xmax / 100) <span class="hljs-symbol">min:</span> 1;
     
     init {
         <span class="hljs-comment">//Creation of the different agents viewer</span>
-        create boids_agents_viewer;
-        create flock_agents_viewer;
-        create boids_in_flock_viewer;
+        <span class="hljs-keyword">create</span> boids_agents_viewer;
+        <span class="hljs-keyword">create</span> flock_agents_viewer;
+        <span class="hljs-keyword">create</span> boids_in_flock_viewer;
     }
     <span class="hljs-comment">//Reflex to create the flocks if it is available</span>
-    <span class="hljs-class">reflex <span class="hljs-title">create_flocks</span> <span class="hljs-title">when</span>: <span class="hljs-title">create_flocks</span> </span>{
+    <span class="hljs-builtin">reflex</span> create_flocks <span class="hljs-symbol">when:</span> create_flocks {
         
         <span class="hljs-keyword">if</span> (length(boids) &gt; 1) {
             <span class="hljs-comment">//Clustering by distance of the boids to determine the satisfying boids groups</span>
             <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;boids&gt;&gt; satisfying_boids_groups &lt;- (boids.population simple_clustering_by_distance flock_creation_distance) where ((length(each)) &gt; min_group_member);
-            loop one_group over: satisfying_boids_groups {
+            <span class="hljs-keyword">loop</span> one_group <span class="hljs-symbol">over:</span> satisfying_boids_groups {
                 
                 <span class="hljs-literal">geometry</span> potential_flock_polygon &lt;- convex_hull(solid(polygon(one_group collect boids(each).location)) + (base_perception_range + 5));
                 <span class="hljs-comment">//If there is no obstacle between the boids of a potential flock, then the flock is created and all the boids become boids in flock</span>
                 <span class="hljs-keyword">if</span> (empty(obstacle overlapping potential_flock_polygon)) {
-                    create flock {
-                        capture one_group as: boids_in_flock;
+                    <span class="hljs-keyword">create</span> flock {
+                        <span class="hljs-keyword">capture</span> one_group <span class="hljs-symbol">as:</span> boids_in_flock;
                     }
                 }
 
@@ -286,51 +286,51 @@ import <span class="hljs-string">"Boids.gaml"</span>
 }
 
 <span class="hljs-comment">//Species flock which represent the flock of boids, using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">flock</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> flock <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(rnd(255), rnd(255), rnd(255));
     <span class="hljs-literal">geometry</span> shape &lt;- polygon(((boids_in_flock))) buffer 10;
     <span class="hljs-comment">//Range of perception of the flock</span>
     <span class="hljs-literal">float</span> perception_range &lt;- <span class="hljs-literal">float</span>(base_perception_range + (rnd(5)));
     <span class="hljs-comment">//Speed of the flock</span>
-    <span class="hljs-literal">float</span> speed update: mean(boids_in_flock collect each.speed);
+    <span class="hljs-literal">float</span> speed <span class="hljs-symbol">update:</span> mean(boids_in_flock collect each.speed);
     <span class="hljs-comment">//Reflex to disaggregate the flock if there is a obstacle in the flock</span>
-    <span class="hljs-class">reflex <span class="hljs-title">disaggregate</span> </span>{
+    <span class="hljs-builtin">reflex</span> disaggregate {
         <span class="hljs-literal">geometry</span> buffered_shape &lt;- shape + perception_range;
         <span class="hljs-keyword">if</span> !(empty(obstacle overlapping buffered_shape)) {
-            release members as: boids in: world;
-            do die;
+            <span class="hljs-keyword">release</span> members <span class="hljs-symbol">as:</span> boids <span class="hljs-symbol">in:</span> world;
+            <span class="hljs-keyword">do</span> die;
         }
 
     }
     <span class="hljs-comment">//Reflex to capture the boids nearby in the range of perception with an update_frequency</span>
-    <span class="hljs-class">reflex <span class="hljs-title">capture_nearby_boids</span> <span class="hljs-title">when</span>: ((<span class="hljs-title">cycle</span> <span class="hljs-title">mod</span> <span class="hljs-title">update_frequency</span>) = 0) </span>{
+    <span class="hljs-builtin">reflex</span> capture_nearby_boids <span class="hljs-symbol">when:</span> ((cycle mod update_frequency) = 0) {
         <span class="hljs-literal">geometry</span> buffered_shape &lt;- shape + perception_range;
         <span class="hljs-literal">list</span>&lt;boids&gt; nearby_boids &lt;- (boids overlapping buffered_shape);
         <span class="hljs-keyword">if</span> (!(empty(nearby_boids))) {
             <span class="hljs-literal">geometry</span> new_polygon &lt;- convex_hull(solid(shape + polygon(nearby_boids collect (each.location))));
             <span class="hljs-keyword">if</span> (empty(obstacle overlapping new_polygon)) {
-                capture nearby_boids as: boids_in_flock;
+                <span class="hljs-keyword">capture</span> nearby_boids <span class="hljs-symbol">as:</span> boids_in_flock;
             }
 
         }
 
     }
     <span class="hljs-comment">//Reflex to merge the intersecting flocks</span>
-    <span class="hljs-class">reflex <span class="hljs-title">merge_nearby_flocks</span> <span class="hljs-title">when</span>: ((<span class="hljs-title">cycle</span> <span class="hljs-title">mod</span> <span class="hljs-title">merge_frequency</span>) = 0) </span>
+    <span class="hljs-builtin">reflex</span> merge_nearby_flocks <span class="hljs-symbol">when:</span> ((cycle mod merge_frequency) = 0) 
     {
-        loop f over: (flock) {
+        <span class="hljs-keyword">loop</span> f <span class="hljs-symbol">over:</span> (flock) {
             <span class="hljs-keyword">if</span> (f != self and (shape intersects f.shape)) {
                 <span class="hljs-literal">geometry</span> new_shape &lt;- convex_hull(polygon(shape.points + f.shape.points));
                 <span class="hljs-keyword">if</span> empty(obstacle overlapping new_shape) {
                     <span class="hljs-literal">list</span>&lt;boids&gt; released_boids;
-                    ask f {
-                        release members as: boids in: world returns: released_coms;
+                    <span class="hljs-keyword">ask</span> f {
+                        <span class="hljs-keyword">release</span> members <span class="hljs-symbol">as:</span> boids <span class="hljs-symbol">in:</span> world <span class="hljs-symbol">returns:</span> released_coms;
                         released_boids &lt;- <span class="hljs-literal">list</span>(released_coms);
-                        do die;
+                        <span class="hljs-keyword">do</span> die;
                     }
 
                     <span class="hljs-keyword">if</span> (!empty(released_boids)) {
-                        capture released_boids as: boids_in_flock;
+                        <span class="hljs-keyword">capture</span> released_boids <span class="hljs-symbol">as:</span> boids_in_flock;
                     }
 
                     shape &lt;- convex_hull(polygon(members collect (boids_in_flock(each).location)));
@@ -342,7 +342,7 @@ import <span class="hljs-string">"Boids.gaml"</span>
 
     }
     <span class="hljs-comment">//Reflex to make the flock follow the goal</span>
-    <span class="hljs-class">reflex <span class="hljs-title">chase_goal</span> </span>{
+    <span class="hljs-builtin">reflex</span> chase_goal {
         <span class="hljs-literal">int</span> direction_to_nearest_ball &lt;- (self towards (first(boids_goal)));
         <span class="hljs-literal">float</span> step_distance &lt;- speed * step;
         <span class="hljs-literal">float</span> dx &lt;- step_distance * (cos(direction_to_nearest_ball));
@@ -359,95 +359,95 @@ import <span class="hljs-string">"Boids.gaml"</span>
             dy &lt;- 0.0;
         }
         
-        loop com over: boids_in_flock {
+        <span class="hljs-keyword">loop</span> com <span class="hljs-symbol">over:</span> boids_in_flock {
             (boids_in_flock(com)).location &lt;- (boids_in_flock(com)).location + { dx, dy };
         }
 
         shape &lt;- convex_hull(polygon(<span class="hljs-literal">list</span>(boids_in_flock) collect (each.location)));
     }
 
-    aspect default {
-        draw shape color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color;
     }
     <span class="hljs-comment">//Species boids_in_flock which represents the boids agents captured by the flock</span>
-    <span class="hljs-class">species <span class="hljs-title">boids_in_flock</span> <span class="hljs-title">parent</span>: <span class="hljs-title">boids</span> </span>{
-        <span class="hljs-literal">float</span> my_age &lt;- 1.0 update: my_age + 0.01;
-        <span class="hljs-class">reflex <span class="hljs-title">separation</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_separation</span> </span>{
+    <span class="hljs-literal">species</span> boids_in_flock <span class="hljs-symbol">parent:</span> boids {
+        <span class="hljs-literal">float</span> my_age &lt;- 1.0 <span class="hljs-symbol">update:</span> my_age + 0.01;
+        <span class="hljs-builtin">reflex</span> separation <span class="hljs-symbol">when:</span> apply_separation {
         }
 
-        <span class="hljs-class">reflex <span class="hljs-title">alignment</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_alignment</span> </span>{
+        <span class="hljs-builtin">reflex</span> alignment <span class="hljs-symbol">when:</span> apply_alignment {
         }
 
-        <span class="hljs-class">reflex <span class="hljs-title">cohesion</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_cohesion</span> </span>{
+        <span class="hljs-builtin">reflex</span> cohesion <span class="hljs-symbol">when:</span> apply_cohesion {
         }
 
-        <span class="hljs-class">reflex <span class="hljs-title">avoid</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_avoid</span> </span>{
+        <span class="hljs-builtin">reflex</span> avoid <span class="hljs-symbol">when:</span> apply_avoid {
         }
 
-        <span class="hljs-class">reflex <span class="hljs-title">follow_goal</span>  </span>{
+        <span class="hljs-builtin">reflex</span> follow_goal  {
         }
 
-        <span class="hljs-class">reflex <span class="hljs-title">wind</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_wind</span> </span>{
+        <span class="hljs-builtin">reflex</span> wind <span class="hljs-symbol">when:</span> apply_wind {
         }
 
-        action do_move {
+        <span class="hljs-keyword">action</span> do_move {
         }
 
-        <span class="hljs-class">reflex <span class="hljs-title">movement</span> </span>{
-            do do_move;
+        <span class="hljs-builtin">reflex</span> movement {
+            <span class="hljs-keyword">do</span> do_move;
         }
 
-        aspect default {
-            draw circle(my_age) color: ((host as flock).color).darker;
+        <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+            <span class="hljs-keyword">draw</span> circle(my_age) <span class="hljs-symbol">color:</span> ((host as flock).color).darker;
         }
 
     }
 
 }
 <span class="hljs-comment">//Species flock agents viewer which draw the flock information</span>
-<span class="hljs-class">species <span class="hljs-title">flock_agents_viewer</span> </span>{
-    aspect default {
-        draw <span class="hljs-string">"Flocks: "</span> + (<span class="hljs-literal">string</span>(length(<span class="hljs-literal">list</span>(flock)))) at: { width_and_height_of_environment - 810, (width_and_height_of_environment) - 5 } color: #blue size: 80 ;
+<span class="hljs-literal">species</span> flock_agents_viewer {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> <span class="hljs-string">"Flocks: "</span> + (<span class="hljs-literal">string</span>(length(<span class="hljs-literal">list</span>(flock)))) <span class="hljs-symbol">at:</span> { width_and_height_of_environment - 810, (width_and_height_of_environment) - 5 } <span class="hljs-symbol">color:</span> #blue <span class="hljs-symbol">size:</span> 80 ;
     }
 
 }
 <span class="hljs-comment">//Species boids agents viewer which draw the boids information</span>
-<span class="hljs-class">species <span class="hljs-title">boids_agents_viewer</span> </span>{
-    aspect default {
-        draw <span class="hljs-string">"Boids: "</span> + (<span class="hljs-literal">string</span>(length(<span class="hljs-literal">list</span>(boids)))) at: { width_and_height_of_environment - 810, (width_and_height_of_environment) - 165 } color: #blue size: 80 ;
+<span class="hljs-literal">species</span> boids_agents_viewer {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> <span class="hljs-string">"Boids: "</span> + (<span class="hljs-literal">string</span>(length(<span class="hljs-literal">list</span>(boids)))) <span class="hljs-symbol">at:</span> { width_and_height_of_environment - 810, (width_and_height_of_environment) - 165 } <span class="hljs-symbol">color:</span> #blue <span class="hljs-symbol">size:</span> 80 ;
     }
 
 }
 
 <span class="hljs-comment">//Species boids_in_flock_viewer which draw the boids in flock information</span>
-<span class="hljs-class">species <span class="hljs-title">boids_in_flock_viewer</span> </span>{
-    aspect default {
-        draw <span class="hljs-string">"Boids in flocks: "</span> + (<span class="hljs-literal">string</span>(number_of_agents - (length(<span class="hljs-literal">list</span>(boids))))) at: { width_and_height_of_environment - 810, width_and_height_of_environment - 85 } color:
-        #blue size: 80 ;
+<span class="hljs-literal">species</span> boids_in_flock_viewer {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> <span class="hljs-string">"Boids in flocks: "</span> + (<span class="hljs-literal">string</span>(number_of_agents - (length(<span class="hljs-literal">list</span>(boids))))) <span class="hljs-symbol">at:</span> { width_and_height_of_environment - 810, width_and_height_of_environment - 85 } <span class="hljs-symbol">color:</span>
+        #blue <span class="hljs-symbol">size:</span> 80 ;
     }
 
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">boids_flocks</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Create flock?"</span> var: create_flocks &lt;- true;
-    parameter <span class="hljs-string">"Number of boids"</span> var: number_of_agents &lt;- 300;
-    parameter <span class="hljs-string">"Environment size"</span> var: width_and_height_of_environment &lt;- 1600;
-    parameter <span class="hljs-string">"Moving obstacles?"</span> var: moving_obstacles &lt;- true;
-    parameter <span class="hljs-string">"Torus environment?"</span> var: torus_environment &lt;- false;
-    parameter <span class="hljs-string">"Number of obstacles"</span> var: number_of_obstacles &lt;- 5;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">default_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">obstacle</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">flock</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span> <span class="hljs-title">transparency</span>: 0.5 </span>{
-                <span class="hljs-class">species <span class="hljs-title">boids_in_flock</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span>;</span>
+<span class="hljs-builtin">experiment</span> boids_flocks <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Create flock?"</span> <span class="hljs-symbol">var:</span> create_flocks &lt;- true;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of boids"</span> <span class="hljs-symbol">var:</span> number_of_agents &lt;- 300;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Environment size"</span> <span class="hljs-symbol">var:</span> width_and_height_of_environment &lt;- 1600;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Moving obstacles?"</span> <span class="hljs-symbol">var:</span> moving_obstacles &lt;- true;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Torus environment?"</span> <span class="hljs-symbol">var:</span> torus_environment &lt;- false;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of obstacles"</span> <span class="hljs-symbol">var:</span> number_of_obstacles &lt;- 5;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> default_display {
+            <span class="hljs-literal">species</span> boids_goal;
+            <span class="hljs-literal">species</span> boids <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span>;
+            <span class="hljs-literal">species</span> obstacle;
+            <span class="hljs-literal">species</span> flock <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span> <span class="hljs-symbol">transparency:</span> 0.5 {
+                <span class="hljs-literal">species</span> boids_in_flock <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span>;
             }
 
-            <span class="hljs-class">species <span class="hljs-title">flock_agents_viewer</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">boids_agents_viewer</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">boids_in_flock_viewer</span>;</span>
+            <span class="hljs-literal">species</span> flock_agents_viewer;
+            <span class="hljs-literal">species</span> boids_agents_viewer;
+            <span class="hljs-literal">species</span> boids_in_flock_viewer;
         }
 
     }

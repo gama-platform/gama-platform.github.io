@@ -78,7 +78,7 @@
 <p>The modeler can <a href="DefiningParameters">define himself parameters</a> that can be displayed in the GUI and that are sorted by categories. Note that the interface will depend on the data type of the parameter: for example, for integer or float parameters, a simple text box will be displayed whereas a color selector will be available for color parameters. The parameters value displayed are the initial value provided to the variables associated to the parameters in the model.</p>
 <p><img src="../resources/images/runningExperiments/parameters.png" alt="images/parameters.png"></p>
 <p>The above parameters view is generated from the following code:</p>
-<pre><code class="hljs"><span class="hljs-class">global</span>
+<pre><code class="hljs">global
 {
     <span class="hljs-literal">int</span> i;
     <span class="hljs-literal">float</span> f;
@@ -89,17 +89,17 @@
     <span class="hljs-literal">rgb</span> c;
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">maths</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"my_integer"</span> var: i &lt;- 0 category:<span class="hljs-string">"Simple types"</span>;
-    parameter <span class="hljs-string">"my_float"</span> var: f &lt;- 0.0 category:<span class="hljs-string">"Simple types"</span>;
-    parameter <span class="hljs-string">"my_string"</span> var: s &lt;- <span class="hljs-string">""</span> category:<span class="hljs-string">"Simple types"</span>;
+<span class="hljs-builtin">experiment</span> maths <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"my_integer"</span> <span class="hljs-symbol">var:</span> i &lt;- 0 <span class="hljs-symbol">category:</span><span class="hljs-string">"Simple types"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"my_float"</span> <span class="hljs-symbol">var:</span> f &lt;- 0.0 <span class="hljs-symbol">category:</span><span class="hljs-string">"Simple types"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"my_string"</span> <span class="hljs-symbol">var:</span> s &lt;- <span class="hljs-string">""</span> <span class="hljs-symbol">category:</span><span class="hljs-string">"Simple types"</span>;
 
-    parameter <span class="hljs-string">"my_list"</span> var: l &lt;- [] category:<span class="hljs-string">"Complex types"</span>;
-    parameter <span class="hljs-string">"my_matrix"</span> var: m &lt;- <span class="hljs-literal">matrix</span>([[1,2],[3,4]]) category:<span class="hljs-string">"Complex types"</span>;
-    parameter <span class="hljs-string">"my_pair"</span> var: p &lt;- 3::5 category:<span class="hljs-string">"Complex types"</span>;
-    parameter <span class="hljs-string">"my_color"</span> var: c &lt;- #green category:<span class="hljs-string">"Complex types"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"my_list"</span> <span class="hljs-symbol">var:</span> l &lt;- [] <span class="hljs-symbol">category:</span><span class="hljs-string">"Complex types"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"my_matrix"</span> <span class="hljs-symbol">var:</span> m &lt;- <span class="hljs-literal">matrix</span>([[1,2],[3,4]]) <span class="hljs-symbol">category:</span><span class="hljs-string">"Complex types"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"my_pair"</span> <span class="hljs-symbol">var:</span> p &lt;- 3::5 <span class="hljs-symbol">category:</span><span class="hljs-string">"Complex types"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"my_color"</span> <span class="hljs-symbol">var:</span> c &lt;- #green <span class="hljs-symbol">category:</span><span class="hljs-string">"Complex types"</span>;
 
-    output {}
+    <span class="hljs-keyword">output</span> {}
 }
 </code></pre>
 <p>Click on Edit button in case of list or map parameters or the color or matrix will open an additional window to modify the parameter value.</p>

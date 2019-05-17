@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> SIR_influence_of_integration_step
 
-<span class="hljs-class">global </span>{ 
+global { 
     <span class="hljs-literal">float</span> step&lt;-1#s;
     <span class="hljs-literal">float</span> beta &lt;- 0.8 ;     
     <span class="hljs-literal">float</span> delta &lt;- 0.01 ; 
@@ -20,15 +20,15 @@
     <span class="hljs-literal">float</span> s3 &lt;- 2#s;
     
     init {
-        create SIR_agt with: [h::1,myUnit::s1];
-        create SIR_agt with: [h::0.1,myUnit::s2];
-        create SIR_agt with: [h::0.01,myUnit::s3];  
+        <span class="hljs-keyword">create</span> SIR_agt <span class="hljs-symbol">with:</span> [h::1,myUnit::s1];
+        <span class="hljs-keyword">create</span> SIR_agt <span class="hljs-symbol">with:</span> [h::0.1,myUnit::s2];
+        <span class="hljs-keyword">create</span> SIR_agt <span class="hljs-symbol">with:</span> [h::0.01,myUnit::s3];  
     }  
 }
 
 
 
-<span class="hljs-class">species <span class="hljs-title">SIR_agt</span> </span>{
+<span class="hljs-literal">species</span> SIR_agt {
     <span class="hljs-literal">int</span> N &lt;- 500;
     <span class="hljs-literal">float</span> t;    
 
@@ -38,14 +38,14 @@
         
     <span class="hljs-literal">float</span> h;        
     <span class="hljs-literal">float</span> myUnit&lt;-1#s;
-    equation SIR{ 
+    <span class="hljs-keyword">equation</span> SIR{ 
         diff(S,t) =myUnit* (- beta  * S * I / N);
         diff(I,t) =myUnit* (beta * S * I / N) - (delta * I);
         diff(R,t) =myUnit* (delta * I);
     } 
 
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{
-        solve SIR method: <span class="hljs-string">"rk4"</span> step: h;<span class="hljs-comment">// cycle_length:mycycle ;</span>
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span> <span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span> h;<span class="hljs-comment">// cycle_length:mycycle ;</span>
 <span class="hljs-comment">//      S&lt;-S*myUnit;</span>
 <span class="hljs-comment">//      I&lt;-I*myUnit;</span>
 <span class="hljs-comment">//      R&lt;-R*myUnit;</span>
@@ -53,29 +53,29 @@
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">mysimulation1</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{ 
-    output { 
-        <span class="hljs-class">display <span class="hljs-title">SIR_1</span>  </span>{
-            chart <span class="hljs-string">"SI - h=1"</span> type: series background: #white {
-                data 'S' value: first(SIR_agt where (each.myUnit = s1)).S color: #green;                
-                data 'I' value: first(SIR_agt where (each.myUnit = s1)).I color: #red ;
-                data 'R' value: first(SIR_agt where (each.myUnit = s1)).R color: #blue ;                
+<span class="hljs-builtin">experiment</span> mysimulation1 <span class="hljs-symbol">type:</span> gui { 
+    <span class="hljs-keyword">output</span> { 
+        <span class="hljs-keyword">display</span> SIR_1  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"SI - h=1"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S'</span> <span class="hljs-symbol">value:</span> first(SIR_agt where (each.myUnit = s1)).S <span class="hljs-symbol">color:</span> #green;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I'</span> <span class="hljs-symbol">value:</span> first(SIR_agt where (each.myUnit = s1)).I <span class="hljs-symbol">color:</span> #red ;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R'</span> <span class="hljs-symbol">value:</span> first(SIR_agt where (each.myUnit = s1)).R <span class="hljs-symbol">color:</span> #blue ;                
             }
         }
         
-        <span class="hljs-class">display <span class="hljs-title">SIR_10</span> </span>{
-            chart <span class="hljs-string">"SI - h=0.1"</span> type: series background: #white{
-                data 'S' value: first(SIR_agt where (each.myUnit = s2)).S color: #green;                
-                data 'I' value: first(SIR_agt where (each.myUnit = s2)).I color: #red ;
-                data 'R' value: first(SIR_agt where (each.myUnit = s2)).R color: #blue ;                
+        <span class="hljs-keyword">display</span> SIR_10 {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"SI - h=0.1"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white{
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S'</span> <span class="hljs-symbol">value:</span> first(SIR_agt where (each.myUnit = s2)).S <span class="hljs-symbol">color:</span> #green;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I'</span> <span class="hljs-symbol">value:</span> first(SIR_agt where (each.myUnit = s2)).I <span class="hljs-symbol">color:</span> #red ;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R'</span> <span class="hljs-symbol">value:</span> first(SIR_agt where (each.myUnit = s2)).R <span class="hljs-symbol">color:</span> #blue ;                
             }
         }
         
-        <span class="hljs-class">display <span class="hljs-title">SIR_100</span>  </span>{
-            chart <span class="hljs-string">"SI - h=0.01"</span> type: series background: #white {
-                data 'S' value: first(SIR_agt where (each.myUnit = s3)).S color: #green;                
-                data 'I' value: first(SIR_agt where (each.myUnit = s3)).I color: #red ;
-                data 'R' value: first(SIR_agt where (each.myUnit = s3)).R color: #blue ;                
+        <span class="hljs-keyword">display</span> SIR_100  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"SI - h=0.01"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'S'</span> <span class="hljs-symbol">value:</span> first(SIR_agt where (each.myUnit = s3)).S <span class="hljs-symbol">color:</span> #green;                
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'I'</span> <span class="hljs-symbol">value:</span> first(SIR_agt where (each.myUnit = s3)).I <span class="hljs-symbol">color:</span> #red ;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'R'</span> <span class="hljs-symbol">value:</span> first(SIR_agt where (each.myUnit = s3)).R <span class="hljs-symbol">color:</span> #blue ;                
             }
         }   
     }

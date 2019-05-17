@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> hydro
 
-<span class="hljs-class">global </span>{
+global {
    <span class="hljs-comment">//Shapefile for the river</span>
    <span class="hljs-literal">file</span> river_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/RedRiver.shp"</span>);
    <span class="hljs-comment">//Shapefile for the dykes</span>
@@ -40,84 +40,84 @@
    
    init {
      <span class="hljs-comment">//Initialization of the cells</span>
-      do init_cells;
+      <span class="hljs-keyword">do</span> init_cells;
      <span class="hljs-comment">//Initialization of the water cells</span>
-      do init_water;
+      <span class="hljs-keyword">do</span> init_water;
      <span class="hljs-comment">//Initialization of the river cells</span>
      river_cells &lt;- cell where (each.is_river);
      <span class="hljs-comment">//Initialization of the drain cells</span>
       drain_cells &lt;- cell where (each.is_drain);
      <span class="hljs-comment">//Initialization of the obstacles (buildings and dykes)</span>
-      do init_obstacles;
+      <span class="hljs-keyword">do</span> init_obstacles;
       <span class="hljs-comment">//Set the height of each cell</span>
-      ask cell {
+      <span class="hljs-keyword">ask</span> cell {
          obstacle_height &lt;- compute_highest_obstacle();
-         do update_color;
+         <span class="hljs-keyword">do</span> update_color;
       }
    }
    <span class="hljs-comment">//Action to initialize the altitude value of the cell according to the dem file</span>
-   action init_cells {
-      ask cell {
+   <span class="hljs-keyword">action</span> init_cells {
+      <span class="hljs-keyword">ask</span> cell {
          altitude &lt;- grid_value;
          neighbor_cells &lt;- (self neighbors_at 1) ;
       }
    }
    <span class="hljs-comment">//action to initialize the water cells according to the river shape file and the drain</span>
-   action init_water {
+   <span class="hljs-keyword">action</span> init_water {
       <span class="hljs-literal">geometry</span> river &lt;- <span class="hljs-literal">geometry</span>(river_shapefile);
-      ask cell overlapping river {
+      <span class="hljs-keyword">ask</span> cell overlapping river {
          water_height &lt;- 10.0;
          is_river &lt;- true;
          is_drain &lt;- grid_y = <span class="hljs-literal">matrix</span>(cell).rows - 1;
       }
    }
    <span class="hljs-comment">//initialization of the obstacles (the buildings and the dykes)</span>
-   action init_obstacles{
-      create buildings from: buildings_shapefile  {
-         do update_cells;
+   <span class="hljs-keyword">action</span> init_obstacles{
+      <span class="hljs-keyword">create</span> buildings <span class="hljs-symbol">from:</span> buildings_shapefile  {
+         <span class="hljs-keyword">do</span> update_cells;
       }
-      create dyke from: dykes_shapefile;
-      ask dyke {
+      <span class="hljs-keyword">create</span> dyke <span class="hljs-symbol">from:</span> dykes_shapefile;
+      <span class="hljs-keyword">ask</span> dyke {
           shape &lt;-  shape + dyke_width;
-            do update_cells;
+            <span class="hljs-keyword">do</span> update_cells;
       }
    }
    <span class="hljs-comment">//Reflex to add water among the water cells</span>
-   <span class="hljs-class">reflex <span class="hljs-title">adding_input_water</span> </span>{
+   <span class="hljs-builtin">reflex</span> adding_input_water {
       <span class="hljs-literal">float</span> water_input &lt;- rnd(100)/100;
-      ask river_cells {
+      <span class="hljs-keyword">ask</span> river_cells {
          water_height &lt;- water_height + water_input;
       }
    }
    <span class="hljs-comment">//Reflex to flow the water according to the altitute and the obstacle</span>
-   <span class="hljs-class">reflex <span class="hljs-title">flowing</span> </span>{
-      ask cell {already &lt;- false;}
-      ask (cell sort_by ((each.altitude + each.water_height + each.obstacle_height))) {
-         do flow;
+   <span class="hljs-builtin">reflex</span> flowing {
+      <span class="hljs-keyword">ask</span> cell {already &lt;- false;}
+      <span class="hljs-keyword">ask</span> (cell sort_by ((each.altitude + each.water_height + each.obstacle_height))) {
+         <span class="hljs-keyword">do</span> flow;
       }
    }
    <span class="hljs-comment">//Reflex to update the color of the cell</span>
-   <span class="hljs-class">reflex <span class="hljs-title">update_cell_color</span> </span>{
-      ask cell {
-         do update_color;
+   <span class="hljs-builtin">reflex</span> update_cell_color {
+      <span class="hljs-keyword">ask</span> cell {
+         <span class="hljs-keyword">do</span> update_color;
       }
    }
    <span class="hljs-comment">//Reflex for the drain cells to drain water</span>
-   <span class="hljs-class">reflex <span class="hljs-title">draining</span> </span>{
-      ask drain_cells {
+   <span class="hljs-builtin">reflex</span> draining {
+      <span class="hljs-keyword">ask</span> drain_cells {
          water_height &lt;- 0.0;
       }
    }
    
 }
 <span class="hljs-comment">//Species which represent the obstacle</span>
-   <span class="hljs-class">species <span class="hljs-title">obstacle</span> </span>{
+   <span class="hljs-literal">species</span> obstacle {
       <span class="hljs-comment">//height of the obstacle</span>
-      <span class="hljs-literal">float</span> height min: 0.0;
+      <span class="hljs-literal">float</span> height <span class="hljs-symbol">min:</span> 0.0;
       <span class="hljs-comment">//Color of the obstacle</span>
       <span class="hljs-literal">rgb</span> color;
       <span class="hljs-comment">//Pressure of the water</span>
-      <span class="hljs-literal">float</span> water_pressure update: compute_water_pressure();
+      <span class="hljs-literal">float</span> water_pressure <span class="hljs-symbol">update:</span> compute_water_pressure();
       
       <span class="hljs-comment">//List of cells concerned</span>
       <span class="hljs-literal">list</span>&lt;cell&gt; cells_concerned ;
@@ -128,85 +128,85 @@
       <span class="hljs-literal">float</span> compute_water_pressure {
         <span class="hljs-comment">//If the obstacle doesn't have height, then there will be no pressure</span>
          <span class="hljs-keyword">if</span> (height = 0.0) {
-            return 0.0;
-         } else {
+            <span class="hljs-keyword">return</span> 0.0;
+         } <span class="hljs-keyword">else</span> {
             <span class="hljs-comment">//The leve of the water is equals to the maximul level of water in the neighbors cells</span>
             <span class="hljs-literal">float</span> water_level &lt;- cells_neighbors max_of (each.water_height);
             <span class="hljs-comment">//Return the water pressure as the minimal value between 1 and the water level divided by the height</span>
-            return min([1.0,water_level / height]);
+            <span class="hljs-keyword">return</span> min([1.0,water_level / height]);
          } 
       }
       
       <span class="hljs-comment">//Action to update the cells</span>
-      action update_cells {
+      <span class="hljs-keyword">action</span> update_cells {
         <span class="hljs-comment">//All the cells concerned by the obstacle are the ones overlapping the obstacle</span>
          cells_concerned &lt;- (cell overlapping self);
-            ask cells_concerned {
+            <span class="hljs-keyword">ask</span> cells_concerned {
             <span class="hljs-comment">//Add the obstacles to the obstacles of the cell</span>
-            add myself to: obstacles;
+            <span class="hljs-keyword">add</span> myself <span class="hljs-symbol">to:</span> obstacles;
             water_height &lt;- 0.0;
          }
          <span class="hljs-comment">//Cells neighbors are all the neighbors cells of the cells concerned</span>
          cells_neighbors &lt;- cells_concerned + cells_concerned accumulate (each.neighbor_cells);
          <span class="hljs-comment">//The height is now computed</span>
-         do compute_height();
+         <span class="hljs-keyword">do</span> compute_height();
          <span class="hljs-keyword">if</span> (height &gt; 0.0) {   
             <span class="hljs-comment">//We compute the water pressure again</span>
             water_pressure &lt;- compute_water_pressure();
-         } else {water_pressure &lt;- 0.0;}
+         } <span class="hljs-keyword">else</span> {water_pressure &lt;- 0.0;}
       }
-      action compute_height;
-      aspect <span class="hljs-literal">geometry</span> {
+      <span class="hljs-keyword">action</span> compute_height;
+      <span class="hljs-keyword">aspect</span> <span class="hljs-literal">geometry</span> {
          <span class="hljs-literal">int</span> val &lt;- <span class="hljs-literal">int</span>( 255 * water_pressure);
          color &lt;- <span class="hljs-literal">rgb</span>(val,255-val,0);
-         draw shape color: color depth: height*5 border: color;
+         <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">depth:</span> height*5 <span class="hljs-symbol">border:</span> color;
       }
    }
    <span class="hljs-comment">//Species buildings which is derivated from obstacle</span>
-   <span class="hljs-class">species <span class="hljs-title">buildings</span> <span class="hljs-title">parent</span>: <span class="hljs-title">obstacle</span> </span>{
+   <span class="hljs-literal">species</span> buildings <span class="hljs-symbol">parent:</span> obstacle {
      <span class="hljs-comment">//The building has a height randomly chosed between 2 and 10</span>
       <span class="hljs-literal">float</span> height &lt;- 2.0 + rnd(8);
    }
    <span class="hljs-comment">//Species dyke which is derivated from obstacle</span>
-   <span class="hljs-class">species <span class="hljs-title">dyke</span> <span class="hljs-title">parent</span>: <span class="hljs-title">obstacle</span></span>{
+   <span class="hljs-literal">species</span> dyke <span class="hljs-symbol">parent:</span> obstacle{
     
        <span class="hljs-literal">int</span> counter_wp &lt;- 0;
        <span class="hljs-literal">int</span> breaking_threshold &lt;- 24;
       
       <span class="hljs-comment">//Action to represent the break of the dyke</span>
-       action break{
-         ask cells_concerned {
-            do update_after_destruction(myself);
+       <span class="hljs-keyword">action</span> <span class="hljs-keyword">break</span>{
+         <span class="hljs-keyword">ask</span> cells_concerned {
+            <span class="hljs-keyword">do</span> update_after_destruction(myself);
          }
-         do die;
+         <span class="hljs-keyword">do</span> die;
       }
       <span class="hljs-comment">//Action to compute the height of the dyke as the dyke_height without the mean height of the cells it overlaps</span>
-      action compute_height
+      <span class="hljs-keyword">action</span> compute_height
        {
            height &lt;- dyke_height - mean(cells_concerned collect (each.altitude));
       
       }
       
       <span class="hljs-comment">//Reflex to break the dynamic of the water</span>
-      <span class="hljs-class">reflex <span class="hljs-title">breaking_dynamic</span> </span>{
+      <span class="hljs-builtin">reflex</span> breaking_dynamic {
         <span class="hljs-keyword">if</span> (water_pressure = 1.0) {
             counter_wp &lt;- counter_wp + 1;
             <span class="hljs-keyword">if</span> (counter_wp &gt; breaking_threshold) {
-                do break;
+                <span class="hljs-keyword">do</span> <span class="hljs-keyword">break</span>;
             }
-        } else {
+        } <span class="hljs-keyword">else</span> {
             counter_wp &lt;- 0;
         }
       }
       <span class="hljs-comment">//user command which allows the possibility to destroy the dyke for the user</span>
-      user_command <span class="hljs-string">"Destroy dyke"</span> action: break; 
+      <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Destroy dyke"</span> <span class="hljs-symbol">action:</span> <span class="hljs-keyword">break</span>; 
    }
    <span class="hljs-comment">//Grid cell to discretize space, initialized using the dem file</span>
-   <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">file</span>: <span class="hljs-title">dem_file</span> <span class="hljs-title">neighbors</span>: 8 <span class="hljs-title">frequency</span>: 0  <span class="hljs-title">use_regular_agents</span>: <span class="hljs-title">false</span> <span class="hljs-title">use_individual_shapes</span>: <span class="hljs-title">false</span> <span class="hljs-title">use_neighbors_cache</span>: <span class="hljs-title">false</span> </span>{
+   grid cell <span class="hljs-symbol">file:</span> dem_file <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">frequency:</span> 0  <span class="hljs-symbol">use_regular_agents:</span> false <span class="hljs-symbol">use_individual_shapes:</span> false <span class="hljs-symbol">use_neighbors_cache:</span> false {
       <span class="hljs-comment">//Altitude of the cell</span>
       <span class="hljs-literal">float</span> altitude;
       <span class="hljs-comment">//Height of the water in the cell</span>
-      <span class="hljs-literal">float</span> water_height &lt;- 0.0 min: 0.0;
+      <span class="hljs-literal">float</span> water_height &lt;- 0.0 <span class="hljs-symbol">min:</span> 0.0;
       <span class="hljs-comment">//Height of the cell</span>
       <span class="hljs-literal">float</span> height;
       <span class="hljs-comment">//List of the neighbor cells</span>
@@ -225,13 +225,13 @@
       <span class="hljs-literal">float</span> compute_highest_obstacle {
          <span class="hljs-keyword">if</span> (empty(obstacles))
          {
-            return 0.0; 
-         } else {
-            return obstacles max_of(each.height);
+            <span class="hljs-keyword">return</span> 0.0; 
+         } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> obstacles max_of(each.height);
          }
       }
       <span class="hljs-comment">//Action to flow the water </span>
-      action flow {
+      <span class="hljs-keyword">action</span> flow {
         <span class="hljs-comment">//if the height of the water is higher than 0 then, it can flow among the neighbor cells</span>
          <span class="hljs-keyword">if</span> (water_height &gt; 0) {
             <span class="hljs-comment">//We get all the cells already done</span>
@@ -239,14 +239,14 @@
             <span class="hljs-comment">//If there are cells already done then we continue</span>
             <span class="hljs-keyword">if</span> (!empty(neighbor_cells_al)) {
                <span class="hljs-comment">//We compute the height of the neighbors cells according to their altitude, water_height and obstacle_height</span>
-               ask neighbor_cells_al {height &lt;- altitude + water_height + obstacle_height;}
+               <span class="hljs-keyword">ask</span> neighbor_cells_al {height &lt;- altitude + water_height + obstacle_height;}
                <span class="hljs-comment">//The height of the cell is equals to its altitude and water height</span>
                height &lt;-  altitude +  water_height;
                <span class="hljs-comment">//The water of the cells will flow to the neighbor cells which have a height less than the height of the actual cell</span>
                <span class="hljs-literal">list</span>&lt;cell&gt; flow_cells &lt;- (neighbor_cells_al where (height &gt; each.height)) ;
                <span class="hljs-comment">//If there are cells, we compute the water flowing</span>
                <span class="hljs-keyword">if</span> (!empty(flow_cells)) {
-                  loop flow_cell over: shuffle(flow_cells) sort_by (each.height){
+                  <span class="hljs-keyword">loop</span> flow_cell <span class="hljs-symbol">over:</span> shuffle(flow_cells) sort_by (each.height){
                      <span class="hljs-literal">float</span> water_flowing &lt;- max([0.0, min([(height - flow_cell.height), water_height * diffusion_rate])]); 
                      water_height &lt;- water_height - water_flowing;
                      flow_cell.water_height &lt;-flow_cell.water_height +  water_flowing;
@@ -258,39 +258,39 @@
          already &lt;- true;
       }  
       <span class="hljs-comment">//Update the color of the cell</span>
-      action update_color { 
+      <span class="hljs-keyword">action</span> update_color { 
          <span class="hljs-literal">int</span> val_water &lt;- 0;
          val_water &lt;- max([0, min([255, <span class="hljs-literal">int</span>(255 * (1 - (water_height / 12.0)))])]) ;  
          color &lt;- <span class="hljs-literal">rgb</span>([val_water, val_water, 255]);
          grid_value &lt;- water_height + altitude;
       }
       <span class="hljs-comment">//action to compute the destruction of the obstacle</span>
-      action update_after_destruction(obstacle the_obstacle){
-         remove the_obstacle from: obstacles;
+      <span class="hljs-keyword">action</span> update_after_destruction(obstacle the_obstacle){
+         <span class="hljs-keyword">remove</span> the_obstacle <span class="hljs-symbol">from:</span> obstacles;
          obstacle_height &lt;- compute_highest_obstacle();
       }
        
    }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">main_gui</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-   parameter <span class="hljs-string">"Shapefile for the river"</span> var:river_shapefile category:<span class="hljs-string">"Water data"</span>;
-   parameter <span class="hljs-string">"Shapefile for the dykes"</span> var:dykes_shapefile category:<span class="hljs-string">"Obstacles"</span>;
-   parameter <span class="hljs-string">"Shapefile for the buildings"</span> var:buildings_shapefile category:<span class="hljs-string">"Obstacles"</span>;
-   parameter <span class="hljs-string">"Height of the dykes"</span> var:dyke_height category:<span class="hljs-string">"Obstacles"</span>;
-   parameter <span class="hljs-string">"Diffusion rate"</span> var:diffusion_rate category:<span class="hljs-string">"Water dynamic"</span>;
-   output { 
-      <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-         <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">triangulation</span>: <span class="hljs-title">true</span>;</span>
-         <span class="hljs-class">species <span class="hljs-title">buildings</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geometry</span>;</span>
-         <span class="hljs-class">species <span class="hljs-title">dyke</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geometry</span> ;</span>
+<span class="hljs-builtin">experiment</span> main_gui <span class="hljs-symbol">type:</span> gui {
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the river"</span> <span class="hljs-symbol">var:</span>river_shapefile <span class="hljs-symbol">category:</span><span class="hljs-string">"Water data"</span>;
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the dykes"</span> <span class="hljs-symbol">var:</span>dykes_shapefile <span class="hljs-symbol">category:</span><span class="hljs-string">"Obstacles"</span>;
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the buildings"</span> <span class="hljs-symbol">var:</span>buildings_shapefile <span class="hljs-symbol">category:</span><span class="hljs-string">"Obstacles"</span>;
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Height of the dykes"</span> <span class="hljs-symbol">var:</span>dyke_height <span class="hljs-symbol">category:</span><span class="hljs-string">"Obstacles"</span>;
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Diffusion rate"</span> <span class="hljs-symbol">var:</span>diffusion_rate <span class="hljs-symbol">category:</span><span class="hljs-string">"Water dynamic"</span>;
+   <span class="hljs-keyword">output</span> { 
+      <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+         grid cell <span class="hljs-symbol">triangulation:</span> true;
+         <span class="hljs-literal">species</span> buildings <span class="hljs-symbol">aspect:</span> <span class="hljs-literal">geometry</span>;
+         <span class="hljs-literal">species</span> dyke <span class="hljs-symbol">aspect:</span> <span class="hljs-literal">geometry</span> ;
       }
-      <span class="hljs-class">display <span class="hljs-title">chart_display</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">every</span>(24) </span>{ 
-         chart <span class="hljs-string">"Pressure on Dykes"</span> type: series {
-            data <span class="hljs-string">"Mean pressure on dykes "</span> value: mean(dyke collect (each.water_pressure)) style: line color: #magenta ;
-            data <span class="hljs-string">"Rate of dykes with max pressure"</span> value: (dyke count (each.water_pressure = 1.0))/ length(dyke) style: line color: #red ;
-            data <span class="hljs-string">"Rate of dykes with high pressure"</span> value: (dyke count (each.water_pressure &gt; 0.5))/ length(dyke) style: line color: #orange ;
-            data <span class="hljs-string">"Rate of dykes with low pressure"</span> value: (dyke count (each.water_pressure &lt; 0.25))/ length(dyke) style: line color: #green ;
+      <span class="hljs-keyword">display</span> chart_display <span class="hljs-symbol">refresh:</span> every(24) { 
+         <span class="hljs-keyword">chart</span> <span class="hljs-string">"Pressure on Dykes"</span> <span class="hljs-symbol">type:</span> series {
+            <span class="hljs-keyword">data</span> <span class="hljs-string">"Mean pressure on dykes "</span> <span class="hljs-symbol">value:</span> mean(dyke collect (each.water_pressure)) <span class="hljs-symbol">style:</span> line <span class="hljs-symbol">color:</span> #magenta ;
+            <span class="hljs-keyword">data</span> <span class="hljs-string">"Rate of dykes with max pressure"</span> <span class="hljs-symbol">value:</span> (dyke count (each.water_pressure = 1.0))/ length(dyke) <span class="hljs-symbol">style:</span> line <span class="hljs-symbol">color:</span> #red ;
+            <span class="hljs-keyword">data</span> <span class="hljs-string">"Rate of dykes with high pressure"</span> <span class="hljs-symbol">value:</span> (dyke count (each.water_pressure &gt; 0.5))/ length(dyke) <span class="hljs-symbol">style:</span> line <span class="hljs-symbol">color:</span> #orange ;
+            <span class="hljs-keyword">data</span> <span class="hljs-string">"Rate of dykes with low pressure"</span> <span class="hljs-symbol">value:</span> (dyke count (each.water_pressure &lt; 0.25))/ length(dyke) <span class="hljs-symbol">style:</span> line <span class="hljs-symbol">color:</span> #green ;
          }
       }
    }

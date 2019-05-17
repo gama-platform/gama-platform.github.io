@@ -90,16 +90,16 @@
 <h2><a class="anchor" aria-hidden="true" id="using-actions-as-operators"></a><a href="#using-actions-as-operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using actions as operators</h2>
 <p>Actions defined in species can be used as operators, provided they are called on the correct agent. The syntax is that of normal functional operators, but the agent that will perform the action must be added as the first operand.</p>
 <p>For instance, if the following species is defined:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">spec1</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> spec1 {
         <span class="hljs-literal">int</span> min(<span class="hljs-literal">int</span> x, <span class="hljs-literal">int</span> y) {
-                return x &gt; y ? x : y;
+                <span class="hljs-keyword">return</span> x &gt; y ? x : y;
         }
 }
 </code></pre>
 <p>Any agent instance of spec1 can use <code>min</code> as an operator (if the action conflicts with an existing operator, a warning will be emitted). For instance, in the same model, the following line is perfectly acceptable:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
         init {
-                create spec1;
+                <span class="hljs-keyword">create</span> spec1;
                 spec1 my_agent &lt;- spec1[0];
                 <span class="hljs-literal">int</span> the_min &lt;- my_agent min(10,20); <span class="hljs-comment">// or min(my_agent, 10, 20);</span>
         }
@@ -265,7 +265,7 @@
 <h4><a class="anchor" aria-hidden="true" id="result-1"></a><a href="#result-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns true if the current_date of the model is strictly before the date passed in argument. Synonym of 'current_date &lt; argument'</p>
 <h4><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-class">reflex <span class="hljs-title">when</span>: <span class="hljs-title">before</span>(<span class="hljs-title">starting_date</span>) </span>{}   <span class="hljs-comment">// this reflex will never be run </span>
+<pre><code class="hljs"><span class="hljs-builtin">reflex</span> <span class="hljs-symbol">when:</span> before(starting_date) {}   <span class="hljs-comment">// this reflex will never be run </span>
 
 </code></pre>
 <hr>
@@ -318,13 +318,13 @@ returns true if the first float operand is bigger than the second float operand 
 <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with 'every' to express a frequency between two dates</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var2 &lt;- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); <span class="hljs-comment">// var2 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  </span>
+<span class="hljs-literal">bool</span> var2 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var2 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  </span>
 </code></pre>
 <ul>
 <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var5 &lt;- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); <span class="hljs-comment">// var5 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) </span>
+<span class="hljs-literal">bool</span> var5 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var5 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) </span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-3"></a><a href="#examples-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
@@ -877,7 +877,7 @@ returns the connected components of a graph, i.e. the list of all edges (if the 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-31"></a><a href="#examples-31" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var2 &lt;- 'abcded' contains 'bc'; <span class="hljs-comment">// var2 equals true</span>
+<span class="hljs-literal">bool</span> var2 &lt;- <span class="hljs-string">'abcded'</span> contains <span class="hljs-string">'bc'</span>; <span class="hljs-comment">// var2 equals true</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-19"></a><a href="#see-also-19" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1044,7 +1044,7 @@ returns the connected components of a graph, i.e. the list of all edges (if the 
 <h4><a class="anchor" aria-hidden="true" id="result-41"></a><a href="#result-41" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Tries to copy the text in parameter to the clipboard and returns whether it has been correctly copied or not (for instance it might be impossible in a headless environment)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-38"></a><a href="#examples-38" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">bool</span> copied  &lt;- copy_to_clipboard('text to copy'); 
+<pre><code class="hljs"><span class="hljs-literal">bool</span> copied  &lt;- copy_to_clipboard(<span class="hljs-string">'text to copy'</span>); 
 
 </code></pre>
 <hr>
@@ -1199,9 +1199,9 @@ unknown var2 &lt;- corR(X, Y); <span class="hljs-comment">// var2 equals 0.98198
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-46"></a><a href="#examples-46" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">string</span>&gt; var0 &lt;- create_map([0,1,2],['a','b','c']); <span class="hljs-comment">// var0 equals [0::'a',1::'b',2::'c'] </span>
+<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">string</span>&gt; var0 &lt;- create_map([0,1,2],[<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>,<span class="hljs-string">'c'</span>]); <span class="hljs-comment">// var0 equals [0::'a',1::'b',2::'c'] </span>
 <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">float</span>&gt; var1 &lt;- create_map([0,1],[0.1,0.2,0.3]); <span class="hljs-comment">// var1 equals [0::0.1,1::0.2] </span>
-<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">float</span>&gt; var2 &lt;- create_map(['a','b','c','d'],[1.0,2.0,3.0]); <span class="hljs-comment">// var2 equals ['a'::1.0,'b'::2.0,'c'::3.0]</span>
+<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">float</span>&gt; var2 &lt;- create_map([<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>,<span class="hljs-string">'c'</span>,<span class="hljs-string">'d'</span>],[1.0,2.0,3.0]); <span class="hljs-comment">// var2 equals ['a'::1.0,'b'::2.0,'c'::3.0]</span>
 
 </code></pre>
 <hr>

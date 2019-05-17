@@ -78,7 +78,7 @@ If no getter (and setter) is defined, the attribute can nevertheless be set and 
 For example:</p>
 <pre><code class="hljs">@getter(IKeyword.SPEED)
 public double getSpeed(final IAgent <span class="hljs-literal">agent</span>) {
-    return (Double) <span class="hljs-literal">agent</span>.getAttribute(IKeyword.SPEED);
+    <span class="hljs-keyword">return</span> (Double) <span class="hljs-literal">agent</span>.getAttribute(IKeyword.SPEED);
 }
 
 @setter(IKeyword.SPEED)
@@ -89,7 +89,7 @@ public void setSpeed(final IAgent <span class="hljs-literal">agent</span>, final
 <h2><a class="anchor" aria-hidden="true" id="defining-new-actions"></a><a href="#defining-new-actions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining new actions</h2>
 <p>An action (also called <code>primitive</code>) is basically a Java method that can be called from the GAML language using the same syntax as the one used for calling actions defined in a model. The method should be annotated with <code>@action</code>, supplying the name of the action as it will be available in GAML.</p>
 <p>The developer can also define parameters for this action using the annotation <code>@arg</code> will a set of parameters names. For example, the action <code>goto</code> of the MovingSkill is defined as follows:</p>
-<pre><code class="hljs">@action(name=<span class="hljs-string">"goto"</span>, args={ 
+<pre><code class="hljs">@<span class="hljs-keyword">action</span>(name=<span class="hljs-string">"goto"</span>, args={ 
     @arg(name = <span class="hljs-string">"target"</span>, type = { IType.AGENT, IType.POINT,IType.GEOMETRY }, optional = false),
     @arg(name = IKeyword.SPEED, type = IType.FLOAT, optional = true),
     @arg(name = <span class="hljs-string">"on"</span>, type = { IType.GRAPH }, optional = true)
@@ -101,10 +101,10 @@ public IPath primGoto(final IScope scope) throws GamaRuntimeException {
 }
 </code></pre>
 <p>It is called in GAMA models with:</p>
-<pre><code class="hljs">do goto (target: the_target, on: the_graph);
+<pre><code class="hljs"><span class="hljs-keyword">do</span> goto (<span class="hljs-symbol">target:</span> the_target, <span class="hljs-symbol">on:</span> the_graph);
 </code></pre>
 <p>or</p>
-<pre><code class="hljs"><span class="hljs-literal">path</span> path_followed &lt;- self goto (target: the_target, on: the_graph, return_path: true);
+<pre><code class="hljs"><span class="hljs-literal">path</span> path_followed &lt;- self goto (<span class="hljs-symbol">target:</span> the_target, <span class="hljs-symbol">on:</span> the_graph, <span class="hljs-symbol">return_path:</span> true);
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="access-to-parameters-in-actions"></a><a href="#access-to-parameters-in-actions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Access to parameters in actions</h3>
 <p>To get the value of the arguments passed in GAML to the Java code, two methods can be useful:</p>

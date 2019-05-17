@@ -10,9 +10,9 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> rgbCube
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//import an image</span>
-    <span class="hljs-literal">file</span> imageRaster &lt;- <span class="hljs-literal">file</span>('images/RGB.jpg');
+    <span class="hljs-literal">file</span> imageRaster &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'images/RGB.jpg'</span>);
     
     <span class="hljs-comment">//list of points  create from the image </span>
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; p;
@@ -27,13 +27,13 @@
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">Display</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">RGB_to_XYZ</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{ 
-            image imageRaster.<span class="hljs-literal">path</span> refresh: false;
-            graphics <span class="hljs-string">"pts"</span> refresh: false{
-                loop pt over: p {
-                    draw cube(1) at: pt color: <span class="hljs-literal">rgb</span>(pt.x, pt.y, pt.z);
+<span class="hljs-builtin">experiment</span> Display <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> RGB_to_XYZ <span class="hljs-symbol">type:</span> opengl { 
+            <span class="hljs-keyword">image</span> imageRaster.<span class="hljs-literal">path</span> <span class="hljs-symbol">refresh:</span> false;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"pts"</span> <span class="hljs-symbol">refresh:</span> false{
+                <span class="hljs-keyword">loop</span> pt <span class="hljs-symbol">over:</span> p {
+                    <span class="hljs-keyword">draw</span> cube(1) <span class="hljs-symbol">at:</span> pt <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(pt.x, pt.y, pt.z);
                 }
             }
         }

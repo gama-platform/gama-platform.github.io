@@ -69,11 +69,11 @@
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="displays-and-layers"></a><a href="#displays-and-layers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Displays and layers</h2>
 <p>A display is the graphical output of your simulation. You can define several displays related with what you want to represent from your model execution. To define a display, use the keyword <code>display</code> inside the <code>output</code> scope, and specify a name (<code>name</code> facet).</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display "<span class="hljs-title">display1</span>" </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"display1"</span> {
         }
-        <span class="hljs-class">display <span class="hljs-title">name</span>:"<span class="hljs-title">display2</span>" </span>{
+        <span class="hljs-keyword">display</span> <span class="hljs-symbol">name:</span><span class="hljs-string">"display2"</span> {
         }
     }
 }
@@ -82,12 +82,12 @@
 <ul>
 <li>Use <code>background</code> to define a color for your background</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">display "<span class="hljs-title">my_display</span>" <span class="hljs-title">background</span>:#<span class="hljs-title">red</span></span>
+<pre><code class="hljs"><span class="hljs-keyword">display</span> <span class="hljs-string">"my_display"</span> <span class="hljs-symbol">background:</span>#red
 </code></pre>
 <ul>
 <li>Use <code>refresh</code> if you want to refresh the display when a condition is true (to refresh your display every number of steps, use the operator <code>every</code>)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">display "<span class="hljs-title">my_display</span>" <span class="hljs-title">refresh</span>:<span class="hljs-title">every</span>(10)</span>
+<pre><code class="hljs"><span class="hljs-keyword">display</span> <span class="hljs-string">"my_display"</span> <span class="hljs-symbol">refresh:</span>every(10)
 </code></pre>
 <p>You can choose between two types of displays, by using the facet type:</p>
 <ul>
@@ -95,10 +95,10 @@
 <li>opengl displays allows you to have 3D visualization.</li>
 </ul>
 <p>You can save the display on the disk, as a png file, in the folder name_of_model/models/snapshots, by using the facet <code>autosave</code>. This facet takes one a boolean as argument (to allow or not to save each frame) or a point (to define the size of your image). By default, the resolution of the output image is 500x500px (note that when no unit is provided, the unit is <code>#px</code> (pixel) ).</p>
-<pre><code class="hljs"><span class="hljs-class">display <span class="hljs-title">my_display</span> <span class="hljs-title">autosave</span>:<span class="hljs-title">true</span> <span class="hljs-title">type</span>:<span class="hljs-title">java2D</span> </span>{}
+<pre><code class="hljs"><span class="hljs-keyword">display</span> my_display <span class="hljs-symbol">autosave:</span>true <span class="hljs-symbol">type:</span>java2D {}
 </code></pre>
 <p>is equivalent to :</p>
-<pre><code class="hljs"><span class="hljs-class">display <span class="hljs-title">my_display</span> <span class="hljs-title">autosave</span>:</span>{500,500} type:java2D {}
+<pre><code class="hljs"><span class="hljs-keyword">display</span> my_display <span class="hljs-symbol">autosave:</span>{500,500} <span class="hljs-symbol">type:</span>java2D {}
 </code></pre>
 <p>Each display can be decomposed in one or several layers. Here is a screenshot (from the Toy Model Ant) to better understand those different notions we are about to tackle in this session.</p>
 <p><img src="../resources/images/definingGUIExperiment/difference_layer_display.png" alt="images/difference_layer_display.png"></p>
@@ -106,17 +106,17 @@
 <p>In one 2D display, you will have several types of layers, giving what you want to display in your model. You have a large number of layers available. You already know some of them, such as <code>species</code>, <code>agents</code>, <code>grid</code>, but other specific layers such as <code>image</code> (to display image) and <code>graphics</code> (to freely draw shapes/geometries/texts without having to define a species) are also available</p>
 <p>Each layer will be displayed in the same order as you declare them. The last declared layer will be above the others.</p>
 <p>Thus, the following code:</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">expe</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">my_display</span> </span>{
-            graphics <span class="hljs-string">"layer1"</span> {
-                draw square(20) at:{10,10} color:#gold;
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> expe <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> my_display {
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"layer1"</span> {
+                <span class="hljs-keyword">draw</span> square(20) <span class="hljs-symbol">at:</span>{10,10} <span class="hljs-symbol">color:</span>#gold;
             }
-            graphics <span class="hljs-string">"layer2"</span> {
-                draw square(20) at:{15,15} color:#darkorange;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"layer2"</span> {
+                <span class="hljs-keyword">draw</span> square(20) <span class="hljs-symbol">at:</span>{15,15} <span class="hljs-symbol">color:</span>#darkorange;
             }
-            graphics <span class="hljs-string">"layer3"</span> {
-                draw square(20) at:{20,20} color:#cornflowerblue;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"layer3"</span> {
+                <span class="hljs-keyword">draw</span> square(20) <span class="hljs-symbol">at:</span>{20,20} <span class="hljs-symbol">color:</span>#cornflowerblue;
             }
         }
     }
@@ -125,14 +125,14 @@
 <p>Will have this output:</p>
 <p><img src="../resources/images/definingGUIExperiment/layers_order.png" alt="images/layers_order.png"></p>
 <p>Most of the layers have the <code>transparency</code> facet in order to see the layers which are under.</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">expe</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">my_display</span> </span>{
-            graphics <span class="hljs-string">"layer1"</span> {
-                draw square(20) at:{10,10} color:#darkorange;
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> expe <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> my_display {
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"layer1"</span> {
+                <span class="hljs-keyword">draw</span> square(20) <span class="hljs-symbol">at:</span>{10,10} <span class="hljs-symbol">color:</span>#darkorange;
             }
-            graphics <span class="hljs-string">"layer2"</span> transparency:0.5 {
-                draw square(20) at:{15,15} color:#cornflowerblue;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"layer2"</span> <span class="hljs-symbol">transparency:</span>0.5 {
+                <span class="hljs-keyword">draw</span> square(20) <span class="hljs-symbol">at:</span>{15,15} <span class="hljs-symbol">color:</span>#cornflowerblue;
             }
         }
     }
@@ -142,17 +142,17 @@
 <p>To specify a position and a size for your layer, you can use the <code>position</code> and the <code>size</code> facets.
 The <code>position</code> facet is used with a point type, between {0,0} and {1,1}, which corresponds to the position of the upper left corner of your layer in percentage. Then, if you choose the point {0.5,0.5}, the upper left corner of your layer will be in the center of your display. By default, this value is {0,0}.
 The <code>size</code> facet is used with a point type, between {0,0} and {1,1} also. It corresponds to the size occupied by the layer in percentage. By default, this value is {1,1}.</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">expe</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">my_display</span> </span>{
-            graphics <span class="hljs-string">"layer1"</span> position:{0,0} size:{0.5,0.8} {
-                draw shape color:#darkorange;
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> expe <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> my_display {
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"layer1"</span> <span class="hljs-symbol">position:</span>{0,0} <span class="hljs-symbol">size:</span>{0.5,0.8} {
+                <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>#darkorange;
             }
-            graphics <span class="hljs-string">"layer2"</span> position:{0.3,0.1} size:{0.6,0.2} {
-                draw shape color:#cornflowerblue;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"layer2"</span> <span class="hljs-symbol">position:</span>{0.3,0.1} <span class="hljs-symbol">size:</span>{0.6,0.2} {
+                <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>#cornflowerblue;
             }
-            graphics <span class="hljs-string">"layer3"</span> position:{0.4,0.2} size:{0.3,0.8} {
-                draw shape color:#gold;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"layer3"</span> <span class="hljs-symbol">position:</span>{0.4,0.2} <span class="hljs-symbol">size:</span>{0.3,0.8} {
+                <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>#gold;
             }
         }
     }

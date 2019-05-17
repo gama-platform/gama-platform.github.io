@@ -10,61 +10,61 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> usercommand
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Number of agent to initialise</span>
     <span class="hljs-literal">int</span> nbAgent &lt;- 1;
     
     init {
         <span class="hljs-comment">//Create the agent</span>
-        create cell number: nbAgent {
+        <span class="hljs-keyword">create</span> cell <span class="hljs-symbol">number:</span> nbAgent {
             color &lt;-°green;
         }
     }
     
     <span class="hljs-comment">//These commands are displayed in the world layer</span>
     <span class="hljs-comment">//User command to create an agent according to the location where the user right click</span>
-    user_command <span class="hljs-string">"Create an agent"</span> {
-        create cell number: nbAgent with: [location::user_location]  {
+    <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Create an agent"</span> {
+        <span class="hljs-keyword">create</span> cell <span class="hljs-symbol">number:</span> nbAgent <span class="hljs-symbol">with:</span> [location::user_location]  {
             color &lt;-°green;
         } 
     }
     <span class="hljs-comment">//User command to create a given number of agents according</span>
-    user_command <span class="hljs-string">"Create agents"</span> {
-         <span class="hljs-literal">map</span> input_values &lt;- user_input([<span class="hljs-string">"Number"</span> :: nbAgent, <span class="hljs-string">"shape"</span> :: <span class="hljs-string">"circle"</span>]);
-         create cell number: <span class="hljs-literal">int</span>(input_values at <span class="hljs-string">"Number"</span>) with: [color:: °pink, is_square:: <span class="hljs-literal">string</span>(input_values at <span class="hljs-string">"shape"</span>) = <span class="hljs-string">"square"</span>];
+    <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Create agents"</span> {
+         <span class="hljs-literal">map</span> input_values &lt;- <span class="hljs-keyword">user_input</span>([<span class="hljs-string">"Number"</span> :: nbAgent, <span class="hljs-string">"shape"</span> :: <span class="hljs-string">"circle"</span>]);
+         <span class="hljs-keyword">create</span> cell <span class="hljs-symbol">number:</span> <span class="hljs-literal">int</span>(input_values at <span class="hljs-string">"Number"</span>) <span class="hljs-symbol">with:</span> [color:: °pink, is_square:: <span class="hljs-literal">string</span>(input_values at <span class="hljs-string">"shape"</span>) = <span class="hljs-string">"square"</span>];
     }
     
 }
 
 <span class="hljs-comment">//Species that will be used</span>
-<span class="hljs-class">species <span class="hljs-title">cell</span> </span>{
+<span class="hljs-literal">species</span> cell {
     <span class="hljs-literal">rgb</span> color;  
     <span class="hljs-literal">bool</span> is_square &lt;- false; 
     
     <span class="hljs-comment">//These commands will be displayed in the cells layer, after right clicking on a agent</span>
-    user_command <span class="hljs-string">"change color"</span>action: change_color;
-    user_command <span class="hljs-string">"change shape"</span> action: change_shape;
+    <span class="hljs-keyword">user_command</span> <span class="hljs-string">"change color"</span><span class="hljs-symbol">action:</span> change_color;
+    <span class="hljs-keyword">user_command</span> <span class="hljs-string">"change shape"</span> <span class="hljs-symbol">action:</span> change_shape;
     
     <span class="hljs-comment">//Action to change the color of the agent triggered by change color user command</span>
-    action change_color 
+    <span class="hljs-keyword">action</span> change_color 
     {
      color &lt;- color = °green ? °pink : °green;
     } 
     <span class="hljs-comment">//Action to change the shape of the agent triggered by change shape user command</span>
-    action change_shape
+    <span class="hljs-keyword">action</span> change_shape
     {
        is_square &lt;- not (is_square);
     }
-    aspect default {
-        draw is_square ? square(2): circle(1) color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> is_square ? square(2): circle(1) <span class="hljs-symbol">color:</span> color;
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">Displays</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{ 
-            <span class="hljs-class">species <span class="hljs-title">cell</span>;</span>
+<span class="hljs-builtin">experiment</span> Displays <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> { 
+            <span class="hljs-literal">species</span> cell;
         }
     }
 }

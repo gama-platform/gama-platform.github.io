@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> spatialinterpolation
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">point</span>, <span class="hljs-literal">float</span>&gt; pts;
     <span class="hljs-literal">float</span> max_val; 
     <span class="hljs-literal">float</span> min_val ; 
@@ -24,7 +24,7 @@
     
     init {
         <span class="hljs-comment">//creation of random point for demo puporse</span>
-        loop times: 50 {
+        <span class="hljs-keyword">loop</span> <span class="hljs-symbol">times:</span> 50 {
             <span class="hljs-literal">point</span> pt &lt;- any_location_in(world);
             pts[pt] &lt;-pt.x ^2 + pt.y ^2;
         }
@@ -37,7 +37,7 @@
         <span class="hljs-literal">map</span>&lt;cell_shape, <span class="hljs-literal">float</span>&gt; results_shape &lt;- <span class="hljs-literal">map</span>&lt;cell_shape, <span class="hljs-literal">float</span>&gt;(IDW(cell_shape, pts, power));
         
         <span class="hljs-comment">//setting of the value and color of each cell</span>
-        ask cell_shape {
+        <span class="hljs-keyword">ask</span> cell_shape {
             val &lt;- results_shape[self];
             <span class="hljs-literal">float</span> val_col &lt;- 255 * (val - min_val) / (max_val - min_val);
             color &lt;- <span class="hljs-literal">rgb</span>(val_col,0,0);
@@ -46,7 +46,7 @@
         <span class="hljs-comment">//same computation, but in this case, we consider only the centroid (location) of the cell for the computation of the distance</span>
         <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">point</span>, <span class="hljs-literal">float</span>&gt; results_location &lt;- <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">point</span>, <span class="hljs-literal">float</span>&gt;(IDW(cell_location collect each.location, pts, power));
             
-        ask cell_location {
+        <span class="hljs-keyword">ask</span> cell_location {
             val &lt;- results_location[self.location];
             <span class="hljs-literal">float</span> val_col &lt;- 255 * (val - min_val) / (max_val - min_val);
             color &lt;- <span class="hljs-literal">rgb</span>(val_col,0,0);
@@ -55,38 +55,38 @@
 }
 
 <span class="hljs-comment">//cells where the distance is based on the shape of the cell (min distance between the rectangle and the points)</span>
-<span class="hljs-class">grid <span class="hljs-title">cell_shape</span> <span class="hljs-title">width</span>: <span class="hljs-title">nb_columns</span> <span class="hljs-title">height</span>: <span class="hljs-title">nb_rows</span> </span>{
+grid cell_shape <span class="hljs-symbol">width:</span> nb_columns <span class="hljs-symbol">height:</span> nb_rows {
     <span class="hljs-literal">float</span> val;
 }
 
 <span class="hljs-comment">//cells where the distance is based on the centroid of the cell (distance between the centroid and the points)</span>
-<span class="hljs-class">grid <span class="hljs-title">cell_location</span> <span class="hljs-title">width</span>: <span class="hljs-title">nb_columns</span> <span class="hljs-title">height</span>: <span class="hljs-title">nb_rows</span> </span>{
+grid cell_location <span class="hljs-symbol">width:</span> nb_columns <span class="hljs-symbol">height:</span> nb_rows {
     <span class="hljs-literal">float</span> val;
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">spatialinterpolation</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"nb of columns"</span> var: nb_columns;
-    parameter <span class="hljs-string">"nb of rows"</span> var: nb_rows;
-    parameter <span class="hljs-string">"power parameter"</span> var: power;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map_shape</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">cell_shape</span>;</span>
-            graphics <span class="hljs-string">"points"</span> {
-                loop pt over: pts.keys {
+<span class="hljs-builtin">experiment</span> spatialinterpolation <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"nb of columns"</span> <span class="hljs-symbol">var:</span> nb_columns;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"nb of rows"</span> <span class="hljs-symbol">var:</span> nb_rows;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"power parameter"</span> <span class="hljs-symbol">var:</span> power;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> map_shape {
+            grid cell_shape;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"points"</span> {
+                <span class="hljs-keyword">loop</span> pt <span class="hljs-symbol">over:</span> pts.keys {
                     <span class="hljs-literal">float</span> val &lt;- pts[pt];
                     <span class="hljs-literal">float</span> val_col &lt;- 255 * (val - min_val) / (max_val - min_val);
-                    draw circle(1) at: pt color: <span class="hljs-literal">rgb</span>(val_col,0,0) border: #white;
+                    <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">at:</span> pt <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(val_col,0,0) <span class="hljs-symbol">border:</span> #white;
                 }
             }
         }
-        <span class="hljs-class">display <span class="hljs-title">map_location</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">cell_location</span>;</span>
-            graphics <span class="hljs-string">"points"</span> {
-                loop pt over: pts.keys {
+        <span class="hljs-keyword">display</span> map_location {
+            grid cell_location;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"points"</span> {
+                <span class="hljs-keyword">loop</span> pt <span class="hljs-symbol">over:</span> pts.keys {
                     <span class="hljs-literal">float</span> val &lt;- pts[pt];
                     <span class="hljs-literal">float</span> val_col &lt;- 255 * (val - min_val) / (max_val - min_val);
-                    draw circle(1) at: pt color: <span class="hljs-literal">rgb</span>(val_col,0,0) border: #white;
+                    <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">at:</span> pt <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(val_col,0,0) <span class="hljs-symbol">border:</span> #white;
                 }
             }
         }

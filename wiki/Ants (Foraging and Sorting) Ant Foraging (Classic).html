@@ -9,133 +9,133 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> ants
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Number of ants</span>
-    <span class="hljs-literal">int</span> ants_number &lt;- 100 min: 1 max: 2000 ;
+    <span class="hljs-literal">int</span> ants_number &lt;- 100 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 2000 ;
     <span class="hljs-comment">//Evaporation value per cycle</span>
-    <span class="hljs-literal">float</span> evaporation_per_cycle &lt;- 5.0 min: 0.0 max: 240.0 ;
+    <span class="hljs-literal">float</span> evaporation_per_cycle &lt;- 5.0 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 240.0 ;
     <span class="hljs-comment">//Diffusion rate for the pheromon diffused among the grid</span>
-    <span class="hljs-literal">float</span> diffusion_rate &lt;- 0.5 min: 0.0 max: 1.0 ;
+    <span class="hljs-literal">float</span> diffusion_rate &lt;- 0.5 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 ;
     <span class="hljs-literal">bool</span> use_icons &lt;- true ;
     <span class="hljs-literal">bool</span> display_state &lt;- true;
     <span class="hljs-comment">//Size of the grid</span>
     <span class="hljs-literal">int</span> gridsize &lt;- 75 ;
     <span class="hljs-comment">//Center of the grid that will be used as a nest for the ants</span>
-    <span class="hljs-literal">point</span> center const: true &lt;- { (gridsize / 2),  (gridsize / 2)} ;
-    <span class="hljs-literal">file</span> types const: true &lt;- (pgm_file('../images/environment75x75.pgm')) ;
-    <span class="hljs-literal">string</span> ant_shape_empty const: true &lt;- '../icons/ant.png' ;
-    <span class="hljs-literal">string</span> ant_shape_full const: true &lt;- '../icons/full_ant.png'  ;
-    <span class="hljs-literal">rgb</span> C00CC00 const: true &lt;- <span class="hljs-literal">rgb</span>('#00CC00') ;    
-    <span class="hljs-literal">rgb</span> C009900 const: true &lt;- <span class="hljs-literal">rgb</span>('#009900') ; 
-    <span class="hljs-literal">rgb</span> C005500 const: true &lt;- <span class="hljs-literal">rgb</span>('#005500') ; 
+    <span class="hljs-literal">point</span> center <span class="hljs-symbol">const:</span> true &lt;- { (gridsize / 2),  (gridsize / 2)} ;
+    <span class="hljs-literal">file</span> types <span class="hljs-symbol">const:</span> true &lt;- (pgm_file(<span class="hljs-string">'../images/environment75x75.pgm'</span>)) ;
+    <span class="hljs-literal">string</span> ant_shape_empty <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-string">'../icons/ant.png'</span> ;
+    <span class="hljs-literal">string</span> ant_shape_full <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-string">'../icons/full_ant.png'</span>  ;
+    <span class="hljs-literal">rgb</span> C00CC00 <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'#00CC00'</span>) ;    
+    <span class="hljs-literal">rgb</span> C009900 <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'#009900'</span>) ; 
+    <span class="hljs-literal">rgb</span> C005500 <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'#005500'</span>) ; 
     <span class="hljs-literal">int</span> food_gathered &lt;- 0 ;    
     <span class="hljs-literal">geometry</span> shape &lt;- square(gridsize);
     init{  
         <span class="hljs-comment">//Creation of the ants that will be placed randomly in the nest</span>
-        create ant number: ants_number with: [location::any_location_in (ant_<span class="hljs-class">grid(<span class="hljs-title">center</span>))] ;</span>
+        <span class="hljs-keyword">create</span> ant <span class="hljs-symbol">number:</span> ants_number <span class="hljs-symbol">with:</span> [location::any_location_in (ant_grid(center))] ;
     }
     <span class="hljs-comment">//Reflex to diffuse the pheromon among the grid</span>
-    <span class="hljs-class">reflex <span class="hljs-title">diffuse</span> </span>{
-      diffuse var:road on:ant_<span class="hljs-class">grid <span class="hljs-title">proportion</span>: <span class="hljs-title">diffusion_rate</span> <span class="hljs-title">radius</span>:2 <span class="hljs-title">propagation</span>: <span class="hljs-title">gradient</span>;</span>
+    <span class="hljs-builtin">reflex</span> <span class="hljs-keyword">diffuse</span> {
+      <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span>road <span class="hljs-symbol">on:</span>ant_grid <span class="hljs-symbol">proportion:</span> diffusion_rate <span class="hljs-symbol">radius:</span>2 <span class="hljs-symbol">propagation:</span> gradient;
    }
 
 }
 
 <span class="hljs-comment">//Grid that will be used to place the food in a discretized space</span>
-<span class="hljs-class">grid <span class="hljs-title">ant_grid</span> <span class="hljs-title">width</span>: <span class="hljs-title">gridsize</span> <span class="hljs-title">height</span>: <span class="hljs-title">gridsize</span> <span class="hljs-title">neighbors</span>: 8 <span class="hljs-title">use_regular_agents</span>: <span class="hljs-title">false</span> </span>{
-    <span class="hljs-literal">list</span>&lt;ant_<span class="hljs-class">grid&gt; <span class="hljs-title">neighbors</span> &lt;- <span class="hljs-title">self</span> <span class="hljs-title">neighbors_at</span> 1;</span>
-    <span class="hljs-literal">float</span> road &lt;- 0.0 max:240.0 update: (road&lt;=evaporation_per_cycle) ? 0.0 : road-evaporation_per_cycle;
+grid ant_grid <span class="hljs-symbol">width:</span> gridsize <span class="hljs-symbol">height:</span> gridsize <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">use_regular_agents:</span> false {
+    <span class="hljs-literal">list</span>&lt;ant_grid&gt; neighbors &lt;- self neighbors_at 1;
+    <span class="hljs-literal">float</span> road &lt;- 0.0 <span class="hljs-symbol">max:</span>240.0 <span class="hljs-symbol">update:</span> (road&lt;=evaporation_per_cycle) ? 0.0 : road-evaporation_per_cycle;
     <span class="hljs-literal">int</span> type &lt;- <span class="hljs-literal">int</span>(types at {grid_x,grid_y}) ;
     <span class="hljs-literal">bool</span> isNestLocation &lt;- (self distance_to center) &lt; 4 ;
     <span class="hljs-literal">bool</span> isFoodLocation &lt;- type = 2 ; 
-    <span class="hljs-literal">rgb</span> color &lt;- isNestLocation ? °sienna:((food &gt; 0)? °brown : ((road &lt; 0.001)? #darkgoldenrod: ((road &gt; 2)? °white : ((road &gt; 0.5)? (C00CC00) : ((road &gt; 0.2)? (C009900) : (C005500)))))) update: isNestLocation ? °sienna:((food &gt; 0)? °brown : ((road &lt; 0.001)?#darkgoldenrod : ((road &gt; 2)? °white : ((road &gt; 0.5)? (C00CC00) : ((road &gt; 0.2)? (C009900) : (C005500)))))) ;
+    <span class="hljs-literal">rgb</span> color &lt;- isNestLocation ? °<span class="hljs-symbol">sienna:</span>((food &gt; 0)? °brown : ((road &lt; 0.001)? #<span class="hljs-symbol">darkgoldenrod:</span> ((road &gt; 2)? °white : ((road &gt; 0.5)? (C00CC00) : ((road &gt; 0.2)? (C009900) : (C005500)))))) <span class="hljs-symbol">update:</span> isNestLocation ? °<span class="hljs-symbol">sienna:</span>((food &gt; 0)? °brown : ((road &lt; 0.001)?#darkgoldenrod : ((road &gt; 2)? °white : ((road &gt; 0.5)? (C00CC00) : ((road &gt; 0.2)? (C009900) : (C005500)))))) ;
     <span class="hljs-literal">int</span> food &lt;- isFoodLocation ? 5 : 0 ;
-    <span class="hljs-literal">int</span> nest const: true &lt;- 300 - <span class="hljs-literal">int</span>(self distance_to center) ;
+    <span class="hljs-literal">int</span> nest <span class="hljs-symbol">const:</span> true &lt;- 300 - <span class="hljs-literal">int</span>(self distance_to center) ;
     
 }
 <span class="hljs-comment">//Species ant that will move and follow a final state machine</span>
-<span class="hljs-class">species <span class="hljs-title">ant</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>: <span class="hljs-title">fsm</span> </span>{
+<span class="hljs-literal">species</span> ant <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> {
     <span class="hljs-literal">float</span> speed &lt;- 2.0 ;
-    ant_<span class="hljs-class">grid <span class="hljs-title">place</span> <span class="hljs-title">update</span>: <span class="hljs-title">ant_grid</span> (<span class="hljs-title">location</span> ); </span>
-    <span class="hljs-literal">string</span> im &lt;- 'ant_shape_empty' ;
+    ant_grid place <span class="hljs-symbol">update:</span> ant_grid (location ); 
+    <span class="hljs-literal">string</span> im &lt;- <span class="hljs-string">'ant_shape_empty'</span> ;
     <span class="hljs-literal">bool</span> hasFood &lt;- false ;
     <span class="hljs-comment">//Reflex to allow the diffusion of the road of pheromon by putting pheromon inside a cell</span>
-    <span class="hljs-class">reflex <span class="hljs-title">diffuse_road</span> <span class="hljs-title">when</span>:<span class="hljs-title">hasFood</span>=<span class="hljs-title">true</span></span>{
-      ant_<span class="hljs-class">grid(<span class="hljs-title">location</span>).<span class="hljs-title">road</span> &lt;- <span class="hljs-title">ant_grid</span>(<span class="hljs-title">location</span>).<span class="hljs-title">road</span> + 100.0;</span>
+    <span class="hljs-builtin">reflex</span> diffuse_road <span class="hljs-symbol">when:</span>hasFood=true{
+      ant_grid(location).road &lt;- ant_grid(location).road + 100.0;
    }
    <span class="hljs-comment">//Action to pick the food</span>
-    action pick {
+    <span class="hljs-keyword">action</span> pick {
         im &lt;- ant_shape_full ;
         hasFood &lt;- true ;
         place.food &lt;- place.food - 1 ;
     }
     <span class="hljs-comment">//Action to drop the food</span>
-    action drop {
+    <span class="hljs-keyword">action</span> drop {
         food_gathered &lt;- food_gathered + 1 ;  
         hasFood &lt;- false ;
         heading &lt;- heading - 180 ;
     }
     <span class="hljs-comment">//Action to find the best cell in the neighborhood of the ant</span>
-    action choose_best_place type: ant_<span class="hljs-class">grid </span>{  
-        <span class="hljs-literal">list</span>&lt;ant_<span class="hljs-class">grid&gt; <span class="hljs-title">list_places</span> &lt;- <span class="hljs-title">place</span>.<span class="hljs-title">neighbors</span> ;</span>
+    <span class="hljs-keyword">action</span> choose_best_place <span class="hljs-symbol">type:</span> ant_grid {  
+        <span class="hljs-literal">list</span>&lt;ant_grid&gt; list_places &lt;- place.neighbors ;
         <span class="hljs-keyword">if</span> (list_places count (each.food &gt; 0)) &gt; 0  { 
-            return (list_places first_with (each.food &gt; 0)) ;
-        } else {
+            <span class="hljs-keyword">return</span> (list_places first_with (each.food &gt; 0)) ;
+        } <span class="hljs-keyword">else</span> {
                 <span class="hljs-literal">int</span> min_nest  &lt;-  (list_places min_of (each.nest)) ;
                 list_places &lt;- list_places sort ((each.nest = min_nest) ? each.road :  0.0) ;
-                return last(list_places) ;
+                <span class="hljs-keyword">return</span> last(list_places) ;
             }
     } 
     <span class="hljs-comment">//initial state of the ant that will make it wander until it finds food or a road</span>
-    state wandering initial: true { 
-        do wander amplitude:120 ;
-        transition to: carryingFood when: place.food &gt; 0 {
+    <span class="hljs-keyword">state</span> wandering <span class="hljs-symbol">initial:</span> true { 
+        <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span>120 ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> carryingFood <span class="hljs-symbol">when:</span> place.food &gt; 0 {
             
              
-            do pick ;
+            <span class="hljs-keyword">do</span> pick ;
         }
-        transition to: followingRoad when: place.road &gt; 0.05 ; 
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> followingRoad <span class="hljs-symbol">when:</span> place.road &gt; 0.05 ; 
     }
     <span class="hljs-comment">//State to carry food to the nest once it has been found</span>
-    state carryingFood {
-        do goto target: center ;
-        transition to: wandering when: place.isNestLocation { 
-            do drop ;
+    <span class="hljs-keyword">state</span> carryingFood {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> center ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> wandering <span class="hljs-symbol">when:</span> place.isNestLocation { 
+            <span class="hljs-keyword">do</span> drop ;
         }
     }
     <span class="hljs-comment">//State to follow a pheromon road once it has been found</span>
-    state followingRoad {
+    <span class="hljs-keyword">state</span> followingRoad {
         location &lt;- (self choose_best_place()) as <span class="hljs-literal">point</span> ;
-        transition to: carryingFood when: place.food &gt; 0 {
-            do pick ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> carryingFood <span class="hljs-symbol">when:</span> place.food &gt; 0 {
+            <span class="hljs-keyword">do</span> pick ;
         }
-        transition to: wandering when: (place.road &lt; 0.05) ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> wandering <span class="hljs-symbol">when:</span> (place.road &lt; 0.05) ;
     }
-    aspect text {
+    <span class="hljs-keyword">aspect</span> text {
         <span class="hljs-keyword">if</span> use_icons {
-            draw  hasFood ? <span class="hljs-literal">file</span>(ant_shape_full) : <span class="hljs-literal">file</span>(ant_shape_empty) rotate: heading at: location size: {8,5} ;
-        } else {
-            draw circle(1.0) empty: !hasFood color: <span class="hljs-literal">rgb</span> ('orange') ;
+            <span class="hljs-keyword">draw</span>  hasFood ? <span class="hljs-literal">file</span>(ant_shape_full) : <span class="hljs-literal">file</span>(ant_shape_empty) <span class="hljs-symbol">rotate:</span> heading <span class="hljs-symbol">at:</span> location <span class="hljs-symbol">size:</span> {8,5} ;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">draw</span> circle(1.0) <span class="hljs-symbol">empty:</span> !hasFood <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> (<span class="hljs-string">'orange'</span>) ;
         }
         <span class="hljs-keyword">if</span> display_state {
-            draw state at: location + {-3,1.5} color: °white font: font(<span class="hljs-string">"Helvetica"</span>, 14 * #zoom, #plain) perspective:true;
+            <span class="hljs-keyword">draw</span> <span class="hljs-keyword">state</span> <span class="hljs-symbol">at:</span> location + {-3,1.5} <span class="hljs-symbol">color:</span> °white <span class="hljs-symbol">font:</span> font(<span class="hljs-string">"Helvetica"</span>, 14 * #zoom, #plain) <span class="hljs-symbol">perspective:</span>true;
         }
     } 
-    aspect default {
-        draw circle(1.0) empty: !hasFood color: #orange ; 
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(1.0) <span class="hljs-symbol">empty:</span> !hasFood <span class="hljs-symbol">color:</span> #orange ; 
     }           
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Ant</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter 'Number of ants:' var: ants_number category: 'Model' ;
-    parameter 'Evaporation of the signal (unit/cycle):' var: evaporation_per_cycle category: 'Model' ;
-    parameter 'Rate of diffusion of the signal (%/cycle):' var: diffusion_rate category: 'Model' ;
-    parameter 'Use icons <span class="hljs-keyword">for</span> the agents:' var: use_icons category: 'Display' ;
-    parameter 'Display state of agents:' var: display_state category: 'Display' ;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Ants</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span>  </span>{
-            <span class="hljs-class">grid <span class="hljs-title">ant_grid</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">ant</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">text</span> ;</span>
+<span class="hljs-builtin">experiment</span> Ant <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of ants:'</span> <span class="hljs-symbol">var:</span> ants_number <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Evaporation of the signal (unit/cycle):'</span> <span class="hljs-symbol">var:</span> evaporation_per_cycle <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Rate of diffusion of the signal (%/cycle):'</span> <span class="hljs-symbol">var:</span> diffusion_rate <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Use icons for the agents:'</span> <span class="hljs-symbol">var:</span> use_icons <span class="hljs-symbol">category:</span> <span class="hljs-string">'Display'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Display state of agents:'</span> <span class="hljs-symbol">var:</span> display_state <span class="hljs-symbol">category:</span> <span class="hljs-string">'Display'</span> ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Ants <span class="hljs-symbol">type:</span> opengl  {
+            grid ant_grid ;
+            <span class="hljs-literal">species</span> ant <span class="hljs-symbol">aspect:</span> text ;
         }
     }
 }

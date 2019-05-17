@@ -11,25 +11,25 @@
  
 <span class="hljs-builtin">model</span> RoadTrafficSimple 
   
-<span class="hljs-class">global </span>{  
+global {  
     <span class="hljs-literal">file</span> shape_file_roads  &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/RoadCircleLanes.shp"</span>) ;
     <span class="hljs-literal">file</span> shape_file_bounds &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/BoundsLaneRoad.shp"</span>) ;
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_bounds);
     
     <span class="hljs-literal">graph</span> the_graph;  
-    <span class="hljs-literal">list</span> roadsList of: road ; 
+    <span class="hljs-literal">list</span> roadsList <span class="hljs-symbol">of:</span> road ; 
         
     
     init {  
-        create road from: shape_file_roads with: [nbLanes::<span class="hljs-literal">int</span>(read(<span class="hljs-string">"lanes"</span>))] {
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_roads <span class="hljs-symbol">with:</span> [nbLanes::<span class="hljs-literal">int</span>(read(<span class="hljs-string">"lanes"</span>))] {
             geom_visu &lt;- shape + nbLanes;
         }
         the_graph &lt;- as_edge_graph(road);
     }   
     
-    <span class="hljs-class">reflex <span class="hljs-title">createPeople</span> <span class="hljs-title">when</span>: <span class="hljs-title">cycle</span> <span class="hljs-title">mod</span> 20 = 0 <span class="hljs-title">and</span> <span class="hljs-title">cycle</span> &lt; 400</span>{
+    <span class="hljs-builtin">reflex</span> createPeople <span class="hljs-symbol">when:</span> cycle mod 20 = 0 and cycle &lt; 400{
         roadsList &lt;- (road as <span class="hljs-literal">list</span>);  
-        create people number: 1 { 
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> 1 { 
             speed &lt;-  (2.0 + 2 * length(people as <span class="hljs-literal">list</span>)) ;
             currentRoad &lt;- first (roadsList);
             source &lt;- first((currentRoad.shape).points);
@@ -38,29 +38,29 @@
             living_space &lt;- 10.0;
             tolerance &lt;- 0.1;
             lanes_attribute &lt;- <span class="hljs-string">"nbLanes"</span>;
-            obstacle_<span class="hljs-class">species &lt;- [<span class="hljs-title">species</span>(<span class="hljs-title">self</span>)]; </span>
+            obstacle_species &lt;- [<span class="hljs-literal">species</span>(self)]; 
         }  
     }   
 } 
     
-<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{ 
+<span class="hljs-literal">species</span> road  { 
     <span class="hljs-literal">int</span> nbLanes; 
     <span class="hljs-literal">geometry</span> geom_visu;
-    aspect base {    
-        draw geom_visu color: #black ;
+    <span class="hljs-keyword">aspect</span> base {    
+        <span class="hljs-keyword">draw</span> geom_visu <span class="hljs-symbol">color:</span> #black ;
     } 
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">driving</span>]</span>{ 
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">driving</span>]{ 
     <span class="hljs-literal">float</span> speed; 
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(rnd(255),rnd(255),rnd(255)) ; 
     <span class="hljs-literal">point</span> target &lt;- nil ; 
     <span class="hljs-literal">point</span> source &lt;- nil;
     road currentRoad &lt;- nil;
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> != <span class="hljs-title">nil</span> </span>{
-        do goto_driving target: target on: the_graph speed: speed ; 
-        switch target { 
-            match location {
+    <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> target != nil {
+        <span class="hljs-keyword">do</span> goto_driving <span class="hljs-symbol">target:</span> target <span class="hljs-symbol">on:</span> the_graph <span class="hljs-symbol">speed:</span> speed ; 
+        <span class="hljs-keyword">switch</span> target { 
+            <span class="hljs-keyword">match</span> location {
                 currentRoad &lt;- (roadsList select (each != currentRoad)) with_min_of (each distance_to self);
                 source &lt;- location;
                 <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; rls &lt;- (currentRoad.shape).points;
@@ -69,19 +69,19 @@
         }
     }
         
-    aspect base {
-        draw circle(10) color: color;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span> color;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Simple</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Shapefile for the roads:"</span> var: shape_file_roads category: <span class="hljs-string">"GIS"</span> ;
-    parameter <span class="hljs-string">"Shapefile for the bounds:"</span> var: shape_file_bounds category: <span class="hljs-string">"GIS"</span> ;
+<span class="hljs-builtin">experiment</span> Simple <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the roads:"</span> <span class="hljs-symbol">var:</span> shape_file_roads <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Shapefile for the bounds:"</span> <span class="hljs-symbol">var:</span> shape_file_bounds <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base ;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base;
         }
     }
 }

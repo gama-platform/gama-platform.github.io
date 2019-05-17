@@ -10,12 +10,12 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> CSVfileloading
 
-<span class="hljs-class">global </span>{
+global {
     
     init {
         <span class="hljs-comment">//create iris agents from the CSV file (use of the header of the CSV file), the attributes of the agents are initialized from the CSV files: </span>
         <span class="hljs-comment">//we set the header facet to true to directly read the values corresponding to the right column. If the header was set to false, we could use the index of the columns to initialize the agent attributes</span>
-        create iris from:csv_file( <span class="hljs-string">"../includes/iris.csv"</span>,true) with:
+        <span class="hljs-keyword">create</span> iris <span class="hljs-symbol">from:</span>csv_file( <span class="hljs-string">"../includes/iris.csv"</span>,true) <span class="hljs-symbol">with:</span>
             [sepal_length::<span class="hljs-literal">float</span>(get(<span class="hljs-string">"sepallength"</span>)), 
                 sepal_width::<span class="hljs-literal">float</span>(get(<span class="hljs-string">"sepalwidth"</span>)), 
                 petal_length::<span class="hljs-literal">float</span>(get(<span class="hljs-string">"petallength"</span>)),
@@ -25,7 +25,7 @@
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">iris</span> </span>{
+<span class="hljs-literal">species</span> iris {
     <span class="hljs-literal">float</span> sepal_length;
     <span class="hljs-literal">float</span> sepal_width;
     <span class="hljs-literal">float</span> petal_length;
@@ -34,18 +34,18 @@
     <span class="hljs-literal">rgb</span> color ;
     
     init {
-        color &lt;- type =<span class="hljs-string">"Iris-setosa"</span> ? #blue : ((type =<span class="hljs-string">"Iris-virginica"</span>) ? #red: #yellow);
+        color &lt;- type =<span class="hljs-string">"Iris-setosa"</span> ? #blue : ((type =<span class="hljs-string">"Iris-virginica"</span>) ? #<span class="hljs-symbol">red:</span> #yellow);
     }
     
-    aspect default {
-        draw circle(petal_width) color: color; 
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(petal_width) <span class="hljs-symbol">color:</span> color; 
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">iris</span>;</span>
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui{
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> iris;
         }
     }
     

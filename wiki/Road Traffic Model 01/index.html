@@ -9,40 +9,40 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> tutorial_gis_city_traffic
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">file</span> buildings_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/building.shp"</span>);
     <span class="hljs-literal">file</span> roads_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/road.shp"</span>);
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(envelope(buildings_shapefile) + envelope(roads_shapefile));
     <span class="hljs-literal">float</span> step &lt;- 10 #mn;
     
     init {
-        create building from: buildings_shapefile ;
-        create road from: roads_shapefile ;
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> buildings_shapefile ;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> roads_shapefile ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
+<span class="hljs-literal">species</span> building {
     <span class="hljs-literal">string</span> type; 
     <span class="hljs-literal">rgb</span> color &lt;- #gray  ;
     
-    aspect base {
-        draw shape color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{
+<span class="hljs-literal">species</span> road  {
     <span class="hljs-literal">rgb</span> color &lt;- #red ;
-    aspect base {
-        draw shape color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">road_traffic</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> road_traffic <span class="hljs-symbol">type:</span> gui {
         
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> base ;
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base ;
         }
     }
 }

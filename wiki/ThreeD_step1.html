@@ -67,41 +67,41 @@
 <p><img src="../resources/images/tutorials/3D_model_LQ.png" alt="images/3D_model_LQ.png"></p>
 <h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
 <p>In this model we define one species of agent: the <strong>cells</strong> agents. The agents will be just displayed as a blue sphere of radius 1.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">cells</span></span>{                      
-  aspect default {
-    draw sphere(1) color:#blue;   
+<pre><code class="hljs"><span class="hljs-literal">species</span> cells{                      
+  <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-keyword">draw</span> sphere(1) <span class="hljs-symbol">color:</span>#blue;   
   }
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="global-section"></a><a href="#global-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Global Section</h3>
 <h4><a class="anchor" aria-hidden="true" id="global-variable"></a><a href="#global-variable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Global variable</h4>
 <p>Definition of a global variable <strong>nb_cells</strong> of type <em>int</em> representing the number of <strong>cells</strong> agents.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
    <span class="hljs-literal">int</span> nb_cells &lt;-100;
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="model-initialization"></a><a href="#model-initialization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model initialization</h4>
 <p>Definition of the init block in order to create <em>nb_cells</em> <strong>cells</strong> agents. By default an agent is created with a random location in x and y, and a z value equal to 0. In our case we want to place the <strong>cells</strong> randomly in the 3D environment so we set a random value for <em>x</em>, <em>y</em> and <em>z</em>.</p>
-<pre><code class="hljs">create cells number: nb_cells {
+<pre><code class="hljs"><span class="hljs-keyword">create</span> cells <span class="hljs-symbol">number:</span> nb_cells {
   location &lt;- {rnd(100), rnd(100), rnd(100)};
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="experiment"></a><a href="#experiment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Experiment</h3>
 <p>In our model, we define a basic gui experiment called <em>Tuto3D</em> :</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">Tuto3D</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> Tuto3D <span class="hljs-symbol">type:</span> gui {
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="input"></a><a href="#input" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Input</h4>
 <p>Definition of a parameter from the the global variable <em>nb_cells</em> :</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">Tuto3D</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-   parameter <span class="hljs-string">"Initial number of cells: "</span> var: nb_cells min: 1 max: 1000 category: <span class="hljs-string">"Cells"</span>;  
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> Tuto3D <span class="hljs-symbol">type:</span> gui {
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of cells: "</span> <span class="hljs-symbol">var:</span> nb_cells <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Cells"</span>;  
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="output"></a><a href="#output" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output</h4>
 <p>In our model, we define a display to draw the <strong>cells</strong> agents in a 3D environment.</p>
-<pre><code class="hljs">output {
-  <span class="hljs-class">display <span class="hljs-title">View1</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-    <span class="hljs-class">species <span class="hljs-title">cells</span>;</span>
+<pre><code class="hljs"><span class="hljs-keyword">output</span> {
+  <span class="hljs-keyword">display</span> View1 <span class="hljs-symbol">type:</span>opengl {
+    <span class="hljs-literal">species</span> cells;
   }
 }
 </code></pre>
@@ -109,26 +109,26 @@
 <p>This model is available in the model library (under Tutorials &gt; 3D) and the GIT version of the model can be found here <a href="https://github.com/gama-platform/gama/blob/master/msi.gama.models/models/Tutorials/3D/models/Model%2001.gaml">Model 01.gaml</a></p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> Tuto3D
 
-<span class="hljs-class">global </span>{
+global {
   <span class="hljs-literal">int</span> nb_cells &lt;-100;   
   init { 
-    create cells number: nb_cells { 
+    <span class="hljs-keyword">create</span> cells <span class="hljs-symbol">number:</span> nb_cells { 
       location &lt;- {rnd(100), rnd(100), rnd(100)};       
     } 
   }  
 } 
   
-<span class="hljs-class">species <span class="hljs-title">cells</span></span>{                      
-  aspect default {
-    draw sphere(1) color:#blue;   
+<span class="hljs-literal">species</span> cells{                      
+  <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-keyword">draw</span> sphere(1) <span class="hljs-symbol">color:</span>#blue;   
   }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Tuto3D</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-  parameter <span class="hljs-string">"Initial number of cells: "</span> var: nb_cells min: 1 max: 1000 category: <span class="hljs-string">"Cells"</span> ;  
-  output {
-    <span class="hljs-class">display <span class="hljs-title">View1</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-      <span class="hljs-class">species <span class="hljs-title">cells</span>;</span>
+<span class="hljs-builtin">experiment</span> Tuto3D  <span class="hljs-symbol">type:</span> gui {
+  <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of cells: "</span> <span class="hljs-symbol">var:</span> nb_cells <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Cells"</span> ;  
+  <span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">display</span> View1 <span class="hljs-symbol">type:</span>opengl {
+      <span class="hljs-literal">species</span> cells;
     }
   }
 }

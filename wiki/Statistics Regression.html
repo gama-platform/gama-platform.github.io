@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> example_regression
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Regression variable that will store the function</span>
     regression location_fct;
     <span class="hljs-literal">float</span> x_val &lt;- 50.0;
@@ -18,17 +18,17 @@
     
     <span class="hljs-literal">float</span> val &lt;- -1.0;
     init {
-        loop i from: 0 to: 18{
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> 18{
             <span class="hljs-keyword">if</span> (i != 10) {
-                create dummy with:[location::{i * 5 + 2 - rnd(4), i*5 + 2 - rnd(4), i*5 + 2 - rnd(4)}]; 
+                <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span>[location::{i * 5 + 2 - rnd(4), i*5 + 2 - rnd(4), i*5 + 2 - rnd(4)}]; 
             }
         }
     }
     
     <span class="hljs-comment">//Reflex to compute the regression</span>
-    <span class="hljs-class">reflex <span class="hljs-title">do_regression</span> </span>{
+    <span class="hljs-builtin">reflex</span> do_regression {
         <span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">float</span>&gt; instances &lt;- 0.0 as_matrix {3,length(dummy)};
-        loop i from: 0 to: length(dummy) -1 {
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> length(dummy) -1 {
             dummy ag &lt;- dummy[i];
             instances[1,i] &lt;- ag.location.x;
             instances[2,i] &lt;- ag.location.y;
@@ -36,32 +36,32 @@
         }
         <span class="hljs-comment">//Compute the function of regression</span>
         location_fct  &lt;- build(instances);
-        write <span class="hljs-string">"learnt function: "</span> + location_fct;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"learnt function: "</span> + location_fct;
         
         <span class="hljs-comment">//Predict the value using the function resulting before</span>
         val &lt;-  predict(location_fct, [x_val, y_val]);
-        write <span class="hljs-string">"value : "</span> + val;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"value : "</span> + val;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">dummy</span> </span>{
-    aspect default {
-        draw sphere(2) color: #blue;
+<span class="hljs-literal">species</span> dummy {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> sphere(2) <span class="hljs-symbol">color:</span> #blue;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Point to test, x value"</span> var: x_val ;
-    parameter <span class="hljs-string">"Point to test, y value"</span> var: y_val ;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">dummy</span>;</span>
-            graphics <span class="hljs-string">"new Point "</span> {
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Point to test, x value"</span> <span class="hljs-symbol">var:</span> x_val ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Point to test, y value"</span> <span class="hljs-symbol">var:</span> y_val ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> dummy;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"new Point "</span> {
                 <span class="hljs-keyword">if</span> (location_fct != nil) {
-                    draw sphere(2) color: #red at: {x_val,y_val,val};
+                    <span class="hljs-keyword">draw</span> sphere(2) <span class="hljs-symbol">color:</span> #red <span class="hljs-symbol">at:</span> {x_val,y_val,val};
                     
                     <span class="hljs-comment">//Draw the function as a line</span>
-                    draw line([{100,100,predict(location_fct, [100,100])},{-10,-10,predict(location_fct, [-10,-10])}]) color: #black;
+                    <span class="hljs-keyword">draw</span> line([{100,100,predict(location_fct, [100,100])},{-10,-10,predict(location_fct, [-10,-10])}]) <span class="hljs-symbol">color:</span> #black;
                 }
                 
             }

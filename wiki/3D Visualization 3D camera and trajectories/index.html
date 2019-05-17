@@ -11,20 +11,20 @@
 <pre><code class="hljs"><span class="hljs-builtin">model</span> boids 
 
 <span class="hljs-comment">//make the environment torus according to the bool variable torus_environment </span>
-<span class="hljs-class">global <span class="hljs-title">torus</span>: <span class="hljs-title">torus_environment</span></span>{ 
+global <span class="hljs-symbol">torus:</span> torus_environment{ 
     
     <span class="hljs-comment">//Variable to represent the number of boids to create</span>
-    <span class="hljs-literal">int</span> number_of_agents &lt;- 10 min: 1 max: 1000000;
+    <span class="hljs-literal">int</span> number_of_agents &lt;- 10 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000000;
     <span class="hljs-comment">//Variable to represent the number of obstacles to create</span>
-    <span class="hljs-literal">int</span> number_of_obstacles &lt;- 5 min: 0;
+    <span class="hljs-literal">int</span> number_of_obstacles &lt;- 5 <span class="hljs-symbol">min:</span> 0;
     <span class="hljs-comment">//Variable to represent the maximal speed of the boids agents</span>
-    <span class="hljs-literal">float</span> maximal_speed &lt;- 15.0 min: 0.1 max: 15.0;
+    <span class="hljs-literal">float</span> maximal_speed &lt;- 15.0 <span class="hljs-symbol">min:</span> 0.1 <span class="hljs-symbol">max:</span> 15.0;
     
     <span class="hljs-comment">//Variables to manage the boids movements</span>
     <span class="hljs-literal">int</span> cohesion_factor &lt;- 200;
     <span class="hljs-literal">int</span> alignment_factor &lt;- 100; 
     <span class="hljs-literal">float</span> minimal_distance &lt;- 10.0; 
-    <span class="hljs-literal">int</span> maximal_turn &lt;- 90 min: 0 max: 359; 
+    <span class="hljs-literal">int</span> maximal_turn &lt;- 90 <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 359; 
     
     <span class="hljs-comment">//Variables for the environment </span>
     <span class="hljs-literal">int</span> width_and_height_of_environment &lt;- 800;  
@@ -38,77 +38,77 @@
     <span class="hljs-literal">bool</span> moving_obstacles &lt;- false;   
     
     <span class="hljs-comment">//Bounds of the environment</span>
-    <span class="hljs-literal">int</span> bounds &lt;- <span class="hljs-literal">int</span>(width_and_height_of_environment / 20) depends_on: [width_and_height_of_environment]; 
+    <span class="hljs-literal">int</span> bounds &lt;- <span class="hljs-literal">int</span>(width_and_height_of_environment / 20) <span class="hljs-symbol">depends_on:</span> [width_and_height_of_environment]; 
     <span class="hljs-comment">//Vector to represent the direction of the wind</span>
     <span class="hljs-literal">point</span> wind_vector &lt;- {0,0}; 
     
     <span class="hljs-comment">//Variables for the goal : its duration and its location determined randomlly</span>
-    <span class="hljs-literal">int</span> goal_duration &lt;- 30 update: (goal_duration - 1); 
+    <span class="hljs-literal">int</span> goal_duration &lt;- 30 <span class="hljs-symbol">update:</span> (goal_duration - 1); 
     <span class="hljs-literal">point</span> goal &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 }; 
     
     <span class="hljs-comment">//Images available for the aspect of the boids</span>
-    <span class="hljs-literal">list</span> images of: image_file &lt;- [<span class="hljs-literal">file</span>('../images/bird1.png'),<span class="hljs-literal">file</span>('../images/bird2.png'),<span class="hljs-literal">file</span>('../images/bird3.png')]; 
+    <span class="hljs-literal">list</span> images <span class="hljs-symbol">of:</span> image_file &lt;- [<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/bird1.png'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/bird2.png'</span>),<span class="hljs-literal">file</span>(<span class="hljs-string">'../images/bird3.png'</span>)]; 
     
     <span class="hljs-comment">//Determine the bounding rectangle of the environment</span>
-    <span class="hljs-literal">int</span> xmin &lt;- bounds depends_on: [bounds];    
-    <span class="hljs-literal">int</span> ymin &lt;- bounds depends_on: [bounds];  
+    <span class="hljs-literal">int</span> xmin &lt;- bounds <span class="hljs-symbol">depends_on:</span> [bounds];    
+    <span class="hljs-literal">int</span> ymin &lt;- bounds <span class="hljs-symbol">depends_on:</span> [bounds];  
     <span class="hljs-literal">int</span> xmax &lt;- (width_and_height_of_environment - bounds);     
     <span class="hljs-literal">int</span> ymax &lt;- (width_and_height_of_environment - bounds);   
 
     <span class="hljs-literal">geometry</span> shape &lt;- square(width_and_height_of_environment);
     init { 
-        create boids number: number_of_agents { 
+        <span class="hljs-keyword">create</span> boids <span class="hljs-symbol">number:</span> number_of_agents { 
              location &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 };
         } 
                  
-        create obstacle number: number_of_obstacles {
+        <span class="hljs-keyword">create</span> obstacle <span class="hljs-symbol">number:</span> number_of_obstacles {
             location &lt;- {rnd (width_and_height_of_environment - 2) + 1, rnd (width_and_height_of_environment -2) + 1 }; 
         }
         
-        create  boids_goal {
+        <span class="hljs-keyword">create</span>  boids_goal {
             location &lt;- goal;
         }   
     }   
 }
 
 
-<span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> boids_goal <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">float</span> range  &lt;- 20.0;
     <span class="hljs-literal">float</span> size  &lt;- 10.0;
     
-    <span class="hljs-class">reflex <span class="hljs-title">wander</span> </span>{  
-        do  wander amplitude: 45 speed: 20;  
+    <span class="hljs-builtin">reflex</span> wander {  
+        <span class="hljs-keyword">do</span>  wander <span class="hljs-symbol">amplitude:</span> 45 <span class="hljs-symbol">speed:</span> 20;  
         goal &lt;- location;
     }
     
-    aspect default {
-        draw circle(10) color: #red ;
-        draw circle(40) color: #orange empty: true;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span> #red ;
+        <span class="hljs-keyword">draw</span> circle(40) <span class="hljs-symbol">color:</span> #orange <span class="hljs-symbol">empty:</span> true;
     }
 } 
 
-<span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
-    <span class="hljs-literal">float</span> speed max: maximal_speed &lt;- maximal_speed;
+<span class="hljs-literal">species</span> boids <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
+    <span class="hljs-literal">float</span> speed <span class="hljs-symbol">max:</span> maximal_speed &lt;- maximal_speed;
     <span class="hljs-literal">float</span> range &lt;- minimal_distance * 2;
     <span class="hljs-literal">int</span> heading ;
     <span class="hljs-literal">point</span> velocity &lt;- {0,0};
     <span class="hljs-literal">int</span> size &lt;- 5;
         
-    <span class="hljs-class">reflex <span class="hljs-title">separation</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_separation</span> </span>{
+    <span class="hljs-builtin">reflex</span> separation <span class="hljs-symbol">when:</span> apply_separation {
         <span class="hljs-literal">point</span> acc &lt;- {0,0};
-        ask (boids overlapping (circle(minimal_distance)))  {
+        <span class="hljs-keyword">ask</span> (boids overlapping (circle(minimal_distance)))  {
             acc &lt;- acc - ((location) - myself.location);
         }  
         velocity &lt;- velocity + acc;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">alignment</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_alignment</span> </span>{
+    <span class="hljs-builtin">reflex</span> alignment <span class="hljs-symbol">when:</span> apply_alignment {
         <span class="hljs-literal">list</span> others  &lt;- ((boids overlapping (circle (range)))  - self);
         <span class="hljs-literal">point</span> acc &lt;- mean (others collect (each.velocity)) - velocity;
         velocity &lt;- velocity + (acc / alignment_factor);
     }
      
-    <span class="hljs-class">reflex <span class="hljs-title">cohesion</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_cohesion</span> </span>{
+    <span class="hljs-builtin">reflex</span> cohesion <span class="hljs-symbol">when:</span> apply_cohesion {
         <span class="hljs-literal">list</span> others &lt;- ((boids overlapping (circle (range)))  - self);
         <span class="hljs-literal">point</span> mass_center &lt;- (length(others) &gt; 0) ? mean (others collect (each.location)) : location;
 
@@ -117,115 +117,115 @@
         velocity &lt;- velocity + acc;   
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">avoid</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_avoid</span> </span>{ 
+    <span class="hljs-builtin">reflex</span> avoid <span class="hljs-symbol">when:</span> apply_avoid { 
         <span class="hljs-literal">point</span> acc &lt;- {0,0};
         <span class="hljs-literal">list</span>&lt;obstacle&gt; nearby_obstacles &lt;- (obstacle overlapping (circle (range)) );
-        loop obs over: nearby_obstacles {
+        <span class="hljs-keyword">loop</span> obs <span class="hljs-symbol">over:</span> nearby_obstacles {
             acc &lt;- acc - ((location of obs) - my (location));
         }
         velocity &lt;- velocity + acc; 
     }
     
-    action bounding {
+    <span class="hljs-keyword">action</span> bounding {
         <span class="hljs-keyword">if</span>  !(torus_environment) {
             <span class="hljs-keyword">if</span>  (location.x) &lt; xmin {
                 velocity &lt;- velocity + {bounds,0};
-            } else <span class="hljs-keyword">if</span> (location.x) &gt; xmax {
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (location.x) &gt; xmax {
                 velocity &lt;- velocity - {bounds,0};
             }
             
             <span class="hljs-keyword">if</span> (location.y) &lt; ymin {
                 velocity &lt;- velocity + {0,bounds};
-            } else <span class="hljs-keyword">if</span> (location.y) &gt; ymax {
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (location.y) &gt; ymax {
                 velocity &lt;- velocity - {0,bounds};
             }
             
         }
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">follow_goal</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_goal</span> </span>{
+    <span class="hljs-builtin">reflex</span> follow_goal <span class="hljs-symbol">when:</span> apply_goal {
         velocity &lt;- velocity + ((goal - location) / cohesion_factor);
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">wind</span> <span class="hljs-title">when</span>: <span class="hljs-title">apply_wind</span> </span>{
+    <span class="hljs-builtin">reflex</span> wind <span class="hljs-symbol">when:</span> apply_wind {
         velocity &lt;- velocity + wind_vector;
     }
       
-    action do_move {  
+    <span class="hljs-keyword">action</span> do_move {  
         <span class="hljs-keyword">if</span> (((velocity.x) as <span class="hljs-literal">int</span>) = 0) and (((velocity.y) as <span class="hljs-literal">int</span>) = 0) {
             velocity &lt;- {(rnd(4)) -2, (rnd(4)) - 2};
         }
         <span class="hljs-literal">point</span> old_location &lt;- copy(location);
-        do goto target: location + velocity;
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> location + velocity;
         velocity &lt;- location - old_location;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">movement</span> </span>{
-        do do_move;
+    <span class="hljs-builtin">reflex</span> movement {
+        <span class="hljs-keyword">do</span> do_move;
     }
     
-    aspect image {
-        draw (images at (rnd(2))) size: 35 rotate: heading color: <span class="hljs-literal">rgb</span>([0,0,rnd(200) + 55]);      
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">image</span> {
+        <span class="hljs-keyword">draw</span> (images at (rnd(2))) <span class="hljs-symbol">size:</span> 35 <span class="hljs-symbol">rotate:</span> heading <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>([0,0,rnd(200) + 55]);      
     }
-    aspect circle { 
-        draw circle(15) rotate: 90 + heading color: #red;
+    <span class="hljs-keyword">aspect</span> circle { 
+        <span class="hljs-keyword">draw</span> circle(15) <span class="hljs-symbol">rotate:</span> 90 + heading <span class="hljs-symbol">color:</span> #red;
     }
     
-    aspect default { 
-        draw triangle(15) rotate: 90 + heading color: #yellow;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> { 
+        <span class="hljs-keyword">draw</span> triangle(15) <span class="hljs-symbol">rotate:</span> 90 + heading <span class="hljs-symbol">color:</span> #yellow;
     }
 } 
 
-<span class="hljs-class">species <span class="hljs-title">obstacle</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> obstacle <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">float</span> speed &lt;- 2.0;
     <span class="hljs-literal">geometry</span> shape &lt;- triangle(15);
     
-    <span class="hljs-class">reflex <span class="hljs-title">move_obstacles</span> <span class="hljs-title">when</span>: <span class="hljs-title">moving_obstacles</span> </span>{
+    <span class="hljs-builtin">reflex</span> move_obstacles <span class="hljs-symbol">when:</span> moving_obstacles {
         <span class="hljs-keyword">if</span> flip(0.5)  
         { 
-            do goto target: one_of(boids);
+            <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> one_of(boids);
         } 
-        else{ 
-            do wander amplitude: 360;   
+        <span class="hljs-keyword">else</span>{ 
+            <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span> 360;   
         }
     }
-    aspect default {
-        draw  triangle(20) color: #yellow ;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span>  triangle(20) <span class="hljs-symbol">color:</span> #yellow ;
     }
 
     
-    aspect geom {
-        draw shape color: #yellow;
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #yellow;
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">Boids_gui</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter 'Number of agents' var: number_of_agents;
-    parameter 'Number of obstacles' var: number_of_obstacles;
-    parameter 'Maximal speed' var: maximal_speed;
-    parameter 'Cohesion Factor' var: cohesion_factor;
-    parameter 'Alignment Factor' var: alignment_factor; 
-    parameter 'Minimal Distance'  var: minimal_distance; 
-    parameter 'Maximal Turn'  var: maximal_turn; 
-    parameter 'Width/Height of the Environment' var: width_and_height_of_environment ;  
-    parameter 'Toroidal Environment ?'  var: torus_environment ; 
-    parameter 'Apply Cohesion ?' var: apply_cohesion ;
-    parameter 'Apply Alignment ?' var: apply_alignment ;   
-    parameter 'Apply Separation ?' var: apply_separation ;   
-    parameter 'Follow Goal ?' var: apply_goal ; 
-    parameter 'Apply Avoidance ?' var: apply_avoid ;   
-    parameter 'Apply Wind ?' var: apply_wind ;     
-    parameter 'Moving Obstacles ?' var: moving_obstacles  ;    
-    parameter 'Direction of the wind' var: wind_vector ;  
+<span class="hljs-builtin">experiment</span> Boids_gui <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of agents'</span> <span class="hljs-symbol">var:</span> number_of_agents;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of obstacles'</span> <span class="hljs-symbol">var:</span> number_of_obstacles;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Maximal speed'</span> <span class="hljs-symbol">var:</span> maximal_speed;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Cohesion Factor'</span> <span class="hljs-symbol">var:</span> cohesion_factor;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Alignment Factor'</span> <span class="hljs-symbol">var:</span> alignment_factor; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Minimal Distance'</span>  <span class="hljs-symbol">var:</span> minimal_distance; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Maximal Turn'</span>  <span class="hljs-symbol">var:</span> maximal_turn; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Width/Height of the Environment'</span> <span class="hljs-symbol">var:</span> width_and_height_of_environment ;  
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Toroidal Environment ?'</span>  <span class="hljs-symbol">var:</span> torus_environment ; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Cohesion ?'</span> <span class="hljs-symbol">var:</span> apply_cohesion ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Alignment ?'</span> <span class="hljs-symbol">var:</span> apply_alignment ;   
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Separation ?'</span> <span class="hljs-symbol">var:</span> apply_separation ;   
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Follow Goal ?'</span> <span class="hljs-symbol">var:</span> apply_goal ; 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Avoidance ?'</span> <span class="hljs-symbol">var:</span> apply_avoid ;   
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Apply Wind ?'</span> <span class="hljs-symbol">var:</span> apply_wind ;     
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Moving Obstacles ?'</span> <span class="hljs-symbol">var:</span> moving_obstacles  ;    
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Direction of the wind'</span> <span class="hljs-symbol">var:</span> wind_vector ;  
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Sky</span></span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Sky
         {
-            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
-            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">obstacle</span>;</span>
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'background'</span> <span class="hljs-symbol">file:</span><span class="hljs-string">'../images/sky.jpg'</span>;
+            <span class="hljs-literal">species</span> boids <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span>;
+            <span class="hljs-literal">species</span> boids_goal;
+            <span class="hljs-literal">species</span> obstacle;
         }
     }
 }
@@ -237,98 +237,98 @@
 <span class="hljs-comment">//import everything from Boids model, even the experiments</span>
 import <span class="hljs-string">"../includes/Boids.gaml"</span>
 
-<span class="hljs-class">experiment <span class="hljs-title">start</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> start <span class="hljs-symbol">type:</span> gui {
     
     <span class="hljs-comment">//each cycle will have a minimum duration of 0.03 second to slow the experiment allowing a better view of the dynamics</span>
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.03;
     
     <span class="hljs-comment">//the type opengl allows the 3D Display instead of only 2D</span>
-    output {
-        <span class="hljs-class">display <span class="hljs-title">RealBoids</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">z_fighting</span>:<span class="hljs-title">false</span> </span>{
-            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
-            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>  <span class="hljs-title">position</span>:</span>{0,0,0.1};
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.1};
-            <span class="hljs-class">species <span class="hljs-title">obstacle</span> <span class="hljs-title">position</span>:</span>{0,0,0.1};        
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> RealBoids  <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">z_fighting:</span>false {
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'background'</span> <span class="hljs-symbol">file:</span><span class="hljs-string">'../images/sky.jpg'</span>;
+            <span class="hljs-literal">species</span> boids <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span>  <span class="hljs-symbol">position:</span>{0,0,0.1};
+            <span class="hljs-literal">species</span> boids_goal <span class="hljs-symbol">transparency:</span>0.2 <span class="hljs-symbol">position:</span>{0,0,0.1};
+            <span class="hljs-literal">species</span> obstacle <span class="hljs-symbol">position:</span>{0,0,0.1};        
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">trajectory_analysis</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> trajectory_analysis <span class="hljs-symbol">type:</span> gui {
     
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.03;
-    output {
+    <span class="hljs-keyword">output</span> {
         
-        <span class="hljs-class">display <span class="hljs-title">RealBoids</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
-            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">trace</span>:100</span>{
-                draw triangle(20) rotate: 90 + heading color: hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) depth:8 ;  
+        <span class="hljs-keyword">display</span> RealBoids  <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'background'</span> <span class="hljs-symbol">file:</span><span class="hljs-string">'../images/sky.jpg'</span>;
+            <span class="hljs-literal">species</span> boids <span class="hljs-symbol">trace:</span>100{
+                <span class="hljs-keyword">draw</span> triangle(20) <span class="hljs-symbol">rotate:</span> 90 + heading <span class="hljs-symbol">color:</span> hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) <span class="hljs-symbol">depth:</span>8 ;  
             }
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.1};
-            <span class="hljs-class">species <span class="hljs-title">obstacle</span> <span class="hljs-title">position</span>:</span>{0,0,0.1};        
+            <span class="hljs-literal">species</span> boids_goal <span class="hljs-symbol">transparency:</span>0.2 <span class="hljs-symbol">position:</span>{0,0,0.1};
+            <span class="hljs-literal">species</span> obstacle <span class="hljs-symbol">position:</span>{0,0,0.1};        
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">SpaceTimeCube</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> SpaceTimeCube <span class="hljs-symbol">type:</span> gui {
     
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.03;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">RealBoids</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
-            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span> <span class="hljs-title">transparency</span>:0.5 <span class="hljs-title">position</span>:</span>{0,0,0.11};
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.1};
-            <span class="hljs-class">species <span class="hljs-title">obstacle</span> <span class="hljs-title">position</span>:</span>{0,0,0.1};        
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> RealBoids  <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'background'</span> <span class="hljs-symbol">file:</span><span class="hljs-string">'../images/sky.jpg'</span>;
+            <span class="hljs-literal">species</span> boids <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span> <span class="hljs-symbol">transparency:</span>0.5 <span class="hljs-symbol">position:</span>{0,0,0.11};
+            <span class="hljs-literal">species</span> boids_goal <span class="hljs-symbol">transparency:</span>0.2 <span class="hljs-symbol">position:</span>{0,0,0.1};
+            <span class="hljs-literal">species</span> obstacle <span class="hljs-symbol">position:</span>{0,0,0.1};        
         }
         
-        <span class="hljs-class">display <span class="hljs-title">SpaceTimeCubeAll</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
-            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">trace</span>:100</span>{
-                draw triangle(20) rotate: 90 + heading color: hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) depth:8 at: {location.x ,location.y,location.z+time};  
+        <span class="hljs-keyword">display</span> SpaceTimeCubeAll  <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'background'</span> <span class="hljs-symbol">file:</span><span class="hljs-string">'../images/sky.jpg'</span>;
+            <span class="hljs-literal">species</span> boids <span class="hljs-symbol">trace:</span>100{
+                <span class="hljs-keyword">draw</span> triangle(20) <span class="hljs-symbol">rotate:</span> 90 + heading <span class="hljs-symbol">color:</span> hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) <span class="hljs-symbol">depth:</span>8 <span class="hljs-symbol">at:</span> {location.x ,location.y,location.z+time};  
             }
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">trace</span>:100</span>{
-                draw sphere(10) color: #yellow at: {location.x ,location.y,location.z+time};
+            <span class="hljs-literal">species</span> boids_goal <span class="hljs-symbol">trace:</span>100{
+                <span class="hljs-keyword">draw</span> sphere(10) <span class="hljs-symbol">color:</span> #yellow <span class="hljs-symbol">at:</span> {location.x ,location.y,location.z+time};
             }   
         }
                 
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">MultipleView</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> MultipleView <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.03;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">RealBoids</span>   <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
-            <span class="hljs-class">species <span class="hljs-title">boids</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span>  <span class="hljs-title">transparency</span>:0.5 <span class="hljs-title">position</span>:</span>{0,0,0.25};
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.25};
-            <span class="hljs-class">species <span class="hljs-title">obstacle</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">boids</span>  <span class="hljs-title">aspect</span>: <span class="hljs-title">image</span> <span class="hljs-title">transparency</span>:0.2 <span class="hljs-title">position</span>:</span>{0,0,0.24};      
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> RealBoids   <span class="hljs-symbol">type:</span>opengl {
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'background'</span> <span class="hljs-symbol">file:</span><span class="hljs-string">'../images/sky.jpg'</span>;
+            <span class="hljs-literal">species</span> boids <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span>  <span class="hljs-symbol">transparency:</span>0.5 <span class="hljs-symbol">position:</span>{0,0,0.25};
+            <span class="hljs-literal">species</span> boids_goal <span class="hljs-symbol">transparency:</span>0.2 <span class="hljs-symbol">position:</span>{0,0,0.25};
+            <span class="hljs-literal">species</span> obstacle ;
+            <span class="hljs-literal">species</span> boids  <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">image</span> <span class="hljs-symbol">transparency:</span>0.2 <span class="hljs-symbol">position:</span>{0,0,0.24};      
         }
         <span class="hljs-comment">//The facet camera_pos is the position of the camera in the 3D display and the facet camera_look_pos is the position where the camera is looking</span>
-        <span class="hljs-class">display <span class="hljs-title">ThirdPersonn</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">camera_interaction</span>:<span class="hljs-title">false</span> <span class="hljs-title">camera_pos</span>:</span>{<span class="hljs-literal">int</span>(first(boids).location.x),<span class="hljs-literal">int</span>(first(boids).location.y),250} 
-        camera_look_pos:{<span class="hljs-literal">int</span>(first(boids).location.x),(first(boids).location.y),0} camera_up_vector:{0.0,-1.0,0.0} {
+        <span class="hljs-keyword">display</span> ThirdPersonn  <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">camera_interaction:</span>false <span class="hljs-symbol">camera_pos:</span>{<span class="hljs-literal">int</span>(first(boids).location.x),<span class="hljs-literal">int</span>(first(boids).location.y),250} 
+        <span class="hljs-symbol">camera_look_pos:</span>{<span class="hljs-literal">int</span>(first(boids).location.x),(first(boids).location.y),0} <span class="hljs-symbol">camera_up_vector:</span>{0.0,-1.0,0.0} {
         
-            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
-            <span class="hljs-class">species <span class="hljs-title">obstacle</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">boids</span></span>{
-                draw triangle(20) rotate: 90 + heading color: hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) depth:8 ;  
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'background'</span> <span class="hljs-symbol">file:</span><span class="hljs-string">'../images/sky.jpg'</span>;
+            <span class="hljs-literal">species</span> obstacle;
+            <span class="hljs-literal">species</span> boids{
+                <span class="hljs-keyword">draw</span> triangle(20) <span class="hljs-symbol">rotate:</span> 90 + heading <span class="hljs-symbol">color:</span> hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) <span class="hljs-symbol">depth:</span>8 ;  
             }
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span></span>{
-                draw sphere(10) color: #yellow;
+            <span class="hljs-literal">species</span> boids_goal{
+                <span class="hljs-keyword">draw</span> sphere(10) <span class="hljs-symbol">color:</span> #yellow;
             }   
         }
         
         <span class="hljs-comment">//The facet camera_up_vector allows the definition of the vector on which the top of the camera point at, it has to be perpendicular to the look vector</span>
-        <span class="hljs-class">display <span class="hljs-title">FirstPerson</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">camera_interaction</span>:<span class="hljs-title">false</span> <span class="hljs-title">camera_pos</span>:</span>{<span class="hljs-literal">int</span>(first(boids).location.x),<span class="hljs-literal">int</span>(first(boids).location.y),10} 
-            camera_look_pos:{cos(first(boids).heading)*first(boids).speed+<span class="hljs-literal">int</span>(first(boids).location.x),
+        <span class="hljs-keyword">display</span> FirstPerson  <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">camera_interaction:</span>false <span class="hljs-symbol">camera_pos:</span>{<span class="hljs-literal">int</span>(first(boids).location.x),<span class="hljs-literal">int</span>(first(boids).location.y),10} 
+            <span class="hljs-symbol">camera_look_pos:</span>{cos(first(boids).heading)*first(boids).speed+<span class="hljs-literal">int</span>(first(boids).location.x),
             sin(first(boids).heading)*first(boids).speed+<span class="hljs-literal">int</span>(first(boids).location.y),10} 
-            camera_up_vector:{0.0,0.0,1.0} {    
-            image 'background' <span class="hljs-literal">file</span>:'../images/sky.jpg';
-            <span class="hljs-class">species <span class="hljs-title">obstacle</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">boids</span></span>{
-                draw triangle(20) rotate: 90 + heading color: hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) depth:8 ;  
+            <span class="hljs-symbol">camera_up_vector:</span>{0.0,0.0,1.0} {    
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'background'</span> <span class="hljs-symbol">file:</span><span class="hljs-string">'../images/sky.jpg'</span>;
+            <span class="hljs-literal">species</span> obstacle ;
+            <span class="hljs-literal">species</span> boids{
+                <span class="hljs-keyword">draw</span> triangle(20) <span class="hljs-symbol">rotate:</span> 90 + heading <span class="hljs-symbol">color:</span> hsb (<span class="hljs-literal">float</span>(heading)/360.0,1.0,1.0) <span class="hljs-symbol">depth:</span>8 ;  
             }
-            <span class="hljs-class">species <span class="hljs-title">boids_goal</span></span>{
-                draw sphere(10) color: #yellow;
+            <span class="hljs-literal">species</span> boids_goal{
+                <span class="hljs-keyword">draw</span> sphere(10) <span class="hljs-symbol">color:</span> #yellow;
             }       
         }
     }

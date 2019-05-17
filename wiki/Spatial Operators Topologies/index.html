@@ -10,228 +10,228 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> gridfilter
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">map</span>&lt;dummy,<span class="hljs-literal">rgb</span>&gt;&gt; theDummies;
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">map</span>&lt;cell,<span class="hljs-literal">rgb</span>&gt;&gt; theCells;
-    <span class="hljs-literal">string</span> parameter_operator &lt;-<span class="hljs-string">"closest_to"</span> among:[<span class="hljs-string">"closest_to"</span>,<span class="hljs-string">"at_distance"</span>,<span class="hljs-string">"neighbors_at"</span>,<span class="hljs-string">"distance_to"</span>,<span class="hljs-string">"path_to"</span>,<span class="hljs-string">"cluster_distance"</span>,<span class="hljs-string">"cluster_hierarchical"</span>];
+    <span class="hljs-literal">string</span> parameter_operator &lt;-<span class="hljs-string">"closest_to"</span> <span class="hljs-symbol">among:</span>[<span class="hljs-string">"closest_to"</span>,<span class="hljs-string">"at_distance"</span>,<span class="hljs-string">"neighbors_at"</span>,<span class="hljs-string">"distance_to"</span>,<span class="hljs-string">"path_to"</span>,<span class="hljs-string">"cluster_distance"</span>,<span class="hljs-string">"cluster_hierarchical"</span>];
     init {
         
         <span class="hljs-comment">//Create the agents</span>
-        do create_dummy_agents;
+        <span class="hljs-keyword">do</span> create_dummy_agents;
  
 
         <span class="hljs-comment">//Different actions to test the operators</span>
-        do test_agents_at_distance;
-        do test_distance_to;
-        do test_neighbors_at;
-        do test_path_to;
-        do test_simple_clustering_by_distance;
-        do test_hierarchical_clustering;
-        do test_agent_closest_to;   
+        <span class="hljs-keyword">do</span> test_agents_at_distance;
+        <span class="hljs-keyword">do</span> test_distance_to;
+        <span class="hljs-keyword">do</span> test_neighbors_at;
+        <span class="hljs-keyword">do</span> test_path_to;
+        <span class="hljs-keyword">do</span> test_simple_clustering_by_distance;
+        <span class="hljs-keyword">do</span> test_hierarchical_clustering;
+        <span class="hljs-keyword">do</span> test_agent_closest_to;   
     }  
     
-    action test_agent_closest_to {
+    <span class="hljs-keyword">action</span> test_agent_closest_to {
         <span class="hljs-comment">//It is possible to use the topology of the world (default), the graph or the grid</span>
-        add [dummy(8)::#yellow] at:<span class="hljs-string">"closest_to"</span> to:theDummies;
-        add #red at:dummy closest_to (dummy(8)) to:theDummies[<span class="hljs-string">"closest_to"</span>];
+        <span class="hljs-keyword">add</span> [dummy(8)::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"closest_to"</span> <span class="hljs-symbol">to:</span>theDummies;
+        <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>dummy closest_to (dummy(8)) <span class="hljs-symbol">to:</span>theDummies[<span class="hljs-string">"closest_to"</span>];
         
         
-        add [cell(40)::#yellow] at:<span class="hljs-string">"closest_to"</span> to:theCells;
-        add #red at:cell closest_to (cell(40)) to:theCells[<span class="hljs-string">"closest_to"</span>];
+        <span class="hljs-keyword">add</span> [cell(40)::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"closest_to"</span> <span class="hljs-symbol">to:</span>theCells;
+        <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>cell closest_to (cell(40)) <span class="hljs-symbol">to:</span>theCells[<span class="hljs-string">"closest_to"</span>];
     }
-    action test_agents_at_distance {
+    <span class="hljs-keyword">action</span> test_agents_at_distance {
         
         <span class="hljs-comment">//It is possible to use the topology of the world (default), the graph or the grid</span>
-        ask dummy(8)
+        <span class="hljs-keyword">ask</span> dummy(8)
         {
-            add [self::#yellow] at:<span class="hljs-string">"at_distance"</span> to:theDummies;
-            loop a_dummy over: agents_at_distance(30) of_<span class="hljs-class">species <span class="hljs-title">dummy</span></span>
+            <span class="hljs-keyword">add</span> [self::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"at_distance"</span> <span class="hljs-symbol">to:</span>theDummies;
+            <span class="hljs-keyword">loop</span> a_dummy <span class="hljs-symbol">over:</span> agents_at_distance(30) of_species dummy
             {   
-                add #red at:a_dummy to:theDummies[<span class="hljs-string">"at_distance"</span>];
+                <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>a_dummy <span class="hljs-symbol">to:</span>theDummies[<span class="hljs-string">"at_distance"</span>];
             }
         }
-        ask cell(40)
+        <span class="hljs-keyword">ask</span> cell(40)
         {
-            add [self::#yellow] at:<span class="hljs-string">"at_distance"</span> to:theCells;
-            loop a_cell over: agents_at_distance(10) of_<span class="hljs-class">species <span class="hljs-title">cell</span></span>
+            <span class="hljs-keyword">add</span> [self::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"at_distance"</span> <span class="hljs-symbol">to:</span>theCells;
+            <span class="hljs-keyword">loop</span> a_cell <span class="hljs-symbol">over:</span> agents_at_distance(10) of_species cell
             {   
-                add #red at:a_cell to:theCells[<span class="hljs-string">"at_distance"</span>];
+                <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>a_cell <span class="hljs-symbol">to:</span>theCells[<span class="hljs-string">"at_distance"</span>];
             }
         }
     }
     
-    action test_neighbors_at {
+    <span class="hljs-keyword">action</span> test_neighbors_at {
         
         <span class="hljs-comment">//It is possible to use the topology of the world (default), the graph or the grid</span>
         <span class="hljs-comment">//The operator neighbors_at gives the same results that neighbors_of( an_agent, a_distance )</span>
         
-        add [dummy(8)::#yellow] at:<span class="hljs-string">"neighbors_at"</span> to:theDummies;
-        loop a_dummy over: dummy(8) neighbors_at 30
+        <span class="hljs-keyword">add</span> [dummy(8)::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"neighbors_at"</span> <span class="hljs-symbol">to:</span>theDummies;
+        <span class="hljs-keyword">loop</span> a_dummy <span class="hljs-symbol">over:</span> dummy(8) neighbors_at 30
         {   
-            add #red at:a_dummy to:theDummies[<span class="hljs-string">"neighbors_at"</span>];
+            <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>a_dummy <span class="hljs-symbol">to:</span>theDummies[<span class="hljs-string">"neighbors_at"</span>];
         }
-        add [cell(40)::#yellow] at:<span class="hljs-string">"neighbors_at"</span> to:theCells;
-        loop a_cell over: cell(40) neighbors_at 20
+        <span class="hljs-keyword">add</span> [cell(40)::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"neighbors_at"</span> <span class="hljs-symbol">to:</span>theCells;
+        <span class="hljs-keyword">loop</span> a_cell <span class="hljs-symbol">over:</span> cell(40) neighbors_at 20
         {   
-            add #red at:a_cell to:theCells[<span class="hljs-string">"neighbors_at"</span>];
+            <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>a_cell <span class="hljs-symbol">to:</span>theCells[<span class="hljs-string">"neighbors_at"</span>];
         }
     }
     
-    action test_distance_to {
+    <span class="hljs-keyword">action</span> test_distance_to {
         
         <span class="hljs-comment">//It is possible to use the topology of the world (default), the graph or the grid</span>
         <span class="hljs-comment">//The operator distance_to gives the same results that the operator topology distance_between[an_agent_A,an_agent_B]</span>
-        add [dummy(8)::#yellow] at:<span class="hljs-string">"distance_to"</span> to:theDummies;
-        add #red at:dummy(5) to:theDummies[<span class="hljs-string">"distance_to"</span>];
+        <span class="hljs-keyword">add</span> [dummy(8)::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"distance_to"</span> <span class="hljs-symbol">to:</span>theDummies;
+        <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>dummy(5) <span class="hljs-symbol">to:</span>theDummies[<span class="hljs-string">"distance_to"</span>];
         
-        add [cell(40)::#yellow] at:<span class="hljs-string">"distance_to"</span> to:theCells;
-        add #red at:cell(27) to:theCells[<span class="hljs-string">"distance_to"</span>];
+        <span class="hljs-keyword">add</span> [cell(40)::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"distance_to"</span> <span class="hljs-symbol">to:</span>theCells;
+        <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>cell(27) <span class="hljs-symbol">to:</span>theCells[<span class="hljs-string">"distance_to"</span>];
     }
     
-    action test_path_to {
+    <span class="hljs-keyword">action</span> test_path_to {
         
         <span class="hljs-comment">//It is possible to use the topology of the world (default), the graph or the grid</span>
         <span class="hljs-comment">//The operator distance_to gives the same results that the operator topology path_between[an_agent_A,an_agent_B]</span>
-        add [dummy(8)::#yellow] at:<span class="hljs-string">"path_to"</span> to:theDummies;
-        add #red at:dummy(9) to:theDummies[<span class="hljs-string">"path_to"</span>];
+        <span class="hljs-keyword">add</span> [dummy(8)::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"path_to"</span> <span class="hljs-symbol">to:</span>theDummies;
+        <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>dummy(9) <span class="hljs-symbol">to:</span>theDummies[<span class="hljs-string">"path_to"</span>];
         
-        add [cell(40)::#yellow] at:<span class="hljs-string">"path_to"</span> to:theCells;
-        add #red at:cell(28) to:theCells[<span class="hljs-string">"path_to"</span>];
+        <span class="hljs-keyword">add</span> [cell(40)::#yellow] <span class="hljs-symbol">at:</span><span class="hljs-string">"path_to"</span> <span class="hljs-symbol">to:</span>theCells;
+        <span class="hljs-keyword">add</span> #red <span class="hljs-symbol">at:</span>cell(28) <span class="hljs-symbol">to:</span>theCells[<span class="hljs-string">"path_to"</span>];
     }
-    action test_simple_clustering_by_distance 
+    <span class="hljs-keyword">action</span> test_simple_clustering_by_distance 
     {
         <span class="hljs-comment">//Can be used for other topologies by adding using(topology(cell)) for example</span>
         
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;dummy&gt;&gt; clusteredDummies &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;dummy&gt;&gt;(dummy simple_clustering_by_distance 30);
-        loop a_list over: clusteredDummies
+        <span class="hljs-keyword">loop</span> a_list <span class="hljs-symbol">over:</span> clusteredDummies
         {
             <span class="hljs-literal">rgb</span> colorList &lt;- <span class="hljs-literal">rgb</span>(rnd(255),rnd(255),rnd(255));
-            loop a_dummy over: a_list
+            <span class="hljs-keyword">loop</span> a_dummy <span class="hljs-symbol">over:</span> a_list
             {
                 <span class="hljs-keyword">if</span>(length(theDummies[<span class="hljs-string">"cluster_distance"</span>])=0)
                 {
-                    add <span class="hljs-literal">map</span>&lt;dummy,<span class="hljs-literal">rgb</span>&gt;([a_dummy::colorList]) at:<span class="hljs-string">"cluster_distance"</span> to:theDummies;
+                    <span class="hljs-keyword">add</span> <span class="hljs-literal">map</span>&lt;dummy,<span class="hljs-literal">rgb</span>&gt;([a_dummy::colorList]) <span class="hljs-symbol">at:</span><span class="hljs-string">"cluster_distance"</span> <span class="hljs-symbol">to:</span>theDummies;
                 }
-                else
+                <span class="hljs-keyword">else</span>
                 {
-                    add colorList at:a_dummy to:theDummies[<span class="hljs-string">"cluster_distance"</span>];
+                    <span class="hljs-keyword">add</span> colorList <span class="hljs-symbol">at:</span>a_dummy <span class="hljs-symbol">to:</span>theDummies[<span class="hljs-string">"cluster_distance"</span>];
                 }
             }
         }
     }
-    action test_hierarchical_clustering {
+    <span class="hljs-keyword">action</span> test_hierarchical_clustering {
         <span class="hljs-comment">//Can be used for other topologies by adding using(topology(cell)) for example</span>
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;dummy&gt;&gt; clusteredDummies &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;dummy&gt;&gt;(dummy hierarchical_clustering 10);
         
-        loop a_list over: clusteredDummies
+        <span class="hljs-keyword">loop</span> a_list <span class="hljs-symbol">over:</span> clusteredDummies
         {
             <span class="hljs-literal">rgb</span> colorList &lt;- <span class="hljs-literal">rgb</span>(rnd(255),rnd(255),rnd(255));
-            loop a_dummy over: a_list
+            <span class="hljs-keyword">loop</span> a_dummy <span class="hljs-symbol">over:</span> a_list
             {
                 <span class="hljs-keyword">if</span>(length(theDummies[<span class="hljs-string">"cluster_hierarchical"</span>])=0)
                 {
-                    add <span class="hljs-literal">map</span>&lt;dummy,<span class="hljs-literal">rgb</span>&gt;([a_dummy::colorList]) at:<span class="hljs-string">"cluster_hierarchical"</span> to:theDummies;
+                    <span class="hljs-keyword">add</span> <span class="hljs-literal">map</span>&lt;dummy,<span class="hljs-literal">rgb</span>&gt;([a_dummy::colorList]) <span class="hljs-symbol">at:</span><span class="hljs-string">"cluster_hierarchical"</span> <span class="hljs-symbol">to:</span>theDummies;
                 }
-                else
+                <span class="hljs-keyword">else</span>
                 {
-                    add colorList at:a_dummy to:theDummies[<span class="hljs-string">"cluster_hierarchical"</span>];
+                    <span class="hljs-keyword">add</span> colorList <span class="hljs-symbol">at:</span>a_dummy <span class="hljs-symbol">to:</span>theDummies[<span class="hljs-string">"cluster_hierarchical"</span>];
                 }
             }
         }
     }
-    action create_dummy_agents {
-        create dummy with: [location :: {5,5}];
-        create dummy with: [location :: {8,9}];
-        create dummy with: [location :: {14,6}];
-        create dummy with: [location :: {35,55}];
-        create dummy with: [location :: {25,75}];
-        create dummy with: [location :: {56,80}];
-        create dummy with: [location :: {10,70}];
-        create dummy with: [location :: {80,8}];
-        create dummy with: [location :: {34,78}];
-        create dummy with: [location :: {67,32}];
-        loop i from: 0 to: length(dummy) - 1 {
-            ask dummy[i] {id &lt;- <span class="hljs-literal">string</span>(i);}
+    <span class="hljs-keyword">action</span> create_dummy_agents {
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {5,5}];
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {8,9}];
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {14,6}];
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {35,55}];
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {25,75}];
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {56,80}];
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {10,70}];
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {80,8}];
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {34,78}];
+        <span class="hljs-keyword">create</span> dummy <span class="hljs-symbol">with:</span> [location :: {67,32}];
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> length(dummy) - 1 {
+            <span class="hljs-keyword">ask</span> dummy[i] {id &lt;- <span class="hljs-literal">string</span>(i);}
         }
     }
     
 }
 
-<span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 10 <span class="hljs-title">height</span>: 10 <span class="hljs-title">neighbors</span>: 4</span>{
+grid cell <span class="hljs-symbol">width:</span> 10 <span class="hljs-symbol">height:</span> 10 <span class="hljs-symbol">neighbors:</span> 4{
     <span class="hljs-literal">rgb</span> color &lt;- #green;
 }
 
-<span class="hljs-class">species <span class="hljs-title">dummy</span> </span>{
+<span class="hljs-literal">species</span> dummy {
     <span class="hljs-literal">string</span> id;
-    aspect default {
-        draw circle(2) color: #yellow;
-        draw id size: 6 color: #black;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">color:</span> #yellow;
+        <span class="hljs-keyword">draw</span> id <span class="hljs-symbol">size:</span> 6 <span class="hljs-symbol">color:</span> #black;
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">topology_test</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> topology_test <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-comment">/** Insert here the definition of the input and output of the model */</span>
-    parameter <span class="hljs-string">"Operator"</span> var: parameter_operator;
-    output {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Operator"</span> <span class="hljs-symbol">var:</span> parameter_operator;
+    <span class="hljs-keyword">output</span> {
         
-        <span class="hljs-class">display <span class="hljs-title">Continuous_Environment</span>  </span>
+        <span class="hljs-keyword">display</span> Continuous_Environment  
         {
-            graphics cell
+            <span class="hljs-keyword">graphics</span> cell
             {
-                loop a_key over: theCells[parameter_operator].pairs {
-                    draw a_key.key at:a_key.key.location color: theCells[parameter_operator][a_key.key] ;
+                <span class="hljs-keyword">loop</span> a_key <span class="hljs-symbol">over:</span> theCells[parameter_operator].pairs {
+                    <span class="hljs-keyword">draw</span> a_key.key <span class="hljs-symbol">at:</span>a_key.key.location <span class="hljs-symbol">color:</span> theCells[parameter_operator][a_key.key] ;
                 }
-                loop a_cell over: cell-theCells[parameter_operator].keys
+                <span class="hljs-keyword">loop</span> a_cell <span class="hljs-symbol">over:</span> cell-theCells[parameter_operator].keys
                 {
-                    draw a_cell at:a_cell.location color: #green ;
+                    <span class="hljs-keyword">draw</span> a_cell <span class="hljs-symbol">at:</span>a_cell.location <span class="hljs-symbol">color:</span> #green ;
                 }
                 
                 <span class="hljs-comment">//Display a line between the two chosen cell for the distance_to operator</span>
                 <span class="hljs-keyword">if</span>(parameter_operator=<span class="hljs-string">"distance_to"</span>)
                 {
                     <span class="hljs-literal">geometry</span> aLine &lt;- line([theCells[parameter_operator].keys[0].location,theCells[parameter_operator].keys[1].location]) +1.2;
-                    draw (aLine) color:#silver;
-                    draw <span class="hljs-literal">string</span>(distance_to (theCells[parameter_operator].keys[0].location,theCells[parameter_operator].keys[1].location)) at:aLine.location size: 6 color: #silver;    
+                    <span class="hljs-keyword">draw</span> (aLine) <span class="hljs-symbol">color:</span>#silver;
+                    <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span>(distance_to (theCells[parameter_operator].keys[0].location,theCells[parameter_operator].keys[1].location)) <span class="hljs-symbol">at:</span>aLine.location <span class="hljs-symbol">size:</span> 6 <span class="hljs-symbol">color:</span> #silver;    
                 }
-                else
+                <span class="hljs-keyword">else</span>
                 {
                     <span class="hljs-comment">//Display a path between the two chosen cell for the path_to operator</span>
                     <span class="hljs-keyword">if</span>(parameter_operator=<span class="hljs-string">"path_to"</span>)
                     {
                             <span class="hljs-literal">path</span> aPath &lt;- theCells[parameter_operator].keys[0] path_to theCells[parameter_operator].keys[1].location;
-                            loop eg over: aPath.edges
+                            <span class="hljs-keyword">loop</span> eg <span class="hljs-symbol">over:</span> aPath.edges
                             {
-                                draw (<span class="hljs-literal">geometry</span>(eg)+1.2) color:#silver;
+                                <span class="hljs-keyword">draw</span> (<span class="hljs-literal">geometry</span>(eg)+1.2) <span class="hljs-symbol">color:</span>#silver;
                             }
                     }
                 }
             }
-            graphics dummy
+            <span class="hljs-keyword">graphics</span> dummy
             {
-                loop a_key over: theDummies[parameter_operator].pairs {
-                    draw circle(2) at:a_key.key.location color: theDummies[parameter_operator][a_key.key] ;
-                    draw a_key.key.id at:a_key.key.location size: 6 color: #black;  
+                <span class="hljs-keyword">loop</span> a_key <span class="hljs-symbol">over:</span> theDummies[parameter_operator].pairs {
+                    <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">at:</span>a_key.key.location <span class="hljs-symbol">color:</span> theDummies[parameter_operator][a_key.key] ;
+                    <span class="hljs-keyword">draw</span> a_key.key.id <span class="hljs-symbol">at:</span>a_key.key.location <span class="hljs-symbol">size:</span> 6 <span class="hljs-symbol">color:</span> #black;  
                 }
-                loop a_dummy over: dummy-theDummies[parameter_operator].keys
+                <span class="hljs-keyword">loop</span> a_dummy <span class="hljs-symbol">over:</span> dummy-theDummies[parameter_operator].keys
                 {
-                    draw circle(2) at:a_dummy.location color: #grey ;
-                    draw a_dummy.id at:a_dummy.location size: 6 color: #black;  
+                    <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">at:</span>a_dummy.location <span class="hljs-symbol">color:</span> #grey ;
+                    <span class="hljs-keyword">draw</span> a_dummy.id <span class="hljs-symbol">at:</span>a_dummy.location <span class="hljs-symbol">size:</span> 6 <span class="hljs-symbol">color:</span> #black;  
                 }
                 <span class="hljs-comment">//Display a line between the two chosen dummies for the distance_to operator</span>
                 <span class="hljs-keyword">if</span>(parameter_operator=<span class="hljs-string">"distance_to"</span>)
                 {
                     <span class="hljs-literal">geometry</span> aLine &lt;- line([theDummies[parameter_operator].keys[0].location,theDummies[parameter_operator].keys[1].location]) +1.2;
-                    draw (aLine) color:#pink;
-                    draw <span class="hljs-literal">string</span>(distance_to (theDummies[parameter_operator].keys[0].location,theDummies[parameter_operator].keys[1].location)) at:aLine.location size: 6 color: #pink;  
+                    <span class="hljs-keyword">draw</span> (aLine) <span class="hljs-symbol">color:</span>#pink;
+                    <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span>(distance_to (theDummies[parameter_operator].keys[0].location,theDummies[parameter_operator].keys[1].location)) <span class="hljs-symbol">at:</span>aLine.location <span class="hljs-symbol">size:</span> 6 <span class="hljs-symbol">color:</span> #pink;  
                 }
-                else
+                <span class="hljs-keyword">else</span>
                 {
                     <span class="hljs-comment">//Display a path between the two chosen dummies for the path_to operator</span>
                     <span class="hljs-keyword">if</span>(parameter_operator=<span class="hljs-string">"path_to"</span>)
                     {
                             <span class="hljs-literal">path</span> aPath &lt;- theDummies[parameter_operator].keys[0] path_to theDummies[parameter_operator].keys[1].location;
-                            loop eg over: aPath.edges
+                            <span class="hljs-keyword">loop</span> eg <span class="hljs-symbol">over:</span> aPath.edges
                             {
-                                draw (<span class="hljs-literal">geometry</span>(eg)+1.2) color:#pink;
+                                <span class="hljs-keyword">draw</span> (<span class="hljs-literal">geometry</span>(eg)+1.2) <span class="hljs-symbol">color:</span>#pink;
                             }
                     }
                 }

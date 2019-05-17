@@ -58,7 +58,7 @@
 <p>These control architectures will give the possibility to the modeler to use for a species a specific control architecture in addition to the <a href="DefiningActionsAndBehaviors#Behaviour">common behavior structure</a>. Note that only one control architecture can be used per species.</p>
 <p>The attachment of a control architecture to a species is done through the facets <code>control</code>.</p>
 <p>For example, the given code allows to attach the <code>fsm</code> control architecture to the dummy species.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">fsm</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> dummy <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> {
 }
 </code></pre>
 <p>GAMA integrates several agent control architectures that can be used in addition to the common behavior structure:</p>
@@ -102,7 +102,7 @@
 <p>Note that an agent executes only one state at each step.</p>
 <h3><a class="anchor" aria-hidden="true" id="declaration"></a><a href="#declaration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaration</h3>
 <p>Using the FSM architecture for a species require to use the <strong>control</strong> facet:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">fsm</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> dummy <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> {
    ...
 }
 </code></pre>
@@ -131,48 +131,48 @@
 <li>Those enclosed in a transition will be executed when performing this transition (but after the <code>exit</code> sequence has been executed).</li>
 </ol>
 <p>For example, consider the following example:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">fsm</span> </span>{       
-    state state1 initial: true { 
-        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"state1"</span>;
-        transition to: state2 when: flip(0.5) {
-            write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"transition to state1"</span>;
+<pre><code class="hljs"><span class="hljs-literal">species</span> dummy <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> {       
+    <span class="hljs-keyword">state</span> state1 <span class="hljs-symbol">initial:</span> true { 
+        <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"state1"</span>;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> state2 <span class="hljs-symbol">when:</span> flip(0.5) {
+            <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"transition to state1"</span>;
         }
-        transition to: state3 when: flip(0.2) ; 
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> state3 <span class="hljs-symbol">when:</span> flip(0.2) ; 
     }
 
-    state state2 {
-        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"state2"</span>;
-        transition to: state1 when: flip(0.5) { 
-            write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"transition to state1"</span>;
+    <span class="hljs-keyword">state</span> state2 {
+        <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"state2"</span>;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> state1 <span class="hljs-symbol">when:</span> flip(0.5) { 
+            <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"transition to state1"</span>;
         }
-        exit {
-            write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"leave state2"</span>;
+        <span class="hljs-keyword">exit</span> {
+            <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"leave state2"</span>;
         }
     }
     
-    state state3 {
-        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"state3"</span>;
-        transition to: state1 when: flip(0.5)  {
-            write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"transition to state1"</span>;
+    <span class="hljs-keyword">state</span> state3 {
+        <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"state3"</span>;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> state1 <span class="hljs-symbol">when:</span> flip(0.5)  {
+            <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"transition to state1"</span>;
         }
-        transition to: state2 when: flip(0.2)  ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> state2 <span class="hljs-symbol">when:</span> flip(0.2)  ;
     }   
 }
 </code></pre>
 <p>the dummy agents start at <em>state1</em>. At each simulation step they have a probability of 0.5 to change their state to <em>state2</em>. If they do not change their state to <em>state2</em>, they have a probability of 0.2 to change their state to <em>state3</em>. In <em>state2</em>, at each simulation step, they have a probability of 0.5 to change their state to <em>state1</em>. At last, in <em>step3</em>, at each simulation step they have a probability of 0.5 to change their state to <em>state1</em>. If they do not change their state to <em>state1</em>, they have a probability of 0.2 to change their state to <em>state2</em>.</p>
 <p>Here a possible result that can be obtained with one dummy agent:</p>
 <pre><code class="hljs">0:dummy0-&gt;state1
-0:dummy0-&gt;transition to state1
+0:dummy0-&gt;<span class="hljs-keyword">transition</span> to state1
 1:dummy0-&gt;state2
 2:dummy0-&gt;state2
 2:dummy0-&gt;leave state2
-2:dummy0-&gt;transition to state1
+2:dummy0-&gt;<span class="hljs-keyword">transition</span> to state1
 3:dummy0-&gt;state1
-3:dummy0-&gt;transition to state1
+3:dummy0-&gt;<span class="hljs-keyword">transition</span> to state1
 4:dummy0-&gt;state2
 5:dummy0-&gt;state2
 5:dummy0-&gt;leave state2
-5:dummy0-&gt;transition to state1
+5:dummy0-&gt;<span class="hljs-keyword">transition</span> to state1
 6:dummy0-&gt;state1
 7:dummy0-&gt;state3
 8:dummy0-&gt;state2
@@ -186,15 +186,15 @@
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="declaration-1"></a><a href="#declaration-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaration</h3>
 <p>Using the Task architectures for a species require to use the <strong>control</strong> facet:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">weighted_tasks</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> dummy <span class="hljs-symbol">control:</span> <span class="hljs-builtin">weighted_tasks</span> {
    ...
 }
 </code></pre>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">sorted_tasks</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> dummy <span class="hljs-symbol">control:</span> <span class="hljs-builtin">sorted_tasks</span> {
    ...
 }
 </code></pre>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">probabilistic_tasks</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> dummy <span class="hljs-symbol">control:</span> <span class="hljs-builtin">probabilistic_tasks</span> {
    ...
 }
 </code></pre>
@@ -207,12 +207,12 @@
 <h4><a class="anchor" aria-hidden="true" id="definition-1"></a><a href="#definition-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Definition</h4>
 <p>As reflex, a task is a sequence of statements that can be executed, at each time step, by the agent. If an agent owns several tasks, the scheduler chooses a task to execute based on its current priority weight value.</p>
 <p>For example, consider the following example:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">control</span>: <span class="hljs-title">weighted_tasks</span> </span>{   
-    task task1 weight: cycle mod 3 { 
-        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"task1"</span>;
+<pre><code class="hljs"><span class="hljs-literal">species</span> dummy <span class="hljs-symbol">control:</span> <span class="hljs-builtin">weighted_tasks</span> {   
+    <span class="hljs-keyword">task</span> task1 <span class="hljs-symbol">weight:</span> cycle mod 3 { 
+        <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"task1"</span>;
     }
-    task task2 weight: 2 { 
-        write <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"task2"</span>;
+    <span class="hljs-keyword">task</span> task2 <span class="hljs-symbol">weight:</span> 2 { 
+        <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">":"</span> + name + <span class="hljs-string">"-&gt;"</span> + <span class="hljs-string">"task2"</span>;
     }
 }
 </code></pre>
@@ -229,7 +229,7 @@
 <h2><a class="anchor" aria-hidden="true" id="user-control-architecture"></a><a href="#user-control-architecture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User Control Architecture</h2>
 <h3><a class="anchor" aria-hidden="true" id="user-_only-user-_first-user-_last"></a><a href="#user-_only-user-_first-user-_last" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>user_only, user_first, user_last</h3>
 <p>A specific type of control architecture has been introduced to allow users to take control over an agent during the course of the simulation. It can be invoked using three different keywords: <code>user_only</code>, <code>user_first</code>, <code>user_last</code>.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">user</span> <span class="hljs-title">control</span>: <span class="hljs-title">user_only</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> user <span class="hljs-symbol">control:</span> <span class="hljs-builtin">user_only</span> {
    ...
 }
 </code></pre>
@@ -245,35 +245,35 @@ If the control chosen is <code>user_last</code>, it is the contrary.</p>
 </ul>
 <p>This ensures a great flexibility for the design of the user interface proposed to the user, as it can be adapted to the different stages of the simulation, etc...</p>
 <p>Follows a simple example, where, every 10 steps, and depending on the value of an attribute called &quot;advanced&quot;, either the basic or the advanced panel is proposed. (The full model is provided in the GAMA model library.)</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">user</span> <span class="hljs-title">control</span>:<span class="hljs-title">user_only</span> </span>{
-   user_panel default initial: true {
-      transition to: <span class="hljs-string">"Basic Control"</span> when: every (10 #cycles) and !advanced_user_control;
-      transition to: <span class="hljs-string">"Advanced Control"</span> when: every(10 #cycles) and advanced_user_control;
+<pre><code class="hljs"><span class="hljs-literal">species</span> user <span class="hljs-symbol">control:</span><span class="hljs-builtin">user_only</span> {
+   <span class="hljs-keyword">user_panel</span> <span class="hljs-keyword">default</span> <span class="hljs-symbol">initial:</span> true {
+      <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> <span class="hljs-string">"Basic Control"</span> <span class="hljs-symbol">when:</span> every (10 #cycles) and !advanced_user_control;
+      <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> <span class="hljs-string">"Advanced Control"</span> <span class="hljs-symbol">when:</span> every(10 #cycles) and advanced_user_control;
    }
    
-   user_panel <span class="hljs-string">"Basic Control"</span> {
-      user_command <span class="hljs-string">"Kill one cell"</span> {
-         ask (one_of(cell)){
-            do die;
+   <span class="hljs-keyword">user_panel</span> <span class="hljs-string">"Basic Control"</span> {
+      <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Kill one cell"</span> {
+         <span class="hljs-keyword">ask</span> (one_of(cell)){
+            <span class="hljs-keyword">do</span> die;
          }
       }
-      user_command <span class="hljs-string">"Create one cell"</span> {
-        create cell ;
+      <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Create one cell"</span> {
+        <span class="hljs-keyword">create</span> cell ;
       } 
-      transition to: default when: true;
+      <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> <span class="hljs-keyword">default</span> <span class="hljs-symbol">when:</span> true;
    }
-   user_panel <span class="hljs-string">"Advanced Control"</span> {
-      user_command <span class="hljs-string">"Kill cells"</span> {
-        user_input <span class="hljs-string">"Number"</span> returns: number type: <span class="hljs-literal">int</span> &lt;- 10;
-        ask (number among cell){
-           do die;
+   <span class="hljs-keyword">user_panel</span> <span class="hljs-string">"Advanced Control"</span> {
+      <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Kill cells"</span> {
+        <span class="hljs-keyword">user_input</span> <span class="hljs-string">"Number"</span> <span class="hljs-symbol">returns:</span> number <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> &lt;- 10;
+        <span class="hljs-keyword">ask</span> (number among cell){
+           <span class="hljs-keyword">do</span> die;
         }
       }
-      user_command <span class="hljs-string">"Create cells"</span> {
-        user_input <span class="hljs-string">"Number"</span> returns: number type: <span class="hljs-literal">int</span> &lt;- 10;
-        create cell number: number ;
+      <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Create cells"</span> {
+        <span class="hljs-keyword">user_input</span> <span class="hljs-string">"Number"</span> <span class="hljs-symbol">returns:</span> number <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> &lt;- 10;
+        <span class="hljs-keyword">create</span> cell <span class="hljs-symbol">number:</span> number ;
       } 
-      transition to: default when: true;
+      <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> <span class="hljs-keyword">default</span> <span class="hljs-symbol">when:</span> true;
    }
 }
 </code></pre>

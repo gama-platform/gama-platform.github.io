@@ -10,30 +10,30 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> GIS_visualization
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">file</span> shape_file_buildings &lt;- shape_file(<span class="hljs-string">"../includes/building.shp"</span>);
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_buildings);
     <span class="hljs-literal">string</span> texture &lt;- <span class="hljs-string">"../images/building_texture/texture1.jpg"</span>;
     <span class="hljs-literal">string</span> roof_texture &lt;- <span class="hljs-string">"../images/building_texture/roof_top.png"</span>;   
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">GIS_visualization</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> GIS_visualization <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 1#s;
 
     
-    output {
+    <span class="hljs-keyword">output</span> {
         <span class="hljs-comment">// display of buildings in 3D with texture and with reading their HEIGHT attribute from the shapefile</span>
-        <span class="hljs-class">display <span class="hljs-title">gis_displays_graphics</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span>  </span>{
-            graphics <span class="hljs-string">"Buildings as shapes"</span> refresh: false {
-                loop bd over: shape_file_buildings {
-                    draw bd depth: rnd(50) + 50 texture:[roof_texture,texture] border:false;
+        <span class="hljs-keyword">display</span> gis_displays_graphics <span class="hljs-symbol">type:</span> opengl  {
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"Buildings as shapes"</span> <span class="hljs-symbol">refresh:</span> false {
+                <span class="hljs-keyword">loop</span> bd <span class="hljs-symbol">over:</span> shape_file_buildings {
+                    <span class="hljs-keyword">draw</span> bd <span class="hljs-symbol">depth:</span> rnd(50) + 50 <span class="hljs-symbol">texture:</span>[roof_texture,texture] <span class="hljs-symbol">border:</span>false;
                 }
             }
         }
         
         <span class="hljs-comment">//display of the building as an image</span>
-        <span class="hljs-class">display <span class="hljs-title">gis_displays_image</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            image <span class="hljs-string">"Buildings as images"</span> gis: shape_file_buildings.<span class="hljs-literal">path</span> color: <span class="hljs-literal">rgb</span>(<span class="hljs-string">"gray"</span>) refresh: false;
+        <span class="hljs-keyword">display</span> gis_displays_image <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-keyword">image</span> <span class="hljs-string">"Buildings as images"</span> <span class="hljs-symbol">gis:</span> shape_file_buildings.<span class="hljs-literal">path</span> <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-string">"gray"</span>) <span class="hljs-symbol">refresh:</span> false;
         }
     }
 }

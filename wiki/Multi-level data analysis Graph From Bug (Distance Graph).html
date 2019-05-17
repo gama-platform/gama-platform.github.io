@@ -10,47 +10,47 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> SpatialGraph
 <span class="hljs-comment">//Import the model Common Bug Species model</span>
-import '../includes/Common Bug Species.gaml'
+import <span class="hljs-string">'../includes/Common Bug Species.gaml'</span>
 
 
-<span class="hljs-class">global </span>{ 
+global { 
     <span class="hljs-comment">//Graph that will be computed at each step linking the bug agents according to their distance</span>
     <span class="hljs-literal">graph</span> myGraph;
     <span class="hljs-comment">//Minimal distance to consider two nodes agents (ie the bug) as connected</span>
-    <span class="hljs-literal">float</span> distance parameter: 'Distance' min: 1.0 &lt;- 10.0 category: 'Model';
+    <span class="hljs-literal">float</span> distance <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Distance'</span> <span class="hljs-symbol">min:</span> 1.0 &lt;- 10.0 <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span>;
     
     <span class="hljs-comment">//Reflex to update the graph when cycle is greater than 0. Important because the mirroring has one step late from</span>
     <span class="hljs-comment">//the original species, and at step 0, the mirroring species aren't created</span>
-    <span class="hljs-class">reflex <span class="hljs-title">updateGraph</span> <span class="hljs-title">when</span>:(<span class="hljs-title">cycle</span>&gt;0)</span>{
+    <span class="hljs-builtin">reflex</span> updateGraph <span class="hljs-symbol">when:</span>(cycle&gt;0){
         <span class="hljs-comment">//Kill all the edge agent to create a new graph</span>
-        ask edge_agent {
-            do die;
+        <span class="hljs-keyword">ask</span> edge_agent {
+            <span class="hljs-keyword">do</span> die;
         }
         <span class="hljs-comment">//Create a new graph using the distance to compute the edges</span>
         myGraph &lt;- as_distance_graph(node_agent, [<span class="hljs-string">"distance"</span>::distance, <span class="hljs-string">"species"</span>::edge_agent]);
     }
 }
 <span class="hljs-comment">//Species node_agent mirroring the bug species</span>
-<span class="hljs-class">species <span class="hljs-title">node_agent</span> <span class="hljs-title">mirrors</span>: <span class="hljs-title">list</span>(<span class="hljs-title">bug</span>) </span>{
+<span class="hljs-literal">species</span> node_agent <span class="hljs-symbol">mirrors:</span> <span class="hljs-literal">list</span>(bug) {
     <span class="hljs-comment">//Each location will be the one of the bug at the previous step</span>
-    <span class="hljs-literal">point</span> location &lt;- target.location update: target.location;
-    aspect base {
-        draw sphere(1.1) color: #green; 
+    <span class="hljs-literal">point</span> location &lt;- target.location <span class="hljs-symbol">update:</span> target.location;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> sphere(1.1) <span class="hljs-symbol">color:</span> #green; 
     }
 }
 <span class="hljs-comment">//Species to represent the edge of the graph</span>
-<span class="hljs-class">species <span class="hljs-title">edge_agent</span> </span>{
-    aspect base {
-        draw shape color: #green;
+<span class="hljs-literal">species</span> edge_agent {
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #green;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">spatialGraph</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {    
-     <span class="hljs-class">display <span class="hljs-title">graph_view</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">bug</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">node_agent</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> <span class="hljs-title">position</span>:</span>{0,0,0.1};
-            <span class="hljs-class">species <span class="hljs-title">edge_agent</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> <span class="hljs-title">position</span>:</span>{0,0,0.1};
+<span class="hljs-builtin">experiment</span> spatialGraph <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {    
+     <span class="hljs-keyword">display</span> graph_view <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> bug <span class="hljs-symbol">aspect:</span>base;
+            <span class="hljs-literal">species</span> node_agent <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span>{0,0,0.1};
+            <span class="hljs-literal">species</span> edge_agent <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span>{0,0,0.1};
         }
     }
 }

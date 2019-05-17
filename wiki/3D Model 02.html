@@ -9,35 +9,35 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> Tuto3D   
 
-<span class="hljs-class">global </span>{
+global {
   <span class="hljs-literal">int</span> nb_cells &lt;-100;
   <span class="hljs-literal">int</span> environmentSize &lt;-100;
   <span class="hljs-literal">geometry</span> shape &lt;- cube(environmentSize);  
   init { 
-    create cells number: nb_cells { 
+    <span class="hljs-keyword">create</span> cells <span class="hljs-symbol">number:</span> nb_cells { 
       location &lt;- {rnd(environmentSize), rnd(environmentSize), rnd(environmentSize)};       
     } 
   }  
 } 
   
-<span class="hljs-class">species <span class="hljs-title">cells</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving3D</span>]</span>{  
+<span class="hljs-literal">species</span> cells <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving3D</span>]{  
     
-  <span class="hljs-class">reflex <span class="hljs-title">move</span></span>{
-    do move;
+  <span class="hljs-builtin">reflex</span> move{
+    <span class="hljs-keyword">do</span> move;
   }                     
-  aspect default {
-    draw sphere(environmentSize*0.01) color:#blue;   
+  <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-keyword">draw</span> sphere(environmentSize*0.01) <span class="hljs-symbol">color:</span>#blue;   
   }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Tuto3D</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-  parameter <span class="hljs-string">"Initial number of cells: "</span> var: nb_cells min: 1 max: 1000 category: <span class="hljs-string">"Cells"</span> ;
-  output {
-    <span class="hljs-class">display <span class="hljs-title">View1</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span></span>{
-      graphics <span class="hljs-string">"env"</span>{
-        draw cube(environmentSize) color: #black empty:true;    
+<span class="hljs-builtin">experiment</span> Tuto3D  <span class="hljs-symbol">type:</span> gui {
+  <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of cells: "</span> <span class="hljs-symbol">var:</span> nb_cells <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Cells"</span> ;
+  <span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">display</span> View1 <span class="hljs-symbol">type:</span>opengl{
+      <span class="hljs-keyword">graphics</span> <span class="hljs-string">"env"</span>{
+        <span class="hljs-keyword">draw</span> cube(environmentSize) <span class="hljs-symbol">color:</span> #black <span class="hljs-symbol">empty:</span>true;    
       }
-      <span class="hljs-class">species <span class="hljs-title">cells</span>;</span>
+      <span class="hljs-literal">species</span> cells;
     }
   }
 }

@@ -15,7 +15,7 @@
  * The global section can now sport skills and control, just like other agents. 
  * The example below shows a potentially moving world that can be controlled by a finite state machine.
  */</span>
-<span class="hljs-class">global <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>: <span class="hljs-title">fsm</span> </span>{
+global <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> {
 
 <span class="hljs-comment">/**
  * EQUATIONS
@@ -23,20 +23,20 @@
     <span class="hljs-literal">float</span> x;
     <span class="hljs-literal">float</span> y;
     <span class="hljs-literal">float</span> t;
-    equation eq {
+    <span class="hljs-keyword">equation</span> eq {
         diff(x, t) = x / 2;
         diff(y, t) = x + y * 2;
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve eq step: 1 method: rk4;}
+    <span class="hljs-builtin">reflex</span> solving {<span class="hljs-keyword">solve</span> eq <span class="hljs-symbol">step:</span> 1 <span class="hljs-symbol">method:</span> rk4;}
 
     <span class="hljs-comment">/** 
  * ATTRIBUTES
  */</span>
 
 <span class="hljs-comment">// Attributes can be declared in different ways, ranging from "classic"...</span>
-    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; a1 const: true &lt;- [1, 2, 3] of: <span class="hljs-literal">int</span>;
-    <span class="hljs-literal">list</span> a2 &lt;- [1, 2, 3] of: <span class="hljs-literal">int</span>;
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; a1 <span class="hljs-symbol">const:</span> true &lt;- [1, 2, 3] <span class="hljs-symbol">of:</span> <span class="hljs-literal">int</span>;
+    <span class="hljs-literal">list</span> a2 &lt;- [1, 2, 3] <span class="hljs-symbol">of:</span> <span class="hljs-literal">int</span>;
     <span class="hljs-comment">// ... to "compact" Java-like syntax.</span>
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; a3 &lt;- [1, 2, 3];
 
@@ -45,17 +45,17 @@
 
     <span class="hljs-comment">// Functions can be declared using the regular facet "-&gt;" / "function:" </span>
     <span class="hljs-literal">int</span> b1 -&gt; { 100 + length(a1) };
-    <span class="hljs-literal">int</span> b2 function: { 100 + length(a1) };
+    <span class="hljs-literal">int</span> b2 <span class="hljs-symbol">function:</span> { 100 + length(a1) };
     <span class="hljs-comment">// ... or using a block (like a statement -- note the absence of semi-column at the end)</span>
     <span class="hljs-literal">int</span> b3 {
         100 + length(a1)
     }
-    state first_state initial: true {
+    <span class="hljs-keyword">state</span> first_state <span class="hljs-symbol">initial:</span> true {
     <span class="hljs-comment">//...</span>
 
     }
     init {
-        create species0 number: 20;
+        <span class="hljs-keyword">create</span> species0 <span class="hljs-symbol">number:</span> 20;
     }
     
 
@@ -77,31 +77,31 @@
       * ACTIONS
       */</span>
     <span class="hljs-comment">// Actions can also be declared in different ways. Classic:</span>
-    action dummy1 type: <span class="hljs-literal">list</span> of: <span class="hljs-literal">int</span> {
-        arg a type: <span class="hljs-literal">int</span> default: 100;
-        arg b type: <span class="hljs-literal">float</span>;
-        return [a, <span class="hljs-literal">int</span>(b)];
+    <span class="hljs-keyword">action</span> dummy1 <span class="hljs-symbol">type:</span> <span class="hljs-literal">list</span> <span class="hljs-symbol">of:</span> <span class="hljs-literal">int</span> {
+        arg a <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">default:</span> 100;
+        arg b <span class="hljs-symbol">type:</span> <span class="hljs-literal">float</span>;
+        <span class="hljs-keyword">return</span> [a, <span class="hljs-literal">int</span>(b)];
     }
     <span class="hljs-comment">// Semi-classic (prefixed by the type)</span>
-    <span class="hljs-literal">list</span> dummy2 of: <span class="hljs-literal">int</span> {
-        arg a type: <span class="hljs-literal">int</span> default: 100;
-        arg b type: <span class="hljs-literal">float</span>;
-        return [a, <span class="hljs-literal">int</span>(b)];
+    <span class="hljs-literal">list</span> dummy2 <span class="hljs-symbol">of:</span> <span class="hljs-literal">int</span> {
+        arg a <span class="hljs-symbol">type:</span> <span class="hljs-literal">int</span> <span class="hljs-symbol">default:</span> 100;
+        arg b <span class="hljs-symbol">type:</span> <span class="hljs-literal">float</span>;
+        <span class="hljs-keyword">return</span> [a, <span class="hljs-literal">int</span>(b)];
     }
     <span class="hljs-comment">//Compact</span>
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; dummy1 (<span class="hljs-literal">int</span> a &lt;- 100, <span class="hljs-literal">float</span> b) {
-        return [a, <span class="hljs-literal">int</span>(b)];
+        <span class="hljs-keyword">return</span> [a, <span class="hljs-literal">int</span>(b)];
     }
 
     <span class="hljs-comment">// An action that returns nothing can still be called "action"</span>
-    action dummy_void {
-        write <span class="hljs-string">"dummy_void"</span>;
+    <span class="hljs-keyword">action</span> dummy_void {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"dummy_void"</span>;
     }
 
     <span class="hljs-comment">/**
      * DEALING WITH VARIABLES
      */</span>
-    <span class="hljs-class">reflex <span class="hljs-title">variables</span> </span>{
+    <span class="hljs-builtin">reflex</span> variables {
 
     <span class="hljs-comment">// Temporary variables can use the same syntax as attributes. The classic form:</span>
         <span class="hljs-comment">//let name: t1 type: int value: length(a1);</span>
@@ -109,21 +109,21 @@
         <span class="hljs-literal">int</span> t2 &lt;- length(a1);
 
         <span class="hljs-comment">// Assigning a value to variables is also sporting a new syntax </span>
-        set t2 value: 100;
+        <span class="hljs-keyword">set</span> t2 <span class="hljs-symbol">value:</span> 100;
         <span class="hljs-comment">// ... can be replaced by </span>
-        set t2 &lt;- 100;
+        <span class="hljs-keyword">set</span> t2 &lt;- 100;
         <span class="hljs-comment">// ... or even by</span>
         t2 &lt;- 100;
 
         <span class="hljs-comment">// Species can now act as direct containers of their agents..</span>
         <span class="hljs-literal">list</span>&lt;species0&gt; spec_with_location &lt;- species0 select (each.location = { 0, 0 });
         species0 agent0 &lt;- species0[10];
-        write <span class="hljs-literal">string</span>(agent0);
+        <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(agent0);
 
         <span class="hljs-comment">// ...  and agents as direct containers of their attributes (mimicking the internal attributes map). This "virtual map" will now contain, in addition to the attributes, </span>
         <span class="hljs-comment">// all the variables loaded from CSV, SQL or shape files (some stored in the agent itself, others in the shape).</span>
         agent0[<span class="hljs-string">"departure"</span>] &lt;- { 0, 0 };
-        write <span class="hljs-literal">string</span>(agent0);
+        <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(agent0);
 
         <span class="hljs-comment">// Keys are not necessarily strings, by the way ! A warning is emitted in such cases, but it is just a warning.</span>
         agent0[0] &lt;- 0;
@@ -134,7 +134,7 @@
         <span class="hljs-comment">// Points can be used (with or without curly parentheses) to access agents in species</span>
         species0 agent1 &lt;- species0[10, 10]; <span class="hljs-comment">// returns the agent closest to point {10,10} for a "regular" species</span>
         <span class="hljs-comment">// The behavior is a bit tweaked for grids, to allow for a "natural" access</span>
-        my_<span class="hljs-class">grid <span class="hljs-title">cell0</span> &lt;- <span class="hljs-title">my_grid</span>[10, 10]; // <span class="hljs-title">Here</span>, <span class="hljs-title">it</span> <span class="hljs-title">is</span> <span class="hljs-title">the</span> <span class="hljs-title">cell</span> <span class="hljs-title">at</span> </span>{10, 10} in the <span class="hljs-literal">matrix</span> of cells
+        my_grid cell0 &lt;- my_grid[10, 10]; <span class="hljs-comment">// Here, it is the cell at {10, 10} in the matrix of cells</span>
 
         <span class="hljs-comment">// Shapes also act as containers of CVS/Shapefile attributes (in case they are loaded without being attributed to an agent), as well as 3D properties (for the display).</span>
         agent0.name &lt;- <span class="hljs-literal">string</span>(agent0.shape[<span class="hljs-string">"ID"</span>]);
@@ -143,7 +143,7 @@
         
         
         <span class="hljs-comment">// All these attributes can be accessed using the casting of agents to map</span>
-        write <span class="hljs-literal">string</span>(<span class="hljs-literal">map</span>(agent0));
+        <span class="hljs-keyword">write</span> <span class="hljs-literal">string</span>(<span class="hljs-literal">map</span>(agent0));
 
         <span class="hljs-comment">//This access can be used everywhere, easing the use of shape files (and data files in general)</span>
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; shapes &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt;(<span class="hljs-literal">file</span>(<span class="hljs-string">"something.shp"</span>));
@@ -153,7 +153,7 @@
 
         <span class="hljs-comment">//To allow for an easier access in case the modeler only uses agents, agents' attributes can "pass through" towards their shape's attributes </span>
         <span class="hljs-comment">//(in case the same attribute has not been defined in the agent, of course)</span>
-        create species0 from: shapes;
+        <span class="hljs-keyword">create</span> species0 <span class="hljs-symbol">from:</span> shapes;
         max &lt;- min(species0 collect <span class="hljs-literal">float</span>(each[<span class="hljs-string">"val1"</span>])); <span class="hljs-comment">// equivalent to each.shape["val1"]. </span>
         <span class="hljs-comment">//This last sentence only works, however, for *reading* values.</span>
         any(species0)[<span class="hljs-string">"val1"</span>] &lt;- 100; <span class="hljs-comment">// will result in the creation of a new attribute in the agent (not in its shape)</span>
@@ -164,13 +164,13 @@
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; l &lt;- [1, 2, 3, 4, 5];
 
         <span class="hljs-comment">// Adding a value</span>
-        add 1 to: l;
+        <span class="hljs-keyword">add</span> 1 <span class="hljs-symbol">to:</span> l;
         <span class="hljs-comment">// ... can now be written</span>
         l &lt;+ 1;
 
         <span class="hljs-comment">// Removing a value</span>
-        remove 1 from: l;
-        remove <span class="hljs-string">"type"</span> from: geom;
+        <span class="hljs-keyword">remove</span> 1 <span class="hljs-symbol">from:</span> l;
+        <span class="hljs-keyword">remove</span> <span class="hljs-string">"type"</span> <span class="hljs-symbol">from:</span> geom;
 
         <span class="hljs-comment">// ... can now be written</span>
         l &gt;- 1;
@@ -178,10 +178,10 @@
         any(species0)[] &gt;- <span class="hljs-string">"name"</span>; <span class="hljs-comment">// removes the "name" attribute from a random agent. Can be dangerous in some cases... </span>
 
         <span class="hljs-comment">// Setting/putting a value</span>
-        put <span class="hljs-string">"a"</span> at: 'key' in: m;
-        put 1 at: 0 in: l;
+        <span class="hljs-keyword">put</span> <span class="hljs-string">"a"</span> <span class="hljs-symbol">at:</span> <span class="hljs-string">'key'</span> <span class="hljs-symbol">in:</span> m;
+        <span class="hljs-keyword">put</span> 1 <span class="hljs-symbol">at:</span> 0 <span class="hljs-symbol">in:</span> l;
         <span class="hljs-comment">// ... can now be written</span>
-        m['key'] &lt;- <span class="hljs-string">"a"</span>;
+        m[<span class="hljs-string">'key'</span>] &lt;- <span class="hljs-string">"a"</span>;
         l[0] &lt;- 1;
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; ll &lt;- [];
         ll &lt;+ []; <span class="hljs-comment">// [[]]</span>
@@ -190,40 +190,40 @@
     }
 
     <span class="hljs-comment">// TODO Species can now be written within the "global" section (to enforce the idea that the top-level species are indeed contained in the world)</span>
-    <span class="hljs-class">species <span class="hljs-title">inside_global</span> </span>{
+    <span class="hljs-literal">species</span> inside_global {
     }
 
     <span class="hljs-comment">/**
       * INVOCATION OF ACTIONS
       */</span>
-    <span class="hljs-class">reflex <span class="hljs-title">calling_actions</span> </span>{
+    <span class="hljs-builtin">reflex</span> calling_actions {
     <span class="hljs-comment">// IN IMPERATIVE MODE (i.e. in a statement)</span>
     <span class="hljs-comment">// The classic way</span>
-        do dummy1 with: [a::10, b::100.0];
+        <span class="hljs-keyword">do</span> dummy1 <span class="hljs-symbol">with:</span> [a::10, b::100.0];
 
         <span class="hljs-comment">// Another by distributing the arguments</span>
-        do dummy1 a: 10 b: 100.0;
+        <span class="hljs-keyword">do</span> dummy1 <span class="hljs-symbol">a:</span> 10 <span class="hljs-symbol">b:</span> 100.0;
 
         <span class="hljs-comment">// The new alternative one </span>
-        do dummy1(a: 10, b: 100.0);
-        ask any(species1) {
-            do goto(target: { 10, 10 }, speed: 100);
+        <span class="hljs-keyword">do</span> dummy1(<span class="hljs-symbol">a:</span> 10, <span class="hljs-symbol">b:</span> 100.0);
+        <span class="hljs-keyword">ask</span> any(species1) {
+            <span class="hljs-keyword">do</span> goto(<span class="hljs-symbol">target:</span> { 10, 10 }, <span class="hljs-symbol">speed:</span> 100);
         }
         <span class="hljs-comment">// ... which has been introduced to unify the functional/imperative use of actions.</span>
 
         <span class="hljs-comment">// And finally the new functional way, probably reserved to simple calls (as all the arguments must be passed).</span>
-        do dummy1(10, 100.0);
+        <span class="hljs-keyword">do</span> dummy1(10, 100.0);
 
         <span class="hljs-comment">// IN FUNCTIONAL MODE (i.e. as part of expressions)</span>
         <span class="hljs-comment">// The "classic" way of calling actions. Note that in that case, dummy1 is used like a binary operator (callee on the left, argument map on the right)</span>
         <span class="hljs-literal">list</span> d1 &lt;- self dummy1 [a::10, b::100.0];
 
         <span class="hljs-comment">// First improvement, argument maps can now be simplified, which results in a functional syntax with named arguments</span>
-        <span class="hljs-literal">list</span> d2 &lt;- self dummy1 (b: 100.0); <span class="hljs-comment">// a is not passed as it has a default value.</span>
+        <span class="hljs-literal">list</span> d2 &lt;- self dummy1 (<span class="hljs-symbol">b:</span> 100.0); <span class="hljs-comment">// a is not passed as it has a default value.</span>
 
         <span class="hljs-comment">// To improve the readability of this way of calling actions, the dotted notation is now allowed as well </span>
-        <span class="hljs-literal">list</span> d3 &lt;- self.dummy1(a: 100, b: 100.0);
-        <span class="hljs-literal">float</span> s &lt;- any(species1).compute_speed_using_an_action(max: 100);
+        <span class="hljs-literal">list</span> d3 &lt;- self.dummy1(<span class="hljs-symbol">a:</span> 100, <span class="hljs-symbol">b:</span> 100.0);
+        <span class="hljs-literal">float</span> s &lt;- any(species1).compute_speed_using_an_action(<span class="hljs-symbol">max:</span> 100);
 
         <span class="hljs-comment">// Finally, the functional syntax is also introduced. In that case, all the arguments need to be passed as they are not named.</span>
         <span class="hljs-comment">// This unifies the way of calling operators and actions furthermore. </span>
@@ -242,37 +242,37 @@
 <span class="hljs-comment">// CALLING WITH NAMED ARGUMENTS + OPTIONAL DOTTED SYNTAX IN EXPRESSIONS + IMPLICIT CALLEE IN CASE OF SELF</span>
         <span class="hljs-comment">// This method is convenient as it allows to pass only some arguments (if defaults are defined, which is implicitely the case in primitives), </span>
         <span class="hljs-comment">// but also to pass them in any order</span>
-        do wander(speed: 100, amplitude: 10);
-        <span class="hljs-literal">path</span> p1 &lt;- <span class="hljs-literal">path</span>(self.wander(amplitude: 10, speed: 100));
-        <span class="hljs-literal">path</span> p2 &lt;- <span class="hljs-literal">path</span>(self wander (speed: 100, bounds: square(10)));
-        <span class="hljs-literal">path</span> p3 &lt;- <span class="hljs-literal">path</span>(wander(speed: 100));
+        <span class="hljs-keyword">do</span> wander(<span class="hljs-symbol">speed:</span> 100, <span class="hljs-symbol">amplitude:</span> 10);
+        <span class="hljs-literal">path</span> p1 &lt;- <span class="hljs-literal">path</span>(self.wander(<span class="hljs-symbol">amplitude:</span> 10, <span class="hljs-symbol">speed:</span> 100));
+        <span class="hljs-literal">path</span> p2 &lt;- <span class="hljs-literal">path</span>(self wander (<span class="hljs-symbol">speed:</span> 100, <span class="hljs-symbol">bounds:</span> square(10)));
+        <span class="hljs-literal">path</span> p3 &lt;- <span class="hljs-literal">path</span>(wander(<span class="hljs-symbol">speed:</span> 100));
         <span class="hljs-literal">path</span> p4 &lt;- <span class="hljs-literal">path</span>(wander());
 
         <span class="hljs-comment">// CALLING WITH COMPLETE ARGUMENTS + OPTIONAL DOTTED SYNTAX IN EXPRESSIONS + IMPLICIT CALLEE IN CASE OF SELF</span>
         <span class="hljs-comment">// This method is convenient as it follows the functional syntax of operators and then allows to declare "quasi-operators" in species, even to redefine existing ones.</span>
-        do wander(100, 100, self.shape); <span class="hljs-comment">// speed, amplitude, bounds as defined in primitive wander</span>
+        <span class="hljs-keyword">do</span> wander(100, 100, self.shape); <span class="hljs-comment">// speed, amplitude, bounds as defined in primitive wander</span>
         <span class="hljs-literal">int</span> d5 &lt;- self.max(10, 100);
         <span class="hljs-literal">int</span> d6 &lt;- self max (10, 100);
         <span class="hljs-literal">int</span> d7 &lt;- max(10, 100);
         <span class="hljs-literal">list</span> others &lt;- filter(species1);
 
         <span class="hljs-comment">// As a side note, the new syntax for arguments maps is not only usable in action calls, but also in create, for instance</span>
-        create species0 with: (location: { 100, 100 }, name: <span class="hljs-string">""</span>);
+        <span class="hljs-keyword">create</span> species0 <span class="hljs-symbol">with:</span> (<span class="hljs-symbol">location:</span> { 100, 100 }, <span class="hljs-symbol">name:</span> <span class="hljs-string">""</span>);
     }
 
     <span class="hljs-comment">// The ternary operator "(condition) ? statement_if_condition_true : statement_if_condition_false" can be used as follow :</span>
     <span class="hljs-literal">int</span> max (<span class="hljs-literal">int</span> i, <span class="hljs-literal">int</span> j) {
-        return i &gt; j ? i : j;
+        <span class="hljs-keyword">return</span> i &gt; j ? i : j;
     }
 
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; filter (<span class="hljs-literal">container</span>&lt;<span class="hljs-literal">agent</span>&gt; my_agents) {
-        return my_agents where (each.location = nil);
+        <span class="hljs-keyword">return</span> my_agents where (each.location = nil);
     }
 
     <span class="hljs-comment">/**
       * USE OF OPERATORS 
       */</span>
-    <span class="hljs-class">reflex <span class="hljs-title">operators</span> </span>{
+    <span class="hljs-builtin">reflex</span> operators {
 
     <span class="hljs-comment">// All the operators can now be written using a function-like form</span>
     <span class="hljs-comment">// It is true for unary operators (as before)</span>
@@ -294,16 +294,16 @@
     <span class="hljs-comment">/**
       * DEFINITION OF ASPECTS
       */</span>
-    aspect default {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
     <span class="hljs-comment">// draw now accepts any kind of arguments and decides what to do based on the type of the argument</span>
-        draw circle(1);
-        draw name;
-        draw <span class="hljs-literal">file</span>(<span class="hljs-string">"image.jpg"</span>);
+        <span class="hljs-keyword">draw</span> circle(1);
+        <span class="hljs-keyword">draw</span> name;
+        <span class="hljs-keyword">draw</span> <span class="hljs-literal">file</span>(<span class="hljs-string">"image.jpg"</span>);
 
         <span class="hljs-comment">// special units (that take a value in the drawing scope) have been introduced to allow for a better control of the display</span>
         <span class="hljs-comment">// This statement will draw a circle of radius 10 pixels, whatever the level of zoom and size of the display</span>
-        draw circle(10 °px);
-        draw <span class="hljs-string">"Display dimensions: "</span> + °display_width + <span class="hljs-string">" "</span> + °display_height;
+        <span class="hljs-keyword">draw</span> circle(10 °px);
+        <span class="hljs-keyword">draw</span> <span class="hljs-string">"Display dimensions: "</span> + °display_width + <span class="hljs-string">" "</span> + °display_height;
     }
 
 }
@@ -311,41 +311,41 @@
 <span class="hljs-comment">/** Species can "mirror" a list of agents (or another species). That is, their population is dynamically computed after the list or species mirrored.
 * Their instances, which are actually "proxy" agents, possess an attribute called "target" that points towards the agent they mirror. Very useful for building graphs, for instance.
 * The update of the population tries to preserve, as much as possible, the existing mapping (that is, proxy agents do not change targets if they do not die or disappear from the list) */</span>
-<span class="hljs-class">species <span class="hljs-title">species0</span> </span>{
+<span class="hljs-literal">species</span> species0 {
     <span class="hljs-literal">float</span> speed &lt;- <span class="hljs-literal">float</span>(rnd(1000));
 }
 
-<span class="hljs-class">species <span class="hljs-title">species1</span> <span class="hljs-title">mirrors</span>: <span class="hljs-title">species0</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{
-    <span class="hljs-literal">point</span> location update: target.location + { 10, 10 };
-    <span class="hljs-literal">float</span> speed1 update: self compute_speed_using_an_action (); <span class="hljs-comment">// No parameter as "max" is defaulted</span>
-    <span class="hljs-literal">float</span> speed2 update: compute_speed_using_a_functional_attribute;
+<span class="hljs-literal">species</span> species1 <span class="hljs-symbol">mirrors:</span> species0 <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
+    <span class="hljs-literal">point</span> location <span class="hljs-symbol">update:</span> target.location + { 10, 10 };
+    <span class="hljs-literal">float</span> speed1 <span class="hljs-symbol">update:</span> self compute_speed_using_an_action (); <span class="hljs-comment">// No parameter as "max" is defaulted</span>
+    <span class="hljs-literal">float</span> speed2 <span class="hljs-symbol">update:</span> compute_speed_using_a_functional_attribute;
     <span class="hljs-literal">float</span> compute_speed_using_a_functional_attribute {
         speed of target
     }
     <span class="hljs-literal">float</span> compute_speed_using_an_action (<span class="hljs-literal">int</span> max &lt;- 100) {
-        return min([max, <span class="hljs-literal">int</span>(speed of target)]);
+        <span class="hljs-keyword">return</span> min([max, <span class="hljs-literal">int</span>(speed of target)]);
     }
 
     init {
-        write <span class="hljs-string">"I am "</span> + self.name + <span class="hljs-string">" and my target is "</span> + target.name;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"I am "</span> + self.name + <span class="hljs-string">" and my target is "</span> + target.name;
     }
 
 }
 
-<span class="hljs-class">grid <span class="hljs-title">my_grid</span> <span class="hljs-title">width</span>: 100 <span class="hljs-title">height</span>: 100 </span>{
+grid my_grid <span class="hljs-symbol">width:</span> 100 <span class="hljs-symbol">height:</span> 100 {
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">exp1</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Display</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
+<span class="hljs-builtin">experiment</span> exp1 <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Display <span class="hljs-symbol">type:</span> opengl {
         <span class="hljs-comment">// Layers include a new keyword, "graphics", that allows to draw arbitrary shapes using the syntax found in the aspects of species</span>
         <span class="hljs-comment">// The same capability will be soon added to species/agents layers (in order to define on-the-fly aspects without changing the species itself)</span>
-            graphics 'G' {
-                draw sphere(10) at: { 50, 50 };
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">'G'</span> {
+                <span class="hljs-keyword">draw</span> sphere(10) <span class="hljs-symbol">at:</span> { 50, 50 };
                 <span class="hljs-keyword">if</span> (true) {
-                    draw <span class="hljs-string">"true"</span>;
-                } else {
-                    draw <span class="hljs-string">"false"</span>;
+                    <span class="hljs-keyword">draw</span> <span class="hljs-string">"true"</span>;
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">draw</span> <span class="hljs-string">"false"</span>;
                 }
 
             }

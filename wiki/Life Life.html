@@ -10,15 +10,15 @@
 <pre><code class="hljs"><span class="hljs-builtin">model</span> life
 
 <span class="hljs-comment">//Declare the world as a torus or not torus environment</span>
-<span class="hljs-class">global <span class="hljs-title">torus</span>: <span class="hljs-title">torus_environment</span> </span>{
+global <span class="hljs-symbol">torus:</span> torus_environment {
     <span class="hljs-comment">//Size of the environment</span>
-    <span class="hljs-literal">int</span> environment_width &lt;- 200 min: 10 max: 1000;
-    <span class="hljs-literal">int</span> environment_height &lt;- 200 min: 10 max: 1000;
+    <span class="hljs-literal">int</span> environment_width &lt;- 200 <span class="hljs-symbol">min:</span> 10 <span class="hljs-symbol">max:</span> 1000;
+    <span class="hljs-literal">int</span> environment_height &lt;- 200 <span class="hljs-symbol">min:</span> 10 <span class="hljs-symbol">max:</span> 1000;
     
     <span class="hljs-comment">//Declare as torus or not</span>
     <span class="hljs-literal">bool</span> torus_environment &lt;- true;
     <span class="hljs-comment">//Density </span>
-    <span class="hljs-literal">int</span> density &lt;- 25 min: 1 max: 99;
+    <span class="hljs-literal">int</span> density &lt;- 25 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 99;
     <span class="hljs-comment">//Conditions to live</span>
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; living_conditions &lt;- [2, 3];
     <span class="hljs-comment">//Conditions to birth</span>
@@ -36,31 +36,31 @@
     
     <span class="hljs-comment">//Initialization of the model by writing the description of the model in the console</span>
     init {
-        do description;
+        <span class="hljs-keyword">do</span> description;
     }
     
     <span class="hljs-comment">//Ask at each life_cell to evolve and update</span>
-    <span class="hljs-class">reflex <span class="hljs-title">generation</span> </span>{
-        ask life_cell {
-            do evolve;
+    <span class="hljs-builtin">reflex</span> generation {
+        <span class="hljs-keyword">ask</span> life_cell {
+            <span class="hljs-keyword">do</span> evolve;
         }
 
-        ask life_cell {
-            do update;
+        <span class="hljs-keyword">ask</span> life_cell {
+            <span class="hljs-keyword">do</span> update;
         }
 
     }
     <span class="hljs-comment">//Write the description of the model in the console</span>
-    action description {
-        write
-        'Description. The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is the best-known example of a cellular automaton. The game is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input from humans. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.  The universe of the Game of Life is an infinite two-dimensional orthogonal <span class="hljs-class">grid <span class="hljs-title">of</span> <span class="hljs-title">square</span> <span class="hljs-title">cells</span>, <span class="hljs-title">each</span> <span class="hljs-title">of</span> <span class="hljs-title">which</span> <span class="hljs-title">is</span> <span class="hljs-title">in</span> <span class="hljs-title">one</span> <span class="hljs-title">of</span> <span class="hljs-title">two</span> <span class="hljs-title">possible</span> <span class="hljs-title">states</span>, <span class="hljs-title">live</span> <span class="hljs-title">or</span> <span class="hljs-title">dead</span>. <span class="hljs-title">Every</span> <span class="hljs-title">cell</span> <span class="hljs-title">interacts</span> <span class="hljs-title">with</span> <span class="hljs-title">its</span> <span class="hljs-title">eight</span> <span class="hljs-title">neighbors</span>, <span class="hljs-title">which</span> <span class="hljs-title">are</span> <span class="hljs-title">the</span> <span class="hljs-title">cells</span> <span class="hljs-title">that</span> <span class="hljs-title">are</span> <span class="hljs-title">directly</span> <span class="hljs-title">horizontally</span>, <span class="hljs-title">vertically</span>, <span class="hljs-title">or</span> <span class="hljs-title">diagonally</span> <span class="hljs-title">adjacent</span>. <span class="hljs-title">At</span> <span class="hljs-title">each</span> <span class="hljs-title">step</span> <span class="hljs-title">in</span> <span class="hljs-title">time</span>, <span class="hljs-title">the</span> <span class="hljs-title">following</span> <span class="hljs-title">transitions</span> <span class="hljs-title">occur</span>: \\<span class="hljs-title">n</span>\\<span class="hljs-title">t</span> 1.<span class="hljs-title">Any</span> <span class="hljs-title">live</span> <span class="hljs-title">cell</span> <span class="hljs-title">with</span> <span class="hljs-title">fewer</span> <span class="hljs-title">than</span> <span class="hljs-title">two</span> <span class="hljs-title">live</span> <span class="hljs-title">neighbors</span> <span class="hljs-title">dies</span>, <span class="hljs-title">as</span> <span class="hljs-title">if</span> <span class="hljs-title">caused</span> <span class="hljs-title">by</span> <span class="hljs-title">underpopulation</span>. \\<span class="hljs-title">n</span>\\<span class="hljs-title">t</span> 2.<span class="hljs-title">Any</span> <span class="hljs-title">live</span> <span class="hljs-title">cell</span> <span class="hljs-title">with</span> <span class="hljs-title">more</span> <span class="hljs-title">than</span> <span class="hljs-title">three</span> <span class="hljs-title">live</span> <span class="hljs-title">neighbors</span> <span class="hljs-title">dies</span>, <span class="hljs-title">as</span> <span class="hljs-title">if</span> <span class="hljs-title">by</span> <span class="hljs-title">overcrowding</span>. \\<span class="hljs-title">n</span>\\<span class="hljs-title">t</span> 3.<span class="hljs-title">Any</span> <span class="hljs-title">live</span> <span class="hljs-title">cell</span> <span class="hljs-title">with</span> <span class="hljs-title">two</span> <span class="hljs-title">or</span> <span class="hljs-title">three</span> <span class="hljs-title">live</span> <span class="hljs-title">neighbors</span> <span class="hljs-title">lives</span> <span class="hljs-title">on</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">next</span> <span class="hljs-title">generation</span>. \\<span class="hljs-title">n</span>\\<span class="hljs-title">t</span> 4.<span class="hljs-title">Any</span> <span class="hljs-title">dead</span> <span class="hljs-title">cell</span> <span class="hljs-title">with</span> <span class="hljs-title">exactly</span> <span class="hljs-title">three</span> <span class="hljs-title">live</span> <span class="hljs-title">neighbors</span> <span class="hljs-title">becomes</span> <span class="hljs-title">a</span> <span class="hljs-title">live</span> <span class="hljs-title">cell</span>. <span class="hljs-title">The</span> <span class="hljs-title">initial</span> <span class="hljs-title">pattern</span> <span class="hljs-title">constitutes</span> <span class="hljs-title">the</span> <span class="hljs-title">seed</span> <span class="hljs-title">of</span> <span class="hljs-title">the</span> <span class="hljs-title">system</span>. <span class="hljs-title">The</span> <span class="hljs-title">first</span>(<span class="hljs-title">generation</span>) <span class="hljs-title">is</span> <span class="hljs-title">created</span> <span class="hljs-title">by</span> <span class="hljs-title">applying</span> <span class="hljs-title">the</span> <span class="hljs-title">above</span> <span class="hljs-title">rules</span> <span class="hljs-title">simultaneously</span> <span class="hljs-title">to</span> <span class="hljs-title">every</span> <span class="hljs-title">cell</span> <span class="hljs-title">in</span> <span class="hljs-title">the</span> <span class="hljs-title">seed</span>�<span class="hljs-title">births</span> <span class="hljs-title">and</span> <span class="hljs-title">deaths</span> <span class="hljs-title">happen</span> <span class="hljs-title">simultaneously</span>, <span class="hljs-title">and</span> <span class="hljs-title">the</span> <span class="hljs-title">discrete</span> <span class="hljs-title">moment</span> <span class="hljs-title">at</span> <span class="hljs-title">which</span> <span class="hljs-title">this</span> <span class="hljs-title">happens</span> <span class="hljs-title">is</span> <span class="hljs-title">sometimes</span> <span class="hljs-title">called</span> <span class="hljs-title">a</span> <span class="hljs-title">tick</span> (<span class="hljs-title">in</span> <span class="hljs-title">other</span> <span class="hljs-title">words</span>, <span class="hljs-title">each</span> <span class="hljs-title">generation</span> <span class="hljs-title">is</span> <span class="hljs-title">a</span> <span class="hljs-title">pure</span> <span class="hljs-title">function</span> <span class="hljs-title">of</span> <span class="hljs-title">the</span> <span class="hljs-title">one</span> <span class="hljs-title">before</span>). <span class="hljs-title">The</span> <span class="hljs-title">rules</span> <span class="hljs-title">continue</span> <span class="hljs-title">to</span> <span class="hljs-title">be</span> <span class="hljs-title">applied</span> <span class="hljs-title">repeatedly</span> <span class="hljs-title">to</span> <span class="hljs-title">create</span> <span class="hljs-title">further</span> <span class="hljs-title">generations</span>.';</span>
+    <span class="hljs-keyword">action</span> description {
+        <span class="hljs-keyword">write</span>
+        <span class="hljs-string">'Description. The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is the best-known example of a cellular automaton. The game is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input from humans. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.  The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead. Every cell interacts with its eight neighbors, which are the cells that are directly horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur: \\n\\t 1.Any live cell with fewer than two live neighbors dies, as if caused by underpopulation. \\n\\t 2.Any live cell with more than three live neighbors dies, as if by overcrowding. \\n\\t 3.Any live cell with two or three live neighbors lives on to the next generation. \\n\\t 4.Any dead cell with exactly three live neighbors becomes a live cell. The initial pattern constitutes the seed of the system. The first(generation) is created by applying the above rules simultaneously to every cell in the seed�births and deaths happen simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the one before). The rules continue to be applied repeatedly to create further generations.'</span>;
     }
 
 }
 
 <span class="hljs-comment">//Grid species representing a cellular automata</span>
-<span class="hljs-class">grid <span class="hljs-title">life_cell</span> <span class="hljs-title">width</span>: <span class="hljs-title">environment_width</span> <span class="hljs-title">height</span>: <span class="hljs-title">environment_height</span> <span class="hljs-title">neighbors</span>: 8  <span class="hljs-title">use_individual_shapes</span>: <span class="hljs-title">false</span> <span class="hljs-title">use_regular_agents</span>: <span class="hljs-title">false</span> <span class="hljs-title">frequency</span>: 0</span>
-use_neighbors_cache: false {
+grid life_cell <span class="hljs-symbol">width:</span> environment_width <span class="hljs-symbol">height:</span> environment_height <span class="hljs-symbol">neighbors:</span> 8  <span class="hljs-symbol">use_individual_shapes:</span> false <span class="hljs-symbol">use_regular_agents:</span> false <span class="hljs-symbol">frequency:</span> 0
+<span class="hljs-symbol">use_neighbors_cache:</span> false {
     <span class="hljs-comment">//Boolean to know if it is the new state of the cell</span>
     <span class="hljs-literal">bool</span> new_state;
     <span class="hljs-comment">//List of all the neighbors</span>
@@ -71,14 +71,14 @@ use_neighbors_cache: false {
     <span class="hljs-literal">rgb</span> color &lt;- alive ? livingcolor : deadcolor;
     
     <span class="hljs-comment">//Action to evolve the cell considering its neighbors</span>
-    action evolve {
+    <span class="hljs-keyword">action</span> evolve {
         <span class="hljs-comment">//Count the number of living neighbors of the cells</span>
         <span class="hljs-literal">int</span> living &lt;- neighbors count each.alive;
         <span class="hljs-keyword">if</span> alive {
             <span class="hljs-comment">//If the number of living respect the conditions, the cell is still alive</span>
             new_state &lt;- living in living_conditions;
             color &lt;- new_state ? livingcolor : dyingcolor;
-        } else {
+        } <span class="hljs-keyword">else</span> {
             <span class="hljs-comment">//If the number of living meets the conditions, the cell go to born</span>
             new_state &lt;- living in birth_conditions;
             color &lt;- new_state ? emergingcolor : deadcolor;
@@ -86,27 +86,27 @@ use_neighbors_cache: false {
 
     }
     <span class="hljs-comment">//Action to update the new state of the cell</span>
-    action update {
+    <span class="hljs-keyword">action</span> update {
         alive &lt;- new_state;
     }
 
 }
 
 
-<span class="hljs-class">experiment "<span class="hljs-title">Game</span> <span class="hljs-title">of</span> <span class="hljs-title">Life</span>" <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter 'Width:' var: environment_width category: 'Board';
-    parameter 'Height:' var: environment_height category: 'Board';
-    parameter 'Torus?:' var: torus_environment category: 'Board';
-    parameter 'Initial density of live cells:' var: density category: 'Cells';
-    parameter 'Numbers of live neighbors required to stay alive:' var: living_conditions category: 'Cells';
-    parameter 'Numbers of live neighbors required to become alive:' var: birth_conditions category: 'Cells';
-    parameter 'Color of live cells:' var: livingcolor category: 'Colors';
-    parameter 'Color of dying cells:' var: dyingcolor category: 'Colors';
-    parameter 'Color of emerging cells:' var: emergingcolor category: 'Colors';
-    parameter 'Color of dead cells:' var: deadcolor category: 'Colors';
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Life</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">grid <span class="hljs-title">life_cell</span>;</span>
+<span class="hljs-builtin">experiment</span> <span class="hljs-string">"Game of Life"</span> <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Width:'</span> <span class="hljs-symbol">var:</span> environment_width <span class="hljs-symbol">category:</span> <span class="hljs-string">'Board'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Height:'</span> <span class="hljs-symbol">var:</span> environment_height <span class="hljs-symbol">category:</span> <span class="hljs-string">'Board'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Torus?:'</span> <span class="hljs-symbol">var:</span> torus_environment <span class="hljs-symbol">category:</span> <span class="hljs-string">'Board'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Initial density of live cells:'</span> <span class="hljs-symbol">var:</span> density <span class="hljs-symbol">category:</span> <span class="hljs-string">'Cells'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Numbers of live neighbors required to stay alive:'</span> <span class="hljs-symbol">var:</span> living_conditions <span class="hljs-symbol">category:</span> <span class="hljs-string">'Cells'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Numbers of live neighbors required to become alive:'</span> <span class="hljs-symbol">var:</span> birth_conditions <span class="hljs-symbol">category:</span> <span class="hljs-string">'Cells'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Color of live cells:'</span> <span class="hljs-symbol">var:</span> livingcolor <span class="hljs-symbol">category:</span> <span class="hljs-string">'Colors'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Color of dying cells:'</span> <span class="hljs-symbol">var:</span> dyingcolor <span class="hljs-symbol">category:</span> <span class="hljs-string">'Colors'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Color of emerging cells:'</span> <span class="hljs-symbol">var:</span> emergingcolor <span class="hljs-symbol">category:</span> <span class="hljs-string">'Colors'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Color of dead cells:'</span> <span class="hljs-symbol">var:</span> deadcolor <span class="hljs-symbol">category:</span> <span class="hljs-string">'Colors'</span>;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Life <span class="hljs-symbol">type:</span> opengl{
+            grid life_cell;
         }
 
     }

@@ -70,15 +70,15 @@
 <h3><a class="anchor" aria-hidden="true" id="species"></a><a href="#species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>species</h3>
 <p>In this model, we have to define two species of agents: the <strong>road</strong> agents and the <strong>building</strong> ones. These agents will not have a particular behavior, they will just be displayed.
 For each of this species we define an aspect called <em>geom</em>. As we want to represent the geometry of the agent, we then use the keyword <strong>draw</strong> that allow to draw a given geometry. In order to draw the geometry of the agent we use the attribute <strong>shape</strong> (which is a built-in attribute of all agents). The road will be displayed in black and the building in gray.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">road</span> </span>{
-    aspect geom {
-        draw shape color: #black;
+<pre><code class="hljs"><span class="hljs-literal">species</span> road {
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
-    aspect geom {
-        draw shape color: #gray;
+<span class="hljs-literal">species</span> building {
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray;
     }
 }
 
@@ -87,7 +87,7 @@ For each of this species we define an aspect called <em>geom</em>. As we want to
 <h4><a class="anchor" aria-hidden="true" id="global-variables"></a><a href="#global-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global variables</h4>
 <p>GAMA allows to automatically read GIS data that are formatted as shape files (or as OSM file). In our model, we define 2 shapefiles: one corresponding to the roads and the other ones to the buildings. Note that GAMA is able to manage the projection of the GIS data.
 In order to set the right size (and position) of the world geometry, we define its value as the envelope of the road shapefile (and no more a square of 1500 meters).</p>
-<pre><code class="hljs"><span class="hljs-class">global</span>{
+<pre><code class="hljs">global{
     <span class="hljs-comment">//... other attributes</span>
     <span class="hljs-literal">file</span> roads_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/routes.shp"</span>);
     <span class="hljs-literal">file</span> buildings_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/batiments.shp"</span>);
@@ -100,16 +100,16 @@ In order to set the right size (and position) of the world geometry, we define i
 <p>In GAMA, the agentification of GIS data is very straightforward: it only requires to use the <strong>create</strong> command with the <strong>from</strong> facet to pass the shapefile. Each object of the shapefile will be directly used to instantiate an agent of the specified species. The reading of an attribute in a shapefile is also very simple. It only requires to use the <strong>with</strong> facet: the argument of this facet is a dictionary of which the keys are the names of the agent attributes and the value the <strong>read</strong> command followed by the name of the shapefile attribute.</p>
 <p>In our model, we modify the init section in order to first create the <em>road</em> agents from the road shapefile, and the <em>building</em> agents from the building shapefile. Then, when creating people agents, we choose for them a random location inside a random building.
 Note that it is possible to execute a sequence of statements at the creation of agents by using a block ({...}) rather than a simple line (;) when using the <em>create</em> statement.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-comment">// world variable definition</span>
 
     init{
-        create road from: roads_shapefile;
-        create building from: buildings_shapefile;
-        create people number:nb_people {
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> roads_shapefile;
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> buildings_shapefile;
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people {
             location &lt;- any_location_in(one_of(building));      }       
         }
-        ask nb_infected_init among people {
+        <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
         }
     }
@@ -119,16 +119,16 @@ Note that it is possible to execute a sequence of statements at the creation of 
 <h3><a class="anchor" aria-hidden="true" id="experiment"></a><a href="#experiment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>experiment</h3>
 <h4><a class="anchor" aria-hidden="true" id="output"></a><a href="#output" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output</h4>
 <p>In the <em>map</em> display, we add the <em>road</em> and <em>building</em> species with their <em>geom</em> aspect just before the <em>people</em> species (in order to draw the people agents on the top of the roads and buildings).</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">main_experiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span> gui {
     ... <span class="hljs-comment">//parameter definition</span>
 
-    output {
+    <span class="hljs-keyword">output</span> {
     ... <span class="hljs-comment">//monitor definition</span>
 
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">circle</span>;           </span>
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;           
         }
         ... <span class="hljs-comment">//chart display definition</span>
     }
@@ -137,7 +137,7 @@ Note that it is possible to execute a sequence of statements at the creation of 
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> model3
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_people &lt;- 2147;
     <span class="hljs-literal">int</span> nb_infected_init &lt;- 5;
     <span class="hljs-literal">float</span> step &lt;- 5 #mn;
@@ -145,72 +145,72 @@ Note that it is possible to execute a sequence of statements at the creation of 
     <span class="hljs-literal">file</span> buildings_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/buildings.shp"</span>);
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(roads_shapefile);    
     
-    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
-    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
-    <span class="hljs-literal">float</span> infected_rate update: nb_people_infected/nb_people;
+    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init <span class="hljs-symbol">update:</span> people count (each.is_infected);
+    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init <span class="hljs-symbol">update:</span> nb_people - nb_people_infected;
+    <span class="hljs-literal">float</span> infected_rate <span class="hljs-symbol">update:</span> nb_people_infected/nb_people;
     
     
     init{
-        create road from: roads_shapefile;
-        create building from: buildings_shapefile;
-        create people number:nb_people {
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> roads_shapefile;
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> buildings_shapefile;
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people {
             location &lt;- any_location_in(one_of(building));              
         }
-        ask nb_infected_init among people {
+        <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-literal">float</span> speed &lt;- (2 + rnd(3)) #km/#h;
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
     
-    <span class="hljs-class">reflex <span class="hljs-title">move</span></span>{
-        do wander;
+    <span class="hljs-builtin">reflex</span> move{
+        <span class="hljs-keyword">do</span> wander;
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">infect</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_infected</span></span>{
-        ask people at_distance 10 #m {
+    <span class="hljs-builtin">reflex</span> infect <span class="hljs-symbol">when:</span> is_infected{
+        <span class="hljs-keyword">ask</span> people at_distance 10 #m {
             <span class="hljs-keyword">if</span> flip(0.05) {
                 is_infected &lt;- true;
             }
         }
     }
     
-    aspect circle {
-        draw circle(10) color:is_infected ? #red : #green;
+    <span class="hljs-keyword">aspect</span> circle {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span>is_infected ? #red : #green;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span> </span>{
-    aspect geom {
-        draw shape color: #black;
+<span class="hljs-literal">species</span> road {
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
-    aspect geom {
-        draw shape color: #gray;
+<span class="hljs-literal">species</span> building {
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Nb people infected at init"</span> var: nb_infected_init min: 1 max: 2147;
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Nb people infected at init"</span> <span class="hljs-symbol">var:</span> nb_infected_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 2147;
 
-    output {
-        monitor <span class="hljs-string">"Infected people rate"</span> value: infected_rate;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Infected people rate"</span> <span class="hljs-symbol">value:</span> infected_rate;
         
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">circle</span>;           </span>
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;           
         }
         
-        <span class="hljs-class">display <span class="hljs-title">chart_display</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">every</span>(10 #<span class="hljs-title">cycle</span>) </span>{
-            chart <span class="hljs-string">"Disease spreading"</span> type: series {
-                data <span class="hljs-string">"susceptible"</span> value: nb_people_not_infected color: #green;
-                data <span class="hljs-string">"infected"</span> value: nb_people_infected color: #red;
+        <span class="hljs-keyword">display</span> chart_display <span class="hljs-symbol">refresh:</span> every(10 #cycle) {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Disease spreading"</span> <span class="hljs-symbol">type:</span> series {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"susceptible"</span> <span class="hljs-symbol">value:</span> nb_people_not_infected <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> nb_people_infected <span class="hljs-symbol">color:</span> #red;
             }
         }
     }

@@ -10,51 +10,51 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> voronoi
  
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">// Parameters </span>
     <span class="hljs-comment">//Number of points</span>
-    <span class="hljs-literal">int</span> num_points &lt;- 4 min: 1 max: 1000;
+    <span class="hljs-literal">int</span> num_points &lt;- 4 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000;
     <span class="hljs-comment">//Size of the environment</span>
-    <span class="hljs-literal">int</span> env_width &lt;- 100 min: 10 max: 400;
-    <span class="hljs-literal">int</span> env_height &lt;- 100 min: 10 max: 400;
+    <span class="hljs-literal">int</span> env_width &lt;- 100 <span class="hljs-symbol">min:</span> 10 <span class="hljs-symbol">max:</span> 400;
+    <span class="hljs-literal">int</span> env_height &lt;- 100 <span class="hljs-symbol">min:</span> 10 <span class="hljs-symbol">max:</span> 400;
     
     <span class="hljs-comment">// Environment</span>
     <span class="hljs-literal">geometry</span> shape &lt;- rectangle(env_width, env_height);
     
     init { 
-        write 'This <span class="hljs-builtin">model</span> shows how Voronoi-like shapes can be drawn on a regular surface. A set of mobile agents is placed on a <span class="hljs-class">grid. <span class="hljs-title">Each</span> <span class="hljs-title">agent</span> <span class="hljs-title">possesses</span> <span class="hljs-title">an</span> <span class="hljs-title">attribute</span> <span class="hljs-title">called</span> *<span class="hljs-title">inside_color</span>*. <span class="hljs-title">Each</span> <span class="hljs-title">step</span>, <span class="hljs-title">the</span> <span class="hljs-title">agents</span> <span class="hljs-title">move</span> <span class="hljs-title">randomly</span> <span class="hljs-title">and</span> <span class="hljs-title">the</span> <span class="hljs-title">grid</span> <span class="hljs-title">cells</span> <span class="hljs-title">paint</span> <span class="hljs-title">themselves</span> <span class="hljs-title">using</span> <span class="hljs-title">the</span> *<span class="hljs-title">inside_color</span>* <span class="hljs-title">of</span> <span class="hljs-title">the</span> <span class="hljs-title">nearest</span> <span class="hljs-title">agent</span>. <span class="hljs-title">Dynamical</span> <span class="hljs-title">boundaries</span> <span class="hljs-title">then</span> <span class="hljs-title">appear</span> <span class="hljs-title">on</span> <span class="hljs-title">the</span> <span class="hljs-title">screen</span> <span class="hljs-title">without</span> <span class="hljs-title">any</span> <span class="hljs-title">further</span> <span class="hljs-title">calculations</span>.';</span>
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'This model shows how Voronoi-like shapes can be drawn on a regular surface. A set of mobile agents is placed on a grid. Each agent possesses an attribute called *inside_color*. Each step, the agents move randomly and the grid cells paint themselves using the *inside_color* of the nearest agent. Dynamical boundaries then appear on the screen without any further calculations.'</span>;
         <span class="hljs-comment">//Creation of all the points</span>
-        create center number: num_points ;  
+        <span class="hljs-keyword">create</span> center <span class="hljs-symbol">number:</span> num_points ;  
     }   
 } 
 <span class="hljs-comment">//Grid for the voronoi clustering</span>
-<span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: <span class="hljs-title">env_width</span> <span class="hljs-title">height</span>: <span class="hljs-title">env_height</span> <span class="hljs-title">neighbors</span>: 8 <span class="hljs-title">use_regular_agents</span>: <span class="hljs-title">false</span> </span>{
+grid cell <span class="hljs-symbol">width:</span> env_width <span class="hljs-symbol">height:</span> env_height <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">use_regular_agents:</span> false {
     <span class="hljs-comment">// Note: since GAMA 1.7, the topology needs to be specified for this computation to use continuous distances</span>
-    center closest_center &lt;- nil update: (center closest_to self.location) using <span class="hljs-literal">topology</span>(world);
-    <span class="hljs-literal">rgb</span> color &lt;- #white update: (closest_center).color;
+    center closest_center &lt;- nil <span class="hljs-symbol">update:</span> (center closest_to self.location) <span class="hljs-keyword">using</span> <span class="hljs-literal">topology</span>(world);
+    <span class="hljs-literal">rgb</span> color &lt;- #white <span class="hljs-symbol">update:</span> (closest_center).color;
 }
 <span class="hljs-comment">//Species representing the center of a Voronoi point</span>
-<span class="hljs-class">species <span class="hljs-title">center</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>] </span>{ 
+<span class="hljs-literal">species</span> center <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] { 
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>([rnd (255),rnd (255),rnd (255)]); 
     <span class="hljs-comment">//Make the center of the cluster wander in the environment       </span>
-    <span class="hljs-class">reflex <span class="hljs-title">wander</span> </span>{
-        do wander amplitude: 90;
+    <span class="hljs-builtin">reflex</span> wander {
+        <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span> 90;
     }  
-    aspect base {
-        draw square(1.0) color: color;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> square(1.0) <span class="hljs-symbol">color:</span> color;
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">voronoi</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>{ 
-    parameter 'Number of points:' var: num_points;
-    parameter 'Width of the environment:' var: env_width;
-    parameter 'Height of the environment:' var: env_height;
+<span class="hljs-builtin">experiment</span> voronoi <span class="hljs-symbol">type:</span> gui{ 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of points:'</span> <span class="hljs-symbol">var:</span> num_points;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Width of the environment:'</span> <span class="hljs-symbol">var:</span> env_width;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Height of the environment:'</span> <span class="hljs-symbol">var:</span> env_height;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Voronoi</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">cell</span>  ;</span>
-            <span class="hljs-class">species <span class="hljs-title">center</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Voronoi <span class="hljs-symbol">type:</span> opengl {
+            grid cell  ;
+            <span class="hljs-literal">species</span> center <span class="hljs-symbol">aspect:</span> base ;
         }
     }   
 }

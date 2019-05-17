@@ -69,7 +69,7 @@ This second steps present the idea of environment or topological space. Defining
 <h3><a class="anchor" aria-hidden="true" id="grid"></a><a href="#grid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>grid</h3>
 <p>In GAMA, grids are specific agent species with a particular topology. First, a grid allow yet constrains the movement of other (moving) agents but they can have variables and behaviors.</p>
 <p>A grid is defined as follows:</p>
-<pre><code class="hljs">   <span class="hljs-class">grid <span class="hljs-title">grid_name</span> <span class="hljs-title">width</span>: <span class="hljs-title">nb_cols</span> <span class="hljs-title">height</span>: <span class="hljs-title">nb_lines</span> <span class="hljs-title">neighbors</span>: 4/6/8 </span>{
+<pre><code class="hljs">   grid grid_name <span class="hljs-symbol">width:</span> nb_cols <span class="hljs-symbol">height:</span> nb_lines <span class="hljs-symbol">neighbors:</span> 4/6/8 {
       ...
    }
 </code></pre>
@@ -88,11 +88,11 @@ In order for each grid agents (or cell of the grid) to represent the vegetation,
 <li><em>color</em> : color of the cell -&gt; type: <em>rgb</em> ; init value: color computed according to the food value: more the food value is close to 1.0, greener the color is, more the food value is close to 0,  whiter the color is; update : computation of the new color depending on the current level of food (at each simulation step).</li>
 </ul>
 <p>The <strong>update</strong> facet allows to give a behavior to the agents. Indeed, at each simulation step, each agent is activated (by default, in a random order) and first applies for each dynamic variable (in their definition order) its update expression. In the present case, it allows us to link the displayed color of the cell to its food level.</p>
-<pre><code class="hljs">   <span class="hljs-class">grid <span class="hljs-title">vegetation_cell</span> <span class="hljs-title">width</span>: 50 <span class="hljs-title">height</span>: 50 <span class="hljs-title">neighbors</span>: 4 </span>{
+<pre><code class="hljs">   grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hljs-symbol">height:</span> 50 <span class="hljs-symbol">neighbors:</span> 4 {
       <span class="hljs-literal">float</span> maxFood &lt;- 1.0 ;
       <span class="hljs-literal">float</span> foodProd &lt;- (rnd(1000) / 1000) * 0.01 ;
-      <span class="hljs-literal">float</span> food &lt;- (rnd(1000) / 1000) update: food + foodProd max: maxFood;
-      <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) update: <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) ;
+      <span class="hljs-literal">float</span> food &lt;- (rnd(1000) / 1000) <span class="hljs-symbol">update:</span> food + foodProd <span class="hljs-symbol">max:</span> maxFood;
+      <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) <span class="hljs-symbol">update:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) ;
    }
 </code></pre>
 <p>There are several ways to define colors in GAML:</p>
@@ -110,14 +110,14 @@ In order for each grid agents (or cell of the grid) to represent the vegetation,
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="prey-agents"></a><a href="#prey-agents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>prey agents</h3>
 <p>In order to relate our prey agents to the vegetation cell grid, we add them with one new variable : <strong>my_cell</strong> of type vegetation_cell and for init value one of the vegetation_cell (chosen randomly).</p>
-<pre><code class="hljs">   <span class="hljs-class">species <span class="hljs-title">prey</span> </span>{
+<pre><code class="hljs">   <span class="hljs-literal">species</span> prey {
       ...
       vegetation_cell myCell &lt;- one_of (vegetation_cell) ;
    } 
 </code></pre>
 <p>It is possible to obtain the list of all agents of a given species by using the name of the species while <strong>one_of</strong> to pick one element randomly from this list.</p>
 <p>We linked each prey agent to a vegetation_cell but we need to locate them onto the cell. To do so, we set the prey location as equals to the location of the vegetation cell (i.e. its centroid <strong>location</strong>), we use in the init block the <strong>&lt;-</strong> statement that allows to modify the value of a variable :</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">prey</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> prey {
      ...
      init {
          location &lt;- myCell.location;
@@ -126,10 +126,10 @@ In order for each grid agents (or cell of the grid) to represent the vegetation,
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="display"></a><a href="#display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>display</h3>
 <p>In order to visualize the vegetation , we need to add it to the display. We use for that the statement <strong>grid</strong> with the optional facet <strong>lines</strong> to draw the border of the cells. Note that grid agents have built-in aspect thus it is not necessary to define one.</p>
-<pre><code class="hljs">   output {
-      <span class="hljs-class">display <span class="hljs-title">main_display</span> </span>{
-         <span class="hljs-class">grid <span class="hljs-title">vegetation_cell</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span>;</span>
-         <span class="hljs-class">species <span class="hljs-title">prey</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+<pre><code class="hljs">   <span class="hljs-keyword">output</span> {
+      <span class="hljs-keyword">display</span> main_display {
+         grid vegetation_cell <span class="hljs-symbol">lines:</span> #black;
+         <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> base ;
       }
    }
 </code></pre>
@@ -137,14 +137,14 @@ In order for each grid agents (or cell of the grid) to represent the vegetation,
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> prey_predator
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_preys_init &lt;- 200;
     init {
-        create prey number: nb_preys_init ;
+        <span class="hljs-keyword">create</span> prey <span class="hljs-symbol">number:</span> nb_preys_init ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">prey</span> </span>{
+<span class="hljs-literal">species</span> prey {
     <span class="hljs-literal">float</span> size &lt;- 1.0 ;
     <span class="hljs-literal">rgb</span> color &lt;- #blue;
     vegetation_cell myCell &lt;- one_of (vegetation_cell) ;
@@ -153,24 +153,24 @@ In order for each grid agents (or cell of the grid) to represent the vegetation,
         location &lt;- myCell.location;
     }
         
-    aspect base {
-        draw circle(size) color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> color ;
     }
 }
 
-<span class="hljs-class">grid <span class="hljs-title">vegetation_cell</span> <span class="hljs-title">width</span>: 50 <span class="hljs-title">height</span>: 50 <span class="hljs-title">neighbors</span>: 4 </span>{
+grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hljs-symbol">height:</span> 50 <span class="hljs-symbol">neighbors:</span> 4 {
     <span class="hljs-literal">float</span> maxFood &lt;- 1.0 ;
     <span class="hljs-literal">float</span> foodProd &lt;- (rnd(1000) / 1000) * 0.01 ;
-    <span class="hljs-literal">float</span> food &lt;- (rnd(1000) / 1000) max: maxFood update: food + foodProd ;
-    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) update: <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 *(1 - food))) ;
+    <span class="hljs-literal">float</span> food &lt;- (rnd(1000) / 1000) <span class="hljs-symbol">max:</span> maxFood <span class="hljs-symbol">update:</span> food + foodProd ;
+    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) <span class="hljs-symbol">update:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 *(1 - food))) ;
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">prey_predator</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Initial number of preys: "</span> var: nb_preys_init min: 1 max: 1000 category: <span class="hljs-string">"Prey"</span> ;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">main_display</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">vegetation_cell</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">prey</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+<span class="hljs-builtin">experiment</span> prey_predator <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of preys: "</span> <span class="hljs-symbol">var:</span> nb_preys_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span> ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> main_display {
+            grid vegetation_cell <span class="hljs-symbol">lines:</span> #black ;
+            <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> base ;
         }
     }
 }

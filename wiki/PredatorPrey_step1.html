@@ -109,12 +109,12 @@ In the block of an aspect, it is possible to draw :</p>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="prey-species-code"></a><a href="#prey-species-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prey species code</h4>
 <p>For the moment, we only define an aspect for this species. We want to display for each prey agent a circle of radius <em>size</em> and color <em>color</em>. We then use the keyword <strong>draw</strong> with a circle shape.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">prey</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> prey {
     <span class="hljs-literal">float</span> size &lt;- 1.0 ;
     <span class="hljs-literal">rgb</span> color &lt;- #blue;
         
-    aspect base {
-        draw circle(size) color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> color ;
     }
 } 
 </code></pre>
@@ -124,7 +124,7 @@ The world agent represents everything that is global to the model : dynamics, va
 It allows to initialize simulations (init block): the world is always created and initialized first when a simulation is launched (before any other agents). The geometry (shape) of the world agent is by default a square with 100m for side size, but can be redefined if necessary (see the <a href="RoadTrafficModel">Road traffic tutorial</a>).</p>
 <h4><a class="anchor" aria-hidden="true" id="global-variable"></a><a href="#global-variable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global variable</h4>
 <p>In the current model, we will only have a certain numbers of preys thus we need to hold this number in a global or world's variable of type integer (<em>int</em>) which can be done as follows:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
    <span class="hljs-literal">int</span> nb_preys_init &lt;- 200;
 }
 </code></pre>
@@ -137,7 +137,7 @@ It allows to initialize simulations (init block): the world is always created an
 </ul>
 <p>Definition of the init block in order to create <em>nb_preys_init</em> <em>prey</em> agents:</p>
 <pre><code class="hljs">   init {
-      create prey number: nb_preys_init ;
+      <span class="hljs-keyword">create</span> prey <span class="hljs-symbol">number:</span> nb_preys_init ;
    }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="experiment"></a><a href="#experiment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>experiment</h3>
@@ -147,7 +147,7 @@ It allows to initialize simulations (init block): the world is always created an
 <li>batch : Allows to setup a series of simulations (w/o graphical interface).</li>
 </ul>
 <p>In our model, we define a gui experiment called <em>prey_predator</em>  :</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">prey_predator</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> prey_predator <span class="hljs-symbol">type:</span> gui {
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="input"></a><a href="#input" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>input</h4>
@@ -164,8 +164,8 @@ It allows to initialize simulations (init block): the world is always created an
 </ul>
 <p>Note that the init, min and max values can be defined in the global variable definition.</p>
 <p>In the experiment, definition of a parameter from the the global variable <em>nb_preys_init</em> :</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">prey_predator</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-   parameter <span class="hljs-string">"Initial number of preys: "</span> var: nb_preys_init min: 1 max: 1000 category: <span class="hljs-string">"Prey"</span> ;
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> prey_predator <span class="hljs-symbol">type:</span> gui {
+   <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of preys: "</span> <span class="hljs-symbol">var:</span> nb_preys_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span> ;
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="output"></a><a href="#output" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>output</h4>
@@ -180,36 +180,36 @@ It allows to initialize simulations (init block): the world is always created an
 </ul>
 <p>Note that it is possible to define a <a href="Defining3DDisplays">opengl display</a> (for 3D display) by using the facet <strong>type: opengl</strong>.</p>
 <p>In our model, we define a display to draw the <em>prey</em> agents.</p>
-<pre><code class="hljs"> output {
-      <span class="hljs-class">display <span class="hljs-title">main_display</span> </span>{
-         <span class="hljs-class">species <span class="hljs-title">prey</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+<pre><code class="hljs"> <span class="hljs-keyword">output</span> {
+      <span class="hljs-keyword">display</span> main_display {
+         <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> base ;
       }
    }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> prey_predator
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_preys_init &lt;- 200;
     init {
-        create prey number: nb_preys_init ;
+        <span class="hljs-keyword">create</span> prey <span class="hljs-symbol">number:</span> nb_preys_init ;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">prey</span> </span>{
+<span class="hljs-literal">species</span> prey {
     <span class="hljs-literal">float</span> size &lt;- 1.0 ;
     <span class="hljs-literal">rgb</span> color &lt;- #blue;
         
-    aspect base {
-        draw circle(size) color: color ;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> color ;
     }
 } 
 
-<span class="hljs-class">experiment <span class="hljs-title">prey_predator</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Initial number of preys: "</span> var: nb_preys_init min: 1 max: 1000 category: <span class="hljs-string">"Prey"</span> ;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">main_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">prey</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span> ;</span>
+<span class="hljs-builtin">experiment</span> prey_predator <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of preys: "</span> <span class="hljs-symbol">var:</span> nb_preys_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span> ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> main_display {
+            <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> base ;
         }
     }
 }

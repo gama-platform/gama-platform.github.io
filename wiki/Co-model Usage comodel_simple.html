@@ -10,39 +10,39 @@
 <pre><code class="hljs"><span class="hljs-builtin">model</span> M2
 
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-literal">int</span> n &lt;- 4;
     init
     {
-        create B number: n;
+        <span class="hljs-keyword">create</span> B <span class="hljs-symbol">number:</span> n;
     }
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">B</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>]</span>
+<span class="hljs-literal">species</span> B <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>]
 {
     <span class="hljs-literal">int</span> IQ &lt;- rnd(100);
-    <span class="hljs-class">reflex <span class="hljs-title">dolive</span></span>
+    <span class="hljs-builtin">reflex</span> dolive
     {
-        write <span class="hljs-string">""</span> + <span class="hljs-string">"i'm alive !!"</span>;
-        do wander;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span> + <span class="hljs-string">"i'm alive !!"</span>;
+        <span class="hljs-keyword">do</span> wander;
     }
 
-    aspect default
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>
     {
-        draw square(1) color: # red;
+        <span class="hljs-keyword">draw</span> square(1) <span class="hljs-symbol">color:</span> # red;
     }
 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">M2_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> M2_exp <span class="hljs-symbol">type:</span> gui
 {
-    output
+    <span class="hljs-keyword">output</span>
     {
-        <span class="hljs-class">display "<span class="hljs-title">m2_disp</span>"</span>
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"m2_disp"</span>
         {
-            <span class="hljs-class">species <span class="hljs-title">B</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span>;</span>
+            <span class="hljs-literal">species</span> B <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span>;
         }
 
     }
@@ -54,39 +54,39 @@
 <pre><code class="hljs"><span class="hljs-builtin">model</span> M1
 
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-literal">int</span> n &lt;- 8;
     init
     {
-        create A number: n;
+        <span class="hljs-keyword">create</span> A <span class="hljs-symbol">number:</span> n;
     }
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">A</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>]</span>
+<span class="hljs-literal">species</span> A <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>]
 {
     <span class="hljs-literal">int</span> IQ &lt;- rnd(100);
-    <span class="hljs-class">reflex <span class="hljs-title">dolive</span></span>
+    <span class="hljs-builtin">reflex</span> dolive
     {
-        write <span class="hljs-string">""</span> + <span class="hljs-string">"i'm alive !!"</span>;
-        do wander;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span> + <span class="hljs-string">"i'm alive !!"</span>;
+        <span class="hljs-keyword">do</span> wander;
     }
 
-    aspect default
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>
     {
-        draw square(1) color: # green;
+        <span class="hljs-keyword">draw</span> square(1) <span class="hljs-symbol">color:</span> # green;
     }
 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">M1_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> M1_exp <span class="hljs-symbol">type:</span> gui
 {
-    output
+    <span class="hljs-keyword">output</span>
     {
-        <span class="hljs-class">display "<span class="hljs-title">m1_disp</span>"</span>
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"m1_disp"</span>
         {
-            <span class="hljs-class">species <span class="hljs-title">A</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span>;</span>
+            <span class="hljs-literal">species</span> A <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span>;
         }
 
     }
@@ -102,53 +102,53 @@ import <span class="hljs-string">"m1.gaml"</span> as micro_model_1
 import <span class="hljs-string">"m2.gaml"</span> as micro_model_2
 
 
-<span class="hljs-class">global</span>
+global
 {
     init
     {
     <span class="hljs-comment">//micro_model must be instantiated by create statement. We create an experiment inside the micro-model and the simulation will be created implicitly (1 experiment have only 1 simulation).</span>
-        create micro_model_1.M1_exp number: 5;
-        create micro_model_2.M2_exp;
+        <span class="hljs-keyword">create</span> micro_model_1.M1_exp <span class="hljs-symbol">number:</span> 5;
+        <span class="hljs-keyword">create</span> micro_model_2.M2_exp;
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">simulate_micro_models</span></span>
+    <span class="hljs-builtin">reflex</span> simulate_micro_models
     {
 
     <span class="hljs-comment">//tell the first experiment of micro_model_1 do 1 step;</span>
-        ask first(micro_model_1.M1_exp).simulation
+        <span class="hljs-keyword">ask</span> first(micro_model_1.M1_exp).simulation
         {
-            do _step_;
+            <span class="hljs-keyword">do</span> _step_;
         }
 
         <span class="hljs-comment">//tell the  experiment at 3 of micro_model_1 do 1 step;</span>
-        ask (micro_model_1.M1_exp at 3).simulation
+        <span class="hljs-keyword">ask</span> (micro_model_1.M1_exp at 3).simulation
         {
-            do _step_;
+            <span class="hljs-keyword">do</span> _step_;
         }
 
         <span class="hljs-comment">//tell all experiments of micro_model_1 do 1 step;</span>
-        ask (micro_model_1.M1_exp collect each.simulation)
+        <span class="hljs-keyword">ask</span> (micro_model_1.M1_exp collect each.simulation)
         {
-            do _step_;
+            <span class="hljs-keyword">do</span> _step_;
         }
 
         <span class="hljs-comment">//tell all experiments of micro_model_2 do 1 step;</span>
-        ask (micro_model_2.M2_exp collect each.simulation)
+        <span class="hljs-keyword">ask</span> (micro_model_2.M2_exp collect each.simulation)
         {
-            do _step_;
+            <span class="hljs-keyword">do</span> _step_;
         }
         
         <span class="hljs-comment">//kill simulation  of micro_model and recreate then</span>
-        ask  (micro_model_2.M2_exp collect each.simulation){
-            do die;
+        <span class="hljs-keyword">ask</span>  (micro_model_2.M2_exp collect each.simulation){
+            <span class="hljs-keyword">do</span> die;
         }
-        ask (micro_model_2.M2_exp){
-            create simulation{do _init_;}
+        <span class="hljs-keyword">ask</span> (micro_model_2.M2_exp){
+            <span class="hljs-keyword">create</span> simulation{<span class="hljs-keyword">do</span> _init_;}
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Comodel_simple_exp</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> Comodel_simple_exp <span class="hljs-symbol">type:</span> gui
 {
 }
 </code></pre>

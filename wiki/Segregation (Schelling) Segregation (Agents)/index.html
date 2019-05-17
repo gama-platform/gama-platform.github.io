@@ -9,66 +9,66 @@
 <p>Imported model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> segregation_base
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Different colors for the group</span>
-    <span class="hljs-literal">rgb</span> color_1 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"yellow"</span>) parameter: <span class="hljs-string">"Color of group 1:"</span> category: <span class="hljs-string">"User interface"</span>;
-    <span class="hljs-literal">rgb</span> color_2 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"red"</span>) parameter: <span class="hljs-string">"Color of group 2:"</span> category: <span class="hljs-string">"User interface"</span>;
-    <span class="hljs-literal">rgb</span> color_3 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"blue"</span>) parameter: <span class="hljs-string">"Color of group 3:"</span> category: <span class="hljs-string">"User interface"</span>;
-    <span class="hljs-literal">rgb</span> color_4 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"orange"</span>) parameter: <span class="hljs-string">"Color of group 4:"</span> category: <span class="hljs-string">"User interface"</span>;
-    <span class="hljs-literal">rgb</span> color_5 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"green"</span>) parameter: <span class="hljs-string">"Color of group 5:"</span> category: <span class="hljs-string">"User interface"</span>;
-    <span class="hljs-literal">rgb</span> color_6 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"pink"</span>) parameter: <span class="hljs-string">"Color of group 6:"</span> category: <span class="hljs-string">"User interface"</span>;   
-    <span class="hljs-literal">rgb</span> color_7 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"magenta"</span>) parameter: <span class="hljs-string">"Color of group 7:"</span> category: <span class="hljs-string">"User interface"</span>;
-    <span class="hljs-literal">rgb</span> color_8 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"cyan"</span>) parameter: <span class="hljs-string">"Color of group 8:"</span> category: <span class="hljs-string">"User interface"</span>;
-    <span class="hljs-literal">list</span> colors &lt;- [color_1, color_2, color_3, color_4, color_5, color_6, color_7, color_8] of: <span class="hljs-literal">rgb</span>;
+    <span class="hljs-literal">rgb</span> color_1 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"yellow"</span>) <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Color of group 1:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_2 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"red"</span>) <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Color of group 2:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_3 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"blue"</span>) <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Color of group 3:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_4 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"orange"</span>) <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Color of group 4:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_5 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"green"</span>) <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Color of group 5:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_6 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"pink"</span>) <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Color of group 6:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"User interface"</span>;   
+    <span class="hljs-literal">rgb</span> color_7 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"magenta"</span>) <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Color of group 7:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">rgb</span> color_8 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"cyan"</span>) <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Color of group 8:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"User interface"</span>;
+    <span class="hljs-literal">list</span> colors &lt;- [color_1, color_2, color_3, color_4, color_5, color_6, color_7, color_8] <span class="hljs-symbol">of:</span> <span class="hljs-literal">rgb</span>;
 
     
     <span class="hljs-comment">//Number of groups</span>
-    <span class="hljs-literal">int</span> number_of_groups &lt;- 2 max: 8 parameter: <span class="hljs-string">"Number of groups:"</span> category: <span class="hljs-string">"Population"</span>;
+    <span class="hljs-literal">int</span> number_of_groups &lt;- 2 <span class="hljs-symbol">max:</span> 8 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Number of groups:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"Population"</span>;
     <span class="hljs-comment">//Density of the people</span>
-    <span class="hljs-literal">float</span> density_of_people &lt;- 0.7 parameter: <span class="hljs-string">"Density of people:"</span> category: <span class="hljs-string">"Population"</span> min: 0.01 max: 0.99;
+    <span class="hljs-literal">float</span> density_of_people &lt;- 0.7 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Density of people:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"Population"</span> <span class="hljs-symbol">min:</span> 0.01 <span class="hljs-symbol">max:</span> 0.99;
     <span class="hljs-comment">//Percentage of similar wanted for segregation</span>
-    <span class="hljs-literal">float</span> percent_similar_wanted &lt;- 0.5 min: <span class="hljs-literal">float</span> (0) max: <span class="hljs-literal">float</span> (1) parameter: <span class="hljs-string">"Desired percentage of similarity:"</span> category: <span class="hljs-string">"Population"</span>;
+    <span class="hljs-literal">float</span> percent_similar_wanted &lt;- 0.5 <span class="hljs-symbol">min:</span> <span class="hljs-literal">float</span> (0) <span class="hljs-symbol">max:</span> <span class="hljs-literal">float</span> (1) <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Desired percentage of similarity:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"Population"</span>;
     <span class="hljs-comment">//Dimension of the grid</span>
-    <span class="hljs-literal">int</span> dimensions &lt;- 40 max: 400 min: 10 parameter: <span class="hljs-string">"Width and height of the environment:"</span> category: <span class="hljs-string">"Environment"</span>;
+    <span class="hljs-literal">int</span> dimensions &lt;- 40 <span class="hljs-symbol">max:</span> 400 <span class="hljs-symbol">min:</span> 10 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Width and height of the environment:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"Environment"</span>;
     <span class="hljs-comment">//Neighbors distance for the perception of the agents</span>
-    <span class="hljs-literal">int</span> neighbors_distance &lt;- 2 max: 10 min: 1 parameter: <span class="hljs-string">"Distance of perception:"</span> category: <span class="hljs-string">"Population"</span>;
+    <span class="hljs-literal">int</span> neighbors_distance &lt;- 2 <span class="hljs-symbol">max:</span> 10 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Distance of perception:"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"Population"</span>;
     <span class="hljs-comment">//Number of people agents</span>
     <span class="hljs-literal">int</span> number_of_people &lt;- 0;
     <span class="hljs-comment">//Number of happy people</span>
-    <span class="hljs-literal">int</span> sum_happy_people &lt;- 0 update: all_people count (each.is_happy);
+    <span class="hljs-literal">int</span> sum_happy_people &lt;- 0 <span class="hljs-symbol">update:</span> all_people count (each.is_happy);
     <span class="hljs-comment">//Number of similar neighbors</span>
-    <span class="hljs-literal">int</span> sum_similar_neighbors &lt;- 0 update: sum (all_people collect each.similar_nearby);
+    <span class="hljs-literal">int</span> sum_similar_neighbors &lt;- 0 <span class="hljs-symbol">update:</span> sum (all_people collect each.similar_nearby);
     <span class="hljs-comment">//Number of neighbors</span>
-    <span class="hljs-literal">int</span> sum_total_neighbors &lt;- 1 update: sum (all_people collect each.total_nearby) min: 1;
+    <span class="hljs-literal">int</span> sum_total_neighbors &lt;- 1 <span class="hljs-symbol">update:</span> sum (all_people collect each.total_nearby) <span class="hljs-symbol">min:</span> 1;
     <span class="hljs-comment">//List of all the places</span>
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; all_places;
     <span class="hljs-comment">//List of all the people</span>
     <span class="hljs-literal">list</span>&lt;base&gt; all_people;  
     
     <span class="hljs-comment">//Action to write the description of the model in the console</span>
-    action description {
-        write
+    <span class="hljs-keyword">action</span> description {
+        <span class="hljs-keyword">write</span>
         <span class="hljs-string">"\\n\\u25B6 Description. \\n\\u25B6 Thomas Schelling model of residential segregation is a classic study of the effects of local decisions on global dynamics. Agents with mild preferences for same-type neighbors, but without preferences for segregated neighborhoods, can wind up producing complete segregation.\\n\\u25B6 In this model, agents populate a grid with a given *density*. They are in two different states : happy when the percentage of same-color neighbors is above their *desired percentage of similarity*; unhappy otherwise. In the latter case, they change their location randomly until they find a neighborhood that fits their desire. \\n\\u25B6 In addition to the previous parameter, one can adjust the *distance of perception* (i.e.  the distance at which they consider other agents as neighbors) of the agents to see how it affects the global process. "</span>;
     }
     <span class="hljs-comment">//Initialization of the model</span>
     init {
         <span class="hljs-comment">//Write the description of the model </span>
-        do description;
+        <span class="hljs-keyword">do</span> description;
         <span class="hljs-comment">//Initialization of the places</span>
-        do initialize_places;
+        <span class="hljs-keyword">do</span> initialize_places;
         <span class="hljs-comment">//Computation of the number of people according to the density of people</span>
         number_of_people &lt;- <span class="hljs-literal">int</span>( length (all_places) * density_of_people);
         <span class="hljs-comment">//Initialization of the people</span>
-        do initialize_people;
+        <span class="hljs-keyword">do</span> initialize_people;
     }
     <span class="hljs-comment">//Action to initialize places defined in the subclasses</span>
-    action initialize_places virtual: true;
+    <span class="hljs-keyword">action</span> initialize_places <span class="hljs-symbol">virtual:</span> true;
     <span class="hljs-comment">//Action to initialize people in the subclasses</span>
-    action initialize_people virtual: true;
+    <span class="hljs-keyword">action</span> initialize_people <span class="hljs-symbol">virtual:</span> true;
 }
 
 <span class="hljs-comment">//Species base representing the people agents</span>
-<span class="hljs-class">species <span class="hljs-title">base</span> </span>{
+<span class="hljs-literal">species</span> base {
     <span class="hljs-literal">rgb</span> color;
     <span class="hljs-comment">//List of all the neighbors agents</span>
     <span class="hljs-literal">list</span>&lt;base&gt; my_neighbors;
@@ -92,7 +92,7 @@
 <span class="hljs-comment">//import the Common Schelling Segregation model</span>
 import <span class="hljs-string">"../include/Common Schelling Segregation.gaml"</span>
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//List of all the free places</span>
     <span class="hljs-literal">list</span>&lt;space&gt; free_places ;
     <span class="hljs-comment">//List of all the places</span>
@@ -101,23 +101,23 @@ import <span class="hljs-string">"../include/Common Schelling Segregation.gaml"<
     <span class="hljs-literal">geometry</span> shape &lt;- square(dimensions);
     
     <span class="hljs-comment">//Action to initialize the people agents</span>
-    action initialize_people { 
-        create people number: number_of_people; 
+    <span class="hljs-keyword">action</span> initialize_people { 
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> number_of_people; 
         all_people &lt;- people as <span class="hljs-literal">list</span> ;  
     } 
     <span class="hljs-comment">//Action to initialize the places</span>
-    action initialize_places { 
+    <span class="hljs-keyword">action</span> initialize_places { 
         all_places &lt;- shuffle (space);
         free_places &lt;- all_places;  
     } 
 }
 <span class="hljs-comment">//Grid to discretize space, each cell representing a free space for the people agents</span>
-<span class="hljs-class">grid <span class="hljs-title">space</span> <span class="hljs-title">width</span>: <span class="hljs-title">dimensions</span> <span class="hljs-title">height</span>: <span class="hljs-title">dimensions</span> <span class="hljs-title">neighbors</span>: 8 <span class="hljs-title">use_regular_agents</span>: <span class="hljs-title">false</span> <span class="hljs-title">frequency</span>: 0</span>{
+grid space <span class="hljs-symbol">width:</span> dimensions <span class="hljs-symbol">height:</span> dimensions <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">use_regular_agents:</span> false <span class="hljs-symbol">frequency:</span> 0{
     <span class="hljs-literal">rgb</span> color  &lt;- #black;
 }
 
 <span class="hljs-comment">//Species representing the people agents</span>
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">parent</span>: <span class="hljs-title">base</span>  </span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">parent:</span> base  {
     <span class="hljs-comment">//Color of the people agent</span>
     <span class="hljs-literal">rgb</span> color &lt;- colors at (rnd (number_of_groups - 1));
     <span class="hljs-comment">//List of all the neighbors of the agent</span>
@@ -132,7 +132,7 @@ import <span class="hljs-string">"../include/Common Schelling Segregation.gaml"<
         free_places &gt;&gt; my_place;
     } 
     <span class="hljs-comment">//Reflex to migrate the people agent when it is not happy </span>
-    <span class="hljs-class">reflex <span class="hljs-title">migrate</span> <span class="hljs-title">when</span>: !<span class="hljs-title">is_happy</span> </span>{
+    <span class="hljs-builtin">reflex</span> <span class="hljs-keyword">migrate</span> <span class="hljs-symbol">when:</span> !is_happy {
         <span class="hljs-comment">//Add the place to the free places as it will move to another place</span>
         free_places &lt;&lt; my_place;
         <span class="hljs-comment">//Change the place of the agent</span>
@@ -142,26 +142,26 @@ import <span class="hljs-string">"../include/Common Schelling Segregation.gaml"<
         free_places &gt;&gt; my_place;
     }
     
-    aspect default{ 
-        draw circle (0.5) color: color; 
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span>{ 
+        <span class="hljs-keyword">draw</span> circle (0.5) <span class="hljs-symbol">color:</span> color; 
     }
 }
 
 
 
-<span class="hljs-class">experiment <span class="hljs-title">schelling</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{    
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Segregation</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+<span class="hljs-builtin">experiment</span> schelling <span class="hljs-symbol">type:</span> gui {    
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Segregation {
+            <span class="hljs-literal">species</span> people;
         }   
-        <span class="hljs-class">display <span class="hljs-title">Charts</span> </span>{
-            chart <span class="hljs-string">"Proportion of happiness"</span> type: pie background: #gray style: exploded position: {0,0} size: {1.0,0.5}{
-                data <span class="hljs-string">"Unhappy"</span> value: number_of_people - sum_happy_people color: #green;
-                data <span class="hljs-string">"Happy"</span> value: sum_happy_people color: #yellow;
+        <span class="hljs-keyword">display</span> Charts {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Proportion of happiness"</span> <span class="hljs-symbol">type:</span> pie <span class="hljs-symbol">background:</span> #gray <span class="hljs-symbol">style:</span> exploded <span class="hljs-symbol">position:</span> {0,0} <span class="hljs-symbol">size:</span> {1.0,0.5}{
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"Unhappy"</span> <span class="hljs-symbol">value:</span> number_of_people - sum_happy_people <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"Happy"</span> <span class="hljs-symbol">value:</span> sum_happy_people <span class="hljs-symbol">color:</span> #yellow;
             }
-            chart <span class="hljs-string">"Global happiness and similarity"</span> type: series background: #gray axes: #white position: {0,0.5} size: {1.0,0.5} {
-                data <span class="hljs-string">"happy"</span> color: #blue value:  (sum_happy_people / number_of_people) * 100 style: spline ;
-                data <span class="hljs-string">"similarity"</span> color: #red value:  (sum_similar_neighbors / sum_total_neighbors) * 100 style: step ;
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Global happiness and similarity"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #gray <span class="hljs-symbol">axes:</span> #white <span class="hljs-symbol">position:</span> {0,0.5} <span class="hljs-symbol">size:</span> {1.0,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"happy"</span> <span class="hljs-symbol">color:</span> #blue <span class="hljs-symbol">value:</span>  (sum_happy_people / number_of_people) * 100 <span class="hljs-symbol">style:</span> spline ;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"similarity"</span> <span class="hljs-symbol">color:</span> #red <span class="hljs-symbol">value:</span>  (sum_similar_neighbors / sum_total_neighbors) * 100 <span class="hljs-symbol">style:</span> step ;
             }
         }
     }

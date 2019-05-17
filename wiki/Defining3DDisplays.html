@@ -79,9 +79,9 @@
 <ul>
 <li>Define the attribute type of the display with <code>type:opengl</code> in the output of your model (or use the preferences-&gt;display windows to use it by default):</li>
 </ul>
-<pre><code class="hljs">output {
-  <span class="hljs-class">display <span class="hljs-title">DisplayName</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>{
-    <span class="hljs-class">species <span class="hljs-title">mySpecies</span>;</span>
+<pre><code class="hljs"><span class="hljs-keyword">output</span> {
+  <span class="hljs-keyword">display</span> DisplayName <span class="hljs-symbol">type:</span>opengl {
+    <span class="hljs-literal">species</span> mySpecies;
   }
 </code></pre>
 <p>The opengl display share most of the feature that the java2D offers and that are described <a href="DefiningDisplaysGeneralities">here</a>.</p>
@@ -91,13 +91,13 @@
 <h3><a class="anchor" aria-hidden="true" id="size"></a><a href="#size" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Size</h3>
 <p>Layer can be drawn with different size (x,y and z) using the <em>size</em> facet</p>
 <p>Here is an example of display using all the previous facet (experiment factice to add to the model <em>Incremental Model 5</em>). You can also dynamically change those value by showing the side bar in the display.</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">expe_test</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">city_display</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geom</span> <span class="hljs-title">refresh</span>:<span class="hljs-title">false</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geom</span> <span class="hljs-title">transparency</span>:0.5 ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">sphere3D</span> <span class="hljs-title">position</span>:</span>{0,0,0.1};
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">geom</span> <span class="hljs-title">size</span>:</span>{0.3,0.3,0.3};
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> expe_test <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> geom <span class="hljs-symbol">refresh:</span>false;
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> geom <span class="hljs-symbol">transparency:</span>0.5 ;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> sphere3D <span class="hljs-symbol">position:</span>{0,0,0.1};
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> geom <span class="hljs-symbol">size:</span>{0.3,0.3,0.3};
         }
     }
 }
@@ -121,22 +121,22 @@ The default value is (0,1,0)</p>
 <p>Here are some examples that can be done using those 3 parameters. You can test it by running the following model:</p>
 <p><a href='http://www.youtube.com/watch?feature=player_embedded&v=lQVGD8aDKZY' target='_blank'><img src='http://img.youtube.com/vi/lQVGD8aDKZY/0.jpg' width='425' height=344 /></a></p>
 <h4><a class="anchor" aria-hidden="true" id="default-view"></a><a href="#default-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default view</h4>
-<pre><code class="hljs"><span class="hljs-class">display <span class="hljs-title">RealBoids</span>   <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span></span>{
+<pre><code class="hljs"><span class="hljs-keyword">display</span> RealBoids   <span class="hljs-symbol">type:</span>opengl{
 ...     
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="first-person-view"></a><a href="#first-person-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>First person view</h4>
 <p>You can set the position as a first person shooter video game using:</p>
-<pre><code class="hljs"><span class="hljs-class">display <span class="hljs-title">FirstPerson</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> </span>
-camera_pos:{boids(1).location.x,-boids(1).location.y,10} 
-camera_look_pos:{cos(boids(1).heading)*world.shape.width,-sin(boids(1).heading)*world.shape.height,0} 
-camera_up_vector:{0.0,0.0,1.0}{
+<pre><code class="hljs"><span class="hljs-keyword">display</span> FirstPerson  <span class="hljs-symbol">type:</span>opengl 
+<span class="hljs-symbol">camera_pos:</span>{boids(1).location.x,-boids(1).location.y,10} 
+<span class="hljs-symbol">camera_look_pos:</span>{cos(boids(1).heading)*world.shape.width,-sin(boids(1).heading)*world.shape.height,0} 
+<span class="hljs-symbol">camera_up_vector:</span>{0.0,0.0,1.0}{
 ...
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="third-person-view"></a><a href="#third-person-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Third Person view</h4>
 <p>You can follow an agent during a simulation by positioning the camera above it using:</p>
-<pre><code class="hljs"><span class="hljs-class">display <span class="hljs-title">ThirdPerson</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">camera_pos</span>:</span>{boids(1).location.x,-boids(1).location.y,250}  camera_look_pos:{boids(1).location.x,-boids(1).location.y,boids(1).location.z}{
+<pre><code class="hljs"><span class="hljs-keyword">display</span> ThirdPerson  <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">camera_pos:</span>{boids(1).location.x,-boids(1).location.y,250}  <span class="hljs-symbol">camera_look_pos:</span>{boids(1).location.x,-boids(1).location.y,boids(1).location.z}{
 ...
 } 
 </code></pre>
@@ -153,7 +153,7 @@ camera_up_vector:{0.0,0.0,1.0}{
 </ul>
 <p>Here is an example using all the available facet to define a diffuse light that rotate around the world.</p>
 <p><a href='http://www.youtube.com/watch?feature=player_embedded&v=op56elmEEYs' target='_blank'><img src='http://img.youtube.com/vi/op56elmEEYs/0.jpg' width='425' height=344 /></a></p>
-<pre><code class="hljs"><span class="hljs-class">display <span class="hljs-title">View1</span>  <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">draw_diffuse_light</span>:<span class="hljs-title">true</span> <span class="hljs-title">ambient_light</span>:(0) <span class="hljs-title">diffuse_light</span>:(255) <span class="hljs-title">diffuse_light_pos</span>:</span>{50+ 150*sin(time*2),50,150*cos(time*2){
+<pre><code class="hljs"><span class="hljs-keyword">display</span> View1  <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">draw_diffuse_light:</span>true <span class="hljs-symbol">ambient_light:</span>(0) <span class="hljs-symbol">diffuse_light:</span>(255) <span class="hljs-symbol">diffuse_light_pos:</span>{50+ 150*sin(time*2),50,150*cos(time*2){
 ...
 }
 </code></pre>

@@ -86,8 +86,8 @@
 <p>There are two ways to run a GAMA experiment in headless mode: using a dedicated shell script (recommended) or directly from the command line. These commands take 2 arguments: an experiment file and an output directory.</p>
 <h3><a class="anchor" aria-hidden="true" id="shell-script"></a><a href="#shell-script" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Shell Script</h3>
 <p>It can be found in the <code>headless</code> directory located inside <code>Gama</code>. Its name is <code>gama-headless.sh</code> on MacOSX and Linux, and <code>gama-headless.bat</code> on Windows.</p>
-<pre><code class="hljs"> sh gama-headless.sh [m<span class="hljs-keyword">/c/t/hpc/v] $1 $2
-</span></code></pre>
+<pre><code class="hljs"> sh gama-headless.sh [m/c/t/hpc/v] $1 $2
+</code></pre>
 <ul>
 <li>with:
 <ul>
@@ -126,7 +126,7 @@
 <p>The XML input file contains for example:</p>
 <pre><code class="hljs">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;
 &lt;Experiment_plan&gt;
- &lt;Simulation id=<span class="hljs-string">"2"</span> sourcePath=<span class="hljs-string">"./predatorPrey/predatorPrey.gaml"</span> finalStep=<span class="hljs-string">"1000"</span> <span class="hljs-class">experiment="<span class="hljs-title">predPrey</span>"&gt;</span>
+ &lt;Simulation id=<span class="hljs-string">"2"</span> sourcePath=<span class="hljs-string">"./predatorPrey/predatorPrey.gaml"</span> finalStep=<span class="hljs-string">"1000"</span> <span class="hljs-builtin">experiment</span>=<span class="hljs-string">"predPrey"</span>&gt;
   &lt;Parameters&gt;
     &lt;Parameter name=<span class="hljs-string">"nb_predator_init"</span> type=<span class="hljs-string">"INT"</span> value=<span class="hljs-string">"53"</span> /&gt;
     &lt;Parameter name=<span class="hljs-string">"nb_preys_init"</span> type=<span class="hljs-string">"INT"</span> value=<span class="hljs-string">"621"</span> /&gt;
@@ -142,7 +142,7 @@
 </code></pre>
 <p>Note that several simulations could be determined in one experiment plan. These simulations are run in parallel according to the number of allocated cores.</p>
 <h3><a class="anchor" aria-hidden="true" id="heading"></a><a href="#heading" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Heading</h3>
-<pre><code class="hljs">&lt;Simulation id=<span class="hljs-string">"2"</span> sourcePath=<span class="hljs-string">"./predatorPrey/predatorPrey.gaml"</span> finalStep=<span class="hljs-string">"1000"</span> <span class="hljs-class">experiment="<span class="hljs-title">predPrey</span>"&gt;</span>
+<pre><code class="hljs">&lt;Simulation id=<span class="hljs-string">"2"</span> sourcePath=<span class="hljs-string">"./predatorPrey/predatorPrey.gaml"</span> finalStep=<span class="hljs-string">"1000"</span> <span class="hljs-builtin">experiment</span>=<span class="hljs-string">"predPrey"</span>&gt;
 </code></pre>
 <ul>
 <li>with:
@@ -167,9 +167,9 @@
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="outputs"></a><a href="#outputs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Outputs</h3>
 <p>One line per output value you want to retrieve. Outputs can be names of monitors or displays defined in the 'output' section of experiments, or the names of attributes defined in the experiment or the model itself (in the 'global' section).</p>
-<pre><code class="hljs">    ... with the name of a monitor defined in the 'output' section of the <span class="hljs-class">experiment...</span>
+<pre><code class="hljs">    ... with the name of a <span class="hljs-keyword">monitor</span> defined in the <span class="hljs-string">'output'</span> section of the <span class="hljs-builtin">experiment</span>...
     &lt;Output id=<span class="hljs-string">"2"</span> name=<span class="hljs-string">"number_of_preys"</span> framerate=<span class="hljs-string">"1"</span> /&gt;
-    ... with the name of a (built-in) variable defined in the <span class="hljs-class">experiment <span class="hljs-title">itself</span>...</span>
+    ... with the name of a (built-in) variable defined in the <span class="hljs-builtin">experiment</span> itself...
     &lt;Output id=<span class="hljs-string">"4"</span> name=<span class="hljs-string">"duration"</span> framerate=<span class="hljs-string">"1"</span> /&gt;
 </code></pre>
 <ul>
@@ -187,7 +187,7 @@
 <h2><a class="anchor" aria-hidden="true" id="output-directory"></a><a href="#output-directory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output Directory</h2>
 <p>During headless experiments, a directory is created with the following structure:</p>
 <pre><code class="hljs">Outputed-directory-<span class="hljs-literal">path</span>/
-    |-simulation-output.xml
+    |-simulation-<span class="hljs-keyword">output</span>.xml
     |- snapshot
           |- main_display2-0.png
           |- main_display2-10.png
@@ -207,19 +207,19 @@
 <p>A file named <code>simulation-output.xml</code> is created with the following contents when the experiment runs.</p>
 <pre><code class="hljs">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;
 &lt;Simulation id=<span class="hljs-string">"2"</span> &gt;
-    &lt;Step id='0' &gt;
-        &lt;Variable name='main_<span class="hljs-class">display' <span class="hljs-title">value</span>='<span class="hljs-title">main_display2</span>-0.<span class="hljs-title">png</span>'/&gt;</span>
-        &lt;Variable name='number_of_preys' value='613'/&gt;
-        &lt;Variable name='number_of_predators' value='51'/&gt;
-                &lt;Variable name='duration' value='6' /&gt;
+    &lt;Step id=<span class="hljs-string">'0'</span> &gt;
+        &lt;Variable name=<span class="hljs-string">'main_display'</span> value=<span class="hljs-string">'main_display2-0.png'</span>/&gt;
+        &lt;Variable name=<span class="hljs-string">'number_of_preys'</span> value=<span class="hljs-string">'613'</span>/&gt;
+        &lt;Variable name=<span class="hljs-string">'number_of_predators'</span> value=<span class="hljs-string">'51'</span>/&gt;
+                &lt;Variable name=<span class="hljs-string">'duration'</span> value=<span class="hljs-string">'6'</span> /&gt;
     &lt;/Step&gt;
-    &lt;Step id='1' &gt;
-        &lt;Variable name='main_<span class="hljs-class">display' <span class="hljs-title">value</span>='<span class="hljs-title">main_display2</span>-0.<span class="hljs-title">png</span>'/&gt;</span>
-        &lt;Variable name='number_of_preys' value='624'/&gt;
-        &lt;Variable name='number_of_predators' value='51'/&gt;
-                &lt;Variable name='duration' value='5' /&gt;
+    &lt;Step id=<span class="hljs-string">'1'</span> &gt;
+        &lt;Variable name=<span class="hljs-string">'main_display'</span> value=<span class="hljs-string">'main_display2-0.png'</span>/&gt;
+        &lt;Variable name=<span class="hljs-string">'number_of_preys'</span> value=<span class="hljs-string">'624'</span>/&gt;
+        &lt;Variable name=<span class="hljs-string">'number_of_predators'</span> value=<span class="hljs-string">'51'</span>/&gt;
+                &lt;Variable name=<span class="hljs-string">'duration'</span> value=<span class="hljs-string">'5'</span> /&gt;
     &lt;/Step&gt;
-        &lt;Step id='2'&gt;
+        &lt;Step id=<span class="hljs-string">'2'</span>&gt;
 
 ...
 </code></pre>
@@ -231,17 +231,17 @@
 </ul></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="step"></a><a href="#step" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step</h3>
-<pre><code class="hljs">    &lt;Step id='1' &gt;
-        &lt;Variable name='main_<span class="hljs-class">display' <span class="hljs-title">value</span>='<span class="hljs-title">main_display2</span>-0.<span class="hljs-title">png</span>'/&gt;</span>
-        &lt;Variable name='number_of_preys' value='624'/&gt;
-        &lt;Variable name='number_of_predators' value='51'/&gt;
-                &lt;Variable name='duration' value='6' /&gt;
+<pre><code class="hljs">    &lt;Step id=<span class="hljs-string">'1'</span> &gt;
+        &lt;Variable name=<span class="hljs-string">'main_display'</span> value=<span class="hljs-string">'main_display2-0.png'</span>/&gt;
+        &lt;Variable name=<span class="hljs-string">'number_of_preys'</span> value=<span class="hljs-string">'624'</span>/&gt;
+        &lt;Variable name=<span class="hljs-string">'number_of_predators'</span> value=<span class="hljs-string">'51'</span>/&gt;
+                &lt;Variable name=<span class="hljs-string">'duration'</span> value=<span class="hljs-string">'6'</span> /&gt;
     &lt;/Step&gt;
 
 </code></pre>
 <p>There is one Variable block per Output identified in the output experiment file.</p>
 <h3><a class="anchor" aria-hidden="true" id="variable"></a><a href="#variable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variable</h3>
-<pre><code class="hljs"> &lt;Variable name='main_<span class="hljs-class">display' <span class="hljs-title">value</span>='<span class="hljs-title">main_display2</span>-0.<span class="hljs-title">png</span>'/&gt;</span>
+<pre><code class="hljs"> &lt;Variable name=<span class="hljs-string">'main_display'</span> value=<span class="hljs-string">'main_display2-0.png'</span>/&gt;
 </code></pre>
 <ul>
 <li>with:

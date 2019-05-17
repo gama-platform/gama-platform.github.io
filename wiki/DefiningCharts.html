@@ -63,10 +63,10 @@
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="define-a-chart"></a><a href="#define-a-chart" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define a chart</h2>
 <p>To define a chart, we have to use the <code>chart</code> statement. A chart has to be named (with the <code>name</code> facet), and the type has to be specified (with the <code>type</code> facet). The value of the <code>type</code> facet can be <code>histogram</code>, <code>pie</code>, <code>series</code>, <code>scatter</code>, <code>xy</code>. A chart has to be defined inside a display.</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display "<span class="hljs-title">my_display</span>" </span>{
-            chart <span class="hljs-string">"my_chart"</span> type:pie {
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"my_display"</span> {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"my_chart"</span> <span class="hljs-symbol">type:</span>pie {
             }
         }
     }
@@ -80,18 +80,18 @@
 <li>one datalist statement to give a list of series. It can be useful if the number of series is unknown, variable or too high.</li>
 </ul>
 <p>The <code>data</code> statement is used to specify which variable will be displayed. You have to give your data a name (that will be displayed in your chart), the value of the variable you want to follow (using the <code>value</code> facet). You can add come optional facets such as <code>color</code> to specify the color of your data.</p>
-<pre><code class="hljs"><span class="hljs-class">global</span>
+<pre><code class="hljs">global
 {
-    <span class="hljs-literal">int</span> numberA &lt;- 2 update:numberA*2;
-    <span class="hljs-literal">int</span> numberB &lt;- 10000 update:numberB-1000;
+    <span class="hljs-literal">int</span> numberA &lt;- 2 <span class="hljs-symbol">update:</span>numberA*2;
+    <span class="hljs-literal">int</span> numberB &lt;- 10000 <span class="hljs-symbol">update:</span>numberB-1000;
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display "<span class="hljs-title">my_display</span>" </span>{
-            chart <span class="hljs-string">"my_chart"</span> type:pie {
-                data <span class="hljs-string">"numberA"</span> value:numberA color:#red;
-                data <span class="hljs-string">"numberB"</span> value:numberB color:#blue;
+<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"my_display"</span> {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"my_chart"</span> <span class="hljs-symbol">type:</span>pie {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"numberA"</span> <span class="hljs-symbol">value:</span>numberA <span class="hljs-symbol">color:</span>#red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"numberB"</span> <span class="hljs-symbol">value:</span>numberB <span class="hljs-symbol">color:</span>#blue;
             }
         }
     }
@@ -99,7 +99,7 @@
 </code></pre>
 <p>(TODO_IMAGE)</p>
 <p>The <code>datalist</code> statement is used several variables in one statement.  Instead of giving simple values, datalist is used with lists.</p>
-<pre><code class="hljs">datalist [<span class="hljs-string">"numberA"</span>,<span class="hljs-string">"numberB"</span>] value:[numberA,numberB] color:[#red,#blue];
+<pre><code class="hljs"><span class="hljs-keyword">datalist</span> [<span class="hljs-string">"numberA"</span>,<span class="hljs-string">"numberB"</span>] <span class="hljs-symbol">value:</span>[numberA,numberB] <span class="hljs-symbol">color:</span>[#red,#blue];
 </code></pre>
 <p>[TODO]
 Datalist provides you some additional facets you can use. If you want to learn more about them, please read the documentation [URL]</p>

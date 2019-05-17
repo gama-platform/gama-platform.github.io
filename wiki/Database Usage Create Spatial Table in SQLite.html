@@ -10,23 +10,23 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> SQLite_selectNUpdate
   
-<span class="hljs-class">global </span>{
-    <span class="hljs-literal">map</span> PARAMS &lt;- ['dbtype'::'sqlite','database'::'../../includes/spatialite.db'];
+global {
+    <span class="hljs-literal">map</span> PARAMS &lt;- [<span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlite'</span>,<span class="hljs-string">'database'</span>::<span class="hljs-string">'../../includes/spatialite.db'</span>];
 
     init {
-        create dummy ;
-        ask (dummy) 
+        <span class="hljs-keyword">create</span> dummy ;
+        <span class="hljs-keyword">ask</span> (dummy) 
         { 
-            do  executeUpdate params: PARAMS 
-                    updateComm: <span class="hljs-string">"DROP TABLE bounds; "</span> ;
-            do  executeUpdate params: PARAMS 
-                    updateComm: <span class="hljs-string">"DROP TABLE buildings; "</span> ;
+            <span class="hljs-keyword">do</span>  executeUpdate <span class="hljs-symbol">params:</span> PARAMS 
+                    <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"DROP TABLE bounds; "</span> ;
+            <span class="hljs-keyword">do</span>  executeUpdate <span class="hljs-symbol">params:</span> PARAMS 
+                    <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"DROP TABLE buildings; "</span> ;
   
-            write <span class="hljs-string">"dropped tables!"</span>;
-            do executeUpdate params: PARAMS updateComm: <span class="hljs-string">"CREATE TABLE bounds "</span> +
+            <span class="hljs-keyword">write</span> <span class="hljs-string">"dropped tables!"</span>;
+            <span class="hljs-keyword">do</span> executeUpdate <span class="hljs-symbol">params:</span> PARAMS <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"CREATE TABLE bounds "</span> +
                    <span class="hljs-string">"(id INTEGER PRIMARY KEY, "</span> +
                    <span class="hljs-string">" geom BLOB NOT NULL); "</span>  ;
-            do executeUpdate params: PARAMS updateComm: <span class="hljs-string">"CREATE TABLE buildings "</span> +
+            <span class="hljs-keyword">do</span> executeUpdate <span class="hljs-symbol">params:</span> PARAMS <span class="hljs-symbol">updateComm:</span> <span class="hljs-string">"CREATE TABLE buildings "</span> +
                    <span class="hljs-string">"(id INTEGER PRIMARY KEY, "</span> +
                    <span class="hljs-string">" name TEXT NOT NULL,"</span> +
                    <span class="hljs-string">" type TEXT NOT NULL,"</span> +
@@ -36,9 +36,9 @@
     }
 }  
 
-<span class="hljs-class">species <span class="hljs-title">dummy</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">SQLSKILL</span>] </span>{ } 
+<span class="hljs-literal">species</span> dummy <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">SQLSKILL</span>] { } 
 
-<span class="hljs-class">experiment <span class="hljs-title">default_expr</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> default_expr <span class="hljs-symbol">type:</span>gui {
 
 }     
 </code></pre>

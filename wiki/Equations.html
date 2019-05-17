@@ -88,7 +88,7 @@
 <h2><a class="anchor" aria-hidden="true" id="equation"></a><a href="#equation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation</code></h2>
 <h3><a class="anchor" aria-hidden="true" id="defining-an-ode-system"></a><a href="#defining-an-ode-system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining an ODE system</h3>
 <p>Defining a new ODE system needs to define a new <code>equation</code> block in a species. As example, the following <code>eqSI</code> system describes the evolution of a population with 2 compartments (S and I) and the flow from S to I compartment:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">userSI</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> userSI {
     <span class="hljs-literal">float</span> t ;
     <span class="hljs-literal">float</span> I ; 
     <span class="hljs-literal">float</span> S ; 
@@ -96,7 +96,7 @@
     <span class="hljs-literal">float</span> beta&lt;-0.4 ;
     <span class="hljs-literal">float</span> h ;
     
-    equation eqSI {
+    <span class="hljs-keyword">equation</span> eqSI {
         diff(S,t) = -beta * S * I / N ;
         diff(I,t) = beta * S * I / N ;
     }
@@ -111,34 +111,34 @@
 <li><code>vars</code>: this facet is expecting a list of variables of the species, that will be matched with the variables of the system,</li>
 <li><code>params</code>: this facet is expecting a list of variables of the species (of of the global), that will be matched with the parameters of the system.</li>
 </ul>
-<pre><code class="hljs">equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta] ;
+<pre><code class="hljs"><span class="hljs-keyword">equation</span> eqBuiltInSI <span class="hljs-symbol">type:</span> SI <span class="hljs-symbol">vars:</span> [S,I,t] <span class="hljs-symbol">params:</span> [N,beta] ;
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="split-a-system-into-several-agents"></a><a href="#split-a-system-into-several-agents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Split a system into several agents</h3>
 <p>An equation system can be split into several species and each part of the system are synchronized using the <code>simultaneously</code> facet of <code>equation</code>. The system split into several agents can be integrated using a single call to the <code>solve</code> statement. Notice that all the <code>equation</code> definition must have the same name.</p>
 <p>For example the SI system presented above can be defined in two different species <code>S_agt</code> (containing the equation defining the evolution of the S value) and <code>I_agt</code> (containing the equation defining the evolution of the I value). These two equations are linked using the <code>simultaneously</code> facet of the <code>equation</code> statement. This facet expects a set of agents. The integration is called only once in a simulation step, e.g. in the <code>S_agt</code> agent.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">S_agt</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> S_agt {
     <span class="hljs-literal">float</span> t ;       
     <span class="hljs-literal">float</span> Ssize ;
     
-    equation evol simultaneously: [ I_agt ] {
+    <span class="hljs-keyword">equation</span> evol <span class="hljs-symbol">simultaneously:</span> [ I_agt ] {
         diff(Ssize, t) = (- sum(I_agt accumulate [each.beta * each.Isize]) * self.Ssize / N);
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{solve evol method : rk4 step : hKR4 ;}  
+    <span class="hljs-builtin">reflex</span> solving {<span class="hljs-keyword">solve</span> evol method : rk4 step : hKR4 ;}  
 }
 
-<span class="hljs-class">species <span class="hljs-title">I_agt</span> </span>{
+<span class="hljs-literal">species</span> I_agt {
     <span class="hljs-literal">float</span> t ;
     <span class="hljs-literal">float</span> Isize ; <span class="hljs-comment">// number of infected </span>
     <span class="hljs-literal">float</span> beta ;
 
-    equation evol simultaneously : [ S_agt ] {
+    <span class="hljs-keyword">equation</span> evol simultaneously : [ S_agt ] {
         diff(Isize, t) = (beta * first(S_agt).Ssize * Isize / N);
     }
 }
 </code></pre>
 <p>The interest is that the modeler can create several agents for each compartment, which different values. For example in the SI model, the modeler can choose to create 1 agent <code>S_agt</code> and 2 agents <code>I_agt</code>. The <code>beta</code> attribute will have different values in the two agents, in order to represent 2 different strains.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-literal">int</span> number_S &lt;- 495 ; <span class="hljs-comment">// The number of susceptible</span>
     <span class="hljs-literal">int</span> number_I &lt;- 5   ; <span class="hljs-comment">// The number of infected</span>
     <span class="hljs-literal">int</span> nb_I &lt;- 2;
@@ -148,10 +148,10 @@
     <span class="hljs-literal">float</span> hKR4 &lt;- 0.1 ;
 
     init {
-        create S_agt {
+        <span class="hljs-keyword">create</span> S_agt {
             Ssize &lt;- <span class="hljs-literal">float</span>(number_S) ;
         }
-        create I_agt number: nb_I {
+        <span class="hljs-keyword">create</span> I_agt <span class="hljs-symbol">number:</span> nb_I {
             Isize &lt;- <span class="hljs-literal">float</span>(number_I) ;
             self.beta &lt;- myself.gbeta + rnd(0.5) ;
         }
@@ -169,15 +169,15 @@
 <p><img src="../resources/images/multiParadigmModeling/SI-split-results.png" alt="SI-split-results.png"></p>
 <h2><a class="anchor" aria-hidden="true" id="solve-an-equation"></a><a href="#solve-an-equation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>solve</code> an equation</h2>
 <p>The <code>solve</code> statement has been added in order to integrate numerically the equation system. It should be add into a reflex. At each simulation step, a step of the integration is executed, the length of the integration step is defined in the <code>step</code> facet. The <code>solve</code> statement will update the variables used in the equation system. The chosen integration method (defined in <code>method</code>) is Runge-Kutta 4 (which is very often a good choice of integration method in terms of accuracy).</p>
-<pre><code class="hljs"><span class="hljs-class">reflex <span class="hljs-title">solving</span> </span>{
-    solve eqSI method:rk4 step:h;
+<pre><code class="hljs"><span class="hljs-builtin">reflex</span> solving {
+    <span class="hljs-keyword">solve</span> eqSI <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
 }
 </code></pre>
 <p>With a smaller integration step, the integration will be faster but less accurate.</p>
 <h2><a class="anchor" aria-hidden="true" id="more-details"></a><a href="#more-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>More details</h2>
 <h3><a class="anchor" aria-hidden="true" id="details-about-the-solve-statement"></a><a href="#details-about-the-solve-statement" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Details about the <code>solve</code> statement</h3>
 <p>The <code>solve</code> statement can have a huge set of facets (see [S_Statements#solve] for more details). The basic use of the <code>solve</code> statement requiers only the equation identifier. By default, the integration method is Runge-Kutta 4 with an integration step of <code>1</code>, which means that at each simulation step the equation integration is made over 1 unit of time (which is implicitly defined by the system parameter value).</p>
-<pre><code class="hljs">solve eqSI ;
+<pre><code class="hljs"><span class="hljs-keyword">solve</span> eqSI ;
 </code></pre>
 <p>2 integration methods can be used:</p>
 <ul>
@@ -211,7 +211,7 @@ integrated_values (list): list of variables's value inside integration process</
 <p>Several built-in equations have been defined.</p>
 <h4><a class="anchor" aria-hidden="true" id="equation-eqbuiltinsi-type-si-vars-s-i-t-params-n-beta"></a><a href="#equation-eqbuiltinsi-type-si-vars-s-i-t-params-n-beta" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqBuiltInSI type: SI vars: [S,I,t] params: [N,beta];</code></h4>
 <p>This system is equivalent to:</p>
-<pre><code class="hljs">equation eqSI {
+<pre><code class="hljs"><span class="hljs-keyword">equation</span> eqSI {
     diff(S,t) = -beta * S * I / N ;
     diff(I,t) = beta * S * I / N ;
 }
@@ -228,7 +228,7 @@ integrated_values (list): list of variables's value inside integration process</
 <p><img src="../resources/images/multiParadigmModeling/SI-result.png" alt="SI-result.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="equation-eqsis-type-sis-vars-s-i-t-params-n-beta-gamma"></a><a href="#equation-eqsis-type-sis-vars-s-i-t-params-n-beta-gamma" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqSIS type: SIS vars: [S,I,t] params: [N,beta,gamma];</code></h4>
 <p>This system is equivalent to:</p>
-<pre><code class="hljs">equation eqSIS {
+<pre><code class="hljs"><span class="hljs-keyword">equation</span> eqSIS {
     diff(S,t) = -beta * S * I / N + gamma * I;
     diff(I,t) = beta * S * I / N - gamma * I;
 }
@@ -246,7 +246,7 @@ integrated_values (list): list of variables's value inside integration process</
 <p><img src="../resources/images/multiParadigmModeling/SIS-result.png" alt="SIS-result.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="equation-eqsir-type-sir-vars-s-i-r-t-params-n-beta-gamma"></a><a href="#equation-eqsir-type-sir-vars-s-i-r-t-params-n-beta-gamma" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqSIR type:SIR vars:[S,I,R,t] params:[N,beta,gamma] ;</code></h4>
 <p>This system is equivalent to:</p>
-<pre><code class="hljs">equation eqSIR {
+<pre><code class="hljs"><span class="hljs-keyword">equation</span> eqSIR {
     diff(S,t) = (- beta * S * I / N);
     diff(I,t) = (beta * S * I / N) - (gamma * I);
     diff(R,t) = (gamma * I);
@@ -266,7 +266,7 @@ integrated_values (list): list of variables's value inside integration process</
 <p><img src="../resources/images/multiParadigmModeling/SIR-result.png" alt="SIR-result.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="equation-eqsirs-type-sirs-vars-s-i-r-t-params-n-beta-gamma-omega-mu"></a><a href="#equation-eqsirs-type-sirs-vars-s-i-r-t-params-n-beta-gamma-omega-mu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqSIRS type: SIRS vars: [S,I,R,t] params: [N,beta,gamma,omega,mu] ;</code></h4>
 <p>This system is equivalent to:</p>
-<pre><code class="hljs">equation eqSIRS {
+<pre><code class="hljs"><span class="hljs-keyword">equation</span> eqSIRS {
      diff(S,t) = mu * N + omega * R + - beta * S * I / N - mu * S ;
      diff(I,t) = beta * S * I / N - gamma * I - mu * I ;
      diff(R,t) = gamma * I - omega * R - mu * R ;
@@ -288,7 +288,7 @@ integrated_values (list): list of variables's value inside integration process</
 <p><img src="../resources/images/multiParadigmModeling/SIRS-result.png" alt="SIRS-result.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="equation-eqseir-type-seir-vars-s-e-i-r-t-params-n-beta-gamma-sigma-mu"></a><a href="#equation-eqseir-type-seir-vars-s-e-i-r-t-params-n-beta-gamma-sigma-mu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqSEIR type: SEIR vars: [S,E,I,R,t] params: [N,beta,gamma,sigma,mu] ;</code></h4>
 <p>This system is equivalent to:</p>
-<pre><code class="hljs">equation eqSEIR {
+<pre><code class="hljs"><span class="hljs-keyword">equation</span> eqSEIR {
     diff(S,t) = mu * N - beta * S * I / N - mu * S ;
     diff(E,t) = beta * S * I / N - mu * E - sigma * E ;
     diff(I,t) = sigma * E - mu * I - gamma * I;
@@ -312,7 +312,7 @@ integrated_values (list): list of variables's value inside integration process</
 <p><img src="../resources/images/multiParadigmModeling/SEIR-result.png" alt="SEIR-result.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="equation-eqlv-type-lv-vars-x-y-t-params-alpha-beta-delta-gamma"></a><a href="#equation-eqlv-type-lv-vars-x-y-t-params-alpha-beta-delta-gamma" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation eqLV type: LV vars: [x,y,t] params: [alpha,beta,delta,gamma] ;</code></h4>
 <p>This system is equivalent to:</p>
-<pre><code class="hljs">equation eqLV { 
+<pre><code class="hljs"><span class="hljs-keyword">equation</span> eqLV { 
     diff(x,t) =   x * (alpha - beta * y);
     diff(y,t) = - y * (delta - gamma * x);
 }   

@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> traffic
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Shapefile of the buildings</span>
     <span class="hljs-literal">file</span> building_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/buildings.shp"</span>);
     <span class="hljs-comment">//Shapefile of the roads</span>
@@ -26,12 +26,12 @@
     
     init {
         <span class="hljs-comment">//Initialization of the building using the shapefile of buildings</span>
-        create building from: building_shapefile;
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> building_shapefile;
         <span class="hljs-comment">//Initialization of the road using the shapefile of roads</span>
-        create road from: road_shapefile;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> road_shapefile;
         
         <span class="hljs-comment">//Creation of the people agents</span>
-        create people number: 1000{
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> 1000{
             <span class="hljs-comment">//People agents are located anywhere in one of the building</span>
             location &lt;- any_location_in(one_of(building));
         }
@@ -40,13 +40,13 @@
         road_network &lt;- as_edge_graph(road);
     }
     <span class="hljs-comment">//Reflex to update the speed of the roads according to the weights</span>
-    <span class="hljs-class">reflex <span class="hljs-title">update_road_speed</span>  </span>{
+    <span class="hljs-builtin">reflex</span> update_road_speed  {
         road_weights &lt;- road as_map (each::each.shape.perimeter / each.speed_coeff);
         road_network &lt;- road_network with_weights road_weights;
     }
 }
 <span class="hljs-comment">//Species to represent the people using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>]</span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>]{
     <span class="hljs-comment">//Target point of the agent</span>
     <span class="hljs-literal">point</span> target;
     <span class="hljs-comment">//Probability of leaving the building</span>
@@ -55,47 +55,47 @@
     <span class="hljs-literal">float</span> speed &lt;- 5 #km/#h;
     <span class="hljs-literal">rgb</span> color &lt;- rnd_color(255);
     <span class="hljs-comment">//Reflex to leave the building to another building</span>
-    <span class="hljs-class">reflex <span class="hljs-title">leave</span> <span class="hljs-title">when</span>: (<span class="hljs-title">target</span> = <span class="hljs-title">nil</span>) <span class="hljs-title">and</span> (<span class="hljs-title">flip</span>(<span class="hljs-title">leaving_proba</span>)) </span>{
+    <span class="hljs-builtin">reflex</span> leave <span class="hljs-symbol">when:</span> (target = nil) and (flip(leaving_proba)) {
         target &lt;- any_location_in(one_of(building));
     }
     <span class="hljs-comment">//Reflex to move to the target building moving on the road network</span>
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> != <span class="hljs-title">nil</span> </span>{
-        do goto target: target on: road_network recompute_path: false move_weights: road_weights;
+    <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> target != nil {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> target <span class="hljs-symbol">on:</span> road_network <span class="hljs-symbol">recompute_path:</span> false <span class="hljs-symbol">move_weights:</span> road_weights;
         <span class="hljs-keyword">if</span> (location = target) {
             target &lt;- nil;
         }   
     }
     
-    aspect default {
-        draw circle(5) color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">color:</span> color;
     }
 }
 <span class="hljs-comment">//Species to represent the buildings</span>
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
-    aspect default {
-        draw shape color: #gray;
+<span class="hljs-literal">species</span> building {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray;
     }
 }
 <span class="hljs-comment">//Species to represent the roads</span>
-<span class="hljs-class">species <span class="hljs-title">road</span> </span>{
+<span class="hljs-literal">species</span> road {
     <span class="hljs-comment">//Capacity of the road considering its perimeter</span>
     <span class="hljs-literal">float</span> capacity &lt;- 1 + shape.perimeter/30;
     <span class="hljs-comment">//Number of people on the road</span>
-    <span class="hljs-literal">int</span> nb_people &lt;- 0 update: length(people at_distance 1);
+    <span class="hljs-literal">int</span> nb_people &lt;- 0 <span class="hljs-symbol">update:</span> length(people at_distance 1);
     <span class="hljs-comment">//Speed coefficient computed using the number of people on the road and the capicity of the road</span>
-    <span class="hljs-literal">float</span> speed_coeff &lt;- 1.0 update:  exp(-nb_people/capacity) min: 0.1;
+    <span class="hljs-literal">float</span> speed_coeff &lt;- 1.0 <span class="hljs-symbol">update:</span>  exp(-nb_people/capacity) <span class="hljs-symbol">min:</span> 0.1;
     
-    aspect default {
-        draw (shape + 3 * speed_coeff) color: #red;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> (shape + 3 * speed_coeff) <span class="hljs-symbol">color:</span> #red;
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">trafic</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> trafic <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.01;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">carte</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">road</span> ;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> ;</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> carte <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">refresh:</span> false;
+            <span class="hljs-literal">species</span> road ;
+            <span class="hljs-literal">species</span> people ;
         }
     }
 }

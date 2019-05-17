@@ -90,16 +90,16 @@
 <h2><a class="anchor" aria-hidden="true" id="using-actions-as-operators"></a><a href="#using-actions-as-operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using actions as operators</h2>
 <p>Actions defined in species can be used as operators, provided they are called on the correct agent. The syntax is that of normal functional operators, but the agent that will perform the action must be added as the first operand.</p>
 <p>For instance, if the following species is defined:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">spec1</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> spec1 {
         <span class="hljs-literal">int</span> min(<span class="hljs-literal">int</span> x, <span class="hljs-literal">int</span> y) {
-                return x &gt; y ? x : y;
+                <span class="hljs-keyword">return</span> x &gt; y ? x : y;
         }
 }
 </code></pre>
 <p>Any agent instance of spec1 can use <code>min</code> as an operator (if the action conflicts with an existing operator, a warning will be emitted). For instance, in the same model, the following line is perfectly acceptable:</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
         init {
-                create spec1;
+                <span class="hljs-keyword">create</span> spec1;
                 spec1 my_agent &lt;- spec1[0];
                 <span class="hljs-literal">int</span> the_min &lt;- my_agent min(10,20); <span class="hljs-comment">// or min(my_agent, 10, 20);</span>
         }
@@ -307,7 +307,7 @@
 <span class="hljs-literal">bool</span> var1 &lt;- 7 in [1,2,3,4,5,6]; <span class="hljs-comment">// var1 equals false </span>
 <span class="hljs-literal">bool</span> var2 &lt;- 3 in [1::2, 3::4, 5::6]; <span class="hljs-comment">// var2 equals false </span>
 <span class="hljs-literal">bool</span> var3 &lt;- 6 in [1::2, 3::4, 5::6]; <span class="hljs-comment">// var3 equals true </span>
-<span class="hljs-literal">bool</span> var4 &lt;-  'bc' in 'abcded'; <span class="hljs-comment">// var4 equals true</span>
+<span class="hljs-literal">bool</span> var4 &lt;-  <span class="hljs-string">'bc'</span> in <span class="hljs-string">'abcded'</span>; <span class="hljs-comment">// var4 equals true</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-1"></a><a href="#see-also-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -543,7 +543,7 @@ the intersection of the two operands</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-12"></a><a href="#examples-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
 <span class="hljs-literal">list</span> var0 &lt;- interleave([1,2,4,3,5,7,6,8]); <span class="hljs-comment">// var0 equals [1,2,4,3,5,7,6,8] </span>
-<span class="hljs-literal">list</span> var1 &lt;- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e32','e33']]); <span class="hljs-comment">// var1 equals ['e11','e21','e31','e12','e22','e32','e13','e23','e33']</span>
+<span class="hljs-literal">list</span> var1 &lt;- interleave([[<span class="hljs-string">'e11'</span>,<span class="hljs-string">'e12'</span>,<span class="hljs-string">'e13'</span>],[<span class="hljs-string">'e21'</span>,<span class="hljs-string">'e22'</span>,<span class="hljs-string">'e23'</span>],[<span class="hljs-string">'e31'</span>,<span class="hljs-string">'e32'</span>,<span class="hljs-string">'e33'</span>]]); <span class="hljs-comment">// var1 equals ['e11','e21','e31','e12','e22','e32','e13','e23','e33']</span>
 
 </code></pre>
 <hr>
@@ -859,7 +859,7 @@ tests whether the operand represents a numerical value</p>
 <p>returns true if the left operand is an agent whose species implements the right-hand skill name</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-19"></a><a href="#examples-19" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- agentA is_skill '<span class="hljs-builtin">moving</span>'; <span class="hljs-comment">// var0 equals true</span>
+<span class="hljs-literal">bool</span> var0 &lt;- agentA is_skill <span class="hljs-string">'moving'</span>; <span class="hljs-comment">// var0 equals true</span>
 
 </code></pre>
 <hr>
@@ -1059,7 +1059,7 @@ Returns the kurtosis (aka excess) of a data sequence</p>
 <li>if it is a string, last returns a string composed of its last character, or an empty string if the operand is empty</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">string</span> var1 &lt;- last ('abce'); <span class="hljs-comment">// var1 equals 'e'</span>
+<span class="hljs-literal">string</span> var1 &lt;- last (<span class="hljs-string">'abce'</span>); <span class="hljs-comment">// var1 equals 'e'</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-31"></a><a href="#see-also-31" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
 <p><a href="OperatorsDH#first">first</a>,</p>
@@ -1177,7 +1177,7 @@ layouts a GAMA graph using Force model. usage: layoutForce(graph, bounds, coeff_
 <p>layouts a Gama graph based on a grid latice. usage: layoutForce(graph, bounds, coeff_nb_cells). graph is the graph to which &quot;
 + &quot;applied the layout;  bounds is the shape (geometry) in which the graph should be located; coeff_nb_cellsthe coefficient for the number of cells to locate the vertices (nb of places = coeff_nb_cells * nb of vertices).</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-27"></a><a href="#examples-27" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">layout_<span class="hljs-class">grid(<span class="hljs-title">graph</span>, <span class="hljs-title">world</span>.<span class="hljs-title">shape</span>); </span>
+<pre><code class="hljs">layout_grid(<span class="hljs-literal">graph</span>, world.shape); 
 
 </code></pre>
 <hr>
@@ -1211,7 +1211,7 @@ layouts a GAMA graph using Force model. usage: layoutForce(graph, bounds, coeff_
 <li>if it is a string, length returns the number of characters</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">int</span> var3 &lt;- length ('I am an <span class="hljs-literal">agent</span>'); <span class="hljs-comment">// var3 equals 13</span>
+<span class="hljs-literal">int</span> var3 &lt;- length (<span class="hljs-string">'I am an agent'</span>); <span class="hljs-comment">// var3 equals 13</span>
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="lgamma"></a><a href="#lgamma" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lgamma</code></h3>
@@ -1729,7 +1729,7 @@ unknown var0 &lt;- median ([4.5, 3.5, 5.5, 3.4, 7.0]); <span class="hljs-comment
 <p>Provide the exact number of milliseconds between two dates. This number can be positive or negative (if the second operand is smaller than the first one)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-48"></a><a href="#examples-48" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- milliseconds_between(date('2000-01-01'), date('2000-02-01')); <span class="hljs-comment">// var0 equals 2.6784E9</span>
+<span class="hljs-literal">float</span> var0 &lt;- milliseconds_between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2000-02-01'</span>)); <span class="hljs-comment">// var0 equals 2.6784E9</span>
 
 </code></pre>
 <hr>
@@ -1798,7 +1798,7 @@ unknown var3 &lt;- (<span class="hljs-literal">list</span>(node) min_of (round(n
 <p>Subtract a given number of days from a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-50"></a><a href="#examples-50" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-date var0 &lt;- date('2000-01-01') minus_days 20; <span class="hljs-comment">// var0 equals date('1999-12-12')</span>
+date var0 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) minus_days 20; <span class="hljs-comment">// var0 equals date('1999-12-12')</span>
 
 </code></pre>
 <hr>
@@ -1812,7 +1812,7 @@ date var0 &lt;- date('2000-01-01') minus_days 20; <span class="hljs-comment">// 
 <p>Remove a given number of hours from a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-51"></a><a href="#examples-51" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"><span class="hljs-comment">// equivalent to date1 - 15 #h  </span>
-date var1 &lt;- date('2000-01-01') minus_hours 15 ; <span class="hljs-comment">// var1 equals date('1999-12-31 09:00:00')</span>
+date var1 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) minus_hours 15 ; <span class="hljs-comment">// var1 equals date('1999-12-31 09:00:00')</span>
 
 </code></pre>
 <hr>
@@ -1826,7 +1826,7 @@ date var1 &lt;- date('2000-01-01') minus_hours 15 ; <span class="hljs-comment">/
 <p>Subtract a given number of minutes from a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-52"></a><a href="#examples-52" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"><span class="hljs-comment">// date('2000-01-01') to date1 - 5#mn  </span>
-date var1 &lt;- date('2000-01-01') minus_minutes 5 ; <span class="hljs-comment">// var1 equals date('1999-12-31 23:55:00')</span>
+date var1 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) minus_minutes 5 ; <span class="hljs-comment">// var1 equals date('1999-12-31 23:55:00')</span>
 
 </code></pre>
 <hr>
@@ -1840,7 +1840,7 @@ date var1 &lt;- date('2000-01-01') minus_minutes 5 ; <span class="hljs-comment">
 <p>Subtract a given number of months from a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-53"></a><a href="#examples-53" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-date var0 &lt;- date('2000-01-01') minus_months 5; <span class="hljs-comment">// var0 equals date('1999-08-01')</span>
+date var0 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) minus_months 5; <span class="hljs-comment">// var0 equals date('1999-08-01')</span>
 
 </code></pre>
 <hr>
@@ -1854,7 +1854,7 @@ date var0 &lt;- date('2000-01-01') minus_months 5; <span class="hljs-comment">//
 <p>Remove a given number of milliseconds from a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-54"></a><a href="#examples-54" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"><span class="hljs-comment">// equivalent to date1 - 15 #ms  </span>
-date var1 &lt;- date('2000-01-01') minus_ms 1000 ; <span class="hljs-comment">// var1 equals date('1999-12-31 23:59:59')</span>
+date var1 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) minus_ms 1000 ; <span class="hljs-comment">// var1 equals date('1999-12-31 23:59:59')</span>
 
 </code></pre>
 <hr>
@@ -1871,7 +1871,7 @@ date var1 &lt;- date('2000-01-01') minus_ms 1000 ; <span class="hljs-comment">//
 <p>Subtract a given number of weeks from a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-55"></a><a href="#examples-55" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-date var0 &lt;- date('2000-01-01') minus_weeks 15; <span class="hljs-comment">// var0 equals date('1999-09-18')</span>
+date var0 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) minus_weeks 15; <span class="hljs-comment">// var0 equals date('1999-09-18')</span>
 
 </code></pre>
 <hr>
@@ -1885,7 +1885,7 @@ date var0 &lt;- date('2000-01-01') minus_weeks 15; <span class="hljs-comment">//
 <p>Subtract a given number of year from a date</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-56"></a><a href="#examples-56" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-date var0 &lt;- date('2000-01-01') minus_years 3; <span class="hljs-comment">// var0 equals date('1997-01-01')</span>
+date var0 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) minus_years 3; <span class="hljs-comment">// var0 equals date('1997-01-01')</span>
 
 </code></pre>
 <hr>
@@ -1933,7 +1933,7 @@ date var0 &lt;- date('2000-01-01') minus_years 3; <span class="hljs-comment">// 
 <p>Provide the exact number of months between two dates. This number can be positive or negative (if the second operand is smaller than the first one)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-59"></a><a href="#examples-59" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">int</span> var0 &lt;- months_between(date('2000-01-01'), date('2000-02-01')); <span class="hljs-comment">// var0 equals 1</span>
+<span class="hljs-literal">int</span> var0 &lt;- months_between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2000-02-01'</span>)); <span class="hljs-comment">// var0 equals 1</span>
 
 </code></pre>
 <hr>

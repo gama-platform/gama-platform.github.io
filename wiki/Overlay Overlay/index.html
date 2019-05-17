@@ -10,39 +10,39 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> Overlay
 
-<span class="hljs-class">global</span>
+global
 {
     <span class="hljs-comment">//define the color for each possible type (among "water", "vegetation" and "building")</span>
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">rgb</span>&gt; color_per_type &lt;- [<span class="hljs-string">"water"</span>::#blue, <span class="hljs-string">"vegetation"</span>:: #green, <span class="hljs-string">"building"</span>:: #pink];
 }
 
 <span class="hljs-comment">//define a simple grid with 10 rows and 10 columns</span>
-<span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: 10 <span class="hljs-title">height</span>: 10 </span>{
+grid cell <span class="hljs-symbol">width:</span> 10 <span class="hljs-symbol">height:</span> 10 {
     <span class="hljs-comment">//each cell has a random type</span>
     <span class="hljs-literal">string</span> type &lt;- one_of(color_per_type.keys);
     <span class="hljs-literal">rgb</span> color &lt;- color_per_type[type];
 }
-<span class="hljs-class">experiment <span class="hljs-title">overlay</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span></span>
+<span class="hljs-builtin">experiment</span> <span class="hljs-keyword">overlay</span> <span class="hljs-symbol">type:</span> gui
 {
-    output 
+    <span class="hljs-keyword">output</span> 
     {
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> 
         {
             <span class="hljs-comment">//define a new overlay layer positioned at the coordinate 5,5, with a constant size of 180 pixels per 100 pixels.</span>
-            overlay <span class="hljs-string">"Overlay"</span> position: { 5, 5 } size: { 180 #px, 100 #px } background: # black transparency: 0.5 border: #black rounded: true
+            <span class="hljs-keyword">overlay</span> <span class="hljs-string">"Overlay"</span> <span class="hljs-symbol">position:</span> { 5, 5 } <span class="hljs-symbol">size:</span> { 180 #px, 100 #px } <span class="hljs-symbol">background:</span> # black <span class="hljs-symbol">transparency:</span> 0.5 <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">rounded:</span> true
             {
                 <span class="hljs-comment">//for each possible type, we draw a square with the corresponding color and we write the name of the type</span>
                 <span class="hljs-literal">float</span> y &lt;- 30#px;
-                loop type over: color_per_type.keys
+                <span class="hljs-keyword">loop</span> type <span class="hljs-symbol">over:</span> color_per_type.keys
                 {
-                    draw square(10#px) at: { 20#px, y } color: color_per_type[type] border: #white;
-                    draw type at: { 40#px, y + 4#px } color: # white font: font(<span class="hljs-string">"SansSerif"</span>, 18, #bold);
+                    <span class="hljs-keyword">draw</span> square(10#px) <span class="hljs-symbol">at:</span> { 20#px, y } <span class="hljs-symbol">color:</span> color_per_type[type] <span class="hljs-symbol">border:</span> #white;
+                    <span class="hljs-keyword">draw</span> type <span class="hljs-symbol">at:</span> { 40#px, y + 4#px } <span class="hljs-symbol">color:</span> # white <span class="hljs-symbol">font:</span> font(<span class="hljs-string">"SansSerif"</span>, 18, #bold);
                     y &lt;- y + 25#px;
                 }
 
             }
             <span class="hljs-comment">//then we display the grid</span>
-            <span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span>;</span>
+            grid cell <span class="hljs-symbol">lines:</span> #black;
         }
 
     }

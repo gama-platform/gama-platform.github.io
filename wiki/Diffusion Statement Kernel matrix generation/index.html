@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> kernelmatrixgeneration
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">// parameters</span>
     <span class="hljs-literal">float</span> variation &lt;- 0.0;
     <span class="hljs-literal">float</span> proportion &lt;- 1.0;
@@ -37,16 +37,16 @@
         minimum_cycle_duration &lt;- 200#ms;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">update</span> </span>{
+    <span class="hljs-builtin">reflex</span> update {
         x_min &lt;- cell_max_size;
         x_max &lt;- 0;
         y_min &lt;- cell_max_size;
         y_max &lt;- 0;
         <span class="hljs-comment">// copy the values of the buffer_cells (of the previous step) to the grid which will be displayed.</span>
-        ask cells {
+        <span class="hljs-keyword">ask</span> cells {
             value &lt;- (location as buffer_cells).value;
         }
-        ask buffer_cells {
+        <span class="hljs-keyword">ask</span> buffer_cells {
             <span class="hljs-comment">// find the boundaries of the diffusion</span>
             <span class="hljs-keyword">if</span> (value != 0.0) {
                 <span class="hljs-keyword">if</span> (grid_x &gt; x_max) {
@@ -64,29 +64,29 @@
             }
         }
         <span class="hljs-comment">// re-initialize the value of the buffer grid to 0, and the value of the central cell to 1.</span>
-        ask buffer_cells {
+        <span class="hljs-keyword">ask</span> buffer_cells {
             value &lt;- 0.0;
             <span class="hljs-keyword">if</span> (self = selected_cells) {
                 value &lt;- 1.0;
             }
         }
         <span class="hljs-comment">// diffuse the value over the buffer grid, according to the parameters choosen.</span>
-        diffuse var:value on:buffer_cells variation:variation proportion:proportion radius:radius cycle_length:cycle_length min_value:min_value;
+        <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span>value <span class="hljs-symbol">on:</span>buffer_cells <span class="hljs-symbol">variation:</span>variation <span class="hljs-symbol">proportion:</span>proportion <span class="hljs-symbol">radius:</span>radius <span class="hljs-symbol">cycle_length:</span>cycle_length <span class="hljs-symbol">min_value:</span>min_value;
     }
 }
 
 <span class="hljs-comment">// the buffer grid will be used to compute the diffusion at each step.</span>
-<span class="hljs-class">grid <span class="hljs-title">buffer_cells</span> <span class="hljs-title">height</span>:<span class="hljs-title">cell_max_size</span> <span class="hljs-title">width</span>:<span class="hljs-title">cell_max_size</span> </span>{
+grid buffer_cells <span class="hljs-symbol">height:</span>cell_max_size <span class="hljs-symbol">width:</span>cell_max_size {
     <span class="hljs-comment">// the diffused variable</span>
     <span class="hljs-literal">float</span> value &lt;- 0.0;
 }
 
 <span class="hljs-comment">// this grid is the copy of the buffer grid at the end of each step. Indeed, we have to display the grid once the diffusion has been done.</span>
-<span class="hljs-class">grid <span class="hljs-title">cells</span> <span class="hljs-title">height</span>:<span class="hljs-title">cell_max_size</span> <span class="hljs-title">width</span>:<span class="hljs-title">cell_max_size</span> </span>{
+grid cells <span class="hljs-symbol">height:</span>cell_max_size <span class="hljs-symbol">width:</span>cell_max_size {
     <span class="hljs-comment">// the diffused variable</span>
     <span class="hljs-literal">float</span> value &lt;- 0.0;
     
-    aspect base {
+    <span class="hljs-keyword">aspect</span> base {
         <span class="hljs-comment">// we only display the cells wich contains a non null value</span>
         <span class="hljs-keyword">if</span> (grid_x &lt;= x_max and grid_x &gt;= x_min and grid_y &lt;= y_max and grid_y &gt;= y_min)
         {
@@ -95,22 +95,22 @@
             <span class="hljs-comment">// compute dynamically the position of the current cell.</span>
             <span class="hljs-literal">point</span> pos &lt;- {(grid_x-x_min+1)*size_cell-0.5*size_cell,(grid_y-y_min+1)*size_cell-0.5*size_cell};
             <span class="hljs-comment">// display each cell as a square. The color is linked to the value of the diffused variable.</span>
-            draw square(size_cell) color:hsb(value,1.0,1.0) border:#black at:pos;
+            <span class="hljs-keyword">draw</span> square(size_cell) <span class="hljs-symbol">color:</span>hsb(value,1.0,1.0) <span class="hljs-symbol">border:</span>#black <span class="hljs-symbol">at:</span>pos;
             <span class="hljs-comment">// display the ratio in each square.</span>
-            draw <span class="hljs-literal">string</span>(value) at: pos + {-size_cell/3,0} color: °black font: font(<span class="hljs-string">"Helvetica"</span>, size_cell * #zoom * 2/3, #bold) perspective:true;
+            <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span>(value) <span class="hljs-symbol">at:</span> pos + {-size_cell/3,0} <span class="hljs-symbol">color:</span> °black <span class="hljs-symbol">font:</span> font(<span class="hljs-string">"Helvetica"</span>, size_cell * #zoom * 2/3, #bold) <span class="hljs-symbol">perspective:</span>true;
         }
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"proportion"</span> var:proportion;
-    parameter <span class="hljs-string">"variation"</span> var:variation;
-    parameter <span class="hljs-string">"min_value"</span> var:min_value;
-    parameter <span class="hljs-string">"radius"</span> var:radius;
-    parameter <span class="hljs-string">"cycle_length"</span> var:cycle_length;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">my_display</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">cells</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">base</span>;</span>
+<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"proportion"</span> <span class="hljs-symbol">var:</span>proportion;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"variation"</span> <span class="hljs-symbol">var:</span>variation;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min_value"</span> <span class="hljs-symbol">var:</span>min_value;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"radius"</span> <span class="hljs-symbol">var:</span>radius;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"cycle_length"</span> <span class="hljs-symbol">var:</span>cycle_length;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> my_display {
+            <span class="hljs-literal">species</span> cells <span class="hljs-symbol">aspect:</span>base;
         }
     }
 }

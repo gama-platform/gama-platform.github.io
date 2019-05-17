@@ -11,64 +11,64 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> no_protocol_1
 
-<span class="hljs-class">global </span>{
+global {
     Participant p;
     
     init {
-        create Initiator;
-        create Participant returns: ps;
+        <span class="hljs-keyword">create</span> Initiator;
+        <span class="hljs-keyword">create</span> Participant <span class="hljs-symbol">returns:</span> ps;
         
         p &lt;- ps at 0;
         
-        write 'Step the simulation to observe the outcome in the console';
+        <span class="hljs-keyword">write</span> <span class="hljs-string">'Step the simulation to observe the outcome in the console'</span>;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">Initiator</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">fipa</span>] </span>{
-    <span class="hljs-class">reflex <span class="hljs-title">print_debug_infor</span> </span>{
-        write name + ' with conversations: ' + (<span class="hljs-literal">string</span>(conversations)) + '; mailbox: ' + (<span class="hljs-literal">string</span>(mailbox));
+<span class="hljs-literal">species</span> Initiator <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">fipa</span>] {
+    <span class="hljs-builtin">reflex</span> print_debug_infor {
+        <span class="hljs-keyword">write</span> name + <span class="hljs-string">' with conversations: '</span> + (<span class="hljs-literal">string</span>(conversations)) + <span class="hljs-string">'; mailbox: '</span> + (<span class="hljs-literal">string</span>(mailbox));
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">say_hello</span> <span class="hljs-title">when</span>: (<span class="hljs-title">time</span> = 1) </span>{
-        do start_conversation with: [ to :: [p], protocol :: 'no-protocol', performative :: 'inform', contents :: [ ('Hello from ' + name)] ];
+    <span class="hljs-builtin">reflex</span> say_hello <span class="hljs-symbol">when:</span> (time = 1) {
+        <span class="hljs-keyword">do</span> start_conversation <span class="hljs-symbol">with:</span> [ to :: [p], protocol :: <span class="hljs-string">'no-protocol'</span>, performative :: <span class="hljs-string">'inform'</span>, contents :: [ (<span class="hljs-string">'Hello from '</span> + name)] ];
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">read_hello_from_participant</span> <span class="hljs-title">when</span>: (<span class="hljs-title">time</span> = 3) </span>{
-        loop i over: informs {
-            write name + ' receives message with content: ' + (<span class="hljs-literal">string</span>(i.contents));
-            do inform with: [ message :: i, contents :: [ ('Goodbye from ' + name)] ];
+    <span class="hljs-builtin">reflex</span> read_hello_from_participant <span class="hljs-symbol">when:</span> (time = 3) {
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">over:</span> informs {
+            <span class="hljs-keyword">write</span> name + <span class="hljs-string">' receives message with content: '</span> + (<span class="hljs-literal">string</span>(i.contents));
+            <span class="hljs-keyword">do</span> inform <span class="hljs-symbol">with:</span> [ message :: i, contents :: [ (<span class="hljs-string">'Goodbye from '</span> + name)] ];
         }
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">read_rebound_goodbye</span> <span class="hljs-title">when</span>: (<span class="hljs-title">time</span> = 5) </span>{
-        loop i over: mailbox {
-            write name + ' receives message with content: ' + (<span class="hljs-literal">string</span>(i.contents));
-        }
-    }
-}
-
-<span class="hljs-class">species <span class="hljs-title">Participant</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">fipa</span>] </span>{
-    <span class="hljs-class">reflex <span class="hljs-title">print_debug_infor</span> </span>{
-        write name + ' with conversations: ' + (<span class="hljs-literal">string</span>(conversations)) + '; mailbox: ' + (<span class="hljs-literal">string</span>(mailbox));
-    }
-
-    <span class="hljs-class">reflex <span class="hljs-title">reply_hello</span> <span class="hljs-title">when</span>: (<span class="hljs-title">time</span> = 2) </span>{
-        loop m over: informs {
-            write name + ' receives message with content: ' + (<span class="hljs-literal">string</span>(m.contents));
-            do inform with: [ message :: m, contents :: [ ('Rebound hello from ' + name) ] ];
-        }
-    }
-    
-    <span class="hljs-class">reflex <span class="hljs-title">read_goodbye</span> <span class="hljs-title">when</span>: (<span class="hljs-title">time</span> = 4) </span>{
-        loop i over: informs {
-            write name + ' receives message with content: ' + (<span class="hljs-literal">string</span>(i.contents));
-            do end_conversation with: [ message :: i, contents :: [ ('Rebound goodbye from' + name) ] ];
+    <span class="hljs-builtin">reflex</span> read_rebound_goodbye <span class="hljs-symbol">when:</span> (time = 5) {
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">over:</span> mailbox {
+            <span class="hljs-keyword">write</span> name + <span class="hljs-string">' receives message with content: '</span> + (<span class="hljs-literal">string</span>(i.contents));
         }
     }
 }
 
+<span class="hljs-literal">species</span> Participant <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">fipa</span>] {
+    <span class="hljs-builtin">reflex</span> print_debug_infor {
+        <span class="hljs-keyword">write</span> name + <span class="hljs-string">' with conversations: '</span> + (<span class="hljs-literal">string</span>(conversations)) + <span class="hljs-string">'; mailbox: '</span> + (<span class="hljs-literal">string</span>(mailbox));
+    }
 
-<span class="hljs-class">experiment <span class="hljs-title">test_no_protocol</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{}
+    <span class="hljs-builtin">reflex</span> reply_hello <span class="hljs-symbol">when:</span> (time = 2) {
+        <span class="hljs-keyword">loop</span> m <span class="hljs-symbol">over:</span> informs {
+            <span class="hljs-keyword">write</span> name + <span class="hljs-string">' receives message with content: '</span> + (<span class="hljs-literal">string</span>(m.contents));
+            <span class="hljs-keyword">do</span> inform <span class="hljs-symbol">with:</span> [ message :: m, contents :: [ (<span class="hljs-string">'Rebound hello from '</span> + name) ] ];
+        }
+    }
+    
+    <span class="hljs-builtin">reflex</span> read_goodbye <span class="hljs-symbol">when:</span> (time = 4) {
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">over:</span> informs {
+            <span class="hljs-keyword">write</span> name + <span class="hljs-string">' receives message with content: '</span> + (<span class="hljs-literal">string</span>(i.contents));
+            <span class="hljs-keyword">do</span> end_conversation <span class="hljs-symbol">with:</span> [ message :: i, contents :: [ (<span class="hljs-string">'Rebound goodbye from'</span> + name) ] ];
+        }
+    }
+}
+
+
+<span class="hljs-builtin">experiment</span> test_no_protocol <span class="hljs-symbol">type:</span> gui {}
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

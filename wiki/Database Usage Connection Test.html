@@ -9,31 +9,31 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> test_connection
 
-<span class="hljs-class">global </span>{
-    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; SQLSERVER &lt;- ['host'::'localhost', 'dbtype'::'sqlserver', 'database'::'', 'port'::'1433', 'user'::'sa', 'passwd'::'tmt'];
-    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; MySQL &lt;- ['host'::'localhost', 'dbtype'::'MySQL', 'database'::'', 'port'::'8889', 'user'::'root', 'passwd'::'root'];
-    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; ORACLE &lt;- ['host'::'localhost', 'dbtype'::'Oracle', 'database'::'', 'port'::'1433', 'user'::'sa', 'passwd'::'tmt'];
-    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; POSTGRES &lt;- ['host'::'localhost', 'dbtype'::'Postgres', 'database'::'bgaudou', 'port'::'5432', 'user'::'bgaudou', 'passwd'::''];
-    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; SQLITE &lt;- ['dbtype'::'sqlite', 'database'::'../../includes/meteo.db'];
+global {
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; SQLSERVER &lt;- [<span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>, <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlserver'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">''</span>, <span class="hljs-string">'port'</span>::<span class="hljs-string">'1433'</span>, <span class="hljs-string">'user'</span>::<span class="hljs-string">'sa'</span>, <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'tmt'</span>];
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; MySQL &lt;- [<span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>, <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'MySQL'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">''</span>, <span class="hljs-string">'port'</span>::<span class="hljs-string">'8889'</span>, <span class="hljs-string">'user'</span>::<span class="hljs-string">'root'</span>, <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'root'</span>];
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; ORACLE &lt;- [<span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>, <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'Oracle'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">''</span>, <span class="hljs-string">'port'</span>::<span class="hljs-string">'1433'</span>, <span class="hljs-string">'user'</span>::<span class="hljs-string">'sa'</span>, <span class="hljs-string">'passwd'</span>::<span class="hljs-string">'tmt'</span>];
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; POSTGRES &lt;- [<span class="hljs-string">'host'</span>::<span class="hljs-string">'localhost'</span>, <span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'Postgres'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">'bgaudou'</span>, <span class="hljs-string">'port'</span>::<span class="hljs-string">'5432'</span>, <span class="hljs-string">'user'</span>::<span class="hljs-string">'bgaudou'</span>, <span class="hljs-string">'passwd'</span>::<span class="hljs-string">''</span>];
+    <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>, <span class="hljs-literal">string</span>&gt; SQLITE &lt;- [<span class="hljs-string">'dbtype'</span>::<span class="hljs-string">'sqlite'</span>, <span class="hljs-string">'database'</span>::<span class="hljs-string">'../../includes/meteo.db'</span>];
     init {
-        create DB_connection_tester;
+        <span class="hljs-keyword">create</span> DB_connection_tester;
     }
 
 }
 
-<span class="hljs-class">species <span class="hljs-title">DB_connection_tester</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">SQLSKILL</span>] </span>{
+<span class="hljs-literal">species</span> DB_connection_tester <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">SQLSKILL</span>] {
     init {
-        write <span class="hljs-string">"Current Time "</span> + self timeStamp [];
-        write <span class="hljs-string">"Connection to SQLSERVER is "</span> + self testConnection [params::SQLSERVER];
-        write <span class="hljs-string">"Connection to MySQL is "</span> + self testConnection [params::MySQL];
-        write <span class="hljs-string">"Connection to SQLITE is "</span> + self testConnection [params::SQLITE];
-        write <span class="hljs-string">"Connection to ORACLE is "</span> + self testConnection [params::ORACLE];
-        write <span class="hljs-string">"Connection to POSTGRESQL is "</span> + self testConnection [params::POSTGRES];
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Current Time "</span> + self timeStamp [];
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection to SQLSERVER is "</span> + self testConnection [params::SQLSERVER];
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection to MySQL is "</span> + self testConnection [params::MySQL];
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection to SQLITE is "</span> + self testConnection [params::SQLITE];
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection to ORACLE is "</span> + self testConnection [params::ORACLE];
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Connection to POSTGRESQL is "</span> + self testConnection [params::POSTGRES];
     }
 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">default_expr</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> default_expr <span class="hljs-symbol">type:</span> gui {
 }  
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>

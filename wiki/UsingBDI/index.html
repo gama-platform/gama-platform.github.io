@@ -78,7 +78,7 @@
 <p>This simple model consists in creating &quot;cognitive&quot; agent whose goal is to extinguish a fire. In a first approximation we consider only one static water area and fire area. The aim is not to have a realistic model but to illustrate how to give a &quot;cognitive&quot; behavior to an agent using the BDI architecture.</p>
 <p>First let's create a BDI agent using the key control <strong>simple_bdi</strong> (A description of all existing control architectures is available <a href="BuiltInArchitectures">here</a>.)</p>
 <h3><a class="anchor" aria-hidden="true" id="species-helicopter-creation"></a><a href="#species-helicopter-creation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Species Helicopter creation</h3>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">helicopter</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>] <span class="hljs-title">control</span>: <span class="hljs-title">simple_bdi</span></span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> helicopter <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">simple_bdi</span>{
 ...
 }
 </code></pre>
@@ -99,48 +99,48 @@ The <strong>with_priority</strong> tool add a priority to a predicate. The prior
 <h4><a class="anchor" aria-hidden="true" id="initialization"></a><a href="#initialization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initialization</h4>
 <p>The initialization consists in setting the attribute <strong>waterValue</strong> to 1 and to add one desire. Three optional parameters are also set. The first desire added in the desire base is the <strong>patrol_desire</strong> saying that the helicopter wants to patrol. The optional parameters are specific to the BDI plug-in. You can specify the commitment of an agent to his intentions and his plans with the variables intention_persistence and plan_persistence that are floats between 0.0 (no commitment) and 1.0. The variable probabilistic_choice is a boolean that enables the agent to use a probabilistic choice (when true) or a deterministic choice (when false) when trying to find a plan or an intention.</p>
 <pre><code class="hljs">waterValue &lt;-1.0;
-do add_desire(patrol_desire);
+<span class="hljs-keyword">do</span> add_desire(patrol_desire);
 intention_persistence &lt;- 1.0;
 plan_persistence &lt;- 1.0;
 probabilistic_choice &lt;- false;  
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="perception"></a><a href="#perception" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Perception</h4>
 <p>At each iteration, the helicopter has two perceptions to do. The first one is about itself. The helicopter needs to perceive if it has water or not. If it has water, it adds the belief corresponding belief and removes the belief that it does not have water. And if it does not have water, that is the contrary.</p>
-<pre><code class="hljs">perceive target:self{
+<pre><code class="hljs"><span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>self{
     <span class="hljs-keyword">if</span>(waterValue&gt;0){
-        do add_belief(water_predicate);
-        do remove_belief(no_water_predicate);
+        <span class="hljs-keyword">do</span> add_belief(water_predicate);
+        <span class="hljs-keyword">do</span> remove_belief(no_water_predicate);
     }
     <span class="hljs-keyword">if</span>(waterValue&lt;=0){
-        do add_belief(no_water_predicate);
-        do remove_belief(water_predicate);
+        <span class="hljs-keyword">do</span> add_belief(no_water_predicate);
+        <span class="hljs-keyword">do</span> remove_belief(water_predicate);
     }
 }
 </code></pre>
 <p>The second perception is about the fires. Here, the fires are represented with the species <strong>fireArea</strong>. The helicopter has a radius of perception of 10 meters. If it perceives a fire, it will focus on the location of this fire. The <strong>focus</strong> tool create a belief with the same name as the focus (here, &quot;fireLocation&quot;) and will store the value of the focused variable (here, the variable location from the specie fireArea) with a priority of 10 in this example. Once the fire is perceived, the helicopter removes its intention of patrolling.</p>
-<pre><code class="hljs">perceive target:fireArea in: 10{
-    focus fireLocation var:location priority:10;
-    ask myself{
-        do remove_intention(patrol_desire, true);
+<pre><code class="hljs"><span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>fireArea <span class="hljs-symbol">in:</span> 10{
+    <span class="hljs-keyword">focus</span> fireLocation <span class="hljs-symbol">var:</span>location <span class="hljs-symbol">priority:</span>10;
+    <span class="hljs-keyword">ask</span> myself{
+        <span class="hljs-keyword">do</span> remove_intention(patrol_desire, true);
     }
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="rules"></a><a href="#rules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rules</h4>
 <p>The agent can use rules to create desires from beliefs. In this example, the agent has two rules. The first <strong>rule</strong> is to have a desire corresponding to the belief of a location of a fire. It means that when the agent has the belief that there is a fire in a particular location, it will have the desire to extinguish it. This permits to have the location value in the desire base.
 The second rule is to create the desire to have water when the agent has the belief that it not has water.</p>
-<pre><code class="hljs">rule belief: new_predicate(<span class="hljs-string">"fireLocation"</span>) new_desire: get_belief_with_name(<span class="hljs-string">"fireLocation"</span>);
-rule belief: no_water_predicate new_desire: water_predicate;
+<pre><code class="hljs"><span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> new_predicate(<span class="hljs-string">"fireLocation"</span>) <span class="hljs-symbol">new_desire:</span> get_belief_with_name(<span class="hljs-string">"fireLocation"</span>);
+<span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> no_water_predicate <span class="hljs-symbol">new_desire:</span> water_predicate;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="plan"></a><a href="#plan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Plan</h4>
 <h5><a class="anchor" aria-hidden="true" id="patrolling"></a><a href="#patrolling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Patrolling</h5>
 <p>This plan will be used when the agent has the intention to patrol.</p>
-<pre><code class="hljs">plan patrolling intention: patrol_desire{
-  do wander;
+<pre><code class="hljs"><span class="hljs-keyword">plan</span> patrolling <span class="hljs-symbol">intention:</span> patrol_desire{
+  <span class="hljs-keyword">do</span> wander;
 }
 </code></pre>
 <h5><a class="anchor" aria-hidden="true" id="stopfire"></a><a href="#stopfire" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>stopFire</h5>
 <p>This plan is executed when the agent has the intention to extinguish a fire.</p>
-<pre><code class="hljs">plan stopFire intention: new_predicate(<span class="hljs-string">"fireLocation"</span>) {
+<pre><code class="hljs"><span class="hljs-keyword">plan</span> stopFire <span class="hljs-symbol">intention:</span> new_predicate(<span class="hljs-string">"fireLocation"</span>) {
     <span class="hljs-literal">point</span> target_fire &lt;- <span class="hljs-literal">point</span>(get_current_intention().values[<span class="hljs-string">"location_value"</span>] );
     <span class="hljs-keyword">if</span>(waterValue&gt;0){
         <span class="hljs-keyword">if</span> (self distance_to target_fire &lt;= 1) {
@@ -149,30 +149,30 @@ rule belief: no_water_predicate new_desire: water_predicate;
                  waterValue &lt;- waterValue - 1.0;
                  current_fire.size &lt;-  current_fire.size - 1;
                  <span class="hljs-keyword">if</span> ( current_fire.size &lt;= 0) {
-                    ask  current_fire {do die;}
-                    do remove_belief(get_current_intention());
-                    do remove_intention(get_current_intention(), true);
-                    do add_desire(patrol_desire);
+                    <span class="hljs-keyword">ask</span>  current_fire {<span class="hljs-keyword">do</span> die;}
+                    <span class="hljs-keyword">do</span> remove_belief(get_current_intention());
+                    <span class="hljs-keyword">do</span> remove_intention(get_current_intention(), true);
+                    <span class="hljs-keyword">do</span> add_desire(patrol_desire);
                 }
-            } else {
-                do remove_belief(get_current_intention());
-                do remove_intention(get_current_intention(), true);
-                do add_desire(patrol_desire);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">do</span> remove_belief(get_current_intention());
+                <span class="hljs-keyword">do</span> remove_intention(get_current_intention(), true);
+                <span class="hljs-keyword">do</span> add_desire(patrol_desire);
             }
-        } else {
-            do goto target: target_fire;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> target_fire;
         }
-    } else {
-        do add_subintention(get_current_intention(),water_predicate,true);
-        do current_intention_on_hold();
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">do</span> add_subintention(get_current_intention(),water_predicate,true);
+        <span class="hljs-keyword">do</span> current_intention_on_hold();
     }
 }
 </code></pre>
 <h5><a class="anchor" aria-hidden="true" id="gototakewater"></a><a href="#gototakewater" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>gotoTakeWater</h5>
 <p>This plan is executed when the agent has the intention to have water.</p>
-<pre><code class="hljs">plan gotoTakeWater intention: water_predicate {
+<pre><code class="hljs"><span class="hljs-keyword">plan</span> gotoTakeWater <span class="hljs-symbol">intention:</span> water_predicate {
         waterArea wa &lt;- first(waterArea);
-        do goto target: wa);
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> wa);
         <span class="hljs-keyword">if</span> (self distance_to wa &lt;= 1) {
             waterValue &lt;- waterValue + 2.0;
     }
@@ -181,25 +181,25 @@ rule belief: no_water_predicate new_desire: water_predicate;
 <p>Plans can have other options. They can have a priority (with the facet priority), a boolean condition to start (with the facet when) or a boolean condition to stop (with the facet finished_when).</p>
 <h4><a class="anchor" aria-hidden="true" id="rest-of-the-code"></a><a href="#rest-of-the-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rest of the code</h4>
 <h5><a class="anchor" aria-hidden="true" id="aspect-of-the-helicopter"></a><a href="#aspect-of-the-helicopter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aspect of the helicopter</h5>
-<pre><code class="hljs">aspect base {
-    draw circle(1) color: #black;   
+<pre><code class="hljs"><span class="hljs-keyword">aspect</span> base {
+    <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span> #black;   
 }
 </code></pre>
 <h5><a class="anchor" aria-hidden="true" id="firearea-species"></a><a href="#firearea-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FireArea Species</h5>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">fireArea</span></span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> fireArea{
         <span class="hljs-literal">float</span> size &lt;-1.0;   
 
-        aspect base {
-          draw circle(size) color: #red;
+        <span class="hljs-keyword">aspect</span> base {
+          <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> #red;
         }
 }
 </code></pre>
 <h5><a class="anchor" aria-hidden="true" id="waterarea-species"></a><a href="#waterarea-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WaterArea Species</h5>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">waterArea</span></span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> waterArea{
     <span class="hljs-literal">float</span> size &lt;-10.0;
 
-    aspect base {
-      draw circle(size) color: #blue;       
+    <span class="hljs-keyword">aspect</span> base {
+      <span class="hljs-keyword">draw</span> circle(size) <span class="hljs-symbol">color:</span> #blue;       
     }
 }
 </code></pre>

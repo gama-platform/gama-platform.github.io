@@ -9,7 +9,7 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> model4 
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Shapefile for the roads</span>
     <span class="hljs-literal">file</span> roads_shapefile &lt;- shape_file(<span class="hljs-string">"../includes/road.shp"</span>);
     <span class="hljs-comment">//Shapefile for the buildings</span>
@@ -20,13 +20,13 @@
     <span class="hljs-literal">graph</span> road_network;
     init {
         <span class="hljs-comment">//Creation of the roads using the road shapefile</span>
-        create roads from: roads_shapefile;
+        <span class="hljs-keyword">create</span> roads <span class="hljs-symbol">from:</span> roads_shapefile;
         <span class="hljs-comment">//Creation of the graph using roads as the edges of the graph</span>
         road_network &lt;- as_edge_graph(roads);
         <span class="hljs-comment">//Creation of the buildings from the building shapefile</span>
-        create buildings from: buildings_shapefile;
+        <span class="hljs-keyword">create</span> buildings <span class="hljs-symbol">from:</span> buildings_shapefile;
         <span class="hljs-comment">//Creation of the people agent, located in one of the building</span>
-        create people number:1000 {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>1000 {
             buildings init_place &lt;- one_of(buildings);
             location &lt;- any_location_in(init_place) + {0,0, init_place.height};
             target &lt;- any_location_in(one_of(buildings));
@@ -34,52 +34,52 @@
     }
 }
 <span class="hljs-comment">//Species people that will move from a location to a target and can be infected</span>
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-literal">float</span> speed &lt;- 5.0 + rnd(5);
     <span class="hljs-literal">bool</span> is_infected &lt;- flip(0.01);
     <span class="hljs-literal">point</span> target;
     
     <span class="hljs-comment">//Reflex to move to the target on the graph of roads</span>
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> </span>{
-        do goto target:target on: road_network;
+    <span class="hljs-builtin">reflex</span> move {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>target <span class="hljs-symbol">on:</span> road_network;
         <span class="hljs-comment">//Once the target is reached, find an other target</span>
         <span class="hljs-keyword">if</span> (location = target) {
             target &lt;- any_location_in(one_of(buildings));
         }
     }
     <span class="hljs-comment">//Reflex to check if we are infected if we aren't already and infected people are nearby</span>
-    <span class="hljs-class">reflex <span class="hljs-title">infect</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_infected</span></span>{
-        ask people at_distance 10 {
+    <span class="hljs-builtin">reflex</span> infect <span class="hljs-symbol">when:</span> is_infected{
+        <span class="hljs-keyword">ask</span> people at_distance 10 {
             <span class="hljs-keyword">if</span> flip(0.01) {
                 is_infected &lt;- true;
             }
         }
     }
-    aspect circle{
-        draw sphere(5) color:is_infected ? #red : #green;
+    <span class="hljs-keyword">aspect</span> circle{
+        <span class="hljs-keyword">draw</span> sphere(5) <span class="hljs-symbol">color:</span>is_infected ? #red : #green;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">roads</span> </span>{
-    aspect geom {
-        draw shape color: #black;
+<span class="hljs-literal">species</span> roads {
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">buildings</span> </span>{
+<span class="hljs-literal">species</span> buildings {
     <span class="hljs-literal">float</span> height &lt;- 10.0+ rnd(10);
-    aspect geom {
-        draw shape color: #gray depth: height;
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">depth:</span> height;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span></span>{
-    output {
+<span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span>gui{
+    <span class="hljs-keyword">output</span> {
         <span class="hljs-comment">//Type opengl to display in 3D</span>
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">roads</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">buildings</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">circle</span>;           </span>
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> roads <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> buildings <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;           
         }
     }
 }

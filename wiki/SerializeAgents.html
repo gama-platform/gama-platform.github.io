@@ -14,19 +14,19 @@
 <li>to allow any agent to be serialized</li>
 </ul>
 <p>Example of use of the two operators:</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">toto</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> toto {
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; history &lt;- [];
 
-    <span class="hljs-class">reflex <span class="hljs-title">store</span> <span class="hljs-title">when</span>: (<span class="hljs-title">cycle</span> &lt; 6)</span>{
-        add serializeSimulation(cycle) to: history;
+    <span class="hljs-builtin">reflex</span> store <span class="hljs-symbol">when:</span> (cycle &lt; 6){
+        <span class="hljs-keyword">add</span> serializeSimulation(cycle) <span class="hljs-symbol">to:</span> history;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">restore</span> <span class="hljs-title">when</span>: (<span class="hljs-title">cycle</span> = 6)</span>{
+    <span class="hljs-builtin">reflex</span> restore <span class="hljs-symbol">when:</span> (cycle = 6){
         <span class="hljs-literal">int</span> i &lt;- unSerializeSimulation(<span class="hljs-literal">string</span>(history[0]));
     } 
     
-    <span class="hljs-class">reflex <span class="hljs-title">store22</span> <span class="hljs-title">when</span>: <span class="hljs-title">cycle</span>=2</span>{
-        write <span class="hljs-string">"Sauvegarde de la simulation "</span> + saveSimulation(<span class="hljs-string">"file.xml"</span>);
+    <span class="hljs-builtin">reflex</span> store22 <span class="hljs-symbol">when:</span> cycle=2{
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Sauvegarde de la simulation "</span> + saveSimulation(<span class="hljs-string">"file.xml"</span>);
     }
 }
 </code></pre>

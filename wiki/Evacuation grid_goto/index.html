@@ -11,7 +11,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> evacuationgoto
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-comment">//Shapefile of the walls</span>
     <span class="hljs-literal">file</span> wall_shapefile &lt;- shape_file(<span class="hljs-string">"../includes/walls.shp"</span>);
     <span class="hljs-comment">//Shapefile of the exit</span>
@@ -25,19 +25,19 @@
     
     init {
         <span class="hljs-comment">//Creation of the wall and initialization of the cell is_wall attribute</span>
-        create wall from: wall_shapefile {
-            ask cell overlapping self {
+        <span class="hljs-keyword">create</span> wall <span class="hljs-symbol">from:</span> wall_shapefile {
+            <span class="hljs-keyword">ask</span> cell overlapping self {
                 is_wall &lt;- true;
             }
         }
         <span class="hljs-comment">//Creation of the exit and initialization of the cell is_exit attribute</span>
-        create exit from: exit_shapefile {
-            ask (cell overlapping self) where not each.is_wall{
+        <span class="hljs-keyword">create</span> <span class="hljs-keyword">exit</span> <span class="hljs-symbol">from:</span> exit_shapefile {
+            <span class="hljs-keyword">ask</span> (cell overlapping self) where not each.is_wall{
                 is_exit &lt;- true;
             }
         }
         <span class="hljs-comment">//Creation of the people agent</span>
-        create people number: 50{
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> 50{
             <span class="hljs-comment">//People agent are placed randomly among cells which aren't wall</span>
             location &lt;- one_of(cell where not each.is_wall).location;
             <span class="hljs-comment">//Target of the people agent is one of the possible exits</span>
@@ -46,50 +46,50 @@
     }
 }
 <span class="hljs-comment">//Grid species to discretize space</span>
-<span class="hljs-class">grid <span class="hljs-title">cell</span> <span class="hljs-title">width</span>: <span class="hljs-title">nb_cols</span> <span class="hljs-title">height</span>: <span class="hljs-title">nb_rows</span> <span class="hljs-title">neighbors</span>: 8 </span>{
+grid cell <span class="hljs-symbol">width:</span> nb_cols <span class="hljs-symbol">height:</span> nb_rows <span class="hljs-symbol">neighbors:</span> 8 {
     <span class="hljs-literal">bool</span> is_wall &lt;- false;
     <span class="hljs-literal">bool</span> is_exit &lt;- false;
     <span class="hljs-literal">rgb</span> color &lt;- #white;    
 }
 <span class="hljs-comment">//Species exit which represent the exit</span>
-<span class="hljs-class">species <span class="hljs-title">exit</span> </span>{
-    aspect default {
-        draw shape color: #blue;
+<span class="hljs-literal">species</span> <span class="hljs-keyword">exit</span> {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #blue;
     }
 }
 <span class="hljs-comment">//Species which represent the wall</span>
-<span class="hljs-class">species <span class="hljs-title">wall</span> </span>{
-    aspect default {
-        draw shape color: #black depth: 10;
+<span class="hljs-literal">species</span> wall {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black <span class="hljs-symbol">depth:</span> 10;
     }
 }
 <span class="hljs-comment">//Species which represent the people moving from their location to an exit using the skill moving</span>
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">moving</span>]</span>{
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>]{
     <span class="hljs-comment">//Evacuation point</span>
     <span class="hljs-literal">point</span> target;
     <span class="hljs-literal">rgb</span> color &lt;- rnd_color(255);
     
     <span class="hljs-comment">//Reflex to move the agent </span>
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> </span>{
+    <span class="hljs-builtin">reflex</span> move {
         <span class="hljs-comment">//Make the agent move only on cell without walls</span>
-        do goto target: target speed: 1 on: (cell where not each.is_wall) recompute_path: false;
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> target <span class="hljs-symbol">speed:</span> 1 <span class="hljs-symbol">on:</span> (cell where not each.is_wall) <span class="hljs-symbol">recompute_path:</span> false;
         <span class="hljs-comment">//If the agent is close enough to the exit, it dies</span>
         <span class="hljs-keyword">if</span> (self distance_to target) &lt; 2.0 {
-            do die;
+            <span class="hljs-keyword">do</span> die;
         }
     }
-    aspect default {
-        draw pyramid(2) color: color;
-        draw sphere(1) at: {location.x,location.y,2} color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> pyramid(2) <span class="hljs-symbol">color:</span> color;
+        <span class="hljs-keyword">draw</span> sphere(1) <span class="hljs-symbol">at:</span> {location.x,location.y,2} <span class="hljs-symbol">color:</span> color;
     }
 }
-<span class="hljs-class">experiment <span class="hljs-title">evacuationgoto</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            image <span class="hljs-string">"../images/floor.jpg"</span>;
-            <span class="hljs-class">species <span class="hljs-title">wall</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">exit</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+<span class="hljs-builtin">experiment</span> evacuationgoto <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-keyword">image</span> <span class="hljs-string">"../images/floor.jpg"</span>;
+            <span class="hljs-literal">species</span> wall <span class="hljs-symbol">refresh:</span> false;
+            <span class="hljs-literal">species</span> <span class="hljs-keyword">exit</span> <span class="hljs-symbol">refresh:</span> false;
+            <span class="hljs-literal">species</span> people;
             
         }
     }

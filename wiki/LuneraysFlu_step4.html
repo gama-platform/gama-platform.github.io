@@ -71,7 +71,7 @@
 <h4><a class="anchor" aria-hidden="true" id="global-variables"></a><a href="#global-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global variables</h4>
 <p>In this model, we want that people agents move from buildings to buildings by using the shortest path in the road network. In order to compute this shortest path, we need to use a graph structure.</p>
 <p>We thus define a new global variable called <em>road_network</em> of type <em>graph</em> that will represent the road network.</p>
-<pre><code class="hljs"><span class="hljs-class">global</span>{
+<pre><code class="hljs">global{
     <span class="hljs-comment">//... other attributes</span>
     <span class="hljs-literal">graph</span> road_network;
     
@@ -79,17 +79,17 @@
 }
 </code></pre>
 <p>In order to compute the graph from the road network, we use, just after having creating the road agents, the <a href="Operators#as_edge_graph">as_edge_graph</a> operator. This operator automatically built a graph from a set of polylines. Each extremity point of the lines will become a node in the graph, and each polyline an edge. By default, the graph is not oriented and the weights of the edges are the perimeters of the polylines. It is of course possible to change through the use of some operators.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-comment">// world variable definition</span>
 
     init{
-        create road from: roads_shapefile;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> roads_shapefile;
         road_network &lt;- as_edge_graph(road);        
-        create building from: buildings_shapefile;
-        create people number:nb_people {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> buildings_shapefile;
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people {
             location &lt;- any_location_in(one_of(building));              
         }
-        ask nb_infected_init among people {
+        <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
         }
     }
@@ -102,7 +102,7 @@
 <ul>
 <li><em>target</em> of type <em>point</em> that will be the location where the agent wants to go</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{
     <span class="hljs-comment">//...the other attributes</span>
     <span class="hljs-literal">point</span> target;
     <span class="hljs-comment">//....</span>
@@ -110,7 +110,7 @@
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="behavior"></a><a href="#behavior" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>behavior</h3>
 <p>First, we add a new reflex called <em>stay</em> that will be activated when the agent is in a house (i.e. its target is null) and that will define with a probability of 0.05 if the agent has to go or not. If the agent has to go, it will randomly choose a new target (a random location inside one of the building).</p>
-<pre><code class="hljs"><span class="hljs-class">reflex <span class="hljs-title">stay</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> = <span class="hljs-title">nil</span> </span>{
+<pre><code class="hljs"><span class="hljs-builtin">reflex</span> stay <span class="hljs-symbol">when:</span> target = nil {
     <span class="hljs-keyword">if</span> flip(0.05) {
         target &lt;- any_location_in (one_of(building));
     }
@@ -118,8 +118,8 @@
 </code></pre>
 <p>Then, we modify the <em>move</em> reflex. This one will be only activated when the agent will have to move (target not null). Instead of using the <em>wander</em> action of the <em>moving</em> skill, we use the <em>goto</em> one that allows to make an agent moves toward a given target. In addition, it is possible to add a facet <em>on</em> to precise on which topology the agent will have to move on. In our case, the topology is the road network.
 When the agent reach its destination (location = target), it sets its target to null.</p>
-<pre><code class="hljs"><span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> != <span class="hljs-title">nil</span></span>{
-    do goto target:target on: road_network;
+<pre><code class="hljs"><span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> target != nil{
+    <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>target <span class="hljs-symbol">on:</span> road_network;
     <span class="hljs-keyword">if</span> (location = target) {
         target &lt;- nil;
     } 
@@ -128,7 +128,7 @@ When the agent reach its destination (location = target), it sets its target to 
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> model4 
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_people &lt;- 2147;
     <span class="hljs-literal">int</span> nb_infected_init &lt;- 5;
     <span class="hljs-literal">float</span> step &lt;- 5 #mn;
@@ -138,83 +138,83 @@ When the agent reach its destination (location = target), it sets its target to 
     <span class="hljs-literal">graph</span> road_network;
     
     
-    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
-    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
-    <span class="hljs-literal">float</span> infected_rate update: nb_people_infected/nb_people;
+    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init <span class="hljs-symbol">update:</span> people count (each.is_infected);
+    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init <span class="hljs-symbol">update:</span> nb_people - nb_people_infected;
+    <span class="hljs-literal">float</span> infected_rate <span class="hljs-symbol">update:</span> nb_people_infected/nb_people;
     
     
     init{
-        create road from: roads_shapefile;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> roads_shapefile;
         road_network &lt;- as_edge_graph(road);        
-        create building from: buildings_shapefile;
-        create people number:nb_people {
+        <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> buildings_shapefile;
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people {
             location &lt;- any_location_in(one_of(building));              
         }
-        ask nb_infected_init among people {
+        <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-literal">float</span> speed &lt;- (2 + rnd(3)) #km/#h;
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
     <span class="hljs-literal">point</span> target;
     
-    <span class="hljs-class">reflex <span class="hljs-title">stay</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> = <span class="hljs-title">nil</span> </span>{
+    <span class="hljs-builtin">reflex</span> stay <span class="hljs-symbol">when:</span> target = nil {
         <span class="hljs-keyword">if</span> flip(0.05) {
             target &lt;- any_location_in (one_of(building));
         }
     }
         
-    <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">target</span> != <span class="hljs-title">nil</span></span>{
-        do goto target:target on: road_network;
+    <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> target != nil{
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>target <span class="hljs-symbol">on:</span> road_network;
         <span class="hljs-keyword">if</span> (location = target) {
             target &lt;- nil;
         } 
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">infect</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_infected</span></span>{
-        ask people at_distance 10 #m {
+    <span class="hljs-builtin">reflex</span> infect <span class="hljs-symbol">when:</span> is_infected{
+        <span class="hljs-keyword">ask</span> people at_distance 10 #m {
             <span class="hljs-keyword">if</span> flip(0.05) {
                 is_infected &lt;- true;
             }
         }
     }
     
-    aspect circle {
-        draw circle(10) color:is_infected ? #red : #green;
+    <span class="hljs-keyword">aspect</span> circle {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span>is_infected ? #red : #green;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span> </span>{
-    aspect geom {
-        draw shape color: #black;
+<span class="hljs-literal">species</span> road {
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">building</span> </span>{
-    aspect geom {
-        draw shape color: #gray;
+<span class="hljs-literal">species</span> building {
+    <span class="hljs-keyword">aspect</span> geom {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Nb people infected at init"</span> var: nb_infected_init min: 1 max: 2147;
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Nb people infected at init"</span> <span class="hljs-symbol">var:</span> nb_infected_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 2147;
 
-    output {
-        monitor <span class="hljs-string">"Infected people rate"</span> value: infected_rate;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Infected people rate"</span> <span class="hljs-symbol">value:</span> infected_rate;
         
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">building</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">geom</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">circle</span>;           </span>
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span>geom;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;           
         }
         
-        <span class="hljs-class">display <span class="hljs-title">chart_display</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">every</span>(10 #<span class="hljs-title">cycle</span>) </span>{
-            chart <span class="hljs-string">"Disease spreading"</span> type: series {
-                data <span class="hljs-string">"susceptible"</span> value: nb_people_not_infected color: #green;
-                data <span class="hljs-string">"infected"</span> value: nb_people_infected color: #red;
+        <span class="hljs-keyword">display</span> chart_display <span class="hljs-symbol">refresh:</span> every(10 #cycle) {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Disease spreading"</span> <span class="hljs-symbol">type:</span> series {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"susceptible"</span> <span class="hljs-symbol">value:</span> nb_people_not_infected <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> nb_people_infected <span class="hljs-symbol">color:</span> #red;
             }
         }
     }

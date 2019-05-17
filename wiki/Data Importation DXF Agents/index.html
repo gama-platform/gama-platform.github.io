@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> DXFAgents 
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">file</span> house_file &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/house.dxf"</span>);
     
     <span class="hljs-comment">//compute the environment size from the dxf file envelope</span>
@@ -18,35 +18,35 @@
     
     init {
         <span class="hljs-comment">//create house_element agents from the dxf file and initialized the layer attribute of the agents from the the file</span>
-        create house_element from: house_file with: [layer::<span class="hljs-literal">string</span>(get(<span class="hljs-string">"layer"</span>))];
-                create house_element from: house_file with: [layer::<span class="hljs-literal">string</span>(get(<span class="hljs-string">"layer"</span>))];
-                        create house_element from: house_file with: [layer::<span class="hljs-literal">string</span>(get(<span class="hljs-string">"layer"</span>))];
+        <span class="hljs-keyword">create</span> house_element <span class="hljs-symbol">from:</span> house_file <span class="hljs-symbol">with:</span> [layer::<span class="hljs-literal">string</span>(get(<span class="hljs-string">"layer"</span>))];
+                <span class="hljs-keyword">create</span> house_element <span class="hljs-symbol">from:</span> house_file <span class="hljs-symbol">with:</span> [layer::<span class="hljs-literal">string</span>(get(<span class="hljs-string">"layer"</span>))];
+                        <span class="hljs-keyword">create</span> house_element <span class="hljs-symbol">from:</span> house_file <span class="hljs-symbol">with:</span> [layer::<span class="hljs-literal">string</span>(get(<span class="hljs-string">"layer"</span>))];
         <span class="hljs-comment">//define a random color for each layer</span>
         <span class="hljs-literal">map</span> layers &lt;- <span class="hljs-literal">list</span>(house_element) group_by each.layer;
-        loop la over: layers.keys {
+        <span class="hljs-keyword">loop</span> la <span class="hljs-symbol">over:</span> layers.keys {
             <span class="hljs-literal">rgb</span> col &lt;- rnd_color(255);
-            ask layers[la] {color &lt;- col;}
+            <span class="hljs-keyword">ask</span> layers[la] {color &lt;- col;}
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">house_element</span> </span>{
+<span class="hljs-literal">species</span> house_element {
     <span class="hljs-literal">string</span> layer;
     <span class="hljs-literal">rgb</span> color;
-    aspect default {
-        draw shape color: color;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color;
     }
 } 
 
-<span class="hljs-class">experiment <span class="hljs-title">DXFAgents</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">house_element</span>;</span>
+<span class="hljs-builtin">experiment</span> DXFAgents <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> house_element;
         }
         
-        <span class="hljs-class">display "<span class="hljs-title">As_Image</span>" </span>{
-            graphics <span class="hljs-string">"House"</span> {
-                draw house_file color: #brown ;
+        <span class="hljs-keyword">display</span> <span class="hljs-string">"As_Image"</span> {
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"House"</span> {
+                <span class="hljs-keyword">draw</span> house_file <span class="hljs-symbol">color:</span> #brown ;
             }
         }
     }

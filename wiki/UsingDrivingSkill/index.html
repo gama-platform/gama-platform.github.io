@@ -148,16 +148,16 @@ speed_driver = Min(max_speed_driver, Min(real_speed_driver + max_acceleration_dr
 <p>We propose a simple model to illustrate the driving skill. We define a driver species. When a driver agent reaches its destination, it just chooses a new random final target. In the same way, we did not define any specific behavior to avoid traffic jam for the driver agents: once they compute their path (all the driver agents use for that the same road graph with the same weights), they never re-compute it even if they are stucked in a traffic jam. Concerning the traffic signals, we just consider the traffic lights (without any pre-processing: we consider the raw OSM data). One step of the simulation represents 1 second. At last, in order to clarify the explanation of the model, we chose to do not present the parts of the GAML code that concern the simulation visualization.</p>
 <p><a href="../resources/images/recipes/sim_snapshot.png">images//sim_snapshot.png</a></p>
 <p>The following code shows the definition of species to represent the road infrastructure:</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">skill_road</span>] </span>{ 
+<pre><code class="hljs"><span class="hljs-literal">species</span> road <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">skill_road</span>] { 
   <span class="hljs-literal">string</span> oneway;
 }
 
-<span class="hljs-class">species <span class="hljs-title">node</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">skill_road_node</span>] </span>{
+<span class="hljs-literal">species</span> node <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">skill_road_node</span>] {
   <span class="hljs-literal">bool</span> is_traffic_signal;
   <span class="hljs-literal">int</span> time_to_change &lt;- 100;
   <span class="hljs-literal">int</span> counter &lt;- rnd (time_to_change) ;
     
-  <span class="hljs-class">reflex <span class="hljs-title">dynamic</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_traffic_signal</span> </span>{
+  <span class="hljs-builtin">reflex</span> dynamic <span class="hljs-symbol">when:</span> is_traffic_signal {
     counter &lt;- counter + 1;
     <span class="hljs-keyword">if</span> (counter &gt;= time_to_change) { 
       counter &lt;- 0;
@@ -175,13 +175,13 @@ speed_driver = Min(max_speed_driver, Min(real_speed_driver + max_acceleration_dr
 <p>In addition, we defined for the <strong>node</strong> species a reflex (behavior) called <strong>dynamic</strong> that will be activated only for traffic light nodes and that will increment the <strong>counter</strong> value. If this counter is higher than <strong>time_to_change</strong>, this variable is set to 0, and the node change the value of the <strong>stop</strong> variable: if the traffic light was green (i.e. there is no road concerns by this stop sign), the list of block roads is set by all the roads that enter the node; if the traffic light was red (i.e. there is at least one road concerns by this stop sign), the list of block roads is set to an empty list.</p>
 <p>The following code shows the definition of driver species:</p>
 <pre><code class="hljs">
-<span class="hljs-class">species <span class="hljs-title">driver</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">advanced_driving</span>] </span>{ 
-  <span class="hljs-class">reflex <span class="hljs-title">time_to_go</span> <span class="hljs-title">when</span>: <span class="hljs-title">final_target</span> = <span class="hljs-title">nil</span> </span>{
+<span class="hljs-literal">species</span> driver <span class="hljs-symbol">skills:</span> [advanced_driving] { 
+  <span class="hljs-builtin">reflex</span> time_to_go <span class="hljs-symbol">when:</span> final_target = nil {
     current_path &lt;- compute_path(
-        <span class="hljs-literal">graph</span>: road_network, target: one_of(node));
+        <span class="hljs-symbol">graph:</span> road_network, <span class="hljs-symbol">target:</span> one_of(node));
   }
-  <span class="hljs-class">reflex <span class="hljs-title">move</span> <span class="hljs-title">when</span>: <span class="hljs-title">final_target</span> != <span class="hljs-title">nil</span> </span>{
-    do drive;
+  <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> final_target != nil {
+    <span class="hljs-keyword">do</span> drive;
   }
 } 
 </code></pre>
@@ -193,17 +193,17 @@ speed_driver = Min(max_speed_driver, Min(real_speed_driver + max_acceleration_dr
 </ul>
 <p>We describe in the following code how we initialize the simulation:</p>
 <pre><code class="hljs">init {  
-  create node from: <span class="hljs-literal">file</span>(<span class="hljs-string">"nodes.shp"</span>) with:[
+  <span class="hljs-keyword">create</span> node <span class="hljs-symbol">from:</span> <span class="hljs-literal">file</span>(<span class="hljs-string">"nodes.shp"</span>) <span class="hljs-symbol">with:</span>[
     is_traffic_signal::read(<span class="hljs-string">"type"</span>)=<span class="hljs-string">"traffic_signals"</span>];
     
-  create road from: <span class="hljs-literal">file</span>(<span class="hljs-string">"roads.shp"</span>) 
-    with:[lanes::<span class="hljs-literal">int</span>(read(<span class="hljs-string">"lanes"</span>)), 
+  <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> <span class="hljs-literal">file</span>(<span class="hljs-string">"roads.shp"</span>) 
+    <span class="hljs-symbol">with:</span>[lanes::<span class="hljs-literal">int</span>(read(<span class="hljs-string">"lanes"</span>)), 
     maxspeed::<span class="hljs-literal">float</span>(read(<span class="hljs-string">"maxspeed"</span>)), 
     oneway::<span class="hljs-literal">string</span>(read(<span class="hljs-string">"oneway"</span>))] 
     {
-      switch oneway {
-        match <span class="hljs-string">"no"</span> {
-          create road {
+      <span class="hljs-keyword">switch</span> oneway {
+        <span class="hljs-keyword">match</span> <span class="hljs-string">"no"</span> {
+          <span class="hljs-keyword">create</span> road {
             lanes &lt;- myself.lanes;
             shape &lt;- polyline(reverse
               (myself.shape.points));
@@ -212,7 +212,7 @@ speed_driver = Min(max_speed_driver, Min(real_speed_driver + max_acceleration_dr
             myself.linked_road &lt;- self;
           }
         }
-        match <span class="hljs-string">"-1"</span> {
+        <span class="hljs-keyword">match</span> <span class="hljs-string">"-1"</span> {
           shape &lt;- polyline(reverse(shape.points));
         }
       }
@@ -224,7 +224,7 @@ speed_driver = Min(max_speed_driver, Min(real_speed_driver + max_acceleration_dr
   road_network &lt;-  (as_driving_graph(road, node))  
      with_weights general_speed_map;
    
-  create driver number: 10000 { 
+  <span class="hljs-keyword">create</span> driver <span class="hljs-symbol">number:</span> 10000 { 
     location &lt;- one_of(node).location;
     vehicle_length &lt;- 3.0;
     max_acceleration &lt;- 0.5 + rnd(500) / 1000;

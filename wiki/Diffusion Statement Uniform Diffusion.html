@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> uniform_diffusion
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> size &lt;- 64; <span class="hljs-comment">// better to have a pow of 2 for the size of the grid</span>
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(square(size) * 10);
     cells_eight_nb selected_cells_8;
@@ -21,51 +21,51 @@
         selected_cells_8 &lt;- location as cells_eight_nb;
         selected_cells_4 &lt;- location as cells_four_nb;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">new_Value</span> </span>{
-        ask selected_cells_4 {
+    <span class="hljs-builtin">reflex</span> new_Value {
+        <span class="hljs-keyword">ask</span> selected_cells_4 {
             phero &lt;- 1.0;
         }
-        ask selected_cells_8 {
+        <span class="hljs-keyword">ask</span> selected_cells_8 {
             phero &lt;- 1.0;
         }
     }
-    <span class="hljs-class">reflex <span class="hljs-title">diff</span> </span>{
+    <span class="hljs-builtin">reflex</span> diff {
         <span class="hljs-comment">// Declare a diffusion on the grid "cells", with a uniform matrix of diffusion. The value of the diffusion</span>
         <span class="hljs-comment">// will be store in the new variable "phero" of the cell.</span>
-        diffuse var: phero on: cells_eight_nb ;
-        diffuse var: phero on: cells_four_nb ;
+        <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells_eight_nb ;
+        <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells_four_nb ;
     }
 }
 
 
-<span class="hljs-class">grid <span class="hljs-title">cells_eight_nb</span> <span class="hljs-title">height</span>: <span class="hljs-title">size</span> <span class="hljs-title">width</span>: <span class="hljs-title">size</span> <span class="hljs-title">neighbors</span>: 8 </span>{
+grid cells_eight_nb <span class="hljs-symbol">height:</span> size <span class="hljs-symbol">width:</span> size <span class="hljs-symbol">neighbors:</span> 8 {
     <span class="hljs-comment">// "phero" is the variable storing the value of the diffusion</span>
     <span class="hljs-literal">float</span> phero  &lt;- 0.0;
     <span class="hljs-comment">// the color of the cell is linked to the value of "phero".</span>
-    <span class="hljs-literal">rgb</span> color &lt;- hsb(phero,1.0,1.0) update: hsb(phero,1.0,1.0);
+    <span class="hljs-literal">rgb</span> color &lt;- hsb(phero,1.0,1.0) <span class="hljs-symbol">update:</span> hsb(phero,1.0,1.0);
     <span class="hljs-comment">// Update the "grid_value", which will be used for the elevation of the cell</span>
-    <span class="hljs-literal">float</span> grid_value update: phero * 100;
+    <span class="hljs-literal">float</span> grid_value <span class="hljs-symbol">update:</span> phero * 100;
 } 
 
-<span class="hljs-class">grid <span class="hljs-title">cells_four_nb</span> <span class="hljs-title">height</span>: <span class="hljs-title">size</span> <span class="hljs-title">width</span>: <span class="hljs-title">size</span> <span class="hljs-title">neighbors</span>: 4 </span>{
+grid cells_four_nb <span class="hljs-symbol">height:</span> size <span class="hljs-symbol">width:</span> size <span class="hljs-symbol">neighbors:</span> 4 {
     <span class="hljs-comment">// "phero" is the variable storing the value of the diffusion</span>
     <span class="hljs-literal">float</span> phero  &lt;- 0.0;
     <span class="hljs-comment">// the color of the cell is linked to the value of "phero".</span>
-    <span class="hljs-literal">rgb</span> color &lt;- hsb(phero,1.0,1.0) update: hsb(phero,1.0,1.0);
+    <span class="hljs-literal">rgb</span> color &lt;- hsb(phero,1.0,1.0) <span class="hljs-symbol">update:</span> hsb(phero,1.0,1.0);
     <span class="hljs-comment">// Update the "grid_value", which will be used for the elevation of the cell</span>
-    <span class="hljs-literal">float</span> grid_value update: phero * 100;
+    <span class="hljs-literal">float</span> grid_value <span class="hljs-symbol">update:</span> phero * 100;
 } 
 
 
-<span class="hljs-class">experiment <span class="hljs-title">diffusion</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">uniform_diffusion_in_8_neighbors_grid</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
+<span class="hljs-builtin">experiment</span> diffusion <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> uniform_diffusion_in_8_neighbors_grid <span class="hljs-symbol">type:</span> opengl {
             <span class="hljs-comment">// Display the grid with elevation</span>
-            <span class="hljs-class">grid <span class="hljs-title">cells_eight_nb</span> <span class="hljs-title">elevation</span>: <span class="hljs-title">true</span> <span class="hljs-title">triangulation</span>: <span class="hljs-title">true</span>;</span>
+            grid cells_eight_nb <span class="hljs-symbol">elevation:</span> true <span class="hljs-symbol">triangulation:</span> true;
         }
-        <span class="hljs-class">display <span class="hljs-title">uniform_diffusion_in_4_neighbors_grid</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
+        <span class="hljs-keyword">display</span> uniform_diffusion_in_4_neighbors_grid <span class="hljs-symbol">type:</span> opengl {
             <span class="hljs-comment">// Display the grid with elevation</span>
-            <span class="hljs-class">grid <span class="hljs-title">cells_four_nb</span> <span class="hljs-title">elevation</span>: <span class="hljs-title">true</span> <span class="hljs-title">triangulation</span>: <span class="hljs-title">true</span>;</span>
+            grid cells_four_nb <span class="hljs-symbol">elevation:</span> true <span class="hljs-symbol">triangulation:</span> true;
         }
     }
 }

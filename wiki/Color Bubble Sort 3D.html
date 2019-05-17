@@ -11,7 +11,7 @@
 <span class="hljs-builtin">model</span> bubblesort3D
 
 
-<span class="hljs-class">global </span>{
+global {
 
 <span class="hljs-comment">//Number of cubes by faces of the whole big cube</span>
 <span class="hljs-literal">int</span> nb_cells&lt;-15;
@@ -23,10 +23,10 @@
 
 init {
     <span class="hljs-comment">//We create nb_cells^3 cubes and we define their color depending on their position in XYZ</span>
-    loop i from:0 to:nb_cells-1{
-        loop j from:0 to: nb_cells-1{
-            loop k from:0 to:nb_cells-1{
-              create cells{
+    <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span>0 <span class="hljs-symbol">to:</span>nb_cells-1{
+        <span class="hljs-keyword">loop</span> j <span class="hljs-symbol">from:</span>0 <span class="hljs-symbol">to:</span> nb_cells-1{
+            <span class="hljs-keyword">loop</span> k <span class="hljs-symbol">from:</span>0 <span class="hljs-symbol">to:</span>nb_cells-1{
+              <span class="hljs-keyword">create</span> cells{
                 location &lt;-{i mod nb_cells,j mod nb_cells, k mod nb_cells};
                 
                 <span class="hljs-comment">//The canal RGB limit color to 255 by canal</span>
@@ -42,8 +42,8 @@ init {
     }
     
     <span class="hljs-comment">//We mix all the cubes randomly by permuting two randomly chosen cubes</span>
-    loop times: 10000 {
-            ask one_of(cells) {
+    <span class="hljs-keyword">loop</span> <span class="hljs-symbol">times:</span> 10000 {
+            <span class="hljs-keyword">ask</span> one_of(cells) {
                 cells one_cells &lt;- one_of(cells);
                 <span class="hljs-keyword">if</span> (self != one_cells) {
                     <span class="hljs-literal">point</span> loc &lt;- copy(location);
@@ -58,69 +58,69 @@ init {
 }
 
 <span class="hljs-comment">//Reflex to finish the execution of the model when nothing has changed during the cycle</span>
-<span class="hljs-class">reflex <span class="hljs-title">end</span> </span>{
+<span class="hljs-builtin">reflex</span> end {
     <span class="hljs-keyword">if</span> (not change) {
-        do pause;   
+        <span class="hljs-keyword">do</span> pause;   
     } 
     change &lt;- false;
     }
 }
 
 
-<span class="hljs-class">species <span class="hljs-title">cells</span></span>{
+<span class="hljs-literal">species</span> cells{
 
     <span class="hljs-literal">rgb</span> color;
     <span class="hljs-literal">float</span> red;
     <span class="hljs-literal">float</span> green;
     <span class="hljs-literal">float</span> blue;
-    <span class="hljs-literal">list</span>&lt;cells&gt; neigbhours update: cells at_distance (1.1);
+    <span class="hljs-literal">list</span>&lt;cells&gt; neigbhours <span class="hljs-symbol">update:</span> cells at_distance (1.1);
     
     <span class="hljs-comment">//Update of the neighbors cubes at each cycle of the simulation according to their location</span>
-    cells upper_cell_y update: neigbhours first_with (shape.location.y &gt; each.shape.location.y);
-    cells upper_cell_x update: neigbhours first_with (shape.location.x &gt; each.shape.location.x);
-    cells upper_cell_z update: neigbhours first_with (shape.location.z &gt; each.shape.location.z);
+    cells upper_cell_y <span class="hljs-symbol">update:</span> neigbhours first_with (shape.location.y &gt; each.shape.location.y);
+    cells upper_cell_x <span class="hljs-symbol">update:</span> neigbhours first_with (shape.location.x &gt; each.shape.location.x);
+    cells upper_cell_z <span class="hljs-symbol">update:</span> neigbhours first_with (shape.location.z &gt; each.shape.location.z);
     
     <span class="hljs-comment">//We permute the cube agent with its neighbor if its intensity is greater according to the canal related to its axis (z for canal blue, y for green and x for red)</span>
-    <span class="hljs-class">reflex <span class="hljs-title">swap_z</span> <span class="hljs-title">when</span>: <span class="hljs-title">upper_cell_z</span> != <span class="hljs-title">nil</span> <span class="hljs-title">and</span> <span class="hljs-title">blue</span> &lt; <span class="hljs-title">upper_cell_z</span>.<span class="hljs-title">blue</span></span>{ 
+    <span class="hljs-builtin">reflex</span> swap_z <span class="hljs-symbol">when:</span> upper_cell_z != nil and blue &lt; upper_cell_z.blue{ 
         <span class="hljs-literal">point</span> tmp1Loc &lt;-location;
         location &lt;- upper_cell_z.location;  
         upper_cell_z.location&lt;-tmp1Loc;     
         change &lt;- true; 
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">swap_y</span> <span class="hljs-title">when</span>: <span class="hljs-title">upper_cell_y</span> != <span class="hljs-title">nil</span> <span class="hljs-title">and</span> <span class="hljs-title">green</span> &lt; <span class="hljs-title">upper_cell_y</span>.<span class="hljs-title">green</span></span>{ 
+    <span class="hljs-builtin">reflex</span> swap_y <span class="hljs-symbol">when:</span> upper_cell_y != nil and green &lt; upper_cell_y.green{ 
         <span class="hljs-literal">point</span> tmp1Loc &lt;-location;
         location &lt;- upper_cell_y.location;  
         upper_cell_y.location&lt;-tmp1Loc;     
         change &lt;- true; 
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">swap_x</span> <span class="hljs-title">when</span>: <span class="hljs-title">upper_cell_x</span> != <span class="hljs-title">nil</span> <span class="hljs-title">and</span> <span class="hljs-title">red</span> &lt; <span class="hljs-title">upper_cell_x</span>.<span class="hljs-title">red</span></span>{ 
+    <span class="hljs-builtin">reflex</span> swap_x <span class="hljs-symbol">when:</span> upper_cell_x != nil and red &lt; upper_cell_x.red{ 
         <span class="hljs-literal">point</span> tmp1Loc &lt;-location;
         location &lt;- upper_cell_x.location;  
         upper_cell_x.location&lt;-tmp1Loc;     
         change &lt;- true; 
     }
 
-    aspect default {
-        draw cube(1) color:color border:color at:location;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> cube(1) <span class="hljs-symbol">color:</span>color <span class="hljs-symbol">border:</span>color <span class="hljs-symbol">at:</span>location;
     }   
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">Display</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">View1</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span> <span class="hljs-title">draw_env</span>:<span class="hljs-title">false</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">cells</span> <span class="hljs-title">transparency</span>:0.1;</span>
-            graphics <span class="hljs-string">"di"</span>{
-             draw <span class="hljs-string">"black(0,0,0)"</span> at:{0,0,0} color:°black perspective:false;
-             draw <span class="hljs-string">"red(1,0,0)"</span> at:{world.shape.width,0,0} color:°red perspective:false;
-             draw <span class="hljs-string">"green(0,1,0)"</span> at:{0,world.shape.height,0} color:°green perspective:false;
-             draw <span class="hljs-string">"blue(0,0,1)"</span> at:{0,0,world.shape.width} color:°blue perspective:false;
-             draw <span class="hljs-string">"yellow(1,1,0)"</span> at:{world.shape.width,world.shape.height,0} color:°yellow perspective:false;
-             draw <span class="hljs-string">"magenta(1,0,1)"</span> at:{world.shape.width,0,world.shape.depth} color:°magenta perspective:false;
-             draw <span class="hljs-string">"cyan(0,1,1)"</span> at:{0,world.shape.height,world.shape.depth} color:°cyan perspective:false;
-             draw <span class="hljs-string">"white(1,1,1)"</span> at:{world.shape.width,world.shape.height,world.shape.depth} color:°white perspective:false;    
+<span class="hljs-builtin">experiment</span> Display <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> View1 <span class="hljs-symbol">type:</span>opengl <span class="hljs-symbol">draw_env:</span>false{
+            <span class="hljs-literal">species</span> cells <span class="hljs-symbol">transparency:</span>0.1;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"di"</span>{
+             <span class="hljs-keyword">draw</span> <span class="hljs-string">"black(0,0,0)"</span> <span class="hljs-symbol">at:</span>{0,0,0} <span class="hljs-symbol">color:</span>°black <span class="hljs-symbol">perspective:</span>false;
+             <span class="hljs-keyword">draw</span> <span class="hljs-string">"red(1,0,0)"</span> <span class="hljs-symbol">at:</span>{world.shape.width,0,0} <span class="hljs-symbol">color:</span>°red <span class="hljs-symbol">perspective:</span>false;
+             <span class="hljs-keyword">draw</span> <span class="hljs-string">"green(0,1,0)"</span> <span class="hljs-symbol">at:</span>{0,world.shape.height,0} <span class="hljs-symbol">color:</span>°green <span class="hljs-symbol">perspective:</span>false;
+             <span class="hljs-keyword">draw</span> <span class="hljs-string">"blue(0,0,1)"</span> <span class="hljs-symbol">at:</span>{0,0,world.shape.width} <span class="hljs-symbol">color:</span>°blue <span class="hljs-symbol">perspective:</span>false;
+             <span class="hljs-keyword">draw</span> <span class="hljs-string">"yellow(1,1,0)"</span> <span class="hljs-symbol">at:</span>{world.shape.width,world.shape.height,0} <span class="hljs-symbol">color:</span>°yellow <span class="hljs-symbol">perspective:</span>false;
+             <span class="hljs-keyword">draw</span> <span class="hljs-string">"magenta(1,0,1)"</span> <span class="hljs-symbol">at:</span>{world.shape.width,0,world.shape.depth} <span class="hljs-symbol">color:</span>°magenta <span class="hljs-symbol">perspective:</span>false;
+             <span class="hljs-keyword">draw</span> <span class="hljs-string">"cyan(0,1,1)"</span> <span class="hljs-symbol">at:</span>{0,world.shape.height,world.shape.depth} <span class="hljs-symbol">color:</span>°cyan <span class="hljs-symbol">perspective:</span>false;
+             <span class="hljs-keyword">draw</span> <span class="hljs-string">"white(1,1,1)"</span> <span class="hljs-symbol">at:</span>{world.shape.width,world.shape.height,world.shape.depth} <span class="hljs-symbol">color:</span>°white <span class="hljs-symbol">perspective:</span>false;    
             }
         }
     }

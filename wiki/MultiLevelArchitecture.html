@@ -65,83 +65,83 @@
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="declaration-of-micro-species"></a><a href="#declaration-of-micro-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaration of micro-species</h2>
 <p>A species can have other species as micro-species. The micro-species of a species is declared inside the species' declaration.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">macro_species</span> </span>{
-      <span class="hljs-class">species <span class="hljs-title">micro_species_in_group</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> macro_species {
+      <span class="hljs-literal">species</span> micro_species_in_group {
       }
 }
 </code></pre>
 <p>In the above example, &quot;micro_species_in_group&quot; is a micro-species of &quot;macro_species&quot;. An agent of &quot;macro_species&quot; can have agents &quot;micro_species_in_group&quot; as micro-agents. Agents of &quot;micro_species_in_group&quot; have an agent of &quot;macro_species&quot; as &quot;host&quot; agent.</p>
 <p>As the species &quot;micro_species_in_group&quot; is declared inside the species &quot;macro_species&quot;, &quot;micro_species_in_group&quot; will return a list of &quot;micro_species_in_group&quot; agent inside the given &quot;macro_species&quot; agent.</p>
-<pre><code class="hljs"><span class="hljs-class">global</span>
+<pre><code class="hljs">global
 {
     init {
-        create macro_<span class="hljs-class">species <span class="hljs-title">number</span>:5;</span>
+        <span class="hljs-keyword">create</span> macro_species <span class="hljs-symbol">number:</span>5;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">macro_species</span> </span>
+<span class="hljs-literal">species</span> macro_species 
 {   
     init {
-        create micro_species_in_group number:rnd(10);
-        write <span class="hljs-string">"the macro species named "</span>+name+<span class="hljs-string">" contains "</span>+length(micro_species_in_group)+<span class="hljs-string">" micro-species."</span>;
+        <span class="hljs-keyword">create</span> micro_species_in_group <span class="hljs-symbol">number:</span>rnd(10);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"the macro species named "</span>+name+<span class="hljs-string">" contains "</span>+length(micro_species_in_group)+<span class="hljs-string">" micro-species."</span>;
     }
     
-    <span class="hljs-class">species <span class="hljs-title">micro_species_in_group</span> </span>{
+    <span class="hljs-literal">species</span> micro_species_in_group {
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">my_experiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span> gui {
 }
 </code></pre>
 <p>In this above example, we create 5 macro-species, and each one of these macro-species create a random number of inner micro-species. We can see that &quot;micro_species_in_group&quot; refers to the list of micro-species inside the given macro-species.</p>
 <h2><a class="anchor" aria-hidden="true" id="access-to-micro-agents-host-agent"></a><a href="#access-to-micro-agents-host-agent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Access to micro-agents, host agent</h2>
 <p>To access to micro-agents (from a macro-agent), and to host agent (from a micro-agents), you have to use two built-in attributes.</p>
 <p>The <code>members</code> built-in attribute is used inside the macro-agent, to get the list of all its micro-agents.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">macro_species</span> </span>
+<pre><code class="hljs"><span class="hljs-literal">species</span> macro_species 
 {
     init {
-        create first_micro_<span class="hljs-class">species <span class="hljs-title">number</span>:3;</span>
-        create second_micro_<span class="hljs-class">species <span class="hljs-title">number</span>:6;</span>
-        write <span class="hljs-string">"the macro species named "</span>+name+<span class="hljs-string">" contains "</span>+length(members)+<span class="hljs-string">" micro-species."</span>;
+        <span class="hljs-keyword">create</span> first_micro_species <span class="hljs-symbol">number:</span>3;
+        <span class="hljs-keyword">create</span> second_micro_species <span class="hljs-symbol">number:</span>6;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"the macro species named "</span>+name+<span class="hljs-string">" contains "</span>+length(members)+<span class="hljs-string">" micro-species."</span>;
     }
     
-    <span class="hljs-class">species <span class="hljs-title">first_micro_species</span> </span>{
+    <span class="hljs-literal">species</span> first_micro_species {
     }
     
-    <span class="hljs-class">species <span class="hljs-title">second_micro_species</span> </span>{
+    <span class="hljs-literal">species</span> second_micro_species {
     }
 }
 </code></pre>
 <p>The <code>host</code> built-in attribute is used inside the micro-agent to get the host macro-agent.</p>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">macro_species</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> macro_species {
     
     micro_species_in_group micro_agent;
     
     init {
-        create micro_species_in_group number:rnd(10);
-        write <span class="hljs-string">"the macro species named "</span>+name+<span class="hljs-string">" contains "</span>+length(members)+<span class="hljs-string">" micro-species."</span>;
+        <span class="hljs-keyword">create</span> micro_species_in_group <span class="hljs-symbol">number:</span>rnd(10);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"the macro species named "</span>+name+<span class="hljs-string">" contains "</span>+length(members)+<span class="hljs-string">" micro-species."</span>;
     }
     
-    <span class="hljs-class">species <span class="hljs-title">micro_species_in_group</span> </span>{
+    <span class="hljs-literal">species</span> micro_species_in_group {
         init {
-            write <span class="hljs-string">"the micro species named "</span>+name+<span class="hljs-string">" is hosted by "</span>+host;
+            <span class="hljs-keyword">write</span> <span class="hljs-string">"the micro species named "</span>+name+<span class="hljs-string">" is hosted by "</span>+host;
         }
     }
 }
 </code></pre>
 <p>NB: We already said that the world agent is a particular agent, instantiated just once. In fact, the world agent is the host of all the agents. You can try to get the host for a regular species, you will get the world agent itself (named as you named your model). You can also try to get the members of your world (from the global scope for example), and you will get the list of the agents presents in the world.</p>
-<pre><code class="hljs"><span class="hljs-class">global</span>
+<pre><code class="hljs">global
 {
     init {
-        create macro_<span class="hljs-class">species <span class="hljs-title">number</span>:5;</span>
-        write <span class="hljs-string">"the world has "</span>+length(members)+<span class="hljs-string">" members."</span>;
+        <span class="hljs-keyword">create</span> macro_species <span class="hljs-symbol">number:</span>5;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"the world has "</span>+length(members)+<span class="hljs-string">" members."</span>;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">macro_species</span> </span>
+<span class="hljs-literal">species</span> macro_species 
 {   
     init {
-        write <span class="hljs-string">"the macro species named "</span>+name+<span class="hljs-string">" is hosted by "</span>+host;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"the macro species named "</span>+name+<span class="hljs-string">" is hosted by "</span>+host;
     }
 }
 </code></pre>
@@ -152,22 +152,22 @@ You have then to distinguish two different species to define your micro-species:
 <li>The first can be seen as a regular species (it is the &quot;bee&quot; or the &quot;pedestrian&quot; for instance). We will name this species as &quot;micro_species&quot;.</li>
 <li>The second is the real micro-species, defined inside the macro-species (it is the &quot;bee_in_swarm&quot; or the &quot;pedestrian_in_building&quot; for instance). We will name this species as &quot;micro_species_in_group&quot;. This species has to inherit from the &quot;micro_species&quot;.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">species <span class="hljs-title">micro_species</span> </span>{
+<pre><code class="hljs"><span class="hljs-literal">species</span> micro_species {
 }
 
-<span class="hljs-class">species <span class="hljs-title">macro_species</span> </span>
+<span class="hljs-literal">species</span> macro_species 
 {   
-    <span class="hljs-class">species <span class="hljs-title">micro_species_in_group</span> <span class="hljs-title">parent</span>: <span class="hljs-title">micro_species</span> </span>{
+    <span class="hljs-literal">species</span> micro_species_in_group <span class="hljs-symbol">parent:</span> micro_species {
     }
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="dynamic-migration-of-agents"></a><a href="#dynamic-migration-of-agents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dynamic migration of agents</h2>
 <p>In our example about bees, a &quot;swarm&quot; entity is composed of nearby flying &quot;bee&quot; entities. When a &quot;bee&quot; entity approaches a &quot;swarm&quot; entity, this &quot;bee&quot; entity will become a member of the group. To represent this, the modeler lets the &quot;bee&quot; agent change its species to &quot;bee_in_swarm&quot; species. The &quot;bee&quot; agent hence becomes a &quot;bee_in_swarm&quot; agent. To change species of agent, we can use one of the following statements: <code>capture</code>, <code>release</code>, <code>migrate</code>.</p>
 <p>The statement <code>capture</code> is used by the &quot;macro_species&quot; to capture one (or several) &quot;micro_species&quot; agent(s), and turn it (them) to a &quot;micro_species_in_group&quot;. You can specify which agent (or list of agents) you want to capture by using the facet <code>target</code>. The facet <code>as</code> is used to cast the agent from &quot;micro_species&quot; to &quot;micro_species_in_group&quot;. You can use the facet <code>return</code> to get the newly captured agent(s).</p>
-<pre><code class="hljs">capture target:micro_<span class="hljs-class">species <span class="hljs-title">as</span>:<span class="hljs-title">micro_species_in_group</span>;</span>
+<pre><code class="hljs"><span class="hljs-keyword">capture</span> <span class="hljs-symbol">target:</span>micro_species <span class="hljs-symbol">as:</span>micro_species_in_group;
 </code></pre>
 <p>The statement <code>release</code> is used by the &quot;macro_species&quot; to release one (or several) &quot;micro_species_in_group&quot; agent(s), and turn it (them) to a &quot;micro_species&quot;. You can specify which agent (or list of agents) you want to release by using the facet <code>target</code>. The facet <code>as</code> is used to cast the agent from &quot;micro_species_in_group&quot; to &quot;micro_species&quot;. The facet <code>in</code> is used to specify the new host (by default, it is the host of the &quot;macro_species&quot;). You can use the facet <code>return</code> to get the newly released agent(s).</p>
-<pre><code class="hljs">release target:<span class="hljs-literal">list</span>(micro_species_in_group) as:micro_<span class="hljs-class">species <span class="hljs-title">in</span>:<span class="hljs-title">world</span>;</span>
+<pre><code class="hljs"><span class="hljs-keyword">release</span> <span class="hljs-symbol">target:</span><span class="hljs-literal">list</span>(micro_species_in_group) <span class="hljs-symbol">as:</span>micro_species <span class="hljs-symbol">in:</span>world;
 </code></pre>
 <p>The statement <code>migrate</code>, less used, permits agents to migrate from one population/species to another population/species and stay in the same host after the migration. Read the GAML Reference to learn more about this statement.</p>
 <h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example:</h2>
@@ -175,21 +175,21 @@ You have then to distinguish two different species to define your micro-species:
 <p><img src="../resources/images/definingAdvancedSpecies/multilevel_model.png" alt="images/multilevel_model.png"></p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> multilevel
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> release_time &lt;- 20;
     <span class="hljs-literal">int</span> capture_time &lt;- 100;
     <span class="hljs-literal">int</span> remaining_release_time &lt;- 0;
     <span class="hljs-literal">int</span> remaining_capture_time &lt;- capture_time;
     init {
-        create micro_<span class="hljs-class">species <span class="hljs-title">number</span>:200;</span>
+        <span class="hljs-keyword">create</span> micro_species <span class="hljs-symbol">number:</span>200;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">reflex_timer</span> </span>{
+    <span class="hljs-builtin">reflex</span> reflex_timer {
         <span class="hljs-keyword">if</span> (remaining_release_time=1)
         {
             remaining_release_time &lt;- 0;
             remaining_capture_time &lt;- capture_time;
         }
-        else <span class="hljs-keyword">if</span> (remaining_capture_time=1)
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (remaining_capture_time=1)
         {
             remaining_capture_time &lt;- 0;
             remaining_release_time &lt;- release_time;
@@ -197,64 +197,64 @@ You have then to distinguish two different species to define your micro-species:
         remaining_release_time &lt;- remaining_release_time - 1;
         remaining_capture_time &lt;- remaining_capture_time - 1;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">capture_micro_species</span> <span class="hljs-title">when</span>:(<span class="hljs-title">remaining_capture_time</span>&gt;0 <span class="hljs-title">and</span> <span class="hljs-title">flip</span>(0.1)) </span>{
-        ask macro_<span class="hljs-class">species </span>{
-            <span class="hljs-literal">list</span>&lt;micro_<span class="hljs-class">species&gt; <span class="hljs-title">micro_species_in_range</span> &lt;- <span class="hljs-title">micro_species</span> <span class="hljs-title">at_distance</span> 1;</span>
+    <span class="hljs-builtin">reflex</span> capture_micro_species <span class="hljs-symbol">when:</span>(remaining_capture_time&gt;0 and flip(0.1)) {
+        <span class="hljs-keyword">ask</span> macro_species {
+            <span class="hljs-literal">list</span>&lt;micro_species&gt; micro_species_in_range &lt;- micro_species at_distance 1;
             <span class="hljs-keyword">if</span> (micro_species_in_range != []) {
-                do capture_micro_<span class="hljs-class">species(<span class="hljs-title">micro_species_in_range</span>);</span>
+                <span class="hljs-keyword">do</span> capture_micro_species(micro_species_in_range);
             }
         }
-        ask micro_<span class="hljs-class">species </span>{
-            <span class="hljs-literal">list</span>&lt;micro_<span class="hljs-class">species&gt; <span class="hljs-title">micro_species_list_to_be_captured</span> &lt;- <span class="hljs-title">micro_species</span> <span class="hljs-title">at_distance</span> 1;</span>
+        <span class="hljs-keyword">ask</span> micro_species {
+            <span class="hljs-literal">list</span>&lt;micro_species&gt; micro_species_list_to_be_captured &lt;- micro_species at_distance 1;
             <span class="hljs-keyword">if</span>(micro_species_list_to_be_captured != []) {
-                create macro_<span class="hljs-class">species </span>{
+                <span class="hljs-keyword">create</span> macro_species {
                     location &lt;- myself.location;
-                    add item:myself to:micro_species_list_to_be_captured;
-                    do capture_micro_<span class="hljs-class">species(<span class="hljs-title">micro_species_list_to_be_captured</span>);</span>
+                    <span class="hljs-keyword">add</span> <span class="hljs-symbol">item:</span>myself <span class="hljs-symbol">to:</span>micro_species_list_to_be_captured;
+                    <span class="hljs-keyword">do</span> capture_micro_species(micro_species_list_to_be_captured);
                 }
             }
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">micro_species</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>] </span>{
+<span class="hljs-literal">species</span> micro_species <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>] {
     <span class="hljs-literal">geometry</span> shape &lt;- circle(1);
-    aspect base {
-        draw shape;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">move</span></span>{
-        do wander;
+    <span class="hljs-builtin">reflex</span> move{
+        <span class="hljs-keyword">do</span> wander;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">macro_species</span> </span>{
-    <span class="hljs-literal">geometry</span> shape &lt;- circle(1) update:circle(length(members));
+<span class="hljs-literal">species</span> macro_species {
+    <span class="hljs-literal">geometry</span> shape &lt;- circle(1) <span class="hljs-symbol">update:</span>circle(length(members));
     
-    <span class="hljs-class">species <span class="hljs-title">micro_species_in_group</span> <span class="hljs-title">parent</span>:<span class="hljs-title">micro_species</span> </span>{
+    <span class="hljs-literal">species</span> micro_species_in_group <span class="hljs-symbol">parent:</span>micro_species {
     }
     
-    action capture_micro_<span class="hljs-class">species(<span class="hljs-title">list</span>&lt;<span class="hljs-title">micro_species</span>&gt; <span class="hljs-title">micro_list</span>) </span>{
-        loop mic_sp over:micro_list {
-            capture mic_sp as:micro_species_in_group;
+    <span class="hljs-keyword">action</span> capture_micro_species(<span class="hljs-literal">list</span>&lt;micro_species&gt; micro_list) {
+        <span class="hljs-keyword">loop</span> mic_sp <span class="hljs-symbol">over:</span>micro_list {
+            <span class="hljs-keyword">capture</span> mic_sp <span class="hljs-symbol">as:</span>micro_species_in_group;
         }
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">release_reflex</span> <span class="hljs-title">when</span>:(<span class="hljs-title">remaining_release_time</span>&gt;0 <span class="hljs-title">and</span> <span class="hljs-title">flip</span>(0.1)) </span>{
-        release members as:micro_<span class="hljs-class">species /*<span class="hljs-title">in</span>:<span class="hljs-title">world</span>*/;</span>
-        do die;
+    <span class="hljs-builtin">reflex</span> release_reflex <span class="hljs-symbol">when:</span>(remaining_release_time&gt;0 and flip(0.1)) {
+        <span class="hljs-keyword">release</span> members <span class="hljs-symbol">as:</span>micro_species <span class="hljs-comment">/*in:world*/</span>;
+        <span class="hljs-keyword">do</span> die;
     }
     
-    aspect base {
-        draw shape;
-        draw text:<span class="hljs-literal">string</span>(length(members)) color:#black size:4;
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape;
+        <span class="hljs-keyword">draw</span> <span class="hljs-symbol">text:</span><span class="hljs-literal">string</span>(length(members)) <span class="hljs-symbol">color:</span>#black <span class="hljs-symbol">size:</span>4;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">MyExperiment</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">MyDisplay</span> <span class="hljs-title">type</span>: <span class="hljs-title">java2D</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">macro_species</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">micro_species</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
+<span class="hljs-builtin">experiment</span> MyExperiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> MyDisplay <span class="hljs-symbol">type:</span> java2D {
+            <span class="hljs-literal">species</span> macro_species <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> micro_species <span class="hljs-symbol">aspect:</span> base;
         }
     }
 }

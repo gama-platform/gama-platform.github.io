@@ -75,11 +75,11 @@
 <li>nb_people_not_infected of type <em>int</em> with <em>(nb_people - nb_infected_init)</em> as init value and updated at each simulation step by the number of not infected people</li>
 <li>infected_rate of type <em>float</em> updated at each simulation step by the number of infected people divided by the number of people.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">global</span>{
+<pre><code class="hljs">global{
     <span class="hljs-comment">//... other attributes</span>
-    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
-    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
-    <span class="hljs-literal">float</span> infected_rate update: nb_people_infected/nb_people;
+    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init <span class="hljs-symbol">update:</span> people count (each.is_infected);
+    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init <span class="hljs-symbol">update:</span> nb_people - nb_people_infected;
+    <span class="hljs-literal">float</span> infected_rate <span class="hljs-symbol">update:</span> nb_people_infected/nb_people;
     <span class="hljs-comment">//... init</span>
 }
 </code></pre>
@@ -87,11 +87,11 @@
 <h4><a class="anchor" aria-hidden="true" id="ending-condition"></a><a href="#ending-condition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ending condition</h4>
 <p>The simplest way to add an ending condition to a model is to add a global reflex that is activated at the end of the simulation that will pause the simulation (use of the <em>pause</em> global action).</p>
 <p>In our model, we add a new reflex called <em>end_simulation</em> that will be activated when the infected rate is 1.0 (i.e. all the people agents are infected) and that will apply the <em>pause</em> action.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{
+<pre><code class="hljs">global {
     <span class="hljs-comment">//.. variable and init definition</span>
     
-    <span class="hljs-class">reflex <span class="hljs-title">end_simulation</span> <span class="hljs-title">when</span>: <span class="hljs-title">infected_rate</span> = 1.0 </span>{
-        do pause;
+    <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> infected_rate = 1.0 {
+        <span class="hljs-keyword">do</span> pause;
     }
 } 
 </code></pre>
@@ -104,10 +104,10 @@
 <li><em>refresh</em>: bool, optional : if the expression is true, compute (default is true).</li>
 </ul>
 <p>For our model, we define a monitor to follow the value of the <em>infected_rate</em> variable:</p>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">main_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span></span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span>gui{
     <span class="hljs-comment">//...parameters</span>
-    output {
-        monitor <span class="hljs-string">"Infected people rate"</span> value: infected_rate;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Infected people rate"</span> <span class="hljs-symbol">value:</span> infected_rate;
         
                <span class="hljs-comment">//...display</span>
     }
@@ -131,15 +131,15 @@ GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
 <li>susceptible: the number of people that are not infected (in green)</li>
 <li>infected: the number of people that are infected (in red)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">main_experiment</span> <span class="hljs-title">type</span>:<span class="hljs-title">gui</span></span>{
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span>gui{
     <span class="hljs-comment">//...parameters</span>
-    output {
+    <span class="hljs-keyword">output</span> {
         <span class="hljs-comment">//...display and monitors</span>
         
-        <span class="hljs-class">display <span class="hljs-title">chart_display</span> <span class="hljs-title">refresh</span>:<span class="hljs-title">every</span>(10 #<span class="hljs-title">cycle</span>) </span>{
-            chart <span class="hljs-string">"Disease spreading"</span> type: series {
-                data <span class="hljs-string">"susceptible"</span> value: nb_people_not_infected color: #green;
-                data <span class="hljs-string">"infected"</span> value: nb_people_infected color: #red;
+        <span class="hljs-keyword">display</span> chart_display <span class="hljs-symbol">refresh:</span>every(10 #cycle) {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Disease spreading"</span> <span class="hljs-symbol">type:</span> series {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"susceptible"</span> <span class="hljs-symbol">value:</span> nb_people_not_infected <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> nb_people_infected <span class="hljs-symbol">color:</span> #red;
             }
         }
     }
@@ -148,58 +148,58 @@ GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> model2
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> nb_people &lt;- 2147;
     <span class="hljs-literal">int</span> nb_infected_init &lt;- 5;
     <span class="hljs-literal">float</span> step &lt;- 5 #mn;
     <span class="hljs-literal">geometry</span> shape&lt;-square(1500 #m);
     
-    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init update: people count (each.is_infected);
-    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init update: nb_people - nb_people_infected;
-    <span class="hljs-literal">float</span> infected_rate update: nb_people_infected/nb_people;
+    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init <span class="hljs-symbol">update:</span> people count (each.is_infected);
+    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init <span class="hljs-symbol">update:</span> nb_people - nb_people_infected;
+    <span class="hljs-literal">float</span> infected_rate <span class="hljs-symbol">update:</span> nb_people_infected/nb_people;
     
     init{
-        create people number:nb_people;
-        ask nb_infected_init among people {
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people;
+        <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
         }
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>]</span>{     
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-literal">float</span> speed &lt;- (2 + rnd(3)) #km/#h;
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
     
-    <span class="hljs-class">reflex <span class="hljs-title">move</span></span>{
-        do wander;
+    <span class="hljs-builtin">reflex</span> move{
+        <span class="hljs-keyword">do</span> wander;
     }
-    <span class="hljs-class">reflex <span class="hljs-title">infect</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_infected</span></span>{
-        ask people at_distance 10 #m {
+    <span class="hljs-builtin">reflex</span> infect <span class="hljs-symbol">when:</span> is_infected{
+        <span class="hljs-keyword">ask</span> people at_distance 10 #m {
             <span class="hljs-keyword">if</span> flip(0.05) {
                 is_infected &lt;- true;
             }
         }
     }
     
-    aspect circle {
-        draw circle(10) color:is_infected ? #red : #green;
+    <span class="hljs-keyword">aspect</span> circle {
+        <span class="hljs-keyword">draw</span> circle(10) <span class="hljs-symbol">color:</span>is_infected ? #red : #green;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">main</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"Nb people infected at init"</span> var: nb_infected_init min: 1 max: 2147;
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Nb people infected at init"</span> <span class="hljs-symbol">var:</span> nb_infected_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 2147;
 
-    output {
-        monitor <span class="hljs-string">"Infected people rate"</span> value: infected_rate;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Infected people rate"</span> <span class="hljs-symbol">value:</span> infected_rate;
         
-        <span class="hljs-class">display <span class="hljs-title">map</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">circle</span>;   </span>
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;   
         }
         
-        <span class="hljs-class">display <span class="hljs-title">chart_display</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">every</span>(10 #<span class="hljs-title">cycle</span>) </span>{
-            chart <span class="hljs-string">"Disease spreading"</span> type: series {
-                data <span class="hljs-string">"susceptible"</span> value: nb_people_not_infected color: #green;
-                data <span class="hljs-string">"infected"</span> value: nb_people_infected color: #red;
+        <span class="hljs-keyword">display</span> chart_display <span class="hljs-symbol">refresh:</span> every(10 #cycle) {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Disease spreading"</span> <span class="hljs-symbol">type:</span> series {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"susceptible"</span> <span class="hljs-symbol">value:</span> nb_people_not_infected <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> nb_people_infected <span class="hljs-symbol">color:</span> #red;
             }
         }
     }

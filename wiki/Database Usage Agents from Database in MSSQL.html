@@ -9,7 +9,7 @@
 <p>Code of the model :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> DB2agentMSSQL
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; BOUNDS &lt;- [  <span class="hljs-comment">//"srid"::"32648", // optinal</span>
                                     <span class="hljs-string">"host"</span>::<span class="hljs-string">"localhost"</span>,
                                     <span class="hljs-string">"dbtype"</span>::<span class="hljs-string">"sqlserver"</span>,
@@ -29,27 +29,27 @@
     <span class="hljs-literal">string</span> QUERY &lt;- <span class="hljs-string">"SELECT name, type, GEOM.STAsBinary() as GEOM FROM buildings ;"</span>;
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(BOUNDS);         
     init {
-        create DB_accessor {
-            create buildings from: (self select [params:: PARAMS, select:: QUERY]) 
-                             with:[ <span class="hljs-string">"name"</span>::<span class="hljs-string">"name"</span>,<span class="hljs-string">"type"</span>::<span class="hljs-string">"type"</span>, <span class="hljs-string">"shape"</span>:: <span class="hljs-literal">geometry</span>(<span class="hljs-string">"geom"</span>)];
+        <span class="hljs-keyword">create</span> DB_accessor {
+            <span class="hljs-keyword">create</span> buildings <span class="hljs-symbol">from:</span> (self select [params:: PARAMS, select:: QUERY]) 
+                             <span class="hljs-symbol">with:</span>[ <span class="hljs-string">"name"</span>::<span class="hljs-string">"name"</span>,<span class="hljs-string">"type"</span>::<span class="hljs-string">"type"</span>, <span class="hljs-string">"shape"</span>:: <span class="hljs-literal">geometry</span>(<span class="hljs-string">"geom"</span>)];
          }
     }
 }
 
 
-<span class="hljs-class">species <span class="hljs-title">DB_accessor</span> <span class="hljs-title">skills</span>: [<span class="hljs-title">SQLSKILL</span>];</span>
+<span class="hljs-literal">species</span> DB_accessor <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">SQLSKILL</span>];
     
-<span class="hljs-class">species <span class="hljs-title">buildings</span> </span>{
+<span class="hljs-literal">species</span> buildings {
     <span class="hljs-literal">string</span> type;
-    aspect default {
-        draw shape color: #gray ;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray ;
     }   
 }   
 
-<span class="hljs-class">experiment <span class="hljs-title">DB2agentMSSQL</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">fullView</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">buildings</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">default</span>;</span>
+<span class="hljs-builtin">experiment</span> DB2agentMSSQL <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> fullView {
+            <span class="hljs-literal">species</span> buildings <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span>;
         }
     }
 }

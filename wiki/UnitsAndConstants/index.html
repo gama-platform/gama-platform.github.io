@@ -79,7 +79,7 @@
 <p>In that case, the numeric value of <code>foo</code> will be automatically translated to 0.01 (meter). It is recommended to always use float as the type of the variables that might be qualified by units (otherwise, for example in the previous case, they might be truncated to 0).
 Several units names are allowed as qualifiers of numeric variables.
 These units represent the basic metric and US units. Composed and derived units (like velocity, acceleration, special volumes or surfaces) can be obtained by combining these units using the <code>*</code> and <code>/</code> operators. For instance:</p>
-<pre><code class="hljs"><span class="hljs-literal">float</span> one_kmh &lt;- 1 °km / °h const: true;
+<pre><code class="hljs"><span class="hljs-literal">float</span> one_kmh &lt;- 1 °km / °h <span class="hljs-symbol">const:</span> true;
 <span class="hljs-literal">float</span> one_millisecond &lt;-1 °sec / 1000;
 <span class="hljs-literal">float</span> one_cubic_inch &lt;- 1 °sqin * 1 °inch;
 ... etc ...

@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> si
 
-<span class="hljs-class">global </span>{ 
+global { 
     <span class="hljs-comment">//Number of susceptible host at init</span>
     <span class="hljs-literal">int</span> number_S &lt;- 495;
     <span class="hljs-comment">//Number of infected host at init</span>
@@ -26,30 +26,30 @@
     <span class="hljs-comment">//Number total of hosts</span>
     <span class="hljs-literal">int</span> numberHosts &lt;- number_S+number_I+number_R;
     <span class="hljs-comment">//Boolean to represent if the infection is computed locally</span>
-    <span class="hljs-literal">bool</span> local_infection &lt;- true parameter: <span class="hljs-string">"Is the infection is computed locally?"</span>;
+    <span class="hljs-literal">bool</span> local_infection &lt;- true <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"Is the infection is computed locally?"</span>;
     <span class="hljs-comment">//Range of the cells considered as neighbors for a cell</span>
-    <span class="hljs-literal">int</span> neighbors_size &lt;- 2 min:1 max: 5 parameter:<span class="hljs-string">"Size of the neighbors"</span>;
+    <span class="hljs-literal">int</span> neighbors_size &lt;- 2 <span class="hljs-symbol">min:</span>1 <span class="hljs-symbol">max:</span> 5 <span class="hljs-symbol">parameter:</span><span class="hljs-string">"Size of the neighbors"</span>;
     
     <span class="hljs-literal">float</span> R0 ;
     <span class="hljs-literal">geometry</span> shape &lt;- square(50);
     
     init {
         <span class="hljs-comment">//Creation of all the susceptible Host</span>
-        create Host number: number_S {
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span> number_S {
             is_susceptible &lt;- true;
             is_infected &lt;-  false;
             is_immune &lt;-  false; 
             color &lt;-  #green;
         }
         <span class="hljs-comment">//Creation of all the infected Host</span>
-        create Host number: number_I {
+        <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span> number_I {
             is_susceptible &lt;-  false;
             is_infected &lt;-  true;
             is_immune &lt;-  false; 
             color &lt;-  #red; 
        }
        <span class="hljs-comment">//Creation of all the resistant Host</span>
-       create Host number: number_R {
+       <span class="hljs-keyword">create</span> Host <span class="hljs-symbol">number:</span> number_R {
             is_susceptible &lt;-  false;
             is_infected &lt;-  false;
             is_immune &lt;-  true; 
@@ -58,54 +58,54 @@
        
        
        R0 &lt;- beta/(delta+nu);
-        write <span class="hljs-string">"Basic Reproduction Number: "</span>+ R0;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Basic Reproduction Number: "</span>+ R0;
    }
    
    <span class="hljs-comment">//Reflex to update the number of infected</span>
-   <span class="hljs-class">reflex <span class="hljs-title">compute_nb_infected</span> </span>{
+   <span class="hljs-builtin">reflex</span> compute_nb_infected {
         number_I &lt;- Host count (each.is_infected);
    }       
 }
 
 
 <span class="hljs-comment">//Grid used to discretize space </span>
-<span class="hljs-class">grid <span class="hljs-title">sir_grid</span> <span class="hljs-title">width</span>: 50 <span class="hljs-title">height</span>: 50 <span class="hljs-title">use_individual_shapes</span>: <span class="hljs-title">false</span> <span class="hljs-title">use_regular_agents</span>: <span class="hljs-title">false</span> <span class="hljs-title">frequency</span>: 0</span>{
+grid sir_grid <span class="hljs-symbol">width:</span> 50 <span class="hljs-symbol">height:</span> 50 <span class="hljs-symbol">use_individual_shapes:</span> false <span class="hljs-symbol">use_regular_agents:</span> false <span class="hljs-symbol">frequency:</span> 0{
     <span class="hljs-literal">rgb</span> color &lt;- #black;
-    <span class="hljs-literal">list</span>&lt;sir_<span class="hljs-class">grid&gt; <span class="hljs-title">neighbors</span> &lt;- (<span class="hljs-title">self</span> <span class="hljs-title">neighbors_at</span> <span class="hljs-title">neighbors_size</span>) ;       </span>
+    <span class="hljs-literal">list</span>&lt;sir_grid&gt; neighbors &lt;- (self neighbors_at neighbors_size) ;       
 }
 
 <span class="hljs-comment">//Species host which represent the Host of the disease</span>
-<span class="hljs-class">species <span class="hljs-title">Host</span>  </span>{
+<span class="hljs-literal">species</span> Host  {
     <span class="hljs-comment">//Booleans to represent the state of the host agent</span>
     <span class="hljs-literal">bool</span> is_susceptible &lt;- true;
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
     <span class="hljs-literal">bool</span> is_immune &lt;- false;
     <span class="hljs-literal">rgb</span> color &lt;- #green;
-    sir_<span class="hljs-class">grid <span class="hljs-title">myPlace</span>;</span>
+    sir_grid myPlace;
     
     init {
         <span class="hljs-comment">//Place the agent randomly among the grid</span>
-        myPlace &lt;- one_of (sir_<span class="hljs-class">grid <span class="hljs-title">as</span> <span class="hljs-title">list</span>);</span>
+        myPlace &lt;- one_of (sir_grid as <span class="hljs-literal">list</span>);
         location &lt;- myPlace.location;
     }     
     <span class="hljs-comment">//Reflex to make the agent move   </span>
-    <span class="hljs-class">reflex <span class="hljs-title">basic_move</span> </span>{
+    <span class="hljs-builtin">reflex</span> basic_move {
         myPlace &lt;- one_of (myPlace.neighbors) ;
         location &lt;- myPlace.location;
     }
     <span class="hljs-comment">//Reflex to make the agent infected if it is susceptible</span>
-    <span class="hljs-class">reflex <span class="hljs-title">become_infected</span> <span class="hljs-title">when</span>: <span class="hljs-title">is_susceptible</span> </span>{
+    <span class="hljs-builtin">reflex</span> become_infected <span class="hljs-symbol">when:</span> is_susceptible {
         <span class="hljs-literal">float</span> rate  &lt;- 0.0;
         <span class="hljs-comment">//computation of the infection according to the possibility of the disease to spread locally or not</span>
         <span class="hljs-keyword">if</span>(local_infection) {
             <span class="hljs-literal">int</span> nb_hosts  &lt;- 0;
             <span class="hljs-literal">int</span> nb_hosts_infected  &lt;- 0;
-            loop hst over: ((myPlace.neighbors + myPlace) accumulate (Host overlapping each)) {
+            <span class="hljs-keyword">loop</span> hst <span class="hljs-symbol">over:</span> ((myPlace.neighbors + myPlace) accumulate (Host overlapping each)) {
                 nb_hosts &lt;- nb_hosts + 1;
                 <span class="hljs-keyword">if</span> (hst.is_infected) {nb_hosts_infected &lt;- nb_hosts_infected + 1;}
             }
             rate &lt;- nb_hosts_infected / nb_hosts;
-        } else {
+        } <span class="hljs-keyword">else</span> {
             rate &lt;- number_I / numberHosts;
         }
         <span class="hljs-keyword">if</span> (flip(beta * rate)) {
@@ -116,48 +116,48 @@
         }
     }
     <span class="hljs-comment">//Reflex to make the agent recovered if it is infected and if it success the probability</span>
-    <span class="hljs-class">reflex <span class="hljs-title">become_immune</span> <span class="hljs-title">when</span>: (<span class="hljs-title">is_infected</span> <span class="hljs-title">and</span> <span class="hljs-title">flip</span>(<span class="hljs-title">delta</span>)) </span>{
+    <span class="hljs-builtin">reflex</span> become_immune <span class="hljs-symbol">when:</span> (is_infected and flip(delta)) {
         is_susceptible &lt;- false;
         is_infected &lt;- false;
         is_immune &lt;- true;
         color &lt;- #blue;
     }
     <span class="hljs-comment">//Reflex to kill the agent according to the probability of dying</span>
-    <span class="hljs-class">reflex <span class="hljs-title">shallDie</span> <span class="hljs-title">when</span>: <span class="hljs-title">flip</span>(<span class="hljs-title">nu</span>) </span>{
+    <span class="hljs-builtin">reflex</span> shallDie <span class="hljs-symbol">when:</span> flip(nu) {
         <span class="hljs-comment">//Create another agent</span>
-        create <span class="hljs-class">species(<span class="hljs-title">self</span>)  </span>{
+        <span class="hljs-keyword">create</span> <span class="hljs-literal">species</span>(self)  {
             myPlace &lt;- myself.myPlace ;
             location &lt;- myself.location ; 
         }
-        do die;
+        <span class="hljs-keyword">do</span> die;
     }
             
-    aspect basic {
-        draw circle(1) color: color; 
+    <span class="hljs-keyword">aspect</span> basic {
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span> color; 
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">Simulation</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{ 
-    parameter <span class="hljs-string">"Number of Susceptible"</span> var: number_S ;<span class="hljs-comment">// The number of susceptible</span>
-    parameter <span class="hljs-string">"Number of Infected"</span> var: number_I ;  <span class="hljs-comment">// The number of infected</span>
-    parameter <span class="hljs-string">"Number of Resistant"</span> var:number_R ;  <span class="hljs-comment">// The number of removed</span>
-    parameter <span class="hljs-string">"Beta (S-&gt;I)"</span> var:beta;   <span class="hljs-comment">// The parameter Beta</span>
-    parameter <span class="hljs-string">"Mortality"</span> var:nu ;  <span class="hljs-comment">// The parameter Nu</span>
-    parameter <span class="hljs-string">"Delta (I-&gt;R)"</span> var: delta; <span class="hljs-comment">// The parameter Delta</span>
-    parameter <span class="hljs-string">"Is the infection is computed locally?"</span> var:local_infection ;
-    parameter <span class="hljs-string">"Size of the neighbors"</span> var:neighbors_size ;
-    output { 
-        <span class="hljs-class">display <span class="hljs-title">sir_display</span> </span>{
-            <span class="hljs-class">grid <span class="hljs-title">sir_grid</span> <span class="hljs-title">lines</span>: #<span class="hljs-title">black</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">Host</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">basic</span>;</span>
+<span class="hljs-builtin">experiment</span> Simulation <span class="hljs-symbol">type:</span> gui { 
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of Susceptible"</span> <span class="hljs-symbol">var:</span> number_S ;<span class="hljs-comment">// The number of susceptible</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of Infected"</span> <span class="hljs-symbol">var:</span> number_I ;  <span class="hljs-comment">// The number of infected</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Number of Resistant"</span> <span class="hljs-symbol">var:</span>number_R ;  <span class="hljs-comment">// The number of removed</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Beta (S-&gt;I)"</span> <span class="hljs-symbol">var:</span>beta;   <span class="hljs-comment">// The parameter Beta</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Mortality"</span> <span class="hljs-symbol">var:</span>nu ;  <span class="hljs-comment">// The parameter Nu</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Delta (I-&gt;R)"</span> <span class="hljs-symbol">var:</span> delta; <span class="hljs-comment">// The parameter Delta</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Is the infection is computed locally?"</span> <span class="hljs-symbol">var:</span>local_infection ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Size of the neighbors"</span> <span class="hljs-symbol">var:</span>neighbors_size ;
+    <span class="hljs-keyword">output</span> { 
+        <span class="hljs-keyword">display</span> sir_display {
+            grid sir_grid <span class="hljs-symbol">lines:</span> #black;
+            <span class="hljs-literal">species</span> Host <span class="hljs-symbol">aspect:</span> basic;
         }
             
-        <span class="hljs-class">display <span class="hljs-title">chart</span> <span class="hljs-title">refresh</span>: <span class="hljs-title">every</span>(10) </span>{
-            chart <span class="hljs-string">"Susceptible"</span> type: series background: #lightgray style: exploded {
-                data <span class="hljs-string">"susceptible"</span> value: Host count (each.is_susceptible) color: #green;
-                data <span class="hljs-string">"infected"</span> value: Host count (each.is_infected) color: #red;
-                data <span class="hljs-string">"immune"</span> value: Host count (each.is_immune) color: #blue;
+        <span class="hljs-keyword">display</span> <span class="hljs-keyword">chart</span> <span class="hljs-symbol">refresh:</span> every(10) {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Susceptible"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">style:</span> exploded {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"susceptible"</span> <span class="hljs-symbol">value:</span> Host count (each.is_susceptible) <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> Host count (each.is_infected) <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"immune"</span> <span class="hljs-symbol">value:</span> Host count (each.is_immune) <span class="hljs-symbol">color:</span> #blue;
             }
         }
             

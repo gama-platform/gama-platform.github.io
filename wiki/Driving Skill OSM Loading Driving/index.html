@@ -11,7 +11,7 @@
 
 <span class="hljs-builtin">model</span> OSMdata_to_shapefile 
  
-<span class="hljs-class">global</span>{
+global{
     <span class="hljs-comment">//map used to filter the object to build from the OSM file according to attributes. for an exhaustive list, see: http://wiki.openstreetmap.org/wiki/Map_Features</span>
     <span class="hljs-literal">map</span> filtering &lt;- <span class="hljs-literal">map</span>([<span class="hljs-string">"highway"</span>::[<span class="hljs-string">"primary"</span>, <span class="hljs-string">"secondary"</span>, <span class="hljs-string">"tertiary"</span>, <span class="hljs-string">"motorway"</span>, <span class="hljs-string">"living_street"</span>,<span class="hljs-string">"residential"</span>, <span class="hljs-string">"unclassified"</span>]]);
     
@@ -25,94 +25,94 @@
     
 
     init {
-        write <span class="hljs-string">"OSM file loaded: "</span> + length(osmfile) + <span class="hljs-string">" geometries"</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"OSM file loaded: "</span> + length(osmfile) + <span class="hljs-string">" geometries"</span>;
         
         <span class="hljs-comment">//from the OSM file, creation of the selected agents</span>
-        loop geom over: osmfile {
+        <span class="hljs-keyword">loop</span> geom <span class="hljs-symbol">over:</span> osmfile {
             <span class="hljs-keyword">if</span> (shape covers geom) {
                 <span class="hljs-literal">string</span> highway_str &lt;- <span class="hljs-literal">string</span>(geom get (<span class="hljs-string">"highway"</span>));
                 <span class="hljs-keyword">if</span> (length(geom.points) = 1 ) {
                     <span class="hljs-keyword">if</span> ( highway_str != nil ) {
                         <span class="hljs-literal">string</span> crossing &lt;- <span class="hljs-literal">string</span>(geom get (<span class="hljs-string">"crossing"</span>));
-                        create intersection with: [shape ::geom, type:: highway_str, crossing::crossing] {
+                        <span class="hljs-keyword">create</span> intersection <span class="hljs-symbol">with:</span> [shape ::geom, type:: highway_str, crossing::crossing] {
                             nodes_map[location] &lt;- self;
                         }
                     }
-                } else {
+                } <span class="hljs-keyword">else</span> {
                     <span class="hljs-literal">string</span> oneway &lt;- <span class="hljs-literal">string</span>(geom get (<span class="hljs-string">"oneway"</span>));
                     <span class="hljs-literal">float</span> maxspeed_val &lt;- <span class="hljs-literal">float</span>(geom get (<span class="hljs-string">"maxspeed"</span>));
                     <span class="hljs-literal">string</span> lanes_str &lt;- <span class="hljs-literal">string</span>(geom get (<span class="hljs-string">"lanes"</span>));
                     <span class="hljs-literal">int</span> lanes_val &lt;- empty(lanes_str) ? 1 : ((length(lanes_str) &gt; 1) ? <span class="hljs-literal">int</span>(first(lanes_str)) : <span class="hljs-literal">int</span>(lanes_str));
-                    create road with: [shape ::geom, type:: highway_str, oneway::oneway, maxspeed::maxspeed_val, lanes::lanes_val] {
+                    <span class="hljs-keyword">create</span> road <span class="hljs-symbol">with:</span> [shape ::geom, type:: highway_str, oneway::oneway, maxspeed::maxspeed_val, lanes::lanes_val] {
                         <span class="hljs-keyword">if</span> lanes &lt; 1 {lanes &lt;- 1;} <span class="hljs-comment">//default value for the lanes attribute</span>
                         <span class="hljs-keyword">if</span> maxspeed = 0 {maxspeed &lt;- 50.0;} <span class="hljs-comment">//default value for the maxspeed attribute</span>
                     }
                 }   
             }
         }
-        write <span class="hljs-string">"Road and node agents created"</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Road and node agents created"</span>;
         
-        ask road {
+        <span class="hljs-keyword">ask</span> road {
             <span class="hljs-literal">point</span> ptF &lt;- first(shape.points);
             <span class="hljs-keyword">if</span> (not(ptF in nodes_map)) {
-                create intersection with:[location::ptF] {
+                <span class="hljs-keyword">create</span> intersection <span class="hljs-symbol">with:</span>[location::ptF] {
                     nodes_map[location] &lt;- self;
                 }   
             }
             <span class="hljs-literal">point</span> ptL &lt;- last(shape.points);
             <span class="hljs-keyword">if</span> (not(ptL in nodes_map)) {
-                create intersection with:[location::ptL] {
+                <span class="hljs-keyword">create</span> intersection <span class="hljs-symbol">with:</span>[location::ptL] {
                     nodes_map[location] &lt;- self;
                 }
             }
         }
             
-        write <span class="hljs-string">"Supplementary node agents created"</span>;
-        ask intersection {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Supplementary node agents created"</span>;
+        <span class="hljs-keyword">ask</span> intersection {
             <span class="hljs-keyword">if</span> (empty (road overlapping (self))) {
-                do die;
+                <span class="hljs-keyword">do</span> die;
             }
         }
         
-        write <span class="hljs-string">"node agents filtered"</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"node agents filtered"</span>;
         
         <span class="hljs-comment">//Save all the road agents inside the file with the path written, using the with: facet to make a link between attributes and columns of the resulting shapefiles. </span>
-        save road type:<span class="hljs-string">"shp"</span> to:<span class="hljs-string">"../includes/roads.shp"</span> with:[lanes::<span class="hljs-string">"lanes"</span>,maxspeed::<span class="hljs-string">"maxspeed"</span>, oneway::<span class="hljs-string">"oneway"</span>] ;
-        save intersection type:<span class="hljs-string">"shp"</span> to:<span class="hljs-string">"../includes/nodes.shp"</span> with:[type::<span class="hljs-string">"type"</span>, crossing::<span class="hljs-string">"crossing"</span>] ;
-        write <span class="hljs-string">"road and node shapefile saved"</span>;
+        <span class="hljs-keyword">save</span> road <span class="hljs-symbol">type:</span><span class="hljs-string">"shp"</span> <span class="hljs-symbol">to:</span><span class="hljs-string">"../includes/roads.shp"</span> <span class="hljs-symbol">with:</span>[lanes::<span class="hljs-string">"lanes"</span>,maxspeed::<span class="hljs-string">"maxspeed"</span>, oneway::<span class="hljs-string">"oneway"</span>] ;
+        <span class="hljs-keyword">save</span> intersection <span class="hljs-symbol">type:</span><span class="hljs-string">"shp"</span> <span class="hljs-symbol">to:</span><span class="hljs-string">"../includes/nodes.shp"</span> <span class="hljs-symbol">with:</span>[type::<span class="hljs-string">"type"</span>, crossing::<span class="hljs-string">"crossing"</span>] ;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"road and node shapefile saved"</span>;
     }
 }
     
 
-<span class="hljs-class">species <span class="hljs-title">road</span></span>{
+<span class="hljs-literal">species</span> road{
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(rnd(255),rnd(255),rnd(255));
     <span class="hljs-literal">string</span> type;
     <span class="hljs-literal">string</span> oneway;
     <span class="hljs-literal">float</span> maxspeed;
     <span class="hljs-literal">int</span> lanes;
-    aspect base_ligne {
-        draw shape color: color; 
+    <span class="hljs-keyword">aspect</span> base_ligne {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color; 
     }
     
 } 
     
-<span class="hljs-class">species <span class="hljs-title">intersection</span> </span>{
+<span class="hljs-literal">species</span> intersection {
     <span class="hljs-literal">string</span> type;
     <span class="hljs-literal">string</span> crossing;
-    aspect base { 
-        draw square(3) color: #red ;
+    <span class="hljs-keyword">aspect</span> base { 
+        <span class="hljs-keyword">draw</span> square(3) <span class="hljs-symbol">color:</span> #red ;
     }
 } 
     
 
-<span class="hljs-class">experiment <span class="hljs-title">fromOSMtoShapefiles</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
-            graphics <span class="hljs-string">"world"</span> {
-                draw world.shape.contour;
+<span class="hljs-builtin">experiment</span> fromOSMtoShapefiles <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"world"</span> {
+                <span class="hljs-keyword">draw</span> world.shape.contour;
             }
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base_ligne</span>  <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span>  ;</span>
-            <span class="hljs-class">species <span class="hljs-title">intersection</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>   <span class="hljs-title">refresh</span>: <span class="hljs-title">false</span> ;</span>
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base_ligne  <span class="hljs-symbol">refresh:</span> false  ;
+            <span class="hljs-literal">species</span> intersection <span class="hljs-symbol">aspect:</span> base   <span class="hljs-symbol">refresh:</span> false ;
         }
     }
 }

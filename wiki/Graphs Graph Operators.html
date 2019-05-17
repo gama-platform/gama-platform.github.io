@@ -10,11 +10,11 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> graphoperators
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">graph</span>&lt;<span class="hljs-literal">geometry</span>,<span class="hljs-literal">geometry</span>&gt; the_graph;
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; cliques;
     init {
-        create people number: 50;
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> 50;
         
         <span class="hljs-comment">//creation of the graph: all vertices that are at distance &lt;= 20 are connected</span>
         the_graph &lt;- as_distance_graph(people, 20);
@@ -23,45 +23,45 @@
         <span class="hljs-literal">map</span>&lt;people,<span class="hljs-literal">float</span>&gt; bc &lt;- <span class="hljs-literal">map</span>&lt;people, <span class="hljs-literal">float</span>&gt;(betweenness_centrality(the_graph));
         <span class="hljs-literal">float</span> max_centrality &lt;- max(bc.values);
         <span class="hljs-literal">float</span> min_centrality &lt;- min(bc.values);
-        ask people {
+        <span class="hljs-keyword">ask</span> people {
             centrality &lt;- (bc[self] - min_centrality) / (max_centrality - min_centrality);
             centrality_color &lt;- <span class="hljs-literal">rgb</span>(255, <span class="hljs-literal">int</span>(255 * (1 - centrality)), <span class="hljs-literal">int</span>(255 * (1 - centrality)));
         }
-        write <span class="hljs-string">"mean vertice degree: "</span> + mean(the_graph.vertices collect (the_graph degree_of each));
-        write <span class="hljs-string">"nb_cycles: "</span> + nb_cycles(the_graph);
-        write <span class="hljs-string">"alpha_index: "</span> + alpha_index(the_graph);
-        write <span class="hljs-string">"beta_index: "</span> + beta_index(the_graph);
-        write <span class="hljs-string">"gamma_index: "</span> + gamma_index(the_graph);
-        write <span class="hljs-string">"connectivity_index: "</span> + connectivity_index(the_graph);
-        write <span class="hljs-string">"connected_components_of: "</span> + length(connected_components_of(the_graph));
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"mean vertice degree: "</span> + mean(the_graph.vertices collect (the_graph degree_of each));
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"nb_cycles: "</span> + nb_cycles(the_graph);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"alpha_index: "</span> + alpha_index(the_graph);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"beta_index: "</span> + beta_index(the_graph);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"gamma_index: "</span> + gamma_index(the_graph);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"connectivity_index: "</span> + connectivity_index(the_graph);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"connected_components_of: "</span> + length(connected_components_of(the_graph));
         
-        write <span class="hljs-string">"connected_components_of: "</span> + length(connected_components_of(the_graph));
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"connected_components_of: "</span> + length(connected_components_of(the_graph));
         
-        write <span class="hljs-string">"maximal_cliques_of:"</span> + (maximal_cliques_of(the_graph) collect (length(each)));
-        write <span class="hljs-string">"biggest_cliques_of:"</span> + (biggest_cliques_of(the_graph) collect (length(each)));
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"maximal_cliques_of:"</span> + (maximal_cliques_of(the_graph) collect (length(each)));
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"biggest_cliques_of:"</span> + (biggest_cliques_of(the_graph) collect (length(each)));
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">people</span> </span>{
+<span class="hljs-literal">species</span> people {
     <span class="hljs-literal">float</span> centrality;
     <span class="hljs-literal">rgb</span> centrality_color;
-    aspect centrality{
-        draw circle(1) color: centrality_color;
+    <span class="hljs-keyword">aspect</span> centrality{
+        <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span> centrality_color;
         
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">graphoperators</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
+<span class="hljs-builtin">experiment</span> graphoperators <span class="hljs-symbol">type:</span> gui {
     
-    output {
+    <span class="hljs-keyword">output</span> {
         
-        <span class="hljs-class">display <span class="hljs-title">map</span> <span class="hljs-title">background</span>:#<span class="hljs-title">lightgray</span></span>{
-            graphics <span class="hljs-string">"edges"</span> {
-                loop edge over: the_graph.edges {
-                    draw edge color: #black;
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">background:</span>#lightgray{
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"edges"</span> {
+                <span class="hljs-keyword">loop</span> edge <span class="hljs-symbol">over:</span> the_graph.edges {
+                    <span class="hljs-keyword">draw</span> edge <span class="hljs-symbol">color:</span> #black;
                 }
             }
-            <span class="hljs-class">species <span class="hljs-title">people</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">centrality</span>;</span>
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> centrality;
         }
     }
 }

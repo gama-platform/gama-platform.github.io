@@ -58,9 +58,9 @@ Jean-Daniel Zucker</p>
 <h2><a class="anchor" aria-hidden="true" id="the-solution"></a><a href="#the-solution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Solution</h2>
 <p>Define a new <strong>Experimenter</strong> agent and put real code/reflexes/actions... GAML code inside the Experimenter.</p>
 <h2><a class="anchor" aria-hidden="true" id="one-simple-example-of-what-would-be-great"></a><a href="#one-simple-example-of-what-would-be-great" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>One simple example of what would be great:</h2>
-<pre><code class="hljs"><span class="hljs-class">experiment <span class="hljs-title">InteliExplore</span> <span class="hljs-title">type</span>: <span class="hljs-title">batch</span> <span class="hljs-title">repeat</span>: 2 <span class="hljs-title">keep_seed</span>: <span class="hljs-title">true</span> <span class="hljs-title">until</span>: ( <span class="hljs-title">time</span> &gt; 200 ) </span>{
-      <span class="hljs-literal">int</span> nbprey init:0;
-      <span class="hljs-literal">int</span> nbpredator init:0;
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> InteliExplore <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 2 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> ( time &gt; 200 ) {
+      <span class="hljs-literal">int</span> nbprey <span class="hljs-symbol">init:</span>0;
+      <span class="hljs-literal">int</span> nbpredator <span class="hljs-symbol">init:</span>0;
 
       init
       {
@@ -69,44 +69,44 @@ Jean-Daniel Zucker</p>
       }
      
 
-      <span class="hljs-class">reflex <span class="hljs-title">method</span></span>
+      <span class="hljs-builtin">reflex</span> method
       {
-            loop prm over:prey_max
+            <span class="hljs-keyword">loop</span> prm <span class="hljs-symbol">over:</span>prey_max
             {
-                   do: createsimulation
+                   <span class="hljs-symbol">do:</span> createsimulation
                    setParameter(<span class="hljs-string">"nb_preys_init"</span>,pr)
 
-                   do: initsimulation
+                   <span class="hljs-symbol">do:</span> initsimulation
 
                    <span class="hljs-keyword">if</span> (prey_max&lt;100)
                    setParameter(<span class="hljs-string">"nb_predators_init"</span>,200)
                    <span class="hljs-keyword">if</span> (prey_max&gt;100)
                    setParameter(<span class="hljs-string">"nb_predators_init"</span>,200)
 
-                   do: runsimulation;
+                   <span class="hljs-symbol">do:</span> runsimulation;
 
-                   do: aftersimulation;
+                   <span class="hljs-symbol">do:</span> aftersimulation;
                   
             }
       }
 
-      action aftersimulation
+      <span class="hljs-keyword">action</span> aftersimulation
       {
-            loop over getVariable(agents)
+            <span class="hljs-keyword">loop</span> over getVariable(<span class="hljs-keyword">agents</span>)
             {
                    log(<span class="hljs-string">"everything dans file"</span>);      <span class="hljs-comment">//with the save function?</span>
             }     
       }
 
-      chart name: 'Species evolution' type: series background: <span class="hljs-literal">rgb</span>('white') size: {1,0.4} position: {0, 0.05}
+      <span class="hljs-keyword">chart</span> <span class="hljs-symbol">name:</span> <span class="hljs-string">'Species evolution'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-string">'white'</span>) <span class="hljs-symbol">size:</span> {1,0.4} <span class="hljs-symbol">position:</span> {0, 0.05}
       {
-      data initial_number_of_preys value: getValue(<span class="hljs-string">"nb_preys_init"</span>) color: <span class="hljs-literal">rgb</span>('blue') ;
-        data final_number_of_predator value: getValue(<span class="hljs-string">"nb_predators"</span>) color: <span class="hljs-literal">rgb</span>('red') ;
+      <span class="hljs-keyword">data</span> initial_number_of_preys <span class="hljs-symbol">value:</span> getValue(<span class="hljs-string">"nb_preys_init"</span>) <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-string">'blue'</span>) ;
+        <span class="hljs-keyword">data</span> final_number_of_predator <span class="hljs-symbol">value:</span> getValue(<span class="hljs-string">"nb_predators"</span>) <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-string">'red'</span>) ;
       }
-    <span class="hljs-literal">file</span> name: 'logsimple' type: text data: 'simulation: '+ step
-                                  +'; allparams' + getAllParamters <span class="hljs-comment">// PROBLEME comment sauver tous les parametres?</span>
-                                   + '; nbPreys: ' + getValue(<span class="hljs-string">"nb_preys_init"</span>)
-                                    + '; finalPredators: ' + getValue(<span class="hljs-string">"nb_preys"</span>) ;
+    <span class="hljs-literal">file</span> <span class="hljs-symbol">name:</span> <span class="hljs-string">'logsimple'</span> <span class="hljs-symbol">type:</span> text <span class="hljs-symbol">data:</span> <span class="hljs-string">'simulation: '</span>+ step
+                                  +<span class="hljs-string">'; allparams'</span> + getAllParamters <span class="hljs-comment">// PROBLEME comment sauver tous les parametres?</span>
+                                   + <span class="hljs-string">'; nbPreys: '</span> + getValue(<span class="hljs-string">"nb_preys_init"</span>)
+                                    + <span class="hljs-string">'; finalPredators: '</span> + getValue(<span class="hljs-string">"nb_preys"</span>) ;
 }
 
 </code></pre>

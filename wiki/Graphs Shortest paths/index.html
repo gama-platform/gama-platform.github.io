@@ -10,9 +10,9 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> ShortestPath
 
-<span class="hljs-class">global </span>{
-    <span class="hljs-literal">file</span> shape_file_in &lt;- <span class="hljs-literal">file</span>('../includes/road.shp') ;
-    <span class="hljs-literal">file</span> shape_file_bounds &lt;- <span class="hljs-literal">file</span>('../includes/bounds.shp') ;
+global {
+    <span class="hljs-literal">file</span> shape_file_in &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../includes/road.shp'</span>) ;
+    <span class="hljs-literal">file</span> shape_file_bounds &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../includes/bounds.shp'</span>) ;
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_bounds);
     <span class="hljs-literal">graph</span> road_graph; 
     <span class="hljs-literal">point</span> source;
@@ -26,22 +26,22 @@
     <span class="hljs-literal">string</span> shortest_paths_file &lt;- <span class="hljs-string">"../includes/shortest_paths.csv"</span>;
     
     init {
-        create road from: shape_file_in;
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_in;
         road_graph &lt;- as_edge_graph(road);
         
         <span class="hljs-comment">//computes all the shortest paths, puts them in a matrix, then saves the matrix in a file</span>
         <span class="hljs-keyword">if</span> save_shortest_paths {
             <span class="hljs-literal">matrix</span> ssp &lt;- all_pairs_shortest_path(road_graph);
-            write <span class="hljs-string">"Matrix of all shortest paths: "</span> + ssp;
-            save ssp type:<span class="hljs-string">"text"</span> to:shortest_paths_file;
+            <span class="hljs-keyword">write</span> <span class="hljs-string">"Matrix of all shortest paths: "</span> + ssp;
+            <span class="hljs-keyword">save</span> ssp <span class="hljs-symbol">type:</span><span class="hljs-string">"text"</span> <span class="hljs-symbol">to:</span>shortest_paths_file;
             
         <span class="hljs-comment">//loads the file of the shortest paths as a matrix and uses it to initialize all the shortest paths of the graph</span>
-        } else <span class="hljs-keyword">if</span> load_shortest_paths {
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> load_shortest_paths {
             road_graph &lt;- road_graph load_shortest_paths <span class="hljs-literal">matrix</span>(<span class="hljs-literal">file</span>(shortest_paths_file));
         }
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">compute_shortest_paths</span> </span>{
+    <span class="hljs-builtin">reflex</span> compute_shortest_paths {
         source &lt;- <span class="hljs-literal">point</span>(one_of(road_graph.vertices));
         target &lt;- <span class="hljs-literal">point</span>(one_of(road_graph.vertices));
         <span class="hljs-keyword">if</span> (source != target) {
@@ -51,36 +51,36 @@
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">road</span>  </span>{
-    aspect base {
-        draw shape color: #black ;
+<span class="hljs-literal">species</span> road  {
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #black ;
     } 
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">ShortestPath</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"number of shortest paths (k)"</span> var: k min: 1 max: 7;
-    parameter <span class="hljs-string">"Computed all the shortest paths and save the results"</span> var: save_shortest_paths;
-    parameter <span class="hljs-string">"Load the shortest paths from the file"</span> var: load_shortest_paths;
+<span class="hljs-builtin">experiment</span> ShortestPath <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"number of shortest paths (k)"</span> <span class="hljs-symbol">var:</span> k <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 7;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Computed all the shortest paths and save the results"</span> <span class="hljs-symbol">var:</span> save_shortest_paths;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Load the shortest paths from the file"</span> <span class="hljs-symbol">var:</span> load_shortest_paths;
     
-    output {
-        <span class="hljs-class">display <span class="hljs-title">map_shortest_path</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            graphics <span class="hljs-string">"shortest path"</span> {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> map_shortest_path {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"shortest path"</span> {
                 <span class="hljs-keyword">if</span> (shortest_path != nil) {
-                    draw circle(5) at: source color: #green;
-                    draw circle(5) at: target color: #cyan;
-                    draw (shortest_path.shape + 2.0) color: #magenta;
+                    <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">at:</span> source <span class="hljs-symbol">color:</span> #green;
+                    <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">at:</span> target <span class="hljs-symbol">color:</span> #cyan;
+                    <span class="hljs-keyword">draw</span> (shortest_path.shape + 2.0) <span class="hljs-symbol">color:</span> #magenta;
                 }
             }
         }
-        <span class="hljs-class">display <span class="hljs-title">map_k_shortest_paths</span> </span>{
-            <span class="hljs-class">species <span class="hljs-title">road</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">base</span>;</span>
-            graphics <span class="hljs-string">"k shortest paths"</span> {
+        <span class="hljs-keyword">display</span> map_k_shortest_paths {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"k shortest paths"</span> {
                 <span class="hljs-keyword">if</span> (shortest_path != nil) {
-                    draw circle(5) at: source color: #green;
-                    draw circle(5) at: target color: #cyan;
-                    loop i from: 0 to: length(k_shortest_paths) - 1{
-                        draw ((k_shortest_paths[i]).shape + 2.0) color: colors[i];
+                    <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">at:</span> source <span class="hljs-symbol">color:</span> #green;
+                    <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">at:</span> target <span class="hljs-symbol">color:</span> #cyan;
+                    <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> length(k_shortest_paths) - 1{
+                        <span class="hljs-keyword">draw</span> ((k_shortest_paths[i]).shape + 2.0) <span class="hljs-symbol">color:</span> colors[i];
                     }
                 }
             }

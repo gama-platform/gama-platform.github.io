@@ -13,15 +13,15 @@
 <h3><a class="anchor" aria-hidden="true" id="load-graphs-from-file"></a><a href="#load-graphs-from-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>load graphs from file</h3>
 <p>For parsing network files, we use the graphstream library which supports the top- 10 file formats. All these formats are supported by GAMA now.</p>
 <p>Till now, the GAML langage does not enables an easy way to create primitives that both take more than 3 args as an input and return an object. Thus loading a graph is defined as an action of a skill; one has to create an instance of agent with this skill for loading the network.</p>
-<pre><code class="hljs"><span class="hljs-class">global </span>{  
-    var mongraphe type:<span class="hljs-literal">graph</span>;
+<pre><code class="hljs">global {  
+    var mongraphe <span class="hljs-symbol">type:</span><span class="hljs-literal">graph</span>;
     graph_manager graph_util;
 
     init { 
-        create graph_manager returns: graph_util;
-        ask graph_util {
+        <span class="hljs-keyword">create</span> graph_manager <span class="hljs-symbol">returns:</span> graph_util;
+        <span class="hljs-keyword">ask</span> graph_util {
             
-            set mongraphe value:load_graph_from_dgs_old(self, [edge_<span class="hljs-class">species::<span class="hljs-title">edgeSpecy</span>, <span class="hljs-title">vertex_species</span>::<span class="hljs-title">nodeSpecy</span>,<span class="hljs-title">file</span>::"../<span class="hljs-title">includes</span>/<span class="hljs-title">BarabasiGenerated</span>.<span class="hljs-title">dgs</span>"]);</span>
+            <span class="hljs-keyword">set</span> mongraphe <span class="hljs-symbol">value:</span>load_graph_from_dgs_old(self, [edge_species::edgeSpecy, vertex_species::nodeSpecy,<span class="hljs-literal">file</span>::<span class="hljs-string">"../includes/BarabasiGenerated.dgs"</span>]);
         
         }
     }  
@@ -34,8 +34,8 @@
 <p>Novel operators should still be defined.</p>
 <h3><a class="anchor" aria-hidden="true" id="graph-visualization"></a><a href="#graph-visualization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>graph visualization</h3>
 <p>First of all, we had to disturb many GAMA-gurus for undertanding how to create a novel View (that is, another tab in the simulation perspective) from GAML. A novel display is defined for displaying a network.</p>
-<pre><code class="hljs">output {
-    <span class="hljs-literal">graph</span><span class="hljs-class">display <span class="hljs-title">nameOfMyDisplay</span> <span class="hljs-title">graph</span>: <span class="hljs-title">mongraphe</span> </span>{  
+<pre><code class="hljs"><span class="hljs-keyword">output</span> {
+    graphdisplay nameOfMyDisplay <span class="hljs-symbol">graph:</span> mongraphe {  
     }
 }
 </code></pre>

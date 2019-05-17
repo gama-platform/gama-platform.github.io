@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> cycle_length
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">int</span> size &lt;- 64; <span class="hljs-comment">// better to have a pow of 2 for the size of the grid</span>
     <span class="hljs-literal">int</span> cycle_length &lt;- 5;
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(square(size));
@@ -41,44 +41,44 @@
             and each.grid_y &gt; location.y
         ));
     }
-    <span class="hljs-class">reflex <span class="hljs-title">init_value</span> <span class="hljs-title">when</span>:<span class="hljs-title">cycle</span>=0 </span>{
-        ask(top_left_cells){
+    <span class="hljs-builtin">reflex</span> init_value <span class="hljs-symbol">when:</span>cycle=0 {
+        <span class="hljs-keyword">ask</span>(top_left_cells){
             phero1 &lt;- 1.0;
         }
-        ask(top_right_cells){
+        <span class="hljs-keyword">ask</span>(top_right_cells){
             phero2 &lt;- 1.0;
         }
-        ask(bot_left_cells){
+        <span class="hljs-keyword">ask</span>(bot_left_cells){
             phero3 &lt;- 1.0;
         }   
     }
 
-    <span class="hljs-class">reflex <span class="hljs-title">diff</span> </span>{
+    <span class="hljs-builtin">reflex</span> diff {
         <span class="hljs-comment">// Declare a diffusion on the grid "cells" for each one of the pheromons. </span>
         <span class="hljs-comment">// In order to not loosing phero value, we apply a hand made mask (with the operator "where") and we turn the "avoid_mask" facet to true.</span>
         <span class="hljs-literal">list</span> cells_where_diffuse &lt;- cells where (each.grid_x &lt; size-cycle_length and each.grid_x &gt; cycle_length and each.grid_y &lt; size-cycle_length and each.grid_y &gt; cycle_length);
-        diffuse var: phero1 on: cells_where_diffuse <span class="hljs-literal">matrix</span>: mat_diff avoid_mask: true method:dot_product cycle_length:cycle_length;
-        diffuse var: phero2 on: cells_where_diffuse <span class="hljs-literal">matrix</span>: mat_diff avoid_mask: true method:dot_product cycle_length:cycle_length;
-        diffuse var: phero3 on: cells_where_diffuse <span class="hljs-literal">matrix</span>: mat_diff avoid_mask: true method:dot_product cycle_length:cycle_length;
+        <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero1 <span class="hljs-symbol">on:</span> cells_where_diffuse <span class="hljs-symbol">matrix:</span> mat_diff <span class="hljs-symbol">avoid_mask:</span> true <span class="hljs-symbol">method:</span>dot_product <span class="hljs-symbol">cycle_length:</span>cycle_length;
+        <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero2 <span class="hljs-symbol">on:</span> cells_where_diffuse <span class="hljs-symbol">matrix:</span> mat_diff <span class="hljs-symbol">avoid_mask:</span> true <span class="hljs-symbol">method:</span>dot_product <span class="hljs-symbol">cycle_length:</span>cycle_length;
+        <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero3 <span class="hljs-symbol">on:</span> cells_where_diffuse <span class="hljs-symbol">matrix:</span> mat_diff <span class="hljs-symbol">avoid_mask:</span> true <span class="hljs-symbol">method:</span>dot_product <span class="hljs-symbol">cycle_length:</span>cycle_length;
     }
 }
 
 
-<span class="hljs-class">grid <span class="hljs-title">cells</span> <span class="hljs-title">height</span>: <span class="hljs-title">size</span> <span class="hljs-title">width</span>: <span class="hljs-title">size</span> </span>{
+grid cells <span class="hljs-symbol">height:</span> size <span class="hljs-symbol">width:</span> size {
     <span class="hljs-comment">// "phero1", "phero2", "phero3" are the variables storing the value of the diffusion</span>
     <span class="hljs-literal">float</span> phero1  &lt;- 0.0;
     <span class="hljs-literal">float</span> phero2  &lt;- 0.0;
     <span class="hljs-literal">float</span> phero3  &lt;- 0.0;
     <span class="hljs-comment">// The color of the cell is construct using the 3 pheromons.</span>
-    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(phero1*256,phero2*256,phero3*256) update: <span class="hljs-literal">rgb</span>(phero1*256,phero2*256,phero3*256);
+    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(phero1*256,phero2*256,phero3*256) <span class="hljs-symbol">update:</span> <span class="hljs-literal">rgb</span>(phero1*256,phero2*256,phero3*256);
 } 
 
 
-<span class="hljs-class">experiment <span class="hljs-title">diffusion</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
-        <span class="hljs-class">display <span class="hljs-title">a</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span> </span>{
+<span class="hljs-builtin">experiment</span> diffusion <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> a <span class="hljs-symbol">type:</span> opengl {
             <span class="hljs-comment">// Display the grid with elevation</span>
-            <span class="hljs-class">grid <span class="hljs-title">cells</span> <span class="hljs-title">elevation</span>: (<span class="hljs-title">phero1</span>+<span class="hljs-title">phero2</span>+<span class="hljs-title">phero3</span>)*10 <span class="hljs-title">triangulation</span>: <span class="hljs-title">true</span>;</span>
+            grid cells <span class="hljs-symbol">elevation:</span> (phero1+phero2+phero3)*10 <span class="hljs-symbol">triangulation:</span> true;
         }
     }
 }

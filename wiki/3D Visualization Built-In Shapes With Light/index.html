@@ -10,31 +10,31 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> shape   
 
-<span class="hljs-class">global </span>{
+global {
     
-    <span class="hljs-literal">file</span> gamaRaster &lt;- <span class="hljs-literal">file</span>('../images/Gama.png');
+    <span class="hljs-literal">file</span> gamaRaster &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../images/Gama.png'</span>);
     
     <span class="hljs-literal">int</span> size &lt;- 10;
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; geometries2D &lt;-[<span class="hljs-literal">point</span>([0,0]),line ([{0,0},{size,size}]),polyline([{0,0},{size/2,size/2},{0,size}]),circle(size),square(size),rectangle(size,size*1.5),triangle(size),hexagon(size)];
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; texturedGeometries2D &lt;-[<span class="hljs-literal">point</span>([0,0]),line ([{0,0},{size,size}]),polyline([{0,0},{size/2,size/2},{0,size}]),circle(size),square(size),rectangle(size,size*1.5),triangle(size),hexagon(size)]; 
-    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; geometries3D &lt;-[sphere(size/2),plan ([{0,0},{size,size}],size),polyplan([{0,0},{size/2,size/2},{0,size}],size),cylinder(size,size),cube(size),box(size,size*1.5,size*0.5),pyramid(size),polyhedron([{-1*size/2,0.5*size/2}, {-0.5*size/2,1*size/2}, {0.5*size/2,1*size/2}, {1*size/2,0.5*size/2},{1*size/2,-0.5*size/2},{0.5*size/2,-1*size/2},{-0.5*size/2,-1*size/2},{-1*size/2,-0.5*size/2}],size)];
-    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; texturedGeometries &lt;-[sphere(size/2),plan ([{0,0},{size,size}],size),polyplan([{0,0},{size/2,size/2},{0,size}],size),cylinder(size,size),cube(size),box(size,size*1.5,size*0.5),pyramid(size),polyhedron([{-1*size/2,0.5*size/2}, {-0.5*size/2,1*size/2}, {0.5*size/2,1*size/2}, {1*size/2,0.5*size/2},{1*size/2,-0.5*size/2},{0.5*size/2,-1*size/2},{-0.5*size/2,-1*size/2},{-1*size/2,-0.5*size/2}],size)];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; geometries3D &lt;-[sphere(size/2),<span class="hljs-keyword">plan</span> ([{0,0},{size,size}],size),polyplan([{0,0},{size/2,size/2},{0,size}],size),cylinder(size,size),cube(size),box(size,size*1.5,size*0.5),pyramid(size),polyhedron([{-1*size/2,0.5*size/2}, {-0.5*size/2,1*size/2}, {0.5*size/2,1*size/2}, {1*size/2,0.5*size/2},{1*size/2,-0.5*size/2},{0.5*size/2,-1*size/2},{-0.5*size/2,-1*size/2},{-1*size/2,-0.5*size/2}],size)];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; texturedGeometries &lt;-[sphere(size/2),<span class="hljs-keyword">plan</span> ([{0,0},{size,size}],size),polyplan([{0,0},{size/2,size/2},{0,size}],size),cylinder(size,size),cube(size),box(size,size*1.5,size*0.5),pyramid(size),polyhedron([{-1*size/2,0.5*size/2}, {-0.5*size/2,1*size/2}, {0.5*size/2,1*size/2}, {1*size/2,0.5*size/2},{1*size/2,-0.5*size/2},{0.5*size/2,-1*size/2},{-0.5*size/2,-1*size/2},{-1*size/2,-0.5*size/2}],size)];
     
    
     
     <span class="hljs-literal">geometry</span> shape &lt;- rectangle(length(geometries3D)*size*2,size*6);
 
     init { 
-        create lightMoving number:2;
+        <span class="hljs-keyword">create</span> lightMoving <span class="hljs-symbol">number:</span>2;
         <span class="hljs-literal">int</span> curGeom2D &lt;-0;
-        create Geometry2D number: length(geometries2D){ 
+        <span class="hljs-keyword">create</span> Geometry2D <span class="hljs-symbol">number:</span> length(geometries2D){ 
             location &lt;- {size+curGeom2D*size*2, 0, 0};  
             myGeometry &lt;- geometries2D[curGeom2D];
             curGeom2D &lt;- curGeom2D+1;
         }
         
         <span class="hljs-literal">int</span> curTextGeom2D &lt;-0;
-        create TexturedGeometry2D number: length(texturedGeometries2D){ 
+        <span class="hljs-keyword">create</span> TexturedGeometry2D <span class="hljs-symbol">number:</span> length(texturedGeometries2D){ 
             location &lt;- {size+curTextGeom2D*size*2, size*2, 0}; 
             myGeometry &lt;- texturedGeometries2D[curTextGeom2D];
             myTexture &lt;- gamaRaster;
@@ -42,14 +42,14 @@
         }
         
         <span class="hljs-literal">int</span> curGeom3D &lt;-0;
-        create Geometry3D number: length(geometries3D){ 
+        <span class="hljs-keyword">create</span> Geometry3D <span class="hljs-symbol">number:</span> length(geometries3D){ 
             location &lt;- {size+curGeom3D*size*2, size*4.0, 0};   
             myGeometry &lt;- geometries3D[curGeom3D];
             curGeom3D &lt;- curGeom3D+1;
         } 
         
         <span class="hljs-literal">int</span> curTextGeom &lt;-0;
-        create TexturedGeometry3D number: length(texturedGeometries){ 
+        <span class="hljs-keyword">create</span> TexturedGeometry3D <span class="hljs-symbol">number:</span> length(texturedGeometries){ 
             location &lt;- {size+curTextGeom*size*2, size*6.0, 0}; 
             myGeometry &lt;- texturedGeometries[curTextGeom];
             myTexture &lt;- gamaRaster;
@@ -58,90 +58,90 @@
     }  
 } 
  
-<span class="hljs-class">species <span class="hljs-title">Geometry2D</span></span>{  
+<span class="hljs-literal">species</span> Geometry2D{  
 
     <span class="hljs-literal">geometry</span> myGeometry;
     
-    aspect default {
-        draw myGeometry color:°white at:location border:#red;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> myGeometry <span class="hljs-symbol">color:</span>°white <span class="hljs-symbol">at:</span>location <span class="hljs-symbol">border:</span>#red;
     }
 } 
 
-<span class="hljs-class">species <span class="hljs-title">TexturedGeometry2D</span></span>{  
+<span class="hljs-literal">species</span> TexturedGeometry2D{  
 
     <span class="hljs-literal">geometry</span> myGeometry;
     <span class="hljs-literal">file</span> myTexture;
     
-    aspect default {
-        draw myGeometry texture:myTexture.<span class="hljs-literal">path</span> at:location border:#red;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> myGeometry <span class="hljs-symbol">texture:</span>myTexture.<span class="hljs-literal">path</span> <span class="hljs-symbol">at:</span>location <span class="hljs-symbol">border:</span>#red;
     }
 } 
     
-<span class="hljs-class">species <span class="hljs-title">Geometry3D</span></span>{  
+<span class="hljs-literal">species</span> Geometry3D{  
 
     <span class="hljs-literal">geometry</span> myGeometry;
 
-    aspect default {
-        draw myGeometry color:°white at:location border:#red;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> myGeometry <span class="hljs-symbol">color:</span>°white <span class="hljs-symbol">at:</span>location <span class="hljs-symbol">border:</span>#red;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">TexturedGeometry3D</span></span>{  
+<span class="hljs-literal">species</span> TexturedGeometry3D{  
 
     <span class="hljs-literal">geometry</span> myGeometry;
     <span class="hljs-literal">file</span> myTexture;
 
-    aspect default {
-        draw myGeometry texture:myTexture.<span class="hljs-literal">path</span> at:location border:#red;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> myGeometry <span class="hljs-symbol">texture:</span>myTexture.<span class="hljs-literal">path</span> <span class="hljs-symbol">at:</span>location <span class="hljs-symbol">border:</span>#red;
     }
 }
 
-<span class="hljs-class">species <span class="hljs-title">lightMoving</span> <span class="hljs-title">skills</span>:[<span class="hljs-title">moving</span>] </span>{
-    <span class="hljs-class">reflex <span class="hljs-title">update</span> </span>{
-        do wander amplitude:180;
+<span class="hljs-literal">species</span> lightMoving <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>] {
+    <span class="hljs-builtin">reflex</span> update {
+        <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span>180;
     }
 }
 
-<span class="hljs-class">experiment <span class="hljs-title">Display</span>  <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    output {
+<span class="hljs-builtin">experiment</span> Display  <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
         <span class="hljs-comment">// display using spot lights</span>
         <span class="hljs-comment">// we set the ambient light to 0 to see better the directional lights (as if we were at night time)</span>
-        <span class="hljs-class">display <span class="hljs-title">SpotLights</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span>  <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55) <span class="hljs-title">ambient_light</span>:0 </span>{
+        <span class="hljs-keyword">display</span> SpotLights <span class="hljs-symbol">type:</span>opengl  <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55) <span class="hljs-symbol">ambient_light:</span>0 {
             <span class="hljs-comment">// we define 3 lights : the blue and red turn around the scene, changing their orientation so that the scene is always lightened</span>
             <span class="hljs-comment">// the green light does not change its position, but the angle of the spot changes</span>
-            light 1 type:spot position:{world.shape.width*cos(cycle)+world.shape.width/2,world.shape.height*sin(cycle)+world.shape.height/2,20} direction:{cos(cycle+180),sin(cycle+180),-1} color:#red draw_light:true quadratic_attenuation:0.0001;
-            light 2 type:spot position:{world.shape.width*cos(cycle+180)+world.shape.width/2,world.shape.height*sin(cycle+180)+world.shape.height/2,20} direction:{cos(cycle),sin(cycle),-1} color:#blue draw_light:true quadratic_attenuation:0.0001;
-            light 3 type:spot position:{world.shape.width/2,world.shape.height/2,world.shape.width/2} direction:{0,0,-1} color:#green draw_light:true spot_angle:30*(1+cos(2*cycle)) quadratic_attenuation:0.0001;
-            <span class="hljs-class">species <span class="hljs-title">Geometry2D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">TexturedGeometry2D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">Geometry3D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">TexturedGeometry3D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
+            <span class="hljs-keyword">light</span> 1 <span class="hljs-symbol">type:</span>spot <span class="hljs-symbol">position:</span>{world.shape.width*cos(cycle)+world.shape.width/2,world.shape.height*sin(cycle)+world.shape.height/2,20} <span class="hljs-symbol">direction:</span>{cos(cycle+180),sin(cycle+180),-1} <span class="hljs-symbol">color:</span>#red <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">quadratic_attenuation:</span>0.0001;
+            <span class="hljs-keyword">light</span> 2 <span class="hljs-symbol">type:</span>spot <span class="hljs-symbol">position:</span>{world.shape.width*cos(cycle+180)+world.shape.width/2,world.shape.height*sin(cycle+180)+world.shape.height/2,20} <span class="hljs-symbol">direction:</span>{cos(cycle),sin(cycle),-1} <span class="hljs-symbol">color:</span>#blue <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">quadratic_attenuation:</span>0.0001;
+            <span class="hljs-keyword">light</span> 3 <span class="hljs-symbol">type:</span>spot <span class="hljs-symbol">position:</span>{world.shape.width/2,world.shape.height/2,world.shape.width/2} <span class="hljs-symbol">direction:</span>{0,0,-1} <span class="hljs-symbol">color:</span>#green <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">spot_angle:</span>30*(1+cos(2*cycle)) <span class="hljs-symbol">quadratic_attenuation:</span>0.0001;
+            <span class="hljs-literal">species</span> Geometry2D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+            <span class="hljs-literal">species</span> TexturedGeometry2D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+            <span class="hljs-literal">species</span> Geometry3D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+            <span class="hljs-literal">species</span> TexturedGeometry3D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
         }
         <span class="hljs-comment">// display using point lights</span>
         <span class="hljs-comment">// we set the ambient light to 0 to see better the directional lights (as if we were at night time)</span>
-        <span class="hljs-class">display <span class="hljs-title">PointLights</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span>  <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55) <span class="hljs-title">ambient_light</span>:0 </span>{
+        <span class="hljs-keyword">display</span> PointLights <span class="hljs-symbol">type:</span>opengl  <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55) <span class="hljs-symbol">ambient_light:</span>0 {
             <span class="hljs-comment">// we define 3 lights : the blue and red turn around the scene</span>
             <span class="hljs-comment">// the green light change its location up and down, we can see the quadratic_attenuation effect : the farther the light is, the less power it has           </span>
-            light 1 type:<span class="hljs-literal">point</span> position:{world.shape.width*cos(cycle)+world.shape.width/2,world.shape.height*sin(cycle)+world.shape.height/2,20} color:#red draw_light:true quadratic_attenuation:0.0001;
-            light 2 type:<span class="hljs-literal">point</span> position:{world.shape.width*cos(cycle+180)+world.shape.width/2,world.shape.height*sin(cycle+180)+world.shape.height/2,20} color:#blue draw_light:true quadratic_attenuation:0.0001;
-            light 3 type:<span class="hljs-literal">point</span> position:{world.shape.width/2,world.shape.height/2,world.shape.width*cos(cycle)} color:#green draw_light:true quadratic_attenuation:0.0001;
-            <span class="hljs-class">species <span class="hljs-title">Geometry2D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">TexturedGeometry2D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">Geometry3D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">TexturedGeometry3D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
+            <span class="hljs-keyword">light</span> 1 <span class="hljs-symbol">type:</span><span class="hljs-literal">point</span> <span class="hljs-symbol">position:</span>{world.shape.width*cos(cycle)+world.shape.width/2,world.shape.height*sin(cycle)+world.shape.height/2,20} <span class="hljs-symbol">color:</span>#red <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">quadratic_attenuation:</span>0.0001;
+            <span class="hljs-keyword">light</span> 2 <span class="hljs-symbol">type:</span><span class="hljs-literal">point</span> <span class="hljs-symbol">position:</span>{world.shape.width*cos(cycle+180)+world.shape.width/2,world.shape.height*sin(cycle+180)+world.shape.height/2,20} <span class="hljs-symbol">color:</span>#blue <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">quadratic_attenuation:</span>0.0001;
+            <span class="hljs-keyword">light</span> 3 <span class="hljs-symbol">type:</span><span class="hljs-literal">point</span> <span class="hljs-symbol">position:</span>{world.shape.width/2,world.shape.height/2,world.shape.width*cos(cycle)} <span class="hljs-symbol">color:</span>#green <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">quadratic_attenuation:</span>0.0001;
+            <span class="hljs-literal">species</span> Geometry2D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+            <span class="hljs-literal">species</span> TexturedGeometry2D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+            <span class="hljs-literal">species</span> Geometry3D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+            <span class="hljs-literal">species</span> TexturedGeometry3D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
         }
         <span class="hljs-comment">// display using direction lights</span>
         <span class="hljs-comment">// we set the ambient light to 0 to see better the directional lights (as if we were at night time)</span>
-        <span class="hljs-class">display <span class="hljs-title">DirectionLights</span> <span class="hljs-title">type</span>:<span class="hljs-title">opengl</span>  <span class="hljs-title">background</span>:<span class="hljs-title">rgb</span>(10,40,55) <span class="hljs-title">ambient_light</span>:0 </span>{
+        <span class="hljs-keyword">display</span> DirectionLights <span class="hljs-symbol">type:</span>opengl  <span class="hljs-symbol">background:</span><span class="hljs-literal">rgb</span>(10,40,55) <span class="hljs-symbol">ambient_light:</span>0 {
             <span class="hljs-comment">// we define 3 lights : the blue and red change their direction</span>
             <span class="hljs-comment">// the green light change its intensity</span>
-            light 1 type:direction direction:{cos(cycle+180),sin(cycle+180),-1} color:#red draw_light:true;
-            light 2 type:direction direction:{cos(cycle),sin(cycle),-1} color:#blue draw_light:true;
-            light 3 type:direction direction:{0,0,-1} color:<span class="hljs-literal">rgb</span>(0,255*(1+cos(cycle)),0) draw_light:true;
-            <span class="hljs-class">species <span class="hljs-title">Geometry2D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">TexturedGeometry2D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">Geometry3D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">TexturedGeometry3D</span> <span class="hljs-title">aspect</span>:<span class="hljs-title">default</span>;</span>
+            <span class="hljs-keyword">light</span> 1 <span class="hljs-symbol">type:</span>direction <span class="hljs-symbol">direction:</span>{cos(cycle+180),sin(cycle+180),-1} <span class="hljs-symbol">color:</span>#red <span class="hljs-symbol">draw_light:</span>true;
+            <span class="hljs-keyword">light</span> 2 <span class="hljs-symbol">type:</span>direction <span class="hljs-symbol">direction:</span>{cos(cycle),sin(cycle),-1} <span class="hljs-symbol">color:</span>#blue <span class="hljs-symbol">draw_light:</span>true;
+            <span class="hljs-keyword">light</span> 3 <span class="hljs-symbol">type:</span>direction <span class="hljs-symbol">direction:</span>{0,0,-1} <span class="hljs-symbol">color:</span><span class="hljs-literal">rgb</span>(0,255*(1+cos(cycle)),0) <span class="hljs-symbol">draw_light:</span>true;
+            <span class="hljs-literal">species</span> Geometry2D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+            <span class="hljs-literal">species</span> TexturedGeometry2D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+            <span class="hljs-literal">species</span> Geometry3D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+            <span class="hljs-literal">species</span> TexturedGeometry3D <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
         }
     }
 }

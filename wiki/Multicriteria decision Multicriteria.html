@@ -10,7 +10,7 @@
 <pre><code class="hljs">
 <span class="hljs-builtin">model</span> multicriteria
 
-<span class="hljs-class">global </span>{
+global {
     <span class="hljs-literal">float</span> weight_standing &lt;- 1.0;
     <span class="hljs-literal">float</span> weight_price &lt;- 1.0;
     <span class="hljs-literal">float</span> weight_distance &lt;- 1.0;
@@ -64,17 +64,17 @@
     
     
     init {
-        create people;
+        <span class="hljs-keyword">create</span> people;
         <span class="hljs-literal">geometry</span> free_space &lt;- copy(shape);
         free_space &lt;- free_space - 10;
-        create house number: 15 {
+        <span class="hljs-keyword">create</span> house <span class="hljs-symbol">number:</span> 15 {
             location &lt;- any_location_in (free_space);
             free_space &lt;- free_space - (shape + 10);
         }
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">reset_selected</span> </span>{
-        ask house {
+    <span class="hljs-builtin">reflex</span> reset_selected {
+        <span class="hljs-keyword">ask</span> house {
             is_selected_WM &lt;- false;
             is_selected_electre &lt;- false;
             is_selected_promethee &lt;- false;
@@ -89,57 +89,57 @@
 }
     
 
-<span class="hljs-class">species <span class="hljs-title">people</span>  </span>{
-    aspect default {
-        draw sphere(2) color: °red;
+<span class="hljs-literal">species</span> people  {
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> sphere(2) <span class="hljs-symbol">color:</span> °red;
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">choose_house_weighted_means</span> </span>{
+    <span class="hljs-builtin">reflex</span> choose_house_weighted_means {
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; cands &lt;- houses_eval();
         <span class="hljs-literal">int</span> choice &lt;- weighted_means_DM(cands, criteria_WM);
         <span class="hljs-keyword">if</span> (choice &gt;= 0) {
-            ask (house at choice) {is_selected_WM &lt;- true;}
+            <span class="hljs-keyword">ask</span> (house at choice) {is_selected_WM &lt;- true;}
         }
     }
     
-    <span class="hljs-class">reflex <span class="hljs-title">choose_house_promethee</span> </span>{
+    <span class="hljs-builtin">reflex</span> choose_house_promethee {
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; cands &lt;- houses_eval();
         <span class="hljs-literal">int</span> choice &lt;- promethee_DM(cands, criteria_Promethee);
         <span class="hljs-keyword">if</span> (choice &gt;= 0) {
-            ask (house at choice) {is_selected_promethee &lt;- true;}
+            <span class="hljs-keyword">ask</span> (house at choice) {is_selected_promethee &lt;- true;}
         }
     }
-    <span class="hljs-class">reflex <span class="hljs-title">choose_house_electre</span> </span>{
+    <span class="hljs-builtin">reflex</span> choose_house_electre {
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; cands &lt;- houses_eval();
         <span class="hljs-literal">int</span> choice &lt;- electre_DM(cands, criteria_Electre, 0.7);
         <span class="hljs-keyword">if</span> (choice &gt;= 0) {
-            ask (house at choice) {is_selected_electre &lt;- true;}
+            <span class="hljs-keyword">ask</span> (house at choice) {is_selected_electre &lt;- true;}
         }
     }
-    <span class="hljs-class">reflex <span class="hljs-title">choose_house_evidence_theory</span> </span>{
+    <span class="hljs-builtin">reflex</span> choose_house_evidence_theory {
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; cands &lt;- houses_eval();
         <span class="hljs-literal">int</span> choice &lt;- evidence_theory_DM(cands, criteria_ET, true);
         <span class="hljs-keyword">if</span> (choice &gt;= 0) {
-            ask (house at choice) {is_selected_ET &lt;- true;}
+            <span class="hljs-keyword">ask</span> (house at choice) {is_selected_ET &lt;- true;}
         }
     }
     
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; houses_eval {
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; candidates;
-        loop bat over: house {
+        <span class="hljs-keyword">loop</span> bat <span class="hljs-symbol">over:</span> house {
             <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; cand;
-            add bat.standing / 5 to: cand;
-            add ((500000 - bat.price) / 500000) to: cand;
-            add ((100 - (self distance_to bat)) / 100) to: cand;
-            add (bat.shape.area / 15^2) to: cand;
-            add cand to: candidates;
+            <span class="hljs-keyword">add</span> bat.standing / 5 <span class="hljs-symbol">to:</span> cand;
+            <span class="hljs-keyword">add</span> ((500000 - bat.price) / 500000) <span class="hljs-symbol">to:</span> cand;
+            <span class="hljs-keyword">add</span> ((100 - (self distance_to bat)) / 100) <span class="hljs-symbol">to:</span> cand;
+            <span class="hljs-keyword">add</span> (bat.shape.area / 15^2) <span class="hljs-symbol">to:</span> cand;
+            <span class="hljs-keyword">add</span> cand <span class="hljs-symbol">to:</span> candidates;
         }
-        return candidates;
+        <span class="hljs-keyword">return</span> candidates;
     }
     
 }
 
-<span class="hljs-class">species <span class="hljs-title">house</span> </span>{
+<span class="hljs-literal">species</span> house {
     <span class="hljs-literal">bool</span> is_selected_WM &lt;- false;
     <span class="hljs-literal">bool</span> is_selected_electre &lt;- false;
     <span class="hljs-literal">bool</span> is_selected_promethee &lt;- false;
@@ -149,94 +149,94 @@
     <span class="hljs-literal">int</span> standing &lt;- rnd(5);
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(255 * (1 - standing/5.0),255 * (1 - standing/5.0),255);
     <span class="hljs-literal">float</span> height &lt;- price / 50000;
-    aspect weighted_means {
+    <span class="hljs-keyword">aspect</span> weighted_means {
         <span class="hljs-keyword">if</span> (is_selected_WM) {
-            draw shape + 2.0 color: °red;
+            <span class="hljs-keyword">draw</span> shape + 2.0 <span class="hljs-symbol">color:</span> °red;
         }
-        draw shape color: color depth: height;
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">depth:</span> height;
     }
-    aspect electre_means {
+    <span class="hljs-keyword">aspect</span> electre_means {
         <span class="hljs-keyword">if</span> (is_selected_electre) {
-            draw shape + 2.0 color: °red;
+            <span class="hljs-keyword">draw</span> shape + 2.0 <span class="hljs-symbol">color:</span> °red;
         }
-        draw shape color: color depth: height;
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">depth:</span> height;
     }
-    aspect promethee_means {
+    <span class="hljs-keyword">aspect</span> promethee_means {
         <span class="hljs-keyword">if</span> (is_selected_promethee) {
-            draw shape + 2.0 color: °red;
+            <span class="hljs-keyword">draw</span> shape + 2.0 <span class="hljs-symbol">color:</span> °red;
         }
-        draw shape color: color depth: height;
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">depth:</span> height;
     }
-    aspect evidence_theory_means {
+    <span class="hljs-keyword">aspect</span> evidence_theory_means {
         <span class="hljs-keyword">if</span> (is_selected_ET) {
-            draw shape + 2.0 color: °red;
+            <span class="hljs-keyword">draw</span> shape + 2.0 <span class="hljs-symbol">color:</span> °red;
         }
-        draw shape color: color depth: height;
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">depth:</span> height;
     }
 }
 
 
-<span class="hljs-class">experiment <span class="hljs-title">multicriteria</span> <span class="hljs-title">type</span>: <span class="hljs-title">gui</span> </span>{
-    parameter <span class="hljs-string">"weight of the standing criterion"</span> var:weight_standing category: <span class="hljs-string">"Weight"</span>;
-    parameter <span class="hljs-string">"weight of the price criterion"</span> var:weight_price category: <span class="hljs-string">"Weight"</span>;
-    parameter <span class="hljs-string">"weight of the distance criterion"</span> var:weight_distance category: <span class="hljs-string">"Weight"</span>;
-    parameter <span class="hljs-string">"weight of the area criterion"</span> var:weight_area category: <span class="hljs-string">"Weight"</span>;
-    parameter <span class="hljs-string">"preference threshold of the standing criterion"</span> var:p_standing category: <span class="hljs-string">"Preference"</span>;
-    parameter <span class="hljs-string">"preference threshold of the price criterion"</span> var:p_price category: <span class="hljs-string">"Preference"</span>;
-    parameter <span class="hljs-string">"preference threshold of the distance criterion"</span> var:p_distance category: <span class="hljs-string">"Preference"</span>;
-    parameter <span class="hljs-string">"preference threshold of the area criterion"</span> var:p_area category: <span class="hljs-string">"Preference"</span>;
-    parameter <span class="hljs-string">"indifference threshold of the standing criterion"</span> var:q_standing category: <span class="hljs-string">"Indifference"</span>;
-    parameter <span class="hljs-string">"indifference threshold of the price criterion"</span> var:q_price category: <span class="hljs-string">"Indifference"</span>;
-    parameter <span class="hljs-string">"indifference threshold of the distance criterion"</span> var:q_distance category: <span class="hljs-string">"Indifference"</span>;
-    parameter <span class="hljs-string">"indifference threshold of the area criterion"</span> var:q_area category: <span class="hljs-string">"Indifference"</span>;
-    parameter <span class="hljs-string">"veto threshold of the standing criterion"</span> var:v_standing category: <span class="hljs-string">"Veto"</span>;
-    parameter <span class="hljs-string">"veto threshold of the price criterion"</span> var:v_price category: <span class="hljs-string">"Veto"</span>;
-    parameter <span class="hljs-string">"veto threshold of the distance criterion"</span> var:v_distance category: <span class="hljs-string">"Veto"</span>;
-    parameter <span class="hljs-string">"veto threshold of the area criterion"</span> var:v_area category: <span class="hljs-string">"Veto"</span>;
-    parameter <span class="hljs-string">"max prefence value of the standing criterion"</span> var:v_standing category: <span class="hljs-string">"Max preference value"</span>;
-    parameter <span class="hljs-string">"max prefence value of the price criterion"</span> var:v_price category: <span class="hljs-string">"Max preference value"</span>;
-    parameter <span class="hljs-string">"max prefence value of the distance criterion"</span> var:v_distance category: <span class="hljs-string">"Max preference value"</span>;
-    parameter <span class="hljs-string">"max prefence value of the area criterion"</span> var:v_area category: <span class="hljs-string">"Max preference value"</span>;
-    parameter <span class="hljs-string">"min criterion threshold of the standing criterion"</span> var:s1_standing category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min criterion threshold of the price criterion"</span> var:s1_price category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min criterion threshold of the distance criterion"</span> var:s1_distance category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min criterion threshold of the area criterion"</span> var:s1_area category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max criterion threshold of the standing criterion"</span> var:s2_standing category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max criterion threshold of the price criterion"</span> var:s2_price category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max criterion threshold of the distance criterion"</span> var:s2_distance category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max criterion threshold of the area criterion"</span> var:s2_area category:<span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min preference of the standing criterion"</span> var:v1p_standing category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min preference of the price criterion"</span> var:v1p_price category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min preference of the distance criterion"</span> var:v1p_distance category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min preference of the area criterion"</span> var:v1p_area category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max preference of the standing criterion"</span> var:v2p_standing category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max preference of the price criterion"</span> var:v2p_price category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max preference of the distance criterion"</span> var:v2p_distance category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max preference of the area criterion"</span> var:v2p_area category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min rejection of the standing criterion"</span> var:v1c_standing category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min rejection of the price criterion"</span> var:v1c_price category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min rejection of the distance criterion"</span> var:v1c_distance category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"min rejection of the area criterion"</span> var:v1c_area category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max rejection of the standing criterion"</span> var:v2c_standing category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max rejection of the price criterion"</span> var:v2c_price category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max rejection of the distance criterion"</span> var:v2c_distance category: <span class="hljs-string">"Evidence Theory"</span>;
-    parameter <span class="hljs-string">"max rejection of the area criterion"</span> var:v2c_area category: <span class="hljs-string">"Evidence Theory"</span>;
-    output {
-        <span class="hljs-class">display <span class="hljs-title">Map_Weighted_Means</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">house</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">weighted_means</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+<span class="hljs-builtin">experiment</span> multicriteria <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"weight of the standing criterion"</span> <span class="hljs-symbol">var:</span>weight_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Weight"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"weight of the price criterion"</span> <span class="hljs-symbol">var:</span>weight_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Weight"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"weight of the distance criterion"</span> <span class="hljs-symbol">var:</span>weight_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Weight"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"weight of the area criterion"</span> <span class="hljs-symbol">var:</span>weight_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Weight"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"preference threshold of the standing criterion"</span> <span class="hljs-symbol">var:</span>p_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Preference"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"preference threshold of the price criterion"</span> <span class="hljs-symbol">var:</span>p_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Preference"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"preference threshold of the distance criterion"</span> <span class="hljs-symbol">var:</span>p_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Preference"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"preference threshold of the area criterion"</span> <span class="hljs-symbol">var:</span>p_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Preference"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"indifference threshold of the standing criterion"</span> <span class="hljs-symbol">var:</span>q_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Indifference"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"indifference threshold of the price criterion"</span> <span class="hljs-symbol">var:</span>q_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Indifference"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"indifference threshold of the distance criterion"</span> <span class="hljs-symbol">var:</span>q_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Indifference"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"indifference threshold of the area criterion"</span> <span class="hljs-symbol">var:</span>q_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Indifference"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"veto threshold of the standing criterion"</span> <span class="hljs-symbol">var:</span>v_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Veto"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"veto threshold of the price criterion"</span> <span class="hljs-symbol">var:</span>v_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Veto"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"veto threshold of the distance criterion"</span> <span class="hljs-symbol">var:</span>v_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Veto"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"veto threshold of the area criterion"</span> <span class="hljs-symbol">var:</span>v_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Veto"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max prefence value of the standing criterion"</span> <span class="hljs-symbol">var:</span>v_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Max preference value"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max prefence value of the price criterion"</span> <span class="hljs-symbol">var:</span>v_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Max preference value"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max prefence value of the distance criterion"</span> <span class="hljs-symbol">var:</span>v_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Max preference value"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max prefence value of the area criterion"</span> <span class="hljs-symbol">var:</span>v_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Max preference value"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min criterion threshold of the standing criterion"</span> <span class="hljs-symbol">var:</span>s1_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min criterion threshold of the price criterion"</span> <span class="hljs-symbol">var:</span>s1_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min criterion threshold of the distance criterion"</span> <span class="hljs-symbol">var:</span>s1_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min criterion threshold of the area criterion"</span> <span class="hljs-symbol">var:</span>s1_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max criterion threshold of the standing criterion"</span> <span class="hljs-symbol">var:</span>s2_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max criterion threshold of the price criterion"</span> <span class="hljs-symbol">var:</span>s2_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max criterion threshold of the distance criterion"</span> <span class="hljs-symbol">var:</span>s2_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max criterion threshold of the area criterion"</span> <span class="hljs-symbol">var:</span>s2_area <span class="hljs-symbol">category:</span><span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min preference of the standing criterion"</span> <span class="hljs-symbol">var:</span>v1p_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min preference of the price criterion"</span> <span class="hljs-symbol">var:</span>v1p_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min preference of the distance criterion"</span> <span class="hljs-symbol">var:</span>v1p_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min preference of the area criterion"</span> <span class="hljs-symbol">var:</span>v1p_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max preference of the standing criterion"</span> <span class="hljs-symbol">var:</span>v2p_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max preference of the price criterion"</span> <span class="hljs-symbol">var:</span>v2p_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max preference of the distance criterion"</span> <span class="hljs-symbol">var:</span>v2p_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max preference of the area criterion"</span> <span class="hljs-symbol">var:</span>v2p_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min rejection of the standing criterion"</span> <span class="hljs-symbol">var:</span>v1c_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min rejection of the price criterion"</span> <span class="hljs-symbol">var:</span>v1c_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min rejection of the distance criterion"</span> <span class="hljs-symbol">var:</span>v1c_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"min rejection of the area criterion"</span> <span class="hljs-symbol">var:</span>v1c_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max rejection of the standing criterion"</span> <span class="hljs-symbol">var:</span>v2c_standing <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max rejection of the price criterion"</span> <span class="hljs-symbol">var:</span>v2c_price <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max rejection of the distance criterion"</span> <span class="hljs-symbol">var:</span>v2c_distance <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"max rejection of the area criterion"</span> <span class="hljs-symbol">var:</span>v2c_area <span class="hljs-symbol">category:</span> <span class="hljs-string">"Evidence Theory"</span>;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Map_Weighted_Means <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> house <span class="hljs-symbol">aspect:</span> weighted_means;
+            <span class="hljs-literal">species</span> people;
         }
-        <span class="hljs-class">display <span class="hljs-title">Map_Electre</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">house</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">electre_means</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+        <span class="hljs-keyword">display</span> Map_Electre <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> house <span class="hljs-symbol">aspect:</span> electre_means;
+            <span class="hljs-literal">species</span> people;
         }
-        <span class="hljs-class">display <span class="hljs-title">Map_Promethee</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">house</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">promethee_means</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+        <span class="hljs-keyword">display</span> Map_Promethee <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> house <span class="hljs-symbol">aspect:</span> promethee_means;
+            <span class="hljs-literal">species</span> people;
         }
-        <span class="hljs-class">display <span class="hljs-title">Map_Evidence_theory</span> <span class="hljs-title">type</span>: <span class="hljs-title">opengl</span></span>{
-            <span class="hljs-class">species <span class="hljs-title">house</span> <span class="hljs-title">aspect</span>: <span class="hljs-title">evidence_theory_means</span>;</span>
-            <span class="hljs-class">species <span class="hljs-title">people</span>;</span>
+        <span class="hljs-keyword">display</span> Map_Evidence_theory <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-literal">species</span> house <span class="hljs-symbol">aspect:</span> evidence_theory_means;
+            <span class="hljs-literal">species</span> people;
         }
     }
 }
