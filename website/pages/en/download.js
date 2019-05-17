@@ -47,7 +47,7 @@ function Download(props) {
   const OsGrid = props => (
     <FlexContainer>
       <OsBlock src="img/windows-logo.svg" os="Windows" version={props.version} zipName={props.zipName} zipOS='Win' />
-      <OsBlock src="img/apple-logo.svg" os="Apple" version={props.version} zipName={props.zipName} zipOS='MacOS' />
+      <OsBlock src="img/apple-logo.svg" os="MacOS" version={props.version} zipName={props.zipName} zipOS='MacOS' />
       <OsBlock src="img/linux-logo.svg" os="Linux" version={props.version} zipName={props.zipName} zipOS='Linux' />
     </FlexContainer>
   );
@@ -127,12 +127,12 @@ function Download(props) {
 
         </div>
         <div className="post">
-          <header className="postHeader">
-            <h2>Documentation</h2>
-          </header>
             <FlexContainer>
               <div className="blockElement imageAlignTop threeByGridBlock">
-                <Button href={`${baseUrl}resources/pdf/docGAMAv${siteConfig.downloadVersion}.pdf`} className="button">PDF</Button>
+		      <div class="blockContent">
+			    <h2>Documentation</h2>
+				<Button href={`${baseUrl}resources/pdf/docGAMAv${siteConfig.downloadVersion}.pdf`} className="button">PDF</Button>
+		      </div>
               </div>
               <div className="blockElement imageAlignTop threeByGridBlock"></div>
               <div className="blockElement imageAlignTop threeByGridBlock"></div>
