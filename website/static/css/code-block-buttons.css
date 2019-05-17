@@ -37,3 +37,7 @@ pre .btnIcon:hover {
 .btnClipboard {
   right: 10px;
 }
+
+nav a {
+  text-align: left;
+}
