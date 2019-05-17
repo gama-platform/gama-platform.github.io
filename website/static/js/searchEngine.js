@@ -50,7 +50,7 @@ function initSearchEngine(){
     }else{
       // Get search input
       document.getElementById('search_input_react').addEventListener('keyup', requestSearch);
-      document.getElementById('search_input_react').setAttribute("onfocusout", "setTimeout(cleanSearchResult, 200)");
+//      document.getElementById('search_input_react').setAttribute("onfocusout", "setTimeout(cleanSearchResult, 200)");
     }
   }
 
@@ -90,7 +90,7 @@ function createSearchResult(result) {
       resultList.appendChild( document.createElement("HR") );
 
       var tagTitle = document.createElement("H4");
-      tagTitle.appendChild( document.createTextNode( prevTag ) );
+      tagTitle.innerHTML = createTitle(prevTag);
 
       resultList.appendChild( tagTitle );
     }
@@ -137,6 +137,33 @@ function cleanSearchResult(){
     searchResult.parentNode.removeChild(searchResult);
 }
 
+function isUpperCase(str) {
+    return str === str.toUpperCase();
+}
+
+function createTitle(str){
+  var returnStr = "";
+  var arrayString = str.split(" ");
+
+  // Remove if white space at the beginning
+  while (arrayString[0] == ""){
+    arrayString = arrayString.slice(1, 10);
+  }
+
+  // Check if have multiple word
+  if ( arrayString[1] != null){
+    // If second word if not caps -> it's a GAML keyword
+    if ( isUpperCase(arrayString[1][0]) )
+      returnStr = str;
+    else 
+      returnStr = arrayString[0] + " <code>" + arrayString[1] + "</code>";
+  }
+  else{
+    returnStr = str;
+  }
+
+  return returnStr;
+}
 
 /*
  *  END POINT
