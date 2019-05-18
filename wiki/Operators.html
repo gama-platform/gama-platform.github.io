@@ -202,37 +202,37 @@
 <h3><a class="anchor" aria-hidden="true" id=""></a><a href="#" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>-</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use"></a><a href="#possible-use" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>-</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>-</code></strong> (<code>int</code>) ---&gt;  <code>int</code></li>
 <li><strong><code>-</code></strong> (<code>point</code>) ---&gt;  <code>point</code></li>
+<li><strong><code>-</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><code>matrix&lt;unknown&gt;</code> <strong><code>-</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
 <li><strong><code>-</code></strong> (<code>matrix&lt;unknown&gt;</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
 <li><code>geometry</code> <strong><code>-</code></strong> <code>geometry</code> ---&gt;  <code>geometry</code></li>
 <li><strong><code>-</code></strong> (<code>geometry</code> , <code>geometry</code>) ---&gt;  <code>geometry</code></li>
 <li><code>date</code> <strong><code>-</code></strong> <code>date</code> ---&gt;  <code>float</code></li>
 <li><strong><code>-</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>float</code></li>
-<li><code>float</code> <strong><code>-</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
-<li><strong><code>-</code></strong> (<code>float</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
 <li><code>point</code> <strong><code>-</code></strong> <code>float</code> ---&gt;  <code>point</code></li>
 <li><strong><code>-</code></strong> (<code>point</code> , <code>float</code>) ---&gt;  <code>point</code></li>
 <li><code>rgb</code> <strong><code>-</code></strong> <code>int</code> ---&gt;  <code>rgb</code></li>
 <li><strong><code>-</code></strong> (<code>rgb</code> , <code>int</code>) ---&gt;  <code>rgb</code></li>
+<li><code>int</code> <strong><code>-</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
+<li><strong><code>-</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>int</code></li>
 <li><code>species</code> <strong><code>-</code></strong> <code>agent</code> ---&gt;  <code>list</code></li>
 <li><strong><code>-</code></strong> (<code>species</code> , <code>agent</code>) ---&gt;  <code>list</code></li>
-<li><code>int</code> <strong><code>-</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
-<li><strong><code>-</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>float</code></li>
+<li><code>int</code> <strong><code>-</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
+<li><strong><code>-</code></strong> (<code>int</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
 <li><code>container</code> <strong><code>-</code></strong> <code>container</code> ---&gt;  <code>list</code></li>
 <li><strong><code>-</code></strong> (<code>container</code> , <code>container</code>) ---&gt;  <code>list</code></li>
 <li><code>date</code> <strong><code>-</code></strong> <code>float</code> ---&gt;  <code>date</code></li>
 <li><strong><code>-</code></strong> (<code>date</code> , <code>float</code>) ---&gt;  <code>date</code></li>
-<li><code>int</code> <strong><code>-</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
-<li><strong><code>-</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>int</code></li>
-<li><code>int</code> <strong><code>-</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
-<li><strong><code>-</code></strong> (<code>int</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
+<li><code>float</code> <strong><code>-</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li><strong><code>-</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
+<li><code>float</code> <strong><code>-</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
+<li><strong><code>-</code></strong> (<code>float</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
 <li><code>point</code> <strong><code>-</code></strong> <code>point</code> ---&gt;  <code>point</code></li>
 <li><strong><code>-</code></strong> (<code>point</code> , <code>point</code>) ---&gt;  <code>point</code></li>
-<li><code>float</code> <strong><code>-</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
-<li><strong><code>-</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
+<li><code>int</code> <strong><code>-</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li><strong><code>-</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 <li><code>geometry</code> <strong><code>-</code></strong> <code>container&lt;unknown,geometry&gt;</code> ---&gt;  <code>geometry</code></li>
 <li><strong><code>-</code></strong> (<code>geometry</code> , <code>container&lt;unknown,geometry&gt;</code>) ---&gt;  <code>geometry</code></li>
 <li><code>matrix&lt;unknown&gt;</code> <strong><code>-</code></strong> <code>float</code> ---&gt;  <code>matrix</code></li>
@@ -241,8 +241,8 @@
 <li><strong><code>-</code></strong> (<code>matrix&lt;unknown&gt;</code> , <code>int</code>) ---&gt;  <code>matrix</code></li>
 <li><code>list</code> <strong><code>-</code></strong> <code>unknown</code> ---&gt;  <code>list</code></li>
 <li><strong><code>-</code></strong> (<code>list</code> , <code>unknown</code>) ---&gt;  <code>list</code></li>
-<li><code>float</code> <strong><code>-</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
-<li><strong><code>-</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
+<li><code>float</code> <strong><code>-</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li><strong><code>-</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 <li><code>point</code> <strong><code>-</code></strong> <code>int</code> ---&gt;  <code>point</code></li>
 <li><strong><code>-</code></strong> (<code>point</code> , <code>int</code>) ---&gt;  <code>point</code></li>
 <li><code>date</code> <strong><code>-</code></strong> <code>int</code> ---&gt;  <code>date</code></li>
@@ -290,23 +290,23 @@ If it is used as an unary operator, it returns the opposite of the operand.</p>
 <span class="hljs-literal">rgb</span> var22 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) - 3; <span class="hljs-comment">// var22 equals rgb([252,125,29])</span>
 </code></pre>
 <ul>
-<li>if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var23 &lt;- [1,2,3,4,5,6] - [2,4,9]; <span class="hljs-comment">// var23 equals [1,3,5,6] </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var24 &lt;- [1,2,3,4,5,6] - [0,8]; <span class="hljs-comment">// var24 equals [1,2,3,4,5,6]</span>
-</code></pre>
-<ul>
 <li>if both operands are numbers, performs a normal arithmetic difference and returns a float if one of them is a float.</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">int</span> var25 &lt;- 1 - 1; <span class="hljs-comment">// var25 equals 0</span>
+<span class="hljs-literal">int</span> var23 &lt;- 1 - 1; <span class="hljs-comment">// var23 equals 0</span>
 </code></pre>
 <ul>
 <li>if one operand is a matrix and the other a number (float or int), performs a normal arithmetic difference of the number with each element of the matrix (results are float if the number is a float.</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">matrix</span> var26 &lt;- 3.5 - <span class="hljs-literal">matrix</span>([[2,5],[3,4]]); <span class="hljs-comment">// var26 equals matrix([[1.5,-1.5],[0.5,-0.5]])</span>
+<span class="hljs-literal">matrix</span> var24 &lt;- 3.5 - <span class="hljs-literal">matrix</span>([[2,5],[3,4]]); <span class="hljs-comment">// var24 equals matrix([[1.5,-1.5],[0.5,-0.5]])</span>
+</code></pre>
+<ul>
+<li>if both operands are containers, returns a new list in which all the elements of the right operand have been removed from the left one</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var25 &lt;- [1,2,3,4,5,6] - [2,4,9]; <span class="hljs-comment">// var25 equals [1,3,5,6] </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var26 &lt;- [1,2,3,4,5,6] - [0,8]; <span class="hljs-comment">// var26 equals [1,2,3,4,5,6]</span>
 </code></pre>
 <ul>
 <li>if both operands are points, returns their difference (coordinates per coordinates).</li>
@@ -347,18 +347,18 @@ date var31 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) - 86400; <s
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">matrix</span> var0 &lt;- (10.0 - (3.0 as_matrix({2,3}))); <span class="hljs-comment">// var0 equals matrix([[7.0,7.0,7.0],[7.0,7.0,7.0]]) </span>
-<span class="hljs-literal">float</span> var1 &lt;- 1 - 1.0; <span class="hljs-comment">// var1 equals 0.0 </span>
-<span class="hljs-literal">float</span> var2 &lt;- 3 - 1.2; <span class="hljs-comment">// var2 equals 1.8 </span>
-date var3 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) - 86400; <span class="hljs-comment">// var3 equals date('1999-12-31') </span>
-<span class="hljs-literal">float</span> var4 &lt;- 1.0 - 1.0; <span class="hljs-comment">// var4 equals 0.0 </span>
-<span class="hljs-literal">float</span> var5 &lt;- 3.7 - 1.2; <span class="hljs-comment">// var5 equals 2.5 </span>
-<span class="hljs-literal">float</span> var6 &lt;- 3.0 - 1.2; <span class="hljs-comment">// var6 equals 1.8 </span>
-<span class="hljs-literal">float</span> var7 &lt;- 1.0 - 1; <span class="hljs-comment">// var7 equals 0.0 </span>
-<span class="hljs-literal">float</span> var8 &lt;- 3.7 - 1; <span class="hljs-comment">// var8 equals 2.7 </span>
-<span class="hljs-literal">float</span> var9 &lt;- 3.0 - 1; <span class="hljs-comment">// var9 equals 2.0 </span>
-<span class="hljs-literal">point</span> var10 &lt;- {2.0,3.0,4.0} - 1; <span class="hljs-comment">// var10 equals {1.0,2.0,3.0} </span>
-<span class="hljs-literal">int</span> var11 &lt;- - (-56); <span class="hljs-comment">// var11 equals 56 </span>
+date var0 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) - 86400; <span class="hljs-comment">// var0 equals date('1999-12-31') </span>
+<span class="hljs-literal">float</span> var1 &lt;- 1.0 - 1; <span class="hljs-comment">// var1 equals 0.0 </span>
+<span class="hljs-literal">float</span> var2 &lt;- 3.7 - 1; <span class="hljs-comment">// var2 equals 2.7 </span>
+<span class="hljs-literal">float</span> var3 &lt;- 3.0 - 1; <span class="hljs-comment">// var3 equals 2.0 </span>
+<span class="hljs-literal">matrix</span> var4 &lt;- (10.0 - (3.0 as_matrix({2,3}))); <span class="hljs-comment">// var4 equals matrix([[7.0,7.0,7.0],[7.0,7.0,7.0]]) </span>
+<span class="hljs-literal">int</span> var5 &lt;- - (-56); <span class="hljs-comment">// var5 equals 56 </span>
+<span class="hljs-literal">float</span> var6 &lt;- 1 - 1.0; <span class="hljs-comment">// var6 equals 0.0 </span>
+<span class="hljs-literal">float</span> var7 &lt;- 3 - 1.2; <span class="hljs-comment">// var7 equals 1.8 </span>
+<span class="hljs-literal">float</span> var8 &lt;- 1.0 - 1.0; <span class="hljs-comment">// var8 equals 0.0 </span>
+<span class="hljs-literal">float</span> var9 &lt;- 3.7 - 1.2; <span class="hljs-comment">// var9 equals 2.5 </span>
+<span class="hljs-literal">float</span> var10 &lt;- 3.0 - 1.2; <span class="hljs-comment">// var10 equals 1.8 </span>
+<span class="hljs-literal">point</span> var11 &lt;- {2.0,3.0,4.0} - 1; <span class="hljs-comment">// var11 equals {1.0,2.0,3.0} </span>
 <span class="hljs-literal">map</span> var12 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] - [<span class="hljs-string">'b'</span>::2]; <span class="hljs-comment">// var12 equals ['a'::1] </span>
 <span class="hljs-literal">map</span> var13 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] - [<span class="hljs-string">'b'</span>::2,<span class="hljs-string">'c'</span>::3]; <span class="hljs-comment">// var13 equals ['a'::1] </span>
 <span class="hljs-literal">map</span> var14 &lt;- [<span class="hljs-string">'a'</span>::1,<span class="hljs-string">'b'</span>::2] - (<span class="hljs-string">'b'</span>::2); <span class="hljs-comment">// var14 equals ['a'::1] </span>
@@ -421,30 +421,30 @@ date var3 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) - 86400; <sp
 <h3><a class="anchor" aria-hidden="true" id="-4"></a><a href="#-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>!=</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-4"></a><a href="#possible-use-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>int</code> <strong><code>!=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>!=</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
-<li><code>float</code> <strong><code>!=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>!=</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
 <li><code>unknown</code> <strong><code>!=</code></strong> <code>unknown</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>!=</code></strong> (<code>unknown</code> , <code>unknown</code>) ---&gt;  <code>bool</code></li>
-<li><code>date</code> <strong><code>!=</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>!=</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
 <li><code>float</code> <strong><code>!=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>!=</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
+<li><code>float</code> <strong><code>!=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>!=</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
+<li><code>int</code> <strong><code>!=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>!=</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
+<li><code>date</code> <strong><code>!=</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>!=</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-4"></a><a href="#result-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>true if both operands are different, false otherwise</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-3"></a><a href="#examples-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- 3 != 3.0; <span class="hljs-comment">// var0 equals false </span>
-<span class="hljs-literal">bool</span> var1 &lt;- 4 != 4.7; <span class="hljs-comment">// var1 equals true </span>
-<span class="hljs-literal">bool</span> var2 &lt;- 3.0 != 3.0; <span class="hljs-comment">// var2 equals false </span>
-<span class="hljs-literal">bool</span> var3 &lt;- 4.0 != 4.7; <span class="hljs-comment">// var3 equals true </span>
-<span class="hljs-literal">bool</span> var4 &lt;- [2,3] != [2,3]; <span class="hljs-comment">// var4 equals false </span>
-<span class="hljs-literal">bool</span> var5 &lt;- [2,4] != [2,3]; <span class="hljs-comment">// var5 equals true </span>
-<span class="hljs-literal">bool</span> var6 &lt;- #now != #now minus_hours 1; <span class="hljs-comment">// var6 equals true </span>
-<span class="hljs-literal">bool</span> var7 &lt;- 3.0 != 3; <span class="hljs-comment">// var7 equals false </span>
-<span class="hljs-literal">bool</span> var8 &lt;- 4.7 != 4; <span class="hljs-comment">// var8 equals true</span>
+<span class="hljs-literal">bool</span> var0 &lt;- [2,3] != [2,3]; <span class="hljs-comment">// var0 equals false </span>
+<span class="hljs-literal">bool</span> var1 &lt;- [2,4] != [2,3]; <span class="hljs-comment">// var1 equals true </span>
+<span class="hljs-literal">bool</span> var2 &lt;- 3.0 != 3; <span class="hljs-comment">// var2 equals false </span>
+<span class="hljs-literal">bool</span> var3 &lt;- 4.7 != 4; <span class="hljs-comment">// var3 equals true </span>
+<span class="hljs-literal">bool</span> var4 &lt;- 3.0 != 3.0; <span class="hljs-comment">// var4 equals false </span>
+<span class="hljs-literal">bool</span> var5 &lt;- 4.0 != 4.7; <span class="hljs-comment">// var5 equals true </span>
+<span class="hljs-literal">bool</span> var6 &lt;- 3 != 3.0; <span class="hljs-comment">// var6 equals false </span>
+<span class="hljs-literal">bool</span> var7 &lt;- 4 != 4.7; <span class="hljs-comment">// var7 equals true </span>
+<span class="hljs-literal">bool</span> var8 &lt;- #now != #now minus_hours 1; <span class="hljs-comment">// var8 equals true</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-3"></a><a href="#see-also-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -471,22 +471,22 @@ date var3 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) - 86400; <sp
 <h3><a class="anchor" aria-hidden="true" id="-6"></a><a href="#-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>/</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-6"></a><a href="#possible-use-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>int</code> <strong><code>/</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
-<li><strong><code>/</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>float</code></li>
-<li><code>float</code> <strong><code>/</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
-<li><strong><code>/</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
+<li><code>float</code> <strong><code>/</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li><strong><code>/</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
 <li><code>int</code> <strong><code>/</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
 <li><strong><code>/</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 <li><code>point</code> <strong><code>/</code></strong> <code>float</code> ---&gt;  <code>point</code></li>
 <li><strong><code>/</code></strong> (<code>point</code> , <code>float</code>) ---&gt;  <code>point</code></li>
 <li><code>rgb</code> <strong><code>/</code></strong> <code>float</code> ---&gt;  <code>rgb</code></li>
 <li><strong><code>/</code></strong> (<code>rgb</code> , <code>float</code>) ---&gt;  <code>rgb</code></li>
-<li><code>float</code> <strong><code>/</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
-<li><strong><code>/</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
+<li><code>float</code> <strong><code>/</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li><strong><code>/</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 <li><code>point</code> <strong><code>/</code></strong> <code>int</code> ---&gt;  <code>point</code></li>
 <li><strong><code>/</code></strong> (<code>point</code> , <code>int</code>) ---&gt;  <code>point</code></li>
 <li><code>matrix&lt;unknown&gt;</code> <strong><code>/</code></strong> <code>int</code> ---&gt;  <code>matrix</code></li>
 <li><strong><code>/</code></strong> (<code>matrix&lt;unknown&gt;</code> , <code>int</code>) ---&gt;  <code>matrix</code></li>
+<li><code>int</code> <strong><code>/</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li><strong><code>/</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>float</code></li>
 <li><code>rgb</code> <strong><code>/</code></strong> <code>int</code> ---&gt;  <code>rgb</code></li>
 <li><strong><code>/</code></strong> (<code>rgb</code> , <code>int</code>) ---&gt;  <code>rgb</code></li>
 <li><code>matrix&lt;unknown&gt;</code> <strong><code>/</code></strong> <code>float</code> ---&gt;  <code>matrix</code></li>
@@ -499,23 +499,23 @@ date var3 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) - 86400; <sp
 <h4><a class="anchor" aria-hidden="true" id="special-cases-3"></a><a href="#special-cases-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
 <li>if the right-hand operand is equal to zero, raises a &quot;Division by zero&quot; exception</li>
-<li>if both operands are numbers (float or int), performs a normal arithmetic division and returns a float.</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- 3 / 5.0; <span class="hljs-comment">// var0 equals 0.6</span>
-</code></pre>
-<ul>
 <li>if the left operand is a point, returns a new point with coordinates divided by the right operand</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">point</span> var1 &lt;- {5, 7.5} / 2.5; <span class="hljs-comment">// var1 equals {2, 3} </span>
-<span class="hljs-literal">point</span> var2 &lt;- {2,5} / 4; <span class="hljs-comment">// var2 equals {0.5,1.25}</span>
+<span class="hljs-literal">point</span> var0 &lt;- {5, 7.5} / 2.5; <span class="hljs-comment">// var0 equals {2, 3} </span>
+<span class="hljs-literal">point</span> var1 &lt;- {2,5} / 4; <span class="hljs-comment">// var1 equals {0.5,1.25}</span>
 </code></pre>
 <ul>
 <li>if one operand is a color and the other a double, returns a new color resulting from the division of each component of the color by the right operand. The result on each component is then truncated.</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var3 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) / 2.5; <span class="hljs-comment">// var3 equals rgb([102,51,13])</span>
+<span class="hljs-literal">rgb</span> var2 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) / 2.5; <span class="hljs-comment">// var2 equals rgb([102,51,13])</span>
+</code></pre>
+<ul>
+<li>if both operands are numbers (float or int), performs a normal arithmetic division and returns a float.</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">float</span> var3 &lt;- 3 / 5.0; <span class="hljs-comment">// var3 equals 0.6</span>
 </code></pre>
 <ul>
 <li>if one operand is a color and the other an integer, returns a new color resulting from the division of each component of the color by the right operand</li>
@@ -524,7 +524,7 @@ date var3 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) - 86400; <sp
 <span class="hljs-literal">rgb</span> var4 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) / 2; <span class="hljs-comment">// var4 equals rgb([127,64,16])</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-5"></a><a href="#see-also-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
-<p><a href="OperatorsAA#+">+</a>, <a href="OperatorsAA#-">-</a>, <a href="OperatorsAA#*">*</a>,</p>
+<p><a href="OperatorsAA#*">*</a>, <a href="OperatorsAA#+">+</a>, <a href="OperatorsAA#-">-</a>,</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="-7"></a><a href="#-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>.</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-7"></a><a href="#possible-use-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
@@ -554,14 +554,14 @@ unknown var1 &lt;- agent1.location; <span class="hljs-comment">// var1 equals th
 <h3><a class="anchor" aria-hidden="true" id="-8"></a><a href="#-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>^</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-8"></a><a href="#possible-use-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>int</code> <strong><code>^</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
-<li><strong><code>^</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>float</code></li>
 <li><code>float</code> <strong><code>^</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
 <li><strong><code>^</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
-<li><code>float</code> <strong><code>^</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
-<li><strong><code>^</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
+<li><code>int</code> <strong><code>^</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li><strong><code>^</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>float</code></li>
 <li><code>int</code> <strong><code>^</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
 <li><strong><code>^</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>float</code></li>
+<li><code>float</code> <strong><code>^</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li><strong><code>^</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-8"></a><a href="#result-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the value (always a float) of the left operand raised to the power of the right operand.</p>
@@ -592,30 +592,30 @@ unknown var1 &lt;- agent1.location; <span class="hljs-comment">// var1 equals th
 <li><strong><code>*</code></strong> (<code>geometry</code> , <code>float</code>) ---&gt;  <code>geometry</code></li>
 <li><code>point</code> <strong><code>*</code></strong> <code>point</code> ---&gt;  <code>float</code></li>
 <li><strong><code>*</code></strong> (<code>point</code> , <code>point</code>) ---&gt;  <code>float</code></li>
-<li><code>int</code> <strong><code>*</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
-<li><strong><code>*</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>int</code></li>
 <li><code>float</code> <strong><code>*</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
 <li><strong><code>*</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
+<li><code>float</code> <strong><code>*</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li><strong><code>*</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 <li><code>rgb</code> <strong><code>*</code></strong> <code>int</code> ---&gt;  <code>rgb</code></li>
 <li><strong><code>*</code></strong> (<code>rgb</code> , <code>int</code>) ---&gt;  <code>rgb</code></li>
+<li><code>int</code> <strong><code>*</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
+<li><strong><code>*</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>int</code></li>
 <li><code>geometry</code> <strong><code>*</code></strong> <code>point</code> ---&gt;  <code>geometry</code></li>
 <li><strong><code>*</code></strong> (<code>geometry</code> , <code>point</code>) ---&gt;  <code>geometry</code></li>
 <li><code>matrix&lt;unknown&gt;</code> <strong><code>*</code></strong> <code>int</code> ---&gt;  <code>matrix</code></li>
 <li><strong><code>*</code></strong> (<code>matrix&lt;unknown&gt;</code> , <code>int</code>) ---&gt;  <code>matrix</code></li>
-<li><code>int</code> <strong><code>*</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
-<li><strong><code>*</code></strong> (<code>int</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
-<li><code>matrix&lt;unknown&gt;</code> <strong><code>*</code></strong> <code>float</code> ---&gt;  <code>matrix</code></li>
-<li><strong><code>*</code></strong> (<code>matrix&lt;unknown&gt;</code> , <code>float</code>) ---&gt;  <code>matrix</code></li>
-<li><code>float</code> <strong><code>*</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
-<li><strong><code>*</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
-<li><code>point</code> <strong><code>*</code></strong> <code>int</code> ---&gt;  <code>point</code></li>
-<li><strong><code>*</code></strong> (<code>point</code> , <code>int</code>) ---&gt;  <code>point</code></li>
 <li><code>float</code> <strong><code>*</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
 <li><strong><code>*</code></strong> (<code>float</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
-<li><code>matrix&lt;unknown&gt;</code> <strong><code>*</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
-<li><strong><code>*</code></strong> (<code>matrix&lt;unknown&gt;</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
+<li><code>matrix&lt;unknown&gt;</code> <strong><code>*</code></strong> <code>float</code> ---&gt;  <code>matrix</code></li>
+<li><strong><code>*</code></strong> (<code>matrix&lt;unknown&gt;</code> , <code>float</code>) ---&gt;  <code>matrix</code></li>
 <li><code>int</code> <strong><code>*</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
 <li><strong><code>*</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>float</code></li>
+<li><code>point</code> <strong><code>*</code></strong> <code>int</code> ---&gt;  <code>point</code></li>
+<li><strong><code>*</code></strong> (<code>point</code> , <code>int</code>) ---&gt;  <code>point</code></li>
+<li><code>matrix&lt;unknown&gt;</code> <strong><code>*</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
+<li><strong><code>*</code></strong> (<code>matrix&lt;unknown&gt;</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
+<li><code>int</code> <strong><code>*</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
+<li><strong><code>*</code></strong> (<code>int</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
 <li><code>point</code> <strong><code>*</code></strong> <code>float</code> ---&gt;  <code>point</code></li>
 <li><strong><code>*</code></strong> (<code>point</code> , <code>float</code>) ---&gt;  <code>point</code></li>
 </ul>
@@ -637,16 +637,16 @@ unknown var1 &lt;- agent1.location; <span class="hljs-comment">// var1 equals th
 <span class="hljs-literal">float</span> var4 &lt;- {2,5} * {4.5, 5}; <span class="hljs-comment">// var4 equals 34.0</span>
 </code></pre>
 <ul>
-<li>if both operands are numbers (float or int), performs a normal arithmetic product and returns a float if one of them is a float.</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">int</span> var5 &lt;- 1 * 1; <span class="hljs-comment">// var5 equals 1</span>
-</code></pre>
-<ul>
 <li>if one operand is a color and the other an integer, returns a new color resulting from the product of each component of the color with the right operand (with a maximum value at 255)</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var6 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) * 2; <span class="hljs-comment">// var6 equals rgb([255,255,64])</span>
+<span class="hljs-literal">rgb</span> var5 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) * 2; <span class="hljs-comment">// var5 equals rgb([255,255,64])</span>
+</code></pre>
+<ul>
+<li>if both operands are numbers (float or int), performs a normal arithmetic product and returns a float if one of them is a float.</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">int</span> var6 &lt;- 1 * 1; <span class="hljs-comment">// var6 equals 1</span>
 </code></pre>
 <ul>
 <li>if the left-hand operand is a geometry and the right-hand operand a point, returns a geometry corresponding to the left-hand operand (geometry, agent, point) scaled by the right-hand operand coefficients in the 3 dimensions</li>
@@ -655,17 +655,17 @@ unknown var1 &lt;- agent1.location; <span class="hljs-comment">// var1 equals th
 <span class="hljs-literal">geometry</span> var7 &lt;- shape * {0.5,0.5,2}; <span class="hljs-comment">// var7 equals a geometry corresponding to the geometry of the agent applying the operator scaled by a coefficient of 0.5 in x, 0.5 in y and 2 in z</span>
 </code></pre>
 <ul>
-<li>if one operand is a matrix and the other a number (float or int), performs a normal arithmetic product of the number with each element of the matrix (results are float if the number is a float.</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">matrix</span> var8 &lt;- 2 * <span class="hljs-literal">matrix</span>([[2,5],[3,4]]); <span class="hljs-comment">// var8 equals matrix([[4,10],[6,8]])</span>
-</code></pre>
-<ul>
 <li>if the left-hand operator is a point and the right-hand a number, returns a point with coordinates multiplied by the number</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">point</span> var9 &lt;- {2,5} * 4; <span class="hljs-comment">// var9 equals {8.0, 20.0} </span>
-<span class="hljs-literal">point</span> var10 &lt;- {2, 4} * 2.5; <span class="hljs-comment">// var10 equals {5.0, 10.0}</span>
+<span class="hljs-literal">point</span> var8 &lt;- {2,5} * 4; <span class="hljs-comment">// var8 equals {8.0, 20.0} </span>
+<span class="hljs-literal">point</span> var9 &lt;- {2, 4} * 2.5; <span class="hljs-comment">// var9 equals {5.0, 10.0}</span>
+</code></pre>
+<ul>
+<li>if one operand is a matrix and the other a number (float or int), performs a normal arithmetic product of the number with each element of the matrix (results are float if the number is a float.</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">matrix</span> var10 &lt;- 2 * <span class="hljs-literal">matrix</span>([[2,5],[3,4]]); <span class="hljs-comment">// var10 equals matrix([[4,10],[6,8]])</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-6"></a><a href="#examples-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
@@ -673,7 +673,7 @@ unknown var1 &lt;- agent1.location; <span class="hljs-comment">// var1 equals th
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-7"></a><a href="#see-also-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
-<p><a href="OperatorsAA#+">+</a>, <a href="OperatorsAA#-">-</a>, <a href="OperatorsAA#/">/</a>,</p>
+<p><a href="OperatorsAA#/">/</a>, <a href="OperatorsAA#+">+</a>, <a href="OperatorsAA#-">-</a>,</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="-11"></a><a href="#-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>+</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-10"></a><a href="#possible-use-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
@@ -688,30 +688,28 @@ unknown var1 &lt;- agent1.location; <span class="hljs-comment">// var1 equals th
 <li><strong><code>+</code></strong> (<code>point</code> , <code>int</code>) ---&gt;  <code>point</code></li>
 <li><code>date</code> <strong><code>+</code></strong> <code>string</code> ---&gt;  <code>string</code></li>
 <li><strong><code>+</code></strong> (<code>date</code> , <code>string</code>) ---&gt;  <code>string</code></li>
-<li><code>int</code> <strong><code>+</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
-<li><strong><code>+</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>float</code></li>
+<li><code>int</code> <strong><code>+</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
+<li><strong><code>+</code></strong> (<code>int</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
 <li><code>container</code> <strong><code>+</code></strong> <code>unknown</code> ---&gt;  <code>list</code></li>
 <li><strong><code>+</code></strong> (<code>container</code> , <code>unknown</code>) ---&gt;  <code>list</code></li>
 <li><code>rgb</code> <strong><code>+</code></strong> <code>rgb</code> ---&gt;  <code>rgb</code></li>
 <li><strong><code>+</code></strong> (<code>rgb</code> , <code>rgb</code>) ---&gt;  <code>rgb</code></li>
-<li><code>float</code> <strong><code>+</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
-<li><strong><code>+</code></strong> (<code>float</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
 <li><code>geometry</code> <strong><code>+</code></strong> <code>float</code> ---&gt;  <code>geometry</code></li>
 <li><strong><code>+</code></strong> (<code>geometry</code> , <code>float</code>) ---&gt;  <code>geometry</code></li>
 <li><code>geometry</code> <strong><code>+</code></strong> <code>geometry</code> ---&gt;  <code>geometry</code></li>
 <li><strong><code>+</code></strong> (<code>geometry</code> , <code>geometry</code>) ---&gt;  <code>geometry</code></li>
 <li><code>date</code> <strong><code>+</code></strong> <code>float</code> ---&gt;  <code>date</code></li>
 <li><strong><code>+</code></strong> (<code>date</code> , <code>float</code>) ---&gt;  <code>date</code></li>
-<li><code>float</code> <strong><code>+</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
-<li><strong><code>+</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
-<li><code>int</code> <strong><code>+</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
-<li><strong><code>+</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>int</code></li>
 <li><code>float</code> <strong><code>+</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
 <li><strong><code>+</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
+<li><code>float</code> <strong><code>+</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li><strong><code>+</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
+<li><code>int</code> <strong><code>+</code></strong> <code>float</code> ---&gt;  <code>float</code></li>
+<li><strong><code>+</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 <li><code>point</code> <strong><code>+</code></strong> <code>float</code> ---&gt;  <code>point</code></li>
 <li><strong><code>+</code></strong> (<code>point</code> , <code>float</code>) ---&gt;  <code>point</code></li>
-<li><code>int</code> <strong><code>+</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
-<li><strong><code>+</code></strong> (<code>int</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
+<li><code>float</code> <strong><code>+</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
+<li><strong><code>+</code></strong> (<code>float</code> , <code>matrix</code>) ---&gt;  <code>matrix</code></li>
 <li><code>date</code> <strong><code>+</code></strong> <code>int</code> ---&gt;  <code>date</code></li>
 <li><strong><code>+</code></strong> (<code>date</code> , <code>int</code>) ---&gt;  <code>date</code></li>
 <li><code>matrix&lt;unknown&gt;</code> <strong><code>+</code></strong> <code>matrix</code> ---&gt;  <code>matrix</code></li>
@@ -724,6 +722,8 @@ unknown var1 &lt;- agent1.location; <span class="hljs-comment">// var1 equals th
 <li><strong><code>+</code></strong> (<code>matrix&lt;unknown&gt;</code> , <code>int</code>) ---&gt;  <code>matrix</code></li>
 <li><code>map</code> <strong><code>+</code></strong> <code>map</code> ---&gt;  <code>map</code></li>
 <li><strong><code>+</code></strong> (<code>map</code> , <code>map</code>) ---&gt;  <code>map</code></li>
+<li><code>int</code> <strong><code>+</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
+<li><strong><code>+</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>int</code></li>
 <li><code>string</code> <strong><code>+</code></strong> <code>unknown</code> ---&gt;  <code>string</code></li>
 <li><strong><code>+</code></strong> (<code>string</code> , <code>unknown</code>) ---&gt;  <code>string</code></li>
 <li><code>string</code> <strong><code>+</code></strong> <code>string</code> ---&gt;  <code>string</code></li>
@@ -750,35 +750,35 @@ unknown var1 &lt;- agent1.location; <span class="hljs-comment">// var1 equals th
 <span class="hljs-literal">rgb</span> var11 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) + 3; <span class="hljs-comment">// var11 equals rgb([255,131,35])</span>
 </code></pre>
 <ul>
+<li>if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float.</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">matrix</span> var12 &lt;- 3.5 + <span class="hljs-literal">matrix</span>([[2,5],[3,4]]); <span class="hljs-comment">// var12 equals matrix([[5.5,8.5],[6.5,7.5]])</span>
+</code></pre>
+<ul>
 <li>if the right operand is an object of any type (except a container), + returns a list of the elements of the left operand, to which this object has been added</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var12 &lt;- [1,2,3,4,5,6] + 2; <span class="hljs-comment">// var12 equals [1,2,3,4,5,6,2] </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var13 &lt;- [1,2,3,4,5,6] + 0; <span class="hljs-comment">// var13 equals [1,2,3,4,5,6,0]</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var13 &lt;- [1,2,3,4,5,6] + 2; <span class="hljs-comment">// var13 equals [1,2,3,4,5,6,2] </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var14 &lt;- [1,2,3,4,5,6] + 0; <span class="hljs-comment">// var14 equals [1,2,3,4,5,6,0]</span>
 </code></pre>
 <ul>
 <li>if both operands are colors, returns a new color resulting from the sum of the two operands, component by component</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var14 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) + <span class="hljs-literal">rgb</span>(<span class="hljs-string">'red'</span>); <span class="hljs-comment">// var14 equals rgb([255,128,32])</span>
+<span class="hljs-literal">rgb</span> var15 &lt;- <span class="hljs-literal">rgb</span>([255, 128, 32]) + <span class="hljs-literal">rgb</span>(<span class="hljs-string">'red'</span>); <span class="hljs-comment">// var15 equals rgb([255,128,32])</span>
 </code></pre>
 <ul>
 <li>if the left-hand operand is a geometry and the right-hand operand a float, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the right-hand operand distance. The number of segments used by default is 8 and the end cap style is #round</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var15 &lt;- circle(5) + 5; <span class="hljs-comment">// var15 equals circle(10)</span>
+<span class="hljs-literal">geometry</span> var16 &lt;- circle(5) + 5; <span class="hljs-comment">// var16 equals circle(10)</span>
 </code></pre>
 <ul>
 <li>if the right-operand is a point, a geometry or an agent, returns the geometry resulting from the union between both geometries</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var16 &lt;- geom1 + geom2; <span class="hljs-comment">// var16 equals a geometry corresponding to union between geom1 and geom2</span>
-</code></pre>
-<ul>
-<li>if both operands are numbers (float or int), performs a normal arithmetic sum and returns a float if one of them is a float.</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">int</span> var17 &lt;- 1 + 1; <span class="hljs-comment">// var17 equals 2</span>
+<span class="hljs-literal">geometry</span> var17 &lt;- geom1 + geom2; <span class="hljs-comment">// var17 equals a geometry corresponding to union between geom1 and geom2</span>
 </code></pre>
 <ul>
 <li>if the left-hand operand is a point and the right-hand a number, returns a new point with each coordinate as the sum of the operand coordinate with this number.</li>
@@ -787,28 +787,28 @@ unknown var1 &lt;- agent1.location; <span class="hljs-comment">// var1 equals th
 <span class="hljs-literal">point</span> var18 &lt;- {1, 2} + 4.5; <span class="hljs-comment">// var18 equals {5.5, 6.5,4.5}</span>
 </code></pre>
 <ul>
-<li>if one operand is a matrix and the other a number (float or int), performs a normal arithmetic sum of the number with each element of the matrix (results are float if the number is a float.</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">matrix</span> var19 &lt;- 3.5 + <span class="hljs-literal">matrix</span>([[2,5],[3,4]]); <span class="hljs-comment">// var19 equals matrix([[5.5,8.5],[6.5,7.5]])</span>
-</code></pre>
-<ul>
 <li>if one of the operands is a date and the other a number, returns a date corresponding to the date plus the given number as duration (in seconds)</li>
 </ul>
 <pre><code class="hljs"> 
-date var20 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) + 86400; <span class="hljs-comment">// var20 equals date('2000-01-02')</span>
+date var19 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) + 86400; <span class="hljs-comment">// var19 equals date('2000-01-02')</span>
 </code></pre>
 <ul>
 <li>if the left-hand operand is a geometry and the right-hand operands a float, an integer and one of #round, #square or #flat, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand and a flat, square or round end cap style</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var21 &lt;- circle(5) + (5,32,#round); <span class="hljs-comment">// var21 equals circle(10)</span>
+<span class="hljs-literal">geometry</span> var20 &lt;- circle(5) + (5,32,#round); <span class="hljs-comment">// var20 equals circle(10)</span>
 </code></pre>
 <ul>
 <li>if both operands are points, returns their sum.</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">point</span> var22 &lt;- {1, 2} + {4, 5}; <span class="hljs-comment">// var22 equals {5.0, 7.0}</span>
+<span class="hljs-literal">point</span> var21 &lt;- {1, 2} + {4, 5}; <span class="hljs-comment">// var21 equals {5.0, 7.0}</span>
+</code></pre>
+<ul>
+<li>if both operands are numbers (float or int), performs a normal arithmetic sum and returns a float if one of them is a float.</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">int</span> var22 &lt;- 1 + 1; <span class="hljs-comment">// var22 equals 2</span>
 </code></pre>
 <ul>
 <li>if the left-hand operand is a geometry and the right-hand operands a float and an integer, returns a geometry corresponding to the left-hand operand (geometry, agent, point) enlarged by the first right-hand operand (distance), using a number of segments equal to the second right-hand operand</li>
@@ -847,45 +847,45 @@ date var2 &lt;- date(<span class="hljs-string">'2016-01-01 00:00:01'</span>) + 8
 <h3><a class="anchor" aria-hidden="true" id="-12"></a><a href="#-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>&lt;</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-11"></a><a href="#possible-use-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>string</code> <strong><code>&lt;</code></strong> <code>string</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&lt;</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>bool</code></li>
-<li><code>int</code> <strong><code>&lt;</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&lt;</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
+<li><code>int</code> <strong><code>&lt;</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&lt;</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
+<li><code>float</code> <strong><code>&lt;</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&lt;</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>point</code> <strong><code>&lt;</code></strong> <code>point</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&lt;</code></strong> (<code>point</code> , <code>point</code>) ---&gt;  <code>bool</code></li>
 <li><code>date</code> <strong><code>&lt;</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&lt;</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
-<li><code>float</code> <strong><code>&lt;</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&lt;</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>float</code> <strong><code>&lt;</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&lt;</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
-<li><code>int</code> <strong><code>&lt;</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&lt;</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
+<li><code>string</code> <strong><code>&lt;</code></strong> <code>string</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&lt;</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>bool</code></li>
+<li><code>int</code> <strong><code>&lt;</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&lt;</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-11"></a><a href="#result-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>true if the left-hand operand is less than the right-hand operand, false otherwise.</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-8"></a><a href="#special-cases-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
 <li>if one of the operands is nil, returns false</li>
-<li>if both operands are String, uses a lexicographic comparison of two strings</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- <span class="hljs-string">'abc'</span> &lt; <span class="hljs-string">'aeb'</span>; <span class="hljs-comment">// var0 equals true</span>
-</code></pre>
-<ul>
 <li>if both operands are points, returns true if and only if the left component (x) of the left operand if less than or equal to x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var1 &lt;- {5,7} &lt; {4,6}; <span class="hljs-comment">// var1 equals false </span>
-<span class="hljs-literal">bool</span> var2 &lt;- {5,7} &lt; {4,8}; <span class="hljs-comment">// var2 equals false</span>
+<span class="hljs-literal">bool</span> var0 &lt;- {5,7} &lt; {4,6}; <span class="hljs-comment">// var0 equals false </span>
+<span class="hljs-literal">bool</span> var1 &lt;- {5,7} &lt; {4,8}; <span class="hljs-comment">// var1 equals false</span>
+</code></pre>
+<ul>
+<li>if both operands are String, uses a lexicographic comparison of two strings</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">bool</span> var2 &lt;- <span class="hljs-string">'abc'</span> &lt; <span class="hljs-string">'aeb'</span>; <span class="hljs-comment">// var2 equals true</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-8"></a><a href="#examples-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var3 &lt;- 3 &lt; 2.5; <span class="hljs-comment">// var3 equals false </span>
-<span class="hljs-literal">bool</span> var4 &lt;- #now &lt; #now minus_hours 1; <span class="hljs-comment">// var4 equals false </span>
-<span class="hljs-literal">bool</span> var5 &lt;- 3.5 &lt; 7; <span class="hljs-comment">// var5 equals true </span>
+<span class="hljs-literal">bool</span> var3 &lt;- 3 &lt; 7; <span class="hljs-comment">// var3 equals true </span>
+<span class="hljs-literal">bool</span> var4 &lt;- 3.5 &lt; 7; <span class="hljs-comment">// var4 equals true </span>
+<span class="hljs-literal">bool</span> var5 &lt;- #now &lt; #now minus_hours 1; <span class="hljs-comment">// var5 equals false </span>
 <span class="hljs-literal">bool</span> var6 &lt;- 3.5 &lt; 7.6; <span class="hljs-comment">// var6 equals true </span>
-<span class="hljs-literal">bool</span> var7 &lt;- 3 &lt; 7; <span class="hljs-comment">// var7 equals true</span>
+<span class="hljs-literal">bool</span> var7 &lt;- 3 &lt; 2.5; <span class="hljs-comment">// var7 equals false</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-9"></a><a href="#see-also-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -894,16 +894,16 @@ date var2 &lt;- date(<span class="hljs-string">'2016-01-01 00:00:01'</span>) + 8
 <h3><a class="anchor" aria-hidden="true" id="-13"></a><a href="#-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>&lt;=</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-12"></a><a href="#possible-use-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>int</code> <strong><code>&lt;=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&lt;=</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
-<li><code>float</code> <strong><code>&lt;=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&lt;=</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>int</code> <strong><code>&lt;=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&lt;=</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
-<li><code>date</code> <strong><code>&lt;=</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&lt;=</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
 <li><code>float</code> <strong><code>&lt;=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&lt;=</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
+<li><code>float</code> <strong><code>&lt;=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&lt;=</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
+<li><code>int</code> <strong><code>&lt;=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&lt;=</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
+<li><code>date</code> <strong><code>&lt;=</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&lt;=</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
 <li><code>point</code> <strong><code>&lt;=</code></strong> <code>point</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&lt;=</code></strong> (<code>point</code> , <code>point</code>) ---&gt;  <code>bool</code></li>
 <li><code>string</code> <strong><code>&lt;=</code></strong> <code>string</code> ---&gt;  <code>bool</code></li>
@@ -928,11 +928,11 @@ date var2 &lt;- date(<span class="hljs-string">'2016-01-01 00:00:01'</span>) + 8
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-9"></a><a href="#examples-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- 3 &lt;= 7; <span class="hljs-comment">// var0 equals true </span>
-<span class="hljs-literal">bool</span> var1 &lt;- 7.0 &lt;= 7; <span class="hljs-comment">// var1 equals true </span>
-<span class="hljs-literal">bool</span> var2 &lt;- 3 &lt;= 2.5; <span class="hljs-comment">// var2 equals false </span>
-<span class="hljs-literal">bool</span> var3 &lt;- (#now &lt;= (#now minus_hours 1)); <span class="hljs-comment">// var3 equals false </span>
-<span class="hljs-literal">bool</span> var4 &lt;- 3.5 &lt;= 3.5; <span class="hljs-comment">// var4 equals true</span>
+<span class="hljs-literal">bool</span> var0 &lt;- 3 &lt;= 2.5; <span class="hljs-comment">// var0 equals false </span>
+<span class="hljs-literal">bool</span> var1 &lt;- 3.5 &lt;= 3.5; <span class="hljs-comment">// var1 equals true </span>
+<span class="hljs-literal">bool</span> var2 &lt;- 7.0 &lt;= 7; <span class="hljs-comment">// var2 equals true </span>
+<span class="hljs-literal">bool</span> var3 &lt;- 3 &lt;= 7; <span class="hljs-comment">// var3 equals true </span>
+<span class="hljs-literal">bool</span> var4 &lt;- (#now &lt;= (#now minus_hours 1)); <span class="hljs-comment">// var4 equals false</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-10"></a><a href="#see-also-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -945,14 +945,14 @@ date var2 &lt;- date(<span class="hljs-string">'2016-01-01 00:00:01'</span>) + 8
 <li><strong><code>=</code></strong> (<code>unknown</code> , <code>unknown</code>) ---&gt;  <code>bool</code></li>
 <li><code>date</code> <strong><code>=</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>=</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
-<li><code>float</code> <strong><code>=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>=</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
-<li><code>float</code> <strong><code>=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>=</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>int</code> <strong><code>=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>=</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>int</code> <strong><code>=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>=</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
+<li><code>float</code> <strong><code>=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>=</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
+<li><code>float</code> <strong><code>=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>=</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-13"></a><a href="#result-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>returns true if both operands are equal, false otherwise
@@ -967,33 +967,33 @@ returns true if both operands are equal, false otherwise</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-10"></a><a href="#examples-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
 <span class="hljs-literal">bool</span> var1 &lt;- #now = #now minus_hours 1; <span class="hljs-comment">// var1 equals false </span>
-<span class="hljs-literal">bool</span> var2 &lt;- 4.5 = 4.7; <span class="hljs-comment">// var2 equals false </span>
-<span class="hljs-literal">bool</span> var3 &lt;- 4.7 = 4; <span class="hljs-comment">// var3 equals false </span>
-<span class="hljs-literal">bool</span> var4 &lt;- 4 = 5; <span class="hljs-comment">// var4 equals false </span>
-<span class="hljs-literal">bool</span> var5 &lt;- 3 = 3.0; <span class="hljs-comment">// var5 equals true </span>
-<span class="hljs-literal">bool</span> var6 &lt;- 4 = 4.7; <span class="hljs-comment">// var6 equals false</span>
+<span class="hljs-literal">bool</span> var2 &lt;- 4 = 5; <span class="hljs-comment">// var2 equals false </span>
+<span class="hljs-literal">bool</span> var3 &lt;- 3 = 3.0; <span class="hljs-comment">// var3 equals true </span>
+<span class="hljs-literal">bool</span> var4 &lt;- 4 = 4.7; <span class="hljs-comment">// var4 equals false </span>
+<span class="hljs-literal">bool</span> var5 &lt;- 4.5 = 4.7; <span class="hljs-comment">// var5 equals false </span>
+<span class="hljs-literal">bool</span> var6 &lt;- 4.7 = 4; <span class="hljs-comment">// var6 equals false</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-11"></a><a href="#see-also-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
-<p><a href="OperatorsAA#&gt;">&gt;</a>, <a href="OperatorsAA#&lt;">&lt;</a>, <a href="OperatorsAA#&gt;=">&gt;=</a>, <a href="OperatorsAA#&lt;=">&lt;=</a>, <a href="OperatorsAA#!=">!=</a>,</p>
+<p><a href="OperatorsAA#!=">!=</a>, <a href="OperatorsAA#&gt;">&gt;</a>, <a href="OperatorsAA#&lt;">&lt;</a>, <a href="OperatorsAA#&gt;=">&gt;=</a>, <a href="OperatorsAA#&lt;=">&lt;=</a>,</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="-15"></a><a href="#-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>&gt;</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-14"></a><a href="#possible-use-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>float</code> <strong><code>&gt;</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&gt;</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
-<li><code>string</code> <strong><code>&gt;</code></strong> <code>string</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&gt;</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>bool</code></li>
 <li><code>float</code> <strong><code>&gt;</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&gt;</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
+<li><code>string</code> <strong><code>&gt;</code></strong> <code>string</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&gt;</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>bool</code></li>
+<li><code>int</code> <strong><code>&gt;</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&gt;</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>date</code> <strong><code>&gt;</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&gt;</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
 <li><code>point</code> <strong><code>&gt;</code></strong> <code>point</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&gt;</code></strong> (<code>point</code> , <code>point</code>) ---&gt;  <code>bool</code></li>
-<li><code>int</code> <strong><code>&gt;</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&gt;</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>int</code> <strong><code>&gt;</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&gt;</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
+<li><code>float</code> <strong><code>&gt;</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&gt;</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-14"></a><a href="#result-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>true if the left-hand operand is greater than the right-hand operand, false otherwise.</p>
@@ -1014,11 +1014,11 @@ returns true if both operands are equal, false otherwise</p>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-11"></a><a href="#examples-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var3 &lt;- 3.5 &gt; 7; <span class="hljs-comment">// var3 equals false </span>
-<span class="hljs-literal">bool</span> var4 &lt;- 3.5 &gt; 7.6; <span class="hljs-comment">// var4 equals false </span>
+<span class="hljs-literal">bool</span> var3 &lt;- 3.5 &gt; 7.6; <span class="hljs-comment">// var3 equals false </span>
+<span class="hljs-literal">bool</span> var4 &lt;- 13.0 &gt; 7.0; <span class="hljs-comment">// var4 equals true </span>
 <span class="hljs-literal">bool</span> var5 &lt;- (#now &gt; (#now minus_hours 1)); <span class="hljs-comment">// var5 equals true </span>
-<span class="hljs-literal">bool</span> var6 &lt;- 13.0 &gt; 7.0; <span class="hljs-comment">// var6 equals true </span>
-<span class="hljs-literal">bool</span> var7 &lt;- 3 &gt; 2.5; <span class="hljs-comment">// var7 equals true</span>
+<span class="hljs-literal">bool</span> var6 &lt;- 3 &gt; 2.5; <span class="hljs-comment">// var6 equals true </span>
+<span class="hljs-literal">bool</span> var7 &lt;- 3.5 &gt; 7; <span class="hljs-comment">// var7 equals false</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-12"></a><a href="#see-also-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1029,18 +1029,18 @@ returns true if both operands are equal, false otherwise</p>
 <ul>
 <li><code>date</code> <strong><code>&gt;=</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&gt;=</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
-<li><code>float</code> <strong><code>&gt;=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&gt;=</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>float</code> <strong><code>&gt;=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&gt;=</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
-<li><code>point</code> <strong><code>&gt;=</code></strong> <code>point</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&gt;=</code></strong> (<code>point</code> , <code>point</code>) ---&gt;  <code>bool</code></li>
+<li><code>float</code> <strong><code>&gt;=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&gt;=</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>int</code> <strong><code>&gt;=</code></strong> <code>float</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&gt;=</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>bool</code></li>
-<li><code>string</code> <strong><code>&gt;=</code></strong> <code>string</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>&gt;=</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>bool</code></li>
+<li><code>point</code> <strong><code>&gt;=</code></strong> <code>point</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&gt;=</code></strong> (<code>point</code> , <code>point</code>) ---&gt;  <code>bool</code></li>
 <li><code>int</code> <strong><code>&gt;=</code></strong> <code>int</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>&gt;=</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>bool</code></li>
+<li><code>string</code> <strong><code>&gt;=</code></strong> <code>string</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>&gt;=</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-15"></a><a href="#result-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>true if the left-hand operand is greater or equal than the right-hand operand, false otherwise.</p>
@@ -1050,23 +1050,23 @@ returns true if both operands are equal, false otherwise</p>
 <li>if both operands are points, returns true if and only if the left component (x) of the left operand if greater or equal than x of the right one and if the right component (y) of the left operand is greater than or equal to y of the right one.</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- {5,7} &gt;= {4,6}; <span class="hljs-comment">// var0 equals true </span>
-<span class="hljs-literal">bool</span> var1 &lt;- {5,7} &gt;= {4,8}; <span class="hljs-comment">// var1 equals false</span>
+<span class="hljs-literal">bool</span> var5 &lt;- {5,7} &gt;= {4,6}; <span class="hljs-comment">// var5 equals true </span>
+<span class="hljs-literal">bool</span> var6 &lt;- {5,7} &gt;= {4,8}; <span class="hljs-comment">// var6 equals false</span>
 </code></pre>
 <ul>
 <li>if both operands are string, uses a lexicographic comparison of the two strings</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var2 &lt;- <span class="hljs-string">'abc'</span> &gt;= <span class="hljs-string">'aeb'</span>; <span class="hljs-comment">// var2 equals false </span>
-<span class="hljs-literal">bool</span> var3 &lt;- <span class="hljs-string">'abc'</span> &gt;= <span class="hljs-string">'abc'</span>; <span class="hljs-comment">// var3 equals true</span>
+<span class="hljs-literal">bool</span> var7 &lt;- <span class="hljs-string">'abc'</span> &gt;= <span class="hljs-string">'aeb'</span>; <span class="hljs-comment">// var7 equals false </span>
+<span class="hljs-literal">bool</span> var8 &lt;- <span class="hljs-string">'abc'</span> &gt;= <span class="hljs-string">'abc'</span>; <span class="hljs-comment">// var8 equals true</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-12"></a><a href="#examples-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var4 &lt;- #now &gt;= #now minus_hours 1; <span class="hljs-comment">// var4 equals true </span>
-<span class="hljs-literal">bool</span> var5 &lt;- 3.5 &gt;= 7; <span class="hljs-comment">// var5 equals false </span>
-<span class="hljs-literal">bool</span> var6 &lt;- 3.5 &gt;= 3.5; <span class="hljs-comment">// var6 equals true </span>
-<span class="hljs-literal">bool</span> var7 &lt;- 3 &gt;= 2.5; <span class="hljs-comment">// var7 equals true </span>
-<span class="hljs-literal">bool</span> var8 &lt;- 3 &gt;= 7; <span class="hljs-comment">// var8 equals false</span>
+<span class="hljs-literal">bool</span> var0 &lt;- #now &gt;= #now minus_hours 1; <span class="hljs-comment">// var0 equals true </span>
+<span class="hljs-literal">bool</span> var1 &lt;- 3.5 &gt;= 3.5; <span class="hljs-comment">// var1 equals true </span>
+<span class="hljs-literal">bool</span> var2 &lt;- 3.5 &gt;= 7; <span class="hljs-comment">// var2 equals false </span>
+<span class="hljs-literal">bool</span> var3 &lt;- 3 &gt;= 2.5; <span class="hljs-comment">// var3 equals true </span>
+<span class="hljs-literal">bool</span> var4 &lt;- 3 &gt;= 7; <span class="hljs-comment">// var4 equals false</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-13"></a><a href="#see-also-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1075,16 +1075,16 @@ returns true if both operands are equal, false otherwise</p>
 <h3><a class="anchor" aria-hidden="true" id="abs"></a><a href="#abs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>abs</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-16"></a><a href="#possible-use-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>abs</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>abs</code></strong> (<code>int</code>) ---&gt;  <code>int</code></li>
+<li><strong><code>abs</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-16"></a><a href="#result-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the absolute value of the operand (so a positive int or float depending on the type of the operand).</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-13"></a><a href="#examples-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- abs (200 * -1 + 0.5); <span class="hljs-comment">// var0 equals 199.5 </span>
-<span class="hljs-literal">int</span> var1 &lt;- abs (-10); <span class="hljs-comment">// var1 equals 10 </span>
-<span class="hljs-literal">int</span> var2 &lt;- abs (10); <span class="hljs-comment">// var2 equals 10</span>
+<span class="hljs-literal">int</span> var0 &lt;- abs (-10); <span class="hljs-comment">// var0 equals 10 </span>
+<span class="hljs-literal">int</span> var1 &lt;- abs (10); <span class="hljs-comment">// var1 equals 10 </span>
+<span class="hljs-literal">float</span> var3 &lt;- abs (200 * -1 + 0.5); <span class="hljs-comment">// var3 equals 199.5</span>
 
 </code></pre>
 <hr>
@@ -1111,8 +1111,8 @@ returns true if both operands are equal, false otherwise</p>
 <h3><a class="anchor" aria-hidden="true" id="acos"></a><a href="#acos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>acos</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-18"></a><a href="#possible-use-18" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>acos</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>acos</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>acos</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-18"></a><a href="#result-18" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the value (in the interval [0,180], in decimal degrees) of the arccos of the operand (which should be in [-1,1]).</p>
@@ -1912,8 +1912,8 @@ An arc, which radius is equal to the first operand, heading to the second, ampli
 <h3><a class="anchor" aria-hidden="true" id="atan"></a><a href="#atan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>atan</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-63"></a><a href="#possible-use-63" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>atan</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>atan</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>atan</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-61"></a><a href="#result-61" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the value (in the interval [-90,90], in decimal degrees) of the arctan of the operand (which can be any real number).</p>
@@ -2022,30 +2022,30 @@ An arc, which radius is equal to the first operand, heading to the second, ampli
 <li><code>date</code> <strong><code>between</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>any expression</code>, <code>date</code>, <code>date</code>) ---&gt;  <code>bool</code></li>
+<li><strong><code>between</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>date</code>, <code>date</code>, <code>date</code>) ---&gt;  <code>bool</code></li>
-<li><strong><code>between</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-68"></a><a href="#result-68" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>returns true if the first float operand is bigger than the second float operand and smaller than the third float operand</p>
-<p>returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand</p>
+<p>returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand
+returns true if the first float operand is bigger than the second float operand and smaller than the third float operand</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-25"></a><a href="#special-cases-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
 <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with 'every' to express a frequency between two dates</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var0 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  </span>
+<span class="hljs-literal">bool</span> var2 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var2 equals true// will return true every new day between these two dates, taking the first one as the starting point every(#day between(date('2000-01-01'), date('2020-02-02')))  </span>
 </code></pre>
 <ul>
 <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var3 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var3 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) </span>
+<span class="hljs-literal">bool</span> var5 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var5 equals true// // will return true if the current_date of the model is in_between the 2 between(date('2000-01-01'), date('2020-02-02')) </span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-58"></a><a href="#examples-58" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var6 &lt;- between(5.0, 1.0, 10.0); <span class="hljs-comment">// var6 equals true </span>
-<span class="hljs-literal">bool</span> var7 &lt;- between(5, 1, 10); <span class="hljs-comment">// var7 equals true</span>
+<span class="hljs-literal">bool</span> var0 &lt;- between(5, 1, 10); <span class="hljs-comment">// var0 equals true </span>
+<span class="hljs-literal">bool</span> var1 &lt;- between(5.0, 1.0, 10.0); <span class="hljs-comment">// var1 equals true</span>
 
 </code></pre>
 <hr>
@@ -3444,14 +3444,14 @@ converts a string to a date following a custom pattern. The pattern can use &quo
 <h3><a class="anchor" aria-hidden="true" id="div"></a><a href="#div" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>div</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-145"></a><a href="#possible-use-145" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>int</code> <strong><code>div</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
-<li><strong><code>div</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>int</code></li>
-<li><code>int</code> <strong><code>div</code></strong> <code>float</code> ---&gt;  <code>int</code></li>
-<li><strong><code>div</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>int</code></li>
 <li><code>float</code> <strong><code>div</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
 <li><strong><code>div</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>int</code></li>
 <li><code>float</code> <strong><code>div</code></strong> <code>float</code> ---&gt;  <code>int</code></li>
 <li><strong><code>div</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>int</code></li>
+<li><code>int</code> <strong><code>div</code></strong> <code>float</code> ---&gt;  <code>int</code></li>
+<li><strong><code>div</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>int</code></li>
+<li><code>int</code> <strong><code>div</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
+<li><strong><code>div</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>int</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-137"></a><a href="#result-137" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the truncation of the division of the left-hand operand by the right-hand operand.</p>
@@ -3463,10 +3463,10 @@ converts a string to a date following a custom pattern. The pattern can use &quo
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-121"></a><a href="#examples-121" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">int</span> var0 &lt;- 40 div 3; <span class="hljs-comment">// var0 equals 13 </span>
-<span class="hljs-literal">int</span> var1 &lt;- 40 div 4.1; <span class="hljs-comment">// var1 equals 9 </span>
-<span class="hljs-literal">int</span> var2 &lt;- 40.5 div 3; <span class="hljs-comment">// var2 equals 13 </span>
-<span class="hljs-literal">int</span> var3 &lt;- 40.1 div 4.5; <span class="hljs-comment">// var3 equals 8</span>
+<span class="hljs-literal">int</span> var0 &lt;- 40.5 div 3; <span class="hljs-comment">// var0 equals 13 </span>
+<span class="hljs-literal">int</span> var1 &lt;- 40.1 div 4.5; <span class="hljs-comment">// var1 equals 8 </span>
+<span class="hljs-literal">int</span> var2 &lt;- 40 div 4.1; <span class="hljs-comment">// var2 equals 9 </span>
+<span class="hljs-literal">int</span> var3 &lt;- 40 div 3; <span class="hljs-comment">// var3 equals 13</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-89"></a><a href="#see-also-89" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -3651,8 +3651,8 @@ unknown var0 &lt;- graphFromMap edge_between node1::node2; <span class="hljs-com
 <h3><a class="anchor" aria-hidden="true" id="empty"></a><a href="#empty" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>empty</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-157"></a><a href="#possible-use-157" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>empty</code></strong> (<code>string</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>empty</code></strong> (<code>container&lt;KeyType,ValueType&gt;</code>) ---&gt;  <code>bool</code></li>
+<li><strong><code>empty</code></strong> (<code>string</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-147"></a><a href="#result-147" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>true if the operand is empty, false otherwise.</p>
@@ -3666,16 +3666,16 @@ unknown var0 &lt;- graphFromMap edge_between node1::node2; <span class="hljs-com
 <li>if it is a graph, empty returns true if it contains no vertex and no edge, and false otherwise</li>
 <li>if it is a matrix of int, float or object, it will return true if all elements are respectively 0, 0.0 or null, and false otherwise</li>
 <li>if it is a matrix of geometry, it will return true if the matrix contains no cell, and false otherwise</li>
-<li>if it is a string, empty returns true if the string does not contain any character, and false otherwise</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- empty (<span class="hljs-string">'abced'</span>); <span class="hljs-comment">// var0 equals false</span>
-</code></pre>
-<ul>
 <li>if it is a list, empty returns true if there is no element in the list, and false otherwise</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var1 &lt;- empty([]); <span class="hljs-comment">// var1 equals true</span>
+<span class="hljs-literal">bool</span> var0 &lt;- empty([]); <span class="hljs-comment">// var0 equals true</span>
+</code></pre>
+<ul>
+<li>if it is a string, empty returns true if the string does not contain any character, and false otherwise</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">bool</span> var1 &lt;- empty (<span class="hljs-string">'abced'</span>); <span class="hljs-comment">// var1 equals false</span>
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="enlarged_by"></a><a href="#enlarged_by" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>enlarged_by</code></h3>
@@ -6523,8 +6523,8 @@ A polyline geometry from the given list of points.</p>
 <h3><a class="anchor" aria-hidden="true" id="ln"></a><a href="#ln" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ln</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-332"></a><a href="#possible-use-332" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>ln</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>ln</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>ln</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-312"></a><a href="#result-312" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the natural logarithm (base e) of the operand.</p>
@@ -6534,8 +6534,8 @@ A polyline geometry from the given list of points.</p>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-255"></a><a href="#examples-255" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- ln(1); <span class="hljs-comment">// var0 equals 0.0 </span>
-<span class="hljs-literal">float</span> var1 &lt;- ln(exp(1)); <span class="hljs-comment">// var1 equals 1.0</span>
+<span class="hljs-literal">float</span> var0 &lt;- ln(exp(1)); <span class="hljs-comment">// var0 equals 1.0 </span>
+<span class="hljs-literal">float</span> var1 &lt;- ln(1); <span class="hljs-comment">// var1 equals 0.0</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-161"></a><a href="#see-also-161" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -6626,8 +6626,8 @@ loads a graph from a file</p>
 <h3><a class="anchor" aria-hidden="true" id="log"></a><a href="#log" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-336"></a><a href="#possible-use-336" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>log</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>log</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>log</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-316"></a><a href="#result-316" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the logarithm (base 10) of the operand.</p>
@@ -6637,8 +6637,8 @@ loads a graph from a file</p>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-258"></a><a href="#examples-258" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- log(10); <span class="hljs-comment">// var0 equals 1.0 </span>
-<span class="hljs-literal">float</span> var1 &lt;- log(1); <span class="hljs-comment">// var1 equals 0.0</span>
+<span class="hljs-literal">float</span> var0 &lt;- log(1); <span class="hljs-comment">// var0 equals 0.0 </span>
+<span class="hljs-literal">float</span> var1 &lt;- log(10); <span class="hljs-comment">// var1 equals 1.0</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-162"></a><a href="#see-also-162" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -7269,36 +7269,36 @@ unknown var0 &lt;- mul ([100, 23.2, 34.5]); <span class="hljs-comment">// var0 e
 <h4><a class="anchor" aria-hidden="true" id="possible-use-375"></a><a href="#possible-use-375" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>) ---&gt;  <code>emotion</code></li>
-<li><code>string</code> <strong><code>new_emotion</code></strong> <code>float</code> ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>float</code>) ---&gt;  <code>emotion</code></li>
-<li><code>string</code> <strong><code>new_emotion</code></strong> <code>predicate</code> ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>emotion</code></li>
 <li><code>string</code> <strong><code>new_emotion</code></strong> <code>agent</code> ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
+<li><code>string</code> <strong><code>new_emotion</code></strong> <code>predicate</code> ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>emotion</code></li>
+<li><code>string</code> <strong><code>new_emotion</code></strong> <code>float</code> ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>float</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-350"></a><a href="#result-350" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>a new emotion with the given properties (name)
-a new emotion with the given properties (name, intensity)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,decay)
-a new emotion with the given properties (name,about)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,about)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)</p>
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name,about)
+a new emotion with the given properties (name, intensity)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-287"></a><a href="#examples-287" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3) emotion(<span class="hljs-string">"joy"</span>) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,4.0) emotion(<span class="hljs-string">"joy"</span>,eatFood) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
+<pre><code class="hljs">emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,4.0) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,eatFood) emotion(<span class="hljs-string">"joy"</span>,12.3) 
 
 </code></pre>
 <hr>
@@ -7325,33 +7325,33 @@ a new emotion with the given properties (name)</p>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-377"></a><a href="#possible-use-377" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>) ---&gt;  <code>mental_state</code></li>
-<li><code>string</code> <strong><code>new_mental_state</code></strong> <code>emotion</code> ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>emotion</code>) ---&gt;  <code>mental_state</code></li>
 <li><code>string</code> <strong><code>new_mental_state</code></strong> <code>mental_state</code> ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>mental_state</code>) ---&gt;  <code>mental_state</code></li>
 <li><code>string</code> <strong><code>new_mental_state</code></strong> <code>predicate</code> ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><code>string</code> <strong><code>new_mental_state</code></strong> <code>emotion</code> ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>emotion</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-352"></a><a href="#result-352" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>a new mental state
@@ -7390,35 +7390,35 @@ a new mental state</p>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>) ---&gt;  <code>predicate</code></li>
 <li><code>string</code> <strong><code>new_predicate</code></strong> <code>map</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>map</code>) ---&gt;  <code>predicate</code></li>
-<li><code>string</code> <strong><code>new_predicate</code></strong> <code>bool</code> ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>bool</code>) ---&gt;  <code>predicate</code></li>
-<li><code>string</code> <strong><code>new_predicate</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
 <li><code>string</code> <strong><code>new_predicate</code></strong> <code>int</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>int</code>) ---&gt;  <code>predicate</code></li>
+<li><code>string</code> <strong><code>new_predicate</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
+<li><code>string</code> <strong><code>new_predicate</code></strong> <code>bool</code> ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>bool</code>) ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>, <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>, <code>bool</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-353"></a><a href="#result-353" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values,    agentCause)
-a new predicate with the given properties (name, values, lifetime, is_true)
-a new predicate with the given properties (name, values)
-a new predicate with the given properties (name, values, is_true)
+<p>a new predicate with the given properties (name)
 a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
-a new predicate with the given is_true (name, is_true)
+a new predicate with the given properties (name, values, is_true)
 a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, lifetime, agentCause)
-a new predicate with the given properties (name)
+a new predicate with the given properties (name, values)
+a new predicate with the given properties (name, values, lifetime, is_true)
+a new predicate with the given properties (name, values,    agentCause)
 a new predicate with the given is_true (name, lifetime)
+a new predicate with the given properties (name, values, lifetime, agentCause)
+a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given is_true (name, is_true)
 a new predicate with the given properties (name, values, is_true, agentCause)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-290"></a><a href="#examples-290" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], agentA) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10,true) predicate(<span class="hljs-string">"people to meet"</span>, people1 ) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10, true, agentA) predicate(<span class="hljs-string">"hasWater"</span>, true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10, agentA) predicate(<span class="hljs-string">"people to meet"</span>) predicate(<span class="hljs-string">"hasWater"</span>, 10) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true, agentA) 
+<pre><code class="hljs">predicate(<span class="hljs-string">"people to meet"</span>) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10, true, agentA) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"people to meet"</span>, people1 ) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10,true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], agentA) predicate(<span class="hljs-string">"hasWater"</span>, 10) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10, agentA) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"hasWater"</span>, true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true, agentA) 
 
 </code></pre>
 <hr>
@@ -8616,8 +8616,8 @@ agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hl
 <h3><a class="anchor" aria-hidden="true" id="reverse"></a><a href="#reverse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>reverse</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-447"></a><a href="#possible-use-447" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>reverse</code></strong> (<code>container&lt;KeyType,ValueType&gt;</code>) ---&gt;  <code>container&lt;unknown,unknown&gt;</code></li>
 <li><strong><code>reverse</code></strong> (<code>string</code>) ---&gt;  <code>string</code></li>
+<li><strong><code>reverse</code></strong> (<code>container&lt;KeyType,ValueType&gt;</code>) ---&gt;  <code>container&lt;unknown,unknown&gt;</code></li>
 <li><strong><code>reverse</code></strong> (<code>map&lt;K,V&gt;</code>) ---&gt;  <code>container</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-417"></a><a href="#result-417" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
@@ -8629,28 +8629,28 @@ agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hl
 <li>if it is a file, reverse returns a copy of the file with a reversed content</li>
 <li>if it is a population, reverse returns a copy of the population with elements in the reversed order</li>
 <li>if it is a graph, reverse returns a copy of the graph (with all edges and vertexes), with all of the edges reversed</li>
+<li>if it is a string, reverse returns a new string with characters in the reversed order</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">string</span> var0 &lt;- reverse (<span class="hljs-string">'abcd'</span>); <span class="hljs-comment">// var0 equals 'dcba'</span>
+</code></pre>
+<ul>
 <li>if it is a list, reverse returns a copy of the operand list with elements in the reversed order</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var0 &lt;- reverse ([10,12,14]); <span class="hljs-comment">// var0 equals [14, 12, 10]</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var1 &lt;- reverse ([10,12,14]); <span class="hljs-comment">// var1 equals [14, 12, 10]</span>
 </code></pre>
 <ul>
 <li>if it is a map, reverse returns a copy of the operand map with each pair in the reversed order (i.e. all keys become values and values become keys)</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">string</span>&gt; var1 &lt;- reverse ([<span class="hljs-string">'k1'</span>::44, <span class="hljs-string">'k2'</span>::32, <span class="hljs-string">'k3'</span>::12]); <span class="hljs-comment">// var1 equals [44::'k1', 32::'k2', 12::'k3']</span>
+<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">string</span>&gt; var2 &lt;- reverse ([<span class="hljs-string">'k1'</span>::44, <span class="hljs-string">'k2'</span>::32, <span class="hljs-string">'k3'</span>::12]); <span class="hljs-comment">// var2 equals [44::'k1', 32::'k2', 12::'k3']</span>
 </code></pre>
 <ul>
 <li>if it is a matrix, reverse returns a new matrix containing the transpose of the operand.</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">string</span>&gt; var2 &lt;- reverse(<span class="hljs-literal">matrix</span>([[<span class="hljs-string">"c11"</span>,<span class="hljs-string">"c12"</span>,<span class="hljs-string">"c13"</span>],[<span class="hljs-string">"c21"</span>,<span class="hljs-string">"c22"</span>,<span class="hljs-string">"c23"</span>]])); <span class="hljs-comment">// var2 equals matrix([["c11","c21"],["c12","c22"],["c13","c23"]])</span>
-</code></pre>
-<ul>
-<li>if it is a string, reverse returns a new string with characters in the reversed order</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">string</span> var3 &lt;- reverse (<span class="hljs-string">'abcd'</span>); <span class="hljs-comment">// var3 equals 'dcba'</span>
+<span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">string</span>&gt; var3 &lt;- reverse(<span class="hljs-literal">matrix</span>([[<span class="hljs-string">"c11"</span>,<span class="hljs-string">"c12"</span>,<span class="hljs-string">"c13"</span>],[<span class="hljs-string">"c21"</span>,<span class="hljs-string">"c22"</span>,<span class="hljs-string">"c23"</span>]])); <span class="hljs-comment">// var3 equals matrix([["c11","c21"],["c12","c22"],["c13","c23"]])</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-343"></a><a href="#examples-343" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">int</span>&gt; m &lt;- [1::111,2::222, 3::333, 4::444];  
@@ -8857,8 +8857,8 @@ A geometry resulting from the application of a rotation by the operand angles (d
 <h4><a class="anchor" aria-hidden="true" id="possible-use-457"></a><a href="#possible-use-457" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
 <li><strong><code>round</code></strong> (<code>point</code>) ---&gt;  <code>point</code></li>
-<li><strong><code>round</code></strong> (<code>float</code>) ---&gt;  <code>int</code></li>
 <li><strong><code>round</code></strong> (<code>int</code>) ---&gt;  <code>int</code></li>
+<li><strong><code>round</code></strong> (<code>float</code>) ---&gt;  <code>int</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-426"></a><a href="#result-426" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the rounded value of the operand.</p>
@@ -9040,16 +9040,16 @@ takes a sample of the specified size from the elements of x using either with or
 <h3><a class="anchor" aria-hidden="true" id="set_agent_cause"></a><a href="#set_agent_cause" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>set_agent_cause</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-470"></a><a href="#possible-use-470" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>predicate</code> <strong><code>set_agent_cause</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
-<li><strong><code>set_agent_cause</code></strong> (<code>predicate</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
 <li><code>emotion</code> <strong><code>set_agent_cause</code></strong> <code>agent</code> ---&gt;  <code>emotion</code></li>
 <li><strong><code>set_agent_cause</code></strong> (<code>emotion</code> , <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><code>predicate</code> <strong><code>set_agent_cause</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
+<li><strong><code>set_agent_cause</code></strong> (<code>predicate</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-436"></a><a href="#result-436" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>change the agentCause value of the given predicate
-change the agentCause value of the given emotion</p>
+<p>change the agentCause value of the given emotion
+change the agentCause value of the given predicate</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-359"></a><a href="#examples-359" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">predicate set_agent_cause agentA emotion set_agent_cause agentA 
+<pre><code class="hljs">emotion set_agent_cause agentA predicate set_agent_cause agentA 
 
 </code></pre>
 <hr>
@@ -9750,8 +9750,8 @@ Returns a list containing the sub-strings (tokens) of the left-hand operand deli
 <h3><a class="anchor" aria-hidden="true" id="sqrt"></a><a href="#sqrt" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>sqrt</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-512"></a><a href="#possible-use-512" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>sqrt</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>sqrt</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>sqrt</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-477"></a><a href="#result-477" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the square root of the operand.</p>
@@ -10056,8 +10056,8 @@ unknown var0 &lt;- [1,2] sum_of (each * 100 ); <span class="hljs-comment">// var
 <h3><a class="anchor" aria-hidden="true" id="tanh"></a><a href="#tanh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>tanh</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-528"></a><a href="#possible-use-528" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>tanh</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>tanh</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>tanh</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-492"></a><a href="#result-492" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).</p>
@@ -10863,22 +10863,22 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_min_of (each); <span class="hljs-comm
 <h3><a class="anchor" aria-hidden="true" id="with_precision"></a><a href="#with_precision" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>with_precision</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-572"></a><a href="#possible-use-572" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>geometry</code> <strong><code>with_precision</code></strong> <code>int</code> ---&gt;  <code>geometry</code></li>
-<li><strong><code>with_precision</code></strong> (<code>geometry</code> , <code>int</code>) ---&gt;  <code>geometry</code></li>
 <li><code>float</code> <strong><code>with_precision</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
 <li><strong><code>with_precision</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
+<li><code>geometry</code> <strong><code>with_precision</code></strong> <code>int</code> ---&gt;  <code>geometry</code></li>
+<li><strong><code>with_precision</code></strong> (<code>geometry</code> , <code>int</code>) ---&gt;  <code>geometry</code></li>
 <li><code>point</code> <strong><code>with_precision</code></strong> <code>int</code> ---&gt;  <code>point</code></li>
 <li><strong><code>with_precision</code></strong> (<code>point</code> , <code>int</code>) ---&gt;  <code>point</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-532"></a><a href="#result-532" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A geometry corresponding to the rounding of points of the operand considering a given precison.
-Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+<p>Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+A geometry corresponding to the rounding of points of the operand considering a given precison.
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-444"></a><a href="#examples-444" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var0 &lt;- self with_precision 2; <span class="hljs-comment">// var0 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. </span>
-<span class="hljs-literal">float</span> var1 &lt;- 12345.78943 with_precision 2; <span class="hljs-comment">// var1 equals 12345.79 </span>
-<span class="hljs-literal">float</span> var2 &lt;- 123 with_precision 2; <span class="hljs-comment">// var2 equals 123.00 </span>
+<span class="hljs-literal">float</span> var0 &lt;- 12345.78943 with_precision 2; <span class="hljs-comment">// var0 equals 12345.79 </span>
+<span class="hljs-literal">float</span> var1 &lt;- 123 with_precision 2; <span class="hljs-comment">// var1 equals 123.00 </span>
+<span class="hljs-literal">geometry</span> var2 &lt;- self with_precision 2; <span class="hljs-comment">// var2 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. </span>
 <span class="hljs-literal">point</span> var3 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; <span class="hljs-comment">// var3 equals {12345.79, 12345.79, 12345.79}</span>
 
 </code></pre>
