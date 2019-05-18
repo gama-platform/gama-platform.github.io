@@ -2624,7 +2624,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <li><code>integrated_times</code> (list): time interval inside integration process</li>
 <li><code>integrated_values</code> (list): list of variables's value inside integration process</li>
 <li><code>max_step</code> (float): maximal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value</li>
-<li><code>method</code> (an identifier), takes values in: {Euler, ThreeEighthes, Midpoint, Gill, Luther, rk4, dp853, AdamsBashforth, AdamsMoulton, DormandPrince54, GraggBulirschStoer, HighamHall54}: integrate method (can be only &quot;Euler&quot;, &quot;ThreeEighthes&quot;, &quot;Midpoint&quot;, &quot;Gill&quot;, &quot;Luther&quot;, &quot;rk4&quot; or &quot;dp853&quot;, &quot;AdamsBashforth&quot;, &quot;AdamsMoulton&quot;, &quot;DormandPrince54&quot;, &quot;GraggBulirschStoer&quot;,  &quot;HighamHall54&quot;) (default value: &quot;rk4&quot;)</li>
+<li><code>method</code> (string): integration method (can be one of &quot;Euler&quot;, &quot;ThreeEighthes&quot;, &quot;Midpoint&quot;, &quot;Gill&quot;, &quot;Luther&quot;, &quot;rk4&quot; or &quot;dp853&quot;, &quot;AdamsBashforth&quot;, &quot;AdamsMoulton&quot;, &quot;DormandPrince54&quot;, &quot;GraggBulirschStoer&quot;,  &quot;HighamHall54&quot;) (default value: &quot;rk4&quot;) or the corresponding constant</li>
 <li><code>min_step</code> (float): minimal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value</li>
 <li><code>nSteps</code> (float): Adams-Bashforth and Adams-Moulton methods only. The number of past steps used for computation excluding the one being computed (default value: 2</li>
 <li><code>scalAbsoluteTolerance</code> (float): allowed absolute error (used with dp853 method only)</li>
@@ -2640,7 +2640,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span> <span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span>0.001; 
+<pre><code class="hljs"><span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span> #rk4 <span class="hljs-symbol">step:</span>0.001; 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-74"></a><a href="#embedments-74" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
