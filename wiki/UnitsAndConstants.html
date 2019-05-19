@@ -85,751 +85,298 @@ These units represent the basic metric and US units. Composed and derived units 
 ... etc ...
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of Contents</h2>
-<p>&lt;wiki:toc max_depth=&quot;3&quot; /&gt;</p>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="constants"></a><a href="#constants" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Constants</h2>
+<pre><code class="hljs">[//]: # (keyword|constant_#AdamsBashforth)
+</code></pre>
 <ul>
-<li><strong><code>#AdamsBashforth</code></strong>, value= AdamsBashforth, Comment: AdamsBashforth solver</li>
-</ul>
-<ul>
-<li><strong><code>#AdamsMoulton</code></strong>, value= AdamsMoulton, Comment: AdamsMoulton solver</li>
-</ul>
-<ul>
-<li><strong><code>#current_error</code></strong>, value= , Comment: The text of the last error thrown during the current execution</li>
-</ul>
-<ul>
-<li><strong><code>#DormandPrince54</code></strong>, value= DormandPrince54, Comment: DormandPrince54 solver</li>
-</ul>
-<ul>
-<li><strong><code>#dp853</code></strong>, value= dp853, Comment: dp853 solver</li>
-</ul>
-<ul>
-<li><strong><code>#e</code></strong>, value= 2.718281828459045, Comment: The e constant</li>
-</ul>
-<ul>
-<li><strong><code>#Euler</code></strong>, value= Euler, Comment: Euler solver</li>
-</ul>
-<ul>
-<li><strong><code>#Gill</code></strong>, value= Gill, Comment: Gill solver</li>
-</ul>
-<ul>
-<li><strong><code>#GraggBulirschStoer</code></strong>, value= GraggBulirschStoer, Comment: GraggBulirschStoer solver</li>
-</ul>
-<ul>
-<li><strong><code>#HighamHall54</code></strong>, value= HighamHall54, Comment: HighamHall54 solver</li>
-</ul>
-<ul>
-<li><strong><code>#infinity</code></strong>, value= Infinity, Comment: A constant holding the positive infinity of type float (Java Double.POSITIVE_INFINITY)</li>
-</ul>
-<ul>
-<li><strong><code>#Luther</code></strong>, value= Luther, Comment: Luther solver</li>
-</ul>
-<ul>
-<li><strong><code>#max_float</code></strong>, value= 1.7976931348623157E308, Comment: A constant holding the largest positive finite value of type float (Java Double.MAX_VALUE)</li>
-</ul>
-<ul>
-<li><strong><code>#max_int</code></strong>, value= 2.147483647E9, Comment: A constant holding the maximum value an int can have (Java Integer.MAX_VALUE)</li>
-</ul>
-<ul>
-<li><strong><code>#Midpoint</code></strong>, value= Midpoint, Comment: Midpoint solver</li>
-</ul>
-<ul>
-<li><strong><code>#min_float</code></strong>, value= 4.9E-324, Comment: A constant holding the smallest positive nonzero value of type float (Java Double.MIN_VALUE)</li>
-</ul>
-<ul>
-<li><strong><code>#min_int</code></strong>, value= -2.147483648E9, Comment: A constant holding the minimum value an int can have (Java Integer.MIN_VALUE)</li>
-</ul>
-<ul>
-<li><strong><code>#nan</code></strong>, value= NaN, Comment: A constant holding a Not-a-Number (NaN) value of type float (Java Double.POSITIVE_INFINITY)</li>
-</ul>
-<ul>
-<li><strong><code>#pi</code></strong>, value= 3.141592653589793, Comment: The PI constant</li>
-</ul>
-<ul>
-<li><strong><code>#rk4</code></strong>, value= rk4, Comment: rk4 solver</li>
-</ul>
-<ul>
-<li><strong><code>#ThreeEighthes</code></strong>, value= ThreeEighthes, Comment: ThreeEighthes solver</li>
-</ul>
-<ul>
-<li><strong><code>#to_deg</code></strong>, value= 57.29577951308232, Comment: A constant holding the value to convert radians into degrees</li>
-</ul>
-<ul>
-<li><strong><code>#to_rad</code></strong>, value= 0.017453292519943295, Comment: A constant holding the value to convert degrees into radians</li>
+<li><p><strong><code>#AdamsBashforth</code></strong>, value= AdamsBashforth, Comment: AdamsBashforth solver</p></li>
+<li><p><strong><code>#AdamsMoulton</code></strong>, value= AdamsMoulton, Comment: AdamsMoulton solver</p></li>
+<li><p><strong><code>#current_error</code></strong>, value= , Comment: The text of the last error thrown during the current execution</p></li>
+<li><p><strong><code>#DormandPrince54</code></strong>, value= DormandPrince54, Comment: DormandPrince54 solver</p></li>
+<li><p><strong><code>#dp853</code></strong>, value= dp853, Comment: dp853 solver</p></li>
+<li><p><strong><code>#e</code></strong>, value= 2.718281828459045, Comment: The e constant</p></li>
+<li><p><strong><code>#Euler</code></strong>, value= Euler, Comment: Euler solver</p></li>
+<li><p><strong><code>#Gill</code></strong>, value= Gill, Comment: Gill solver</p></li>
+<li><p><strong><code>#GraggBulirschStoer</code></strong>, value= GraggBulirschStoer, Comment: GraggBulirschStoer solver</p></li>
+<li><p><strong><code>#HighamHall54</code></strong>, value= HighamHall54, Comment: HighamHall54 solver</p></li>
+<li><p><strong><code>#infinity</code></strong>, value= Infinity, Comment: A constant holding the positive infinity of type float (Java Double.POSITIVE_INFINITY)</p></li>
+<li><p><strong><code>#Luther</code></strong>, value= Luther, Comment: Luther solver</p></li>
+<li><p><strong><code>#max_float</code></strong>, value= 1.7976931348623157E308, Comment: A constant holding the largest positive finite value of type float (Java Double.MAX_VALUE)</p></li>
+<li><p><strong><code>#max_int</code></strong>, value= 2.147483647E9, Comment: A constant holding the maximum value an int can have (Java Integer.MAX_VALUE)</p></li>
+<li><p><strong><code>#Midpoint</code></strong>, value= Midpoint, Comment: Midpoint solver</p></li>
+<li><p><strong><code>#min_float</code></strong>, value= 4.9E-324, Comment: A constant holding the smallest positive nonzero value of type float (Java Double.MIN_VALUE)</p></li>
+<li><p><strong><code>#min_int</code></strong>, value= -2.147483648E9, Comment: A constant holding the minimum value an int can have (Java Integer.MIN_VALUE)</p></li>
+<li><p><strong><code>#nan</code></strong>, value= NaN, Comment: A constant holding a Not-a-Number (NaN) value of type float (Java Double.POSITIVE_INFINITY)</p></li>
+<li><p><strong><code>#pi</code></strong>, value= 3.141592653589793, Comment: The PI constant</p></li>
+<li><p><strong><code>#rk4</code></strong>, value= rk4, Comment: rk4 solver</p></li>
+<li><p><strong><code>#ThreeEighthes</code></strong>, value= ThreeEighthes, Comment: ThreeEighthes solver</p></li>
+<li><p><strong><code>#to_deg</code></strong>, value= 57.29577951308232, Comment: A constant holding the value to convert radians into degrees</p></li>
+<li><p><strong><code>#to_rad</code></strong>, value= 0.017453292519943295, Comment: A constant holding the value to convert degrees into radians</p></li>
 </ul>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="graphics-units"></a><a href="#graphics-units" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Graphics units</h2>
+<pre><code class="hljs">[//]: # (keyword|constant_#bold)
+</code></pre>
 <ul>
-<li><strong><code>#bold</code></strong>, value= 1, Comment: This constant allows to build a font with a bold face. Can be combined with #italic</li>
-</ul>
-<ul>
-<li><strong><code>#bottom_center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the bottom side of the text to draw</li>
-</ul>
-<ul>
-<li><strong><code>#bottom_left</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the bottom left corner of the text to draw</li>
-</ul>
-<ul>
-<li><strong><code>#bottom_right</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the bottom right corner of the text to draw</li>
-</ul>
-<ul>
-<li><strong><code>#camera_location</code></strong>, value= No Default Value, Comment: This unit, only available when running aspects or declaring displays, returns the current position of the camera as a point</li>
-</ul>
-<ul>
-<li><strong><code>#camera_orientation</code></strong>, value= No Default Value, Comment: This unit, only available when running aspects or declaring displays, returns the current orientation of the camera as a point</li>
-</ul>
-<ul>
-<li><strong><code>#camera_target</code></strong>, value= No Default Value, Comment: This unit, only available when running aspects or declaring displays, returns the current target of the camera as a point</li>
-</ul>
-<ul>
-<li><strong><code>#center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the text to draw</li>
-</ul>
-<ul>
-<li><strong><code>#display_height</code></strong>, value= 1.0, Comment: This constant is only accessible in a graphical context: display, graphics...</li>
-</ul>
-<ul>
-<li><strong><code>#display_width</code></strong>, value= 1.0, Comment: This constant is only accessible in a graphical context: display, graphics...</li>
-</ul>
-<ul>
-<li><strong><code>#flat</code></strong>, value= 2, Comment: This constant represents a flat line buffer end cap style</li>
-</ul>
-<ul>
-<li><strong><code>#horizontal</code></strong>, value= 3, Comment: This constant represents a layout where all display views are aligned horizontally</li>
-</ul>
-<ul>
-<li><strong><code>#italic</code></strong>, value= 2, Comment: This constant allows to build a font with an italic face. Can be combined with #bold</li>
-</ul>
-<ul>
-<li><strong><code>#left_center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the left side of the text to draw</li>
-</ul>
-<ul>
-<li><strong><code>#none</code></strong>, value= 0, Comment: This constant represents the absence of a predefined layout</li>
-</ul>
-<ul>
-<li><strong><code>#pixels</code></strong> (#px), value= 1.0, Comment: This unit, only available when running aspects or declaring displays,  returns a dynamic value instead of a fixed one. px (or pixels), returns the value of one pixel on the current view in terms of model units.</li>
-</ul>
-<ul>
-<li><strong><code>#plain</code></strong>, value= 0, Comment: This constant allows to build a font with a plain face</li>
-</ul>
-<ul>
-<li><strong><code>#right_center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the right side of the text to draw</li>
-</ul>
-<ul>
-<li><strong><code>#round</code></strong>, value= 1, Comment: This constant represents a round line buffer end cap style</li>
-</ul>
-<ul>
-<li><strong><code>#split</code></strong>, value= 2, Comment: This constant represents a layout where all display views are split in a grid-like structure</li>
-</ul>
-<ul>
-<li><strong><code>#square</code></strong>, value= 3, Comment: This constant represents a square line buffer end cap style</li>
-</ul>
-<ul>
-<li><strong><code>#stack</code></strong>, value= 1, Comment: This constant represents a layout where all display views are stacked</li>
-</ul>
-<ul>
-<li><strong><code>#top_center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the top side of the text to draw</li>
-</ul>
-<ul>
-<li><strong><code>#top_left</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the top left corner of the text to draw</li>
-</ul>
-<ul>
-<li><strong><code>#top_right</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the top right corner of the text to draw</li>
-</ul>
-<ul>
-<li><strong><code>#user_location</code></strong>, value= No Default Value, Comment: This unit contains in permanence the location of the mouse on the display in which it is situated. The latest location is provided when it is out of a display</li>
-</ul>
-<ul>
-<li><strong><code>#vertical</code></strong>, value= 4, Comment: This constant represents a layout where all display views are aligned vertically</li>
-</ul>
-<ul>
-<li><strong><code>#zoom</code></strong>, value= 1.0, Comment: This unit, only available when running aspects or declaring displays, returns the current zoom level of the display as a positive float, where 1.0 represent the neutral zoom (100%)</li>
+<li><p><strong><code>#bold</code></strong>, value= 1, Comment: This constant allows to build a font with a bold face. Can be combined with #italic</p></li>
+<li><p><strong><code>#bottom_center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the bottom side of the text to draw</p></li>
+<li><p><strong><code>#bottom_left</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the bottom left corner of the text to draw</p></li>
+<li><p><strong><code>#bottom_right</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the bottom right corner of the text to draw</p></li>
+<li><p><strong><code>#camera_location</code></strong>, value= No Default Value, Comment: This unit, only available when running aspects or declaring displays, returns the current position of the camera as a point</p></li>
+<li><p><strong><code>#camera_orientation</code></strong>, value= No Default Value, Comment: This unit, only available when running aspects or declaring displays, returns the current orientation of the camera as a point</p></li>
+<li><p><strong><code>#camera_target</code></strong>, value= No Default Value, Comment: This unit, only available when running aspects or declaring displays, returns the current target of the camera as a point</p></li>
+<li><p><strong><code>#center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the text to draw</p></li>
+<li><p><strong><code>#display_height</code></strong>, value= 1.0, Comment: This constant is only accessible in a graphical context: display, graphics...</p></li>
+<li><p><strong><code>#display_width</code></strong>, value= 1.0, Comment: This constant is only accessible in a graphical context: display, graphics...</p></li>
+<li><p><strong><code>#flat</code></strong>, value= 2, Comment: This constant represents a flat line buffer end cap style</p></li>
+<li><p><strong><code>#horizontal</code></strong>, value= 3, Comment: This constant represents a layout where all display views are aligned horizontally</p></li>
+<li><p><strong><code>#italic</code></strong>, value= 2, Comment: This constant allows to build a font with an italic face. Can be combined with #bold</p></li>
+<li><p><strong><code>#left_center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the left side of the text to draw</p></li>
+<li><p><strong><code>#none</code></strong>, value= 0, Comment: This constant represents the absence of a predefined layout</p></li>
+<li><p><strong><code>#pixels</code></strong> (#px), value= 1.0, Comment: This unit, only available when running aspects or declaring displays,  returns a dynamic value instead of a fixed one. px (or pixels), returns the value of one pixel on the current view in terms of model units.</p></li>
+<li><p><strong><code>#plain</code></strong>, value= 0, Comment: This constant allows to build a font with a plain face</p></li>
+<li><p><strong><code>#right_center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the right side of the text to draw</p></li>
+<li><p><strong><code>#round</code></strong>, value= 1, Comment: This constant represents a round line buffer end cap style</p></li>
+<li><p><strong><code>#split</code></strong>, value= 2, Comment: This constant represents a layout where all display views are split in a grid-like structure</p></li>
+<li><p><strong><code>#square</code></strong>, value= 3, Comment: This constant represents a square line buffer end cap style</p></li>
+<li><p><strong><code>#stack</code></strong>, value= 1, Comment: This constant represents a layout where all display views are stacked</p></li>
+<li><p><strong><code>#top_center</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the center of the top side of the text to draw</p></li>
+<li><p><strong><code>#top_left</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the top left corner of the text to draw</p></li>
+<li><p><strong><code>#top_right</code></strong>, value= No Default Value, Comment: Represents an anchor situated at the top right corner of the text to draw</p></li>
+<li><p><strong><code>#user_location</code></strong>, value= No Default Value, Comment: This unit contains in permanence the location of the mouse on the display in which it is situated. The latest location is provided when it is out of a display</p></li>
+<li><p><strong><code>#vertical</code></strong>, value= 4, Comment: This constant represents a layout where all display views are aligned vertically</p></li>
+<li><p><strong><code>#zoom</code></strong>, value= 1.0, Comment: This unit, only available when running aspects or declaring displays, returns the current zoom level of the display as a positive float, where 1.0 represent the neutral zoom (100%)</p></li>
 </ul>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="length-units"></a><a href="#length-units" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Length units</h2>
+<pre><code class="hljs">[//]: # (keyword|constant_#Âµm)
+</code></pre>
 <ul>
-<li><strong><code>#Âµm</code></strong> (#micrometer,#micrometers), value= 1.0E-6, Comment: micrometer unit</li>
-</ul>
-<ul>
-<li><strong><code>#cm</code></strong> (#centimeter,#centimeters), value= 0.01, Comment: centimeter unit</li>
-</ul>
-<ul>
-<li><strong><code>#dm</code></strong> (#decimeter,#decimeters), value= 0.1, Comment: decimeter unit</li>
-</ul>
-<ul>
-<li><strong><code>#foot</code></strong> (#feet,#ft), value= 0.3048, Comment: foot unit</li>
-</ul>
-<ul>
-<li><strong><code>#inch</code></strong> (#inches), value= 0.025400000000000002, Comment: inch unit</li>
-</ul>
-<ul>
-<li><strong><code>#km</code></strong> (#kilometer,#kilometers), value= 1000.0, Comment: kilometer unit</li>
-</ul>
-<ul>
-<li><strong><code>#m</code></strong> (#meter,#meters), value= 1.0, Comment: meter: the length basic unit</li>
-</ul>
-<ul>
-<li><strong><code>#mile</code></strong> (#miles), value= 1609.344, Comment: mile unit</li>
-</ul>
-<ul>
-<li><strong><code>#mm</code></strong> (#milimeter,#milimeters), value= 0.001, Comment: millimeter unit</li>
-</ul>
-<ul>
-<li><strong><code>#nm</code></strong> (#nanometer,#nanometers), value= 9.999999999999999E-10, Comment: nanometer unit</li>
-</ul>
-<ul>
-<li><strong><code>#yard</code></strong> (#yards), value= 0.9144, Comment: yard unit</li>
+<li><p><strong><code>#Âµm</code></strong> (#micrometer,#micrometers), value= 1.0E-6, Comment: micrometer unit</p></li>
+<li><p><strong><code>#cm</code></strong> (#centimeter,#centimeters), value= 0.01, Comment: centimeter unit</p></li>
+<li><p><strong><code>#dm</code></strong> (#decimeter,#decimeters), value= 0.1, Comment: decimeter unit</p></li>
+<li><p><strong><code>#foot</code></strong> (#feet,#ft), value= 0.3048, Comment: foot unit</p></li>
+<li><p><strong><code>#inch</code></strong> (#inches), value= 0.025400000000000002, Comment: inch unit</p></li>
+<li><p><strong><code>#km</code></strong> (#kilometer,#kilometers), value= 1000.0, Comment: kilometer unit</p></li>
+<li><p><strong><code>#m</code></strong> (#meter,#meters), value= 1.0, Comment: meter: the length basic unit</p></li>
+<li><p><strong><code>#mile</code></strong> (#miles), value= 1609.344, Comment: mile unit</p></li>
+<li><p><strong><code>#mm</code></strong> (#milimeter,#milimeters), value= 0.001, Comment: millimeter unit</p></li>
+<li><p><strong><code>#nm</code></strong> (#nanometer,#nanometers), value= 9.999999999999999E-10, Comment: nanometer unit</p></li>
+<li><p><strong><code>#yard</code></strong> (#yards), value= 0.9144, Comment: yard unit</p></li>
 </ul>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="surface-units"></a><a href="#surface-units" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Surface units</h2>
+<pre><code class="hljs">[//]: # (keyword|constant_#m2)
+</code></pre>
 <ul>
-<li><strong><code>#m2</code></strong>, value= 1.0, Comment: square meter: the basic unit for surfaces</li>
-</ul>
-<ul>
-<li><strong><code>#sqft</code></strong> (#square_foot,#square_feet), value= 0.09290304, Comment: square foot unit</li>
-</ul>
-<ul>
-<li><strong><code>#sqin</code></strong> (#square_inch,#square_inches), value= 6.451600000000001E-4, Comment: square inch unit</li>
-</ul>
-<ul>
-<li><strong><code>#sqmi</code></strong> (#square_mile,#square_miles), value= 2589988.110336, Comment: square mile unit</li>
+<li><p><strong><code>#m2</code></strong>, value= 1.0, Comment: square meter: the basic unit for surfaces</p></li>
+<li><p><strong><code>#sqft</code></strong> (#square_foot,#square_feet), value= 0.09290304, Comment: square foot unit</p></li>
+<li><p><strong><code>#sqin</code></strong> (#square_inch,#square_inches), value= 6.451600000000001E-4, Comment: square inch unit</p></li>
+<li><p><strong><code>#sqmi</code></strong> (#square_mile,#square_miles), value= 2589988.110336, Comment: square mile unit</p></li>
 </ul>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="time-units"></a><a href="#time-units" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Time units</h2>
+<pre><code class="hljs">[//]: # (keyword|constant_#custom)
+</code></pre>
 <ul>
-<li><strong><code>#custom</code></strong>, value= CUSTOM, Comment: custom: a custom date/time pattern that can be defined in the preferences of GAMA and reused in models</li>
-</ul>
-<ul>
-<li><strong><code>#cycle</code></strong> (#cycles), value= 1, Comment: cycle: the discrete measure of time in the simulation. Used to force a temporal expression to be expressed in terms of cycles rather than seconds</li>
-</ul>
-<ul>
-<li><strong><code>#day</code></strong> (#days), value= 86400.0, Comment: day time unit: defines an exact duration of 24 hours</li>
-</ul>
-<ul>
-<li><strong><code>#epoch</code></strong>, value= No Default Value, Comment: The epoch default starting date as defined by the ISO format (1970-01-01T00:00Z)</li>
-</ul>
-<ul>
-<li><strong><code>#h</code></strong> (#hour,#hours), value= 3600.0, Comment: hour time unit: defines an exact duration of 60 minutes</li>
-</ul>
-<ul>
-<li><strong><code>#iso_local</code></strong>, value= ISO_LOCAL_DATE_TIME, Comment: iso_local: the standard ISO 8601 output / parsing format for local dates (i.e. with no time-zone information)</li>
-</ul>
-<ul>
-<li><strong><code>#iso_offset</code></strong>, value= ISO_OFFSET_DATE_TIME, Comment: iso_offset: the standard ISO 8601 output / parsing format for dates with a time offset</li>
-</ul>
-<ul>
-<li><strong><code>#iso_zoned</code></strong>, value= ISO_ZONED_DATE_TIME, Comment: iso_zoned: the standard ISO 8601 output / parsing format for dates with a time zone</li>
-</ul>
-<ul>
-<li><strong><code>#minute</code></strong> (#minutes,#mn), value= 60.0, Comment: minute time unit: defined an exact duration of 60 seconds</li>
-</ul>
-<ul>
-<li><strong><code>#month</code></strong> (#months), value= 2592000.0, Comment: month time unit: defines an exact duration of 30 days. WARNING: this duration is of course not correct in terms of calendar</li>
-</ul>
-<ul>
-<li><strong><code>#msec</code></strong> (#millisecond,#milliseconds,#ms), value= 0.001, Comment: millisecond time unit: defines an exact duration of 0.001 second</li>
-</ul>
-<ul>
-<li><strong><code>#now</code></strong>, value= 1.0, Comment: This value represents the current date</li>
-</ul>
-<ul>
-<li><strong><code>#sec</code></strong> (#second,#seconds,#s), value= 1.0, Comment: second: the time basic unit, with a fixed value of 1. All other durations are expressed with respect to it</li>
-</ul>
-<ul>
-<li><strong><code>#week</code></strong> (#weeks), value= 604800.0, Comment: week time unit: defines an exact duration of 7 days</li>
-</ul>
-<ul>
-<li><strong><code>#year</code></strong> (#years,#y), value= 3.1536E7, Comment: year time unit: defines an exact duration of 365 days. WARNING: this duration is of course not correct in terms of calendar</li>
+<li><p><strong><code>#custom</code></strong>, value= CUSTOM, Comment: custom: a custom date/time pattern that can be defined in the preferences of GAMA and reused in models</p></li>
+<li><p><strong><code>#cycle</code></strong> (#cycles), value= 1, Comment: cycle: the discrete measure of time in the simulation. Used to force a temporal expression to be expressed in terms of cycles rather than seconds</p></li>
+<li><p><strong><code>#day</code></strong> (#days), value= 86400.0, Comment: day time unit: defines an exact duration of 24 hours</p></li>
+<li><p><strong><code>#epoch</code></strong>, value= No Default Value, Comment: The epoch default starting date as defined by the ISO format (1970-01-01T00:00Z)</p></li>
+<li><p><strong><code>#h</code></strong> (#hour,#hours), value= 3600.0, Comment: hour time unit: defines an exact duration of 60 minutes</p></li>
+<li><p><strong><code>#iso_local</code></strong>, value= ISO_LOCAL_DATE_TIME, Comment: iso_local: the standard ISO 8601 output / parsing format for local dates (i.e. with no time-zone information)</p></li>
+<li><p><strong><code>#iso_offset</code></strong>, value= ISO_OFFSET_DATE_TIME, Comment: iso_offset: the standard ISO 8601 output / parsing format for dates with a time offset</p></li>
+<li><p><strong><code>#iso_zoned</code></strong>, value= ISO_ZONED_DATE_TIME, Comment: iso_zoned: the standard ISO 8601 output / parsing format for dates with a time zone</p></li>
+<li><p><strong><code>#minute</code></strong> (#minutes,#mn), value= 60.0, Comment: minute time unit: defined an exact duration of 60 seconds</p></li>
+<li><p><strong><code>#month</code></strong> (#months), value= 2592000.0, Comment: month time unit: defines an exact duration of 30 days. WARNING: this duration is of course not correct in terms of calendar</p></li>
+<li><p><strong><code>#msec</code></strong> (#millisecond,#milliseconds,#ms), value= 0.001, Comment: millisecond time unit: defines an exact duration of 0.001 second</p></li>
+<li><p><strong><code>#now</code></strong>, value= 1.0, Comment: This value represents the current date</p></li>
+<li><p><strong><code>#sec</code></strong> (#second,#seconds,#s), value= 1.0, Comment: second: the time basic unit, with a fixed value of 1. All other durations are expressed with respect to it</p></li>
+<li><p><strong><code>#week</code></strong> (#weeks), value= 604800.0, Comment: week time unit: defines an exact duration of 7 days</p></li>
+<li><p><strong><code>#year</code></strong> (#years,#y), value= 3.1536E7, Comment: year time unit: defines an exact duration of 365 days. WARNING: this duration is of course not correct in terms of calendar</p></li>
 </ul>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="volume-units"></a><a href="#volume-units" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Volume units</h2>
+<pre><code class="hljs">[//]: # (keyword|constant_#cl)
+</code></pre>
 <ul>
-<li><strong><code>#cl</code></strong> (#centiliter,#centiliters), value= 1.0E-5, Comment: centiliter unit</li>
-</ul>
-<ul>
-<li><strong><code>#dl</code></strong> (#deciliter,#deciliters), value= 1.0E-4, Comment: deciliter unit</li>
-</ul>
-<ul>
-<li><strong><code>#hl</code></strong> (#hectoliter,#hectoliters), value= 0.1, Comment: hectoliter unit</li>
-</ul>
-<ul>
-<li><strong><code>#l</code></strong> (#liter,#liters,#dm3), value= 0.001, Comment: liter unit</li>
-</ul>
-<ul>
-<li><strong><code>#m3</code></strong>, value= 1.0, Comment: cube meter: the basic unit for volumes</li>
+<li><p><strong><code>#cl</code></strong> (#centiliter,#centiliters), value= 1.0E-5, Comment: centiliter unit</p></li>
+<li><p><strong><code>#dl</code></strong> (#deciliter,#deciliters), value= 1.0E-4, Comment: deciliter unit</p></li>
+<li><p><strong><code>#hl</code></strong> (#hectoliter,#hectoliters), value= 0.1, Comment: hectoliter unit</p></li>
+<li><p><strong><code>#l</code></strong> (#liter,#liters,#dm3), value= 0.001, Comment: liter unit</p></li>
+<li><p><strong><code>#m3</code></strong>, value= 1.0, Comment: cube meter: the basic unit for volumes</p></li>
 </ul>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="weight-units"></a><a href="#weight-units" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Weight units</h2>
+<pre><code class="hljs">[//]: # (keyword|constant_#gram)
+</code></pre>
 <ul>
-<li><strong><code>#gram</code></strong> (#grams), value= 0.001, Comment: gram unit</li>
-</ul>
-<ul>
-<li><strong><code>#kg</code></strong> (#kilo,#kilogram,#kilos), value= 1.0, Comment: second: the basic unit for weights</li>
-</ul>
-<ul>
-<li><strong><code>#longton</code></strong> (#lton), value= 1016.0469088000001, Comment: short ton unit</li>
-</ul>
-<ul>
-<li><strong><code>#ounce</code></strong> (#oz,#ounces), value= 0.028349523125, Comment: ounce unit</li>
-</ul>
-<ul>
-<li><strong><code>#pound</code></strong> (#lb,#pounds,#lbm), value= 0.45359237, Comment: pound unit</li>
-</ul>
-<ul>
-<li><strong><code>#shortton</code></strong> (#ston), value= 907.18474, Comment: short ton unit</li>
-</ul>
-<ul>
-<li><strong><code>#stone</code></strong> (#st), value= 6.35029318, Comment: stone unit</li>
-</ul>
-<ul>
-<li><strong><code>#ton</code></strong> (#tons), value= 1000.0, Comment: ton unit</li>
+<li><p><strong><code>#gram</code></strong> (#grams), value= 0.001, Comment: gram unit</p></li>
+<li><p><strong><code>#kg</code></strong> (#kilo,#kilogram,#kilos), value= 1.0, Comment: second: the basic unit for weights</p></li>
+<li><p><strong><code>#longton</code></strong> (#lton), value= 1016.0469088000001, Comment: short ton unit</p></li>
+<li><p><strong><code>#ounce</code></strong> (#oz,#ounces), value= 0.028349523125, Comment: ounce unit</p></li>
+<li><p><strong><code>#pound</code></strong> (#lb,#pounds,#lbm), value= 0.45359237, Comment: pound unit</p></li>
+<li><p><strong><code>#shortton</code></strong> (#ston), value= 907.18474, Comment: short ton unit</p></li>
+<li><p><strong><code>#stone</code></strong> (#st), value= 6.35029318, Comment: stone unit</p></li>
+<li><p><strong><code>#ton</code></strong> (#tons), value= 1000.0, Comment: ton unit</p></li>
 </ul>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="colors"></a><a href="#colors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Colors</h2>
 <p>In addition to the previous units, GAML provides a direct access to the 147 named colors defined in CSS (see <a href="http://www.cssportal.com/css3-color-names/">http://www.cssportal.com/css3-color-names/</a>). E.g,</p>
 <pre><code class="hljs"><span class="hljs-literal">rgb</span> my_color &lt;- °teal;
 </code></pre>
-<ul>
-<li><strong><code>#aliceblue</code></strong>, value= r=240, g=248, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#antiquewhite</code></strong>, value= r=250, g=235, b=215, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#aqua</code></strong>, value= r=0, g=255, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#aquamarine</code></strong>, value= r=127, g=255, b=212, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#azure</code></strong>, value= r=240, g=255, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#beige</code></strong>, value= r=245, g=245, b=220, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#bisque</code></strong>, value= r=255, g=228, b=196, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#black</code></strong>, value= r=0, g=0, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#blanchedalmond</code></strong>, value= r=255, g=235, b=205, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#blue</code></strong>, value= r=0, g=0, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#blueviolet</code></strong>, value= r=138, g=43, b=226, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#brown</code></strong>, value= r=165, g=42, b=42, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#burlywood</code></strong>, value= r=222, g=184, b=135, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#cadetblue</code></strong>, value= r=95, g=158, b=160, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#chartreuse</code></strong>, value= r=127, g=255, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#chocolate</code></strong>, value= r=210, g=105, b=30, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#coral</code></strong>, value= r=255, g=127, b=80, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#cornflowerblue</code></strong>, value= r=100, g=149, b=237, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#cornsilk</code></strong>, value= r=255, g=248, b=220, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#crimson</code></strong>, value= r=220, g=20, b=60, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#cyan</code></strong>, value= r=0, g=255, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkblue</code></strong>, value= r=0, g=0, b=139, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkcyan</code></strong>, value= r=0, g=139, b=139, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkgoldenrod</code></strong>, value= r=184, g=134, b=11, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkgray</code></strong>, value= r=169, g=169, b=169, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkgreen</code></strong>, value= r=0, g=100, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkgrey</code></strong>, value= r=169, g=169, b=169, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkkhaki</code></strong>, value= r=189, g=183, b=107, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkmagenta</code></strong>, value= r=139, g=0, b=139, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkolivegreen</code></strong>, value= r=85, g=107, b=47, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkorange</code></strong>, value= r=255, g=140, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkorchid</code></strong>, value= r=153, g=50, b=204, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkred</code></strong>, value= r=139, g=0, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darksalmon</code></strong>, value= r=233, g=150, b=122, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkseagreen</code></strong>, value= r=143, g=188, b=143, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkslateblue</code></strong>, value= r=72, g=61, b=139, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkslategray</code></strong>, value= r=47, g=79, b=79, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkslategrey</code></strong>, value= r=47, g=79, b=79, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkturquoise</code></strong>, value= r=0, g=206, b=209, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#darkviolet</code></strong>, value= r=148, g=0, b=211, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#deeppink</code></strong>, value= r=255, g=20, b=147, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#deepskyblue</code></strong>, value= r=0, g=191, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#dimgray</code></strong>, value= r=105, g=105, b=105, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#dimgrey</code></strong>, value= r=105, g=105, b=105, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#dodgerblue</code></strong>, value= r=30, g=144, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#firebrick</code></strong>, value= r=178, g=34, b=34, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#floralwhite</code></strong>, value= r=255, g=250, b=240, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#forestgreen</code></strong>, value= r=34, g=139, b=34, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#fuchsia</code></strong>, value= r=255, g=0, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#gainsboro</code></strong>, value= r=220, g=220, b=220, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#ghostwhite</code></strong>, value= r=248, g=248, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#gold</code></strong>, value= r=255, g=215, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#goldenrod</code></strong>, value= r=218, g=165, b=32, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#gray</code></strong>, value= r=128, g=128, b=128, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#green</code></strong>, value= r=0, g=128, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#greenyellow</code></strong>, value= r=173, g=255, b=47, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#grey</code></strong>, value= r=128, g=128, b=128, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#honeydew</code></strong>, value= r=240, g=255, b=240, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#hotpink</code></strong>, value= r=255, g=105, b=180, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#indianred</code></strong>, value= r=205, g=92, b=92, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#indigo</code></strong>, value= r=75, g=0, b=130, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#ivory</code></strong>, value= r=255, g=255, b=240, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#khaki</code></strong>, value= r=240, g=230, b=140, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lavender</code></strong>, value= r=230, g=230, b=250, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lavenderblush</code></strong>, value= r=255, g=240, b=245, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lawngreen</code></strong>, value= r=124, g=252, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lemonchiffon</code></strong>, value= r=255, g=250, b=205, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightblue</code></strong>, value= r=173, g=216, b=230, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightcoral</code></strong>, value= r=240, g=128, b=128, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightcyan</code></strong>, value= r=224, g=255, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightgoldenrodyellow</code></strong>, value= r=250, g=250, b=210, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightgray</code></strong>, value= r=211, g=211, b=211, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightgreen</code></strong>, value= r=144, g=238, b=144, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightgrey</code></strong>, value= r=211, g=211, b=211, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightpink</code></strong>, value= r=255, g=182, b=193, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightsalmon</code></strong>, value= r=255, g=160, b=122, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightseagreen</code></strong>, value= r=32, g=178, b=170, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightskyblue</code></strong>, value= r=135, g=206, b=250, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightslategray</code></strong>, value= r=119, g=136, b=153, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightslategrey</code></strong>, value= r=119, g=136, b=153, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightsteelblue</code></strong>, value= r=176, g=196, b=222, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lightyellow</code></strong>, value= r=255, g=255, b=224, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#lime</code></strong>, value= r=0, g=255, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#limegreen</code></strong>, value= r=50, g=205, b=50, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#linen</code></strong>, value= r=250, g=240, b=230, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#magenta</code></strong>, value= r=255, g=0, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#maroon</code></strong>, value= r=128, g=0, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mediumaquamarine</code></strong>, value= r=102, g=205, b=170, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mediumblue</code></strong>, value= r=0, g=0, b=205, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mediumorchid</code></strong>, value= r=186, g=85, b=211, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mediumpurple</code></strong>, value= r=147, g=112, b=219, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mediumseagreen</code></strong>, value= r=60, g=179, b=113, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mediumslateblue</code></strong>, value= r=123, g=104, b=238, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mediumspringgreen</code></strong>, value= r=0, g=250, b=154, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mediumturquoise</code></strong>, value= r=72, g=209, b=204, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mediumvioletred</code></strong>, value= r=199, g=21, b=133, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#midnightblue</code></strong>, value= r=25, g=25, b=112, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mintcream</code></strong>, value= r=245, g=255, b=250, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#mistyrose</code></strong>, value= r=255, g=228, b=225, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#moccasin</code></strong>, value= r=255, g=228, b=181, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#navajowhite</code></strong>, value= r=255, g=222, b=173, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#navy</code></strong>, value= r=0, g=0, b=128, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#oldlace</code></strong>, value= r=253, g=245, b=230, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#olive</code></strong>, value= r=128, g=128, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#olivedrab</code></strong>, value= r=107, g=142, b=35, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#orange</code></strong>, value= r=255, g=165, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#orangered</code></strong>, value= r=255, g=69, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#orchid</code></strong>, value= r=218, g=112, b=214, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#palegoldenrod</code></strong>, value= r=238, g=232, b=170, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#palegreen</code></strong>, value= r=152, g=251, b=152, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#paleturquoise</code></strong>, value= r=175, g=238, b=238, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#palevioletred</code></strong>, value= r=219, g=112, b=147, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#papayawhip</code></strong>, value= r=255, g=239, b=213, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#peachpuff</code></strong>, value= r=255, g=218, b=185, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#peru</code></strong>, value= r=205, g=133, b=63, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#pink</code></strong>, value= r=255, g=192, b=203, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#plum</code></strong>, value= r=221, g=160, b=221, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#powderblue</code></strong>, value= r=176, g=224, b=230, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#purple</code></strong>, value= r=128, g=0, b=128, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#red</code></strong>, value= r=255, g=0, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#rosybrown</code></strong>, value= r=188, g=143, b=143, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#royalblue</code></strong>, value= r=65, g=105, b=225, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#saddlebrown</code></strong>, value= r=139, g=69, b=19, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#salmon</code></strong>, value= r=250, g=128, b=114, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#sandybrown</code></strong>, value= r=244, g=164, b=96, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#seagreen</code></strong>, value= r=46, g=139, b=87, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#seashell</code></strong>, value= r=255, g=245, b=238, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#sienna</code></strong>, value= r=160, g=82, b=45, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#silver</code></strong>, value= r=192, g=192, b=192, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#skyblue</code></strong>, value= r=135, g=206, b=235, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#slateblue</code></strong>, value= r=106, g=90, b=205, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#slategray</code></strong>, value= r=112, g=128, b=144, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#slategrey</code></strong>, value= r=112, g=128, b=144, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#snow</code></strong>, value= r=255, g=250, b=250, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#springgreen</code></strong>, value= r=0, g=255, b=127, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#steelblue</code></strong>, value= r=70, g=130, b=180, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#tan</code></strong>, value= r=210, g=180, b=140, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#teal</code></strong>, value= r=0, g=128, b=128, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#thistle</code></strong>, value= r=216, g=191, b=216, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#tomato</code></strong>, value= r=255, g=99, b=71, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#transparent</code></strong>, value= r=0, g=0, b=0, alpha=0</li>
-</ul>
-<ul>
-<li><strong><code>#turquoise</code></strong>, value= r=64, g=224, b=208, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#violet</code></strong>, value= r=238, g=130, b=238, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#wheat</code></strong>, value= r=245, g=222, b=179, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#white</code></strong>, value= r=255, g=255, b=255, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#whitesmoke</code></strong>, value= r=245, g=245, b=245, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#yellow</code></strong>, value= r=255, g=255, b=0, alpha=1</li>
-</ul>
-<ul>
-<li><strong><code>#yellowgreen</code></strong>, value= r=154, g=205, b=50, alpha=1</li>
+<pre><code class="hljs">[//]: # (keyword|constant_#aliceblue)
+</code></pre>
+<ul>
+<li><p><strong><code>#aliceblue</code></strong>, value= r=240, g=248, b=255, alpha=1</p></li>
+<li><p><strong><code>#antiquewhite</code></strong>, value= r=250, g=235, b=215, alpha=1</p></li>
+<li><p><strong><code>#aqua</code></strong>, value= r=0, g=255, b=255, alpha=1</p></li>
+<li><p><strong><code>#aquamarine</code></strong>, value= r=127, g=255, b=212, alpha=1</p></li>
+<li><p><strong><code>#azure</code></strong>, value= r=240, g=255, b=255, alpha=1</p></li>
+<li><p><strong><code>#beige</code></strong>, value= r=245, g=245, b=220, alpha=1</p></li>
+<li><p><strong><code>#bisque</code></strong>, value= r=255, g=228, b=196, alpha=1</p></li>
+<li><p><strong><code>#black</code></strong>, value= r=0, g=0, b=0, alpha=1</p></li>
+<li><p><strong><code>#blanchedalmond</code></strong>, value= r=255, g=235, b=205, alpha=1</p></li>
+<li><p><strong><code>#blue</code></strong>, value= r=0, g=0, b=255, alpha=1</p></li>
+<li><p><strong><code>#blueviolet</code></strong>, value= r=138, g=43, b=226, alpha=1</p></li>
+<li><p><strong><code>#brown</code></strong>, value= r=165, g=42, b=42, alpha=1</p></li>
+<li><p><strong><code>#burlywood</code></strong>, value= r=222, g=184, b=135, alpha=1</p></li>
+<li><p><strong><code>#cadetblue</code></strong>, value= r=95, g=158, b=160, alpha=1</p></li>
+<li><p><strong><code>#chartreuse</code></strong>, value= r=127, g=255, b=0, alpha=1</p></li>
+<li><p><strong><code>#chocolate</code></strong>, value= r=210, g=105, b=30, alpha=1</p></li>
+<li><p><strong><code>#coral</code></strong>, value= r=255, g=127, b=80, alpha=1</p></li>
+<li><p><strong><code>#cornflowerblue</code></strong>, value= r=100, g=149, b=237, alpha=1</p></li>
+<li><p><strong><code>#cornsilk</code></strong>, value= r=255, g=248, b=220, alpha=1</p></li>
+<li><p><strong><code>#crimson</code></strong>, value= r=220, g=20, b=60, alpha=1</p></li>
+<li><p><strong><code>#cyan</code></strong>, value= r=0, g=255, b=255, alpha=1</p></li>
+<li><p><strong><code>#darkblue</code></strong>, value= r=0, g=0, b=139, alpha=1</p></li>
+<li><p><strong><code>#darkcyan</code></strong>, value= r=0, g=139, b=139, alpha=1</p></li>
+<li><p><strong><code>#darkgoldenrod</code></strong>, value= r=184, g=134, b=11, alpha=1</p></li>
+<li><p><strong><code>#darkgray</code></strong>, value= r=169, g=169, b=169, alpha=1</p></li>
+<li><p><strong><code>#darkgreen</code></strong>, value= r=0, g=100, b=0, alpha=1</p></li>
+<li><p><strong><code>#darkgrey</code></strong>, value= r=169, g=169, b=169, alpha=1</p></li>
+<li><p><strong><code>#darkkhaki</code></strong>, value= r=189, g=183, b=107, alpha=1</p></li>
+<li><p><strong><code>#darkmagenta</code></strong>, value= r=139, g=0, b=139, alpha=1</p></li>
+<li><p><strong><code>#darkolivegreen</code></strong>, value= r=85, g=107, b=47, alpha=1</p></li>
+<li><p><strong><code>#darkorange</code></strong>, value= r=255, g=140, b=0, alpha=1</p></li>
+<li><p><strong><code>#darkorchid</code></strong>, value= r=153, g=50, b=204, alpha=1</p></li>
+<li><p><strong><code>#darkred</code></strong>, value= r=139, g=0, b=0, alpha=1</p></li>
+<li><p><strong><code>#darksalmon</code></strong>, value= r=233, g=150, b=122, alpha=1</p></li>
+<li><p><strong><code>#darkseagreen</code></strong>, value= r=143, g=188, b=143, alpha=1</p></li>
+<li><p><strong><code>#darkslateblue</code></strong>, value= r=72, g=61, b=139, alpha=1</p></li>
+<li><p><strong><code>#darkslategray</code></strong>, value= r=47, g=79, b=79, alpha=1</p></li>
+<li><p><strong><code>#darkslategrey</code></strong>, value= r=47, g=79, b=79, alpha=1</p></li>
+<li><p><strong><code>#darkturquoise</code></strong>, value= r=0, g=206, b=209, alpha=1</p></li>
+<li><p><strong><code>#darkviolet</code></strong>, value= r=148, g=0, b=211, alpha=1</p></li>
+<li><p><strong><code>#deeppink</code></strong>, value= r=255, g=20, b=147, alpha=1</p></li>
+<li><p><strong><code>#deepskyblue</code></strong>, value= r=0, g=191, b=255, alpha=1</p></li>
+<li><p><strong><code>#dimgray</code></strong>, value= r=105, g=105, b=105, alpha=1</p></li>
+<li><p><strong><code>#dimgrey</code></strong>, value= r=105, g=105, b=105, alpha=1</p></li>
+<li><p><strong><code>#dodgerblue</code></strong>, value= r=30, g=144, b=255, alpha=1</p></li>
+<li><p><strong><code>#firebrick</code></strong>, value= r=178, g=34, b=34, alpha=1</p></li>
+<li><p><strong><code>#floralwhite</code></strong>, value= r=255, g=250, b=240, alpha=1</p></li>
+<li><p><strong><code>#forestgreen</code></strong>, value= r=34, g=139, b=34, alpha=1</p></li>
+<li><p><strong><code>#fuchsia</code></strong>, value= r=255, g=0, b=255, alpha=1</p></li>
+<li><p><strong><code>#gainsboro</code></strong>, value= r=220, g=220, b=220, alpha=1</p></li>
+<li><p><strong><code>#ghostwhite</code></strong>, value= r=248, g=248, b=255, alpha=1</p></li>
+<li><p><strong><code>#gold</code></strong>, value= r=255, g=215, b=0, alpha=1</p></li>
+<li><p><strong><code>#goldenrod</code></strong>, value= r=218, g=165, b=32, alpha=1</p></li>
+<li><p><strong><code>#gray</code></strong>, value= r=128, g=128, b=128, alpha=1</p></li>
+<li><p><strong><code>#green</code></strong>, value= r=0, g=128, b=0, alpha=1</p></li>
+<li><p><strong><code>#greenyellow</code></strong>, value= r=173, g=255, b=47, alpha=1</p></li>
+<li><p><strong><code>#grey</code></strong>, value= r=128, g=128, b=128, alpha=1</p></li>
+<li><p><strong><code>#honeydew</code></strong>, value= r=240, g=255, b=240, alpha=1</p></li>
+<li><p><strong><code>#hotpink</code></strong>, value= r=255, g=105, b=180, alpha=1</p></li>
+<li><p><strong><code>#indianred</code></strong>, value= r=205, g=92, b=92, alpha=1</p></li>
+<li><p><strong><code>#indigo</code></strong>, value= r=75, g=0, b=130, alpha=1</p></li>
+<li><p><strong><code>#ivory</code></strong>, value= r=255, g=255, b=240, alpha=1</p></li>
+<li><p><strong><code>#khaki</code></strong>, value= r=240, g=230, b=140, alpha=1</p></li>
+<li><p><strong><code>#lavender</code></strong>, value= r=230, g=230, b=250, alpha=1</p></li>
+<li><p><strong><code>#lavenderblush</code></strong>, value= r=255, g=240, b=245, alpha=1</p></li>
+<li><p><strong><code>#lawngreen</code></strong>, value= r=124, g=252, b=0, alpha=1</p></li>
+<li><p><strong><code>#lemonchiffon</code></strong>, value= r=255, g=250, b=205, alpha=1</p></li>
+<li><p><strong><code>#lightblue</code></strong>, value= r=173, g=216, b=230, alpha=1</p></li>
+<li><p><strong><code>#lightcoral</code></strong>, value= r=240, g=128, b=128, alpha=1</p></li>
+<li><p><strong><code>#lightcyan</code></strong>, value= r=224, g=255, b=255, alpha=1</p></li>
+<li><p><strong><code>#lightgoldenrodyellow</code></strong>, value= r=250, g=250, b=210, alpha=1</p></li>
+<li><p><strong><code>#lightgray</code></strong>, value= r=211, g=211, b=211, alpha=1</p></li>
+<li><p><strong><code>#lightgreen</code></strong>, value= r=144, g=238, b=144, alpha=1</p></li>
+<li><p><strong><code>#lightgrey</code></strong>, value= r=211, g=211, b=211, alpha=1</p></li>
+<li><p><strong><code>#lightpink</code></strong>, value= r=255, g=182, b=193, alpha=1</p></li>
+<li><p><strong><code>#lightsalmon</code></strong>, value= r=255, g=160, b=122, alpha=1</p></li>
+<li><p><strong><code>#lightseagreen</code></strong>, value= r=32, g=178, b=170, alpha=1</p></li>
+<li><p><strong><code>#lightskyblue</code></strong>, value= r=135, g=206, b=250, alpha=1</p></li>
+<li><p><strong><code>#lightslategray</code></strong>, value= r=119, g=136, b=153, alpha=1</p></li>
+<li><p><strong><code>#lightslategrey</code></strong>, value= r=119, g=136, b=153, alpha=1</p></li>
+<li><p><strong><code>#lightsteelblue</code></strong>, value= r=176, g=196, b=222, alpha=1</p></li>
+<li><p><strong><code>#lightyellow</code></strong>, value= r=255, g=255, b=224, alpha=1</p></li>
+<li><p><strong><code>#lime</code></strong>, value= r=0, g=255, b=0, alpha=1</p></li>
+<li><p><strong><code>#limegreen</code></strong>, value= r=50, g=205, b=50, alpha=1</p></li>
+<li><p><strong><code>#linen</code></strong>, value= r=250, g=240, b=230, alpha=1</p></li>
+<li><p><strong><code>#magenta</code></strong>, value= r=255, g=0, b=255, alpha=1</p></li>
+<li><p><strong><code>#maroon</code></strong>, value= r=128, g=0, b=0, alpha=1</p></li>
+<li><p><strong><code>#mediumaquamarine</code></strong>, value= r=102, g=205, b=170, alpha=1</p></li>
+<li><p><strong><code>#mediumblue</code></strong>, value= r=0, g=0, b=205, alpha=1</p></li>
+<li><p><strong><code>#mediumorchid</code></strong>, value= r=186, g=85, b=211, alpha=1</p></li>
+<li><p><strong><code>#mediumpurple</code></strong>, value= r=147, g=112, b=219, alpha=1</p></li>
+<li><p><strong><code>#mediumseagreen</code></strong>, value= r=60, g=179, b=113, alpha=1</p></li>
+<li><p><strong><code>#mediumslateblue</code></strong>, value= r=123, g=104, b=238, alpha=1</p></li>
+<li><p><strong><code>#mediumspringgreen</code></strong>, value= r=0, g=250, b=154, alpha=1</p></li>
+<li><p><strong><code>#mediumturquoise</code></strong>, value= r=72, g=209, b=204, alpha=1</p></li>
+<li><p><strong><code>#mediumvioletred</code></strong>, value= r=199, g=21, b=133, alpha=1</p></li>
+<li><p><strong><code>#midnightblue</code></strong>, value= r=25, g=25, b=112, alpha=1</p></li>
+<li><p><strong><code>#mintcream</code></strong>, value= r=245, g=255, b=250, alpha=1</p></li>
+<li><p><strong><code>#mistyrose</code></strong>, value= r=255, g=228, b=225, alpha=1</p></li>
+<li><p><strong><code>#moccasin</code></strong>, value= r=255, g=228, b=181, alpha=1</p></li>
+<li><p><strong><code>#navajowhite</code></strong>, value= r=255, g=222, b=173, alpha=1</p></li>
+<li><p><strong><code>#navy</code></strong>, value= r=0, g=0, b=128, alpha=1</p></li>
+<li><p><strong><code>#oldlace</code></strong>, value= r=253, g=245, b=230, alpha=1</p></li>
+<li><p><strong><code>#olive</code></strong>, value= r=128, g=128, b=0, alpha=1</p></li>
+<li><p><strong><code>#olivedrab</code></strong>, value= r=107, g=142, b=35, alpha=1</p></li>
+<li><p><strong><code>#orange</code></strong>, value= r=255, g=165, b=0, alpha=1</p></li>
+<li><p><strong><code>#orangered</code></strong>, value= r=255, g=69, b=0, alpha=1</p></li>
+<li><p><strong><code>#orchid</code></strong>, value= r=218, g=112, b=214, alpha=1</p></li>
+<li><p><strong><code>#palegoldenrod</code></strong>, value= r=238, g=232, b=170, alpha=1</p></li>
+<li><p><strong><code>#palegreen</code></strong>, value= r=152, g=251, b=152, alpha=1</p></li>
+<li><p><strong><code>#paleturquoise</code></strong>, value= r=175, g=238, b=238, alpha=1</p></li>
+<li><p><strong><code>#palevioletred</code></strong>, value= r=219, g=112, b=147, alpha=1</p></li>
+<li><p><strong><code>#papayawhip</code></strong>, value= r=255, g=239, b=213, alpha=1</p></li>
+<li><p><strong><code>#peachpuff</code></strong>, value= r=255, g=218, b=185, alpha=1</p></li>
+<li><p><strong><code>#peru</code></strong>, value= r=205, g=133, b=63, alpha=1</p></li>
+<li><p><strong><code>#pink</code></strong>, value= r=255, g=192, b=203, alpha=1</p></li>
+<li><p><strong><code>#plum</code></strong>, value= r=221, g=160, b=221, alpha=1</p></li>
+<li><p><strong><code>#powderblue</code></strong>, value= r=176, g=224, b=230, alpha=1</p></li>
+<li><p><strong><code>#purple</code></strong>, value= r=128, g=0, b=128, alpha=1</p></li>
+<li><p><strong><code>#red</code></strong>, value= r=255, g=0, b=0, alpha=1</p></li>
+<li><p><strong><code>#rosybrown</code></strong>, value= r=188, g=143, b=143, alpha=1</p></li>
+<li><p><strong><code>#royalblue</code></strong>, value= r=65, g=105, b=225, alpha=1</p></li>
+<li><p><strong><code>#saddlebrown</code></strong>, value= r=139, g=69, b=19, alpha=1</p></li>
+<li><p><strong><code>#salmon</code></strong>, value= r=250, g=128, b=114, alpha=1</p></li>
+<li><p><strong><code>#sandybrown</code></strong>, value= r=244, g=164, b=96, alpha=1</p></li>
+<li><p><strong><code>#seagreen</code></strong>, value= r=46, g=139, b=87, alpha=1</p></li>
+<li><p><strong><code>#seashell</code></strong>, value= r=255, g=245, b=238, alpha=1</p></li>
+<li><p><strong><code>#sienna</code></strong>, value= r=160, g=82, b=45, alpha=1</p></li>
+<li><p><strong><code>#silver</code></strong>, value= r=192, g=192, b=192, alpha=1</p></li>
+<li><p><strong><code>#skyblue</code></strong>, value= r=135, g=206, b=235, alpha=1</p></li>
+<li><p><strong><code>#slateblue</code></strong>, value= r=106, g=90, b=205, alpha=1</p></li>
+<li><p><strong><code>#slategray</code></strong>, value= r=112, g=128, b=144, alpha=1</p></li>
+<li><p><strong><code>#slategrey</code></strong>, value= r=112, g=128, b=144, alpha=1</p></li>
+<li><p><strong><code>#snow</code></strong>, value= r=255, g=250, b=250, alpha=1</p></li>
+<li><p><strong><code>#springgreen</code></strong>, value= r=0, g=255, b=127, alpha=1</p></li>
+<li><p><strong><code>#steelblue</code></strong>, value= r=70, g=130, b=180, alpha=1</p></li>
+<li><p><strong><code>#tan</code></strong>, value= r=210, g=180, b=140, alpha=1</p></li>
+<li><p><strong><code>#teal</code></strong>, value= r=0, g=128, b=128, alpha=1</p></li>
+<li><p><strong><code>#thistle</code></strong>, value= r=216, g=191, b=216, alpha=1</p></li>
+<li><p><strong><code>#tomato</code></strong>, value= r=255, g=99, b=71, alpha=1</p></li>
+<li><p><strong><code>#transparent</code></strong>, value= r=0, g=0, b=0, alpha=0</p></li>
+<li><p><strong><code>#turquoise</code></strong>, value= r=64, g=224, b=208, alpha=1</p></li>
+<li><p><strong><code>#violet</code></strong>, value= r=238, g=130, b=238, alpha=1</p></li>
+<li><p><strong><code>#wheat</code></strong>, value= r=245, g=222, b=179, alpha=1</p></li>
+<li><p><strong><code>#white</code></strong>, value= r=255, g=255, b=255, alpha=1</p></li>
+<li><p><strong><code>#whitesmoke</code></strong>, value= r=245, g=245, b=245, alpha=1</p></li>
+<li><p><strong><code>#yellow</code></strong>, value= r=255, g=255, b=0, alpha=1</p></li>
+<li><p><strong><code>#yellowgreen</code></strong>, value= r=154, g=205, b=50, alpha=1</p></li>
 </ul>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/Literals"><span class="arrow-prev">← </span><span>Literals</span></a><a class="docs-next button" href="/wiki/PseudoVariables"><span>Pseudo-variables</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#table-of-contents">Table of Contents</a></li><li><a href="#constants">Constants</a></li><li><a href="#graphics-units">Graphics units</a></li><li><a href="#length-units">Length units</a></li><li><a href="#surface-units">Surface units</a></li><li><a href="#time-units">Time units</a></li><li><a href="#volume-units">Volume units</a></li><li><a href="#weight-units">Weight units</a></li><li><a href="#colors">Colors</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
