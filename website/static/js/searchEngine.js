@@ -148,10 +148,6 @@ function cleanSearchResult(){
     searchResult.parentNode.removeChild(searchResult);
 }
 
-function isUpperCase(str) {
-    return str === str.toUpperCase();
-}
-
 // Create innerHTML Title for search side result 
 function createTitle(str){
   var returnStr = "";
@@ -165,7 +161,7 @@ function createTitle(str){
   // Check if have multiple word
   if ( arrayString[1] != null){
     // If second word if not caps -> it's a GAML keyword
-    if ( isUpperCase(arrayString[1][0]) )
+    if ( arrayString[0] != "Concept" ) //isUpperCase(arrayString[1][0]) )
       returnStr = str;
     else 
       returnStr = arrayString[0] + " <code>" + arrayString[1] + "</code>";
