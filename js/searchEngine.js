@@ -76,6 +76,25 @@ function requestSearch(e) {
   }
 }
 
+function isDuplicateResult(resultList, tag, title){
+
+  var result = false;
+
+//  if( tag.includes("Concept") ){
+    var prevResult = resultList.getElementsByTagName("a");
+    for (var i = 0; i < prevResult.length; i++) {
+      //console.log( prevResult[i].innerText );
+      if (prevResult[i].innerText == title){
+        result = true;
+        break;
+      }
+    }
+//  }
+
+  return result;
+
+}
+
 function createSearchResult(result) {
   // Prepare list container
   var resultDiv = document.createElement("DIV");
@@ -84,8 +103,14 @@ function createSearchResult(result) {
   var prevTag = ""; var prevSubCat = ""; 
   for (var i = 0; i < result.length; i++) {
 
+    // Remove duplicate from results
+    if ( isDuplicateResult(resultList, result[i]["tag"], result[i]["title"]) ){
+      continue;
+    }
+
     // Display new Tag title if changing
     if (prevTag != result[i]["tag"]) {
+
       prevSubCat = ""; // Debug
       prevTag = result[i]["tag"];
       resultList.appendChild( document.createElement("HR") );
@@ -237,8 +262,6 @@ function queryBuilder(item, wiki=true, doc=false){
         	|| realUrl[i].charAt(6) == "?") 
 	) { // Search Endpoint
         url += realUrl[i] + '/';
-	console.log(realUrl[i]);
-	console.log( realUrl[i] == ("wiki" || "download") );
       }else{
         break;
       }
