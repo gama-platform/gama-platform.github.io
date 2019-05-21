@@ -232,9 +232,13 @@ function queryBuilder(item, wiki=true, doc=false){
 
     // BaseURL
     for (var i = 2; i < realUrl.length; i++) {
-      if ( !(realUrl[i] == ("wiki" || "download") // Basic pages (docs & static)
-        || realUrl[i].charAt(6) == "?") ) { // Search Endpoint
+      if ( !(realUrl[i] == "wiki" 
+		|| realUrl[i] == "download" // Basic pages (docs & static)
+        	|| realUrl[i].charAt(6) == "?") 
+	) { // Search Endpoint
         url += realUrl[i] + '/';
+	console.log(realUrl[i]);
+	console.log( realUrl[i] == ("wiki" || "download") );
       }else{
         break;
       }
