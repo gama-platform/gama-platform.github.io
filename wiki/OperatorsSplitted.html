@@ -4778,14 +4778,14 @@ evaluate the agent_cause value of a predicate</p>
 <h3><a class="anchor" aria-hidden="true" id="get_lifetime"></a><a href="#get_lifetime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>get_lifetime</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-223"></a><a href="#possible-use-223" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>get_lifetime</code></strong> (<code>mental_state</code>) ---&gt;  <code>int</code></li>
 <li><strong><code>get_lifetime</code></strong> (<code>predicate</code>) ---&gt;  <code>int</code></li>
+<li><strong><code>get_lifetime</code></strong> (<code>mental_state</code>) ---&gt;  <code>int</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-209"></a><a href="#result-209" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>get the lifetime value of the given mental state
-evaluate the lifetime value of a predicate</p>
+<p>evaluate the lifetime value of a predicate
+get the lifetime value of the given mental state</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-185"></a><a href="#examples-185" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">get_lifetime(mental_state1) get_agent_cause(pred1) 
+<pre><code class="hljs">get_agent_cause(pred1) get_lifetime(mental_state1) 
 
 </code></pre>
 <hr>
@@ -7271,34 +7271,34 @@ loads a graph from a file</p>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>) ---&gt;  <code>emotion</code></li>
 <li><code>string</code> <strong><code>new_emotion</code></strong> <code>agent</code> ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>emotion</code></li>
-<li><code>string</code> <strong><code>new_emotion</code></strong> <code>predicate</code> ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>emotion</code></li>
 <li><code>string</code> <strong><code>new_emotion</code></strong> <code>float</code> ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>float</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><code>string</code> <strong><code>new_emotion</code></strong> <code>predicate</code> ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-350"></a><a href="#result-350" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>a new emotion with the given properties (name)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)
-a new emotion with the given properties (name,about)
-a new emotion with the given properties (name)
+a new emotion with the given properties (name,intensity,about)
 a new emotion with the given properties (name,intensity,decay)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name,intensity,about)
-a new emotion with the given properties (name, intensity)</p>
+a new emotion with the given properties (name, intensity)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name)
+a new emotion with the given properties (name,about)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-287"></a><a href="#examples-287" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,eatFood) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,4.0) emotion(<span class="hljs-string">"joy"</span>) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood) emotion(<span class="hljs-string">"joy"</span>,12.3) 
+<pre><code class="hljs">emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood) emotion(<span class="hljs-string">"joy"</span>,12.3,4.0) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>,12.3) emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) emotion(<span class="hljs-string">"joy"</span>) emotion(<span class="hljs-string">"joy"</span>,eatFood) 
 
 </code></pre>
 <hr>
@@ -7325,33 +7325,33 @@ a new emotion with the given properties (name, intensity)</p>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-377"></a><a href="#possible-use-377" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>) ---&gt;  <code>mental_state</code></li>
-<li><code>string</code> <strong><code>new_mental_state</code></strong> <code>predicate</code> ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>mental_state</code></li>
 <li><code>string</code> <strong><code>new_mental_state</code></strong> <code>mental_state</code> ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>mental_state</code>) ---&gt;  <code>mental_state</code></li>
 <li><code>string</code> <strong><code>new_mental_state</code></strong> <code>emotion</code> ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>emotion</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><code>string</code> <strong><code>new_mental_state</code></strong> <code>predicate</code> ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-352"></a><a href="#result-352" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>a new mental state
@@ -7388,37 +7388,37 @@ a new mental state</p>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-378"></a><a href="#possible-use-378" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>) ---&gt;  <code>predicate</code></li>
-<li><code>string</code> <strong><code>new_predicate</code></strong> <code>map</code> ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>map</code>) ---&gt;  <code>predicate</code></li>
-<li><code>string</code> <strong><code>new_predicate</code></strong> <code>bool</code> ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><code>string</code> <strong><code>new_predicate</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
+<li><code>string</code> <strong><code>new_predicate</code></strong> <code>bool</code> ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><code>string</code> <strong><code>new_predicate</code></strong> <code>int</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>int</code>) ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>) ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
+<li><code>string</code> <strong><code>new_predicate</code></strong> <code>map</code> ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>map</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>) ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>, <code>bool</code>) ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>, <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>int</code>, <code>bool</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-353"></a><a href="#result-353" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>a new predicate with the given properties (name, values)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, lifetime, is_true)
+<p>a new predicate with the given properties (name, values, lifetime)
 a new predicate with the given is_true (name, is_true)
+a new predicate with the given properties (name, values, is_true)
 a new predicate with the given properties (name, values, lifetime, is_true, agentCause)
-a new predicate with the given properties (name)
-a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given properties (name, values, lifetime)
 a new predicate with the given properties (name, values,    agentCause)
+a new predicate with the given properties (name)
+a new predicate with the given properties (name, values, lifetime)
 a new predicate with the given is_true (name, lifetime)
+a new predicate with the given properties (name, values, is_true, agentCause)
 a new predicate with the given properties (name, values, lifetime, agentCause)
-a new predicate with the given properties (name, values, is_true)</p>
+a new predicate with the given properties (name, values)
+a new predicate with the given properties (name, values, lifetime, is_true)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-290"></a><a href="#examples-290" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">predicate(<span class="hljs-string">"people to meet"</span>, people1 ) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10,true) predicate(<span class="hljs-string">"hasWater"</span>, true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10, true, agentA) predicate(<span class="hljs-string">"people to meet"</span>) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true, agentA) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], agentA) predicate(<span class="hljs-string">"hasWater"</span>, 10) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10, agentA) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) 
+<pre><code class="hljs">predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"hasWater"</span>, true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10, true, agentA) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], agentA) predicate(<span class="hljs-string">"people to meet"</span>) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) predicate(<span class="hljs-string">"hasWater"</span>, 10) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true, agentA) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10, agentA) predicate(<span class="hljs-string">"people to meet"</span>, people1 ) predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], 10,true) 
 
 </code></pre>
 <hr>
@@ -9040,16 +9040,16 @@ takes a sample of the specified size from the elements of x using either with or
 <h3><a class="anchor" aria-hidden="true" id="set_agent_cause"></a><a href="#set_agent_cause" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>set_agent_cause</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-470"></a><a href="#possible-use-470" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>emotion</code> <strong><code>set_agent_cause</code></strong> <code>agent</code> ---&gt;  <code>emotion</code></li>
-<li><strong><code>set_agent_cause</code></strong> (<code>emotion</code> , <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><code>predicate</code> <strong><code>set_agent_cause</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>set_agent_cause</code></strong> (<code>predicate</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
+<li><code>emotion</code> <strong><code>set_agent_cause</code></strong> <code>agent</code> ---&gt;  <code>emotion</code></li>
+<li><strong><code>set_agent_cause</code></strong> (<code>emotion</code> , <code>agent</code>) ---&gt;  <code>emotion</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-436"></a><a href="#result-436" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>change the agentCause value of the given emotion
-change the agentCause value of the given predicate</p>
+<p>change the agentCause value of the given predicate
+change the agentCause value of the given emotion</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-359"></a><a href="#examples-359" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">emotion set_agent_cause agentA predicate set_agent_cause agentA 
+<pre><code class="hljs">predicate set_agent_cause agentA emotion set_agent_cause agentA 
 
 </code></pre>
 <hr>
@@ -10659,14 +10659,14 @@ A list of geometries (triangles) corresponding to the Delaunay triangulation of 
 <li><strong><code>variance</code></strong> (<code>int</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-522"></a><a href="#result-522" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
-Returns the variance from a standard deviation.</p>
+<p>Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.</p>
 <h4><a class="anchor" aria-hidden="true" id="comment-111"></a><a href="#comment-111" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
 <p>In the example we consider variance of [1,3,5,7]. The size is 4, the sum is 1+3+5+7=16 and the sum of squares is 84.The variance is (84- 16^2/4)/4. CQFD.</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-434"></a><a href="#examples-434" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-            <span class="hljs-literal">int</span> var0 &lt;- <span class="hljs-literal">int</span>(variance(4,16,84)); <span class="hljs-comment">// var0 equals 5 </span>
-            <span class="hljs-literal">int</span> var1 &lt;- <span class="hljs-literal">int</span>(variance([1,3,5,6,9,11,12,13])); <span class="hljs-comment">// var1 equals 17</span>
+            <span class="hljs-literal">int</span> var0 &lt;- <span class="hljs-literal">int</span>(variance([1,3,5,6,9,11,12,13])); <span class="hljs-comment">// var0 equals 17 </span>
+            <span class="hljs-literal">int</span> var1 &lt;- <span class="hljs-literal">int</span>(variance(4,16,84)); <span class="hljs-comment">// var1 equals 5</span>
 
 </code></pre>
 <hr>
