@@ -987,7 +987,7 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 <li><code>rotate</code> (float): Set the angle for the rotation around the Z axis</li>
 <li><code>show_fps</code> (boolean): Allows to enable/disable the drawing of the number of frames per second</li>
 <li><code>synchronized</code> (boolean): Indicates whether the display should be directly synchronized with the simulation</li>
-<li><code>toolbar</code> (boolean): Indicates whether the top toolbar of the display view should be initially visible or not</li>
+<li><code>toolbar</code> (any type in [boolean, rgb]): Indicates whether the top toolbar of the display view should be initially visible or not. If a color is passed, then the background of the toolbar takes this color</li>
 <li><code>type</code> (a label): Allows to use either Java2D (for planar models) or OpenGL (for 3D models) as the rendering subsystem</li>
 <li><code>virtual</code> (boolean): Declaring a display as virtual makes it invisible on screen, and only usable for display inheritance</li>
 </ul>
