@@ -37,9 +37,9 @@ function Download(props) {
       </div>
       <div className="blockContent">
         <h2>{props.os}</h2>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_${props.zipOS}_64bits.zip`} className="button buttonBlue">Download</Button>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_withJDK_${props.zipOS}_64bits.zip`} className="button buttonRed">with JDK</Button>
-            <Button href="https://github.com/gama-platform/gama/releases" className="button buttonOrange">Daily</Button>
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_withJDK_${props.zipOS}_64bits.zip`} className="button buttonRed">with JDK (320MB)</Button>
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_${props.zipOS}_64bits.zip`} className="button buttonBlue">Without JDK (120MB)</Button>
+            <Button href="https://github.com/gama-platform/gama/releases" className="button buttonOrange">Daily Build</Button>
       </div>
     </div>
   );
