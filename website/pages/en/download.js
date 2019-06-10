@@ -111,6 +111,9 @@ function Download(props) {
       .smallButton {
         width: auto;
       }
+      a.disabled {
+        pointer-events: none;
+      }
     `}} />
   );
 
@@ -131,7 +134,7 @@ function Download(props) {
               <div className="blockElement imageAlignTop threeByGridBlock">
 		      <div className="blockContent">
 			    <h2>Documentation</h2>
-				<Button href={`${baseUrl}resources/pdf/docGAMAv${siteConfig.downloadVersion}.pdf`} className="button">PDF</Button>
+				<Button href="#" className="button disabled">PDF</Button>
 		      </div>
               </div>
               <div className="blockElement imageAlignTop threeByGridBlock"></div>
