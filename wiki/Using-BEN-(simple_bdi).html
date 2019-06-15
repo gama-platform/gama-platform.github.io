@@ -9,7 +9,6 @@
 <p>BEN (Behavior with Emotions and Norms) is an agent architecture providing social agents with cognition, emotions, emotional contagion, personnality, social relations and norms. This work has been done during he phd of Mathieu Bourgais, funded by the ANR ACTEUR.</p>
 <p>The BEN architecture is accessible in GAMA through the use of the simple_bdi architecture when defining agents. This page indicates the theoretical running of BEN as well as the practicl way it has been implemented in GAMA.</p>
 <p>This page features all the descriptions for the running of the BEN architecture. This page is updated with the version of BEN implemented in GAMA. To get more details on its implementation in GAMA, see operators related to BDI, BDI tutorials or GAML References/build-in architecture/BDI.</p>
-<p><em>Préciser les modifications entre l'implémentation et la théorie, donner des indications sur le codes quand cela est nécéssaire.</em></p>
 <h2><a class="anchor" aria-hidden="true" id="the-ben-architecture"></a><a href="#the-ben-architecture" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The BEN architecture</h2>
 <p>The BEN Architecture used by agents to make a decision at each time step is represented by the image right bellow:</p>
 <p><img src="https://github.com/mathieuBourgais/ExampleModels/blob/master/BEN%202019%20Angl.png" alt="architectureBEN"></p>
@@ -86,10 +85,65 @@ Thus, an emotion is represented by <strong>Em<sub>i</sub>(P,Ag,I,De)</strong> wi
 <li><strong>T</strong>: a real value between -1 and 1 representing the degree of trust with the agent <em>j</em>. A value of -1 indicates doubts about agent <em>j</em> while a value of 1 indicates complete trust with agent <em>j</em>. The trust value does not evolve automatically in accordance with emotions.</li>
 </ul>
 <p>With this definition, a social relation is not necessarily symmetric, which means R<sub>i,j</sub>(L,D,S,F,T) is not equal by definition to R<sub>i,j</sub>(L,D,S,F,T). <strong>L[R<sub>i,j</sub>]</strong> stands for the liking value of the social relation between agent <em>i</em> and agent <em>j</em>, <strong>D[<sub>i,j</sub>]</strong> stands for its dominance value, <strong>S[R<sub>i,j</sub>]</strong> for its solidarity value, <strong>F[R<sub>i,j</sub>]</strong> represents its familiarity value and <strong>T[R<sub>i,j</sub>]</strong> its trust value.</p>
+<p>In GAML, social relations are manipulated with add_social_link, remove_social_link and get_social_link actions. Each feature of a social link is accessible with set and gt operators (set_agent, get_agent, set_liking, get_liking, set_dominance, etc.)</p>
+<p>Below is an exemple of code to manipulates social relations in GAML:</p>
+<pre><code class="hljs"><span class="hljs-builtin">reflex</span> testSocialRelations{
+    <span class="hljs-keyword">do</span> add_social_relation(new_social_relation(agentAlice));
+    <span class="hljs-keyword">do</span> add_social_relation(new_social_relation(agentBob,0.5,-0.3,0.2,0.1,0.8));
+    <span class="hljs-literal">float</span> a &lt;- get_liking(get_social_relation(new_social_relation(agentBob)));
+    set_dominance(get_social_relation(new_social_relation(agentBob)),0.3);
+}
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="personality-and-additionnal-variables"></a><a href="#personality-and-additionnal-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Personality and additionnal variables</h3>
-<p>For example, the obedience used in the normative processes is computed as follows :</p>
+<p>In order to define personality traits, BEN relies on the OCEAN model (McCrae, 1992), also known as the big five factors model.
+In the BEN architecture, this model is represented through a vector of five values between 0 and 1, with 0.5 as the neutral value. The five personality traits are:</p>
+<ul>
+<li><strong>O</strong>: represents the openness of someone. A value of 0 stands for someone narrow-minded, a value of 1 stands for someone open-minded.</li>
+<li><strong>C</strong>: represents the consciousness of someone. A value of 0 stands for someone impulsive, a value of 1 stands for someone who acts with preparations.</li>
+<li><strong>E</strong>: represents the extroversion of someone. A value of 0 stands for someone shy, a value of 1 stands for someone extrovert.</li>
+<li><strong>A</strong>: represents the agreeableness of someone. A value of 0 stands for someone hostile, a value of 1 stands for someone friendly.</li>
+<li><strong>N</strong>: represents the degree of control someone has on his/her emotions, called neurotism. A value of 0 stands for someones neurotic, a value of 1 stands for someone calm.</li>
+</ul>
+<p>In GAML, these variables are build-in attributes of agents using the simple_bdi control architecture. They are called <em>openness</em>, <em>conscientiousness</em>, <em>extroversion</em>, <em>agreeableness</em> and <em>neurotism</em>.</p>
+<p>With BEN, the agent has variables related to some of the social features. The idea behind the BEN architecture is to connect these variables to the personality module and in particular to the five dimensions of the OCEAN model in order to reduce the number of parameters which need to be entered by the user. These additional variables are :</p>
+<ul>
+<li>The probability to keep the current plan.</li>
+<li>The probability to keep the current intention.</li>
+<li>A charisma value linked to the emotional contagion process.</li>
+<li>An emotional receptivity value linked to the emotional contagion.</li>
+<li>An obedience value used by the normative engine.</li>
+</ul>
+<p>With the cognition, the agent has two parameters representing the probability to randomly remove the current plan or the current intention in order to check whether there could be a better plan or a better intention in the current context. These two values are connected to the consciousness components of the OCEAN model as it describes the tendency of the agent to prepare its actions (with a high value) or act impulsively (with a low value).</p>
+<p>Probability Keeping Plans = C<sup>1/2<sup></p>
+<p>Probability Keeping Intentions = C<sup>1/2<sup></p>
+<p>For the emotional contagion, the process (presented later) requires charisma (Ch) and emotional receptivity (R) to be defined for each agent. In BEN, charisma is related to the capacity of expression, which is related to the extroversion of the OCEAN model, while the emotional receptivity is related to the capacity to control the emotions, which is expressed with the neurotism value of OCEAN.</p>
+<p>Ch = E</p>
+<p>R = 1-N</p>
+<p>With the concept of norms, the agent has a value of obedience between 0 and 1, which indicates its tendency to follow laws, obligations and norms. According to research in psychology, which tried to explain the behavior of people participating in a recreation of the Milgram's experiment (Begue, 2015), obedience is linked with the notions of consciousness and agreeableness which gives the following equation:</p>
 <p>obedience = ((C+A)/2)<sup>1/2</sup></p>
+<p>With the same idea, all the parameters required by each process are linked to the OCEAN model.</p>
 <h2><a class="anchor" aria-hidden="true" id="perception"></a><a href="#perception" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Perception</h2>
+<p>The first step of BEN is the perception of the environment. This module is used to connect the environment to the knowledge of the agent, transforming information from the world into cognitive mental states, emotions or social links but also used to apply sanctions during the enforcement of norms from other agents.</p>
+<p>Below is an example of code to define a perception in GAML :</p>
+<pre><code class="hljs"><span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>fireArea <span class="hljs-symbol">in:</span> 10{
+    ...
+}
+</code></pre>
+<p>The first process in this perception consists in <strong>adding beliefs</strong> about the world. During this phase, information from the environment is transformed into predicates which are included in beliefs or uncertainties and then added to the agent's knowledge bases. This process enables the agent to update its knowledge about the world. From the modeler's point of view, it is only necessary to specify which information is transformed into which predicate. The addition of a belief <em>Belief<sub>A</sub>(X)</em> triggers multiple processes :</p>
+<ul>
+<li>it removes <em>Belief<sub>A</sub>(not X)</em>.</li>
+<li>it removes <em>Intention<sub>A</sub>(X)</em>.</li>
+<li>it removes <em>Desire<sub>A</sub>(X)</em> if <em>Intention<sub>A</sub>(X)</em> has just been removed.</li>
+<li>it removes <em>Uncertainty<sub>A</sub>(X)</em> or <em>Uncertainty<sub>A</sub>(non X)</em>.</li>
+<li>it removes <em>Obligation<sub>A</sub>(X)</em>.
+\end{itemize}</li>
+</ul>
+<p>In GAML, the <em>focus</em> statement ease the use of this process. Below is an example that adds a belief and an uncertainty with the focus statement during a perception:</p>
+<pre><code class="hljs"><span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>fireArea <span class="hljs-symbol">in:</span> 10{
+    <span class="hljs-keyword">focus</span> fireLocation <span class="hljs-symbol">var:</span>location <span class="hljs-symbol">priority:</span>10;
+    <span class="hljs-keyword">focus</span> hazardLocation <span class="hljs-symbol">var:</span>location <span class="hljs-symbol">priority:</span>1 <span class="hljs-symbol">is_uncertain:</span>true;
+}
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="managing-knowledges"></a><a href="#managing-knowledges" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Managing knowledges</h2>
 <h3><a class="anchor" aria-hidden="true" id="emotional-engine"></a><a href="#emotional-engine" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Emotional engine</h3>
 <p><strong>Joy<sub>i</sub>(P<sub>j</sub>,j)</strong> = Belief<sub>i</sub>(P<sub>j</sub>) &amp; Desire<sub>i</sub>(P)</p>
