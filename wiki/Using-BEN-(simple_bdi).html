@@ -134,17 +134,76 @@ In the BEN architecture, this model is represented through a vector of five valu
 <li>it removes <em>Belief<sub>A</sub>(not X)</em>.</li>
 <li>it removes <em>Intention<sub>A</sub>(X)</em>.</li>
 <li>it removes <em>Desire<sub>A</sub>(X)</em> if <em>Intention<sub>A</sub>(X)</em> has just been removed.</li>
-<li>it removes <em>Uncertainty<sub>A</sub>(X)</em> or <em>Uncertainty<sub>A</sub>(non X)</em>.</li>
+<li>it removes <em>Uncertainty<sub>A</sub>(X)</em> or <em>Uncertainty<sub>A</sub>(not X)</em>.</li>
 <li>it removes <em>Obligation<sub>A</sub>(X)</em>.
 \end{itemize}</li>
 </ul>
 <p>In GAML, the <em>focus</em> statement ease the use of this process. Below is an example that adds a belief and an uncertainty with the focus statement during a perception:</p>
 <pre><code class="hljs"><span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>fireArea <span class="hljs-symbol">in:</span> 10{
-    <span class="hljs-keyword">focus</span> fireLocation <span class="hljs-symbol">var:</span>location <span class="hljs-symbol">priority:</span>10;
-    <span class="hljs-keyword">focus</span> hazardLocation <span class="hljs-symbol">var:</span>location <span class="hljs-symbol">priority:</span>1 <span class="hljs-symbol">is_uncertain:</span>true;
+    <span class="hljs-keyword">focus</span> <span class="hljs-symbol">id:</span><span class="hljs-string">"fireLocation"</span> <span class="hljs-symbol">var:</span>location <span class="hljs-symbol">strength:</span>10.0;
+        <span class="hljs-comment">//is equivalent to ask myself {do add_belief(new_predicate("fireLocation",["location_value"::myself.location],10.0);}</span>
+    <span class="hljs-keyword">focus</span> <span class="hljs-symbol">id:</span><span class="hljs-string">"hazardLocation"</span> <span class="hljs-symbol">var:</span>location <span class="hljs-symbol">strength:</span>1.0 <span class="hljs-symbol">is_uncertain:</span>true;
+        <span class="hljs-comment">//is equivalent to ask myself {do add_uncertainty(new_predicate("hazardLocation",["location_value"::myself.location],1.0);}</span>
+}
+</code></pre>
+<p>The <em>emotional contagion</em> enables the agent to update its emotions according to the emotions of other agents perceived. The modeler has to indicate the emotion triggering the contagion, the emotion created in the perceiving agent and the threshold of this contagion; the charisma (Ch) and receptivity (R) values are automatically computed as explained previously. The contagion from agent <em>i</em> to agent <em>j</em> occurs only if <em>Ch<sub>i</sub> x R<sub>j</sub></em> is superior or equal to the threshold, which value is 0.25 by default. Then, the presence of the trigger emotion in the perceived agent is checked in order to create the emotion indicated.</p>
+<p>The intensity and decay value of the emotion acquired by contagion are automaticaly computed.</p>
+<p>If Em<sub>j</sub>(P) already exists : <em>I[Em<sub>j</sub>(P)] = I[Em<sub>j</sub>(P)] + I[Em<sub>i</sub>(P)] x Ch<sub>i</sub> x R<sub>j</sub></em> and <em>De[Em<sub>j</sub>(P)] = De[Em<sub>i</sub>(P)] if I[Em<sub>i</sub>(P)] &gt; I[Em<sub>j</sub>(P)]</em> or <em>De[Em<sub>j</sub>(P)] = De[Em<sub>j</sub>(P)] if I[Em<sub>j</sub>(P)] &gt; I[Em<sub>i</sub>(P)]</em>.</p>
+<p>If Em<sub>j</sub>(P) does not already exist : <em>I[Em<sub>j</sub>(P)] = I[Em<sub>i</sub>(P)] x Ch<sub>i</sub> x R<sub>j</sub></em> and <em>De[Em<sub>j</sub>(P)] = De[Em<sub>i</sub>(P)]</em>.</p>
+<p>In GAML, <em>emotional_contagion</em> statement helps defining an emotional contagion during a perception, as shown below:</p>
+<pre><code class="hljs"><span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>otherHumanAgents <span class="hljs-symbol">in:</span> 10{
+    <span class="hljs-keyword">emotional_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fearFire <span class="hljs-symbol">threshold:</span>contagionThreshold;
+    <span class="hljs-comment">//creates the detected emotion, if detected, in the agent doing the perception.</span>
+    <span class="hljs-keyword">emotional_contagion</span> <span class="hljs-symbol">emotion_detected:</span>joyDance <span class="hljs-symbol">emotion_created:</span>joyPartying;
+    <span class="hljs-comment">//creates the emotion "joyPartying", if emotion "joyDance" is detected in the perceived agent.</span>
+}
+</code></pre>
+<p>During the perception, the agent has the possibility of <em>creating social relations</em> with other perceived agents. The modeler indicates the initial value for each component of the social link, as explained previously. By default, a neutral relation is created, with each value of the link at 0.0. Social relations can also be defined before the start of the simulation, to indicate that an agent has links with other agents at the start of simulation, like links with friends or family members.</p>
+<p>In GAML, the <em>socialize</em> statement help creating dynamicaly new social relations, as shown below:</p>
+<pre><code class="hljs"><span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>otherHumanAgents <span class="hljs-symbol">in:</span> 10{
+    <span class="hljs-keyword">socialize</span>;
+    <span class="hljs-comment">//creates a neutral relation</span>
+    <span class="hljs-keyword">socialize</span> <span class="hljs-symbol">dominance:</span> -0.8 <span class="hljs-symbol">familiarity:</span>0.2 <span class="hljs-symbol">when:</span> isBoss;
+    <span class="hljs-comment">//example of a social link with precise values for some of its dimensions in a certain context</span>
+}
+</code></pre>
+<p>Finally, the agent may <em>apply sanctions</em> through the norm enforcement of other agents perceived. The modeler needs to indicate which modality is enforced and the sanction and reward used in the process. Then, the agent checks if the norm, the obligation, or the law, is violated, applied or not activated by the perceived agent. Notions of norms laws and obligations and how they work are explained later in this ocument.</p>
+<p>A norm is considered violated when its context is verified, and yet the agent chose another norm or another plan to execute because it decided to disobey. A law is considered violated when its context is verified, but the agent disobeyed it, not creating the corresponding obligation. Finally, an obligation is considered violated if the agent did not execute the corresponding norm because it chose to disobey.</p>
+<p>Below is an example of how to define an enforcement in GAML:</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+    ...
+    <span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>miner <span class="hljs-symbol">in:</span>viewdist {
+        myself.agent_perceived&lt;-self;
+        <span class="hljs-keyword">enforcement</span> <span class="hljs-symbol">norm:</span><span class="hljs-string">"share_information"</span> <span class="hljs-symbol">sanction:</span><span class="hljs-string">"sanctionToNorm"</span> <span class="hljs-symbol">reward:</span><span class="hljs-string">"rewardToNorm"</span>;
+    }
+        
+    <span class="hljs-keyword">sanction</span> sanctionToNorm{
+        <span class="hljs-keyword">do</span> change_liking(agent_perceived,-0.1);
+    }   
+    
+    <span class="hljs-keyword">sanction</span> rewardToNorm{
+        <span class="hljs-keyword">do</span> change_liking(agent_perceived,0.1);
+    }
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="managing-knowledges"></a><a href="#managing-knowledges" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Managing knowledges</h2>
+<p>The second step of the architecture, corresponding to the module number 2 , consists in managing the agent's knowledge. This means updating the knowledge bases according to the latest perceptions, adding new desires, new obligations, new emotions or updating social relations, for example.</p>
+<p>Modelers have to use <em>inference rules</em> for this purpose. Theses rules are triggered by a new belief, a new uncertainty or a new emotion, in a certain context, and may add or remove any cognitive mental state or emotion indicated by the user. Using multiple inference rules helps the agent to adapt its mind to the situation perceived without removing all its older cognitive mental states or emotions, thus enabling the creation of a cognitive behavior. These inference rules enable to link manually the various dimensions of an agent, for example creating desires depending on emotions, social relations and personality.</p>
+<p>In GAML, the <em>rule</em> statement enables to define inference rules:</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+    ...
+    <span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>miner <span class="hljs-symbol">in:</span>viewdist {
+        ...
+    }
+    ...
+    <span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span>new_predicate(<span class="hljs-string">"testA"</span>) <span class="hljs-symbol">new_desire:</span>new_predicate(<span class="hljs-string">"testB"</span>);
+    
+}
+</code></pre>
+<p>Using the same idea, modelers can define <em>laws</em>. These laws enable the creation of obligations in a given context based on the newest beliefs created by the agent through its perception or its inference rules. The modelers also needs to indicate an obedience threshold and if the agent's obedience value is below that threshold, the law is violated. If the law is activated, the obligation is added to the agent's cognitive mental state bases. The definition of laws makes it possible to create a behavior based on obligations imposed upon the agent.</p>
+<p>Below is an example of the definition of a <em>law</em> statement in GAML:</p>
+<pre><code class="hljs"><span class="hljs-keyword">law</span> <span class="hljs-symbol">belief:</span> new_predicate(<span class="hljs-string">"testA"</span>) <span class="hljs-symbol">new_obligation:</span>new_predicate(<span class="hljs-string">"testB"</span>) <span class="hljs-symbol">threshold:</span>thresholdLaw;
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="emotional-engine"></a><a href="#emotional-engine" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Emotional engine</h3>
 <p><strong>Joy<sub>i</sub>(P<sub>j</sub>,j)</strong> = Belief<sub>i</sub>(P<sub>j</sub>) &amp; Desire<sub>i</sub>(P)</p>
 <p><strong>Sadness<sub>i</sub>(P<sub>j</sub>,j)</strong> = Belief<sub>i</sub>(P<sub>j</sub>) &amp; Desire<sub>i</sub>(not P)</p>
