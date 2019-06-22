@@ -104,8 +104,19 @@ In the BEN architecture, this model is represented through a vector of five valu
 <li><strong>A</strong>: represents the agreeableness of someone. A value of 0 stands for someone hostile, a value of 1 stands for someone friendly.</li>
 <li><strong>N</strong>: represents the degree of control someone has on his/her emotions, called neurotism. A value of 0 stands for someones neurotic, a value of 1 stands for someone calm.</li>
 </ul>
-<p>In GAML, these variables are build-in attributes of agents using the simple_bdi control architecture. They are called <em>openness</em>, <em>conscientiousness</em>, <em>extroversion</em>, <em>agreeableness</em> and <em>neurotism</em>.</p>
-<p>With BEN, the agent has variables related to some of the social features. The idea behind the BEN architecture is to connect these variables to the personality module and in particular to the five dimensions of the OCEAN model in order to reduce the number of parameters which need to be entered by the user. These additional variables are :</p>
+<p>In GAML, these variables are build-in attributes of agents using the simple_bdi control architecture. They are called <em>openness</em>, <em>conscientiousness</em>, <em>extroversion</em>, <em>agreeableness</em> and <em>neurotism</em>. To use this personality to automaticaly parametrize the other modules, a modeler needs to indicate it as shown in the GAML example below:</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+...
+<span class="hljs-literal">bool</span> use_personality &lt;- true;
+<span class="hljs-literal">float</span> openness &lt;- 0.1;
+<span class="hljs-literal">float</span> conscientiousness &lt;- 0.2;
+<span class="hljs-literal">float</span> extroversion &lt;- 0.3;
+<span class="hljs-literal">float</span> agreeableness &lt;- 0.4;
+<span class="hljs-literal">float</span> neurotism &lt;- 0.5;
+...
+}
+</code></pre>
+<p>With BEN, the agent has variables related to some of the social features. The idea behind the BEN architecture is to connect these variables to the personality module and in particular to the five dimensions of the OCEAN model in order to reduce the number of parameters which need to be entered by the user. These additional variables are:</p>
 <ul>
 <li>The probability to keep the current plan.</li>
 <li>The probability to keep the current intention.</li>
@@ -122,6 +133,19 @@ In the BEN architecture, this model is represented through a vector of five valu
 <p>With the concept of norms, the agent has a value of obedience between 0 and 1, which indicates its tendency to follow laws, obligations and norms. According to research in psychology, which tried to explain the behavior of people participating in a recreation of the Milgram's experiment (Begue, 2015), obedience is linked with the notions of consciousness and agreeableness which gives the following equation:</p>
 <p>obedience = ((C+A)/2)<sup>1/2</sup></p>
 <p>With the same idea, all the parameters required by each process are linked to the OCEAN model.</p>
+<p>If a modeler wants to put a different value to one of these variables, he/she just need to indicate a new value manualy. For the probability to keep the current plan and the probability to keep the current intention, he/she also has to indicates it with a particular boolean value, as shown in the GAML example below:</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+...
+<span class="hljs-literal">bool</span> use_personality &lt;- true;
+<span class="hljs-literal">bool</span> use_persistence &lt;- true;
+<span class="hljs-literal">float</span> plan_persistence &lt;- 0.3;
+<span class="hljs-literal">float</span> intention_persistence &lt;- 0.4;
+<span class="hljs-literal">float</span> obedience &lt;- 0.2;
+<span class="hljs-literal">float</span> charisma &lt;- 0.3
+<span class="hljs-literal">float</span> receptivity &lt;- 0.6;
+...
+}
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="perception"></a><a href="#perception" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Perception</h2>
 <p>The first step of BEN is the perception of the environment. This module is used to connect the environment to the knowledge of the agent, transforming information from the world into cognitive mental states, emotions or social links but also used to apply sanctions during the enforcement of norms from other agents.</p>
 <p>Below is an example of code to define a perception in GAML :</p>
@@ -146,7 +170,7 @@ In the BEN architecture, this model is represented through a vector of five valu
         <span class="hljs-comment">//is equivalent to ask myself {do add_uncertainty(new_predicate("hazardLocation",["location_value"::myself.location],1.0);}</span>
 }
 </code></pre>
-<p>The <em>emotional contagion</em> enables the agent to update its emotions according to the emotions of other agents perceived. The modeler has to indicate the emotion triggering the contagion, the emotion created in the perceiving agent and the threshold of this contagion; the charisma (Ch) and receptivity (R) values are automatically computed as explained previously. The contagion from agent <em>i</em> to agent <em>j</em> occurs only if <em>Ch<sub>i</sub> x R<sub>j</sub></em> is superior or equal to the threshold, which value is 0.25 by default. Then, the presence of the trigger emotion in the perceived agent is checked in order to create the emotion indicated.</p>
+<p>The <strong>emotional contagion</strong> enables the agent to update its emotions according to the emotions of other agents perceived. The modeler has to indicate the emotion triggering the contagion, the emotion created in the perceiving agent and the threshold of this contagion; the charisma (Ch) and receptivity (R) values are automatically computed as explained previously. The contagion from agent <em>i</em> to agent <em>j</em> occurs only if <em>Ch<sub>i</sub> x R<sub>j</sub></em> is superior or equal to the threshold, which value is 0.25 by default. Then, the presence of the trigger emotion in the perceived agent is checked in order to create the emotion indicated.</p>
 <p>The intensity and decay value of the emotion acquired by contagion are automaticaly computed.</p>
 <p>If Em<sub>j</sub>(P) already exists : <em>I[Em<sub>j</sub>(P)] = I[Em<sub>j</sub>(P)] + I[Em<sub>i</sub>(P)] x Ch<sub>i</sub> x R<sub>j</sub></em> and <em>De[Em<sub>j</sub>(P)] = De[Em<sub>i</sub>(P)] if I[Em<sub>i</sub>(P)] &gt; I[Em<sub>j</sub>(P)]</em> or <em>De[Em<sub>j</sub>(P)] = De[Em<sub>j</sub>(P)] if I[Em<sub>j</sub>(P)] &gt; I[Em<sub>i</sub>(P)]</em>.</p>
 <p>If Em<sub>j</sub>(P) does not already exist : <em>I[Em<sub>j</sub>(P)] = I[Em<sub>i</sub>(P)] x Ch<sub>i</sub> x R<sub>j</sub></em> and <em>De[Em<sub>j</sub>(P)] = De[Em<sub>i</sub>(P)]</em>.</p>
@@ -158,7 +182,7 @@ In the BEN architecture, this model is represented through a vector of five valu
     <span class="hljs-comment">//creates the emotion "joyPartying", if emotion "joyDance" is detected in the perceived agent.</span>
 }
 </code></pre>
-<p>During the perception, the agent has the possibility of <em>creating social relations</em> with other perceived agents. The modeler indicates the initial value for each component of the social link, as explained previously. By default, a neutral relation is created, with each value of the link at 0.0. Social relations can also be defined before the start of the simulation, to indicate that an agent has links with other agents at the start of simulation, like links with friends or family members.</p>
+<p>During the perception, the agent has the possibility of <strong>creating social relations</strong> with other perceived agents. The modeler indicates the initial value for each component of the social link, as explained previously. By default, a neutral relation is created, with each value of the link at 0.0. Social relations can also be defined before the start of the simulation, to indicate that an agent has links with other agents at the start of simulation, like links with friends or family members.</p>
 <p>In GAML, the <em>socialize</em> statement help creating dynamicaly new social relations, as shown below:</p>
 <pre><code class="hljs"><span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span>otherHumanAgents <span class="hljs-symbol">in:</span> 10{
     <span class="hljs-keyword">socialize</span>;
@@ -167,7 +191,7 @@ In the BEN architecture, this model is represented through a vector of five valu
     <span class="hljs-comment">//example of a social link with precise values for some of its dimensions in a certain context</span>
 }
 </code></pre>
-<p>Finally, the agent may <em>apply sanctions</em> through the norm enforcement of other agents perceived. The modeler needs to indicate which modality is enforced and the sanction and reward used in the process. Then, the agent checks if the norm, the obligation, or the law, is violated, applied or not activated by the perceived agent. Notions of norms laws and obligations and how they work are explained later in this ocument.</p>
+<p>Finally, the agent may <strong>apply sanctions</strong> through the norm enforcement of other agents perceived. The modeler needs to indicate which modality is enforced and the sanction and reward used in the process. Then, the agent checks if the norm, the obligation, or the law, is violated, applied or not activated by the perceived agent. Notions of norms laws and obligations and how they work are explained later in this ocument.</p>
 <p>A norm is considered violated when its context is verified, and yet the agent chose another norm or another plan to execute because it decided to disobey. A law is considered violated when its context is verified, but the agent disobeyed it, not creating the corresponding obligation. Finally, an obligation is considered violated if the agent did not execute the corresponding norm because it chose to disobey.</p>
 <p>Below is an example of how to define an enforcement in GAML:</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
@@ -188,7 +212,7 @@ In the BEN architecture, this model is represented through a vector of five valu
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="managing-knowledges"></a><a href="#managing-knowledges" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Managing knowledges</h2>
 <p>The second step of the architecture, corresponding to the module number 2 , consists in managing the agent's knowledge. This means updating the knowledge bases according to the latest perceptions, adding new desires, new obligations, new emotions or updating social relations, for example.</p>
-<p>Modelers have to use <em>inference rules</em> for this purpose. Theses rules are triggered by a new belief, a new uncertainty or a new emotion, in a certain context, and may add or remove any cognitive mental state or emotion indicated by the user. Using multiple inference rules helps the agent to adapt its mind to the situation perceived without removing all its older cognitive mental states or emotions, thus enabling the creation of a cognitive behavior. These inference rules enable to link manually the various dimensions of an agent, for example creating desires depending on emotions, social relations and personality.</p>
+<p>Modelers have to use <strong>inference rules</strong> for this purpose. Theses rules are triggered by a new belief, a new uncertainty or a new emotion, in a certain context, and may add or remove any cognitive mental state or emotion indicated by the user. Using multiple inference rules helps the agent to adapt its mind to the situation perceived without removing all its older cognitive mental states or emotions, thus enabling the creation of a cognitive behavior. These inference rules enable to link manually the various dimensions of an agent, for example creating desires depending on emotions, social relations and personality.</p>
 <p>In GAML, the <em>rule</em> statement enables to define inference rules:</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
     ...
@@ -200,19 +224,123 @@ In the BEN architecture, this model is represented through a vector of five valu
     
 }
 </code></pre>
-<p>Using the same idea, modelers can define <em>laws</em>. These laws enable the creation of obligations in a given context based on the newest beliefs created by the agent through its perception or its inference rules. The modelers also needs to indicate an obedience threshold and if the agent's obedience value is below that threshold, the law is violated. If the law is activated, the obligation is added to the agent's cognitive mental state bases. The definition of laws makes it possible to create a behavior based on obligations imposed upon the agent.</p>
+<p>Using the same idea, modelers can define <strong>laws</strong>. These laws enable the creation of obligations in a given context based on the newest beliefs created by the agent through its perception or its inference rules. The modelers also needs to indicate an obedience threshold and if the agent's obedience value is below that threshold, the law is violated. If the law is activated, the obligation is added to the agent's cognitive mental state bases. The definition of laws makes it possible to create a behavior based on obligations imposed upon the agent.</p>
 <p>Below is an example of the definition of a <em>law</em> statement in GAML:</p>
 <pre><code class="hljs"><span class="hljs-keyword">law</span> <span class="hljs-symbol">belief:</span> new_predicate(<span class="hljs-string">"testA"</span>) <span class="hljs-symbol">new_obligation:</span>new_predicate(<span class="hljs-string">"testB"</span>) <span class="hljs-symbol">threshold:</span>thresholdLaw;
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="emotional-engine"></a><a href="#emotional-engine" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Emotional engine</h3>
-<p><strong>Joy<sub>i</sub>(P<sub>j</sub>,j)</strong> = Belief<sub>i</sub>(P<sub>j</sub>) &amp; Desire<sub>i</sub>(P)</p>
-<p><strong>Sadness<sub>i</sub>(P<sub>j</sub>,j)</strong> = Belief<sub>i</sub>(P<sub>j</sub>) &amp; Desire<sub>i</sub>(not P)</p>
-<p>I[Em<sub>i</sub>(P)] = V[Belief<sub>i</sub>(P)] * V[Desire<sub>i</sub>(P)] * (1+(0,5-N))</p>
+<p>BEN enables the agent to get emotions about its cognitive mental states. This <strong>addition of emotions</strong> is based on the OCC model (Ortony, 1990) and its logical formalism (Adam, 2007), which has been proposed to integrate the OCC model in a BDI formalism.</p>
+<p>According to the OCC theory, emotions can be split into three groups: emotions linked to events, emotions linked to people and actions performed by people, and emotions linked to objects.
+In BEN, as the focus is on relations between social agents, only the first two groups of emotions (emotions linked to events and people) are considered.</p>
+<p>The twenty emotions defined in this paper can be divided into seven groups depending on their relations with mental states: emotions about beliefs, emotions about uncertainties, combined emotions about uncertainties, emotions about other agents with a positive liking value, emotions about other agents with a negative liking value, emotions about ideals and combined emotions about ideals.
+All the initial intensities and decay value are computed using the OCEAN model and the value attached to the concerned mental states.</p>
+<p>The emotions about beliefs are joy and sadness and are expressed this way:</p>
+<ul>
+<li><p><strong>Joy<sub>i</sub>(P<sub>j</sub>,j)</strong> = Belief<sub>i</sub>(P<sub>j</sub>) &amp; Desire<sub>i</sub>(P)</p></li>
+<li><p><strong>Sadness<sub>i</sub>(P<sub>j</sub>,j)</strong> = Belief<sub>i</sub>(P<sub>j</sub>) &amp; Desire<sub>i</sub>(not P)</p></li>
+</ul>
+<p>Their initial intensity is computed according to the following equation with N the neurotism component from the OCEAN model:</p>
+<p>I[Em<sub>i</sub>(P)] = V[Belief<sub>i</sub>(P)] x V[Desire<sub>i</sub>(P)] x (1+(0,5-N))</p>
+<p>The emotions about uncertainties are fear and hope and are defined this way:</p>
+<ul>
+<li><strong>Hope<sub>i</sub>(P<sub>j</sub>,j)</strong> = Uncertainty<sub>i</sub>(P<sub>j</sub>) &amp; Desire<sub>i</sub>(P)</li>
+<li><strong>Fear<sub>i</sub>(P<sub>j</sub>,j)</strong> = Uncertainty<sub>i</sub>(P<sub>j</sub>) &amp; Desire<sub>i</sub>(not P)</li>
+</ul>
+<p>Their initial intensity is computed according to the following equation:</p>
+<p>I[Em<sub>i</sub>(P)] = V[Uncertainty<sub>i</sub>(P)] x V[Desire<sub>i</sub>(P)] x (1+(0,5-N))</p>
+<p>Combined emotions about uncertainties are emotions built upon fear and hope. They appear when an uncertainty is replaced by a belief, transforming fear and hope into satisfaction, disappointment, relief or fear confirmed and they are defined this way:</p>
+<ul>
+<li><strong>Satisfaction<sub>i</sub>(P<sub>j</sub>,j)</strong> = Hope<sub>i</sub>(P<sub>j</sub>,j) &amp; Belief<sub>i</sub>(P<sub>j</sub>)</li>
+<li><strong>Disappointment<sub>i</sub>(P<sub>j</sub>,j)</strong> = Hope<sub>i</sub>(P<sub>j</sub>,j) &amp; Belief<sub>i</sub>(not P<sub>j</sub>)</li>
+<li><strong>Relief<sub>i</sub>(P<sub>j</sub>,j)</strong> = Fear<sub>i</sub>(P<sub>j</sub>,j) &amp; Belief<sub>i</sub>(not P<sub>j</sub>)</li>
+<li><strong>Fear confirmed<sub>i</sub>(P<sub>j</sub>,j)</strong> = Fear<sub>i</sub>(P<sub>j</sub>,j) &amp; Belief<sub>i</sub>(P<sub>j</sub>)</li>
+</ul>
+<p>Their initial intensity is computed according to the following equation with Em'<sub>i</sub>(P) the emotion of fear/hope.</p>
+<p>I[Em<sub>i</sub>(P)] = V[Belief<sub>i</sub>(P)] x I[Em'<sub>i</sub>(P)]</p>
+<p>On top of that, according to the logical formalism (Adam, 2007), four inference rules are triggered by these emotions:</p>
+<ul>
+<li>The creation of <strong>fear confirmed</strong> or the creation of <strong>relief</strong> will replace the emotion of <strong>fear</strong>.</li>
+<li>The creation of <strong>satisfaction</strong> or the creation of <strong>disappointment</strong> will replace a <strong>hope</strong> emotion.</li>
+<li>The creation of <strong>satisfaction</strong> or <strong>relief</strong> leads to the creation of <strong>joy</strong>.</li>
+<li>The creation of <strong>disappointment</strong> or <strong>fear confirmed</strong> leads to the creation of <strong>sadness</strong>.</li>
+</ul>
+<p>The emotions about other agents with a positive liking value are emotions related to emotions of other agents which are in a the social relation base with a positive liking value on that link. They are the emotions called &quot;happy for&quot; and &quot;sorry for&quot; which are defined this way :</p>
+<ul>
+<li><strong>Happy for<sub>i</sub>(P,j)</strong> = L[R<sub>i,j</sub>]&gt;0 &amp; Joy<sub>j</sub>(P)</li>
+<li><strong>Sorry for<sub>i</sub>(P,j)</strong> = L[R<sub>i,j</sub>]&gt;0 &amp; Sadness<sub>j</sub>(P)</li>
+</ul>
+<p>Their initial intensity is computed according to the following equation with A the agreeableness value from the OCEAN model.</p>
+<p>I[Em<sub>i</sub>(P)] = I[Em<sub>j</sub>(P)] x L[R<sub>i,j</sub>] x (1-(0,5-A))</p>
+<p>Emotions about other agents with a negative liking value are close to the previous definitions, however, they are related to the emotions of other agents which are in the social relation base with a negative liking value. These emotions are resentment and gloating and have the following definition:</p>
+<ul>
+<li><strong>Resentment<sub>i</sub>(P,j)</strong> = L[R<sub>i,j</sub>]&lt;0 &amp; Joy<sub>j</sub>(P)</li>
+<li><strong>Gloating<sub>i</sub>(P,j)</strong> = L[R<sub>i,j</sub>]&lt;0 &amp; Sadness<sub>j</sub>(P)</li>
+</ul>
+<p>Their initial intensity is computed according to the following equation. This equation can be seen as the inverse of Equation \eqref{eqIntensEmo4}, and means that the intensity of resentment or gloating is greater if the agent has a low level of agreeableness contrary to the intensity of &quot;happy for&quot; and &quot;sorry for&quot;.</p>
+<p>I[Em<sub>i</sub>(P)] = I[Em<sub>j</sub>(P)] x |L[R<sub>i,j</sub>]| x (1+(0,5-A))</p>
+<p>Emotions about ideals are related to the agent's ideal base which contains, at the start of the simulation, all the actions about which the agent has a praiseworthiness value to give. These ideals can be praiseworthy (their praiseworthiness value is positive) or blameworthy (their praiseworthiness value is negative). The emotions coming from these ideals are pride, shame, admiration and reproach and have the following definition:</p>
+<ul>
+<li><strong>Pride<sub>i</sub>(P<sub>i</sub>,i)</strong> = Belief<sub>i</sub>(P<sub>i</sub>) &amp; Ideal<sub>i</sub>(P<sub>i</sub>) &amp; V[Ideal<sub>i</sub>(P<sub>i</sub>)]&gt;0</li>
+<li><strong>Shame<sub>i</sub>(P<sub>i</sub>,i)</strong> = Belief<sub>i</sub>(P<sub>i</sub>) &amp; Ideal<sub>i</sub>(P<sub>i</sub>) &amp; V[Ideal<sub>i</sub>(P<sub>i</sub>)]&lt;0</li>
+<li><strong>Admiration<sub>i</sub>(P<sub>j</sub>,j)</strong> = Belief<sub>i</sub>(P<sub>j</sub>) &amp; Ideal<sub>i</sub>(P<sub>j</sub>) &amp; V[Ideal<sub>i</sub>(P<sub>j</sub>)]&gt;0</li>
+<li><strong>Reproach<sub>i</sub>(P<sub>j</sub>,j)</strong> = Belief<sub>i</sub>(P<sub>j</sub>) &amp; Ideal<sub>i</sub>(P<sub>j</sub>) &amp; V[Ideal<sub>i</sub>(P<sub>j</sub>)]&lt;0</li>
+</ul>
+<p>Their initial intensity is computed according to the following equation with O the openness value from the OCEAN model:</p>
+<p>I[Em<sub>i</sub>(P)] = V[Belief<sub>i</sub>(P)] x |V[Ideal<sub>i</sub>(P)]| x (1+(0,5-O))</p>
+<p>Finally, combined emotions about ideals are emotions built upon pride, shame, admiration and reproach. They appear when joy or sadness appear with an emotion about ideals. They are gratification, remorse, gratitude and anger which are defined as follows:</p>
+<ul>
+<li><strong>Gratification<sub>i</sub>(P<sub>i</sub>,i)</strong> = Pride<sub>i</sub>(P<sub>i</sub>,i) &amp; Joy<sub>i</sub>(P<sub>i</sub>)</li>
+<li><strong>Remorse<sub>i</sub>(P<sub>i</sub>,i)</strong> = Shame<sub>i</sub>(P<sub>i</sub>,i) &amp; Sadness<sub>i</sub>(P<sub>i</sub>)</li>
+<li><strong>Gratitude<sub>i</sub>(P<sub>j</sub>,j)</strong> = Admiration<sub>i</sub>(P<sub>j</sub>,j) &amp; Joy<sub>i</sub>(P<sub>j</sub>)</li>
+<li><strong>Anger<sub>i</sub>(P<sub>j</sub>,j)</strong> = Reproach<sub>i</sub>(P<sub>j</sub>,j) &amp; Sadness<sub>i</sub>(P<sub>j</sub>)</li>
+</ul>
+<p>Their initial intensity is computed according to the following equation with Em'<sub>i</sub>(P) the emotion about ideals and Em&quot;<sub>i</sub>(P) the emotion about beliefs.</p>
+<p>I[Em<sub>i</sub>(P)] = I[Em'<sub>i</sub>(P)] x I[Em&quot;<sub>i</sub>(P)]</p>
+<p>In order to keep the initial intensity of each emotion between 0 and 1, each equation is truncated between 0 an 1 if necessary.</p>
+<p>The initial decay value for each of these twenty emotions is computed according to the same equation with D<sub>elta</sub>t a time step which enables to define that an emotion does not last more than a given time:</p>
+<p>De[Em<sub>i</sub>(P)] = N x I[Em<sub>i</sub>(P)] x D<sub>elta</sub>t</p>
+<p>To use this automatic computation of emotion, a modeler need to activate it as shown in the GAML example below :</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+...
+<span class="hljs-literal">bool</span> use_emotions_architecture &lt;- true;
+...
+}
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="social-engine"></a><a href="#social-engine" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Social Engine</h3>
-<p>L[R<sub>i,j</sub>]=L[R<sub>i,j</sub>]+|L[R<sub>i,j</sub>]|(1-|L[R<sub>i,j</sub>]|)S[R<sub>i,j</sub>] +a<sub>L</sub> (1-|L[R<sub>i,j</sub>]|)(mPos-mNeg)</p>
-<p>D[R<sub>i,j</sub>]=D[R<sub>i,j</sub>]+ a<sub>D</sub> (1-|D[R<sub>i,j</sub>]|)(mSE-mOE)</p>
-<p>S[R<sub>i,j</sub>]=S[R<sub>i,j</sub>]+ S[R<sub>i,j</sub>] * (1-S[R<sub>i,j</sub>]) * (a<sub>S1</sub> (sim-opp)/(NbKnow) -a<sub>S2</sub> mNeg))</p>
-<p>F[R<sub>i,j</sub>]=F[R<sub>i,j</sub>] * (1+L[R<sub>i,j</sub>])</p>
+<p>When an agent already known is perceived (i.e. there is already a social link with it), the social relation with this agent is updated automatically by BEN. This update is based on the work of (Ochs, 2009) and takes the agent's cognitive mental states and emotions into account. In this section, the <strong>automatic update of each variable of a social link</strong> R<sub>i,j</sub>(L,D,S,F,T) by the architecture is described in details; the trust variable of the link is however not updated automatically.</p>
+<ul>
+<li><strong>Liking</strong>: according to (Ortony, 1991), the degree of liking between two agents depends on the valence (positive or negative) of the emotions induced by the corresponding agent. In the emotional model of the architecture, <em>joy</em> and <em>hope</em> are considered as positive emotions (<em>satisfaction</em> and <em>relief</em> automatically raise <em>joy</em> with the emotional engine) while <em>sadness</em> and <em>fear</em> are considered as negative emotions (<em>fear confirmed</em> and <em>disappointment</em> automatically raise <em>sadness</em> with the emotional engine). So, if an agent <em>i</em> has a positive (resp. negative) emotion caused by an agent <em>j</em>, this will increase (resp. decrease) the value of appreciation in the social link from <em>i</em> concerning <em>j</em>.</li>
+</ul>
+<p>Moreover, research has shown that the degree of liking is influenced by the solidarity value \cite{smith2014social}. This may be explained by the fact that people tend to appreciate people similar to them.</p>
+<p>The computation formula is described with the following equation with mPos the mean value of all positive emotions caused by agent <em>j</em>, mNeg the mean value of all negative emotions caused by agent <em>j</em> and <em>a<sub>L</sub></em> a coefficient depending of the agent's personality, indicating the importance of emotions in the process, and which is described below.</p>
+<p>L[R<sub>i,j</sub>]=L[R<sub>i,j</sub>]+|L[R<sub>i,j</sub>]|(1-|L[R<sub>i,j</sub>]|)S[R<sub>i,j</sub>] + a<sub>L</sub> (1-|L[R<sub>i,j</sub>]|)(mPos-mNeg)</p>
+<p>a<sub>L</sub> = 1-N</p>
+<ul>
+<li><strong>Dominance</strong> :  (Keltner, 2001) and  (Shiota, 2004) explain that an emotion of fear or sadness caused by another agent represent an inferior status. But (Knutson, 1996) explains that perceiving fear and sadness in others increases the sensation of power over those persons.</li>
+</ul>
+<p>The computation formula is described by the following equation with mSE the mean value of all negative emotions caused by agent <em>i</em> to agent <em>j</em>, mOE the mean value of all negative emotions caused by agent <em>j</em> to agent <em>i</em> and <em>a<sub>D</sub></em> a coefficient depending on the agent's personality, indicating the importance of emotions in the process.</p>
+<p>D[R<sub>i,j</sub>]=D[R<sub>i,j</sub>] + a<sub>D</sub> (1-|D[R<sub>i,j</sub>]|)(mSE-mOE)</p>
+<p>a<sub>D</sub> = 1-N</p>
+<ul>
+<li><strong>Solidarity</strong>: The solidarity represents the degree of similarity of desires, beliefs and uncertainties between two agents. In BEN, the evolution of the solidarity value depends on the ratio of similarity between the desires, beliefs and uncertainties of agent <em>i</em> and those of agent <em>j</em>.
+To compute the similarities and oppositions between agent <em>i</em> and agent <em>j</em>, agent <em>i</em> needs to have beliefs about agent <em>j</em>'s cognitive mental states. Then it compares these cognitive mental states with its own to detect similar or opposite knowledge.</li>
+</ul>
+<p>On top of that, negative emotions tend to decrease the value of solidarity between two people. The computation formula is described by the following equation with sim the number of cognitive mental states similar between agent <em>i</em> and agent <em>j</em>, opp the number of opposite cognitive mental states between agent <em>i</em> and agent <em>j</em>, NbKnow the number of cognitive mental states in common between agent <em>i</em> and agent <em>j</em>, mNeg the mean value of all negative emotions caused by agent <em>j</em>, a<sub>S1</sub> a coefficient depending of the agent's personality, indicating the importance of similarities and oppositions in the process, and a<sub>S2</sub> a coefficient depending of the agent's personality, indicating the importance of emotions in the process.</p>
+<p>S[R<sub>i,j</sub>]=S[R<sub>i,j</sub>] + S[R<sub>i,j</sub>] x (1-S[R<sub>i,j</sub>]) x (a<sub>S1</sub> (sim-opp)/(NbKnow) - a<sub>S2</sub> mNeg))</p>
+<p>a<sub>S1</sub> = 1-O</p>
+<p>a<sub>S2</sub> = 1-N</p>
+<ul>
+<li><strong>Familiarity</strong>: In psychology, emotions and cognition do not seem to impact the familiarity. However, (Collins, 1994) explain that people tend to be more familiar with people whom they appreciate. This notion is modeled by basing the evolution of the familiarity value on the liking value between two agents. The computation formula is defined by the following equation.</li>
+</ul>
+<p>F[R<sub>i,j</sub>]=F[R<sub>i,j</sub>] x (1+L[R<sub>i,j</sub>])</p>
+<p>The trust value is not evolving automatically in BEN, as there is no clear and automatic link with cognition or emotions. However, this value can evolve manually, especially with sanctions and rewards to social norms where the modeler can indicate a modification of the trust value during the enforcement process.</p>
+<p>To use this automatic update of social relations, a modeler need to activate it as shown in the GAML example below :</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+...
+<span class="hljs-literal">bool</span> use_social_architecture &lt;- true;
+...
+}
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="making-decision"></a><a href="#making-decision" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Making Decision</h2>
 <p><img src="https://github.com/mathieuBourgais/ExampleModels/blob/master/cognitive%20engine.png" alt="cognitive engine"></p>
 <h3><a class="anchor" aria-hidden="true" id="defining-plans"></a><a href="#defining-plans" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining plans</h3>
