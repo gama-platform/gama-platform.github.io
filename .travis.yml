@@ -20,6 +20,7 @@ before_script:
   - sh ./script/link_fixer.sh
   - sed -i '/^$/d' './docs/_Sidebar.md' # Remove blank line
   - php script/sidebarCopy.php
+  - php script/sidebarSearch.php
   - sh script/autoHeader.sh
 script:
 #  Compile website

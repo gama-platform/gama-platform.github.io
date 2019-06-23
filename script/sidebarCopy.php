@@ -8,7 +8,7 @@
  **/
 
 /**
- * This part of the script will transform the _Sidebar.md MarkDown
+ * This script will transform the _Sidebar.md MarkDown
  * file into a JSON format Docusaurus-friendly
  *
  * The sidebar.json will have 2 sub-sidebars :
@@ -21,8 +21,7 @@ $sidebarArray = array("tuto"=> array(), "doc"=> array());
 $catArray=$subMenu=$subSubMenu=$prevTitle="";
 
 $fp=fopen("./docs/_Sidebar.md", "r+");
-while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
-{
+while ($line = stream_get_line($fp, 1024 * 1024, "\n")) {
 	// Title
 	if (strpos($line, '##') !== false) {
 		//$sidebarArray["doc"][] = $line;
