@@ -1,6 +1,22 @@
 <?php
 
-$sidebarArray = array("tuto"=> array(), "side"=> array());
+/**
+ * Copyright (c) 2019-present, Arthur Brugiere, GAMA-Platform
+ *
+ * This source code is licensed under the GPL3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ **/
+
+/**
+ * This part of the script will transform the _Sidebar.md MarkDown
+ * file into a JSON format Docusaurus-friendly
+ *
+ * The sidebar.json will have 2 sub-sidebars :
+ *  - _tuto_ which will be the Tutorials one
+ *  - _doc_ which will be the Documentation one 
+ **/
+
+$sidebarArray = array("tuto"=> array(), "doc"=> array());
 
 $catArray=$subMenu=$subSubMenu=$prevTitle="";
 
@@ -9,7 +25,7 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
 {
 	// Title
 	if (strpos($line, '##') !== false) {
-		//$sidebarArray["side"][] = $line;
+		//$sidebarArray["doc"][] = $line;
 		if( $line[3] == '['){
 			$title = explode("](", explode("[", $line)[1] );
 
@@ -17,7 +33,7 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
 				$catArray = "tuto";
 			}
 			else{
-				$catArray = "side";	
+				$catArray = "doc";	
 			}
 
 			$subMenu = $title[0];
@@ -81,11 +97,8 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n"))
 
 fclose($fp);
 
-
-
 $fp = fopen('./website/sidebars.json', 'w');
 fwrite($fp, json_encode($sidebarArray));
 fclose($fp);
-
 
 ?>
