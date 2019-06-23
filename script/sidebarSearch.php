@@ -22,7 +22,7 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n")) {
 	$item = array("tag" => "Sidebar", "title" => "", "url" => "");
 
 	$item["title"] = explode("[", explode("](", $line)[0])[1];
-	$item["url"] = explode(")", explode("](../", $line)[1])[0];
+	$item["url"] = explode(")", explode("](", $line)[1])[0];
 
 	$json[] = $item;
 }
