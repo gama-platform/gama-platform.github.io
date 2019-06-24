@@ -37,9 +37,15 @@ function Download(props) {
       </div>
       <div className="blockContent">
         <h2>{props.os}</h2>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_withJDK_${props.zipOS}_64bits.zip`} className="button buttonRed">with JDK (320MB)</Button>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_${props.zipOS}_64bits.zip`} className="button buttonBlue">Without JDK (120MB)</Button>
-            <Button href="https://github.com/gama-platform/gama/releases" className="button buttonOrange">Daily Build</Button>
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_withJDK_${props.zipOS}_64bits.zip`} className="button buttonRed">with JDK (320MB)
+              <span class="tooltiptext">Install this version if you <b>don't want to install Oracle JDK</b> by yourself.<br/><b style={{textTransform: "uppercase", }}><i class="fas fa-skull-crossbones"></i> The JDK should not be used to run another software <i class="fas fa-skull-crossbones"></i></b></span>
+            </Button>
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_${props.zipOS}_64bits.zip`} className="button buttonBlue">Without JDK (120MB)
+              <span class="tooltiptext">Install this version if you <b>already installed Oracle JDK 8</b> on your computer.</span>
+            </Button>
+            <Button href="https://github.com/gama-platform/gama/releases" className="button buttonOrange">Daily Build
+              <span class="tooltiptext">Install this version if you feel adventurous.</span>
+            </Button>
       </div>
     </div>
   );
@@ -89,6 +95,50 @@ function Download(props) {
       .button {
         margin-bottom: 1em;
         text-align: center;
+
+        /* Tooltip */
+        position: relative;
+        display: inline-block;
+      }
+      /* Tooltip text */
+      .button .tooltiptext {
+        visibility: hidden;
+        width: 100%;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        text-transform: none;
+
+        /* Position the tooltip text */
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 0%;
+
+        /* Fade in tooltip */
+        opacity: 0;
+        transition: opacity 0.3s;
+        padding: 1em;
+      }
+
+      /* Tooltip arrow */
+      .button .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+
+      /* Show the tooltip text when you mouse over the tooltip container */
+      .button:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
       }
       .gridBlock {
         text-align: center;
