@@ -84,12 +84,16 @@
 <h3><a class="anchor" aria-hidden="true" id="container-factories"></a><a href="#container-factories" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Container factories</h3>
 <ol>
 <li>GamaListFactory : factory to create list of different type (see <a href="https://github.com/gama-platform/gama/blob/master/msi.gama.core/src/msi/gama/util/GamaListFactory.java">Java class</a>)</li>
-<li></li>
+</ol>
+<p>If you want to use map or set, try to the best to rely on collection that ensure order, so to avoid unconsistency in container access. Try the most to avoid returning high order hash based collection, e.g. Set or Map; in this case, rely on standard definition in Gama:</p>
+<ol start="2">
+<li>TOrderedHashMap : see <a href="https://bitbucket.org/trove4j/trove/src/master/core/src/main/java/gnu/trove/map/">trove api</a>.</li>
+<li>TLinkedHashSet : see <a href="https://bitbucket.org/trove4j/trove/src/master/core/src/main/java/gnu/trove/set/hash/">trove api</a></li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="geometry-factory"></a><a href="#geometry-factory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Geometry factory</h3>
-<p>Gama geometry is based on the well established Jstor geometric library, while geographic aspect are handle using GeoTools library
-1.Spatial.Creation : provide several static method to initialize geometries</p>
-<ol start="2">
+<p>Gama geometry is based on the well established Jstor geometric library, while geographic aspect are handle using GeoTools library</p>
+<ol>
+<li>Spatial.Creation : provide several static method to initialize geometries</li>
 <li></li>
 </ol>
 <h2><a class="anchor" aria-hidden="true" id="spatial"></a><a href="#spatial" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spatial</h2>
