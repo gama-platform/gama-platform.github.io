@@ -37,10 +37,10 @@ function Download(props) {
       </div>
       <div className="blockContent">
         <h2>{props.os}</h2>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_withJDK_${props.zipOS}_64bits.zip`} className="button buttonRed">with JDK (~ 275MB)
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}.${props.zipOS}.with.JDK.zip`} className="button buttonRed">with JDK (~ 275MB)
               <span class="tooltiptext">This is the easiest version to run. No need to install anything more.<br/><b>Note that the embedded JDK should not be used to run other softwares</b></span>
             </Button>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_Official_${props.zipOS}_64bits.zip`} className="button buttonBlue">Without JDK (< 100MB)
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}.${props.zipOS}.zip`} className="button buttonBlue">Without JDK (< 100MB)
               <span class="tooltiptext">Install this version if you <b>already installed Oracle JDK 8</b> on your computer.</span>
             </Button>
             <Button href="https://github.com/gama-platform/gama/releases" className="button buttonOrange">Daily Build
