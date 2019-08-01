@@ -37,10 +37,10 @@ function Download(props) {
       </div>
       <div className="blockContent">
         <h2>{props.os}</h2>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}.${props.zipOS}.with.JDK.zip`} className="button buttonRed">with JDK (~ 275MB)
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.zip`} className="button buttonRed">with JDK (~ 275MB)
               <span class="tooltiptext">This is the easiest version to run. No need to install anything more.<br/><b>Note that the embedded JDK should not be used to run other softwares</b></span>
             </Button>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}.${props.zipOS}.zip`} className="button buttonBlue">Without JDK (&lt; 100MB)
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}.zip`} className="button buttonBlue">Without JDK (&lt; 100MB)
               <span class="tooltiptext">Install this version if you <b>already installed Oracle JDK 8</b> on your computer.</span>
             </Button>
             <Button href="https://github.com/gama-platform/gama/releases" className="button buttonOrange">Daily Build
@@ -52,8 +52,8 @@ function Download(props) {
 
   const OsGrid = props => (
     <FlexContainer>
-      <OsBlock src="img/windows-logo.svg" os="Windows" version={props.version} zipName={props.zipName} zipOS='Win' />
-      <OsBlock src="img/apple-logo.svg" os="MacOS" version={props.version} zipName={props.zipName} zipOS='Mac' />
+      <OsBlock src="img/windows-logo.svg" os="Windows" version={props.version} zipName={props.zipName} zipOS='Windows' />
+      <OsBlock src="img/apple-logo.svg" os="MacOS" version={props.version} zipName={props.zipName} zipOS='MacOS' />
       <OsBlock src="img/linux-logo.svg" os="Linux" version={props.version} zipName={props.zipName} zipOS='Linux' />
     </FlexContainer>
   );
