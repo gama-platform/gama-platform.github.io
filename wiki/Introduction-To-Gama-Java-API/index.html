@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Introduction-To-Gama-Java-API · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This introduction to the Java API is dedicated to programmers that want to participate to the java code of GAMA. The main purpose is to describe the main packages and classes of the API to makes it simple to find such crucial information such as: how GAMA create containers, agent and geometries, how exceptions and log are manage, how java code maintain Type safety, etc. "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Introduction-To-Gama-Java-API · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="This introduction to the Java API is dedicated to programmers that want to participate to the java code of GAMA. The main purpose is to describe the main packages and classes of the API to makes it simple to find such crucial information such as: how GAMA create containers, agent and geometries, how exceptions and log are manage, how java code maintain Type safety, etc. "/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Introduction-To-Gama-Java-API · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This introduction to the Java API is dedicated to programmers that want to participate in the java code of GAMA. The main purpose is to describe the main packages and classes of the API to makes it simple to find such crucial information such as: how GAMA create containers, agent and geometries, how exceptions and log are managed, how java code maintain Type safety, etc. "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Introduction-To-Gama-Java-API · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="This introduction to the Java API is dedicated to programmers that want to participate in the java code of GAMA. The main purpose is to describe the main packages and classes of the API to makes it simple to find such crucial information such as: how GAMA create containers, agent and geometries, how exceptions and log are managed, how java code maintain Type safety, etc. "/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
@@ -60,18 +60,18 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Introduction-To-Gama-Java-API</h1></header><article><div><span><p>This introduction to the Java API is dedicated to programmers that want to participate to the java code of GAMA. The main purpose is to describe the main packages and classes of the API to makes it simple to find such crucial information such as: how GAMA create containers, agent and geometries, how exceptions and log are manage, how java code maintain Type safety, etc.</p>
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Introduction-To-Gama-Java-API</h1></header><article><div><span><p>This introduction to the Java API is dedicated to programmers that want to participate in the java code of GAMA. The main purpose is to describe the main packages and classes of the API to makes it simple to find such crucial information such as: how GAMA create containers, agent and geometries, how exceptions and log are managed, how java code maintain Type safety, etc.</p>
 <h2><a class="anchor" aria-hidden="true" id="table-of-content"></a><a href="#table-of-content" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of content</h2>
 <p><a href="#Concepts">Concepts</a></p>
-<ul>
-<li>1.<a href="#Factories">Factories</a></li>
-<li>2.<a href="#Spatial">Spatial</a></li>
-<li>3.<a href="#Type">Type</a></li>
-<li>4.<a href="#IScope">IScope</a></li>
-<li>5.<a href="#Exception">Exception</a></li>
-<li>6.<a href="#Debug">Debug</a></li>
-<li>7.<a href="#Test">Test</a></li>
-</ul>
+<ol>
+<li><a href="#Factories">Factories</a></li>
+<li><a href="#Spatial">Spatial</a></li>
+<li><a href="#Type">Type</a></li>
+<li><a href="#IScope">IScope</a></li>
+<li><a href="#Exception">Exception</a></li>
+<li><a href="#Debug">Debug</a></li>
+<li><a href="#Test">Test</a></li>
+</ol>
 <p><a href="#Packages">Packages</a></p>
 <ul>
 <li>1.<a href="#Core">Core</a></li>
@@ -80,14 +80,43 @@
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="factories"></a><a href="#factories" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Factories</h2>
 <h3><a class="anchor" aria-hidden="true" id="container-factories"></a><a href="#container-factories" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Container factories</h3>
+<p>GAMA provides 2 factories for containers: <code>GamaListFactory</code> and <code>GamaMapFactory</code>. Each of them has <code>create</code> methods to create objects of type <code>IList</code> and <code>IMap</code>. The types of elements in the container can be specified at creation using one of the elements defined in <a href="https://github.com/gama-platform/gama/blob/master/msi.gama.core/src/msi/gaml/types/Types.java"><code>Types</code></a>.</p>
+<p>Warning: the <code>create</code> method is used to create the container, with elements of a given type, <strong>but it also converts elements added in this type</strong>. To avoid conversion (not recommended), use the method <code>createWithoutCasting</code>.</p>
 <ol>
 <li>GamaListFactory : factory to create list of different type (see <a href="https://github.com/gama-platform/gama/blob/master/msi.gama.core/src/msi/gama/util/GamaListFactory.java">Java class</a>)</li>
 </ol>
-<p>If you want to use map or set, try to the best to rely on collection that ensure order, so to avoid unconsistency in container access. Try the most to avoid returning high order hash based collection, e.g. Set or Map; in this case, rely on standard definition in Gama:</p>
+<p>As an example:</p>
+<pre><code class="hljs">IList&lt;Double&gt; distribution = GamaListFactory.<span class="hljs-keyword">create</span>(Types.FLOAT);
+</code></pre>
+<p>To create <code>List</code> object without specifying the type, use <code>Types.NO_TYPE</code>:</p>
+<pre><code class="hljs">IList&lt;Object&gt; result = GamaListFactory.<span class="hljs-keyword">create</span>(Types.NO_TYPE);
+</code></pre>
+<p>or only:</p>
+<pre><code class="hljs">IList&lt;Object&gt; result = GamaListFactory.<span class="hljs-keyword">create</span>();
+</code></pre>
 <ol start="2">
-<li>TOrderedHashMap : see <a href="https://bitbucket.org/trove4j/trove/src/master/core/src/main/java/gnu/trove/map/">trove api</a>.</li>
-<li>TLinkedHashSet : see <a href="https://bitbucket.org/trove4j/trove/src/master/core/src/main/java/gnu/trove/set/hash/">trove api</a></li>
+<li>GamaMapFactory : factory to create map of different type (see <a href="https://github.com/gama-platform/gama/blob/master/msi.gama.core/src/msi/gama/util/GamaMapFactory.java">Java class</a>)</li>
 </ol>
+<p>As an example:</p>
+<pre><code class="hljs">final IMap&lt;String, IList&lt;?&gt;&gt; ncdata = GamaMapFactory.<span class="hljs-keyword">create</span>(Types.STRING, Types.LIST);
+</code></pre>
+<p>To create <code>Map</code> object without specifying the type, use <code>Types.NO_TYPE</code>:</p>
+<pre><code class="hljs">IMap&lt;Object, Object&gt; result = GamaMapFactory.<span class="hljs-keyword">create</span>(Types.NO_TYPE, Types.NO_TYPE);
+</code></pre>
+<p>or only:</p>
+<pre><code class="hljs">IMap&lt;Object, Object&gt; result = GamaMapFactory.<span class="hljs-keyword">create</span>();
+</code></pre>
+<p>If you want to use map or set, try to the best to rely on collection that ensure order, so to avoid unconsistency in container access. Try the most to avoid returning high order hash based collection, e.g. Set or Map; in this case, rely on standard definition in Gama:</p>
+<ol start="3">
+<li><p>TOrderedHashMap : see <a href="https://bitbucket.org/trove4j/trove/src/master/core/src/main/java/gnu/trove/map/">trove api</a>.</p></li>
+<li><p>TLinkedHashSet : see <a href="https://bitbucket.org/trove4j/trove/src/master/core/src/main/java/gnu/trove/set/hash/">trove api</a></p></li>
+<li><p>Stream : you can use java build-in streams but there is a special version in Gama taken from <a href="https://github.com/amaembo/streamex">StreamEx</a> that should be preferred.</p></li>
+</ol>
+<pre><code class="hljs">my_container.stream(my_scope)
+</code></pre>
+<p>If you want to get a stream back to a Gama container, you can use the collector in Factories:</p>
+<pre><code class="hljs">my_container.stream(my_scope).collect(GamaListFactory.toGamaList())
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="geometry-factory"></a><a href="#geometry-factory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Geometry factory</h3>
 <p>Gama geometry is based on the well established Jstor geometric library, while geographic aspect are handle using GeoTools library</p>
 <ol>
@@ -106,7 +135,7 @@
 <h3><a class="anchor" aria-hidden="true" id="punctal"></a><a href="#punctal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Punctal</h3>
 <p>operations relative to points</p>
 <h2><a class="anchor" aria-hidden="true" id="type"></a><a href="#type" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type</h2>
-<p>IType : The main class to manipulate GamaType (main implementation of IType) is Types, that provide access to most common type manipulated in Gama</p>
+<p><code>IType</code> : The main class to manipulate GamaType (main implementation of IType) is <a href="https://github.com/gama-platform/gama/blob/master/msi.gama.core/src/msi/gaml/types/Types.java">Types</a>, that provide access to most common type manipulated in Gama</p>
 <p>Opérateur de cast:</p>
 <pre><code class="hljs">Types.get(IType.class)
 </code></pre>
