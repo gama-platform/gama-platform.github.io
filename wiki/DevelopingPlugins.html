@@ -170,7 +170,7 @@ The use of feature is also mandatory to define a plug-in that can be uploaded on
 <h2><a class="anchor" aria-hidden="true" id="how-to-make-a-plug-in-available-at-gama-update-site-for-the-gama-release"></a><a href="#how-to-make-a-plug-in-available-at-gama-update-site-for-the-gama-release" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to make a plug-in available at GAMA update site for the GAMA release</h2>
 <p>Considering a working GAMA plugin named institution.gama.pluginsName</p>
 <h3><a class="anchor" aria-hidden="true" id="configure-plugin-to-be-available-for-maven"></a><a href="#configure-plugin-to-be-available-for-maven" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure plugin to be available for Maven</h3>
-<p>a/ Add pom.xml for plugin institution.gama.pluginsName :</p>
+<p>a/ Add <code>pom.xml</code> for plugin <code>institution.gama.pluginsName</code>:</p>
 <ul>
 <li>Right click -&gt; Configure -&gt; Convert to maven project to add pom.xml:</li>
 <li>Set:
@@ -206,7 +206,7 @@ It will fix this compilation error &quot;Project configuration is not up-to-date
 <li>Set:
 <ul>
 <li>Project name: institution.gama.feature.pluginsName</li>
-<li>Uncheck use default location, type in: {current git repository}\aaa.bbb.feature.ccc</li>
+<li>Uncheck use default location, type in: <code>{current git repository}\aaa.bbb.feature.ccc</code></li>
 <li>Feature Version: 1.0.0.qualifier</li>
 <li>Update Site URL: <a href="http://updates.gama-platform.org/experimental">http://updates.gama-platform.org/experimental</a></li>
 <li>Update Site Name: GAMA 1.7.x Experimental Plugins Update Site</li>
@@ -218,7 +218,7 @@ institution.gama.pluginsName (1.0.0.qualifier)</li>
 </ul></li>
 <li>Finish</li>
 </ul>
-<p>b/  Add pom.xml for feature institution.gama.feature.pluginsName :</p>
+<p>b/  Add <code>pom.xml</code> for feature <code>institution.gama.feature.pluginsName</code>:</p>
 <ul>
 <li>Right click -&gt; Configure -&gt; Convert to maven project (to add pom.xml)</li>
 <li>Set:
@@ -230,7 +230,7 @@ institution.gama.pluginsName (1.0.0.qualifier)</li>
 </ul></li>
 <li>Finish</li>
 </ul>
-<p>c/ Configure pom.xml to recognize the parent pom.xml for Maven builds</p>
+<p>c/ Configure <code>pom.xml</code> to recognize the parent <code>pom.xml</code> for Maven builds</p>
 <ul>
 <li>Open pom.xml in institution.gama.pluginsName</li>
 <li>Tab overview, Parent section, type in:
@@ -299,7 +299,7 @@ The sequel describes how to add a new feature to the update site.</p>
 </ul></li>
 </ul>
 <p>The plug-in is now available as an extension from the GAMA release.
-More details about the update of the GAMA realease are available <a href="Updating">on the dedicated page</a>.</p>
+More details about the update of the GAMA release are available <a href="Updating">on the dedicated page</a>.</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/GamaArchitecture"><span class="arrow-prev">← </span><span>Architecture of GAMA</span></a><a class="docs-next button" href="/wiki/DevelopingSkills"><span>Developing a New Skill</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#creation-of-a-plug-in">Creation of a plug-in</a></li><li><a href="#creation-of-a-feature">Creation of a feature</a></li><li><a href="#addition-of-a-feature-to-the-product">Addition of a feature to the product</a></li><li><a href="#how-to-make-a-plug-in-available-at-gama-update-site-for-the-gama-release">How to make a plug-in available at GAMA update site for the GAMA release</a><ul class="toc-headings"><li><a href="#configure-plugin-to-be-available-for-maven">Configure plugin to be available for Maven</a></li><li><a href="#create-a-feature-for-the-plugin">Create a feature for the plugin</a></li><li><a href="#update-p2updatesite-categoryxml-this-step-will-be-done-automatically-by-travis-soon">Update p2updatesite category.xml (this step will be done automatically by travis, soon)</a></li></ul></li><li><a href="#how-to-make-a-plug-in-available-as-an-extension-for-the-gama-release-obsolete">How to make a plug-in available as an extension for the GAMA release (obsolete)</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {

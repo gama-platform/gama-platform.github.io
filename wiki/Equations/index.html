@@ -93,7 +93,7 @@
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="equation"></a><a href="#equation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>equation</code></h2>
 <h3><a class="anchor" aria-hidden="true" id="defining-an-ode-system"></a><a href="#defining-an-ode-system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining an ODE system</h3>
-<p>Defining a new ODE system needs to define a new <code>equation</code> block in a species. As example, the following <code>eqSI</code> system describes the evolution of a population with 2 compartments (S and I) and the flow from S to I compartment:</p>
+<p>Defining a new ODE system needs to define a new <code>equation</code> block in a species. As an example, the following <code>eqSI</code> system describes the evolution of a population with 2 compartments (S and I) and the flow from S to I compartment:</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> userSI {
     <span class="hljs-literal">float</span> t ;
     <span class="hljs-literal">float</span> I ; 
@@ -108,20 +108,20 @@
     }
 }           
 </code></pre>
-<p>This equation has to be defined in a species with <code>t</code>, <code>S</code> and <code>I</code> attributes. <code>beta</code> (and other similar parameters) can be defined either in the specific species (if it is specific to each agents) or in the <code>global</code> if it is a constant.</p>
-<p>Note: the <code>t</code> attribute will be automatically updated using the <code>solve</code> statement ; it contains the time elapsed in the equation integration.</p>
+<p>This equation has to be defined in a species with <code>t</code>, <code>S</code> and <code>I</code> attributes. <code>beta</code> (and other similar parameters) can be defined either in the specific species (if it is specific to each agent) or in the <code>global</code> if it is a constant.</p>
+<p>Note: the <code>t</code> attribute will be automatically updated using the <code>solve</code> statement; it contains the time elapsed in the equation integration.</p>
 <h3><a class="anchor" aria-hidden="true" id="using-a-built-in-ode-system"></a><a href="#using-a-built-in-ode-system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using a built-in ODE system</h3>
 <p>In order to ease the use of very classical ODE system, some built-in systems have been implemented in GAMA. For example, the previous SI system can be written as follows. Three additional facets are used to define the system:</p>
 <ul>
 <li><code>type</code>: the identifier of the built-in system (here SI) (the list of all built-in systems are described below),</li>
 <li><code>vars</code>: this facet is expecting a list of variables of the species, that will be matched with the variables of the system,</li>
-<li><code>params</code>: this facet is expecting a list of variables of the species (of of the global), that will be matched with the parameters of the system.</li>
+<li><code>params</code>: this facet is expecting a list of variables of the species (of the global), that will be matched with the parameters of the system.</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">equation</span> eqBuiltInSI <span class="hljs-symbol">type:</span> SI <span class="hljs-symbol">vars:</span> [S,I,t] <span class="hljs-symbol">params:</span> [N,beta] ;
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="split-a-system-into-several-agents"></a><a href="#split-a-system-into-several-agents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Split a system into several agents</h3>
 <p>An equation system can be split into several species and each part of the system are synchronized using the <code>simultaneously</code> facet of <code>equation</code>. The system split into several agents can be integrated using a single call to the <code>solve</code> statement. Notice that all the <code>equation</code> definition must have the same name.</p>
-<p>For example the SI system presented above can be defined in two different species <code>S_agt</code> (containing the equation defining the evolution of the S value) and <code>I_agt</code> (containing the equation defining the evolution of the I value). These two equations are linked using the <code>simultaneously</code> facet of the <code>equation</code> statement. This facet expects a set of agents. The integration is called only once in a simulation step, e.g. in the <code>S_agt</code> agent.</p>
+<p>For example, the SI system presented above can be defined in two different species <code>S_agt</code> (containing the equation defining the evolution of the S value) and <code>I_agt</code> (containing the equation defining the evolution of the I value). These two equations are linked using the <code>simultaneously</code> facet of the <code>equation</code> statement. This facet expects a set of agents. The integration is called only once in a simulation step, e.g. in the <code>S_agt</code> agent.</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> S_agt {
     <span class="hljs-literal">float</span> t ;       
     <span class="hljs-literal">float</span> Ssize ;
@@ -174,7 +174,7 @@
 </ul>
 <p><img src="../resources/images/multiParadigmModeling/SI-split-results.png" alt="SI-split-results.png"></p>
 <h2><a class="anchor" aria-hidden="true" id="solve-an-equation"></a><a href="#solve-an-equation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>solve</code> an equation</h2>
-<p>The <code>solve</code> statement has been added in order to integrate numerically the equation system. It should be add into a reflex. At each simulation step, a step of the integration is executed, the length of the integration step is defined in the <code>step</code> facet. The <code>solve</code> statement will update the variables used in the equation system. The chosen integration method (defined in <code>method</code>) is Runge-Kutta 4 (which is very often a good choice of integration method in terms of accuracy).</p>
+<p>The <code>solve</code> statement has been added in order to integrate numerically the equation system. It should be added into a reflex. At each simulation step, a step of the integration is executed, the length of the integration step is defined in the <code>step</code> facet. The <code>solve</code> statement will update the variables used in the equation system. The chosen integration method (defined in <code>method</code>) is Runge-Kutta 4 (which is very often a good choice of integration method in terms of accuracy).</p>
 <pre><code class="hljs"><span class="hljs-builtin">reflex</span> solving {
     <span class="hljs-keyword">solve</span> eqSI <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
 }
@@ -195,7 +195,7 @@
 <li><code>step: number</code></li>
 <li><code>cycle_length: number</code></li>
 </ul>
-<p>cycle_length (int): length of simulation cycle which will be synchronize with step of integrator (default value: 1)
+<p>cycle_length (int): length of simulation cycle which will be synchronized with step of the integrator (default value: 1)
 step (float): integration step, use with most integrator methods (default value: 1)</p>
 <p>time_final (float): target time for the integration (can be set to a value smaller than t0 for backward integration)
 time_initial (float): initial time
