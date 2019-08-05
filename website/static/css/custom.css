@@ -54,6 +54,9 @@ h4.navGroupSubcategoryTitle {
 }
 
 @media only screen and (min-width: 1024px) {
+	.separateOnPageNav .docsNavContainer {
+		flex: 0 0 255px !important;
+	}
 }
 
 @media only screen and (max-width: 1023px) {
