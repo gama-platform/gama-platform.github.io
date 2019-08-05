@@ -77,14 +77,14 @@ gives examples</li>
 <li>signal and diffuse have been merged into a single statement</li>
 <li>facets do not accept a space between their identifier and the <code>:</code> anymore.</li>
 <li>simplification of equation/solve statements and deprecation of old facets</li>
-<li>in FIPA skill, <code>content</code>is replaced everywhere with <code>contents</code></li>
+<li>in FIPA skill, <code>content</code> is replaced everywhere with <code>contents</code></li>
 <li>in FIPA skill, <code>receivers</code> is replaced everywhere with <code>to</code></li>
 <li>in FIPA skill, <code>messages</code> is replaced by <code>mailbox</code></li>
 <li>The pseudo-attribute <code>user_location</code> has been removed (not deprecated, unfortunately) and replaced by the &quot;unit&quot; <code>#user_location</code>.</li>
 <li>The actions called by an <code>event</code> layer do not need anymore to define <code>point</code> and <code>list&lt;agent&gt;</code> arguments to receive the mouse location and the list of agents selected. Instead, they can now use <code>#user_location</code> and they have to compute the selected agents by themselves (using an arbitrary function).</li>
 <li>The random number generators now better handle seeding (larger range), but it can change the series of values previously obtained from a given seed in 1.6.1</li>
-<li>all models now have a starting_date and a current_date. They then dont begin at an hypothetical &quot;zero&quot; date, but at the epoch date defined by ISO 8601 (1970/1/1). It should not change models that dont rely on dates, except that:</li>
-<li>the #year (and its nicknames #y, #years) and #month (and its nickname #month) do not longer have a default value (of resp. 30 days and 360 days). Instead, they are always evaluated against the current_date of the model. If no starting_date is defined, the values of #month and #year will then depend on the sequence of months and year since epoch day.</li>
+<li>all models now have a starting_date and a current_date. They then don't begin at a hypothetical &quot;zero&quot; date, but at the epoch date defined by ISO 8601 (1970/1/1). It should not change models that don't rely on dates, except that:</li>
+<li>the <code>#year</code> (and its nicknames <code>#y</code>, <code>#years</code>) and <code>#month</code> (and its nickname <code>#month</code>) do not longer have a default value (of resp. 30 days and 360 days). Instead, they are always evaluated against the current_date of the model. If no starting_date is defined, the values of <code>#month</code> and <code>#year</code> will then depend on the sequence of months and year since epoch day.</li>
 <li><code>as_time</code>, <code>as_system_time</code>, <code>as_date</code> and <code>as_system_date</code> have been removed</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="simulations"></a><a href="#simulations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simulations</h2>
