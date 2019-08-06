@@ -152,8 +152,8 @@ const siteConfig = {
    *    DOWNLOAD
    *  Version and Name version of the zip file
    */
-  zipName: 'GAMA1.8',
-  downloadVersion: 'latest',
+  zipName: 'GAMA.1.8',
+  downloadVersion: 'v1.8.0',
 
 
   /*
