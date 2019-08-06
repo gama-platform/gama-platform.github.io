@@ -9,7 +9,7 @@
 // activate dark mode on GAMA
 if (/(^|;)\s*dark_mode/.test(document.cookie)) {
 
-	var css = "body { background-color: #333 !important; } body, p, h1, h2, h3, h4, h5, h6 { color: white !important; }",
+	var css = "body { background-color: #333 !important; } body, li, p, h1, h2, h3, h4, h5, h6 { color: white !important; } div#searchResult { background-color: #333 !important; border: solid white 1px !important; } .toc .toggleNav ul li a { color: #DDD !important; }",
     head = document.head || document.getElementsByTagName('head')[0],
     style = document.createElement('style');
 
