@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) 2017-present, GAMA-Platform
  *
- * This source code is licensed under the MIT license found in the
+ * This source code is licensed under the GPL3 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
@@ -131,6 +131,10 @@ const siteConfig = {
     },
     {
       src: BASE_URL + 'js/searchEngine.js',
+      async: false
+    },
+    {
+      src: BASE_URL + 'js/dark.js',
       async: false
     }
   ],
