@@ -77,15 +77,14 @@
 <li>Pie charts</li>
 <li>Histograms</li>
 </ul>
-<p>A chart must be defined in a display : it behaves exactly like any other layer.
-Definition of a chart :</p>
+<p>A chart must be defined in a display : it behaves exactly like any other layer.</p>
+<p>Definition of a chart:</p>
 <pre><code class="hljs"><span class="hljs-keyword">chart</span> chart_name <span class="hljs-symbol">type:</span> chart_type  {
      [<span class="hljs-keyword">data</span>]
 }
 </code></pre>
-<p>The data to draw are define inside the chart block as follow:</p>
-<pre><code class="hljs">
-    <span class="hljs-keyword">data</span> data_legend <span class="hljs-symbol">value:</span> data_value
+<p>The data to draw are defined inside the chart block as follow:</p>
+<pre><code class="hljs">    <span class="hljs-keyword">data</span> data_legend <span class="hljs-symbol">value:</span> data_value
 </code></pre>
 <p>We add a new display called <strong>Population_information</strong> that refreshes every 5 simulation steps.
 Inside this display, we define 3 charts: one of type <em>series</em> (i.e. time series chart), two of type <em>histogram</em> :</p>
@@ -158,7 +157,7 @@ global {
     }
     
     <span class="hljs-builtin">reflex</span> stop_simulation <span class="hljs-symbol">when:</span> (nb_preys = 0) or (nb_predators = 0) {
-        <span class="hljs-keyword">do</span> halt ;
+        <span class="hljs-keyword">do</span> pause ;
     } 
 }
 

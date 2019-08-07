@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>2. Charts · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This step Illustrates how define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="2. Charts · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="This step Illustrates how define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation."/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>2. Charts · GAMA-Platform</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This step Illustrates how to define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="2. Charts · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="This step Illustrates how to define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation."/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
@@ -60,7 +60,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">2. Charts</h1></header><article><div><span><p>This step Illustrates how define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation.</p>
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">2. Charts</h1></header><article><div><span><p>This step Illustrates how to define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation.</p>
 <h2><a class="anchor" aria-hidden="true" id="formulation"></a><a href="#formulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formulation</h2>
 <ul>
 <li>Definition of new global variables: current_hour, nb_people_infected, nb_people_not_infected, infected_rate</li>
@@ -90,15 +90,14 @@ We define 4 new variables:</p>
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="stopping-condition"></a><a href="#stopping-condition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>stopping condition</h3>
-<p>We add a new reflex that stops the simulation if the <strong>infected_rate</strong> is equal to 1. To stop the simulation, we apply the <strong>halt</strong> action.</p>
+<p>We add a new reflex that stops the simulation if the <strong>infected_rate</strong> is equal to 1. To stop the simulation, we use the <code>pause</code> action.</p>
 <pre><code class="hljs">global {
    ...
         <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> infected_rate = 1.0 {
-        <span class="hljs-keyword">do</span> halt;
+        <span class="hljs-keyword">do</span> pause;
     }
 }
 </code></pre>
-<p>Note that it would have been possible to use the <strong>pause</strong> action that pauses the simulation instead of the <strong>halt</strong> action that stops the simulation.</p>
 <h3><a class="anchor" aria-hidden="true" id="monitor"></a><a href="#monitor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>monitor</h3>
 <p>A monitor allows to follow the value of an arbitrary expression in GAML. It has to be defined in an output section. A monitor is defined as follows:</p>
 <pre><code class="hljs">      <span class="hljs-keyword">monitor</span> monitor_name <span class="hljs-symbol">value:</span> an_expression <span class="hljs-symbol">refresh:</span>every(nb_steps);
@@ -106,7 +105,7 @@ We define 4 new variables:</p>
 <p>With:</p>
 <ul>
 <li>value: mandatory, its value will be displayed in the monitor.</li>
-<li>refresh: bool, optional : if the expression is true, compute (default is true).</li>
+<li>refresh: bool, optional: if the expression is true, compute (default is true).</li>
 </ul>
 <p>In this model, we define 2 monitors to follow the value of the variable <strong>current_hour</strong> and <strong>infected_rate</strong>:</p>
 <pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span>gui{
@@ -125,15 +124,14 @@ We define 4 new variables:</p>
 <li>Pie charts</li>
 <li>Histograms</li>
 </ul>
-<p>A chart must be defined in a display : it behaves exactly like any other layer.
+<p>A chart must be defined in a display: it behaves exactly like any other layer.
 Definition of a chart :</p>
 <pre><code class="hljs"><span class="hljs-keyword">chart</span> chart_name <span class="hljs-symbol">type:</span> chart_type  {
      [<span class="hljs-keyword">data</span>]
 }
 </code></pre>
-<p>The data to draw are define inside the chart block:</p>
-<pre><code class="hljs">
-    <span class="hljs-keyword">data</span> data_legend <span class="hljs-symbol">value:</span> data_value
+<p>The data to draw are defined inside the chart block:</p>
+<pre><code class="hljs"><span class="hljs-keyword">data</span> data_legend <span class="hljs-symbol">value:</span> data_value
 </code></pre>
 <p>We add a new display called <strong>chart</strong> refresh every 10 simulation steps.
 Inside this display, we define a chart of type <em>series</em>:</p>
@@ -181,7 +179,7 @@ global{
         }
     }
     <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> infected_rate = 1.0 {
-        <span class="hljs-keyword">do</span> halt;
+        <span class="hljs-keyword">do</span> pause;
     }
 }
 
