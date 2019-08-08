@@ -184,7 +184,9 @@ function Download(props) {
               <div className="blockElement imageAlignTop threeByGridBlock">
 		      <div className="blockContent">
 			    <h2>Documentation</h2>
-				<Button href="#" className="button disabled">PDF</Button>
+				<Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMA${siteConfig.downloadVersion}.pdf`} className="button">PDF (~ 34 MB)
+			              <span class="tooltiptext">This is the <b>offline GAMA {siteConfig.downloadVersion} documentation</b> ready to be download in a PDF file.</span>
+            			</Button>
 		      </div>
               </div>
               <div className="blockElement imageAlignTop threeByGridBlock"></div>
