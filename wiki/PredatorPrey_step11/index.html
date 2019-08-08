@@ -83,8 +83,8 @@
 </ul>
 <p>There are 2 possible types:</p>
 <ul>
-<li>‘txt’ (text) : in that case, my_data is treated as a string, which is written directly in the file</li>
-<li>‘csv’ : in that case, my_data is treated as a list of variables to write : [&quot;var1&quot;, &quot;var2&quot;, &quot;var3&quot;].</li>
+<li><code>txt</code> (text) : in that case, my_data is treated as a string, which is written directly in the file</li>
+<li><code>csv</code> : in that case, my_data is treated as a list of variables to write : [&quot;var1&quot;, &quot;var2&quot;, &quot;var3&quot;].</li>
 </ul>
 <p>A second way to write file consists in using the save statement:</p>
 <pre><code class="hljs"><span class="hljs-keyword">save</span> my_data <span class="hljs-symbol">type:</span> file_type <span class="hljs-symbol">to:</span> file_name;
@@ -96,9 +96,9 @@
 </ul>
 <p>There are 3 possible types:</p>
 <ul>
-<li>‘shp’ (shapefile - GIS data): in that case, my_data is treated as a list of agents: all their geometries are saved in the file (with some variables as attributes)</li>
-<li>‘txt’ (text): in that case, my_data is treated as a string, which is written directly in the file</li>
-<li>‘csv’: in that case, my_data is treated as a list of values : [val1, val2, val3].</li>
+<li><code>shp</code> (shapefile - GIS data): in that case, my_data is treated as a list of agents: all their geometries are saved in the file (with some variables as attributes)</li>
+<li><code>txt</code> (text): in that case, my_data is treated as a string, which is written directly in the file</li>
+<li><code>csv</code>: in that case, my_data is treated as a list of values : [val1, val2, val3].</li>
 </ul>
 <p>We use this statement (in a global reflex called <strong>save_result</strong>) to write:</p>
 <ul>

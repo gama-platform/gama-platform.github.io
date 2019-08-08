@@ -121,13 +121,13 @@
 <p>In GAMA, <a href="G__DefiningChartLayers">charts</a> are considered as a display layer.
 GAMA can display 3 main types of charts using the <em>type</em> facet:</p>
 <ul>
-<li>histogram</li>
-<li>pie</li>
-<li>series/xy/scatter: both display series with lines or dots, with 3 subtypes :
+<li><code>histogram</code></li>
+<li><code>pie</code></li>
+<li><code>series</code>/<code>xy</code>/<code>scatter</code>: both display series with lines or dots, with 3 subtypes :
 <ul>
-<li>series: to display the evolution of one/several variable (vs time or not).</li>
-<li>xy: to specify both x and y value. To allow stacked plots, only one y value for each x value.</li>
-<li>scatter: free x and y values for each serie.</li>
+<li><code>series</code>: to display the evolution of one/several variable (vs time or not).</li>
+<li><code>xy</code>: to specify both x and y value. To allow stacked plots, only one y value for each x value.</li>
+<li><code>scatter</code>: free x and y values for each serie.</li>
 </ul></li>
 </ul>
 <p>In our model, we define a new display called _ chart_display_ that will be refresh every 10 simulation steps. In this display, we add a series charts with 2 layers of data:</p>

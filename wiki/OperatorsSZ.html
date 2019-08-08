@@ -262,12 +262,12 @@
 <li><strong><code>sample</code></strong> (<code>list</code>, <code>int</code>, <code>bool</code>, <code>list</code>) ---&gt;  <code>list</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result"></a><a href="#result" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>takes a sample of the specified size from the elements of x using either with or without replacement with given weights
-takes a sample of the specified size from the elements of x using either with or without replacement</p>
+<p>takes a sample of the specified size from the elements of x using either with or without replacement
+takes a sample of the specified size from the elements of x using either with or without replacement with given weights</p>
 <h4><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span> var0 &lt;- sample([2,10,1],2,false,[0.1,0.7,0.2]); <span class="hljs-comment">// var0 equals [10,2] </span>
-<span class="hljs-literal">list</span> var1 &lt;- sample([2,10,1],2,false); <span class="hljs-comment">// var1 equals [10,1]</span>
+<span class="hljs-literal">list</span> var0 &lt;- sample([2,10,1],2,false); <span class="hljs-comment">// var0 equals [10,1] </span>
+<span class="hljs-literal">list</span> var1 &lt;- sample([2,10,1],2,false,[0.1,0.7,0.2]); <span class="hljs-comment">// var1 equals [10,2]</span>
 
 </code></pre>
 <hr>
@@ -364,8 +364,8 @@ takes a sample of the specified size from the elements of x using either with or
 <h4><a class="anchor" aria-hidden="true" id="result-5"></a><a href="#result-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the about value of the given emotion</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-2"></a><a href="#examples-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">emotion set_about predicate1 
-
+<pre><code class="hljs"> 
+emotion set_about predicate1
 
 </code></pre>
 <hr>
@@ -378,26 +378,26 @@ takes a sample of the specified size from the elements of x using either with or
 <h4><a class="anchor" aria-hidden="true" id="result-6"></a><a href="#result-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the agent value of the given social link</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-3"></a><a href="#examples-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">social_link set_agent agentA 
-
+<pre><code class="hljs"> 
+social_link set_agent agentA
 
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="set_agent_cause"></a><a href="#set_agent_cause" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>set_agent_cause</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-10"></a><a href="#possible-use-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>emotion</code> <strong><code>set_agent_cause</code></strong> <code>agent</code> ---&gt;  <code>emotion</code></li>
-<li><strong><code>set_agent_cause</code></strong> (<code>emotion</code> , <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><code>predicate</code> <strong><code>set_agent_cause</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>set_agent_cause</code></strong> (<code>predicate</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
+<li><code>emotion</code> <strong><code>set_agent_cause</code></strong> <code>agent</code> ---&gt;  <code>emotion</code></li>
+<li><strong><code>set_agent_cause</code></strong> (<code>emotion</code> , <code>agent</code>) ---&gt;  <code>emotion</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-7"></a><a href="#result-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>change the agentCause value of the given emotion
-change the agentCause value of the given predicate</p>
+<p>change the agentCause value of the given predicate
+change the agentCause value of the given emotion</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-4"></a><a href="#examples-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">emotion set_agent_cause agentA 
+<pre><code class="hljs"> 
 predicate set_agent_cause agentA 
-
+emotion set_agent_cause agentA
 
 </code></pre>
 <hr>
@@ -410,8 +410,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-8"></a><a href="#result-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the decay value of the given emotion</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-5"></a><a href="#examples-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">emotion set_decay 12 
-
+<pre><code class="hljs"> 
+emotion set_decay 12
 
 </code></pre>
 <hr>
@@ -424,8 +424,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-9"></a><a href="#result-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the dominance value of the given social link</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-6"></a><a href="#examples-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">social_link set_dominance 0.4 
-
+<pre><code class="hljs"> 
+social_link set_dominance 0.4
 
 </code></pre>
 <hr>
@@ -438,8 +438,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-10"></a><a href="#result-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the familiarity value of the given social link</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-7"></a><a href="#examples-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">social_link set_familiarity 0.4 
-
+<pre><code class="hljs"> 
+social_link set_familiarity 0.4
 
 </code></pre>
 <hr>
@@ -452,8 +452,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-11"></a><a href="#result-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the intensity value of the given emotion</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-8"></a><a href="#examples-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">emotion set_intensity 12 
-
+<pre><code class="hljs"> 
+emotion set_intensity 12
 
 </code></pre>
 <hr>
@@ -466,8 +466,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-12"></a><a href="#result-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the lifetime value of the given mental state</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-9"></a><a href="#examples-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">mental <span class="hljs-keyword">state</span> set_lifetime 1 
-
+<pre><code class="hljs"> 
+mental <span class="hljs-keyword">state</span> set_lifetime 1
 
 </code></pre>
 <hr>
@@ -480,8 +480,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-13"></a><a href="#result-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the liking value of the given social link</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-10"></a><a href="#examples-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">social_link set_liking 0.4 
-
+<pre><code class="hljs"> 
+social_link set_liking 0.4
 
 </code></pre>
 <hr>
@@ -494,8 +494,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-14"></a><a href="#result-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the modality value of the given mental state</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-11"></a><a href="#examples-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">mental <span class="hljs-keyword">state</span> set_modality belief 
-
+<pre><code class="hljs"> 
+mental <span class="hljs-keyword">state</span> set_modality belief
 
 </code></pre>
 <hr>
@@ -508,8 +508,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-15"></a><a href="#result-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the predicate value of the given mental state</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-12"></a><a href="#examples-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">mental <span class="hljs-keyword">state</span> set_predicate pred1 
-
+<pre><code class="hljs"> 
+mental <span class="hljs-keyword">state</span> set_predicate pred1
 
 </code></pre>
 <hr>
@@ -522,8 +522,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-16"></a><a href="#result-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the solidarity value of the given social link</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-13"></a><a href="#examples-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">social_link set_solidarity 0.4 
-
+<pre><code class="hljs"> 
+social_link set_solidarity 0.4
 
 </code></pre>
 <hr>
@@ -536,8 +536,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-17"></a><a href="#result-17" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the strength value of the given mental state</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-14"></a><a href="#examples-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">mental <span class="hljs-keyword">state</span> set_strength 1.0 
-
+<pre><code class="hljs"> 
+mental <span class="hljs-keyword">state</span> set_strength 1.0
 
 </code></pre>
 <hr>
@@ -550,8 +550,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-18"></a><a href="#result-18" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the trust value of the given social link</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-15"></a><a href="#examples-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">social_link set_familiarity 0.4 
-
+<pre><code class="hljs"> 
+social_link set_familiarity 0.4
 
 </code></pre>
 <hr>
@@ -564,8 +564,8 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-19"></a><a href="#result-19" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the is_true value of the given predicate</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-16"></a><a href="#examples-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">predicate set_truth false 
-
+<pre><code class="hljs"> 
+predicate set_truth false
 
 </code></pre>
 <hr>
@@ -579,9 +579,9 @@ predicate set_agent_cause agentA
 <h4><a class="anchor" aria-hidden="true" id="result-20"></a><a href="#result-20" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Sets the z ordinate of the n-th point of a geometry to the value provided by the third argument</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-17"></a><a href="#examples-17" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">triangle(3) set_z [5,10,14] 
-set_z (triangle(3), 1, 3.0) 
-
+<pre><code class="hljs"> 
+triangle(3) set_z [5,10,14] 
+set_z (triangle(3), 1, 3.0)
 
 </code></pre>
 <hr>
@@ -604,38 +604,38 @@ set_z (triangle(3), 1, 3.0)
 <ul>
 <li>shape_file(string): This file constructor allows to read a shapefile (.shp) file</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>);
 </code></pre>
 <ul>
 <li>shape_file(string,int): This file constructor allows to read a shapefile (.shp) file and specifying the coordinates system code, as an int (epsg code)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, <span class="hljs-string">"32648"</span>); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, <span class="hljs-string">"32648"</span>);
 </code></pre>
 <ul>
 <li>shape_file(string,string): This file constructor allows to read a shapefile (.shp) file and specifying the coordinates system code (epg,...,), as a string</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, <span class="hljs-string">"EPSG:32648"</span>); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, <span class="hljs-string">"EPSG:32648"</span>);
 </code></pre>
 <ul>
 <li>shape_file(string,bool): This file constructor allows to read a shapefile (.shp) file and take a potential z value (not taken in account by default)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, true); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, true);
 </code></pre>
 <ul>
 <li>shape_file(string,int,bool): This file constructor allows to read a shapefile (.shp) file and specifying the coordinates system code, as an int (epsg code) and take a potential z value (not taken in account by default)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, <span class="hljs-string">"32648"</span>, true); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, <span class="hljs-string">"32648"</span>, true);
 </code></pre>
 <ul>
 <li>shape_file(string,string,bool): This file constructor allows to read a shapefile (.shp) file and specifying the coordinates system code (epg,...,), as a string and take a potential z value (not taken in account by default)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, <span class="hljs-string">"EPSG:32648"</span>,true); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;- shape_file(<span class="hljs-string">"file.shp"</span>, <span class="hljs-string">"EPSG:32648"</span>,true);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-1"></a><a href="#see-also-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
 <p><a href="OperatorsIM#is_shape">is_shape</a>,</p>
@@ -643,8 +643,8 @@ set_z (triangle(3), 1, 3.0)
 <h3><a class="anchor" aria-hidden="true" id="shuffle"></a><a href="#shuffle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>shuffle</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-25"></a><a href="#possible-use-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>shuffle</code></strong> (<code>container</code>) ---&gt;  <code>list</code></li>
 <li><strong><code>shuffle</code></strong> (<code>string</code>) ---&gt;  <code>string</code></li>
+<li><strong><code>shuffle</code></strong> (<code>container</code>) ---&gt;  <code>list</code></li>
 <li><strong><code>shuffle</code></strong> (<code>matrix</code>) ---&gt;  <code>matrix</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-22"></a><a href="#result-22" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
@@ -655,8 +655,8 @@ set_z (triangle(3), 1, 3.0)
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-18"></a><a href="#examples-18" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span> var0 &lt;- shuffle ([12, 13, 14]); <span class="hljs-comment">// var0 equals [14,12,13] (for example) </span>
-<span class="hljs-literal">string</span> var1 &lt;- shuffle (<span class="hljs-string">'abc'</span>); <span class="hljs-comment">// var1 equals 'bac' (for example) </span>
+<span class="hljs-literal">string</span> var0 &lt;- shuffle (<span class="hljs-string">'abc'</span>); <span class="hljs-comment">// var0 equals 'bac' (for example) </span>
+<span class="hljs-literal">list</span> var1 &lt;- shuffle ([12, 13, 14]); <span class="hljs-comment">// var1 equals [14,12,13] (for example) </span>
 <span class="hljs-literal">matrix</span> var2 &lt;- shuffle (<span class="hljs-literal">matrix</span>([[<span class="hljs-string">"c11"</span>,<span class="hljs-string">"c12"</span>,<span class="hljs-string">"c13"</span>],[<span class="hljs-string">"c21"</span>,<span class="hljs-string">"c22"</span>,<span class="hljs-string">"c23"</span>]])); <span class="hljs-comment">// var2 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example)</span>
 
 </code></pre>
@@ -729,8 +729,8 @@ set_z (triangle(3), 1, 3.0)
 <h3><a class="anchor" aria-hidden="true" id="sin"></a><a href="#sin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>sin</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-30"></a><a href="#possible-use-30" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>sin</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>sin</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>sin</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-27"></a><a href="#result-27" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the value (in [-1,1]) of the sinus of the operand (in decimal degrees). The argument is casted to an int before being evaluated.</p>
@@ -740,8 +740,8 @@ set_z (triangle(3), 1, 3.0)
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-23"></a><a href="#examples-23" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- sin(360) with_precision 10 with_precision 10; <span class="hljs-comment">// var0 equals 0.0 </span>
-<span class="hljs-literal">float</span> var1 &lt;- sin (0); <span class="hljs-comment">// var1 equals 0.0</span>
+<span class="hljs-literal">float</span> var0 &lt;- sin (0); <span class="hljs-comment">// var0 equals 0.0 </span>
+<span class="hljs-literal">float</span> var1 &lt;- sin(360) with_precision 10 with_precision 10; <span class="hljs-comment">// var1 equals 0.0</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-4"></a><a href="#see-also-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -773,9 +773,9 @@ set_z (triangle(3), 1, 3.0)
 <h4><a class="anchor" aria-hidden="true" id="result-29"></a><a href="#result-29" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns true if the current_date of the model is after (or equal to) the date passed in argument. Synonym of 'current_date &gt;= argument'. Can be used, like 'after', in its composed form with 2 arguments to express the lowest boundary of the computation of a frequency. However, contrary to 'after', there is a subtle difference: the lowest boundary will be tested against the frequency as well</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-25"></a><a href="#examples-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-builtin">reflex</span> <span class="hljs-symbol">when:</span> since(starting_date) {}    <span class="hljs-comment">// this reflex will always be run </span>
-every(2#days) since (starting_date + 1#day) <span class="hljs-comment">// the computation will return true 1 day after the starting date and every two days after this reference date </span>
-
+<pre><code class="hljs"> 
+<span class="hljs-builtin">reflex</span> <span class="hljs-symbol">when:</span> since(starting_date) {}    <span class="hljs-comment">// this reflex will always be run </span>
+every(2#days) since (starting_date + 1#day) <span class="hljs-comment">// the computation will return true 1 day after the starting date and every two days after this reference date</span>
 
 </code></pre>
 <hr>
@@ -789,9 +789,9 @@ every(2#days) since (starting_date + 1#day) <span class="hljs-comment">// the co
 <li><strong><code>skeletonize</code></strong> (<code>geometry</code>, <code>float</code>, <code>float</code>, <code>bool</code>) ---&gt;  <code>list&lt;geometry&gt;</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-30"></a><a href="#result-30" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
+<p>A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent)
-A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation
+A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping
 A list of geometries (polylines) corresponding to the skeleton of the operand geometry (geometry, agent) with the given tolerance for the clipping and for the triangulation</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-26"></a><a href="#examples-26" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
@@ -810,14 +810,14 @@ A list of geometries (polylines) corresponding to the skeleton of the operand ge
 <li><strong><code>skew</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-31"></a><a href="#result-31" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>Returns the skew of a data sequence when the 3rd moment has already been computed.
-Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3</p>
+<p>Returns the skew of a data sequence, which is moment(data,3,mean) / standardDeviation3
+Returns the skew of a data sequence when the 3rd moment has already been computed.</p>
 <h4><a class="anchor" aria-hidden="true" id="comment-1"></a><a href="#comment-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
 <p>In R moment(c(1, 3, 5, 6, 9, 11, 12, 13), order=3,center=TRUE) is -10.125 and sd(c(1,3,5,6,9,11,12,13)) = 4.407785The value of the skewness tested here is different because there are different types of estimatorJoanes and Gill (1998) discuss three methods for estimating skewness:Type 1: g_1 = m_3 / m_2^(3/2). This is the typical definition used in many older textbooks.Type 2: G_1 = g_1 * sqrt(n(n-1)) / (n-2). Used in SAS and SPSS.Type 3: b_1 = m_3 / s^3 = g_1 ((n-1)/n)^(3/2). Used in MINITAB and BMDP.In R skewness(c(1, 3, 5, 6, 9, 11, 12, 13),type=3) is -0.1182316</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-27"></a><a href="#examples-27" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- skew(-10.125,4.407785) with_precision(2); <span class="hljs-comment">// var0 equals -0.12 </span>
-<span class="hljs-literal">float</span> var1 &lt;- skew([1,3,5,6,9,11,12,13]) with_precision(2); <span class="hljs-comment">// var1 equals -0.14</span>
+<span class="hljs-literal">float</span> var0 &lt;- skew([1,3,5,6,9,11,12,13]) with_precision(2); <span class="hljs-comment">// var0 equals -0.14 </span>
+<span class="hljs-literal">float</span> var1 &lt;- skew(-10.125,4.407785) with_precision(2); <span class="hljs-comment">// var1 equals -0.12</span>
 
 </code></pre>
 <hr>
@@ -924,10 +924,10 @@ Returns the skew of a data sequence, which is moment(data,3,mean) / standardDevi
 <li>if the lef-hand operand (the graph) is nil, throws an Exception</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-32"></a><a href="#examples-32" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">graph</span> graphEpidemio &lt;- generate_barabasi_albert( [<span class="hljs-string">"edges_species"</span>::edge,<span class="hljs-string">"vertices_specy"</span>::node,<span class="hljs-string">"size"</span>::3,<span class="hljs-string">"m"</span>::5] ); 
- 
-unknown var1 &lt;- graphEpidemio source_of(edge(3)); <span class="hljs-comment">// var1 equals node1graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); </span>
- 
+<pre><code class="hljs"> 
+<span class="hljs-literal">graph</span> graphEpidemio &lt;- generate_barabasi_albert( [<span class="hljs-string">"edges_species"</span>::edge,<span class="hljs-string">"vertices_specy"</span>::node,<span class="hljs-string">"size"</span>::3,<span class="hljs-string">"m"</span>::5] ); 
+unknown var1 &lt;- graphEpidemio source_of(edge(3)); <span class="hljs-comment">// var1 equals node1 </span>
+<span class="hljs-literal">graph</span> graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); 
 <span class="hljs-literal">point</span> var3 &lt;- graphFromMap source_of(link({1,5},{12,45})); <span class="hljs-comment">// var3 equals {1,5}</span>
 
 </code></pre>
@@ -1034,14 +1034,14 @@ unknown var1 &lt;- graphEpidemio source_of(edge(3)); <span class="hljs-comment">
 <li><strong><code>split_geometry</code></strong> (<code>geometry</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>list&lt;geometry&gt;</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-43"></a><a href="#result-43" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
-A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)
-A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)</p>
+<p>A list of geometries that result from the decomposition of the geometry according to a grid with the given number of rows and columns (geometry, nb_cols, nb_rows)
+A list of geometries that result from the decomposition of the geometry by rectangle cells of the given dimension (geometry, {size_x, size_y})
+A list of geometries that result from the decomposition of the geometry by square cells of the given side size (geometry, size)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-37"></a><a href="#examples-37" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- to_rectangles(self, {10.0, 15.0}); <span class="hljs-comment">// var0 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var1 &lt;- to_squares(self, 10.0); <span class="hljs-comment">// var1 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var2 &lt;- to_rectangles(self, 10,20); <span class="hljs-comment">// var2 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- to_rectangles(self, 10,20); <span class="hljs-comment">// var0 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}); <span class="hljs-comment">// var1 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var2 &lt;- to_squares(self, 10.0); <span class="hljs-comment">// var2 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0</span>
 
 </code></pre>
 <hr>
@@ -1056,10 +1056,10 @@ A list of geometries that result from the decomposition of the geometry accordin
 <p>Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound)
 Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The boolean argument controls whether or not the splitting is  strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-38"></a><a href="#examples-38" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; li &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
- 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;unknown&gt;&gt; var1 &lt;- split_in(li,3); <span class="hljs-comment">// var1 equals [[1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0],[19.9],[35.9,40.0]]list&lt;float&gt; l &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; </span>
- 
+<pre><code class="hljs"> 
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; li &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;unknown&gt;&gt; var1 &lt;- split_in(li,3); <span class="hljs-comment">// var1 equals [[1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0],[19.9],[35.9,40.0]] </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; l &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
 <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;unknown&gt;&gt; var3 &lt;- split_in(l,3, true); <span class="hljs-comment">// var3 equals [[1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0],[19.9],[35.9,40.0]]</span>
 
 </code></pre>
@@ -1094,10 +1094,10 @@ A list of geometries resulting after cutting the lines at their intersections. i
 <p>Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound
 Splits a list of numbers into n+1 bins using a set of n bounds passed as the second argument. The boolean argument controls whether or not the splitting is strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-40"></a><a href="#examples-40" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; li &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
- 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;unknown&gt;&gt; var1 &lt;- split_using(li,[1.0,3.0,4.2]); <span class="hljs-comment">// var1 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]list&lt;float&gt; l &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; </span>
- 
+<pre><code class="hljs"> 
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; li &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;unknown&gt;&gt; var1 &lt;- split_using(li,[1.0,3.0,4.2]); <span class="hljs-comment">// var1 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]] </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; l &lt;- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
 <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;unknown&gt;&gt; var3 &lt;- split_using(l,[1.0,3.0,4.2], true); <span class="hljs-comment">// var3 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]</span>
 
 </code></pre>
@@ -1238,9 +1238,9 @@ Returns a list containing the sub-strings (tokens) of the left-hand operand deli
 <p>converts a date to astring following a custom pattern and using a specific locale (e.g.: 'fr', 'en', etc.). The pattern can use &quot;%Y %M %N %D %E %h %m %s %z&quot; for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date &amp; time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: <a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns">https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns</a>. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
 converts a date to astring following a custom pattern. The pattern can use &quot;%Y %M %N %D %E %h %m %s %z&quot; for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will return the complete date as defined by the ISO date &amp; time format. The pattern can also follow the pattern definition found here, which gives much more control over the format of the date: <a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns">https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns</a>. Different patterns are available by default as constants: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-46"></a><a href="#examples-46" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">string</span>(#now, <span class="hljs-string">'yyyy-MM-dd'</span>) 
+<pre><code class="hljs"> 
 <span class="hljs-literal">string</span>(#now, <span class="hljs-string">'yyyy-MM-dd'</span>) 
-
+<span class="hljs-literal">string</span>(#now, <span class="hljs-string">'yyyy-MM-dd'</span>)
 
 </code></pre>
 <hr>
@@ -1384,14 +1384,14 @@ unknown var0 &lt;- [1,2] sum_of (each * 100 ); <span class="hljs-comment">// var
 <ul>
 <li>svg_file(string): This file constructor allows to read a svg file</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;-svg_file(<span class="hljs-string">"file.svg"</span>); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;-svg_file(<span class="hljs-string">"file.svg"</span>);
 </code></pre>
 <ul>
 <li>svg_file(string,point): This file constructor allows to read a svg file, specifying the size of the bounding box</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;-svg_file(<span class="hljs-string">"file.svg"</span>, {10,10}); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;-svg_file(<span class="hljs-string">"file.svg"</span>, {10,10});
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-20"></a><a href="#see-also-20" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
 <p><a href="OperatorsIM#is_svg">is_svg</a>,</p>
@@ -1399,8 +1399,8 @@ unknown var0 &lt;- [1,2] sum_of (each * 100 ); <span class="hljs-comment">// var
 <h3><a class="anchor" aria-hidden="true" id="tan"></a><a href="#tan" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>tan</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-66"></a><a href="#possible-use-66" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>tan</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>tan</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>tan</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-61"></a><a href="#result-61" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the value (in [-1,1]) of the trigonometric tangent of the operand (in decimal degrees).</p>
@@ -1436,8 +1436,8 @@ unknown var0 &lt;- [1,2] sum_of (each * 100 ); <span class="hljs-comment">// var
 <h3><a class="anchor" aria-hidden="true" id="tanh"></a><a href="#tanh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>tanh</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-68"></a><a href="#possible-use-68" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>tanh</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>tanh</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>tanh</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-63"></a><a href="#result-63" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the value (in the interval [-1,1]) of the hyperbolic tangent of the operand (which can be any real number, expressed in decimal degrees).</p>
@@ -1461,10 +1461,10 @@ unknown var0 &lt;- [1,2] sum_of (each * 100 ); <span class="hljs-comment">// var
 <li>if the lef-hand operand (the graph) is nil, returns nil</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-54"></a><a href="#examples-54" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">graph</span> graphEpidemio &lt;- generate_barabasi_albert( [<span class="hljs-string">"edges_species"</span>::edge,<span class="hljs-string">"vertices_specy"</span>::node,<span class="hljs-string">"size"</span>::3,<span class="hljs-string">"m"</span>::5] ); 
- 
-unknown var1 &lt;- graphEpidemio source_of(edge(3)); <span class="hljs-comment">// var1 equals node1graph graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); </span>
- 
+<pre><code class="hljs"> 
+<span class="hljs-literal">graph</span> graphEpidemio &lt;- generate_barabasi_albert( [<span class="hljs-string">"edges_species"</span>::edge,<span class="hljs-string">"vertices_specy"</span>::node,<span class="hljs-string">"size"</span>::3,<span class="hljs-string">"m"</span>::5] ); 
+unknown var1 &lt;- graphEpidemio source_of(edge(3)); <span class="hljs-comment">// var1 equals node1 </span>
+<span class="hljs-literal">graph</span> graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); 
 unknown var3 &lt;- graphFromMap target_of(link({1,5},{12,45})); <span class="hljs-comment">// var3 equals {12,45}</span>
 
 </code></pre>
@@ -1505,14 +1505,14 @@ unknown var3 &lt;- graphFromMap target_of(link({1,5},{12,45})); <span class="hlj
 <ul>
 <li>text_file(string): This file constructor allows to read a text file (.txt, .data, .text)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;-text_file(<span class="hljs-string">"file.txt"</span>); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;-text_file(<span class="hljs-string">"file.txt"</span>);
 </code></pre>
 <ul>
 <li>text_file(string,list<string>): This file constructor allows to store a list of string in a text file (it does not save it - just store it in memory)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;-text_file(<span class="hljs-string">"file.txt"</span>, [<span class="hljs-string">"item1"</span>,<span class="hljs-string">"item2"</span>,<span class="hljs-string">"item3"</span>]); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;-text_file(<span class="hljs-string">"file.txt"</span>, [<span class="hljs-string">"item1"</span>,<span class="hljs-string">"item2"</span>,<span class="hljs-string">"item3"</span>]);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-25"></a><a href="#see-also-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
 <p><a href="OperatorsIM#is_text">is_text</a>,</p>
@@ -1531,8 +1531,8 @@ unknown var3 &lt;- graphFromMap target_of(link({1,5},{12,45})); <span class="hlj
 <ul>
 <li>threeds_file(string): This file constructor allows to read a 3DS Max file. Only loads vertices and faces</li>
 </ul>
-<pre><code class="hljs">threeds_file f &lt;- threeds_file(<span class="hljs-string">"file"</span>); 
-
+<pre><code class="hljs"> 
+threeds_file f &lt;- threeds_file(<span class="hljs-string">"file"</span>);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-26"></a><a href="#see-also-26" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
 <p><a href="OperatorsIM#is_threeds">is_threeds</a>,</p>
@@ -1548,9 +1548,9 @@ unknown var3 &lt;- graphFromMap target_of(link({1,5},{12,45})); <span class="hlj
 <h4><a class="anchor" aria-hidden="true" id="comment-12"></a><a href="#comment-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
 <p>The default step can be overruled by using the every operator applied to this interval</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-56"></a><a href="#examples-56" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">date(<span class="hljs-string">'2000-01-01'</span>) to date(<span class="hljs-string">'2010-01-01'</span>) <span class="hljs-comment">// builds an interval between these two dates </span>
-(date(<span class="hljs-string">'2000-01-01'</span>) to date(<span class="hljs-string">'2010-01-01'</span>)) every (#month) <span class="hljs-comment">// builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval </span>
-
+<pre><code class="hljs"> 
+date(<span class="hljs-string">'2000-01-01'</span>) to date(<span class="hljs-string">'2010-01-01'</span>) <span class="hljs-comment">// builds an interval between these two dates </span>
+(date(<span class="hljs-string">'2000-01-01'</span>) to date(<span class="hljs-string">'2010-01-01'</span>)) every (#month) <span class="hljs-comment">// builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-27"></a><a href="#see-also-27" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1565,16 +1565,16 @@ unknown var3 &lt;- graphFromMap target_of(link({1,5},{12,45})); <span class="hlj
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-21"></a><a href="#special-cases-21" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var0 &lt;- to_GAMA_CRS({121,14}); <span class="hljs-comment">// var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS</span>
-</code></pre>
-<ul>
 <li>returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by given CRS</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var1 &lt;- to_GAMA_CRS({121,14}, <span class="hljs-string">"EPSG:4326"</span>); <span class="hljs-comment">// var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS</span>
+<span class="hljs-literal">geometry</span> var0 &lt;- to_GAMA_CRS({121,14}, <span class="hljs-string">"EPSG:4326"</span>); <span class="hljs-comment">// var0 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS</span>
+</code></pre>
+<ul>
+<li>returns the geometry corresponding to the transformation of the given geometry to the GAMA CRS (Coordinate Reference System) assuming the given geometry is referenced by the current CRS, the one corresponding to the world's agent one</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">geometry</span> var1 &lt;- to_GAMA_CRS({121,14}); <span class="hljs-comment">// var1 equals a geometry corresponding to the agent geometry transformed into the GAMA CRS</span>
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="to_gaml"></a><a href="#to_gaml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>to_gaml</code></h3>
@@ -1609,12 +1609,12 @@ unknown var3 &lt;- graphFromMap target_of(link({1,5},{12,45})); <span class="hlj
 <li><strong><code>to_rectangles</code></strong> (<code>geometry</code>, <code>int</code>, <code>int</code>, <code>bool</code>) ---&gt;  <code>list&lt;geometry&gt;</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-70"></a><a href="#result-70" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry
-A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry</p>
+<p>A list of rectangles of the size corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, dimension, overlaps), if overlaps = true, add the rectangles that overlap the border of the geometry
+A list of rectangles corresponding to the given dimension that result from the decomposition of the geometry into rectangles (geometry, nb_cols, nb_rows, overlaps) by a grid composed of the given number of columns and rows, if overlaps = true, add the rectangles that overlap the border of the geometry</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-58"></a><a href="#examples-58" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- to_rectangles(self, 5, 20, true); <span class="hljs-comment">// var0 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var1 &lt;- to_rectangles(self, {10.0, 15.0}, true); <span class="hljs-comment">// var1 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- to_rectangles(self, {10.0, 15.0}, true); <span class="hljs-comment">// var0 equals the list of rectangles of size {10.0, 15.0} corresponding to the discretization into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var1 &lt;- to_rectangles(self, 5, 20, true); <span class="hljs-comment">// var1 equals the list of rectangles corresponding to the discretization by a grid of 5 columns and 20 rows into rectangles of the geometry of the agent applying the operator. The rectangles overlapping the border of the geometry are kept</span>
 
 </code></pre>
 <hr>
@@ -1632,7 +1632,6 @@ A list of rectangles of the size corresponding to the given dimension that resul
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="to_squares"></a><a href="#to_squares" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>to_squares</code></h3>
-<p>Same signification as <a href="OperatorsSZ#split_geometry">split_geometry</a></p>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-78"></a><a href="#possible-use-78" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
 <li><strong><code>to_squares</code></strong> (<code>geometry</code>, <code>int</code>, <code>bool</code>) ---&gt;  <code>list&lt;geometry&gt;</code></li>
@@ -1663,8 +1662,8 @@ A list of a given number of squares from the decomposition of the geometry into 
 A list of geometries resulting after spliting the geometry into sub-geometries.</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-61"></a><a href="#examples-61" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); <span class="hljs-comment">// var0 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var1 &lt;- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); <span class="hljs-comment">// var1 equals a list of three geometries corresponding to 3 sub-geometries</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4]); <span class="hljs-comment">// var0 equals a list of three geometries corresponding to 3 sub-geometries </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var1 &lt;- to_sub_geometries(rectangle(10, 50), [0.1, 0.5, 0.4], 1.0); <span class="hljs-comment">// var1 equals a list of three geometries corresponding to 3 sub-geometries using cubes of 1m size</span>
 
 </code></pre>
 <hr>
@@ -1693,8 +1692,8 @@ A list of geometries resulting after spliting the geometry into sub-geometries.<
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-62"></a><a href="#examples-62" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">topology</span> var0 &lt;- <span class="hljs-literal">topology</span>(0); <span class="hljs-comment">// var0 equals niltopology(a_graph)   --: Multiple topology in POLYGON ((24.712119771887785 7.867357373616512, 24.712119771887785 61.283226839310565, 82.4013676510046  7.867357373616512)) at location[53.556743711446195;34.57529210646354] </span>
-
+<span class="hljs-literal">topology</span> var0 &lt;- <span class="hljs-literal">topology</span>(0); <span class="hljs-comment">// var0 equals nil </span>
+<span class="hljs-literal">topology</span>(a_graph)   --: Multiple <span class="hljs-literal">topology</span> in POLYGON ((24.712119771887785 7.867357373616512, 24.712119771887785 61.283226839310565, 82.4013676510046  7.867357373616512)) at location[53.556743711446195;34.57529210646354]
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-28"></a><a href="#see-also-28" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1823,19 +1822,19 @@ A list of geometries resulting after spliting the geometry into sub-geometries.<
 <li><strong><code>triangle</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>geometry</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-81"></a><a href="#result-81" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A triangle geometry which side size is given by the operand.
-A triangle geometry which the base and height size are given by the operand.</p>
+<p>A triangle geometry which the base and height size are given by the operand.
+A triangle geometry which side size is given by the operand.</p>
 <h4><a class="anchor" aria-hidden="true" id="comment-14"></a><a href="#comment-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
 <p>the center of the triangle is by default the location of the current agent in which has been called this operator.the center of the triangle is by default the location of the current agent in which has been called this operator.</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-24"></a><a href="#special-cases-24" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>returns nil if the operand is nil.</li>
 <li>returns nil if one of the operand is nil.</li>
+<li>returns nil if the operand is nil.</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-69"></a><a href="#examples-69" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var0 &lt;- triangle(5); <span class="hljs-comment">// var0 equals a geometry as a triangle with side_size = 5. </span>
-<span class="hljs-literal">geometry</span> var1 &lt;- triangle(5, 10); <span class="hljs-comment">// var1 equals a geometry as a triangle with a base of 5m and a height of 10m.</span>
+<span class="hljs-literal">geometry</span> var0 &lt;- triangle(5, 10); <span class="hljs-comment">// var0 equals a geometry as a triangle with a base of 5m and a height of 10m. </span>
+<span class="hljs-literal">geometry</span> var1 &lt;- triangle(5); <span class="hljs-comment">// var1 equals a geometry as a triangle with side_size = 5.</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-33"></a><a href="#see-also-33" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1854,15 +1853,15 @@ A triangle geometry which the base and height size are given by the operand.</p>
 <h4><a class="anchor" aria-hidden="true" id="result-82"></a><a href="#result-82" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point, use_approx_clipping) with the given tolerance for the clipping and for the triangulation with using an approximate clipping is the last operand is true
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
 A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-70"></a><a href="#examples-70" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
 <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- triangulate(self,0.1, 1.0); <span class="hljs-comment">// var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. </span>
 <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var1 &lt;- triangulate(self,0.1, 1.0); <span class="hljs-comment">// var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var2 &lt;- triangulate(self); <span class="hljs-comment">// var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var3 &lt;- triangulate(self, 0.1); <span class="hljs-comment">// var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var2 &lt;- triangulate(self, 0.1); <span class="hljs-comment">// var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var3 &lt;- triangulate(self); <span class="hljs-comment">// var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. </span>
 <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var4 &lt;- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); <span class="hljs-comment">// var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.</span>
 
 </code></pre>
@@ -1900,8 +1899,8 @@ A list of geometries (triangles) corresponding to the Delaunay triangulation com
 <h4><a class="anchor" aria-hidden="true" id="examples-72"></a><a href="#examples-72" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
 <span class="hljs-literal">string</span> var0 &lt;- <span class="hljs-literal">string</span>(type_of(<span class="hljs-string">"a string"</span>)); <span class="hljs-comment">// var0 equals "string" </span>
-<span class="hljs-literal">string</span> var1 &lt;- <span class="hljs-literal">string</span>(type_of([1,2,3,4,5])); <span class="hljs-comment">// var1 equals "list&lt;int&gt;"geometry g0 &lt;- to_GAMA_CRS({121,14}, "EPSG:4326");  </span>
- 
+<span class="hljs-literal">string</span> var1 &lt;- <span class="hljs-literal">string</span>(type_of([1,2,3,4,5])); <span class="hljs-comment">// var1 equals "list&lt;int&gt;" </span>
+<span class="hljs-literal">geometry</span> g0 &lt;- to_GAMA_CRS({121,14}, <span class="hljs-string">"EPSG:4326"</span>);  
 <span class="hljs-literal">string</span> var3 &lt;- <span class="hljs-literal">string</span>(type_of(g0)); <span class="hljs-comment">// var3 equals "point"</span>
 
 </code></pre>
@@ -1960,8 +1959,8 @@ A list of geometries (triangles) corresponding to the Delaunay triangulation com
 <h4><a class="anchor" aria-hidden="true" id="result-87"></a><a href="#result-87" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns true if the current_date of the model is before (or equel to) the date passed in argument. Synonym of 'current_date &lt;= argument'</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-74"></a><a href="#examples-74" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-builtin">reflex</span> <span class="hljs-symbol">when:</span> until(starting_date) {}    <span class="hljs-comment">// This reflex will be run only once at the beginning of the simulation </span>
-
+<pre><code class="hljs"> 
+<span class="hljs-builtin">reflex</span> <span class="hljs-symbol">when:</span> until(starting_date) {}    <span class="hljs-comment">// This reflex will be run only once at the beginning of the simulation</span>
 
 </code></pre>
 <hr>
@@ -2005,11 +2004,11 @@ A list of geometries (triangles) corresponding to the Delaunay triangulation com
 <h4><a class="anchor" aria-hidden="true" id="comment-17"></a><a href="#comment-17" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
 <p>This operator takes a map [string::value] as argument, displays a dialog asking the user for these values, and returns the same map with the modified values (if any). The dialog is modal and will interrupt the execution of the simulation until the user has either dismissed or accepted it. It can be used, for instance, in an init section to force the user to input new values instead of relying on the initial values of parameters :</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-76"></a><a href="#examples-76" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,unknown&gt; values2 &lt;- <span class="hljs-keyword">user_input</span>(<span class="hljs-string">"Enter numer of agents and locations"</span>,[<span class="hljs-string">"Number"</span> :: 100, <span class="hljs-string">"Location"</span> :: {10, 10}]); 
-<span class="hljs-keyword">create</span> bug <span class="hljs-symbol">number:</span> <span class="hljs-literal">int</span>(values2 at <span class="hljs-string">"Number"</span>) <span class="hljs-symbol">with:</span> [location:: (<span class="hljs-literal">point</span>(values2 at <span class="hljs-string">"Location"</span>))]; 
+<pre><code class="hljs"> 
 <span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,unknown&gt; values &lt;- <span class="hljs-keyword">user_input</span>([<span class="hljs-string">"Number"</span> :: 100, <span class="hljs-string">"Location"</span> :: {10, 10}]); 
 <span class="hljs-keyword">create</span> bug <span class="hljs-symbol">number:</span> <span class="hljs-literal">int</span>(values at <span class="hljs-string">"Number"</span>) <span class="hljs-symbol">with:</span> [location:: (<span class="hljs-literal">point</span>(values at <span class="hljs-string">"Location"</span>))]; 
-
+<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,unknown&gt; values2 &lt;- <span class="hljs-keyword">user_input</span>(<span class="hljs-string">"Enter numer of agents and locations"</span>,[<span class="hljs-string">"Number"</span> :: 100, <span class="hljs-string">"Location"</span> :: {10, 10}]); 
+<span class="hljs-keyword">create</span> bug <span class="hljs-symbol">number:</span> <span class="hljs-literal">int</span>(values2 at <span class="hljs-string">"Number"</span>) <span class="hljs-symbol">with:</span> [location:: (<span class="hljs-literal">point</span>(values2 at <span class="hljs-string">"Location"</span>))];
 
 </code></pre>
 <hr>
@@ -2055,14 +2054,14 @@ unknown var0 &lt;- (<span class="hljs-keyword">agents</span> closest_to self) <s
 <li><strong><code>variance</code></strong> (<code>int</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-93"></a><a href="#result-93" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>Returns the variance from a standard deviation.
-Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.</p>
+<p>Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
+Returns the variance from a standard deviation.</p>
 <h4><a class="anchor" aria-hidden="true" id="comment-19"></a><a href="#comment-19" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
 <p>In the example we consider variance of [1,3,5,7]. The size is 4, the sum is 1+3+5+7=16 and the sum of squares is 84.The variance is (84- 16^2/4)/4. CQFD.</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-79"></a><a href="#examples-79" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">int</span> var0 &lt;- <span class="hljs-literal">int</span>(variance([1,3,5,6,9,11,12,13])); <span class="hljs-comment">// var0 equals 17 </span>
-<span class="hljs-literal">int</span> var1 &lt;- <span class="hljs-literal">int</span>(variance(4,16,84)); <span class="hljs-comment">// var1 equals 5</span>
+<span class="hljs-literal">int</span> var0 &lt;- <span class="hljs-literal">int</span>(variance(4,16,84)); <span class="hljs-comment">// var0 equals 5 </span>
+<span class="hljs-literal">int</span> var1 &lt;- <span class="hljs-literal">int</span>(variance([1,3,5,6,9,11,12,13])); <span class="hljs-comment">// var1 equals 17</span>
 
 </code></pre>
 <hr>
@@ -2098,12 +2097,12 @@ Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / siz
 <li><strong><code>voronoi</code></strong> (<code>list&lt;point&gt;</code> , <code>geometry</code>) ---&gt;  <code>list&lt;geometry&gt;</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-95"></a><a href="#result-95" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A list of geometries corresponding to the Voronoi diagram built from the list of points
-A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip</p>
+<p>A list of geometries corresponding to the Voronoi diagram built from the list of points according to the given clip
+A list of geometries corresponding to the Voronoi diagram built from the list of points</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-81"></a><a href="#examples-81" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); <span class="hljs-comment">// var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); <span class="hljs-comment">// var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var0 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); <span class="hljs-comment">// var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">geometry</span>&gt; var1 &lt;- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); <span class="hljs-comment">// var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.</span>
 
 </code></pre>
 <hr>
@@ -2124,8 +2123,8 @@ A list of geometries corresponding to the Voronoi diagram built from the list of
 <li>if the right-hand operand is neither a node, nor an edge, returns 1.</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-82"></a><a href="#examples-82" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">graph</span> graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); 
- 
+<pre><code class="hljs"> 
+<span class="hljs-literal">graph</span> graphFromMap &lt;-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); 
 <span class="hljs-literal">float</span> var1 &lt;- graphFromMap weight_of(link({1,5},{12,45})); <span class="hljs-comment">// var1 equals 1.0</span>
 
 </code></pre>
@@ -2239,8 +2238,8 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_min_of (each); <span class="hljs-comm
 <h4><a class="anchor" aria-hidden="true" id="comment-25"></a><a href="#comment-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
 <p>the right-hand operand can be &quot;Djikstra&quot;, &quot;Bellmann&quot;, &quot;Astar&quot; to use the associated algorithm. Note that these methods are dynamic: the path is computed when needed. In contrarily, if the operand is another string, a static method will be used, i.e. all the shortest are previously computed.</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-87"></a><a href="#examples-87" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">graphEpidemio &lt;- graphEpidemio with_optimizer_type <span class="hljs-string">"static"</span>; 
-
+<pre><code class="hljs"> 
+graphEpidemio &lt;- graphEpidemio with_optimizer_type <span class="hljs-string">"static"</span>;
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-45"></a><a href="#see-also-45" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -2249,23 +2248,23 @@ unknown var4 &lt;- [1::2, 3::4, 5::6] with_min_of (each); <span class="hljs-comm
 <h3><a class="anchor" aria-hidden="true" id="with_precision"></a><a href="#with_precision" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>with_precision</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-111"></a><a href="#possible-use-111" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>float</code> <strong><code>with_precision</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
-<li><strong><code>with_precision</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
-<li><code>point</code> <strong><code>with_precision</code></strong> <code>int</code> ---&gt;  <code>point</code></li>
-<li><strong><code>with_precision</code></strong> (<code>point</code> , <code>int</code>) ---&gt;  <code>point</code></li>
 <li><code>geometry</code> <strong><code>with_precision</code></strong> <code>int</code> ---&gt;  <code>geometry</code></li>
 <li><strong><code>with_precision</code></strong> (<code>geometry</code> , <code>int</code>) ---&gt;  <code>geometry</code></li>
+<li><code>point</code> <strong><code>with_precision</code></strong> <code>int</code> ---&gt;  <code>point</code></li>
+<li><strong><code>with_precision</code></strong> (<code>point</code> , <code>int</code>) ---&gt;  <code>point</code></li>
+<li><code>float</code> <strong><code>with_precision</code></strong> <code>int</code> ---&gt;  <code>float</code></li>
+<li><strong><code>with_precision</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-102"></a><a href="#result-102" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
+<p>A geometry corresponding to the rounding of points of the operand considering a given precison.
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
-A geometry corresponding to the rounding of points of the operand considering a given precison.</p>
+Rounds off the value of left-hand operand to the precision given by the value of right-hand operand</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-88"></a><a href="#examples-88" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- 12345.78943 with_precision 2; <span class="hljs-comment">// var0 equals 12345.79 </span>
-<span class="hljs-literal">float</span> var1 &lt;- 123 with_precision 2; <span class="hljs-comment">// var1 equals 123.00 </span>
-<span class="hljs-literal">point</span> var2 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; <span class="hljs-comment">// var2 equals {12345.79, 12345.79, 12345.79} </span>
-<span class="hljs-literal">geometry</span> var3 &lt;- self with_precision 2; <span class="hljs-comment">// var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.</span>
+<span class="hljs-literal">geometry</span> var0 &lt;- self with_precision 2; <span class="hljs-comment">// var0 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. </span>
+<span class="hljs-literal">point</span> var1 &lt;- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; <span class="hljs-comment">// var1 equals {12345.79, 12345.79, 12345.79} </span>
+<span class="hljs-literal">float</span> var2 &lt;- 12345.78943 with_precision 2; <span class="hljs-comment">// var2 equals 12345.79 </span>
+<span class="hljs-literal">float</span> var3 &lt;- 123 with_precision 2; <span class="hljs-comment">// var3 equals 123.00</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-46"></a><a href="#see-also-46" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -2280,8 +2279,8 @@ A geometry corresponding to the rounding of points of the operand considering a 
 <h4><a class="anchor" aria-hidden="true" id="result-103"></a><a href="#result-103" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>change the parameters of the given predicate</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-89"></a><a href="#examples-89" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">predicate with_values [<span class="hljs-string">"time"</span>::10] 
-
+<pre><code class="hljs"> 
+predicate with_values [<span class="hljs-string">"time"</span>::10]
 
 </code></pre>
 <hr>
@@ -2302,8 +2301,8 @@ A geometry corresponding to the rounding of points of the operand considering a 
 <li>if the right-hand operand is a list, assigns the n elements of the list to the n first edges. Note that the ordering of edges may change overtime, which can create some problems...</li>
 <li>if the left-hand operand is a map, the map should contains pairs such as: vertex/edge::double</li>
 </ul>
-<pre><code class="hljs">graph_from_edges (<span class="hljs-literal">list</span>(ant) as_map each::one_of (<span class="hljs-literal">list</span>(ant))) with_weights (<span class="hljs-literal">list</span>(ant) as_map each::each.food) 
-
+<pre><code class="hljs"> 
+graph_from_edges (<span class="hljs-literal">list</span>(ant) as_map each::one_of (<span class="hljs-literal">list</span>(ant))) with_weights (<span class="hljs-literal">list</span>(ant) as_map each::each.food)
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="without_holes"></a><a href="#without_holes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>without_holes</code></h3>
@@ -2349,8 +2348,8 @@ A geometry corresponding to the rounding of points of the operand considering a 
 <ul>
 <li>xml_file(string): This file constructor allows to read a xml file</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">file</span> f &lt;-xml_file(<span class="hljs-string">"file.xml"</span>); 
-
+<pre><code class="hljs"> 
+<span class="hljs-literal">file</span> f &lt;-xml_file(<span class="hljs-string">"file.xml"</span>);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-48"></a><a href="#see-also-48" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
 <p><a href="OperatorsIM#is_xml">is_xml</a>,</p>

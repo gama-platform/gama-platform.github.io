@@ -314,8 +314,7 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 <span class="hljs-keyword">equation</span> SI {  
    diff(S,t) = (- 0.3 * S * I / 100); 
    diff(I,t) = (0.3 * S * I / 100); 
-}  
-
+} 
 </code></pre>
 <ul>
 <li>See also: <a href="#equation">equation</a>, <a href="#solve">solve</a>,</li>
@@ -344,16 +343,14 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">action</span> simple_action { 
    <span class="hljs-comment">// [set of statements] </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>If the action needs some parameters, they can be specified betwee, braquets after the identifier of the action:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">action</span> action_parameters(<span class="hljs-literal">int</span> i, <span class="hljs-literal">string</span> s){ 
    <span class="hljs-comment">// [set of statements using i and s] </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>If the action returns any value, the returned type should be used instead of the &quot;action&quot; keyword. A return statement inside the body of the action statement is mandatory.</li>
@@ -361,8 +358,7 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 <pre><code class="hljs"><span class="hljs-literal">int</span> action_return_val(<span class="hljs-literal">int</span> i, <span class="hljs-literal">string</span> s){ 
    <span class="hljs-comment">// [set of statements using i and s] </span>
    <span class="hljs-keyword">return</span> i + i; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>If virtual: is true, then the action is abstract, which means that the action is defined without body. A species containing at least one abstract action is abstract. Agents of this species cannot be created. The common use of an abstract action is to define an action that can be used by all its sub-species, which should redefine all abstract actions and implements its body.</li>
@@ -375,8 +371,7 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
    <span class="hljs-literal">int</span> virtual_action(<span class="hljs-literal">int</span> i, <span class="hljs-literal">string</span> s) { 
       <span class="hljs-keyword">return</span> i + i; 
    } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#do">do</a>,</li>
@@ -403,45 +398,38 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 <li>The new element can be added either at the end of the container or at a particular position.</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">add</span> expr <span class="hljs-symbol">to:</span> expr_container;    <span class="hljs-comment">// Add at the end </span>
-<span class="hljs-keyword">add</span> expr <span class="hljs-symbol">at:</span> expr <span class="hljs-symbol">to:</span> expr_container;   <span class="hljs-comment">// Add at position expr </span>
-
+<span class="hljs-keyword">add</span> expr <span class="hljs-symbol">at:</span> expr <span class="hljs-symbol">to:</span> expr_container;   <span class="hljs-comment">// Add at position expr</span>
 </code></pre>
 <ul>
 <li>Case of a list, the expression in the facet at: should be an integer.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; workingList &lt;- []; 
-<span class="hljs-keyword">add</span> 0 <span class="hljs-symbol">at:</span> 0 <span class="hljs-symbol">to:</span> workingList ;<span class="hljs-comment">//workingList equals [0]add 10 at: 0 to: workingList ;//workingList equals [10,0]add 20 at: 2 to: workingList ;//workingList equals [10,0,20]add 50 to: workingList;//workingList equals [10,0,20,50]add [60,70] all: true to: workingList;//workingList equals [10,0,20,50,60,70]</span>
+<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; workingList &lt;- [];<span class="hljs-keyword">add</span> 0 <span class="hljs-symbol">at:</span> 0 <span class="hljs-symbol">to:</span> workingList ;<span class="hljs-comment">//workingList equals [0]add 10 at: 0 to: workingList ;//workingList equals [10,0]add 20 at: 2 to: workingList ;//workingList equals [10,0,20]add 50 to: workingList;//workingList equals [10,0,20,50]add [60,70] all: true to: workingList;//workingList equals [10,0,20,50,60,70]</span>
 </code></pre>
 <ul>
 <li>Case of a map: As a map is basically a list of pairs key::value, we can also use the add statement on it. It is important to note that the behavior of the statement is slightly different, in particular in the use of the at facet, which denotes the key of the pair.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; workingMap &lt;- []; 
-<span class="hljs-keyword">add</span> <span class="hljs-string">"val1"</span> <span class="hljs-symbol">at:</span> <span class="hljs-string">"x"</span> <span class="hljs-symbol">to:</span> workingMap;<span class="hljs-comment">//workingMap equals ["x"::"val1"]</span>
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">string</span>&gt; workingMap &lt;- [];<span class="hljs-keyword">add</span> <span class="hljs-string">"val1"</span> <span class="hljs-symbol">at:</span> <span class="hljs-string">"x"</span> <span class="hljs-symbol">to:</span> workingMap;<span class="hljs-comment">//workingMap equals ["x"::"val1"]</span>
 </code></pre>
 <ul>
 <li>If the at facet is omitted, a pair expr_item::expr_item will be added to the map. An important exception is the case where the expr_item is a pair: in this case the pair is added.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">add</span> <span class="hljs-string">"val2"</span> <span class="hljs-symbol">to:</span> workingMap;<span class="hljs-comment">//workingMap equals ["x"::"val1", "val2"::"val2"]add "5"::"val4" to: workingMap; //workingMap equals ["x"::"val1", "val2"::"val2", "5"::"val4"]</span>
-</code></pre>
+<pre><code class="hljs css language-add &quot;val2&quot; to: workingMap;//workingMap equals [&quot;x&quot;::&quot;val1&quot;, &quot;val2&quot;::&quot;val2&quot;]add &quot;5&quot;::&quot;val4&quot; to: workingMap; //workingMap equals [&quot;x&quot;::&quot;val1&quot;, &quot;val2&quot;::&quot;val2&quot;, &quot;5&quot;::&quot;val4&quot;]"></code></pre>
 <ul>
 <li>Notice that, as the key should be unique, the addition of an item at an existing position (i.e. existing key) will only modify the value associated with the given key.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">add</span> <span class="hljs-string">"val3"</span> <span class="hljs-symbol">at:</span> <span class="hljs-string">"x"</span> <span class="hljs-symbol">to:</span> workingMap;<span class="hljs-comment">//workingMap equals ["x"::"val3", "val2"::"val2", "5"::"val4"]</span>
-</code></pre>
+<pre><code class="hljs css language-add &quot;val3&quot; at: &quot;x&quot; to: workingMap;//workingMap equals [&quot;x&quot;::&quot;val3&quot;, &quot;val2&quot;::&quot;val2&quot;, &quot;5&quot;::&quot;val4&quot;]"></code></pre>
 <ul>
 <li>On a map, the all facet will add all value of a container  in the map (so as pair val_cont::val_cont)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">add</span> [<span class="hljs-string">"val4"</span>,<span class="hljs-string">"val5"</span>] <span class="hljs-symbol">all:</span> true <span class="hljs-symbol">at:</span> <span class="hljs-string">"x"</span> <span class="hljs-symbol">to:</span> workingMap;<span class="hljs-comment">//workingMap equals ["x"::"val3", "val2"::"val2", "5"::"val4","val4"::"val4","val5"::"val5"]</span>
-</code></pre>
+<pre><code class="hljs css language-add [&quot;val4&quot;,&quot;val5&quot;] all: true at: &quot;x&quot; to: workingMap;//workingMap equals [&quot;x&quot;::&quot;val3&quot;, &quot;val2&quot;::&quot;val2&quot;, &quot;5&quot;::&quot;val4&quot;,&quot;val4&quot;::&quot;val4&quot;,&quot;val5&quot;::&quot;val5&quot;]"></code></pre>
 <ul>
 <li>In case of a graph, we can use the facets <code>node</code>, <code>edge</code> and <code>weight</code> to add a node, an edge or weights to the graph. However, these facets are now considered as deprecated, and it is advised to use the various edge(), node(), edges(), nodes() operators, which can build the correct objects to add to the graph</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">graph</span> g &lt;- as_edge_graph([{1,5}::{12,45}]); 
 <span class="hljs-keyword">add</span> <span class="hljs-symbol">edge:</span> {1,5}::{2,3} <span class="hljs-symbol">to:</span> g; 
- 
 <span class="hljs-literal">list</span> var &lt;- g.vertices; <span class="hljs-comment">// var equals [{1,5},{12,45},{2,3}] </span>
-<span class="hljs-literal">list</span> var &lt;- g.edges; <span class="hljs-comment">// var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]add node: {5,5} to: g; </span>
- 
+<span class="hljs-literal">list</span> var &lt;- g.edges; <span class="hljs-comment">// var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})] </span>
+<span class="hljs-keyword">add</span> <span class="hljs-symbol">node:</span> {5,5} <span class="hljs-symbol">to:</span> g; 
 <span class="hljs-literal">list</span> var &lt;- g.vertices; <span class="hljs-comment">// var equals [{1.0,5.0},{12.0,45.0},{2.0,3.0},{5.0,5.0}] </span>
 <span class="hljs-literal">list</span> var &lt;- g.edges; <span class="hljs-comment">// var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1.0,5.0}::{2.0,3.0})]</span>
 </code></pre>
@@ -479,16 +467,14 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">display</span> my_display { 
    <span class="hljs-keyword">agents</span> layer_name <span class="hljs-symbol">value:</span> expression [additional options]; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>For instance, in a segregation model, <code>agents</code> will only display unhappy agents:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">display</span> Segregation { 
    <span class="hljs-keyword">agents</span> agentDisappear <span class="hljs-symbol">value:</span> people as <span class="hljs-literal">list</span> where (each.is_happy = false) <span class="hljs-symbol">aspect:</span> with_group_color; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>, <a href="#display_population">display_population</a>,</li>
@@ -518,14 +504,12 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 <ul>
 <li>As other batch methods, the basic syntax of the annealing statement uses <code>method annealing</code> instead of the expected <code>annealing name: id</code> :</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">annealing</span> [<span class="hljs-symbol">facet:</span> value]; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">annealing</span> [<span class="hljs-symbol">facet:</span> value];
 </code></pre>
 <ul>
 <li>For example:</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">annealing</span> <span class="hljs-symbol">temp_init:</span> 100  <span class="hljs-symbol">temp_end:</span> 1 <span class="hljs-symbol">temp_decrease:</span> 0.5 <span class="hljs-symbol">nb_iter_cst_temp:</span> 5 <span class="hljs-symbol">maximize:</span> food_gathered; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">annealing</span> <span class="hljs-symbol">temp_init:</span> 100  <span class="hljs-symbol">temp_end:</span> 1 <span class="hljs-symbol">temp_decrease:</span> 0.5 <span class="hljs-symbol">nb_iter_cst_temp:</span> 5 <span class="hljs-symbol">maximize:</span> food_gathered;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-4"></a><a href="#embedments-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -549,32 +533,28 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">ask</span> ${receiver_agents} { 
      ${cursor} 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Ask  one agent to perform a block of statements. The block is evaluated in the context of the agent's species</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">ask</span> ${one_agent} { 
      ${cursor} 
-} 
-
+}
 </code></pre>
 <ul>
 <li>If the species of the receiver agent(s) cannot be determined, it is possible to force it using the <code>as</code> facet. An error is thrown if an agent is not a direct or undirect instance of this species</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">ask</span>${receiver_agent(s)} <span class="hljs-symbol">as:</span> ${a_species_expression} { 
      ${cursor} 
-} 
-
+}
 </code></pre>
 <ul>
 <li>To ask a set of agents to do something only if they belong to a given species, the <code>of_species</code> operator can be used. If none of the agents belong to the species, nothing happens</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">ask</span> ${receiver_agents} of_species ${species_name} { 
      ${cursor} 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Any statement can be declared in the block statements. All the statements will be evaluated in the context of the receiver agent(s), as if they were defined in their species, which means that an expression like <code>self</code> will represent the receiver agent and not the sender. If the sender needs to refer to itself, some of its own attributes (or temporary variables) within the block statements, it has to use the keyword <code>myself</code>.</li>
@@ -591,8 +571,7 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
               } 
          } 
     } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>If the species of the receiver agent cannot be determined, it is possible to force it by casting the agent. Nothing happens if the agent cannot be casted to this species</li>
@@ -622,8 +601,7 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
         <span class="hljs-keyword">else</span> {<span class="hljs-keyword">draw</span> square(a);} 
         <span class="hljs-keyword">draw</span> <span class="hljs-symbol">text:</span> <span class="hljs-string">"a= "</span> + a <span class="hljs-symbol">color:</span> #black <span class="hljs-symbol">size:</span> 5; 
     } 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-6"></a><a href="#embedments-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -647,14 +625,12 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 <pre><code class="hljs"><span class="hljs-keyword">assert</span> (2+2) = 4; 
 <span class="hljs-keyword">assert</span> self != nil; 
 <span class="hljs-literal">int</span> t &lt;- 0; <span class="hljs-keyword">assert</span> is_error(3/t); 
-(1 / 2) is <span class="hljs-literal">float</span> 
-
+(1 / 2) is <span class="hljs-literal">float</span>
 </code></pre>
 <ul>
 <li>if the 'warn:' facet is set to true, the statement emits a warning (instead of an error) in case the expression is false</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">assert</span> <span class="hljs-string">'abc'</span> is <span class="hljs-literal">string</span> <span class="hljs-symbol">warning:</span> true 
-
+<pre><code class="hljs"><span class="hljs-keyword">assert</span> <span class="hljs-string">'abc'</span> is <span class="hljs-literal">string</span> <span class="hljs-symbol">warning:</span> true
 </code></pre>
 <ul>
 <li>See also: <a href="#test">test</a>, <a href="#setup">setup</a>, <a href="#is_error">is_error</a>, <a href="#is_warning">is_warning</a>,</li>
@@ -737,20 +713,17 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
    ... 
    } 
 ... 
-} 
-
+}
 </code></pre>
 <ul>
 <li>To capture all &quot;A&quot; agents as &quot;C&quot; agents, we can ask an &quot;B&quot; agent to execute the following statement:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">capture</span> <span class="hljs-literal">list</span>(B) <span class="hljs-symbol">as:</span> C; 
-
+<pre><code class="hljs"><span class="hljs-keyword">capture</span> <span class="hljs-literal">list</span>(B) <span class="hljs-symbol">as:</span> C;
 </code></pre>
 <ul>
 <li>Deprecated writing:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">capture</span> <span class="hljs-symbol">target:</span> <span class="hljs-literal">list</span> (B) <span class="hljs-symbol">as:</span> C; 
-
+<pre><code class="hljs"><span class="hljs-keyword">capture</span> <span class="hljs-symbol">target:</span> <span class="hljs-literal">list</span> (B) <span class="hljs-symbol">as:</span> C;
 </code></pre>
 <ul>
 <li>See also: <a href="#release">release</a>,</li>
@@ -836,8 +809,7 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
    <span class="hljs-keyword">chart</span> <span class="hljs-string">"chart name"</span> <span class="hljs-symbol">type:</span> series [additional options] { 
       [Set of <span class="hljs-keyword">data</span>, datalists statements] 
    } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>, <a href="#quadtree">quadtree</a>, <a href="#display_population">display_population</a>, <a href="#text">text</a>,</li>
@@ -868,9 +840,9 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">conscious_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fear <span class="hljs-symbol">emotion_created:</span>fearConfirmed; 
-<span class="hljs-keyword">conscious_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fear <span class="hljs-symbol">emotion_created:</span>fearConfirmed <span class="hljs-symbol">charisma:</span> 0.5 <span class="hljs-symbol">receptivity:</span> 0.5; 
-
+<pre><code class="hljs"> 
+<span class="hljs-keyword">conscious_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fear <span class="hljs-symbol">emotion_created:</span>fearConfirmed; 
+<span class="hljs-keyword">conscious_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fear <span class="hljs-symbol">emotion_created:</span>fearConfirmed <span class="hljs-symbol">charisma:</span> 0.5 <span class="hljs-symbol">receptivity:</span> 0.5;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-14"></a><a href="#embedments-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -930,8 +902,8 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs">coping <span class="hljs-symbol">emotion:</span> new_emotion(<span class="hljs-string">"fear"</span>) <span class="hljs-symbol">when:</span> flip(0.5) <span class="hljs-symbol">new_desire:</span> new_predicate(<span class="hljs-string">"test"</span>) 
-
+<pre><code class="hljs"> 
+coping <span class="hljs-symbol">emotion:</span> new_emotion(<span class="hljs-string">"fear"</span>) <span class="hljs-symbol">when:</span> flip(0.5) <span class="hljs-symbol">new_desire:</span> new_predicate(<span class="hljs-string">"test"</span>)
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-15"></a><a href="#embedments-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -958,28 +930,24 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">create</span> a_species <span class="hljs-symbol">number:</span> an_int; 
 <span class="hljs-keyword">create</span> species_of(self) <span class="hljs-symbol">number:</span> 5 <span class="hljs-symbol">returns:</span> list5Agents; 
-5 
-
+5
 </code></pre>
 <ul>
 <li>In GAML modelers can create agents of species <code>a_species (with two attributes</code>type<code>and</code>nature<code>with types corresponding to the types of the shapefile attributes) from a shapefile</code>the_shapefile` while reading attributes 'TYPE_OCC' and 'NATURE' of the shapefile. One agent will be created by object contained in the shapefile:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">create</span> a_species <span class="hljs-symbol">from:</span> the_shapefile <span class="hljs-symbol">with:</span> [type:: read(<span class="hljs-string">'TYPE_OCC'</span>), nature::read(<span class="hljs-string">'NATURE'</span>)]; 
-
+<pre><code class="hljs"><span class="hljs-keyword">create</span> a_species <span class="hljs-symbol">from:</span> the_shapefile <span class="hljs-symbol">with:</span> [type:: read(<span class="hljs-string">'TYPE_OCC'</span>), nature::read(<span class="hljs-string">'NATURE'</span>)];
 </code></pre>
 <ul>
 <li>In order to create agents from a .csv file, facet <code>header</code> can be used to specified whether we can use columns header:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">create</span> toto <span class="hljs-symbol">from:</span> <span class="hljs-string">"toto.csv"</span> <span class="hljs-symbol">header:</span> true <span class="hljs-symbol">with:</span>[att1::read(<span class="hljs-string">"NAME"</span>), att2::read(<span class="hljs-string">"TYPE"</span>)]; 
 or 
-<span class="hljs-keyword">create</span> toto <span class="hljs-symbol">from:</span> <span class="hljs-string">"toto.csv"</span> <span class="hljs-symbol">with:</span>[att1::read(0), att2::read(1)]; <span class="hljs-comment">//with read(int), the index of the column </span>
-
+<span class="hljs-keyword">create</span> toto <span class="hljs-symbol">from:</span> <span class="hljs-string">"toto.csv"</span> <span class="hljs-symbol">with:</span>[att1::read(0), att2::read(1)]; <span class="hljs-comment">//with read(int), the index of the column</span>
 </code></pre>
 <ul>
 <li>Similarly to the creation from shapefile, modelers can create agents from a set of geometries. In this case, one agent per geometry will be created (with the geometry as shape)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">create</span> species_of(self) <span class="hljs-symbol">from:</span> [square(4),circle(4)];    <span class="hljs-comment">// 2 agents have been created, with shapes respectively square(4) and circle(4) </span>
-
+<pre><code class="hljs"><span class="hljs-keyword">create</span> species_of(self) <span class="hljs-symbol">from:</span> [square(4),circle(4)];    <span class="hljs-comment">// 2 agents have been created, with shapes respectively square(4) and circle(4)</span>
 </code></pre>
 <ul>
 <li>Created agents are initialized following the rules of their species. If one wants to refer to them after the statement is executed, the returns keyword has to be defined: the agents created will then be referred to by the temporary variable it declares. For instance, the following statement creates 0 to 4 agents of the same species as the sender, and puts them in the temporary variable children for later use.</li>
@@ -987,16 +955,14 @@ or
 <pre><code class="hljs"><span class="hljs-keyword">create</span> <span class="hljs-literal">species</span> (self) <span class="hljs-symbol">number:</span> rnd (4) <span class="hljs-symbol">returns:</span> children; 
 <span class="hljs-keyword">ask</span> children { 
         <span class="hljs-comment">// ... </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>If one wants to specify a special initialization sequence for the agents created, create provides the same possibilities as ask. This extended syntax is:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">create</span> a_species <span class="hljs-symbol">number:</span> an_int { 
      [statements] 
-} 
-
+}
 </code></pre>
 <ul>
 <li>The same rules as in ask apply. The only difference is that, for the agents created, the assignments of variables will bypass the initialization defined in species. For instance:</li>
@@ -1004,15 +970,13 @@ or
 <pre><code class="hljs"><span class="hljs-keyword">create</span> <span class="hljs-literal">species</span>(self) <span class="hljs-symbol">number:</span> rnd (4) <span class="hljs-symbol">returns:</span> children { 
      <span class="hljs-keyword">set</span> location &lt;- myself.location + {rnd (2), rnd (2)}; <span class="hljs-comment">// tells the children to be initially located close to me </span>
      <span class="hljs-keyword">set</span> parent &lt;- myself; <span class="hljs-comment">// tells the children that their parent is me (provided the variable parent is declared in this species)  </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>Desprecated uses:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-comment">// Simple syntax </span>
 <span class="hljs-keyword">create</span> <span class="hljs-symbol">species:</span> a_species <span class="hljs-symbol">number:</span> an_int; 
- 
 
 </code></pre>
 <ul>
@@ -1124,20 +1088,17 @@ or
 <li>A basic example of diffusion of the variable phero defined in the species cells, given a diffusion matrix math_diff is:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">float</span>&gt; math_diff &lt;- <span class="hljs-literal">matrix</span>([[1/9,1/9,1/9],[1/9,1/9,1/9],[1/9,1/9,1/9]]); 
-<span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells <span class="hljs-symbol">matrix:</span> math_diff; 
-
+<span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells <span class="hljs-symbol">matrix:</span> math_diff;
 </code></pre>
 <ul>
 <li>The diffusion can be masked by obstacles, created from a bitmap image:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells <span class="hljs-symbol">matrix:</span> math_diff <span class="hljs-symbol">mask:</span> mymask; 
-
+<pre><code class="hljs"><span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells <span class="hljs-symbol">matrix:</span> math_diff <span class="hljs-symbol">mask:</span> mymask;
 </code></pre>
 <ul>
 <li>A convenient way to have an uniform diffusion in a given radius is (which is equivalent to the above diffusion):</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells <span class="hljs-symbol">proportion:</span> 1/9 <span class="hljs-symbol">radius:</span> 1; 
-
+<pre><code class="hljs"><span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span> phero <span class="hljs-symbol">on:</span> cells <span class="hljs-symbol">proportion:</span> 1/9 <span class="hljs-symbol">radius:</span> 1;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-20"></a><a href="#embedments-20" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1182,8 +1143,7 @@ or
 <ul>
 <li>The general syntax is:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">display</span> my_display [additional options] { ... } 
-
+<pre><code class="hljs"><span class="hljs-keyword">display</span> my_display [additional options] { ... }
 </code></pre>
 <ul>
 <li>Each display can include different layers (like in a GIS).</li>
@@ -1191,8 +1151,7 @@ or
 <pre><code class="hljs"><span class="hljs-keyword">display</span> gridWithElevationTriangulated <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">ambient_light:</span> 100 { 
     grid cell <span class="hljs-symbol">elevation:</span> true <span class="hljs-symbol">triangulation:</span> true; 
     <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base; 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-21"></a><a href="#embedments-21" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1226,16 +1185,14 @@ or
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">display</span> my_display { 
    grid ant_grid <span class="hljs-symbol">lines:</span> #black <span class="hljs-symbol">position:</span> { 0.5, 0 } <span class="hljs-symbol">size:</span> {0.5,0.5}; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>To display a grid as a DEM:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">display</span> my_display { 
     grid cell <span class="hljs-symbol">texture:</span> texture_file <span class="hljs-symbol">text:</span> false <span class="hljs-symbol">triangulation:</span> true <span class="hljs-symbol">elevation:</span> true; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>, <a href="#display_population">display_population</a>,</li>
@@ -1268,8 +1225,7 @@ or
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">display</span> my_display { 
    <span class="hljs-literal">species</span> species_name [additional options]; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Species can be superposed on the same plan (be careful with the order, the last one will be above all the others):</li>
@@ -1278,8 +1234,7 @@ or
    <span class="hljs-literal">species</span> agent1 <span class="hljs-symbol">aspect:</span> base; 
    <span class="hljs-literal">species</span> agent2 <span class="hljs-symbol">aspect:</span> base; 
    <span class="hljs-literal">species</span> agent3 <span class="hljs-symbol">aspect:</span> base; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Each species layer can be placed at a different z value using the opengl display. position:{0,0,0} means the layer will be placed on the ground and position:{0,0,1} means it will be placed at an height equal to the maximum size of the environment.</li>
@@ -1288,8 +1243,7 @@ or
    <span class="hljs-literal">species</span> agent1 <span class="hljs-symbol">aspect:</span> base ; 
    <span class="hljs-literal">species</span> agent2 <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span>{0,0,0.5}; 
    <span class="hljs-literal">species</span> agent3 <span class="hljs-symbol">aspect:</span> base <span class="hljs-symbol">position:</span>{0,0,1}; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>,</li>
@@ -1314,26 +1268,22 @@ or
 <ul>
 <li>The simple syntax (when the action does not expect any argument and the result is not to be kept) is:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">do</span> name_of_action_or_primitive; 
-
+<pre><code class="hljs"><span class="hljs-keyword">do</span> name_of_action_or_primitive;
 </code></pre>
 <ul>
 <li>In case the action expects one or more arguments to be passed, they are defined by using facets (enclosed tags or a map are now deprecated):</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">do</span> name_of_action_or_primitive <span class="hljs-symbol">arg1:</span> expression1 <span class="hljs-symbol">arg2:</span> expression2; 
-
+<pre><code class="hljs"><span class="hljs-keyword">do</span> name_of_action_or_primitive <span class="hljs-symbol">arg1:</span> expression1 <span class="hljs-symbol">arg2:</span> expression2;
 </code></pre>
 <ul>
 <li>In case the result of the action needs to be made available to the agent, the action can be called with the agent calling the action (<code>self</code> when the agent itself calls the action) instead of <code>do</code>; the result should be assigned to a temporary variable:</li>
 </ul>
-<pre><code class="hljs">type_returned_by_action result &lt;- self name_of_action_or_primitive []; 
-
+<pre><code class="hljs">type_returned_by_action result &lt;- self name_of_action_or_primitive [];
 </code></pre>
 <ul>
 <li>In case of an action expecting arguments and returning a value, the following syntax is used:</li>
 </ul>
-<pre><code class="hljs">type_returned_by_action result &lt;- self name_of_action_or_primitive [arg1::expression1, arg2::expression2]; 
-
+<pre><code class="hljs">type_returned_by_action result &lt;- self name_of_action_or_primitive [arg1::expression1, arg2::expression2];
 </code></pre>
 <ul>
 <li>Deprecated uses: following uses of the <code>do</code> statement (still accepted) are now deprecated:</li>
@@ -1358,8 +1308,7 @@ or
      arg arg1 <span class="hljs-symbol">value:</span> expression1; 
      arg arg2 <span class="hljs-symbol">value:</span> expression2; 
      ... 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-24"></a><a href="#embedments-24" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1397,8 +1346,7 @@ or
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">aspect</span> geometryAspect { 
     <span class="hljs-keyword">draw</span> circle(1.0) <span class="hljs-symbol">empty:</span> !hasFood <span class="hljs-symbol">color:</span> #orange ; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Image or text can also be drawn</li>
@@ -1406,8 +1354,7 @@ or
 <pre><code class="hljs"><span class="hljs-keyword">aspect</span> arrowAspect { 
     <span class="hljs-keyword">draw</span> <span class="hljs-string">"Current state= "</span>+<span class="hljs-keyword">state</span> <span class="hljs-symbol">at:</span> location + {-3,1.5} <span class="hljs-symbol">color:</span> #white <span class="hljs-symbol">font:</span> font(<span class="hljs-string">'Default'</span>, 12, #bold) ; 
     <span class="hljs-keyword">draw</span> <span class="hljs-literal">file</span>(ant_shape_full) <span class="hljs-symbol">rotate:</span> heading <span class="hljs-symbol">at:</span> location <span class="hljs-symbol">size:</span> 5 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Arrows can be drawn with any kind of geometry, using begin_arrow and end_arrow facets, combined with the empty: facet to specify whether it is plain or empty</li>
@@ -1416,8 +1363,7 @@ or
     <span class="hljs-keyword">draw</span> line([{20, 20}, {40, 40}]) <span class="hljs-symbol">color:</span> #black <span class="hljs-symbol">begin_arrow:</span>5; 
     <span class="hljs-keyword">draw</span> line([{10, 10},{20, 50}, {40, 70}]) <span class="hljs-symbol">color:</span> #green <span class="hljs-symbol">end_arrow:</span> 2 <span class="hljs-symbol">begin_arrow:</span> 2 <span class="hljs-symbol">empty:</span> true; 
     <span class="hljs-keyword">draw</span> square(10) <span class="hljs-symbol">at:</span> {80,20} <span class="hljs-symbol">color:</span> #purple <span class="hljs-symbol">begin_arrow:</span> 2 <span class="hljs-symbol">empty:</span> true; 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-25"></a><a href="#embedments-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1460,10 +1406,10 @@ or
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">emotional_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fearConfirmed; 
+<pre><code class="hljs"> 
+<span class="hljs-keyword">emotional_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fearConfirmed; 
 <span class="hljs-keyword">emotional_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fear <span class="hljs-symbol">emotion_created:</span>fearConfirmed; 
-<span class="hljs-keyword">emotional_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fear <span class="hljs-symbol">emotion_created:</span>fearConfirmed <span class="hljs-symbol">charisma:</span> 0.5 <span class="hljs-symbol">receptivity:</span> 0.5; 
-
+<span class="hljs-keyword">emotional_contagion</span> <span class="hljs-symbol">emotion_detected:</span>fear <span class="hljs-symbol">emotion_created:</span>fearConfirmed <span class="hljs-symbol">charisma:</span> 0.5 <span class="hljs-symbol">receptivity:</span> 0.5;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-27"></a><a href="#embedments-27" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1489,8 +1435,8 @@ or
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">focus</span> <span class="hljs-symbol">var:</span>speed <span class="hljs-comment">/*where speed is a variable from a species that is being perceived*/</span> 
-
+<pre><code class="hljs"> 
+<span class="hljs-keyword">focus</span> <span class="hljs-symbol">var:</span>speed <span class="hljs-comment">/*where speed is a variable from a species that is being perceived*/</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-28"></a><a href="#embedments-28" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1512,8 +1458,7 @@ or
             <span class="hljs-keyword">write</span> <span class="hljs-string">"Enter in"</span> + <span class="hljs-keyword">state</span>; 
         } 
         <span class="hljs-keyword">write</span> <span class="hljs-keyword">state</span>; 
-    } 
-
+    }
 </code></pre>
 <ul>
 <li>See also: <a href="#state">state</a>, <a href="#exit">exit</a>, <a href="#transition">transition</a>,</li>
@@ -1546,8 +1491,7 @@ or
 <span class="hljs-keyword">equation</span> SI {  
    diff(S,t) = (- 0.3 * S * I / 100); 
    diff(I,t) = (0.3 * S * I / 100); 
-}  
-
+} 
 </code></pre>
 <ul>
 <li>If the type: facet is used, a predefined equation system is defined using variables vars: and parameters params: in the right order. All possible predefined equation systems are the following ones (see [EquationPresentation161 EquationPresentation161] for precise definition of each classical equation system):</li>
@@ -1557,8 +1501,7 @@ or
 <span class="hljs-keyword">equation</span> eqSIR <span class="hljs-symbol">type:</span>SIR <span class="hljs-symbol">vars:</span>[S,I,R,t] <span class="hljs-symbol">params:</span>[N,beta,gamma]; 
 <span class="hljs-keyword">equation</span> eqSIRS <span class="hljs-symbol">type:</span> SIRS <span class="hljs-symbol">vars:</span> [S,I,R,t] <span class="hljs-symbol">params:</span> [N,beta,gamma,omega,mu]; 
 <span class="hljs-keyword">equation</span> eqSEIR <span class="hljs-symbol">type:</span> SEIR <span class="hljs-symbol">vars:</span> [S,E,I,R,t] <span class="hljs-symbol">params:</span> [N,beta,gamma,sigma,mu]; 
-<span class="hljs-keyword">equation</span> eqLV <span class="hljs-symbol">type:</span> LV <span class="hljs-symbol">vars:</span> [x,y,t] <span class="hljs-symbol">params:</span> [alpha,beta,delta,gamma] ; 
-
+<span class="hljs-keyword">equation</span> eqLV <span class="hljs-symbol">type:</span> LV <span class="hljs-symbol">vars:</span> [x,y,t] <span class="hljs-symbol">params:</span> [alpha,beta,delta,gamma] ;
 </code></pre>
 <ul>
 <li>If the simultaneously: facet is used, system of all the agents will be solved simultaneously.</li>
@@ -1582,8 +1525,7 @@ or
 <ul>
 <li>Throwing an error</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">error</span> <span class="hljs-string">'This is an error raised by '</span> + self; 
-
+<pre><code class="hljs"><span class="hljs-keyword">error</span> <span class="hljs-string">'This is an error raised by '</span> + self;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-31"></a><a href="#embedments-31" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1606,8 +1548,7 @@ or
 <ul>
 <li>The general syntax is:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">event</span> [event_type] <span class="hljs-symbol">action:</span> myAction; 
-
+<pre><code class="hljs"><span class="hljs-keyword">event</span> [event_type] <span class="hljs-symbol">action:</span> myAction;
 </code></pre>
 <ul>
 <li>For instance:</li>
@@ -1626,8 +1567,7 @@ or
    <span class="hljs-keyword">display</span> my_display { 
       <span class="hljs-keyword">event</span> mouse_up <span class="hljs-symbol">action:</span> myAction; 
    } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>, <a href="#display_population">display_population</a>,</li>
@@ -1653,14 +1593,12 @@ or
 <ul>
 <li>As other batch methods, the basic syntax of the exhaustive statement uses <code>method exhaustive</code> instead of the expected <code>exhaustive name: id</code> :</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">exhaustive</span> [<span class="hljs-symbol">facet:</span> value]; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">exhaustive</span> [<span class="hljs-symbol">facet:</span> value];
 </code></pre>
 <ul>
 <li>For example:</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">exhaustive</span> <span class="hljs-symbol">maximize:</span> food_gathered; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">exhaustive</span> <span class="hljs-symbol">maximize:</span> food_gathered;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-33"></a><a href="#embedments-33" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1685,8 +1623,7 @@ or
         <span class="hljs-keyword">exit</span> { 
             <span class="hljs-keyword">write</span> <span class="hljs-string">"EXIT from "</span>+<span class="hljs-keyword">state</span>; 
         } 
-    } 
-
+    }
 </code></pre>
 <ul>
 <li>See also: <a href="#enter">enter</a>, <a href="#state">state</a>, <a href="#transition">transition</a>,</li>
@@ -1752,8 +1689,8 @@ or
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">focus</span> <span class="hljs-symbol">var:</span>speed <span class="hljs-comment">/*where speed is a variable from a species that is being perceived*/</span> 
-
+<pre><code class="hljs"> 
+<span class="hljs-keyword">focus</span> <span class="hljs-symbol">var:</span>speed <span class="hljs-comment">/*where speed is a variable from a species that is being perceived*/</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-36"></a><a href="#embedments-36" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1773,8 +1710,7 @@ or
 <ul>
 <li>Focuses on an agent, a geometry, a set of agents, etc...)</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">focus_on</span> my_species(0); 
-
+<pre><code class="hljs"><span class="hljs-keyword">focus_on</span> my_species(0);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-37"></a><a href="#embedments-37" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1804,14 +1740,12 @@ or
 <ul>
 <li>As other batch methods, the basic syntax of the <code>genetic</code> statement uses <code>method genetic</code> instead of the expected <code>genetic name: id</code> :</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">genetic</span> [<span class="hljs-symbol">facet:</span> value]; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">genetic</span> [<span class="hljs-symbol">facet:</span> value];
 </code></pre>
 <ul>
 <li>For example:</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">genetic</span> <span class="hljs-symbol">maximize:</span> food_gathered <span class="hljs-symbol">pop_dim:</span> 5 <span class="hljs-symbol">crossover_prob:</span> 0.7 <span class="hljs-symbol">mutation_prob:</span> 0.1 <span class="hljs-symbol">nb_prelim_gen:</span> 1 <span class="hljs-symbol">max_gen:</span> 20;  
-
+<pre><code class="hljs">method <span class="hljs-keyword">genetic</span> <span class="hljs-symbol">maximize:</span> food_gathered <span class="hljs-symbol">pop_dim:</span> 5 <span class="hljs-symbol">crossover_prob:</span> 0.7 <span class="hljs-symbol">mutation_prob:</span> 0.1 <span class="hljs-symbol">nb_prelim_gen:</span> 1 <span class="hljs-symbol">max_gen:</span> 20; 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-38"></a><a href="#embedments-38" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1842,8 +1776,7 @@ or
       <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">at:</span> {10,10} <span class="hljs-symbol">color:</span> #red; 
       <span class="hljs-keyword">draw</span> <span class="hljs-string">"test"</span> <span class="hljs-symbol">at:</span> {10,10} <span class="hljs-symbol">size:</span> 20 <span class="hljs-symbol">color:</span> #black; 
    } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#overlay">overlay</a>, <a href="#display_population">display_population</a>,</li>
@@ -1867,8 +1800,7 @@ or
 <ul>
 <li>Highlighting an agent</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">highlight</span> my_species(0) <span class="hljs-symbol">color:</span> #blue; 
-
+<pre><code class="hljs"><span class="hljs-keyword">highlight</span> my_species(0) <span class="hljs-symbol">color:</span> #blue;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-40"></a><a href="#embedments-40" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1892,14 +1824,12 @@ or
 <ul>
 <li>As other batch methods, the basic syntax of the <code>hill_climbing</code> statement uses <code>method hill_climbing</code> instead of the expected <code>hill_climbing name: id</code> :</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">hill_climbing</span> [<span class="hljs-symbol">facet:</span> value]; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">hill_climbing</span> [<span class="hljs-symbol">facet:</span> value];
 </code></pre>
 <ul>
 <li>For example:</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">hill_climbing</span> <span class="hljs-symbol">iter_max:</span> 50 maximize : food_gathered;  
-
+<pre><code class="hljs">method <span class="hljs-keyword">hill_climbing</span> <span class="hljs-symbol">iter_max:</span> 50 maximize : food_gathered; 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-41"></a><a href="#embedments-41" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1921,8 +1851,7 @@ or
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">if</span> bool_expr { 
     [statements] 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Optionally, the statements to execute when the condition evaluates to false can be defined in a following statement else. The syntax then becomes:</li>
@@ -1939,15 +1868,14 @@ or
 } 
 <span class="hljs-keyword">else</span> { 
     valTrue &lt;- <span class="hljs-string">"false"</span>; 
-} 
-<span class="hljs-comment">//valTrue equals "true"string valFalse &lt;- ""; </span>
+}<span class="hljs-comment">//valTrue equals "true" </span>
+<span class="hljs-literal">string</span> valFalse &lt;- <span class="hljs-string">""</span>; 
 <span class="hljs-keyword">if</span> false { 
     valFalse &lt;- <span class="hljs-string">"true"</span>; 
 } 
 <span class="hljs-keyword">else</span> { 
     valFalse &lt;- <span class="hljs-string">"false"</span>; 
-} 
-<span class="hljs-comment">//valFalse equals "false"</span>
+}<span class="hljs-comment">//valFalse equals "false"</span>
 </code></pre>
 <ul>
 <li>ifs and elses can be imbricated as needed. For instance:</li>
@@ -1960,8 +1888,7 @@ or
 } 
 <span class="hljs-keyword">else</span> { 
     [statements] 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-42"></a><a href="#embedments-42" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -1990,24 +1917,21 @@ or
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">display</span> my_display { 
    <span class="hljs-keyword">image</span> layer_name <span class="hljs-symbol">file:</span> image_file [additional options]; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>For instance, in the case of a bitmap image</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">display</span> my_display { 
    <span class="hljs-keyword">image</span> background <span class="hljs-symbol">file:</span><span class="hljs-string">"../images/my_backgound.jpg"</span>; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Or in the case of a shapefile:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">display</span> my_display { 
    <span class="hljs-keyword">image</span> testGIS <span class="hljs-symbol">gis:</span> <span class="hljs-string">"../includes/building.shp"</span> <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-string">'blue'</span>); 
-} 
-
+}
 </code></pre>
 <ul>
 <li>It is also possible to superpose images on different layers in the same way as for species using opengl display:</li>
@@ -2016,8 +1940,7 @@ or
   <span class="hljs-keyword">image</span> image1 <span class="hljs-symbol">file:</span><span class="hljs-string">"../images/image1.jpg"</span>; 
   <span class="hljs-keyword">image</span> image2 <span class="hljs-symbol">file:</span><span class="hljs-string">"../images/image2.jpg"</span>; 
   <span class="hljs-keyword">image</span> image3 <span class="hljs-symbol">file:</span><span class="hljs-string">"../images/image3.jpg"</span> <span class="hljs-symbol">position:</span> {0,0,0.5}; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#overlay">overlay</a>, <a href="#display_population">display_population</a>,</li>
@@ -2044,8 +1967,7 @@ or
 <ul>
 <li>An example of syntax is:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">inspect</span> <span class="hljs-string">"my_inspector"</span> <span class="hljs-symbol">value:</span> ant <span class="hljs-symbol">attributes:</span> [<span class="hljs-string">"name"</span>, <span class="hljs-string">"location"</span>]; 
-
+<pre><code class="hljs"><span class="hljs-keyword">inspect</span> <span class="hljs-string">"my_inspector"</span> <span class="hljs-symbol">value:</span> ant <span class="hljs-symbol">attributes:</span> [<span class="hljs-string">"name"</span>, <span class="hljs-string">"location"</span>];
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-44"></a><a href="#embedments-44" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2075,8 +1997,8 @@ or
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> new_predicate(<span class="hljs-string">"test"</span>) <span class="hljs-symbol">when:</span> flip(0.5) <span class="hljs-symbol">new_desire:</span> new_predicate(<span class="hljs-string">"test"</span>) 
-
+<pre><code class="hljs"> 
+<span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> new_predicate(<span class="hljs-string">"test"</span>) <span class="hljs-symbol">when:</span> flip(0.5) <span class="hljs-symbol">new_desire:</span> new_predicate(<span class="hljs-string">"test"</span>)
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-45"></a><a href="#embedments-45" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2104,8 +2026,7 @@ or
 <ul>
 <li>For instance, this layout statement will allow to split the screen occupied by displays in four equal parts, with no tabs. Pairs of display::weight represent the number of the display in their order of definition and their respective weight within a horizontal and vertical section</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">layout</span> horizontal([vertical([0::5000,1::5000])::5000,vertical([2::5000,3::5000])::5000]) <span class="hljs-symbol">tabs:</span> false; 
-
+<pre><code class="hljs"><span class="hljs-keyword">layout</span> horizontal([vertical([0::5000,1::5000])::5000,vertical([2::5000,3::5000])::5000]) <span class="hljs-symbol">tabs:</span> false;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-46"></a><a href="#embedments-46" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2156,8 +2077,7 @@ or
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">light</span> 1 <span class="hljs-symbol">type:</span><span class="hljs-literal">point</span> <span class="hljs-symbol">position:</span>{20,20,20} <span class="hljs-symbol">color:</span>255, <span class="hljs-symbol">linear_attenuation:</span>0.01 <span class="hljs-symbol">quadratic_attenuation:</span>0.0001 <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">update:</span>false 
 <span class="hljs-keyword">light</span> 2 <span class="hljs-symbol">type:</span>spot <span class="hljs-symbol">position:</span>{20,20,20} <span class="hljs-symbol">direction:</span>{0,0,-1} <span class="hljs-symbol">color:</span>255 <span class="hljs-symbol">spot_angle:</span>25 <span class="hljs-symbol">linear_attenuation:</span>0.01 <span class="hljs-symbol">quadratic_attenuation:</span>0.0001 <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">update:</span>false 
-<span class="hljs-keyword">light</span> 3 <span class="hljs-symbol">type:</span><span class="hljs-literal">point</span> <span class="hljs-symbol">direction:</span>{1,1,-1} <span class="hljs-symbol">color:</span>255 <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">update:</span>false 
-
+<span class="hljs-keyword">light</span> 3 <span class="hljs-symbol">type:</span><span class="hljs-literal">point</span> <span class="hljs-symbol">direction:</span>{1,1,-1} <span class="hljs-symbol">color:</span>255 <span class="hljs-symbol">draw_light:</span>true <span class="hljs-symbol">update:</span>false
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>,</li>
@@ -2188,40 +2108,35 @@ or
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">loop</span> <span class="hljs-symbol">times:</span> an_int_expression { 
      <span class="hljs-comment">// [statements] </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>The basic syntax for repeating a set of statements while a condition holds is:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">loop</span> <span class="hljs-symbol">while:</span> a_bool_expression { 
      <span class="hljs-comment">// [statements] </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>The basic syntax for repeating a set of statements by progressing over a container of a point is:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">loop</span> a_temp_var <span class="hljs-symbol">over:</span> a_collection_expression { 
      <span class="hljs-comment">// [statements] </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>The basic syntax for repeating a set of statements while an index iterates over a range of values with a fixed step of 1 is:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">loop</span> a_temp_var <span class="hljs-symbol">from:</span> int_expression_1 <span class="hljs-symbol">to:</span> int_expression_2 { 
      <span class="hljs-comment">// [statements] </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>The incrementation step of the index can also be chosen:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">loop</span> a_temp_var <span class="hljs-symbol">from:</span> int_expression_1 <span class="hljs-symbol">to:</span> int_expression_2 <span class="hljs-symbol">step:</span> int_expression3 { 
      <span class="hljs-comment">// [statements] </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>In these latter three cases, the name facet designates the name of a temporary variable, whose scope is the loop, and that takes, in turn, the value of each of the element of the list (or each value in the interval). For example, in the first instance of the &quot;loop over&quot; syntax :</li>
@@ -2229,8 +2144,7 @@ or
 <pre><code class="hljs"><span class="hljs-literal">int</span> a &lt;- 0; 
 <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">over:</span> [10, 20, 30] { 
      a &lt;- a + i; 
-} <span class="hljs-comment">// a now equals 60 </span>
-
+} <span class="hljs-comment">// a now equals 60</span>
 </code></pre>
 <ul>
 <li>The second (quite common) case of the loop syntax allows one to use an interval of integers. The from and to facets take an integer expression as arguments, with the first (resp. the last) specifying the beginning (resp. end) of the inclusive interval (i.e. [to, from]). If the step is not defined, it is assumed to be equal to 1 or -1, depending on the direction of the range. If it is defined, its sign will be respected, so that a positive step will never allow the loop to enter a loop from i to j where i is greater than j</li>
@@ -2240,8 +2154,7 @@ or
      <span class="hljs-keyword">ask</span> the_list at i { 
         <span class="hljs-comment">// ... </span>
      } 
-} <span class="hljs-comment">// every  agent of the list is asked to do something </span>
-
+} <span class="hljs-comment">// every  agent of the list is asked to do something</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-49"></a><a href="#embedments-49" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2264,8 +2177,7 @@ or
 <pre><code class="hljs"><span class="hljs-keyword">switch</span> 3 { 
    <span class="hljs-keyword">match</span> 1 {<span class="hljs-keyword">write</span> <span class="hljs-string">"Match 1"</span>; } 
    <span class="hljs-keyword">match</span> 3 {<span class="hljs-keyword">write</span> <span class="hljs-string">"Match 2"</span>; } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>match_between block is executed if the switch value is in the interval given in value of the match_between:</li>
@@ -2273,8 +2185,7 @@ or
 <pre><code class="hljs"><span class="hljs-keyword">switch</span> 3 { 
    match_between [1,2] {<span class="hljs-keyword">write</span> <span class="hljs-string">"Match OK between [1,2]"</span>; } 
    match_between [2,5] {<span class="hljs-keyword">write</span> <span class="hljs-string">"Match OK between [2,5]"</span>; } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>match_one block is executed if the switch value is equals to one of the values of the match_one:</li>
@@ -2282,8 +2193,7 @@ or
 <pre><code class="hljs"><span class="hljs-keyword">switch</span> 3 { 
    match_one [0,1,2] {<span class="hljs-keyword">write</span> <span class="hljs-string">"Match OK with one of [0,1,2]"</span>; } 
    match_between [2,3,4,5] {<span class="hljs-keyword">write</span> <span class="hljs-string">"Match OK with one of [2,3,4,5]"</span>; } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#switch">switch</a>, <a href="#default">default</a>,</li>
@@ -2308,8 +2218,7 @@ or
 <ul>
 <li>It can be used in a 3-levels model, in case where individual agents can be captured into group meso agents and groups into clouds macro agents. migrate is used to allows agents captured by groups to migrate into clouds. See the model 'Balls, Groups and Clouds.gaml' in the library.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">migrate</span> ball_in_group <span class="hljs-symbol">target:</span> ball_in_cloud; 
-
+<pre><code class="hljs"><span class="hljs-keyword">migrate</span> ball_in_group <span class="hljs-symbol">target:</span> ball_in_cloud;
 </code></pre>
 <ul>
 <li>See also: <a href="#capture">capture</a>, <a href="#release">release</a>,</li>
@@ -2335,8 +2244,7 @@ or
 <ul>
 <li>An example of use is:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">monitor</span> <span class="hljs-string">"nb preys"</span> <span class="hljs-symbol">value:</span> length(prey as <span class="hljs-literal">list</span>) <span class="hljs-symbol">refresh_every:</span> 5;   
-
+<pre><code class="hljs"><span class="hljs-keyword">monitor</span> <span class="hljs-string">"nb preys"</span> <span class="hljs-symbol">value:</span> length(prey as <span class="hljs-literal">list</span>) <span class="hljs-symbol">refresh_every:</span> 5;  
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-52"></a><a href="#embedments-52" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2381,8 +2289,7 @@ or
    <span class="hljs-keyword">output</span> { 
       <span class="hljs-comment">// [display, file, inspect, layout or monitor statements] </span>
    } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#monitor">monitor</a>, <a href="#inspect">inspect</a>, <a href="#output_file">output_file</a>, <a href="#layout">layout</a>,</li>
@@ -2435,8 +2342,7 @@ or
 <ul>
 <li>To display information in the bottom overlay, the syntax is:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">overlay</span> <span class="hljs-string">"Cycle: "</span> + (cycle) <span class="hljs-symbol">center:</span> <span class="hljs-string">"Duration: "</span> + total_duration + <span class="hljs-string">"ms"</span> <span class="hljs-symbol">right:</span> <span class="hljs-string">"Model time: "</span> + as_date(time,<span class="hljs-string">""</span>) <span class="hljs-symbol">color:</span> [#yellow, #orange, #yellow]; 
-
+<pre><code class="hljs"><span class="hljs-keyword">overlay</span> <span class="hljs-string">"Cycle: "</span> + (cycle) <span class="hljs-symbol">center:</span> <span class="hljs-string">"Duration: "</span> + total_duration + <span class="hljs-string">"ms"</span> <span class="hljs-symbol">right:</span> <span class="hljs-string">"Model time: "</span> + as_date(time,<span class="hljs-string">""</span>) <span class="hljs-symbol">color:</span> [#yellow, #orange, #yellow];
 </code></pre>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#display_population">display_population</a>,</li>
@@ -2473,15 +2379,13 @@ or
 <ul>
 <li>In gui experiment, the general syntax is the following:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">parameter</span> title <span class="hljs-symbol">var:</span> global_var <span class="hljs-symbol">category:</span> cat; 
-
+<pre><code class="hljs"><span class="hljs-keyword">parameter</span> title <span class="hljs-symbol">var:</span> global_var <span class="hljs-symbol">category:</span> cat;
 </code></pre>
 <ul>
 <li>In batch experiment, the two following syntaxes can be used to describe the possible values of a parameter:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">parameter</span> <span class="hljs-string">'Value of toto:'</span> <span class="hljs-symbol">var:</span> toto <span class="hljs-symbol">among:</span> [1, 3, 7, 15, 100];  
-<span class="hljs-keyword">parameter</span> <span class="hljs-string">'Value of titi:'</span> <span class="hljs-symbol">var:</span> titi <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 100 <span class="hljs-symbol">step:</span> 2;  
-
+<span class="hljs-keyword">parameter</span> <span class="hljs-string">'Value of titi:'</span> <span class="hljs-symbol">var:</span> titi <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 100 <span class="hljs-symbol">step:</span> 2; 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-57"></a><a href="#embedments-57" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2511,8 +2415,7 @@ or
 <pre><code class="hljs"><span class="hljs-keyword">perceive</span> name_of-perception <span class="hljs-symbol">target:</span> the_agents_you_want_to_perceive <span class="hljs-symbol">in:</span> a_distance <span class="hljs-symbol">when:</span> a_certain_condition { 
 Here you are in the context of the perceived <span class="hljs-keyword">agents</span>. To refer to the <span class="hljs-literal">agent</span> who does the perception, use myself. 
 If you want to make an <span class="hljs-keyword">action</span> (such as adding a belief for example), use <span class="hljs-keyword">ask</span> myself{ <span class="hljs-keyword">do</span> the_action} 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-58"></a><a href="#embedments-58" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2539,8 +2442,7 @@ If you want to make an <span class="hljs-keyword">action</span> (such as adding 
             <span class="hljs-keyword">data</span> <span class="hljs-string">"Food"</span> <span class="hljs-symbol">value:</span> food_gathered; 
         } 
     } 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-59"></a><a href="#embedments-59" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2587,26 +2489,22 @@ If you want to make an <span class="hljs-keyword">action</span> (such as adding 
 <li>The allowed parameters configurations are the following ones:</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">put</span> expr <span class="hljs-symbol">at:</span> expr <span class="hljs-symbol">in:</span> expr_container; 
-<span class="hljs-keyword">put</span> <span class="hljs-symbol">all:</span> expr <span class="hljs-symbol">in:</span> expr_container; 
-
+<span class="hljs-keyword">put</span> <span class="hljs-symbol">all:</span> expr <span class="hljs-symbol">in:</span> expr_container;
 </code></pre>
 <ul>
 <li>In the case of a list, the position should an integer in the bound of the list. The facet all: is used to replace all the elements of the list by the given value.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; 
-putList &lt;- [1,2,3,4,5]; <span class="hljs-comment">//putList equals [1,2,3,4,5]put -10 at: 1 in: putList;//putList equals [1,-10,3,4,5]put 10 all: true in: putList;//putList equals [10,10,10,10,10]</span>
+<pre><code class="hljs css language-list&lt;int&gt;">putList &lt;- [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]; <span class="hljs-comment">//putList equals [1,2,3,4,5]put -10 at: 1 in: putList;//putList equals [1,-10,3,4,5]put 10 all: true in: putList;//putList equals [10,10,10,10,10]</span>
 </code></pre>
 <ul>
 <li>In the case of a matrix, the position should be a point in the bound of the matrix. The facet all: is used to replace all the elements of the matrix by the given value.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">int</span>&gt; 
-putMatrix &lt;- <span class="hljs-literal">matrix</span>([[0,1],[2,3]]); <span class="hljs-comment">//putMatrix equals matrix([[0,1],[2,3]])put -10 at: {1,1} in: putMatrix;//putMatrix equals matrix([[0,1],[2,-10]])put 10 all: true in: putMatrix;//putMatrix equals matrix([[10,10],[10,10]])</span>
+<pre><code class="hljs css language-matrix&lt;int&gt;">putMatrix &lt;- matrix(<span class="hljs-string">[[0,1],[2,3]]</span>); //putMatrix equals matrix(<span class="hljs-string">[[0,1],[2,3]]</span>)put <span class="hljs-number">-10</span> at: {<span class="hljs-number">1</span>,<span class="hljs-number">1</span>} <span class="hljs-keyword">in</span>: putMatrix;//putMatrix equals matrix(<span class="hljs-string">[[0,1],[2,-10]]</span>)put <span class="hljs-number">10</span> all: <span class="hljs-literal">true</span> <span class="hljs-keyword">in</span>: putMatrix;//putMatrix equals matrix(<span class="hljs-string">[[10,10],[10,10]]</span>)
 </code></pre>
 <ul>
 <li>In the case of a map, the position should be one of the key values of the map. Notice that if the given key value does not exist in the map, the given pair key::value will be added to the map. The facet all is used to replace the value of all the pairs of the map.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">int</span>&gt; 
-putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">"y"</span>::7]; <span class="hljs-comment">//putMap equals ["x"::4,"y"::7]put -10 key: "y" in: putMap;//putMap equals ["x"::4,"y"::-10]put -20 key: "z" in: putMap;//putMap equals ["x"::4,"y"::-10, "z"::-20]put -30 all: true in: putMap;//putMap equals ["x"::-30,"y"::-30, "z"::-30]</span>
+<pre><code class="hljs css language-map&lt;string,int&gt;">putMap &lt;- [<span class="hljs-string">"x"</span>::<span class="hljs-number">4</span>,<span class="hljs-string">"y"</span>::<span class="hljs-number">7</span>]; <span class="hljs-regexp">//put</span>Map equals [<span class="hljs-string">"x"</span>::<span class="hljs-number">4</span>,<span class="hljs-string">"y"</span>::<span class="hljs-number">7</span>]put -<span class="hljs-number">10</span> <span class="hljs-symbol">key:</span> <span class="hljs-string">"y"</span> <span class="hljs-symbol">in:</span> putMap;<span class="hljs-regexp">//put</span>Map equals [<span class="hljs-string">"x"</span>::<span class="hljs-number">4</span>,<span class="hljs-string">"y"</span>::-<span class="hljs-number">10</span>]put -<span class="hljs-number">20</span> <span class="hljs-symbol">key:</span> <span class="hljs-string">"z"</span> <span class="hljs-symbol">in:</span> putMap;<span class="hljs-regexp">//put</span>Map equals [<span class="hljs-string">"x"</span>::<span class="hljs-number">4</span>,<span class="hljs-string">"y"</span>::-<span class="hljs-number">10</span>, <span class="hljs-string">"z"</span>::-<span class="hljs-number">20</span>]put -<span class="hljs-number">30</span> <span class="hljs-symbol">all:</span> <span class="hljs-keyword">true</span> <span class="hljs-symbol">in:</span> putMap;<span class="hljs-regexp">//put</span>Map equals [<span class="hljs-string">"x"</span>::-<span class="hljs-number">30</span>,<span class="hljs-string">"y"</span>::-<span class="hljs-number">30</span>, <span class="hljs-string">"z"</span>::-<span class="hljs-number">30</span>]
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-61"></a><a href="#embedments-61" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2636,14 +2534,12 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>As other batch methods, the basic syntax of the reactive_tabu statement uses <code>method reactive_tabu</code> instead of the expected <code>reactive_tabu name: id</code> :</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">reactive_tabu</span> [<span class="hljs-symbol">facet:</span> value]; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">reactive_tabu</span> [<span class="hljs-symbol">facet:</span> value];
 </code></pre>
 <ul>
 <li>For example:</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">reactive_tabu</span> <span class="hljs-symbol">iter_max:</span> 50 <span class="hljs-symbol">tabu_list_size_init:</span> 5 <span class="hljs-symbol">tabu_list_size_min:</span> 2 <span class="hljs-symbol">tabu_list_size_max:</span> 10 <span class="hljs-symbol">nb_tests_wthout_col_max:</span> 20 <span class="hljs-symbol">cycle_size_min:</span> 2 <span class="hljs-symbol">cycle_size_max:</span> 20 <span class="hljs-symbol">maximize:</span> food_gathered; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">reactive_tabu</span> <span class="hljs-symbol">iter_max:</span> 50 <span class="hljs-symbol">tabu_list_size_init:</span> 5 <span class="hljs-symbol">tabu_list_size_min:</span> 2 <span class="hljs-symbol">tabu_list_size_max:</span> 10 <span class="hljs-symbol">nb_tests_wthout_col_max:</span> 20 <span class="hljs-symbol">cycle_size_min:</span> 2 <span class="hljs-symbol">cycle_size_max:</span> 20 <span class="hljs-symbol">maximize:</span> food_gathered;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-62"></a><a href="#embedments-62" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2666,8 +2562,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 </ul>
 <pre><code class="hljs"><span class="hljs-builtin">reflex</span> my_reflex <span class="hljs-symbol">when:</span> flip (0.5){      <span class="hljs-comment">//Only executed when flip returns true </span>
     <span class="hljs-keyword">write</span> <span class="hljs-string">"Executing the unconditional reflex"</span>; 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-63"></a><a href="#embedments-63" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2702,20 +2597,17 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
    ... 
    } 
 ... 
-} 
-
+}
 </code></pre>
 <ul>
 <li>To release all &quot;C&quot; agents from a &quot;B&quot; agent, agent &quot;C&quot; has to execute the following statement. The &quot;C&quot; agent will change to &quot;A&quot; agent. The won't consider &quot;B&quot; agent as their macro-agent (host) anymore. Their host (macro-agent) will the be the host (macro-agent) of the &quot;B&quot; agent.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">release</span> <span class="hljs-literal">list</span>(C); 
-
+<pre><code class="hljs"><span class="hljs-keyword">release</span> <span class="hljs-literal">list</span>(C);
 </code></pre>
 <ul>
 <li>The modeler can specify the new host and the new species of the released agents:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">release</span> <span class="hljs-literal">list</span> (C) <span class="hljs-symbol">as:</span> new_species <span class="hljs-symbol">in:</span> new host; 
-
+<pre><code class="hljs"><span class="hljs-keyword">release</span> <span class="hljs-literal">list</span> (C) <span class="hljs-symbol">as:</span> new_species <span class="hljs-symbol">in:</span> new host;
 </code></pre>
 <ul>
 <li>See also: <a href="#capture">capture</a>,</li>
@@ -2745,26 +2637,22 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <pre><code class="hljs"><span class="hljs-keyword">remove</span> expr <span class="hljs-symbol">from:</span> expr_container; 
 <span class="hljs-keyword">remove</span> <span class="hljs-symbol">index:</span> expr <span class="hljs-symbol">from:</span> expr_container; 
 <span class="hljs-keyword">remove</span> <span class="hljs-symbol">key:</span> expr <span class="hljs-symbol">from:</span> expr_container; 
-<span class="hljs-keyword">remove</span> <span class="hljs-symbol">all:</span> expr <span class="hljs-symbol">from:</span> expr_container; 
-
+<span class="hljs-keyword">remove</span> <span class="hljs-symbol">all:</span> expr <span class="hljs-symbol">from:</span> expr_container;
 </code></pre>
 <ul>
 <li>In the case of list, the facet <code>item:</code> is used to remove the first occurence of a given expression, whereas <code>all</code> is used to remove all the occurrences of the given expression.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; removeList &lt;- [3,2,1,2,3]; 
-<span class="hljs-keyword">remove</span> 2 <span class="hljs-symbol">from:</span> removeList;<span class="hljs-comment">//removeList equals [3,1,2,3]remove 3 all: true from: removeList;//removeList equals [1,2]remove index: 1 from: removeList;//removeList equals [1]</span>
+<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; removeList &lt;- [3,2,1,2,3];<span class="hljs-keyword">remove</span> 2 <span class="hljs-symbol">from:</span> removeList;<span class="hljs-comment">//removeList equals [3,1,2,3]remove 3 all: true from: removeList;//removeList equals [1,2]remove index: 1 from: removeList;//removeList equals [1]</span>
 </code></pre>
 <ul>
 <li>In the case of map, the facet <code>key:</code> is used to remove the pair identified by the given key.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">int</span>&gt; removeMap &lt;- [<span class="hljs-string">"x"</span>::5, <span class="hljs-string">"y"</span>::7, <span class="hljs-string">"z"</span>::7]; 
-<span class="hljs-keyword">remove</span> <span class="hljs-symbol">key:</span> <span class="hljs-string">"x"</span> <span class="hljs-symbol">from:</span> removeMap;<span class="hljs-comment">//removeMap equals ["y"::7, "z"::7]remove 7 all: true from: removeMap;//removeMap equals map([])</span>
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">int</span>&gt; removeMap &lt;- [<span class="hljs-string">"x"</span>::5, <span class="hljs-string">"y"</span>::7, <span class="hljs-string">"z"</span>::7];<span class="hljs-keyword">remove</span> <span class="hljs-symbol">key:</span> <span class="hljs-string">"x"</span> <span class="hljs-symbol">from:</span> removeMap;<span class="hljs-comment">//removeMap equals ["y"::7, "z"::7]remove 7 all: true from: removeMap;//removeMap equals map([])</span>
 </code></pre>
 <ul>
 <li>In addition, a map a be managed as a list with pair key as index. Given that, facets item:, all: and index: can be used in the same way:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">int</span>&gt; removeMapList &lt;- [<span class="hljs-string">"x"</span>::5, <span class="hljs-string">"y"</span>::7, <span class="hljs-string">"z"</span>::7, <span class="hljs-string">"t"</span>::5]; 
-<span class="hljs-keyword">remove</span> 7 <span class="hljs-symbol">from:</span> removeMapList;<span class="hljs-comment">//removeMapList equals ["x"::5, "z"::7, "t"::5]remove [5,7] all: true from: removeMapList;//removeMapList equals ["t"::5]remove index: "t" from: removeMapList;//removeMapList equals map([])</span>
+<pre><code class="hljs"><span class="hljs-literal">map</span>&lt;<span class="hljs-literal">string</span>,<span class="hljs-literal">int</span>&gt; removeMapList &lt;- [<span class="hljs-string">"x"</span>::5, <span class="hljs-string">"y"</span>::7, <span class="hljs-string">"z"</span>::7, <span class="hljs-string">"t"</span>::5];<span class="hljs-keyword">remove</span> 7 <span class="hljs-symbol">from:</span> removeMapList;<span class="hljs-comment">//removeMapList equals ["x"::5, "z"::7, "t"::5]remove [5,7] all: true from: removeMapList;//removeMapList equals ["t"::5]remove index: "t" from: removeMapList;//removeMapList equals map([])</span>
 </code></pre>
 <ul>
 <li>In the case of a graph, both edges and nodes can be removes using node: and edge facets. If a node is removed, all edges to and from this node are also removed.</li>
@@ -2772,11 +2660,10 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <pre><code class="hljs"><span class="hljs-literal">graph</span> removeGraph &lt;- as_edge_graph([{1,2}::{3,4},{3,4}::{5,6}]); 
 <span class="hljs-keyword">remove</span> <span class="hljs-symbol">node:</span> {1,2} <span class="hljs-symbol">from:</span> removeGraph; 
 <span class="hljs-keyword">remove</span> node(1,2) <span class="hljs-symbol">from:</span> removeGraph; 
- 
 <span class="hljs-literal">list</span> var &lt;- removeGraph.vertices; <span class="hljs-comment">// var equals [{3,4},{5,6}] </span>
-<span class="hljs-literal">list</span> var &lt;- removeGraph.edges; <span class="hljs-comment">// var equals [polyline({3,4}::{5,6})]remove edge: {3,4}::{5,6} from: removeGraph; </span>
+<span class="hljs-literal">list</span> var &lt;- removeGraph.edges; <span class="hljs-comment">// var equals [polyline({3,4}::{5,6})] </span>
+<span class="hljs-keyword">remove</span> <span class="hljs-symbol">edge:</span> {3,4}::{5,6} <span class="hljs-symbol">from:</span> removeGraph; 
 <span class="hljs-keyword">remove</span> edge({3,4},{5,6}) <span class="hljs-symbol">from:</span> removeGraph; 
- 
 <span class="hljs-literal">list</span> var &lt;- removeGraph.vertices; <span class="hljs-comment">// var equals [{3,4},{5,6}] </span>
 <span class="hljs-literal">list</span> var &lt;- removeGraph.edges; <span class="hljs-comment">// var equals []</span>
 </code></pre>
@@ -2793,8 +2680,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
  
 <span class="hljs-literal">species</span> speciesRemove { 
    <span class="hljs-literal">int</span> a &lt;- 100;  
-} 
-
+}
 </code></pre>
 <ul>
 <li>This statement can not be used on <em>matrix</em>.</li>
@@ -2824,8 +2710,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
  
 <span class="hljs-builtin">reflex</span> { 
     <span class="hljs-literal">string</span> foo_result &lt;- foo();     <span class="hljs-comment">// foos_result is now equals to "foo" </span>
-} 
-
+}
 </code></pre>
 <ul>
 <li>In the specific case one wants an agent to ask another agent to execute a statement with a return, it can be done similarly to:</li>
@@ -2838,8 +2723,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <span class="hljs-comment">// In Species B: </span>
 <span class="hljs-builtin">reflex</span> writing { 
     <span class="hljs-literal">string</span> temp &lt;- some_agent_A.foo_different [];   <span class="hljs-comment">// temp is now equals to "foo_not_same"  </span>
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-66"></a><a href="#embedments-66" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2917,8 +2801,8 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> new_predicate(<span class="hljs-string">"test"</span>) <span class="hljs-symbol">when:</span> flip(0.5) <span class="hljs-symbol">new_desire:</span> new_predicate(<span class="hljs-string">"test"</span>) 
-
+<pre><code class="hljs"> 
+<span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> new_predicate(<span class="hljs-string">"test"</span>) <span class="hljs-symbol">when:</span> flip(0.5) <span class="hljs-symbol">new_desire:</span> new_predicate(<span class="hljs-string">"test"</span>)
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-68"></a><a href="#embedments-68" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -2977,50 +2861,42 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Its simple syntax is:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">save</span> <span class="hljs-keyword">data</span> <span class="hljs-symbol">to:</span> <span class="hljs-keyword">output_file</span> <span class="hljs-symbol">type:</span> a_type_file; 
-
+<pre><code class="hljs"><span class="hljs-keyword">save</span> <span class="hljs-keyword">data</span> <span class="hljs-symbol">to:</span> <span class="hljs-keyword">output_file</span> <span class="hljs-symbol">type:</span> a_type_file;
 </code></pre>
 <ul>
 <li>To save data in a text file:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">save</span> (<span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">"-&gt;"</span>  + name + <span class="hljs-string">":"</span> + location) <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_data.txt"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"text"</span>; 
-
+<pre><code class="hljs"><span class="hljs-keyword">save</span> (<span class="hljs-literal">string</span>(cycle) + <span class="hljs-string">"-&gt;"</span>  + name + <span class="hljs-string">":"</span> + location) <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_data.txt"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"text"</span>;
 </code></pre>
 <ul>
 <li>To save the values of some attributes of the current agent in csv file:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">save</span> [name, location, host] <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_data.csv"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"csv"</span>; 
-
+<pre><code class="hljs"><span class="hljs-keyword">save</span> [name, location, host] <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_data.csv"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"csv"</span>;
 </code></pre>
 <ul>
 <li>To save the values of all attributes of all the agents of a species into a csv (with optional attributes):</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">save</span> species_of(self) <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_csvfile.csv"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"csv"</span> <span class="hljs-symbol">header:</span> false; 
-
+<pre><code class="hljs"><span class="hljs-keyword">save</span> species_of(self) <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_csvfile.csv"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"csv"</span> <span class="hljs-symbol">header:</span> false;
 </code></pre>
 <ul>
 <li>To save the geometries of all the agents of a species into a shapefile (with optional attributes):</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">save</span> species_of(self) <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_shapefile.shp"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"shp"</span> <span class="hljs-symbol">with:</span> [name::<span class="hljs-string">"nameAgent"</span>, location::<span class="hljs-string">"locationAgent"</span>] <span class="hljs-symbol">crs:</span> <span class="hljs-string">"EPSG:4326"</span>; 
-
+<pre><code class="hljs"><span class="hljs-keyword">save</span> species_of(self) <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_shapefile.shp"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"shp"</span> <span class="hljs-symbol">with:</span> [name::<span class="hljs-string">"nameAgent"</span>, location::<span class="hljs-string">"locationAgent"</span>] <span class="hljs-symbol">crs:</span> <span class="hljs-string">"EPSG:4326"</span>;
 </code></pre>
 <ul>
 <li>To save the grid_value attributes of all the cells of a grid into an ESRI ASCII Raster file:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">save</span> grid <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_grid.asc"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"asc"</span>; 
-
+<pre><code class="hljs"><span class="hljs-keyword">save</span> grid <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_grid.asc"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"asc"</span>;
 </code></pre>
 <ul>
 <li>To save the grid_value attributes of all the cells of a grid into geotiff:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">save</span> grid <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_grid.tif"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"geotiff"</span>; 
-
+<pre><code class="hljs"><span class="hljs-keyword">save</span> grid <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_grid.tif"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"geotiff"</span>;
 </code></pre>
 <ul>
 <li>To save the grid_value attributes of all the cells of a grid into png (with a worldfile):</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">save</span> grid <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_grid.png"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"image"</span>; 
-
+<pre><code class="hljs"><span class="hljs-keyword">save</span> grid <span class="hljs-symbol">to:</span> <span class="hljs-string">"save_grid.png"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"image"</span>;
 </code></pre>
 <ul>
 <li>The save statement can be use in an init block, a reflex, an action or in a user command. Do not use it in experiments.</li>
@@ -3066,8 +2942,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
     <span class="hljs-keyword">test</span> t1 { 
        <span class="hljs-comment">// [set of instructions, including asserts] </span>
     } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#test">test</a>, <a href="#assert">assert</a>,</li>
@@ -3097,10 +2972,10 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">ask</span> receiver_agent(s) { 
+<pre><code class="hljs"> 
+<span class="hljs-keyword">ask</span> receiver_agent(s) { 
      <span class="hljs-comment">// [statements] </span>
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-74"></a><a href="#embedments-74" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3127,8 +3002,8 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">socialize</span>; 
-
+<pre><code class="hljs"> 
+<span class="hljs-keyword">socialize</span>;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-75"></a><a href="#embedments-75" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3160,8 +3035,8 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span> #rk4 <span class="hljs-symbol">step:</span>0.001; 
-
+<pre><code class="hljs"> 
+<span class="hljs-keyword">solve</span> SIR <span class="hljs-symbol">method:</span> #rk4 <span class="hljs-symbol">step:</span>0.001;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-76"></a><a href="#embedments-76" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3205,26 +3080,22 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Here is an example of a species definition with a FSM architecture and the additional skill moving:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">species</span> ant <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> { 
-
+<pre><code class="hljs"><span class="hljs-literal">species</span> ant <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> {
 </code></pre>
 <ul>
 <li>In the case of a species aiming at mirroring another one:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">species</span> node_agent <span class="hljs-symbol">mirrors:</span> <span class="hljs-literal">list</span>(bug) <span class="hljs-symbol">parent:</span> graph_node <span class="hljs-symbol">edge_species:</span> edge_agent { 
-
+<pre><code class="hljs"><span class="hljs-literal">species</span> node_agent <span class="hljs-symbol">mirrors:</span> <span class="hljs-literal">list</span>(bug) <span class="hljs-symbol">parent:</span> graph_node <span class="hljs-symbol">edge_species:</span> edge_agent {
 </code></pre>
 <ul>
 <li>The definition of the single grid of a model will automatically create gridwidth x gridheight agents:</li>
 </ul>
-<pre><code class="hljs">grid ant_grid <span class="hljs-symbol">width:</span> gridwidth <span class="hljs-symbol">height:</span> gridheight <span class="hljs-symbol">file:</span> grid_file <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">use_regular_agents:</span> false {  
-
+<pre><code class="hljs">grid ant_grid <span class="hljs-symbol">width:</span> gridwidth <span class="hljs-symbol">height:</span> gridheight <span class="hljs-symbol">file:</span> grid_file <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">use_regular_agents:</span> false { 
 </code></pre>
 <ul>
 <li>Using a file to initialize the grid can replace width/height facets:</li>
 </ul>
-<pre><code class="hljs">grid ant_grid <span class="hljs-symbol">file:</span> grid_file <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">use_regular_agents:</span> false {  
-
+<pre><code class="hljs">grid ant_grid <span class="hljs-symbol">file:</span> grid_file <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">use_regular_agents:</span> false { 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-77"></a><a href="#embedments-77" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3283,8 +3154,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
     <span class="hljs-keyword">write</span> <span class="hljs-keyword">state</span>; 
  
     <span class="hljs-keyword">exit</span> {<span class="hljs-keyword">write</span> <span class="hljs-string">'EXIT from '</span>+<span class="hljs-keyword">state</span>;} 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#enter">enter</a>, <a href="#exit">exit</a>, <a href="#transition">transition</a>,</li>
@@ -3308,8 +3178,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Outputting a message</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">status</span> (<span class="hljs-string">'This is my status '</span> + self) <span class="hljs-symbol">color:</span> #yellow; 
-
+<pre><code class="hljs"><span class="hljs-keyword">status</span> (<span class="hljs-string">'This is my status '</span> + self) <span class="hljs-symbol">color:</span> #yellow;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-80"></a><a href="#embedments-80" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3334,8 +3203,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
         match_one [value1, value2, value3] {...} 
         match_between [value1, value2] {...} 
         <span class="hljs-keyword">default</span> {...} 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Example:</li>
@@ -3347,8 +3215,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
    match_one [4,4,6,3,7]  {<span class="hljs-keyword">write</span> <span class="hljs-string">"Match one_of"</span>; } 
    match_between [2, 4] {<span class="hljs-keyword">write</span> <span class="hljs-string">"Match between"</span>; } 
    <span class="hljs-keyword">default</span> {<span class="hljs-keyword">write</span> <span class="hljs-string">"Match Default"</span>; } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#match">match</a>, <a href="#default">default</a>, <a href="#if">if</a>,</li>
@@ -3376,14 +3243,12 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>As other batch methods, the basic syntax of the tabu statement uses <code>method tabu</code> instead of the expected <code>tabu name: id</code> :</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">tabu</span> [<span class="hljs-symbol">facet:</span> value]; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">tabu</span> [<span class="hljs-symbol">facet:</span> value];
 </code></pre>
 <ul>
 <li>For example:</li>
 </ul>
-<pre><code class="hljs">method <span class="hljs-keyword">tabu</span> <span class="hljs-symbol">iter_max:</span> 50 <span class="hljs-symbol">tabu_list_size:</span> 5 <span class="hljs-symbol">maximize:</span> food_gathered; 
-
+<pre><code class="hljs">method <span class="hljs-keyword">tabu</span> <span class="hljs-symbol">iter_max:</span> 50 <span class="hljs-symbol">tabu_list_size:</span> 5 <span class="hljs-symbol">maximize:</span> food_gathered;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-82"></a><a href="#embedments-82" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3429,8 +3294,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
     <span class="hljs-keyword">test</span> t1 { 
        <span class="hljs-comment">// [set of instructions, including asserts] </span>
     } 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#setup">setup</a>, <a href="#assert">assert</a>,</li>
@@ -3471,8 +3335,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
         <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> s1 <span class="hljs-symbol">when:</span> (cycle &gt; 2) { 
             <span class="hljs-keyword">write</span> <span class="hljs-string">"transition s_init -&gt; s1"</span>; 
         } 
-    } 
-
+    }
 </code></pre>
 <ul>
 <li>See also: <a href="#enter">enter</a>, <a href="#state">state</a>, <a href="#exit">exit</a>,</li>
@@ -3494,8 +3357,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 </ul>
 <pre><code class="hljs"><span class="hljs-keyword">try</span> { 
     [statements] 
-} 
-
+}
 </code></pre>
 <ul>
 <li>Optionally, the statements to execute when a runtime error happens in the block can be defined in a following statement 'catch'. The syntax then becomes:</li>
@@ -3505,8 +3367,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 } 
 <span class="hljs-keyword">catch</span> { 
     [statements] 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-87"></a><a href="#embedments-87" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3532,9 +3393,9 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">unconscious_contagion</span> <span class="hljs-symbol">emotion:</span>fearConfirmed;  
-<span class="hljs-keyword">unconscious_contagion</span> <span class="hljs-symbol">emotion:</span>fearConfirmed <span class="hljs-symbol">charisma:</span> 0.5 <span class="hljs-symbol">receptivity:</span> 0.5; 
-
+<pre><code class="hljs"> 
+<span class="hljs-keyword">unconscious_contagion</span> <span class="hljs-symbol">emotion:</span>fearConfirmed;  
+<span class="hljs-keyword">unconscious_contagion</span> <span class="hljs-symbol">emotion:</span>fearConfirmed <span class="hljs-symbol">charisma:</span> 0.5 <span class="hljs-symbol">receptivity:</span> 0.5;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-88"></a><a href="#embedments-88" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3560,8 +3421,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>The general syntax is for example:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">user_command</span> kill_myself <span class="hljs-symbol">action:</span> some_action <span class="hljs-symbol">with:</span> [arg1::val1, arg2::val2, ...]; 
-
+<pre><code class="hljs"><span class="hljs-keyword">user_command</span> kill_myself <span class="hljs-symbol">action:</span> some_action <span class="hljs-symbol">with:</span> [arg1::val1, arg2::val2, ...];
 </code></pre>
 <ul>
 <li>See also: <a href="#user_init">user_init</a>, <a href="#user_panel">user_panel</a>, <a href="#user_input">user_input</a>,</li>
@@ -3610,11 +3470,11 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Other examples of use:</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">user_panel</span> <span class="hljs-string">"Advanced Control"</span> { 
+<pre><code class="hljs"> 
+<span class="hljs-keyword">user_panel</span> <span class="hljs-string">"Advanced Control"</span> { 
     <span class="hljs-keyword">user_input</span> <span class="hljs-string">"Location"</span> <span class="hljs-symbol">returns:</span> loc <span class="hljs-symbol">type:</span> <span class="hljs-literal">point</span> &lt;- {0,0}; 
     <span class="hljs-keyword">create</span> cells <span class="hljs-symbol">number:</span> 10 <span class="hljs-symbol">with:</span> [location::loc]; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#user_command">user_command</a>, <a href="#user_init">user_init</a>, <a href="#user_panel">user_panel</a>,</li>
@@ -3647,8 +3507,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <span class="hljs-keyword">user_panel</span> <span class="hljs-string">"Advanced Control"</span> { 
     <span class="hljs-keyword">user_input</span> <span class="hljs-string">"Location"</span> <span class="hljs-symbol">returns:</span> loc <span class="hljs-symbol">type:</span> <span class="hljs-literal">point</span> &lt;- {0,0}; 
     <span class="hljs-keyword">create</span> cells <span class="hljs-symbol">number:</span> 10 <span class="hljs-symbol">with:</span> [location::loc]; 
-} 
-
+}
 </code></pre>
 <ul>
 <li>See also: <a href="#user_command">user_command</a>, <a href="#user_init">user_init</a>, <a href="#user_input">user_input</a>,</li>
@@ -3674,8 +3533,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <pre><code class="hljs"><span class="hljs-literal">float</span> dist &lt;- 0.0; 
 <span class="hljs-keyword">using</span> <span class="hljs-literal">topology</span>(grid_ant) { 
     d (self.location distance_to target.location); 
-} 
-
+}
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-93"></a><a href="#embedments-93" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3773,8 +3631,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Emmitting a warning</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">warn</span> <span class="hljs-string">'This is a warning from '</span> + self; 
-
+<pre><code class="hljs"><span class="hljs-keyword">warn</span> <span class="hljs-string">'This is a warning from '</span> + self;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-97"></a><a href="#embedments-97" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3795,8 +3652,7 @@ putMap &lt;- [<span class="hljs-string">"x"</span>::4,<span class="hljs-string">
 <ul>
 <li>Outputting a message</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-keyword">write</span> <span class="hljs-string">'This is a message from '</span> + self; 
-
+<pre><code class="hljs"><span class="hljs-keyword">write</span> <span class="hljs-string">'This is a message from '</span> + self;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="embedments-98"></a><a href="#embedments-98" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
