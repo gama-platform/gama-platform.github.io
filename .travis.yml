@@ -16,7 +16,7 @@ addons:
       
 before_script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - sonar-scanner -X -Dsonar.projectKey=gama-platform_gama-platform.github.io -Dsonar.projectName=gama-platform.github.io -Dsonar.projectVersion=1.0.0 -Dsonar.sources=. -Dsonar.language=js -Dsonar.host.url=https://sonarcloud.io
+  - sonar-scanner -X -Dsonar.branch.name=sources -Dsonar.projectKey=gama-platform_gama-platform.github.io -Dsonar.projectName=gama-platform.github.io -Dsonar.projectVersion=1.0.0 -Dsonar.sources=. -Dsonar.language=js -Dsonar.host.url=https://sonarcloud.io
 
   #  Setup
   - git config --global user.name "${GH_NAME}"
