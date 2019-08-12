@@ -1,5 +1,6 @@
 # .travis.yml
 language: node_js
+dist: trusty
 node_js:
   - '8'
 branches:
@@ -7,6 +8,11 @@ branches:
     - sources
 cache:
   yarn: true
+addons:
+  sonarcloud:
+    organization: "gama-platform"
+    token:
+      secure: "$S0NAR_TOKEN" # encrypted value of your token
 before_script:
 #  Setup
   - git config --global user.name "${GH_NAME}"
@@ -23,5 +29,8 @@ before_script:
   - php script/sidebarSearch.php
   - sh script/autoHeader.sh
 script:
-#  Compile website
+  #  Compile website
   - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
+  
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner
