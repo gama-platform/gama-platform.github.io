@@ -16,14 +16,14 @@ addons:
       
 before_script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - sonar-scanner -X -Dsonar.branch.name=sources -Dsonar.projectKey="gama-platform_gama-platform.github.io" -Dsonar.projectName="gama-platform.github.io" -Dsonar.projectVersion=1.0.0 -Dsonar.sources=website -Dsonar.language=js 
+  - sonar-scanner -X -Dsonar.branch.name=sources -Dsonar.projectKey="gama-platform_gama-platform.github.io" -Dsonar.projectName="gama-platform.github.io" -Dsonar.projectVersion=1.0.0 -Dsonar.sources=. -Dsonar.language=js 
 
 #  Setup
   - git config --global user.name "${GH_NAME}"
   - git config --global user.email "${GH_EMAIL}"
   - echo "machine github.com login ${GH_NAME} password ${BOT_TOKEN}" > ~/.netrc
-script:
-  
+
+script:  
 #  Get new wiki
   - git clone https://github.com/gama-platform/gama.wiki.git
 #  Reorganise folders to be more Docusaurus-friendly
