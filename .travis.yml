@@ -12,7 +12,7 @@ addons:
   sonarcloud:
     organization: "gama-platform"
     token:
-      secure: "$S0NAR_TOKEN" # encrypted value of your token
+      secure: "EN2fcWfAsX8NEGPy3fxAtjK0D+scOyGPHCvfDdUi053o9isFF843L+rxESIueOOPT451VyQL+wMxUob5oOWeMYqTKMnoXFOORLCuG4V399OlGdK43DJ4lyfCfgDoCK5fAlT0/J6nm6lZSAGZoN5Pr5yySBJJVh0GuZu72EC78F64I0mGeZvt1z3QWdaILZzxdw7lvUxwj4sjBaiCKpFWNUIP6dxnbq5GrcoZzXP5XQQ5VC6ZJpl434zVfQMs7awgosxhhejrZydrgvddbbUr4yZkRe+FgtC6ibeBcKtg8bB9s2D06wMPDMmiCJndmfgicNArwUj8V9pBSnQa1bphX4vCxaJO5GSFac+CJCIUSVTgr+1JC3pzuXWFHSnXV1qIsURnTOsnWXSespYufBZ+toIy/khAyIZ+7R/PXjIQXRZfj1dffqAXuCJxb8yAKDzA4aSs4JXheEGs82ALgtmZkcymS3EN+Jwrnis0HjwVXpyH2BNkK9CPFzCGmy5EALhVAmREd0QoEVL765PJbKYkzoblgV52VUZ2oR9eUv50fF/+VoEgEr3oiQBWPoDQ7JyuREMqpE7z5LACdLztR2dYAAZRMNEzCnW1bA0ZMlLDhPTHGB6glQfCFTocC2HI6mAb0oD9HDYKFKe1LPHPpzzTpOCYs6QSNjf6DTli+/z+f3g=" # encrypted value of your token
       
 before_script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
