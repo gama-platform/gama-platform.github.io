@@ -15,10 +15,14 @@ addons:
       secure: "$S0NAR_TOKEN" # encrypted value of your token
       
 before_script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner -X -Dsonar.branch.name=sources -Dsonar.projectKey="gama-platform_gama-platform.github.io" -Dsonar.projectName="gama-platform.github.io" -Dsonar.projectVersion=1.0.0 -Dsonar.sources=website -Dsonar.language=js 
+
 #  Setup
   - git config --global user.name "${GH_NAME}"
   - git config --global user.email "${GH_EMAIL}"
   - echo "machine github.com login ${GH_NAME} password ${BOT_TOKEN}" > ~/.netrc
+script:
   
 #  Get new wiki
   - git clone https://github.com/gama-platform/gama.wiki.git
@@ -30,9 +34,6 @@ before_script:
   - php script/sidebarSearch.php
   - sh script/autoHeader.sh
 
-script:
   #  Compile website
   - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - sonar-scanner -X -Dsonar.branch.name=sources -Dsonar.projectKey="gama-platform_gama-platform.github.io" -Dsonar.projectName="gama-platform.github.io" -Dsonar.projectVersion=1.0.0 -Dsonar.sources=. -Dsonar.language=js 
 
