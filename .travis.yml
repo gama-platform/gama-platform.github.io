@@ -34,5 +34,5 @@ script:
   #  Compile website
   - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - sonar-scanner -X -Dsonar.branch=sources -Dsonar.projectKey="gama-platform_gama-platform.github.io" -Dsonar.projectName="gama-platform.github.io" -Dsonar.projectVersion=1.0.0 -Dsonar.sources=website -Dsonar.language=js 
+  - sonar-scanner -X -Dsonar.branch=sources -Dsonar.projectKey="gama-platform_gama-platform.github.io" -Dsonar.projectName="gama-platform.github.io" -Dsonar.projectVersion=1.0.0 -Dsonar.sources=. -Dsonar.language=js 
 
