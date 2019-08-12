@@ -13,8 +13,9 @@ addons:
     organization: "gama-platform"
     token:
       secure: "$S0NAR_TOKEN" # encrypted value of your token
-     branches: 
-       - sources
+    branches: 
+      - sources
+      
 before_script:
 #  Setup
   - git config --global user.name "${GH_NAME}"
