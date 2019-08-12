@@ -13,8 +13,6 @@ addons:
     organization: "gama-platform"
     token:
       secure: "$S0NAR_TOKEN" # encrypted value of your token
-    branches: 
-      - sources
       
 before_script:
 #  Setup
@@ -31,8 +29,9 @@ before_script:
   - php script/sidebarCopy.php
   - php script/sidebarSearch.php
   - sh script/autoHeader.sh
+
 script:
   #  Compile website
   - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - sonar-scanner -Dproject.settings=./sonar-project.properties -X
+  - sonar-scanner -X -Dproject.settings=./sonar-project.properties -Dsonar.branch=sources
