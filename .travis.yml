@@ -29,8 +29,7 @@ before_script:
   - php script/sidebarSearch.php
   - sh script/autoHeader.sh
 script:
-  #  Compile website
-  - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
-  
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - sonar-scanner
+  #  Compile website
+  - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
