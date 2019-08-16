@@ -1,7 +1,14 @@
+##
+# Copyright (c) 2019-present, Arthur Brugiere, GAMA-Platform
+#
+# This source code is licensed under the GPL3 license found in the
+# LICENSE file in the root directory of this source tree.
+##
+
 #!/bin/sh
 
 # send the long living command to background
-GIT_USER="${GH_NAME}" yarn run publish-gh-pages &
+yarn run publish-gh-pages &
 
 # Constants
 RED='\033[0;31m'
@@ -24,3 +31,4 @@ while kill -0 $! >/dev/null 2>&1; do
 done
 
 exit 0
+
