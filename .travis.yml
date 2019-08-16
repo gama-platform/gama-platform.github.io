@@ -36,5 +36,6 @@ script:
   - sh script/autoHeader.sh
 
   #  Compile website
-  - cd website && yarn install && GIT_USER="${GH_NAME}" yarn run publish-gh-pages
-
+  - cd website
+  - yarn install
+  - sh ./script/extendedTimeout.sh 
