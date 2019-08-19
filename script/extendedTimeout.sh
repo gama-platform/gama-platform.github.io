@@ -5,6 +5,8 @@
 # LICENSE file in the root directory of this source tree.
 ##
 
+#!/bin/sh
+
 # send the long living command to background
 yarn run publish-gh-pages &
 
