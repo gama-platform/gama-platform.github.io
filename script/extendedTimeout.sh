@@ -16,7 +16,7 @@ echo "===============EXTENDED TRAVIS TIMEOUT==============="
 echo "This script will extend the time to $limit * 500s"
 
 # send the long living command to background
-yarn run publish-gh-pages &
+GIT_USER="$1" yarn run publish-gh-pages &
 
 while kill -0 $! >/dev/null 2>&1; do
   echo -n -e " \b" # never leave evidences!
