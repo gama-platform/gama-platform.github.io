@@ -37,4 +37,4 @@ script:
 
   #  Compile website
   - cd website
-  - yarn install && GIT_USER="${GH_NAME}" sh script/extendedTimeout.sh
+  - yarn install && GIT_USER="${GH_NAME}" sh ../script/extendedTimeout.sh
