@@ -7,13 +7,16 @@
 
 #!/bin/bash
 
-# send the long living command to background
-yarn run publish-gh-pages &
-
 # Constants
 RED='\033[0;31m'
 minutes=0
 limit=3
+
+echo "===============EXTENDED TRAVIS TIMEOUT==============="
+echo "This script will extend the time to $limit * 500s"
+
+# send the long living command to background
+yarn run publish-gh-pages &
 
 while kill -0 $! >/dev/null 2>&1; do
   echo -n -e " \b" # never leave evidences!
@@ -24,7 +27,7 @@ while kill -0 $! >/dev/null 2>&1; do
     exit 1
   fi
 
-  minutes=$((minutes+1))
+  minutes=$((minutes+10))
 
   # Sleep 500 seconds ~ 10 minutes
   sleep 500
