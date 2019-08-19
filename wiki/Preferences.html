@@ -78,35 +78,45 @@
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="opening-preferences"></a><a href="#opening-preferences" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Opening Preferences</h2>
 <p>To open the preferences dialog of GAMA, either click on the small &quot;form&quot; button on the top-left corner of the window or select &quot;Preferences...&quot; from the Gama, &quot;Help&quot; or &quot;Views&quot; menu depending on your OS.</p>
-<p><img src="../resources/images/preferences/pref_open_mac.png" alt="images/open_prefs.png"></p>
+<p><img src="../resources/images/preferences/pref_open_mac.png" alt="Open the Preferences from the &quot;Help&quot; menu of the interface."></p>
 <h2><a class="anchor" aria-hidden="true" id="interface"></a><a href="#interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interface</h2>
+<p>The Interface pane gathers all the preferences related to the appearance and behavior of the elements of the Graphical User Interface of GAMA.</p>
 <p><img src="../resources/images/preferences/pref_interface.png" alt="images/UI.png"></p>
 <ul>
-<li><p><strong>Startup</strong></p>
+<li><strong>Startup</strong>
 <ul>
-<li>Display welcome page at startup: if true, and if no editors are opened, the <a href="Launching#Welcome_Page">welcome page</a> is displayed when opening GAMA.</li>
+<li><strong>Display welcome page</strong>: if true, and if no editors are opened, the <a href="Launching#Welcome_Page">welcome page</a> is displayed when opening GAMA.</li>
+<li><strong>Maximize GAMA window</strong>: if true, the GAMA window is open with the maximal dimensions at startup.</li>
+<li><strong>Maintain the state of the navigator across sessions</strong>: if true, the state of the interface (with the opened Views, editors...) will be saved when GAMA is closed. At each GAMA startup, they will be reloaded to set the GUI configuration at its previous state.</li>
 </ul></li>
-<li><p><strong>Menus</strong></p>
+<li><strong>Menus</strong>
 <ul>
-<li>Break down agents in menu every: when <a href="InspectorsAndMonitors">inspecting</a> a large number of agents, how many should be displayed before the decision is made to separate the population in sub-menus.</li>
-<li>Sort colors menu by</li>
-<li>Sort operators menu by</li>
+<li><strong>Break down agents in menu every</strong>: when <a href="InspectorsAndMonitors">inspecting</a> a large number of agents, this preference sets how many should be displayed before the decision is made to separate the population in sub-menus.</li>
+<li><strong>Sort operators menu by</strong>: among [category, name], this preference sets how the operators should be displayed in the menu <code>&quot;Model&quot; &gt; &quot;Operators&quot;</code> (<a href="GamlEditorToolbar#vocabulary-tools-in-the-menu">available only in Modeling perspective</a>, when a model editor is active).</li>
+<li><strong>Sort colors menu by</strong>: among [RGB value, Name, Brightness, Luminescence], this sets how are sorted the colors in the menu <code>&quot;Model&quot; &gt; &quot;Colors&quot;</code> (<a href="GamlEditorToolbar#vocabulary-tools-in-the-menu">available only in Modeling perspective</a>, when a model editor is active).</li>
+<li><strong>Reverse order</strong>: if true, reverse the sort order of colors sets above.</li>
+<li><strong>Group colors</strong>: if true, the colors in the previous menu are displays in several sub-menus.</li>
 </ul></li>
-<li><p><strong>Console</strong></p>
+<li><strong>Console</strong>
 <ul>
-<li>Max. number of characters to display in the console (-1 means no limit)</li>
-<li>Max. number of characters to keep in memory when console is paused (-1 means no limit)</li>
+<li><strong>Max. number of characters to display in the console (-1 means no limit)</strong></li>
+<li><strong>Max. number of characters to keep when paused (-1 means no limit)</strong></li>
+<li><strong>Wrap long lines (can slow down output)</strong></li>
 </ul></li>
-<li><p><strong>Icons</strong></p>
+<li><strong>Simulations</strong>
 <ul>
-<li>Icons and buttons dark mode (restart to see the change): Change the highlight for the icons and the button.</li>
-<li>Size of icons in the UI (restart to see the change): Size of the icons in pixel</li>
+<li><strong>Append the name of simulations to their outputs</strong>: if true, the name of the simulation is added after the name of the display or monitor (interesting in case of multi-simulations).</li>
+<li><strong>Color of Simulation X in the UI (console, view tabs)</strong>: each simulation has a specific color. This is particularly interesting in case of a multi-simulations experiment to identify the displays of each simulation and its console messages.</li>
 </ul></li>
-<li><p><strong>Viewers</strong></p>
+<li><strong>Appearance</strong>
 <ul>
-<li>Default shapefile viewer fill color:</li>
-<li>Default shapefile viewer line color:</li>
-<li>Default image viewer background color: Background color for the image viewer (when you select an image from the model explorer for example)</li>
+<li><strong>Highlight in yellow the title of value editors when they change</strong></li>
+<li><strong>Shapefile viewer fill color</strong></li>
+<li><strong>Shapefile viewer line color</strong></li>
+<li><strong>Image viewer background color</strong>: Background color for the image viewer (when you select an image from the model explorer for example)</li>
+<li><strong>Font of buttons and dialogs</strong></li>
+<li><strong>Display metadata in navigator</strong>: if true, GAMA provides some metadata (orange, in parenthesis) after the name of files in the navigator: for a GAML model, it is the number of experiments; for data files, it depends on the kind of data: (for shapefiles) number of objects, CRS and dimensions of the bounding box, (for csv) the dimensions of the table, the delimiter, the data type ...</li>
+<li><strong>Reduce the height of views' toolbars</strong>:</li>
 </ul></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="editors"></a><a href="#editors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Editors</h2>
