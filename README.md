@@ -2,7 +2,7 @@
 [![GitHub license](https://img.shields.io/github/license/gama-platform/gama-platform.github.io)](https://github.com/gama-platform/gama-platform.github.io/blob/sources/LICENSE)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=ncloc)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
 
-![Travis (.org)](https://img.shields.io/travis/gama-platform/gama-platform.github.io)
+[![Travis (.org)](https://img.shields.io/travis/gama-platform/gama-platform.github.io)](https://travis-ci.org/gama-platform/gama-platform.github.io)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=bugs)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=security_rating)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
