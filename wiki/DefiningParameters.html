@@ -67,55 +67,63 @@
 <li><a href="#additional-facets">Additional facets</a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="defining-parameters"></a><a href="#defining-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining parameters</h2>
-<p>You can define parameters inside the global scope, when defining your global variables with the facet <code>parameter</code>:</p>
-<pre><code class="hljs">global
-{
+<p>You can define parameters inside the global scope when defining your global variables with the facet <code>parameter</code> (<strong>this way of defining parameters is not the recommended one</strong>, as it makes the variable a parameter of all the experiments that will be defined and does not offer the possibility to redefine its initial and possible values in several ways in each experiment):</p>
+<pre><code class="hljs">global {
     <span class="hljs-literal">int</span> my_integer_global_value &lt;- 5 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">"My integer global value"</span>;
 }
 </code></pre>
 <p>When launching your experiment, the parameter will appear in your &quot;Parameters&quot; panel, with the name you chose for the <code>parameter</code> facet.</p>
-<p><img src="../resources/images/definingGUIExperiment/parameter1.png" alt="images/parameter1.png"></p>
-<p>You can also define your parameter inside the experiment, using the statement parameter. You have to specify first the name of your parameter, then the name of the global variable through the facet <code>var</code>.</p>
-<pre><code class="hljs">global
-{
+<p><img src="../resources/images/definingGUIExperiment/parameters_1.png" alt="The Parameter View with a single parameter."></p>
+<p>You can also define your parameter inside the experiment (<strong>recommended</strong>), using the statement <code>parameter</code>. You have to specify first the name of your parameter, then the name of the global variable through the facet <code>var</code>.</p>
+<pre><code class="hljs">global {
     <span class="hljs-literal">int</span> my_integer_global_value &lt;- 5;
 }
+
+<span class="hljs-builtin">experiment</span> MyExperiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"My integer global value"</span> <span class="hljs-symbol">var:</span>my_integer_global_value;
+}
 </code></pre>
-<p>experiment MyExperiment type: gui {
-parameter &quot;My integer global value&quot; var:my_integer_global_value;
-}</p>
-<p>NB: This variable has to be initialized with a value. If you don't want to initialize your value on the <code>global</code> scope, you can initialize the value directly on the parameter statement, using the facet <code>init</code>.</p>
-<pre><code class="hljs">global
-{
+<p>NB: This variable has to be initialized with a value. If you do not want to initialize your value in the <code>global</code> block, you can initialise the value directly in the <code>parameter</code> statement, using the facet <code>init</code> or <code>&lt;-</code>.</p>
+<pre><code class="hljs">global {
     <span class="hljs-literal">int</span> my_integer_global_value;
 }
 
 <span class="hljs-builtin">experiment</span> MyExperiment <span class="hljs-symbol">type:</span> gui {
-    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"My integer global value"</span> <span class="hljs-symbol">var:</span>my_integer_global_value <span class="hljs-symbol">init:</span>5;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"My integer global value"</span> <span class="hljs-symbol">var:</span> my_integer_global_value <span class="hljs-symbol">init:</span> 5;
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="additional-facets"></a><a href="#additional-facets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Additional facets</h2>
 <p>You can use some facets to arrange your parameters. For example, you can categorize your parameters under a label, using the facet <code>category</code>:</p>
-<pre><code class="hljs">global
-{
-    <span class="hljs-literal">int</span> attr_1 &lt;- 5 <span class="hljs-symbol">parameter:</span><span class="hljs-string">"attr 1"</span> <span class="hljs-symbol">category:</span><span class="hljs-string">"category 1"</span>;
-    <span class="hljs-literal">int</span> attr_2 &lt;- 5 <span class="hljs-symbol">parameter:</span><span class="hljs-string">"attr 2"</span> <span class="hljs-symbol">category:</span><span class="hljs-string">"category 1"</span>;
-    <span class="hljs-literal">int</span> attr_3 &lt;- 5 <span class="hljs-symbol">parameter:</span><span class="hljs-string">"attr 3"</span> <span class="hljs-symbol">category:</span><span class="hljs-string">"category 2"</span>;
-}
-</code></pre>
-<p><img src="../resources/images/definingGUIExperiment/parameter2.png" alt="images/parameter2.png"></p>
-<p>You also can add some facets such as <code>min</code>, <code>max</code> or <code>among</code> to improve the declaration of the parameter.</p>
-<pre><code class="hljs">global
-{
-    <span class="hljs-literal">string</span> fruit &lt;- <span class="hljs-string">"none"</span> <span class="hljs-symbol">among:</span>[<span class="hljs-string">"none"</span>,<span class="hljs-string">"apple"</span>,<span class="hljs-string">"banana"</span>] <span class="hljs-symbol">parameter:</span><span class="hljs-string">"fruit"</span> <span class="hljs-symbol">category:</span><span class="hljs-string">"food"</span>;
-    <span class="hljs-literal">string</span> vegetable &lt;- <span class="hljs-string">"none"</span> <span class="hljs-symbol">among:</span>[<span class="hljs-string">"none"</span>,<span class="hljs-string">"cabbage"</span>,<span class="hljs-string">"carrot"</span>] <span class="hljs-symbol">parameter:</span><span class="hljs-string">"vegetable"</span> <span class="hljs-symbol">category:</span><span class="hljs-string">"food"</span>;
-    <span class="hljs-literal">int</span> integer_variable &lt;- 5 <span class="hljs-symbol">parameter:</span><span class="hljs-string">"integer variable"</span> <span class="hljs-symbol">min:</span>0 <span class="hljs-symbol">max:</span>100  <span class="hljs-symbol">category:</span><span class="hljs-string">"other"</span>;
+<pre><code class="hljs">global {
+    <span class="hljs-literal">int</span> attr_1 &lt;- 5 ;
+    <span class="hljs-literal">int</span> attr_2 &lt;- 5 ;
+    <span class="hljs-literal">int</span> attr_3 &lt;- 5 ;
 }
 
 <span class="hljs-builtin">experiment</span> MyExperiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"attr 1"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"Category 1"</span> <span class="hljs-symbol">var:</span> attr_1 &lt;- 5;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"attr 2"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"Category 1"</span> <span class="hljs-symbol">var:</span> attr_2 &lt;- 5;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"attr 3"</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">"Category 2"</span> <span class="hljs-symbol">var:</span> attr_3 <span class="hljs-symbol">init:</span> 5;
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/parameter3.png" alt="images/parameter3.png"></p>
+<p><img src="../resources/images/definingGUIExperiment/parameters_3_category.png" alt="The Parameter view with several categories."></p>
+<p>You also can add some facets such as <code>min</code>, <code>max</code>, <code>step</code> or <code>among</code> to improve the declaration of the parameter (and define the possible values the parameter can take).</p>
+<pre><code class="hljs">global {
+    <span class="hljs-literal">string</span> fruit &lt;- <span class="hljs-string">"none"</span> ;
+    <span class="hljs-literal">string</span> vegetable &lt;- <span class="hljs-string">"none"</span>;
+    <span class="hljs-literal">int</span> integer_variable &lt;- 5;
+}
+
+<span class="hljs-builtin">experiment</span> MyExperiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"fruit"</span> <span class="hljs-symbol">category:</span><span class="hljs-string">"food"</span> <span class="hljs-symbol">var:</span> fruit &lt;- <span class="hljs-string">"none"</span> <span class="hljs-symbol">among:</span>[<span class="hljs-string">"none"</span>,<span class="hljs-string">"apple"</span>,<span class="hljs-string">"banana"</span>] ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"vegetable"</span> <span class="hljs-symbol">category:</span><span class="hljs-string">"food"</span> <span class="hljs-symbol">var:</span> vegetable &lt;- <span class="hljs-string">"none"</span> <span class="hljs-symbol">among:</span>[<span class="hljs-string">"none"</span>,<span class="hljs-string">"cabbage"</span>,<span class="hljs-string">"carrot"</span>];
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"integer variable"</span> <span class="hljs-symbol">category:</span><span class="hljs-string">"other"</span><span class="hljs-symbol">var:</span> integer_variable &lt;- 5 <span class="hljs-symbol">min:</span>0 <span class="hljs-symbol">max:</span>100  ;
+}
+
+</code></pre>
+<p>We can notice that the parameters will not appear graphically in the same way if they are defined with a set of possible values (with <code>among</code>) or with a range of possible values (defined by a <code>min</code>, <code>max</code> and a <code>step</code>).</p>
+<p>The definition of the initial value and of the possible values can be set in the <code>global</code> or in the <code>experiment</code> depending on the aim of this limitation: for example if a variable has a maximum value set to 1 in the global, this limitation can be used in the model in order that the variable value does not exceed this value. If the maximum boundary is set in the experiment, some executions of the model can be done without it...</p>
+<p><img src="../resources/images/definingGUIExperiment/parameters_possible_values.png" alt="Parameter View with parameters defined with possible values."></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/DefiningParameters.html"><span class="arrow-prev">← </span><span>Defining Parameters</span></a><a class="docs-next button" href="/wiki/DefiningDisplaysGeneralities"><span>Defining displays (Generalities)</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#index">Index</a></li><li><a href="#defining-parameters">Defining parameters</a></li><li><a href="#additional-facets">Additional facets</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {

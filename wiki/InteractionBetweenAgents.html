@@ -60,7 +60,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Interaction between agents</h1></header><article><div><span><p>In this part, we will learn how interaction between agents works. We will also present you a bunch of operators useful for your modelling.</p>
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Interaction between agents</h1></header><article><div><span><p>In this part, we will learn how interactions between agents works. We will also present you a bunch of operators useful for your modelling.</p>
 <h2><a class="anchor" aria-hidden="true" id="index"></a><a href="#index" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index</h2>
 <ul>
 <li><a href="#the-ask-statement">The ask statement</a></li>
@@ -69,16 +69,17 @@
 <li><a href="#example">Example</a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="the-ask-statement"></a><a href="#the-ask-statement" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The ask statement</h2>
-<p>The <code>ask</code> statement can be used in any reflex or action scope. It is used to specify the interaction between the instances of your species and the other agents. You only have to specify the species of the agents you want to interact with. Here are the different ways of calling the ask statement:</p>
+<p>The <code>ask</code> statement can be used in any <code>reflex</code> or <code>action</code> scope. It is used to specify the interaction between the instances of your species and the other agents. You only have to specify the species of the agents you want to interact with. Here are the different ways of calling the <code>ask</code> statement:</p>
 <ul>
 <li>If you want to interact with one particular agent (for example, defined as an attribute of your species):</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">species</span> my_species {
     <span class="hljs-literal">agent</span> target;
+    
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-keyword">ask</span> target {
-            <span class="hljs-comment">// statements</span>
-        }
+    <span class="hljs-keyword">ask</span> target {
+        <span class="hljs-comment">// statements</span>
+    }
     }
 }
 </code></pre>
@@ -87,10 +88,11 @@
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">species</span> my_species {
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; targets;
+
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-keyword">ask</span> targets {
-            <span class="hljs-comment">// statements</span>
-        }
+    <span class="hljs-keyword">ask</span> targets {
+        <span class="hljs-comment">// statements</span>
+    }
     }
 }
 </code></pre>
@@ -99,90 +101,91 @@
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">species</span> my_species {
     <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; targets;
+
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-keyword">ask</span> targets <span class="hljs-symbol">as:</span>my_species {
-            <span class="hljs-comment">// statements</span>
-        }
+    <span class="hljs-keyword">ask</span> targets <span class="hljs-symbol">as:</span>my_species {
+        <span class="hljs-comment">// statements</span>
+    }
     }
 }
 </code></pre>
 <ul>
-<li>If you want to interact with all the agent of a species:</li>
+<li>If you want to interact with all the agents of a species (note that the name of the species can be used in the <code>ask</code>, and in many other situations, as the population of this species, i.e. the list of agents instance of this species):</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">species</span> my_species {
-    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; targets;
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-keyword">ask</span> other_species {
-            <span class="hljs-comment">// statements</span>
-        }
+    <span class="hljs-keyword">ask</span> other_species {
+        <span class="hljs-comment">// statements</span>
+    }
     }
 }
 
-<span class="hljs-literal">species</span> other_species {
-}
+<span class="hljs-literal">species</span> other_species { }
 </code></pre>
 <p>Note that you can use the attribute <em>population</em> of <code>species</code> if you find it more explicit:</p>
 <pre><code class="hljs"><span class="hljs-keyword">ask</span> other_species.population
 </code></pre>
 <ul>
-<li>If you want to interact with all the agent of a particular species from a list of agents (for example, using the global variable &quot;agents&quot;):</li>
+<li>If you want to interact with all the agents of a particular species from a list of agents (for example, using the global variable &quot;agents&quot;):</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">species</span> my_specie {
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-keyword">ask</span> <span class="hljs-literal">species</span> of_species my_specie {
-            <span class="hljs-comment">// statements</span>
-        }
+    <span class="hljs-keyword">ask</span> <span class="hljs-keyword">agents</span> of_species my_specie {
+        <span class="hljs-comment">// statements</span>
+    }
     }
 }
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="pseudo-variables"></a><a href="#pseudo-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pseudo variables</h2>
-<p>Once you are in the ask scope, you can use some pseudo variables to refer to the receiver agent (the one specify just after the ask statement) or the transmitter agent (the agent which is asking).
-We use the pseudo variable <code>self</code> to refer to the receiver agent, and the pseudo variable <code>myself</code> to refer to the transmitter agent. The pseudo variable <code>self</code> can be omitted when calling actions or attributes.</p>
+<h2><a class="anchor" aria-hidden="true" id="pseudo-variables"></a><a href="#pseudo-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pseudo-variables</h2>
+<p>Once you are in the <code>ask</code> scope, you can use some pseudo-variables to refer to the receiver agent (the one specified just after the ask statement) or the transmitter agent (the agent which is asking).
+We use the pseudo-variable <code>self</code> to refer to the receiver agent, and the pseudo-variable <code>myself</code> to refer to the transmitter agent. The pseudo variable <code>self</code> can be omitted when calling actions or attributes.</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> speciesA {
     init {
-        name &lt;- <span class="hljs-string">"speciesA"</span>;
+    name &lt;- <span class="hljs-string">"speciesA"</span>;
     }
+    
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-keyword">ask</span> speciesB {
-<span class="hljs-keyword">write</span> name; <span class="hljs-comment">// output : "speciesB"          </span>
-<span class="hljs-keyword">write</span> self.name; <span class="hljs-comment">// output : "speciesB"</span>
-            <span class="hljs-keyword">write</span> myself.name; <span class="hljs-comment">// output : "speciesA"</span>
+    <span class="hljs-keyword">ask</span> speciesB {
+            <span class="hljs-keyword">write</span> name; <span class="hljs-comment">// output : "speciesB"          </span>
+            <span class="hljs-keyword">write</span> self.name; <span class="hljs-comment">// output : "speciesB"</span>
+        <span class="hljs-keyword">write</span> myself.name; <span class="hljs-comment">// output : "speciesA"</span>
         }
     }
 }
 
 <span class="hljs-literal">species</span> speciesB {
     init {
-        name &lt;- <span class="hljs-string">"speciesB"</span>;
+    name &lt;- <span class="hljs-string">"speciesB"</span>;
     }
 }
 </code></pre>
 <p>Now, if we introduce a third species, we can write an <code>ask</code> statement inside another.</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> speciesA {
     init {
-        name &lt;- <span class="hljs-string">"speciesA"</span>;
+    name &lt;- <span class="hljs-string">"speciesA"</span>;
     }
+
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-keyword">ask</span> speciesB {
-            <span class="hljs-keyword">write</span> self.name; <span class="hljs-comment">// output : "speciesB"</span>
-            <span class="hljs-keyword">write</span> myself.name; <span class="hljs-comment">// output : "speciesA"</span>
-            <span class="hljs-keyword">ask</span> speciesC {
-                <span class="hljs-keyword">write</span> self.name; <span class="hljs-comment">// output : "speciesC"</span>
-                <span class="hljs-keyword">write</span> myself.name; <span class="hljs-comment">// output : "speciesB"</span>
-            }
+    <span class="hljs-keyword">ask</span> speciesB {
+        <span class="hljs-keyword">write</span> self.name; <span class="hljs-comment">// output : "speciesB"</span>
+        <span class="hljs-keyword">write</span> myself.name; <span class="hljs-comment">// output : "speciesA"</span>
+        <span class="hljs-keyword">ask</span> speciesC {
+        <span class="hljs-keyword">write</span> self.name; <span class="hljs-comment">// output : "speciesC"</span>
+        <span class="hljs-keyword">write</span> myself.name; <span class="hljs-comment">// output : "speciesB"</span>
         }
+    }
     }
 }
 
 <span class="hljs-literal">species</span> speciesB {
     init {
-        name &lt;- <span class="hljs-string">"speciesB"</span>;
+    name &lt;- <span class="hljs-string">"speciesB"</span>;
     }
 }
 
 <span class="hljs-literal">species</span> speciesC {
     init {
-        name &lt;- <span class="hljs-string">"speciesC"</span>;
+    name &lt;- <span class="hljs-string">"speciesC"</span>;
     }
 }
 </code></pre>
@@ -191,27 +194,26 @@ We use the pseudo variable <code>self</code> to refer to the receiver agent, and
 <p>The operator <code>at_distance</code> can be used to know the list of agents that are in a certain distance from another agent.</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> my_species {
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; neighbors &lt;- <span class="hljs-keyword">agents</span> at_distance(5);
-        <span class="hljs-comment">// neighbors contains the list of all the agents located at a distance &lt;= 5 from the caller agent.</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">agent</span>&gt; neighbors &lt;- <span class="hljs-keyword">agents</span> at_distance(5);
+    <span class="hljs-comment">// neighbors contains the list of all the agents located at a distance &lt;= 5 from the caller agent.</span>
     }
 }
 </code></pre>
 <p>The operator <code>closest_to</code> returns the closest agent of a position among a container.</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> my_species {
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-literal">agent</span> agentA &lt;- <span class="hljs-keyword">agents</span> closest_to(self);
-        <span class="hljs-comment">// agentA contains the closest agent from the caller agent.</span>
-        <span class="hljs-literal">agent</span> agentB &lt;- other_specie closest_to({2,3});
-        <span class="hljs-comment">// agentB contains the closest instance of other_specie from the location {2,3}.</span>
+    <span class="hljs-literal">agent</span> agentA &lt;- <span class="hljs-keyword">agents</span> closest_to(self);
+    <span class="hljs-comment">// agentA contains the closest agent from the caller agent.</span>
+    <span class="hljs-literal">agent</span> agentB &lt;- other_specie closest_to({2,3});
+    <span class="hljs-comment">// agentB contains the closest instance of other_specie from the location {2,3}.</span>
     }
 }
 
-<span class="hljs-literal">species</span> other_specie {
-}
+<span class="hljs-literal">species</span> other_specie { }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
-<p>To practice those notions, here is a short basic example. Let's build a model with a fix number of agents with a circle shape. They can move randomly on the environment, and when they are close enough from another agent, a line is displayed between them. This line is destroyed when the distance between the two agents is too important.
-Hint: use the operator <code>polyline</code> to construct a line. List the points between angle brackets <code>[]</code>.</p>
+<p>To practice those notions, here is a short basic example. Let's build a model with a given number of agents with a circle display (keep in mind that their shape has kept its default value: a point). They can move randomly on the environment (i.e. here move can be understood as changing its location), and when they are close enough from another agent, a line is displayed between them. This line is destroyed when the distance between the two agents is too important.</p>
+<p>Hint: use the operator <code>polyline</code> to construct a line. List the points between angle brackets <code>[</code> and <code>]</code>.</p>
 <p><img src="../resources/images/manipulateBasicSpecies/connect_the_neighbors.png" alt="images/connect_the_neighbors.png"></p>
 <p>Here is one example of implementation:</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> connect_the_neighbors
@@ -220,33 +222,34 @@ global{
     <span class="hljs-literal">float</span> speed &lt;- 0.2;
     <span class="hljs-literal">float</span> distance_to_intercept &lt;- 10.0;
     <span class="hljs-literal">int</span> number_of_circle &lt;- 100;
+    
     init {
-        <span class="hljs-keyword">create</span> my_species <span class="hljs-symbol">number:</span>number_of_circle;
+    <span class="hljs-keyword">create</span> my_species <span class="hljs-symbol">number:</span>number_of_circle;
     }
 }
 
 <span class="hljs-literal">species</span> my_species {
     <span class="hljs-builtin">reflex</span> move {
-        location &lt;- {location.x+rnd(-speed,speed),location.y+rnd(-speed,speed)};
+    location &lt;- {location.x+rnd(-speed,speed),location.y+rnd(-speed,speed)};
     }
+    
     <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
-        <span class="hljs-keyword">draw</span> circle(1);
-        <span class="hljs-keyword">ask</span> my_species at_distance(distance_to_intercept) {
-            <span class="hljs-keyword">draw</span> polyline([self.location,myself.location]) <span class="hljs-symbol">color:</span>#black;
-        }
+    <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span> #yellow <span class="hljs-symbol">border:</span> #black;
+    <span class="hljs-keyword">ask</span> my_species at_distance(distance_to_intercept) {
+        <span class="hljs-keyword">draw</span> polyline([self.location,myself.location]) <span class="hljs-symbol">color:</span>#black;
+    }
     }
 }
 
-<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span>gui
-{
+<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span>gui {
     <span class="hljs-keyword">output</span>{
-        <span class="hljs-keyword">display</span> myDisplay {
-            <span class="hljs-literal">species</span> my_species <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
-        }
+    <span class="hljs-keyword">display</span> myDisplay {
+        <span class="hljs-literal">species</span> my_species <span class="hljs-symbol">aspect:</span><span class="hljs-keyword">default</span>;
+    }
     }
 }
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/DefiningActionsAndBehaviors"><span class="arrow-prev">← </span><span>Defining actions and behaviors</span></a><a class="docs-next button" href="/wiki/AttachingSkills"><span>Attaching Skills</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#index">Index</a></li><li><a href="#the-ask-statement">The ask statement</a></li><li><a href="#pseudo-variables">Pseudo variables</a></li><li><a href="#some-useful-interaction-operators">Some useful interaction operators</a></li><li><a href="#example">Example</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/DefiningActionsAndBehaviors"><span class="arrow-prev">← </span><span>Defining actions and behaviors</span></a><a class="docs-next button" href="/wiki/AttachingSkills"><span>Attaching Skills</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#index">Index</a></li><li><a href="#the-ask-statement">The ask statement</a></li><li><a href="#pseudo-variables">Pseudo-variables</a></li><li><a href="#some-useful-interaction-operators">Some useful interaction operators</a></li><li><a href="#example">Example</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

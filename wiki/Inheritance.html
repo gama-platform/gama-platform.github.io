@@ -60,20 +60,18 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Inheritance</h1></header><article><div><span><p>As for multiple programming languages, inheritance can be used in GAML. It is used to structure better your code when you have some complex models.</p>
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Inheritance</h1></header><article><div><span><p>As for many object-oriented programming languages, inheritance can be used in GAML. It is used to structure better your code when you have some complex models. It is, for example, useful when you have defined two different species with many attributes and behaviors in common: you can factorize everything in common in a <strong>parent</strong> species, and let in the <strong>child species</strong> only the differences between these 2 species. Notice that a behavior an action defined in a parent species can be redefined in a children species, in order to code a difference in terms of behavior, or simply execute the action of the parent and complete it with some other statements.</p>
 <h2><a class="anchor" aria-hidden="true" id="index"></a><a href="#index" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index</h2>
 <ul>
 <li><a href="#mother-species-/-child-species">Mother species / child species</a></li>
 <li><a href="#virtual-actions">Virtual actions</a></li>
 <li><a href="#get-all-the-subspecies-from-a-species">Get all the subspecies from a species</a></li>
 </ul>
-<h2><a class="anchor" aria-hidden="true" id="mother-species-child-species"></a><a href="#mother-species-child-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mother species / child species</h2>
+<h2><a class="anchor" aria-hidden="true" id="mother-species-child-species"></a><a href="#mother-species-child-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mother species/child species</h2>
 <p>To make a species inherit from a mother species, you have to add the facet <code>parent</code>, and specify the mother species.</p>
-<pre><code class="hljs"><span class="hljs-literal">species</span> mother_species {
-}
+<pre><code class="hljs"><span class="hljs-literal">species</span> mother_species { }
 
-<span class="hljs-literal">species</span> child_species <span class="hljs-symbol">parent:</span>mother_species {
-}
+<span class="hljs-literal">species</span> child_species <span class="hljs-symbol">parent:</span> mother_species { }
 </code></pre>
 <p>Thus, all the attributes, actions and reflex of the mother species are inherited to the child species.</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> mother_species {
@@ -81,49 +79,78 @@
     <span class="hljs-keyword">action</span> action_A {}
 }
 
-<span class="hljs-literal">species</span> child_species <span class="hljs-symbol">parent:</span>mother_species {
+<span class="hljs-literal">species</span> child_species <span class="hljs-symbol">parent:</span> mother_species {
     init {
-        attribute_A &lt;- 5;
-        <span class="hljs-keyword">do</span> action_A;
+    attribute_A &lt;- 5;
+    <span class="hljs-keyword">do</span> action_A;
     }
 }
 </code></pre>
 <p>If the mother species has a particular skill, its children will inherit all the attributes and actions.</p>
-<pre><code class="hljs"><span class="hljs-literal">species</span> mother_species <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>] {
-}
+<pre><code class="hljs"><span class="hljs-literal">species</span> mother_species <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>] { }
 
 <span class="hljs-literal">species</span> child_species <span class="hljs-symbol">parent:</span>mother_species {
     init {
-        speed &lt;- 2.0;
+    speed &lt;- 2.0;
     }
     <span class="hljs-builtin">reflex</span> update {
-        <span class="hljs-keyword">do</span> wander;
+    <span class="hljs-keyword">do</span> wander;
     }
 }
 </code></pre>
 <p>You can redefine an action or a reflex by declaring an action or a reflex with the same name.</p>
-<h2><a class="anchor" aria-hidden="true" id="virtual-action"></a><a href="#virtual-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Virtual action</h2>
-<p>You have also the possibility to declare a virtual action in the mother species, which means an action without implementation, by using the facet <code>virtual</code>:</p>
-<pre><code class="hljs"><span class="hljs-keyword">action</span> virtual_action <span class="hljs-symbol">virtual:</span>true;
+<p>In the redefined action, it is common to call the action of the mother species with some specific parameters or to add more computations. To this purpose, you need to use:</p>
+<ul>
+<li><code>invoke</code> instead of <code>do</code> to call an action (procedure) of the mother species.</li>
+<li><code>super.action_name()</code> to call  an action (function) of the mother species.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">species</span> animal {
+    <span class="hljs-literal">int</span> age &lt;- 0;
+    
+    <span class="hljs-keyword">action</span> grow {
+    age &lt;- age + 1;
+    }
+    
+    <span class="hljs-literal">int</span> get_age {
+    <span class="hljs-keyword">return</span> age;
+    }
+}
+
+<span class="hljs-literal">species</span> cat <span class="hljs-symbol">parent:</span> animal {
+    <span class="hljs-keyword">action</span> grow {
+    invoke grow();   <span class="hljs-comment">// call the action growth of the mother species animal</span>
+    <span class="hljs-keyword">write</span> <span class="hljs-string">"I am a cat and I grow up"</span>;
+    }
+    
+    <span class="hljs-literal">int</span> get_age {
+    <span class="hljs-keyword">return</span> super.get_age() * 7;  <span class="hljs-comment">// call the action get_age from the mother species animal</span>
+                                     <span class="hljs-comment">// 1 year is 7 year for cats</span>
+    }
+}
 </code></pre>
-<p>When you declare an action as virtual in a species, this species becomes abstract, which means you cannot instantiate agent from it. All the children of this species has to implement this virtual action.</p>
+<h2><a class="anchor" aria-hidden="true" id="virtual-action"></a><a href="#virtual-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Virtual action</h2>
+<p>You have also the possibility to declare a virtual action in the mother species, which means an action without implementation, by using the facet <code>virtual</code>. Note that, when using <code>virtual</code> facet, the statement has to start by <code>action</code> and not a return type. If the action is expecting to return a value you need to add the <code>type</code> facet:</p>
+<pre><code class="hljs"><span class="hljs-keyword">action</span> virtual_action <span class="hljs-symbol">virtual:</span> true;
+
+<span class="hljs-keyword">action</span> vistual_action_with_return_value <span class="hljs-symbol">virtual:</span> true <span class="hljs-symbol">type:</span> any_type;
+</code></pre>
+<p>When you declare an action as virtual in a species, this species becomes abstract, which means you cannot instantiate agent from it. All the children of this species have to implement this virtual action.</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> virtual_mother_species {
     <span class="hljs-keyword">action</span> my_action <span class="hljs-symbol">virtual:</span>true;
 }
 
-<span class="hljs-literal">species</span> child_species <span class="hljs-symbol">parent:</span>virtual_mother_species {
+<span class="hljs-literal">species</span> child_species <span class="hljs-symbol">parent:</span> virtual_mother_species {
     <span class="hljs-keyword">action</span> my_action {
-        <span class="hljs-comment">// some statements</span>
+    <span class="hljs-comment">// some statements</span>
     }
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="get-all-the-subspecies-from-a-species"></a><a href="#get-all-the-subspecies-from-a-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get all the subspecies from a species</h2>
-<p>If you declare a &quot;mother&quot; species, you create a &quot;child&quot; agent, then &quot;mother&quot; will return the population of agents &quot;mother&quot; and <strong>not</strong> the population of agents &quot;child&quot;, as it is shown in the following example :</p>
-<pre><code class="hljs">global
-{
+<p>If you declare a <code>mother</code> species, you create a <code>child</code> agent, then <code>mother</code> will return the population of agents <code>mother</code> and <strong>not</strong> the population of agents <code>child</code>, as it is shown in the following example:</p>
+<pre><code class="hljs">global {
     init {
-        <span class="hljs-keyword">create</span> child <span class="hljs-symbol">number:</span>2;
-        <span class="hljs-keyword">create</span> mother <span class="hljs-symbol">number:</span>1;
+        <span class="hljs-keyword">create</span> child <span class="hljs-symbol">number:</span> 2;
+        <span class="hljs-keyword">create</span> mother <span class="hljs-symbol">number:</span> 1;
     }
     <span class="hljs-builtin">reflex</span> update {
         <span class="hljs-keyword">write</span> length(mother); <span class="hljs-comment">// will write 1 and not 3</span>
@@ -132,14 +159,14 @@
 
 <span class="hljs-literal">species</span> mother {}
 
-<span class="hljs-literal">species</span> child <span class="hljs-symbol">parent:</span>mother {}
+<span class="hljs-literal">species</span> child <span class="hljs-symbol">parent:</span> mother {}
 </code></pre>
-<p>We remind you that &quot;subspecies&quot; is a built-in attribute of the agent. Using this attribute, you can easily get all the subspecies agents of the mother species by writing the following gaml function :</p>
+<p>We remind you that <code>subspecies</code> is a built-in attribute of the agent. Using this attribute, you can easily get all the subspecies agents of the mother species by writing the following GAML function:</p>
 <pre><code class="hljs">global
 {
     init {
-        <span class="hljs-keyword">create</span> child <span class="hljs-symbol">number:</span>2;
-        <span class="hljs-keyword">create</span> mother <span class="hljs-symbol">number:</span>1;
+        <span class="hljs-keyword">create</span> child <span class="hljs-symbol">number:</span> 2;
+        <span class="hljs-keyword">create</span> mother <span class="hljs-symbol">number:</span> 1;
     }
     <span class="hljs-builtin">reflex</span> update {
         <span class="hljs-keyword">write</span> length(get_all_instances(mother)); <span class="hljs-comment">// will write 3 (1+2)</span>
@@ -151,9 +178,12 @@
 
 <span class="hljs-literal">species</span> mother {}
 
-<span class="hljs-literal">species</span> child <span class="hljs-symbol">parent:</span>mother {}
+<span class="hljs-literal">species</span> child <span class="hljs-symbol">parent:</span> mother {}
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/AttachingSkills"><span class="arrow-prev">← </span><span>Attaching Skills</span></a><a class="docs-next button" href="/wiki/DefiningAdvancedSpecies"><span>Defining advanced species</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#index">Index</a></li><li><a href="#mother-species-child-species">Mother species / child species</a></li><li><a href="#virtual-action">Virtual action</a></li><li><a href="#get-all-the-subspecies-from-a-species">Get all the subspecies from a species</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+<p>The operator <code>of_generic_species</code> can also be used to filter a list of agents and get all the agents of a given species or of its children species. As a consequence, in the previous example, to count all the agents of <code>mother</code> and <code>child</code> species you can only write:</p>
+<pre><code class="hljs"><span class="hljs-keyword">write</span> length(<span class="hljs-keyword">agents</span> of_generic_species mother);
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/AttachingSkills"><span class="arrow-prev">← </span><span>Attaching Skills</span></a><a class="docs-next button" href="/wiki/DefiningAdvancedSpecies"><span>Defining advanced species</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#index">Index</a></li><li><a href="#mother-species-child-species">Mother species/child species</a></li><li><a href="#virtual-action">Virtual action</a></li><li><a href="#get-all-the-subspecies-from-a-species">Get all the subspecies from a species</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></div><div><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div><h5>Ecosystem</h5><a href="https://github.com/gama-platform/gama"><i class="fab fa-github"></i> GitHub Gama</a><a href="https://github.com/gama-platform/gama.experimental"><i class="fas fa-puzzle-piece"></i> Gama Experimental Plugins</a><a href="https://github.com/gama-platform/gama.models.experimental"><i class="fas fa-scroll"></i> Gama Experimental Models</a></div></section><section class="copyright">Copyright © 2019 GAMA-Platform</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
