@@ -1,9 +1,21 @@
+[![Language](https://img.shields.io/badge/language-NodeJS-green.svg)](https://nodejs.org/)
+[![GitHub license](https://img.shields.io/github/license/gama-platform/gama-platform.github.io)](https://github.com/gama-platform/gama-platform.github.io/blob/sources/LICENSE)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=ncloc)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
+
+![Travis (.org)](https://img.shields.io/travis/gama-platform/gama-platform.github.io)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=bugs)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=security_rating)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
+
 # gama-platform.github.io - `sources` branch
 
 On this branch, you have all the sources from the website [_gama-platform.github.io_](gama-platform.github.io) which is the documentation of the _Gama-Platform_.
 
 ## Editing Website
 
+<details>
+<summary>View contents</summary>
+  
 You saw an error on the website and you want to correct it. The first thing is to check which page should be updated !
 
 ### Editing website parameters
@@ -38,6 +50,8 @@ If you don't have the `wiki` keyword, the page you want to edit is probably a Re
 
 This pages are located in _\<project>/website/pages/_ and you'll need to have some basics in React to edit pages.
 
+</details>
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -49,6 +63,9 @@ You need to have [NodeJS](https://nodejs.org/en/), [npm](https://www.npmjs.com/)
 Also, I recommand to use [git](https://git-scm.com/) to download projects, but you can deal without it.
 
 ### Installing
+
+<details>
+<summary>View contents</summary>
 
 Here's a step by step series of command that tell you how to get a development env running.
 
@@ -110,9 +127,11 @@ npm start
 
 In less than a minute, you should have the website running in local on port 3000 open in your favorite browser.
 
+</details>
+
 ## Deployment
 
-All the deployment (pulling last wiki, running every previous scripts, building React project and publish new version) is done by Travis CI. The whole process is written in the <project>/website/static/.travis.yml file.
+All the deployment (pulling last wiki, running every previous scripts, building React project and publish new version) is done by [Travis CI](https://travis-ci.org/gama-platform/gama-platform.github.io). The whole process is written in the [\<project\>/.travis.yml](https://github.com/gama-platform/gama-platform.github.io/blob/sources/.travis.yml) file.
 
 Travis CI will regenerate automatically the website every 24 hours.
 
