@@ -156,6 +156,15 @@ const siteConfig = {
   downloadVersion: 'v1.8.0',
 
 
+
+  /*
+   *    BLOG
+   *  Every meta-data needed for the blog part
+   */
+  facebookAppId: '238065426321929',	// Like button under each article
+  facebookComments: true, 		// Comment part under each article
+  twitter: true, 			// Share on twitter
+
   /*
    *    METADATA
    *  Website title, etc
@@ -211,6 +220,7 @@ const siteConfig = {
 
   /* Add a little "scroll to top" button */
   scrollToTop: true,
+  //scrollToTopOptions: 
 
 	/* Colors for website */
   colors: {
