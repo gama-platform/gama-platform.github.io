@@ -22,6 +22,9 @@ authorImageURL:
 <!-- To be linked on twitter if someone share your link -->
 <!-- @[authorTwitter] // ex: @gamaplatform -->
 authorTwitter: gamaplatform
+
+<!-- Will be used in the next version (v2) of the Docusaurus framework -->
+tags: [template, learning]
 ---
 All this will be part of the blog post summary.
 
