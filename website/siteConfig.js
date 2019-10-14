@@ -185,7 +185,7 @@ const siteConfig = {
     {page: 'download',	label: 'Download'},	
     {doc: 'Contribute',	label: 'Contribute'},
     // Enable blog
-//    {blog: true, label: 'Blog'},
+    {blog: true, label: 'Blog'},
     // Determines language drop down position among links
     { languages: false },
     // Determines search bar position among links
