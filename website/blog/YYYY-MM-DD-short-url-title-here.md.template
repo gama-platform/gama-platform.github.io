@@ -10,6 +10,10 @@ title: Title Template (could be different from the name file)
 author: GAMA Team
 authorURL: https://github.com/gama-platform
 
+<!-- If you're special, you can uncomment the entry below and set your status -->
+<!-- This will be display below your name -->
+<!-- authorTitle: The best dev so far -->
+
 <!-- Image auto by authorFBID (from Facebook) -->
 <!-- If no FB, put a custom link below for your PP -->
 authorFBID: GamaPlatform
