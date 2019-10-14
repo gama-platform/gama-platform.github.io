@@ -72,3 +72,5 @@ website/sidebars.json
 website/package.json
 website/i18n/en.json
 website/package-lock.json
+website/i18n
+website/i18n/*
