@@ -75,7 +75,7 @@ class Footer extends React.Component {
           </div>
         </section>
 
-        <section className="copyright">{this.props.config.copyright}</section>
+        <section className="copyright"><a href="https://github.com/gama-platform/gama/wiki/LICENSE.md">GFDL 3</a> - {this.props.config.copyright}</section>
       </footer>
     );
   }
