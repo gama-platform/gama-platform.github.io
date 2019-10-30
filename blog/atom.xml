@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://gama-platform.github.io/blog</id>
+    <title>GAMA-Platform Blog</title>
+    <updated>2019-10-30T06:00:00Z</updated>
+    <generator>Feed for Node.js</generator>
+    <link rel="alternate" href="https://gama-platform.github.io/blog"/>
+    <subtitle>The best place to stay up-to-date with the latest GAMA-Platform news and events.</subtitle>
+    <logo>https://gama-platform.github.io/img/gama-logo_white.png</logo>
+    <rights>Copyright © 2019 GAMA-Platform</rights>
+    <entry>
+        <title type="html"><![CDATA[Introducing GAMA Blog]]></title>
+        <id>https://gama-platform.github.io/blog/2019/10/30/gama-blog.html</id>
+        <link href="https://gama-platform.github.io/blog/2019/10/30/gama-blog.html">
+        </link>
+        <updated>2019-10-30T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p><img src="https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1274&amp;q=80" alt="BLOG"></p>
+<p>We are very happy to introduce <strong>GAMA Blog</strong> !</p>
+]]></summary>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+    </entry>
+</feed>
