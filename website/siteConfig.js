@@ -161,7 +161,7 @@ const siteConfig = {
    *    BLOG
    *  Every meta-data needed for the blog part
    */
-  facebookAppId: '238065426321929',	// Like button under each article
+  facebookAppId: 238065426321929,	// Like button under each article
   facebookComments: true, 		// Comment part under each article
   twitter: true, 			// Share on twitter
 
@@ -243,7 +243,7 @@ const siteConfig = {
   */
 
 	/* This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.	*/
-  copyright: `Copyright © ${new Date().getFullYear()} GAMA-Platform`,
+  copyright: `${new Date().getFullYear()} GAMA-Platform`,
 
   	/*	Open Graph and Twitter card images.	*/
   ogImage: '/resources/images/general/GamaPlatform.png',
