@@ -56,7 +56,7 @@ class Footer extends React.Component {
               <i className="fa fa-rss"></i> Blog RSS
             </a>
           </div>
-          <div>
+          <div style={{flexGrow: '2'}}>
             <h5>Mailing list</h5>
             <a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank">
           		<i className="fas fa-envelope"></i> For Users<br />
@@ -67,7 +67,7 @@ class Footer extends React.Component {
           		gama-dev@googlegroups.com
             </a>
           </div>
-          <div style={{color: 'hsla(0,0%,100%,.4)'}}>
+          <div style={{color: 'hsla(0,0%,100%,.4)', flexGrow: '3'}}>
             <h5>License</h5>
             <p>Copyright (C) - {this.props.config.copyright}.</p>
             <p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p>
