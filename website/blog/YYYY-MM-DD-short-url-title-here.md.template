@@ -1,4 +1,8 @@
 ---
+<!-- Below you'll find a prepared template to create a blog post, but you can find the full official documentation here : -->
+<!-- https://docusaurus.io/docs/en/adding-blog -->
+
+
 <!-- If "true" the post will be accessible only by direct link -->
 <!-- If you want to post it, remove the line below -->
 unlisted: true
