@@ -221,52 +221,53 @@ function createTitle(str){
 function endpoint(){
   var getRequest = document.URL.split('?')[1];
 
-  console.log(getRequest);
-
-  if (getRequest == undefined || getRequest == '' ){
+  // If no request
+  if (getRequest === undefined || getRequest == '' ){
     // Home doc
     window.location.replace( queryBuilder(true, true, true) );
+  }else{
+
+    /* Request on tag */
+    const optionsTag = {
+      findAllMatches: true,
+      threshold: 0.1,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: [
+        "tag"
+      ]
+    };
+    fuse = new Fuse(database, optionsTag);
+    var resultTag = fuse.search( getRequest.split("&")[0].split("=")[1] );
+
+    if (resultTag.length == 0)
+      resultTag = database;
+
+    /* Request on title 
+    on filtred db */
+    const optionsTitle = {
+      shouldSort: true,
+      findAllMatches: true,
+      threshold: 0.1,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: [
+        "title"
+      ]
+    };
+
+    fuse = new Fuse(resultTag, optionsTitle);
+    resultTag = fuse.search( getRequest.split("&")[1].split("=")[1] )[0];
+    if (resultTag == undefined)
+      window.location.replace( queryBuilder(true, true, true) );
+    else
+      window.location.replace( queryBuilder(resultTag["url"]) );
+
   }
-
-  /* Request on tag */
-  const optionsTag = {
-    findAllMatches: true,
-    threshold: 0.1,
-    location: 0,
-    distance: 100,
-    maxPatternLength: 32,
-    minMatchCharLength: 1,
-    keys: [
-      "tag"
-    ]
-  };
-  fuse = new Fuse(database, optionsTag);
-  var resultTag = fuse.search( getRequest.split("&")[0].split("=")[1] );
-
-  if (resultTag.length == 0)
-    resultTag = database;
-
-  /* Request on title 
-  on filtred db */
-  const optionsTitle = {
-    shouldSort: true,
-    findAllMatches: true,
-    threshold: 0.1,
-    location: 0,
-    distance: 100,
-    maxPatternLength: 32,
-    minMatchCharLength: 1,
-    keys: [
-      "title"
-    ]
-  };
-
-  fuse = new Fuse(resultTag, optionsTitle);
-  resultTag = fuse.search( getRequest.split("&")[1].split("=")[1] )[0];
-  if (resultTag == undefined)
-    window.location.replace( queryBuilder(true, true, true) );
-  else
-    window.location.replace( queryBuilder(resultTag["url"]) );
 }
 
 function queryBuilder(item, wiki=true, doc=false){
