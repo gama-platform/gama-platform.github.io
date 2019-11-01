@@ -15,9 +15,6 @@ const GridBlock = CompLibrary.GridBlock;
 function Download(props) {
   const {config: siteConfig, language = ''} = props;
   const {baseUrl, docsUrl} = siteConfig;
-  const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
-  const langPart = `${language ? `${language}/` : ''}`;
-  const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
   const FlexContainer = props => ( <div className="gridBlock"> {props.children} </div> );
   const FlexItem = props => ( <div className="blockElement imageAlignTop threeByGridBlock">{props.children}</div> );
@@ -57,34 +54,6 @@ function Download(props) {
       <OsBlock src="img/linux-logo.svg" os="Linux" version={props.version} zipName={props.zipName} zipOS='Linux' />
     </FlexContainer>
   );
-
-  const release = [
-    {
-      title: `Windows`,
-      content: 'Learn how to use this project',
-      image: siteConfig.baseUrl + 'img/windows-logo.svg',
-      imageAlt: 'windows logo',
-      imageAlign: 'top',
-    },
-    {
-      title: 'Frequently Asked Questions',
-      content: 'Questions gathered from the community',
-      image: 'img/apple-logo.svg',
-      imageAlign: 'top',
-    },
-    {
-      title: 'More',
-      content: 'Lots of documentation is on this site',
-    },
-  ];
-
-
-  const ImgSoftware = props => (
-          <div className="pluginWrapper">
-            <img src={props.img_src} alt="GAMA-Platform Software" />
-          </div>
-  );
-
 
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `
