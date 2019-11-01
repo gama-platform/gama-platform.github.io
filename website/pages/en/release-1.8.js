@@ -13,8 +13,8 @@ const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
 function search(props) {
-  const {config: siteConfig, language = ''} = props;
-  const {baseUrl, docsUrl} = siteConfig;
+  const {config: siteConfig} = props;
+  const {baseUrl} = siteConfig;
 
   const FlexContainer = props => ( <div className="section container"> {props.children} </div> );
   const FlexItem = props => ( <div className={`item ${props.className}`}>{props.children}</div> );

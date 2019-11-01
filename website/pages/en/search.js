@@ -13,7 +13,6 @@ const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
 function search(props) {
-  const {config: siteConfig, language = ''} = props;
 
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `
