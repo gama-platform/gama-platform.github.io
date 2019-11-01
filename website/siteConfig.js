@@ -161,7 +161,8 @@ const siteConfig = {
    *    BLOG
    *  Every meta-data needed for the blog part
    */
-  //facebookAppId: 238065426321929,	// Like button under each article
+  facebookAppId: 524881055001796,	// Like button under each article
+	// https://developers.facebook.com/apps/524881055001796/dashboard/ -admin-> Arthur Brugiere & Arnaud Grignard
   facebookComments: true, 		// Comment part under each article
   twitter: true, 			// Share on twitter
 
