@@ -116,6 +116,7 @@ function createSearchResult(result) {
   // Prepare list container
   var resultDiv = document.createElement("DIV");
   var resultList = document.createElement("UL");
+  var tagTitle;
 
   var prevTag = ""; var prevSubCat = ""; 
   for (var i = 0; i < result.length; i++) {
@@ -132,7 +133,7 @@ function createSearchResult(result) {
       prevTag = result[i]["tag"];
       resultList.appendChild( document.createElement("HR") );
 
-      var tagTitle = document.createElement("H4");
+      tagTitle = document.createElement("H4");
       tagTitle.innerHTML = createTitle(prevTag);
 
       resultList.appendChild( tagTitle );
