@@ -14,10 +14,6 @@ const GridBlock = CompLibrary.GridBlock;
 
 function search(props) {
   const {config: siteConfig, language = ''} = props;
-  const {baseUrl, docsUrl} = siteConfig;
-  const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
-  const langPart = `${language ? `${language}/` : ''}`;
-  const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `
