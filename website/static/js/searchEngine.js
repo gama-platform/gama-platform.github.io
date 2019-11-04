@@ -225,7 +225,7 @@ function endpoint(){
   // If no request
   if (getRequest === undefined || getRequest == '' ){
     // Home doc
-    window.location.replace( queryBuilder(true, true, true) );
+    window.location.replace( queryBuilder(true, true) );
   }else{
 
     /* Request on tag */
@@ -264,43 +264,15 @@ function endpoint(){
     fuse = new Fuse(resultTag, optionsTitle);
     resultTag = fuse.search( getRequest.split("&")[1].split("=")[1] )[0];
     if (resultTag == undefined)
-      window.location.replace( queryBuilder(true, true, true) );
+      window.location.replace( queryBuilder(true, true) );
     else
       window.location.replace( queryBuilder(resultTag["url"]) );
 
   }
 }
 
-function queryBuilder(item, wiki=true, doc=false){
-    var url = realUrl[0] + "//";
-
-    // BaseURL
-    for (var i = 2; i < realUrl.length; i++) {
-      if ( !(realUrl[i] == "wiki" 
-		|| realUrl[i] == "download" // Basic pages (docs & static)
-        	|| realUrl[i].charAt(6) == "?") 
-	) { // Search Endpoint
-        url += realUrl[i] + '/';
-      }else{
-        break;
-      }
-      
-    }
-
-    if(doc){
-        url += "wiki/Home"; 
-    }else{
-
-      if (wiki) {
-        url += "wiki/" + item; 
-      }
-      else{
-          url += item;
-      }
-
-    }
-
-    return url;
+function queryBuilder(item, doc=false){
+  return realUrl[0] + "//" + realUrl[2] + "/wiki/" + (doc ? "Home" : item);
 }
 
 /*
