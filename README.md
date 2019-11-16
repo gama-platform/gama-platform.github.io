@@ -15,7 +15,7 @@ On this branch, you have all the sources from the website [_gama-platform.github
 
 If you want to read how to modify the content of the website, please go in the [website/ subfolder](https://github.com/gama-platform/gama-platform.github.io/blob/sources/website/).
 
-If you want to edit the *blog*, you can [click here](https://github.com/gama-platform/gama-platform.github.io/blob/sources/website/blog/) !
+If you want to edit the `blog`, you can click [here](https://github.com/gama-platform/gama-platform.github.io/blob/sources/website/blog/) and if you want to read the blog documentation click [there](https://github.com/gama-platform/gama-platform.github.io/tree/sources/website#editing-blog) !
 
 ## Getting Started
 
