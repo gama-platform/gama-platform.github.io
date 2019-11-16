@@ -89,7 +89,7 @@ https://gama-platform.github.io/wiki/Home
                                                       ^^^^ ^^^^
 ```
 
-## Editing blog
+## Editing `blog`
 
 ### What is the blog for ?
 
