@@ -14,20 +14,23 @@ title: Title Template (could be different from the name file)
 author: GAMA Team
 authorURL: https://github.com/gama-platform
 
-<!-- If you're special, you can uncomment the entry below and set your status -->
+<!-- If you want to specify your title, position, status... , you can uncomment the entry below and set your status -->
 <!-- This will be display below your name -->
-<!-- authorTitle: The best dev so far -->
+<!-- authorTitle: Community Manager -->
 
-<!-- Image auto by authorFBID (from Facebook) -->
-<!-- If no FB, put a custom link below for your PP -->
+<!-- An image can be fetched from your FaceBook account, given by the authorFBID (from Facebook) -->
+<!-- Your authorFBID is available in the URL of your FB page: https://www.facebook.com/[authorFBID]-->
 authorFBID: GamaPlatform
+
+<!-- If no FB, put a custom link below for your Personal Profile -->
 authorImageURL: 
 
 <!-- To be linked on twitter if someone share your link -->
 <!-- @[authorTwitter] // ex: @gamaplatform -->
 authorTwitter: gamaplatform
 
-<!-- Will be used in the next version (v2) of the Docusaurus framework -->
+<!-- Tags/Categories will be used in the next version (v2) of the Docusaurus framework -->
+<!-- but they can already be specified in your article header.-->
 tags: [template, learning]
 ---
 All this will be part of the blog post summary.
@@ -43,6 +46,6 @@ Not this.
 Or this.
 
 
-If you don't but the "truncate" tag, the RSS Feed will be filled only with the first 250 characters.
+If you don't put the "truncate" tag, the RSS Feed will be filled only with the first 250 characters.
 
 Before submit, don't forget to turn your file into a md file (simply by removing the ".template" extension)
