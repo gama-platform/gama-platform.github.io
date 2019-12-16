@@ -65,9 +65,13 @@ function initSearchEngine(){
       // Redirect API
       endpoint();
     }else{
-      // Get search input
-      document.getElementById('search_input_react').addEventListener('keyup', requestSearch);
-      document.getElementById('search_input_react').setAttribute("onfocusout", "setTimeout(cleanSearchResult, 200)");
+      // Remove algoria useless events
+      var searchBar = document.getElementById('search_input_react');
+      searchBar.parentNode.replaceChild(searchBar.cloneNode(true), searchBar);
+
+      // Set custom events
+      searchBar.addEventListener('keyup', requestSearch);
+      searchBar.setAttribute("onfocusout", "setTimeout(cleanSearchResult, 200)");
     }
   }
 
