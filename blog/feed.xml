@@ -5,14 +5,14 @@
         <link>https://gama-platform.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest GAMA-Platform news and events.</description>
         <lastBuildDate>Fri, 15 Nov 2019 06:00:00 GMT</lastBuildDate>
-        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title>GAMA-Platform Blog</title>
             <url>https://gama-platform.github.io/img/gama-logo_white.png</url>
             <link>https://gama-platform.github.io/blog</link>
         </image>
-        <copyright>2019 GAMA-Platform</copyright>
+        <copyright>2020 GAMA-Platform</copyright>
         <item>
             <title><![CDATA[GAMA Days 2020]]></title>
             <link>https://gama-platform.github.io/blog/2019/11/15/gama-days-2020.html</link>
