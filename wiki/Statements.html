@@ -758,25 +758,17 @@ statement_keyword <span class="hljs-symbol">facet1:</span> expression1 <span cla
 <li><code>background</code> (rgb): the background color</li>
 <li><code>color</code> (rgb): Text color</li>
 <li><code>gap</code> (float): minimum gap between bars (in proportion)</li>
-<li><code>label_font</code> (string): Label font face</li>
-<li><code>label_font_size</code> (int): Label font size</li>
-<li><code>label_font_style</code> (an identifier), takes values in: {plain, bold, italic}: the style used to display labels</li>
-<li><code>legend_font</code> (string): Legend font face</li>
-<li><code>legend_font_size</code> (int): Legend font size</li>
-<li><code>legend_font_style</code> (an identifier), takes values in: {plain, bold, italic}: the style used to display legend</li>
+<li><code>label_font</code> (any type in [string, font]): Label font face. Either the name of a font face or a font</li>
+<li><code>legend_font</code> (any type in [string, font]): Legend font face. Either the name of a font face or a font</li>
 <li><code>memorize</code> (boolean): Whether or not to keep the values in memory (in order to produce a csv file, for instance). The default value, true, can also be changed in the preferences</li>
 <li><code>position</code> (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.</li>
 <li><code>reverse_axes</code> (boolean): reverse X and Y axis (for example to get horizental bar charts</li>
 <li><code>series_label_position</code> (an identifier), takes values in: {default, none, legend, onchart, yaxis, xaxis}: Position of the Series names: default (best guess), none, legend, onchart, xaxis (for category plots) or yaxis (uses the first serie name).</li>
 <li><code>size</code> (point): the layer resize factor: {1,1} refers to the original size whereas {0.5,0.5} divides by 2 the height and the width of the layer. In case of a 3D layer, a 3D point can be used (note that {1,1} is equivalent to {1,1,0}, so a resize of a layer containing 3D objects with a 2D points will remove the elevation)</li>
 <li><code>style</code> (an identifier), takes values in: {line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded, default}: The sub-style style, also default style for the series.</li>
-<li><code>tick_font</code> (string): Tick font face</li>
-<li><code>tick_font_size</code> (int): Tick font size</li>
-<li><code>tick_font_style</code> (an identifier), takes values in: {plain, bold, italic}: the style used to display ticks</li>
+<li><code>tick_font</code> (any type in [string, font]): Tick font face. Either the name of a font face or a font</li>
 <li><code>tick_line_color</code> (rgb): the tick lines color</li>
-<li><code>title_font</code> (string): Title font face</li>
-<li><code>title_font_size</code> (int): Title font size</li>
-<li><code>title_font_style</code> (an identifier), takes values in: {plain, bold, italic}: the style used to display titles</li>
+<li><code>title_font</code> (any type in [string, font]): Title font face. Either the name of a font face or a font</li>
 <li><code>title_visible</code> (boolean): chart title visible</li>
 <li><code>type</code> (an identifier), takes values in: {xy, scatter, histogram, series, pie, radar, heatmap, box_whisker}: the type of chart. It could be histogram, series, xy, pie, radar, heatmap or box whisker. The difference between series and xy is that the former adds an implicit x-axis that refers to the numbers of cycles, while the latter considers the first declaration of data to be its x-axis.</li>
 <li><code>x_label</code> (string): the title for the X axis</li>
@@ -1112,7 +1104,7 @@ or
 <ul>
 <li><strong><code>name</code></strong> (a label), (omissible) : the identifier of the display</li>
 <li><code>ambient_light</code> (any type in [int, rgb]): Allows to define the value of the ambient light either using an int (ambient_light:(125)) or a rgb color ((ambient_light:rgb(255,255,255)). default is rgb(127,127,127,255)</li>
-<li><code>autosave</code> (any type in [boolean, point]): Allows to save this display on disk. A value of true/false will save it at a resolution of 500x500. A point can be passed to personalize these dimensions</li>
+<li><code>autosave</code> (any type in [boolean, point]): Allows to save this display on disk. A value of true/false will save it at a resolution of 500x500. A point can be passed to personalize these dimensions. Note that setting autosave to true (or to any other value than false) in a display will synchronize all the displays defined in the experiment</li>
 <li><code>background</code> (rgb): Allows to fill the background of the display with a specific color</li>
 <li><code>camera_interaction</code> (boolean): If false, the user will not be able to modify the position and the orientation of the camera, and neither using the ROI. Default is true.</li>
 <li><code>camera_lens</code> (int): Allows to define the lens of the camera</li>
@@ -1656,7 +1648,7 @@ or
 <li><code>virtual</code> (boolean): whether the experiment is virtual (cannot be instantiated, but only used as a parent, false by default)</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="definition-35"></a><a href="#definition-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Definition</h4>
-<p>Declaration of a particular type of agent that can manage simulations</p>
+<p>Declaration of a particular type of agent that can manage simulations. If the experiment directly imports a model using the 'model:' facet, this facet <em>must</em> be the first one after the name of the experiment</p>
 <h4><a class="anchor" aria-hidden="true" id="usages-35"></a><a href="#usages-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usages</h4>
 <h4><a class="anchor" aria-hidden="true" id="embedments-35"></a><a href="#embedments-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedments</h4>
 <ul>
@@ -3016,8 +3008,6 @@ If you want to make an <span class="hljs-keyword">action</span> (such as adding 
 <h4><a class="anchor" aria-hidden="true" id="facets-76"></a><a href="#facets-76" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Facets</h4>
 <ul>
 <li><strong><code>equation</code></strong> (an identifier), (omissible) : the equation system identifier to be numerically solved</li>
-<li><code>integrated_times</code> (list): time interval inside integration process</li>
-<li><code>integrated_values</code> (list): list of variables's value inside integration process</li>
 <li><code>max_step</code> (float): maximal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value</li>
 <li><code>method</code> (string): integration method (can be one of &quot;Euler&quot;, &quot;ThreeEighthes&quot;, &quot;Midpoint&quot;, &quot;Gill&quot;, &quot;Luther&quot;, &quot;rk4&quot; or &quot;dp853&quot;, &quot;AdamsBashforth&quot;, &quot;AdamsMoulton&quot;, &quot;DormandPrince54&quot;, &quot;GraggBulirschStoer&quot;,  &quot;HighamHall54&quot;) (default value: &quot;rk4&quot;) or the corresponding constant</li>
 <li><code>min_step</code> (float): minimal step, (used with dp853 method only), (sign is irrelevant, regardless of integration direction, forward or backward), the last step can be smaller than this value</li>
