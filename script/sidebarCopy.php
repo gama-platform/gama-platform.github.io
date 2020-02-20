@@ -24,7 +24,6 @@ $fp=fopen("./docs/_Sidebar.md", "r+");
 while ($line = stream_get_line($fp, 1024 * 1024, "\n")) {
 	// Title
 	if (strpos($line, '##') !== false) {
-		//$sidebarArray["doc"][] = $line;
 		if( $line[3] == '['){
 			$title = explode("](", explode("[", $line)[1] );
 

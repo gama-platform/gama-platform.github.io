@@ -13,11 +13,7 @@ const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
 function Download(props) {
-  const {config: siteConfig, language = ''} = props;
-  const {baseUrl, docsUrl} = siteConfig;
-  const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
-  const langPart = `${language ? `${language}/` : ''}`;
-  const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+  const {config: siteConfig} = props;
 
   const FlexContainer = props => ( <div className="gridBlock"> {props.children} </div> );
   const FlexItem = props => ( <div className="blockElement imageAlignTop threeByGridBlock">{props.children}</div> );
@@ -38,13 +34,13 @@ function Download(props) {
       <div className="blockContent">
         <h2>{props.os}</h2>
             <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.zip`} className="button buttonRed">with JDK (~ 275MB)
-              <span class="tooltiptext">This is the easiest version to run. No need to install anything more.<br/><b>Note that the embedded JDK should not be used to run other softwares</b></span>
+              <span className="tooltiptext">This is the easiest version to run. No need to install anything more.<br/><b>Note that the embedded JDK should not be used to run other softwares</b></span>
             </Button>
             <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}.zip`} className="button buttonBlue">Without JDK (&lt; 100MB)
-              <span class="tooltiptext">Install this version if you <b>already installed Oracle JDK 8</b> on your computer.</span>
+              <span className="tooltiptext">Install this version if you <b>already installed Oracle JDK 8</b> on your computer.</span>
             </Button>
             <Button href="https://github.com/gama-platform/gama/releases" className="button buttonOrange">Daily Build
-              <span class="tooltiptext">Install this version if you feel adventurous.</span>
+              <span className="tooltiptext">Install this version if you feel adventurous.</span>
             </Button>
       </div>
     </div>
@@ -57,34 +53,6 @@ function Download(props) {
       <OsBlock src="img/linux-logo.svg" os="Linux" version={props.version} zipName={props.zipName} zipOS='Linux' />
     </FlexContainer>
   );
-
-  const release = [
-    {
-      title: `Windows`,
-      content: 'Learn how to use this project',
-      image: siteConfig.baseUrl + 'img/windows-logo.svg',
-      imageAlt: 'windows logo',
-      imageAlign: 'top',
-    },
-    {
-      title: 'Frequently Asked Questions',
-      content: 'Questions gathered from the community',
-      image: 'img/apple-logo.svg',
-      imageAlign: 'top',
-    },
-    {
-      title: 'More',
-      content: 'Lots of documentation is on this site',
-    },
-  ];
-
-
-  const ImgSoftware = props => (
-          <div className="pluginWrapper">
-            <img src={props.img_src} alt="GAMA-Platform Software" />
-          </div>
-  );
-
 
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `

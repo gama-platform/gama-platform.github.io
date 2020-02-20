@@ -1,42 +1,21 @@
+[![Language](https://img.shields.io/badge/language-NodeJS-green.svg)](https://nodejs.org/)
+[![GitHub license](https://img.shields.io/github/license/gama-platform/gama-platform.github.io)](https://github.com/gama-platform/gama-platform.github.io/blob/sources/LICENSE)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=ncloc)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
+
+[![Travis (.org)](https://img.shields.io/travis/gama-platform/gama-platform.github.io)](https://travis-ci.org/gama-platform/gama-platform.github.io)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=bugs)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=security_rating)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
+
 # gama-platform.github.io - `sources` branch
 
 On this branch, you have all the sources from the website [_gama-platform.github.io_](gama-platform.github.io) which is the documentation of the _Gama-Platform_.
 
 ## Editing Website
 
-You saw an error on the website and you want to correct it. The first thing is to check which page should be updated !
+If you want to read how to modify the content of the website, please go in the [website/ subfolder](https://github.com/gama-platform/gama-platform.github.io/blob/sources/website/).
 
-### Editing website parameters
-
-The website have a big config file. This file is fully documented and will configure many things from the website (logo, title, etc etc etc). 
-
-You can find it here : _\<project>/website/siteConfig.js_
-
-### Editing `wiki`
-
-Let's start by taking a look at the URL. For example :
-
-```
-https://gama-platform.github.io/wiki/Home
-                                ^^^^
-```
-
-If in the URL you have the keyword `wiki`, you should modify the _GAMA wiki_ and the correction will appear in the website after the next build done by Travis CI.
-
-To keep the same example, the file to edit will be here :
-
-```
-https://gama-platform.github.io/wiki/Home
-                                ^^^^ ^^^^
-=FILE-TO-EDIT=> https://github.com/gama-platform/gama/wiki/Home
-                                                      ^^^^ ^^^^
-```
-
-### Editing site specific pages
-
-If you don't have the `wiki` keyword, the page you want to edit is probably a React page (like the *download* page or the *index* page).
-
-This pages are located in _\<project>/website/pages/_ and you'll need to have some basics in React to edit pages.
+If you want to edit the `blog`, you can click [here](https://github.com/gama-platform/gama-platform.github.io/blob/sources/website/blog/) and if you want to read the blog documentation click [there](https://github.com/gama-platform/gama-platform.github.io/tree/sources/website#editing-blog) !
 
 ## Getting Started
 
@@ -49,6 +28,9 @@ You need to have [NodeJS](https://nodejs.org/en/), [npm](https://www.npmjs.com/)
 Also, I recommand to use [git](https://git-scm.com/) to download projects, but you can deal without it.
 
 ### Installing
+
+<details>
+<summary>View contents</summary>
 
 Here's a step by step series of command that tell you how to get a development env running.
 
@@ -110,11 +92,13 @@ npm start
 
 In less than a minute, you should have the website running in local on port 3000 open in your favorite browser.
 
+</details>
+
 ## Deployment
 
-All the deployment (pulling last wiki, running every previous scripts, building React project and publish new version) is done by Travis CI. The whole process is written in the <project>/website/static/.travis.yml file.
+All the deployment (pulling last wiki, running every previous scripts, building React project and publish new version) is done by [Travis CI](https://travis-ci.org/gama-platform/gama-platform.github.io). The whole process is written in the [\<project\>/.travis.yml](https://github.com/gama-platform/gama-platform.github.io/blob/sources/.travis.yml) file.
 
-Travis CI will regenerate automatically the website every 24 hours.
+Travis CI will regenerate automatically the website every 24 hours or at every commit on the `sources` branch.
 
 ## Built With
 
@@ -137,4 +121,4 @@ See also the list of [contributors](https://github.com/gama-platform/gama-platfo
 
 ## License
 
-This project is licensed under the GPL3 License - see the [LICENSE.md](https://github.com/gama-platform/gama-platform.github.io/blob/sources/LICENSE) file for details
+This project is licensed under the GPL3 License - see the [LICENSE.md](https://github.com/gama-platform/gama-platform.github.io/blob/sources/LICENSE) file for details.

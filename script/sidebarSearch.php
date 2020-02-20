@@ -31,7 +31,4 @@ fclose($fp);
 
 file_put_contents('./website/static/database/index.json', json_encode($json));
 
-//fclose($fp);
-//var_dump( $sidebarArray );
-
 ?>
