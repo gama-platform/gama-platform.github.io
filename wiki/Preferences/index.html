@@ -87,7 +87,7 @@
 <ul>
 <li><strong>Display welcome page</strong>: if true, and if no editors are opened, the <a href="Launching#Welcome_Page">welcome page</a> is displayed when opening GAMA.</li>
 <li><strong>Maximize GAMA window</strong>: if true, the GAMA window is open with the maximal dimensions at startup.</li>
-<li><strong>Maintain the state of the navigator across sessions</strong>: if true, the state of the interface (with the opened Views, editors...) will be saved when GAMA is closed. At each GAMA startup, they will be reloaded to set the GUI configuration at its previous state.</li>
+<li><strong>Maintain the state of the navigator across sessions</strong>: if true, the context of the navigator (project opened, file selected...) will be saved when GAMA is closed and reloaded next start.</li>
 </ul></li>
 <li><strong>Menus</strong>
 <ul>
@@ -258,14 +258,14 @@
 </ul></li>
 <li><strong>Optimizations</strong>
 <ul>
-<li><strong>Optimize constant expressions (experimental)</strong></li>
-<li><strong>Optimize agents memory</strong></li>
-<li><strong>Optimize the 'at_distance' operator</strong></li>
-<li><strong>Optimize the path computation operators and goto action (but with possible 'jump' issues)</strong></li>
-<li><strong>Optimize spatial queries: add agents only when necessary in the quadtree (still experimental)</strong></li>
-<li><strong>Forces the spatial index to synchronize its operations. Useful for interactive models where the user may interfere.</strong></li>
-<li><strong>Use object pooling to reduce memory usage (still experimental)</strong></li>
-<li><strong>Tolerance for the comparison of points</strong>: depending on the way they are computed, 2 points who should be the same, could not be equals. This preference allows to be more tolerant in the way points are compared.</li>
+<li><strong>Optimize constant expressions (experimental)</strong>: whether expressions considered as constants should be computed and replaced by their value when compiling models. Allows to save memory and speed, but may cause some problems with complex expressions.</li>
+<li><strong>Optimize agents memory</strong>: whether the memory used by agents is reduced (or not) when their structure appears to be simple: no sub-agents, for instance, because no sub-species is defined.</li>
+<li><strong>Optimize the 'at_distance' operator</strong>: an optimisation that considers the number of elements on each side and changes the loop to consider the fastest case.</li>
+<li><strong>Optimize the path computation operators and goto action (but with possible 'jump' issues)</strong>: when an agent is not already on a path, simplifies its choice of the closest segment to choose and makes it jump directly on it rather than letting it move towards the segment.</li>
+<li><strong>Optimize spatial queries: add agents only when necessary in the quadtree (still experimental)</strong>: if no queries is conducted against a species of agents, then it is not necessary to maintain them in the global quad tree.</li>
+<li><strong>Forces the spatial index to synchronize its operations. Useful for interactive models where the user may interfere.</strong>: when true, forces the quadtree to use concurrent data structures and to synchronize reads and writes, allowing users to interact with the simulation without raising concurrent modification errors.</li>
+<li><strong>Use object pooling to reduce memory usage (still experimental)</strong>: when true, tries to reuse the same common objects (lists, maps, etc.) over and over rather than creating new ones.</li>
+<li><strong>Tolerance for the comparison of points</strong>: depending on the way they are computed, 2 points who should be the same, could not be equal. This preference allows to be more tolerant in the way points are compared.</li>
 </ul></li>
 <li><strong>External libraries support</strong>
 <ul>
