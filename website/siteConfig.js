@@ -156,6 +156,16 @@ const siteConfig = {
   downloadVersion: 'v1.8.0',
 
 
+
+  /*
+   *    BLOG
+   *  Every meta-data needed for the blog part
+   */
+  facebookAppId: 524881055001796,	// Like button under each article
+	// https://developers.facebook.com/apps/524881055001796/dashboard/ -admin-> Arthur Brugiere & Arnaud Grignard
+  facebookComments: true, 		// Comment part under each article
+  twitter: true, 			// Share on twitter
+
   /*
    *    METADATA
    *  Website title, etc
@@ -185,7 +195,7 @@ const siteConfig = {
     {page: 'download',	label: 'Download'},	
     {doc: 'Contribute',	label: 'Contribute'},
     // Enable blog
-//    {blog: true, label: 'Blog'},
+    {blog: true, label: 'Blog'},
     // Determines language drop down position among links
     { languages: false },
     // Determines search bar position among links
@@ -211,6 +221,7 @@ const siteConfig = {
 
   /* Add a little "scroll to top" button */
   scrollToTop: true,
+  //scrollToTopOptions: 
 
 	/* Colors for website */
   colors: {
@@ -233,7 +244,7 @@ const siteConfig = {
   */
 
 	/* This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.	*/
-  copyright: `Copyright © ${new Date().getFullYear()} GAMA-Platform`,
+  copyright: `${new Date().getFullYear()} GAMA-Platform`,
 
   	/*	Open Graph and Twitter card images.	*/
   ogImage: '/resources/images/general/GamaPlatform.png',

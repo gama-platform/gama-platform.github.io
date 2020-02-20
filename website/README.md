@@ -32,8 +32,12 @@ Your project file structure should look something like this
 my-docusaurus/
   docs/
     <autofilled during Travis CI build>
-    <files download from https://github.com/gama-platform/gama/wiki >
+    <files downloaded from https://github.com/gama-platform/gama/wiki >
   website/
+    blog/
+      ...
+      YYYY-MM-DD-short-url-title-here.md.template
+      ...
     core/
       Footer.js
     node_modules/
@@ -84,6 +88,48 @@ https://gama-platform.github.io/wiki/Home
 =FILE-TO-EDIT=> https://github.com/gama-platform/gama/wiki/Home
                                                       ^^^^ ^^^^
 ```
+
+## Editing `blog`
+
+### What is the blog for ?
+
+The idea with the blog is to provide an easy to do pages on the website (it's some simple Markdown files) to communicate big news about GAMA (events, release, etc). 
+
+To have the greater impact and automatically feed gama's social platforms, when an article is created, it is directly shared on a GAMA RSS feed ([atom](https://gama-platform.github.io/blog/atom) and [rss v2](https://gama-platform.github.io/blog/feed)) and on the [Gama-Platform's Facebook Pages](https://www.facebook.com/GamaPlatform/) (thanks to IFTTT.com).
+
+So, here's what to do to participate on the blog part of the website :
+
+First of all, if you want to edit or create a now blog post, you'll have to move to the [blog part of the repository (website/blog/)](https://github.com/gama-platform/gama-platform.github.io/tree/sources/website/blog).
+
+### I want to create a new article
+
+If you want to create an article, the simpliest way is to copy and edit the [template](https://github.com/gama-platform/gama-platform.github.io/blob/sources/website/blog/YYYY-MM-DD-short-url-title-here.md.template) in the website/blog/ folder.
+
+Here you'll have 3 big points to mind : 
+* The title of your markdown file
+* The _header_ in the markdown file
+* The content of the article
+
+#### The title
+
+Want you'll clone the template file, you'll have to rename it following the pattern it describe : YEAR-MONTH-DAY-url.md (do not forget to remove the extension `.template` at the end). 
+
+This file name will be used for the published date displayed on the article post and to create the URL path by the Docusaurus engine. For example :
+
+```
+website/blog/2019-11-15-gama-days-2020.md
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=> https://gama-platform.github.io/blog/2019/11/15/gama-days-2020
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```
+
+#### The _header_
+
+The template folder have a pre-filled header with comments explaining every parameters.
+
+If you want to create a simple page, you'll just have to edit the parameter `unlisted` (l. 8) to publish the article and `title` (l. 10) to set the title of your article (which isn't related to the name of the file).
+
+> To read the full blog documentation, please go and check the official [docusaurus documentation of that part](https://docusaurus.io/docs/en/adding-blog).
 
 ## Editing site specific pages
 

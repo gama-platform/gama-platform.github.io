@@ -91,7 +91,7 @@ class HomeSplash extends React.Component {
               <PromoSection>
                 <Button href={docUrl('Home')} className="button buttonOrange">Discover</Button>
                 <Button href={docUrl('Tutorials')} className="button buttonRed">Learn</Button>
-                <Button href={docUrl('Contribute')} className="button buttonBlue">Contribute</Button>
+                <Button href={'blog'} className="button buttonBlue">Blog</Button>
               </PromoSection>
             </FlexItem>
           </FlexContainer>
@@ -105,7 +105,6 @@ class HomeSplash extends React.Component {
 class Index extends React.Component {
   render() {
     const {config: siteConfig, language = ''} = this.props;
-    const {baseUrl} = siteConfig;
 
     const Design = props => (    
       <style dangerouslySetInnerHTML={{__html: `
