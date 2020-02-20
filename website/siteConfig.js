@@ -196,6 +196,7 @@ const siteConfig = {
     {doc: 'Contribute',	label: 'Contribute'},
     // Enable blog
     {blog: true, label: 'Blog'},
+    {page: 'faq',  label: 'FAQ'}, 
     // Determines language drop down position among links
     { languages: false },
     // Determines search bar position among links
