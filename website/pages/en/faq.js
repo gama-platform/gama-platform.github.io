@@ -8,31 +8,42 @@
 const React = require('react');
 
 const CompLibrary = require('../../core/CompLibrary.js');
+const MarkdownBlock = CompLibrary.MarkdownBlock;
 
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
-var data = require('json!../../../faq.json');
+var dataMD = require("../../../../../faq.md");
 
-const FAQ = ({faqs}) => {
-  // Quick, hacky way to set key.
-  // More on keys in React https://facebook.github.io/react/docs/lists-and-keys.html#keys
-  let key = 1;
-  const questionsAndAnswers = faqs.map(child =>
-    <div class="accordion-item" key={key++}>
-      <a>{child.question}</a>
-      <div class="content"><p dangerouslySetInnerHTML={{ __html: child.answer}}/></div>
-    </div>
-  );
-
-  return (<div class="accordion">{questionsAndAnswers}</div>);
+const FAQ = ({question, answer}) => {
+  return (
+    <div class="accordion-item">
+      <a dangerouslySetInnerHTML={{ __html: question}}/>
+      <div class="content">
+        <MarkdownBlock>
+          {answer}
+        </MarkdownBlock>
+      </div>
+    </div>);
 };
 
 class FAQs extends React.Component {
+  renderFaq(qaArray) {
+      var result = [];
+
+      for (var i = 0; i <= qaArray.length - 1; i++) {
+        var q = qaArray[i].match(/^\#.*/gm);
+        if (q != null)
+          result.push(<FAQ question={q[0].replace("#", '')} answer={qaArray[i].replace(q[0],'')}/>);
+      }
+
+      return result;
+  }
+
   render() {
       return(
-        <div>
-          <FAQ faqs={data.faq}/>
+        <div class="accordion">
+          { this.renderFaq(dataMD.split("---")) }
         </div>
       )
     }
@@ -53,7 +64,7 @@ function displayFAQ(props) {
         pointer-events: none;
       }
 
-      .accordion a {
+      .accordion > .accordion-item > a {
         position: relative;
         display: -webkit-box;
         display: -webkit-flex;
