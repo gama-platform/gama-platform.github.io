@@ -93,10 +93,9 @@ function displayFAQ(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="post">
           <header className="postHeader">
-            <h1>Frequently Asked Questions</h1>
+            <h1>CoViD19</h1>
           </header>
-          <p>You will find here almost all the answers for your most current questions !</p>
-
+          
           <FlexContainer>
 
           <div class="content">

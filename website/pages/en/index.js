@@ -215,6 +215,13 @@ class Index extends React.Component {
       <div>
         <Design/>
         <Script/>
+
+        <div className="section container" style={{backgroundColor: "#3670A0"}}>
+          <a href="covid19" class="item" style={{ color: "white", textAlign: "center", width: "100%", padding: "10px 0"}}>
+            😷 The GAMA Team is helping to prevent COVID19 contamination. <u>Click here</u> to see more about models we are working on. 😷
+          </a>
+        </div>
+
         <HomeSplash siteConfig={siteConfig} language={language} />
       </div>
     );
