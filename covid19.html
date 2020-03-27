@@ -5,70 +5,31 @@
           )
         });
         </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><style>
-      .container {
-        display:  inline-flex;
-        align-items: center;
-      }
-      a.disabled {
-        pointer-events: none;
-      }
-
-      .accordion > .accordion-item > a {
-        position: relative;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        width: 100%;
-        padding: 1rem 3rem 1rem 1rem;
-        color: #7288a2;
-        font-size: 1.15rem;
-        font-weight: 400;
-        border-bottom: 1px solid #e5e5e5;
-      }
-
-      .accordion a:hover {
-        cursor: pointer;
-        color: #3670A0;
-      }
-
-      .accordion a.active {
-        color: #3670A0;
-        border-bottom: 1px solid #3670A0;
-      }
-
-      .accordion .content {
-        opacity: 0;
-        padding: 0 1rem;
-        max-height: 0;
-        border-bottom: 1px solid #e5e5e5;
-        overflow: hidden;
-        clear: both;
-        -webkit-transition: all 0.2s ease 0.15s;
-        -o-transition: all 0.2s ease 0.15s;
-        transition: all 0.2s ease 0.15s;
-      }
-
-      .accordion .content p {
-        font-size: 1rem;
-        font-weight: 300;
-      }
-
-      .accordion .content.active {
-        opacity: 1;
-        padding: 1rem;
-        max-height: 100%;
-        -webkit-transition: all 0.35s ease 0.15s;
-        -o-transition: all 0.35s ease 0.15s;
-        transition: all 0.35s ease 0.15s;
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
     </style><div class="container mainContainer documentContainer postContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>CoViD19</h1></header><div class="gridBlock"><div class="content"><div><span><p>The GAMA team is deeply involved and concerned about the COVID-19 pandemic.</p>
-<p>As a response, we are currently developping a model to experiment various policies in some vietnamese provinces to see their impact.</p>
+<h2><a class="anchor" aria-hidden="true" id="description-of-the-project"></a><a href="#description-of-the-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description of the project</h2>
+<blockquote>
+<p>Is the containment of an entire neighbourhood more effective than that of an entire village? What is the most effective strategy? At what point in time?</p>
+</blockquote>
+<p>That the questions our model want to answer. In this model we're modeling a general structure on top of what we may apply different scenario on different places.</p>
+<p><img src="/img/covid19/early-containment_strategy.png" alt="Early developpement - Comparaison between different containment strategies"></p>
+<h2><a class="anchor" aria-hidden="true" id="technical-part"></a><a href="#technical-part" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Technical part</h2>
+<p>If you want to help or just to take a look at our work, you can find <a href="https://github.com/WARMTeam/CoVid19">sources here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="the-model"></a><a href="#the-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The model</h3>
+<p>Here's an early draft of the UML graph of our model</p>
+<p><img src="/img/covid19/general-uml.png" alt="UML"></p>
+<h3><a class="anchor" aria-hidden="true" id="the-epidemiological-model"></a><a href="#the-epidemiological-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The epidemiological model</h3>
+<p>In our model, our <em>People</em> agent follow a slightly modified <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">SEIR model</a>.</p>
+<p><img src="/img/covid19/uml-SEIR.png" alt="SEIR"></p>
+<p>--</p>
+<p>Is the mass shooter a maniac or a relatively normal person in a state of great stress? According to the FBI report (Silver, J., Simons, A., &amp; Craun, S. (2018). A Study of the Pre-Attack Behaviors of Active Shooters in the United States Between 2000 – 2013. Federal Bureau of Investigation, U.S. Department of Justice,Washington, D.C. 20535.), only 25% of the active shooters were known to have been diagnosed by a mental health professional with a mental illness of any kind prior to the offense.
+The main objects of the model are the humans and the guns. The main factors influencing behavior are the population size, the number of people with mental disabilities (“psycho” in the model terminology) per 100,000 population, the total number of weapons (“guns”) in the population, the availability of guns for humans, the intensity of stressors affecting humans and the threshold level of stress, upon reaching which a person commits an act of mass shooting.
+The key difference (in the model) between a normal person and a psycho is that a psycho accumulates stressors and, upon reaching a threshold level, commits an act of mass shooting. A normal person is exposed to stressors, but reaching the threshold level for killing occurs only when the simultaneous effect of stressors on him exceeds this level.
+The population dynamics are determined by the following factors: average (normally distributed) life expectancy (“life_span” attribute of humans) and population growth with the percentage of newborns set by the value of the TickReprRatio% slider of the current population volume from 16 to 45 years old.Thus, one step of model time corresponds to a year.</p>
 <p><img src="/img/covid19/cities_gama.png" alt="example img"></p>
 </span></div></div></div></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2020 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
                 </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
