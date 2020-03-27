@@ -190,10 +190,10 @@ const siteConfig = {
 	/*	HEADER	*/
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    //{doc: 'Home',	label: 'Documentation'},
-    //{doc: 'Tutorials',	label: 'Tutorials'},
+    {doc: 'Home',	label: 'Documentation'},
+    {doc: 'Tutorials',	label: 'Tutorials'},
     {page: 'download',	label: 'Download'},	
-    //{doc: 'Contribute',	label: 'Contribute'},
+    {doc: 'Contribute',	label: 'Contribute'},
     // Enable blog
     {blog: true, label: 'Blog'},
     {page: 'faq',  label: 'FAQ'}, 
