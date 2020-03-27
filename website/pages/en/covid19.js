@@ -51,6 +51,17 @@ function displayFAQ(props) {
 
         </div>
       </Container>
+      <nav class="onPageNav">
+        <ul class="toc-headings">
+          <li><a href="#description-of-the-project">Description of the project</a></li>
+          <li><a href="##technical-part">Technical part</a>
+            <ul class="toc-headings">
+              <li><a href="#the-model">The model</a></li>
+              <li><a href="#the-epidemiological-model">The epidemiological model</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
