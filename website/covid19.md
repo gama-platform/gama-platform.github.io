@@ -27,19 +27,19 @@
 
 /* Leave me as the first line please :D */ module.exports = `
 
-The GAMA team is deeply involved and concerned about the COVID-19 pandemic. 
+IRD, the GAMA developers and their partners in Vietnam are collaborating to support Vietnamese authorities in fighting and containing the COVID-19 pandemics. 
 
 ## Description of the project
 
-> Is the containment of an entire neighbourhood more effective than that of an entire village? What is the most effective strategy? At what point in time? 
+> Is the containment of a neighbourhood more effective than that of an entire village? Does closing schools reduce transmission peaks ? What is the most effective strategy to adopt when the resources, in terms of enforcement of the rules and capacity of hospitals, are limited ? At what point in time ? 
 
-That the questions our model want to answer. In this model we're modeling a general structure on top of what we may apply different scenario on different places.
+Those are some of the questions we are helping to answer using a generic model of the containment of the propagation of theCOVID-19 epidemics in a city, validated on different case studies (2 in Vietnam to begin with).
 
 ![Early developpement - Comparaison between different containment strategies](/img/covid19/early-containment_strategy.png)
 
 ## Technical part
 
-If you want to help or just to take a look at our work, you can find [sources here](https://github.com/WARMTeam/CoVid19).
+If you want to help or just to take a look at our work, you can find [sources here](https://github.com/WARMTeam/CoVid19). More details will come soon, especially the ones related to adapting this model to new case studies.
 
 ### The model 
 
