@@ -33,9 +33,18 @@ IRD, the GAMA developers and their partners in Vietnam are collaborating to supp
 
 > Is the containment of a neighbourhood more effective than that of an entire village? Does closing schools reduce transmission peaks ? What is the most effective strategy to adopt when the resources, in terms of enforcement of the rules and capacity of hospitals, are limited ? At what point in time ? 
 
-Those are some of the questions we are helping to answer using a generic model of the containment of the propagation of theCOVID-19 epidemics in a city, validated on different case studies (2 in Vietnam to begin with).
+Those are some of the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (2 in Vietnam to begin with).
 
-![Early developpement - Comparaison between different containment strategies](/img/covid19/early-containment_strategy.png)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4AxIPHSZZkQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Run the model on your computer
+
+If you want to install and run the model on your computer you should 
+
+- First, download and extract the [GAMA Continuous Build version](https://github.com/gama-platform/gama/releases/tag/continuous) (if you don't know which version to take, choose the one with JDK). If you need more informations about how to install GAMA, check the [installation page](https://gama-platform.github.io/wiki/Installation)
+- Second download the model [on Github](https://github.com/WARMTeam/CoVid19) ( click [here](https://github.com/WARMTeam/CoVid19/archive/master.zip) to download it automatically)
+- Extract that ZIP file somewhere on your computer and [import it on GAMA](https://gama-platform.github.io/wiki/ImportingModels).
+- Enjoy our model running on your computer
 
 ## Technical part
 
