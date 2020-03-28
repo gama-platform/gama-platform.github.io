@@ -22,7 +22,7 @@ function displayFAQ(props) {
 
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `
-      img {
+      img, iframe {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -54,6 +54,7 @@ function displayFAQ(props) {
       <nav class="onPageNav">
         <ul class="toc-headings">
           <li><a href="#description-of-the-project">Description of the project</a></li>
+          <li><a href="#run-the-model-on-your-computer">Run the model on your computer</a></li>
           <li><a href="##technical-part">Technical part</a>
             <ul class="toc-headings">
               <li><a href="#the-model">The model</a></li>
