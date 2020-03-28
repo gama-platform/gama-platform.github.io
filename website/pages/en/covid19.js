@@ -55,7 +55,7 @@ function displayFAQ(props) {
         <ul class="toc-headings">
           <li><a href="#description-of-the-project">Description of the project</a></li>
           <li><a href="#run-the-model-on-your-computer">Run the model on your computer</a></li>
-          <li><a href="##technical-part">Technical part</a>
+          <li><a href="#technical-part">Technical part</a>
             <ul class="toc-headings">
               <li><a href="#the-model">The model</a></li>
               <li><a href="#the-epidemiological-model">The epidemiological model</a></li>
