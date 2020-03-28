@@ -51,7 +51,11 @@ Here's an early draft of the UML graph of our model
 
 In our model, our _People_ agent follow a slightly modified [SEIR model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model).
 
-![SEIR](/img/covid19/uml-SEIR.png)
+![SEIR](/img/covid19/Epidemic-model-agent.png)
+
+Incubation, serial and infectious periods follow various distributions.
+![SEIR](/img/covid19/IncubationPeriod.png)
+![SEIR](/img/covid19/Serial-Infectious-Distribution.png)
 
 
 `; // Leave me as the last line please :D
