@@ -35,9 +35,29 @@ IRD, the GAMA developers and their partners in Vietnam are collaborating to supp
 
 Those are some of the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (2 in Vietnam to begin with).
 
+## The team working on this project 
+
+The [Institut de recherche pour le développement (IRD) in Vietnam](https://en-vietnam.ird.fr/) has set up a multidisciplinary team of researchers from [UMMISCO](https://www.ummisco.fr/) (Nghi Huỳnh Quang, Nguyen Ngoc Doanh, Alexis Drogoul, Benoit Gaudou, Arthur Brugière, Kevin Chapuis), [MIVEGEC](https://www.mivegec.ird.fr/en/) (Marc Choisy) and [DIADE](https://diade.ird.fr/en) (Pierre Larmande), assisted by colleagues from [INRAE](https://www.inrae.fr/en) (Patrick Taillandier) and [SPH-HKU](https://sph.hku.hk/en/) (Damien Philippon), to design realistic spatial computer models, in GAMA, from the data provided by the government (census, epidemiological data) or obtained from private actors ([Facebook data](https://dataforgood.fb.com/), mobile telephone data) in order to inform as quickly as possible the public health decisions taken by the Vietnamese authorities, in particular those linked to the impact of containment strategies when cases are detected.
+
+## Overview
+
+### Simulation of containment measures against CoVid19 using GAMA
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4AxIPHSZZkQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Run the model on your computer
+### Side by side simulation of CoVid19 propagation in two case studies
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PxFljiGkXrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Comparing the impacts of different proportions of people wearing masks
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FYehyECkoh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Technical part
+
+If you want to help or just to take a look at our work, you can find [sources here](https://github.com/WARMTeam/CoVid19). More details will come soon, especially the ones related to adapting this model to new case studies.
+
+### Run the model on your computer
 
 If you want to install and run the model on your computer you should 
 
@@ -45,10 +65,6 @@ If you want to install and run the model on your computer you should
 - Second download the model [on Github](https://github.com/WARMTeam/CoVid19) ( click [here](https://github.com/WARMTeam/CoVid19/archive/master.zip) to download it automatically)
 - Extract that ZIP file somewhere on your computer and [import it on GAMA](https://gama-platform.github.io/wiki/ImportingModels).
 - Enjoy our model running on your computer
-
-## Technical part
-
-If you want to help or just to take a look at our work, you can find [sources here](https://github.com/WARMTeam/CoVid19). More details will come soon, especially the ones related to adapting this model to new case studies.
 
 ### The model 
 
