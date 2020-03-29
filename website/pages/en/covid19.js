@@ -36,7 +36,7 @@ function displayFAQ(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="post">
           <header className="postHeader">
-            <h1>CoViD19</h1>
+            <h1 id="covid19">CoViD19</h1>
           </header>
           
           <FlexContainer>
@@ -53,10 +53,19 @@ function displayFAQ(props) {
       </Container>
       <nav class="onPageNav">
         <ul class="toc-headings">
+          <li><a href="#covid19">CoViD19</a></li>
           <li><a href="#description-of-the-project">Description of the project</a></li>
-          <li><a href="#run-the-model-on-your-computer">Run the model on your computer</a></li>
+          <li><a href="#the-team-working-on-this-project">The team working on this project</a></li>
+          <li><a href="#overview">Overview</a>
+            <ul class="toc-headings">
+              <li><a href="#simulation-of-containment-measures-against-covid19-using-gama">Simulation of containment measures against CoVid19 using GAMA</a></li>
+              <li><a href="#side-by-side-simulation-of-covid19-propagation-in-two-case-studies">Side by side simulation of CoVid19 propagation in two case studies</a></li>
+              <li><a href="#comparing-the-impacts-of-different-proportions-of-people-wearing-masks">Comparing the impacts of different proportions of people wearing masks</a></li>
+            </ul>
+          </li>
           <li><a href="#technical-part">Technical part</a>
             <ul class="toc-headings">
+              <li><a href="#run-the-model-on-your-computer">Run the model on your computer</a></li>
               <li><a href="#the-model">The model</a></li>
               <li><a href="#the-epidemiological-model">The epidemiological model</a></li>
             </ul>
