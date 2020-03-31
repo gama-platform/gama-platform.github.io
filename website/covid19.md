@@ -53,6 +53,10 @@ The [Institut de recherche pour le développement (IRD) in Vietnam](https://en-v
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FYehyECkoh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+### Inter-human and environmental transmissions
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wmgx5FlAxFE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Technical part
 
 If you want to help or just to take a look at our work, you can find [sources here](https://github.com/WARMTeam/CoVid19). More details will come soon, especially the ones related to adapting this model to new case studies.
