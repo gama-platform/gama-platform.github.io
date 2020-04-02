@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019-present, Arthur Brugiere, GAMA-Platform
+ * Copyright (c) 2020-present, Arthur Brugiere, GAMA-Platform
  *
  * This source code is licensed under the GPL3 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,13 +15,129 @@ const GridBlock = CompLibrary.GridBlock;
 
 var dataMD = require("../../../../../covid19.md");
 
-function displayFAQ(props) {
+const FAQ = ({question, answer, subSection = false}) => {
+  return (
+    <div class="accordion-item">
+      <a dangerouslySetInnerHTML={{ __html: question}}/>
+      <div class="content">
+        <MarkdownBlock>
+          {answer}
+        </MarkdownBlock>
+      </div>
+    </div>
+  );
+};
+
+class FAQs extends React.Component {
+  renderFaq(qaArray) {
+      var result = [];
+
+      for (var i = 0; i < qaArray.length; i++) {
+        var q = qaArray[i].match(/^\#.*/gm);
+        if (q != null){
+
+          var faqQuestion = q[0];
+          var faqAnswer = qaArray[i].replace(q[0],'')
+
+          if ( faqAnswer.split("##").length > 1 ){
+
+            result.push(<MarkdownBlock>{faqQuestion}</MarkdownBlock>);
+            result.push(<MarkdownBlock>{faqAnswer.split("##")[0]}</MarkdownBlock>);
+      
+            for (var j = 1; j <= faqAnswer.split("##").length - 1; j++) {
+              if (faqAnswer.split("##")[j].replace(/\s/g, '') != "")
+                result.push(<FAQ question={faqAnswer.split("##")[j].split("\n")[0]} answer={faqAnswer.split("##")[j].replace(faqAnswer.split("##")[j].split("\n")[0], "")}/>);
+            }
+      
+          }else{
+            result.push(<MarkdownBlock>{qaArray[i]}</MarkdownBlock>);
+          }
+
+        }
+      }
+      
+      return result;
+  }
+
+  render() {
+      return(
+        <div class="accordion">
+          { this.renderFaq(dataMD.split("---")) }
+        </div>
+      )
+    }
+}
+
+function displayPage(props) {
   const {config: siteConfig} = props;
 
   const FlexContainer = props => (<div className="gridBlock">{props.children}</div>);
 
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `
+      .container {
+        display:  inline-flex;
+        align-items: center;
+      }
+      a.disabled {
+        pointer-events: none;
+      }
+
+      .accordion > .accordion-item > a {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 3rem 1rem 1rem;
+        color: #7288a2;
+        font-size: 1.15rem;
+        font-weight: 400;
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .accordion a:hover {
+        cursor: pointer;
+        color: #3670A0;
+      }
+
+      .accordion a.active {
+        color: #3670A0;
+        border-bottom: 1px solid #3670A0;
+      }
+
+      .accordion .content {
+        opacity: 0;
+        padding: 0 1rem;
+        max-height: 0;
+        border-bottom: 1px solid #e5e5e5;
+        overflow: hidden;
+        clear: both;
+        -webkit-transition: all 0.2s ease 0.15s;
+        -o-transition: all 0.2s ease 0.15s;
+        transition: all 0.2s ease 0.15s;
+      }
+
+      .accordion .content p {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+
+      .accordion .content.active {
+        opacity: 1;
+        padding: 1rem;
+        max-height: 100%;
+        -webkit-transition: all 0.35s ease 0.15s;
+        -o-transition: all 0.35s ease 0.15s;
+        transition: all 0.35s ease 0.15s;
+      }
+
       img, iframe {
         display: block;
         margin-left: auto;
@@ -38,44 +154,27 @@ function displayFAQ(props) {
           <header className="postHeader">
             <h1 id="covid19">CoViD19</h1>
           </header>
+          <p>IRD, the GAMA developers and their partners in Vietnam are collaborating to support Vietnamese authorities in fighting and containing the COVID-19 pandemics.</p>
           
           <FlexContainer>
 
-          <div class="content">
-            <MarkdownBlock>
-              {dataMD}
-            </MarkdownBlock>
-          </div>
+            <FAQs/>
 
+          <script type="text/javascript" dangerouslySetInnerHTML={{__html: `
+            const items = document.querySelectorAll(".accordion a");
+
+            function toggleAccordion(){
+              this.classList.toggle('active');
+              this.nextElementSibling.classList.toggle('active');
+            }
+
+            items.forEach(item => item.addEventListener('click', toggleAccordion));
+           `}} />
           </FlexContainer>
-
         </div>
       </Container>
-      <nav class="onPageNav">
-        <ul class="toc-headings">
-          <li><a href="#covid19">CoViD19</a></li>
-          <li><a href="#description-of-the-project">Description of the project</a></li>
-          <li><a href="#the-team-working-on-this-project">The team working on this project</a></li>
-          <li><a href="#overview">Overview</a>
-            <ul class="toc-headings">
-              <li><a href="#simulation-of-containment-measures-against-covid19-using-gama">Simulation of containment measures against CoVid19 using GAMA</a></li>
-              <li><a href="#side-by-side-simulation-of-covid19-propagation-in-two-case-studies">Side by side simulation of CoVid19 propagation in two case studies</a></li>
-              <li><a href="#comparing-the-impacts-of-different-proportions-of-people-wearing-masks">Comparing the impacts of different proportions of people wearing masks</a></li>
-              <li><a href="#inter-human-and-environmental-transmissions">Inter-human and environmental transmissions</a></li>
-              <li><a href="#impact-of-a-realistic-home-containment-policy">Impact of a realistic home containment policy</a></li>
-            </ul>
-          </li>
-          <li><a href="#technical-part">Technical part</a>
-            <ul class="toc-headings">
-              <li><a href="#run-the-model-on-your-computer">Run the model on your computer</a></li>
-              <li><a href="#the-model">The model</a></li>
-              <li><a href="#the-epidemiological-model">The epidemiological model</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
     </div>
   );
 }
 
-module.exports = displayFAQ;
+module.exports = displayPage;
