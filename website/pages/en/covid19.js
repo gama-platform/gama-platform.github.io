@@ -62,6 +62,7 @@ function displayFAQ(props) {
               <li><a href="#side-by-side-simulation-of-covid19-propagation-in-two-case-studies">Side by side simulation of CoVid19 propagation in two case studies</a></li>
               <li><a href="#comparing-the-impacts-of-different-proportions-of-people-wearing-masks">Comparing the impacts of different proportions of people wearing masks</a></li>
               <li><a href="#inter-human-and-environmental-transmissions">Inter-human and environmental transmissions</a></li>
+              <li><a href="#impact-of-a-realistic-home-containment-policy">Impact of a realistic home containment policy</a></li>
             </ul>
           </li>
           <li><a href="#technical-part">Technical part</a>
