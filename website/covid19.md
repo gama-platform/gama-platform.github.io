@@ -27,45 +27,49 @@
 
 /* Leave me as the first line please :D */ module.exports = `
 
-IRD, the GAMA developers and their partners in Vietnam are collaborating to support Vietnamese authorities in fighting and containing the COVID-19 pandemics. 
-
-## Description of the project
+# Description of the project
 
 > Is the containment of a neighbourhood more effective than that of an entire village? Does closing schools reduce transmission peaks ? What is the most effective strategy to adopt when the resources, in terms of enforcement of the rules and capacity of hospitals, are limited ? At what point in time ? 
 
 Those are some of the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (2 in Vietnam to begin with).
 
-## The team working on this project 
+---
+
+# The team working on this project 
 
 The [Institut de recherche pour le développement (IRD) in Vietnam](https://en-vietnam.ird.fr/) has set up a multidisciplinary team of researchers from its research units [UMMISCO](https://www.ummisco.fr/) (Alexis Drogoul, Benoit Gaudou, Arthur Brugière, Kevin Chapuis), [MIVEGEC](https://www.mivegec.ird.fr/en/) (Marc Choisy) and [DIADE](https://diade.ird.fr/en) (Pierre Larmande), assisted by colleagues from [Thuyloi University](http://en.tlu.edu.vn/) (Nguyen Ngoc Doanh), [Can Tho University](https://en.ctu.edu.vn/) (Huỳnh Quang Nghi), [INRAE](https://www.inrae.fr/en) (Patrick Taillandier) and [SPH-HKU](https://sph.hku.hk/en/) (Damien Philippon), to design realistic spatial computer models, in GAMA, from the data provided by the government (census, epidemiological data) or obtained from private actors ([Facebook data](https://dataforgood.fb.com/), mobile telephone data) in order to inform as quickly as possible the public health decisions taken by the Vietnamese authorities, in particular those linked to the impact of containment strategies when cases are detected.
 
-## Overview
+---
 
-### Simulation of containment measures against CoVid19 using GAMA
+# Overview
+
+## Simulation of containment measures against CoVid19 using GAMA
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4AxIPHSZZkQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Side by side simulation of CoVid19 propagation in two case studies
+## Side by side simulation of CoVid19 propagation in two case studies
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PxFljiGkXrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Comparing the impacts of different proportions of people wearing masks
+## Comparing the impacts of different proportions of people wearing masks
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FYehyECkoh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Inter-human and environmental transmissions
+## Inter-human and environmental transmissions
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wmgx5FlAxFE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Impact of a realistic home containment policy
+## Impact of a realistic home containment policy
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/he-dvtHDXZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Technical part
+---
+
+# Technical part
 
 If you want to help or just to take a look at our work, you can find [sources here](https://github.com/WARMTeam/CoVid19). More details will come soon, especially the ones related to adapting this model to new case studies.
 
-### Run the model on your computer
+## Run the model on your computer
 
 If you want to install and run the model on your computer you should 
 
@@ -74,13 +78,13 @@ If you want to install and run the model on your computer you should
 - Extract that ZIP file somewhere on your computer and [import it on GAMA](https://gama-platform.github.io/wiki/ImportingModels).
 - Enjoy our model running on your computer
 
-### The model 
+## The model 
 
 Here's an early draft of the UML graph of our model
 
 ![UML](/img/covid19/general-uml.png)
 
-### The epidemiological model
+## The epidemiological model
 
 In our model, our _People_ agent follow a slightly modified [SEIR model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model).
 
