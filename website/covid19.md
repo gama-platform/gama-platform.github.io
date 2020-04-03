@@ -63,6 +63,10 @@ The [Institut de recherche pour le développement (IRD) in Vietnam](https://en-v
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/he-dvtHDXZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Impact of the duration of the lockdown on the peak of the epidemics
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uxMUnmaYQQY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ---
 
 # Technical part
