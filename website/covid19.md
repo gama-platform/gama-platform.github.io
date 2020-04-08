@@ -27,11 +27,10 @@
 
 /* Leave me as the first line please :D */ module.exports = `
 
-# Description of the project
+# The model principles
 
-> Is the containment of a neighbourhood more effective than that of an entire village? Does closing schools reduce transmission peaks ? What is the most effective strategy to adopt when the resources, in terms of enforcement of the rules and capacity of hospitals, are limited ? At what point in time ? 
+The presented model considers the spread of COVID-19 at the scale of a commune in an agent-based fashion: each individual of the commune is represented individually with some specific characteristics (age, sex, household), infectious state and specific daily activities, that can be controlled and limited by an Authority entity which can choose and applied a mitigation policy. The simulations run several virtual worlds in parallel at a one-hour time step, and can compare and assess various policies.
 
-Those are some of the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (2 in Vietnam to begin with).
 
 x---
 
@@ -61,8 +60,8 @@ If you want to help or just to take a look at our work, you can find [sources he
 
 If you want to install and run the model on your computer you should 
 
-- First, download and extract the [GAMA Continuous Build version](https://github.com/gama-platform/gama/releases/tag/continuous) (if you don't know which version to take, choose the one with JDK). If you need more informations about how to install GAMA, check the [installation page](https://gama-platform.github.io/wiki/Installation)
-- Second download the model [on Github](https://github.com/WARMTeam/CoVid19) ( click [here](https://github.com/WARMTeam/CoVid19/archive/master.zip) to download it automatically)
+- First, download and extract the [GAMA Continuous Build version](https://github.com/gama-platform/gama/releases/tag/continuous) (if you don't know which version to take, choose the one with JDK). If you need more information about how to install GAMA, check the [installation page](https://gama-platform.github.io/wiki/Installation)
+- Second download the model [on GitHub](https://github.com/WARMTeam/CoVid19) (click [here](https://github.com/WARMTeam/CoVid19/archive/master.zip) to download it automatically)
 - Extract that ZIP file somewhere on your computer and [import it on GAMA](https://gama-platform.github.io/wiki/ImportingModels).
 - Enjoy our model running on your computer
 
@@ -81,6 +80,52 @@ In our model, our _People_ agent follow a slightly modified [SEIR model](https:/
 Incubation, serial and infectious periods follow various distributions.
 ![SEIR](/img/covid19/IncubationPeriod.png)
 ![SEIR](/img/covid19/Serial-Infectious-Distribution.png)
+
+## Required Data
+
+The model requires a minimal dataset that should be, at least, composed of:
+
+- Demographic data : 
+
+  - A **population.csv** file that contains individual including some basic attributes, i.e. age, gender and household Identifier 
+
+  - Mobility and activity data : What can be done ? is it in the model (a gaml file to create activities) or can we generate them outside (a csv with given column and lines)
+
+- Spatial data:
+
+  - **buildings.shp** : this file should contain the buildings of the considered case. Buildings have to be understood in a wide sense, as the set of locations for activities.
+    The shapefile attribute table should contain the column “type” containing the type of the building.
+
+  - **boundary.shp**: this file should contain the boundary of the studied area
+
+  - *[Optional]* **satellite.png** and **satellite.pgw**: if modeler wants to add a georeferenced background image (e.g. Google Map).
+
+- Epidemiological data : One csv file should be given, containing the following parameters:
+
+| Parameter name | Definition | Type [Range] | Default value |
+|:-----:|:-----:|:-----:|:-----:|
+| Transmission_human | Allowing infections from humans | Boolean | TRUE |
+| Transmission_building | Allowing infections from buildings | Boolean | TRUE |
+| Successful_contact_rate_human | Successful contact rate for infected humans | Real [≥0] | 0.007086298 |
+| Successful_contact_rate_building | Successful contact rate for contaminated buildings | Real [≥0] | 0.007086298 |
+| Reduction_asymptomatic | Reduction of the successful contact rate for asymptomatic | Real [0-1] | 0.45 |
+| Proportion_asymptomatic | Proportion of asymptomatic infections | Real [0-1] | 0.3 |
+| Proportion_dead_asymptomatic | Proportion of fatal symptomatic infections | Real [0-1] | 0.01 |
+| Basic_viral_release | Value of viral release in the environment by an infectious individual | Real [≥0] | 3 |
+| Basic_viral_decrease | Value of the viral decrease in the environment per step | Real [≥0] | 0.01375 |
+| Probability_true_positive | Probability of an infected individual to be positive  | Real [0-1] | 0.89 |
+| Probability_true_negative | Probability of a non-infected individual to be negative | Real [0-1] | 0.92 |
+| Proportion_wearing_mask | Proportion of Individuals wearing mask | Real [0-1] | 0 |
+| Reduction_wearing_mask | Reduction of the successful contact rate for Individuals wearing mask | Real [0-1] | 0.5 |
+| Distribution_type_incubation | Type of the distribution for the incubation period | String [Normal, Gamma, Lognormal, Weibull] | Lognormal |
+| Parameter_1_incubation | First parameter of the distribution of the incubation period | Real | 1.57 |
+| Parameter_2_incubation | Second parameter of the distribution of the incubation period | Real | 0.65 |
+| Distribution_type_serial_interval | Type of the distribution for the serial interval | String [Normal, Gamma, Lognormal, Weibull] | Normal |
+| Parameter_1_serial_interval | First parameter of the distribution for the serial interval | Real | 3.96 |
+| Parameter_2_serial_interval | Second parameter of the distribution for the serial interval | Real | 3.75 |
+| Distribution_type_onset_to_recovery | Type of the distribution for the onset to recovery period | String [Normal, Gamma, Lognormal, Weibull] | Lognormal |
+| Parameter_1_onset_to_recovery | First parameter of the distribution for the onset to recovery period | Real | 3.034953 |
+| Parameter_2_onset_to_recovery | Second parameter of the distribution for the onset to recovery period | Real | 0.34 |
 
 
 `; // Leave me as the last line please :D

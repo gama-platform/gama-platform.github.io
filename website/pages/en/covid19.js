@@ -150,6 +150,20 @@ function displayPage(props) {
         margin-left: auto;
         margin-right: auto;
       }
+
+      .parent { display: inherit; }
+      .float-left-child {
+        width: 100%;
+        margin-right: 0;
+      }
+      @media only screen and (min-width: 1024px){
+        .parent { display: flex; }
+        .float-left-child {
+          width: 50%;
+          margin-right: 1rem;
+        }
+      }
+
     `}} />
   );
 
@@ -158,10 +172,18 @@ function displayPage(props) {
       <Design />
       <Container className="mainContainer documentContainer postContainer">
         <div className="post">
-          <header className="postHeader">
-            <h1 id="covid19">CoViD19</h1>
-          </header>
-          <p>IRD, the GAMA developers and their partners in Vietnam are collaborating to support Vietnamese authorities in fighting and containing the COVID-19 pandemics.</p>
+          <div class='parent'>
+            <header className="postHeader child float-left-child">
+              <h1 id="covid19">CoViD19</h1>
+              <p>IRD, the GAMA developers and their partners in Vietnam are collaborating to support Vietnamese authorities in fighting and containing the COVID-19 pandemics.</p>
+              <h1>Description of the project</h1>
+              <blockquote>Is the containment of a neighborhood more effective than an entire village/town? Does school closure reduce the transmission peaks ? What is the most effective strategy to adopt when the resources are limited (e.g.enforcement of the rules, capacity of hospitals) ? At what point in time ?</blockquote>
+              <p>Those are among  the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (i.e. 2 in Vietnam to begin with).</p>
+            </header>
+  
+            <img className="child float-left-child" src="/img/covid19/lockdownScreen2.png"/>
+          </div>
+
           
           <FlexContainer>
 
