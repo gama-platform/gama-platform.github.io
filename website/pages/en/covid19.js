@@ -162,6 +162,18 @@ function displayPage(props) {
           width: 50%;
           margin-right: 1rem;
         }
+        .float-left-child img {
+          max-height: 100%;
+          max-width: 100%;
+          width: auto;
+          height: auto;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
       }
 
     `}} />
@@ -180,8 +192,9 @@ function displayPage(props) {
               <blockquote>Is the containment of a neighborhood more effective than an entire village/town? Does school closure reduce the transmission peaks ? What is the most effective strategy to adopt when the resources are limited (e.g.enforcement of the rules, capacity of hospitals) ? At what point in time ?</blockquote>
               <p>Those are among  the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (i.e. 2 in Vietnam to begin with).</p>
             </header>
-  
-            <img className="child float-left-child" src="/img/covid19/lockdownScreen2.png"/>
+            <div className="child float-left-child" style={{position: "relative"}}>
+              <img src="/img/covid19/lockdownScreen2.png"/>
+            </div>
           </div>
 
           
