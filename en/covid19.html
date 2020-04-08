@@ -5,9 +5,8 @@
           )
         });
         </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo_white.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><style>
-      .container {
-        display:  inline-flex;
-        align-items: center;
+      .gridBlock {
+        display: inherit;
       }
       a.disabled {
         pointer-events: none;
@@ -73,26 +72,42 @@
         margin-left: auto;
         margin-right: auto;
       }
-    </style><div class="container mainContainer documentContainer postContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="covid19">CoViD19</h1></header><p>IRD, the GAMA developers and their partners in Vietnam are collaborating to support Vietnamese authorities in fighting and containing the COVID-19 pandemics.</p><div class="gridBlock"><div class="accordion"><div><span><h1><a class="anchor" aria-hidden="true" id="description-of-the-project"></a><a href="#description-of-the-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Description of the project</h1>
-<blockquote>
-<p>Is the containment of a neighbourhood more effective than that of an entire village? Does closing schools reduce transmission peaks ? What is the most effective strategy to adopt when the resources, in terms of enforcement of the rules and capacity of hospitals, are limited ? At what point in time ?</p>
-</blockquote>
-<p>Those are some of the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (2 in Vietnam to begin with).</p>
+
+      .parent { display: inherit; }
+      .float-left-child {
+        width: 100%;
+        margin-right: 0;
+      }
+      @media only screen and (min-width: 1024px){
+        .parent { display: flex; }
+        .float-left-child {
+          width: 50%;
+          margin-right: 1rem;
+        }
+      }
+
+    </style><div class="container mainContainer documentContainer postContainer"><div class="wrapper"><div class="post"><div class="parent"><header class="postHeader child float-left-child"><h1 id="covid19">CoViD19</h1><p>IRD, the GAMA developers and their partners in Vietnam are collaborating to support Vietnamese authorities in fighting and containing the COVID-19 pandemics.</p><h1>Description of the project</h1><blockquote>Is the containment of a neighborhood more effective than an entire village/town? Does school closure reduce the transmission peaks ? What is the most effective strategy to adopt when the resources are limited (e.g.enforcement of the rules, capacity of hospitals) ? At what point in time ?</blockquote><p>Those are among  the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (i.e. 2 in Vietnam to begin with).</p></header><img class="child float-left-child" src="/img/covid19/lockdownScreen2.png"/></div><div class="gridBlock"><div class="accordion"><div><span><h1><a class="anchor" aria-hidden="true" id="the-model-principles"></a><a href="#the-model-principles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The model principles</h1>
+<p>The presented model considers the spread of COVID-19 at the scale of a commune in an agent-based fashion: each individual of the commune is represented individually with some specific characteristics (age, sex, household), infectious state and specific daily activities, that can be controlled and limited by an Authority entity which can choose and applied a mitigation policy. The simulations run several virtual worlds in parallel at a one-hour time step, and can compare and assess various policies.</p>
 </span></div><div><span><h1><a class="anchor" aria-hidden="true" id="the-team-working-on-this-project"></a><a href="#the-team-working-on-this-project" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The team working on this project</h1>
 <p>The <a href="https://en-vietnam.ird.fr/">Institut de recherche pour le développement (IRD) in Vietnam</a> has set up a multidisciplinary team of researchers from its research units <a href="https://www.ummisco.fr/">UMMISCO</a> (Alexis Drogoul, Benoit Gaudou, Arthur Brugière, Kevin Chapuis), <a href="https://www.mivegec.ird.fr/en/">MIVEGEC</a> (Marc Choisy) and <a href="https://diade.ird.fr/en">DIADE</a> (Pierre Larmande), assisted by colleagues from <a href="http://en.tlu.edu.vn/">Thuyloi University</a> (Nguyen Ngoc Doanh), <a href="https://en.ctu.edu.vn/">Can Tho University</a> (Huỳnh Quang Nghi), <a href="https://www.inrae.fr/en">INRAE</a> (Patrick Taillandier) and <a href="https://sph.hku.hk/en/">SPH-HKU</a> (Damien Philippon), to design realistic spatial computer models, in GAMA, from the data provided by the government (census, epidemiological data) or obtained from private actors (<a href="https://dataforgood.fb.com/">Facebook data</a>, mobile telephone data) in order to inform as quickly as possible the public health decisions taken by the Vietnamese authorities, in particular those linked to the impact of containment strategies when cases are detected.</p>
-</span></div><div><span><h1><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h1>
-</span></div><div><span></span></div><div class="accordion-item"><a> Simulation of containment measures against CoVid19 using GAMA</a><div class="content"><div><span><iframe width="560" height="315" src="https://www.youtube.com/embed/4AxIPHSZZkQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</span></div></div></div><div class="accordion-item"><a> Side by side simulation of CoVid19 propagation in two case studies</a><div class="content"><div><span><iframe width="560" height="315" src="https://www.youtube.com/embed/PxFljiGkXrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</span></div></div></div><div class="accordion-item"><a> Comparing the impacts of different proportions of people wearing masks</a><div class="content"><div><span><iframe width="560" height="315" src="https://www.youtube.com/embed/FYehyECkoh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</span></div></div></div><div class="accordion-item"><a> Inter-human and environmental transmissions</a><div class="content"><div><span><iframe width="560" height="315" src="https://www.youtube.com/embed/wmgx5FlAxFE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</span></div></div></div><div class="accordion-item"><a> Impact of a realistic home containment policy</a><div class="content"><div><span><iframe width="560" height="315" src="https://www.youtube.com/embed/he-dvtHDXZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</span></div></div></div><div class="accordion-item"><a> Impact of the duration of the lockdown on the peak of the epidemics</a><div class="content"><div><span><iframe width="560" height="315" src="https://www.youtube.com/embed/uxMUnmaYQQY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</span></div><div class="accordion-item"><a><h1> Overview</h1></a><div class="content"><div><span><table>
+<thead>
+<tr><th style="text-align:center">Simulation of containment measures against CoVid19 using GAMA</th><th style="text-align:center">Side by side simulation of CoVid19 propagation in two case studies</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><iframe width="560" height="315" src="https://www.youtube.com/embed/4AxIPHSZZkQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td><td style="text-align:center"><iframe width="560" height="315" src="https://www.youtube.com/embed/PxFljiGkXrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr>
+<tr><td style="text-align:center">Comparing the impacts of different proportions of people wearing masks</td><td style="text-align:center">Inter-human and environmental transmissions</td></tr>
+<tr><td style="text-align:center"><iframe width="560" height="315" src="https://www.youtube.com/embed/FYehyECkoh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td><td style="text-align:center"><iframe width="560" height="315" src="https://www.youtube.com/embed/wmgx5FlAxFE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr>
+<tr><td style="text-align:center">Impact of a realistic home containment policy</td><td style="text-align:center">Impact of the duration of the lockdown on the peak of the epidemics</td></tr>
+<tr><td style="text-align:center"><iframe width="560" height="315" src="https://www.youtube.com/embed/he-dvtHDXZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td><td style="text-align:center"><iframe width="560" height="315" src="https://www.youtube.com/embed/uxMUnmaYQQY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr>
+</tbody>
+</table>
 </span></div></div></div><div><span><h1><a class="anchor" aria-hidden="true" id="technical-part"></a><a href="#technical-part" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Technical part</h1>
 </span></div><div><span><p>If you want to help or just to take a look at our work, you can find <a href="https://github.com/WARMTeam/CoVid19">sources here</a>. More details will come soon, especially the ones related to adapting this model to new case studies.</p>
 </span></div><div class="accordion-item"><a> Run the model on your computer</a><div class="content"><div><span><p>If you want to install and run the model on your computer you should</p>
 <ul>
-<li>First, download and extract the <a href="https://github.com/gama-platform/gama/releases/tag/continuous">GAMA Continuous Build version</a> (if you don't know which version to take, choose the one with JDK). If you need more informations about how to install GAMA, check the <a href="https://gama-platform.github.io/wiki/Installation">installation page</a></li>
-<li>Second download the model <a href="https://github.com/WARMTeam/CoVid19">on Github</a> ( click <a href="https://github.com/WARMTeam/CoVid19/archive/master.zip">here</a> to download it automatically)</li>
+<li>First, download and extract the <a href="https://github.com/gama-platform/gama/releases/tag/continuous">GAMA Continuous Build version</a> (if you don't know which version to take, choose the one with JDK). If you need more information about how to install GAMA, check the <a href="https://gama-platform.github.io/wiki/Installation">installation page</a></li>
+<li>Second download the model <a href="https://github.com/WARMTeam/CoVid19">on GitHub</a> (click <a href="https://github.com/WARMTeam/CoVid19/archive/master.zip">here</a> to download it automatically)</li>
 <li>Extract that ZIP file somewhere on your computer and <a href="https://gama-platform.github.io/wiki/ImportingModels">import it on GAMA</a>.</li>
 <li>Enjoy our model running on your computer</li>
 </ul>
@@ -103,6 +118,51 @@
 <p>Incubation, serial and infectious periods follow various distributions.
 <img src="/img/covid19/IncubationPeriod.png" alt="SEIR">
 <img src="/img/covid19/Serial-Infectious-Distribution.png" alt="SEIR"></p>
+</span></div></div></div><div class="accordion-item"><a> Required Data</a><div class="content"><div><span><p>The model requires a minimal dataset that should be, at least, composed of:</p>
+<ul>
+<li><p>Demographic data :</p>
+<ul>
+<li><p>A <strong>population.csv</strong> file that contains individual including some basic attributes, i.e. age, gender and household Identifier</p></li>
+<li><p>Mobility and activity data : What can be done ? is it in the model (a gaml file to create activities) or can we generate them outside (a csv with given column and lines)</p></li>
+</ul></li>
+<li><p>Spatial data:</p>
+<ul>
+<li><p><strong>buildings.shp</strong> : this file should contain the buildings of the considered case. Buildings have to be understood in a wide sense, as the set of locations for activities.
+The shapefile attribute table should contain the column “type” containing the type of the building.</p></li>
+<li><p><strong>boundary.shp</strong>: this file should contain the boundary of the studied area</p></li>
+<li><p><em>[Optional]</em> <strong>satellite.png</strong> and <strong>satellite.pgw</strong>: if modeler wants to add a georeferenced background image (e.g. Google Map).</p></li>
+</ul></li>
+<li><p>Epidemiological data : One csv file should be given, containing the following parameters:</p></li>
+</ul>
+<table>
+<thead>
+<tr><th style="text-align:center">Parameter name</th><th style="text-align:center">Definition</th><th style="text-align:center">Type [Range]</th><th style="text-align:center">Default value</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">Transmission_human</td><td style="text-align:center">Allowing infections from humans</td><td style="text-align:center">Boolean</td><td style="text-align:center">TRUE</td></tr>
+<tr><td style="text-align:center">Transmission_building</td><td style="text-align:center">Allowing infections from buildings</td><td style="text-align:center">Boolean</td><td style="text-align:center">TRUE</td></tr>
+<tr><td style="text-align:center">Successful_contact_rate_human</td><td style="text-align:center">Successful contact rate for infected humans</td><td style="text-align:center">Real [≥0]</td><td style="text-align:center">0.007086298</td></tr>
+<tr><td style="text-align:center">Successful_contact_rate_building</td><td style="text-align:center">Successful contact rate for contaminated buildings</td><td style="text-align:center">Real [≥0]</td><td style="text-align:center">0.007086298</td></tr>
+<tr><td style="text-align:center">Reduction_asymptomatic</td><td style="text-align:center">Reduction of the successful contact rate for asymptomatic</td><td style="text-align:center">Real [0-1]</td><td style="text-align:center">0.45</td></tr>
+<tr><td style="text-align:center">Proportion_asymptomatic</td><td style="text-align:center">Proportion of asymptomatic infections</td><td style="text-align:center">Real [0-1]</td><td style="text-align:center">0.3</td></tr>
+<tr><td style="text-align:center">Proportion_dead_asymptomatic</td><td style="text-align:center">Proportion of fatal symptomatic infections</td><td style="text-align:center">Real [0-1]</td><td style="text-align:center">0.01</td></tr>
+<tr><td style="text-align:center">Basic_viral_release</td><td style="text-align:center">Value of viral release in the environment by an infectious individual</td><td style="text-align:center">Real [≥0]</td><td style="text-align:center">3</td></tr>
+<tr><td style="text-align:center">Basic_viral_decrease</td><td style="text-align:center">Value of the viral decrease in the environment per step</td><td style="text-align:center">Real [≥0]</td><td style="text-align:center">0.01375</td></tr>
+<tr><td style="text-align:center">Probability_true_positive</td><td style="text-align:center">Probability of an infected individual to be positive</td><td style="text-align:center">Real [0-1]</td><td style="text-align:center">0.89</td></tr>
+<tr><td style="text-align:center">Probability_true_negative</td><td style="text-align:center">Probability of a non-infected individual to be negative</td><td style="text-align:center">Real [0-1]</td><td style="text-align:center">0.92</td></tr>
+<tr><td style="text-align:center">Proportion_wearing_mask</td><td style="text-align:center">Proportion of Individuals wearing mask</td><td style="text-align:center">Real [0-1]</td><td style="text-align:center">0</td></tr>
+<tr><td style="text-align:center">Reduction_wearing_mask</td><td style="text-align:center">Reduction of the successful contact rate for Individuals wearing mask</td><td style="text-align:center">Real [0-1]</td><td style="text-align:center">0.5</td></tr>
+<tr><td style="text-align:center">Distribution_type_incubation</td><td style="text-align:center">Type of the distribution for the incubation period</td><td style="text-align:center">String [Normal, Gamma, Lognormal, Weibull]</td><td style="text-align:center">Lognormal</td></tr>
+<tr><td style="text-align:center">Parameter_1_incubation</td><td style="text-align:center">First parameter of the distribution of the incubation period</td><td style="text-align:center">Real</td><td style="text-align:center">1.57</td></tr>
+<tr><td style="text-align:center">Parameter_2_incubation</td><td style="text-align:center">Second parameter of the distribution of the incubation period</td><td style="text-align:center">Real</td><td style="text-align:center">0.65</td></tr>
+<tr><td style="text-align:center">Distribution_type_serial_interval</td><td style="text-align:center">Type of the distribution for the serial interval</td><td style="text-align:center">String [Normal, Gamma, Lognormal, Weibull]</td><td style="text-align:center">Normal</td></tr>
+<tr><td style="text-align:center">Parameter_1_serial_interval</td><td style="text-align:center">First parameter of the distribution for the serial interval</td><td style="text-align:center">Real</td><td style="text-align:center">3.96</td></tr>
+<tr><td style="text-align:center">Parameter_2_serial_interval</td><td style="text-align:center">Second parameter of the distribution for the serial interval</td><td style="text-align:center">Real</td><td style="text-align:center">3.75</td></tr>
+<tr><td style="text-align:center">Distribution_type_onset_to_recovery</td><td style="text-align:center">Type of the distribution for the onset to recovery period</td><td style="text-align:center">String [Normal, Gamma, Lognormal, Weibull]</td><td style="text-align:center">Lognormal</td></tr>
+<tr><td style="text-align:center">Parameter_1_onset_to_recovery</td><td style="text-align:center">First parameter of the distribution for the onset to recovery period</td><td style="text-align:center">Real</td><td style="text-align:center">3.034953</td></tr>
+<tr><td style="text-align:center">Parameter_2_onset_to_recovery</td><td style="text-align:center">Second parameter of the distribution for the onset to recovery period</td><td style="text-align:center">Real</td><td style="text-align:center">0.34</td></tr>
+</tbody>
+</table>
 </span></div></div></div></div><script type="text/javascript">
             const items = document.querySelectorAll(".accordion a");
 
