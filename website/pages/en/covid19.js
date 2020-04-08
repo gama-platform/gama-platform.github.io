@@ -18,7 +18,8 @@ var dataMD = require("../../../../../covid19.md");
 const FAQ = ({question, answer, subSection = false}) => {
   return (
     <div class="accordion-item">
-      <a dangerouslySetInnerHTML={{ __html: question}}/>
+
+        <a dangerouslySetInnerHTML={{__html: question}}/>
       <div class="content">
         <MarkdownBlock>
           {answer}
@@ -50,7 +51,14 @@ class FAQs extends React.Component {
             }
       
           }else{
-            result.push(<MarkdownBlock>{qaArray[i]}</MarkdownBlock>);
+            switch (faqQuestion) {
+              case  "# Overview":
+                  result.push(<FAQ question={"<h1>"+faqQuestion.split("#")[1]+"</h1>"} answer={faqAnswer} />);
+                break;
+
+              default:
+                result.push(<MarkdownBlock>{qaArray[i]}</MarkdownBlock>);
+            }
           }
 
         }
@@ -62,7 +70,7 @@ class FAQs extends React.Component {
   render() {
       return(
         <div class="accordion">
-          { this.renderFaq(dataMD.split("---")) }
+          { this.renderFaq(dataMD.split("x---")) }
         </div>
       )
     }
@@ -75,9 +83,8 @@ function displayPage(props) {
 
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `
-      .container {
-        display:  inline-flex;
-        align-items: center;
+      .gridBlock {
+        display: inherit;
       }
       a.disabled {
         pointer-events: none;
