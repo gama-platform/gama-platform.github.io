@@ -31,7 +31,6 @@
 
 The presented model considers the spread of COVID-19 at the scale of a commune in an agent-based fashion: each individual of the commune is represented individually with some specific characteristics (age, sex, household), infectious state and specific daily activities, that can be controlled and limited by an Authority entity which can choose and applied a mitigation policy. The simulations run several virtual worlds in parallel at a one-hour time step, and can compare and assess various policies.
 
-
 x---
 
 # The team working on this project 
@@ -54,14 +53,14 @@ x---
 
 # Technical part
 
-If you want to help or just to take a look at our work, you can find [sources here](https://github.com/WARMTeam/CoVid19). More details will come soon, especially the ones related to adapting this model to new case studies.
+If you want to help or just to take a look at our work, you can find [sources here](https://github.com/COMOKIT). More details will come soon, especially the ones related to adapting this model to new case studies.
 
 ## Run the model on your computer
 
 If you want to install and run the model on your computer you should 
 
 - First, download and extract the [GAMA Continuous Build version](https://github.com/gama-platform/gama/releases/tag/continuous) (if you don't know which version to take, choose the one with JDK). If you need more information about how to install GAMA, check the [installation page](https://gama-platform.github.io/wiki/Installation)
-- Second download the model [on GitHub](https://github.com/WARMTeam/CoVid19) (click [here](https://github.com/WARMTeam/CoVid19/archive/master.zip) to download it automatically)
+- Second download the model [on GitHub](https://github.com/COMOKIT/CoVid19) (click [here](https://github.com/COMOKIT/CoVid19/archive/master.zip) to download it automatically)
 - Extract that ZIP file somewhere on your computer and [import it on GAMA](https://gama-platform.github.io/wiki/ImportingModels).
 - Enjoy our model running on your computer
 
