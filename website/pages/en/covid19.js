@@ -51,10 +51,11 @@ class FAQs extends React.Component {
             }
       
           }else{
+            // Let you set un-general section layout
             switch (faqQuestion) {
-              case  "# Overview":
+              /*case  "# Overview":
                   result.push(<FAQ question={"<h1>"+faqQuestion.split("#")[1]+"</h1>"} answer={faqAnswer} />);
-                break;
+                break;*/
 
               default:
                 result.push(<MarkdownBlock>{qaArray[i]}</MarkdownBlock>);
