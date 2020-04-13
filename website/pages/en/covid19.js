@@ -185,7 +185,7 @@ function displayPage(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="post">
           <div class='parent'>
-            <header className="postHeader child float-left-child">
+            <header className="postHeader child float-left-child" style={{width: "100%"}}>
               <h1 id="covid19">CoViD19</h1>
               <p>IRD, the GAMA developers and their partners in Vietnam are collaborating to support Vietnamese authorities in fighting and containing the COVID-19 pandemics.</p>
               <h1>Description of the project</h1>
@@ -193,7 +193,7 @@ function displayPage(props) {
               <p>Those are among  the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (i.e. 2 in Vietnam to begin with).</p>
             </header>
             <div className="child float-left-child" style={{position: "relative"}}>
-              <img src="/img/covid19/lockdownScreen2.png"/>
+              <img src="https://avatars0.githubusercontent.com/u/63448362"/>
             </div>
           </div>
 
