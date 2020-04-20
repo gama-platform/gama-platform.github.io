@@ -27,9 +27,11 @@
 
 /* Leave me as the first line please :D */ module.exports = `
 
-# The model principles
+# Base model
 
-The presented model considers the spread of COVID-19 at the scale of a commune in an agent-based fashion: each individual of the commune is represented individually with some specific characteristics (age, sex, household), infectious state and specific daily activities, that can be controlled and limited by an Authority entity which can choose and applied a mitigation policy. The simulations run several virtual worlds in parallel at a one-hour time step, and can compare and assess various policies.
+The base model represents the diffusion and transmission of COVID-19 at the scale of a commune (approx. 10.000 people in Vietnam) using an agent-based approach: each inhabitant is represented individually with his/her specific characteristics (age, sex, household), clinical state (susceptible, exposed, infected with or w/o symptoms, recovered or dead) and daily activities based on a generated agenda, which can be controlled and limited by an Authority agent whose role is to choose and apply a public health policy consisting of mitigation measures and interventions. 
+Each set of parameters (incl. the policies applied) represents a scenario, which can be explored by running several simulations (to account for the stochasticity of each run) and compared against other scenarios in more elaborate experiments. COMOKIT makes it therefore very easy to assess, measure and compare the impacts of interventions on the spread of the virus.
+The data required to instantiate this base model on a specific case study is voluntarily limited; in most cases, only a file containing the built environment may be enough to build a simple model. More realistic scenarios will of course require more detailed datasets.  
 
 x---
 
