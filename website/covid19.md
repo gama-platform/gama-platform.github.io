@@ -66,22 +66,6 @@ If you want to install and run the model on your computer you should
 - Extract that ZIP file somewhere on your computer and [import it on GAMA](https://gama-platform.github.io/wiki/ImportingModels).
 - Enjoy our model running on your computer
 
-## The model 
-
-Here's an early draft of the UML graph of our model
-
-![UML](/img/covid19/general-uml.png)
-
-## The epidemiological model
-
-In our model, our _People_ agent follow a slightly modified [SEIR model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model).
-
-![SEIR](/img/covid19/Epidemic-model-agent.png)
-
-Incubation, serial and infectious periods follow various distributions.
-![SEIR](/img/covid19/IncubationPeriod.png)
-![SEIR](/img/covid19/Serial-Infectious-Distribution.png)
-
 ## Required Data
 
 The model requires a minimal dataset that should be, at least, composed of:
@@ -127,6 +111,26 @@ The model requires a minimal dataset that should be, at least, composed of:
 | Distribution_type_onset_to_recovery | Type of the distribution for the onset to recovery period | String [Normal, Gamma, Lognormal, Weibull] | Lognormal |
 | Parameter_1_onset_to_recovery | First parameter of the distribution for the onset to recovery period | Real | 3.034953 |
 | Parameter_2_onset_to_recovery | Second parameter of the distribution for the onset to recovery period | Real | 0.34 |
+
+## Tutorial video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sQI63mgtYi4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## The Agent-Based Model 
+
+Here's an early draft of the UML graph of our model
+
+![UML](/img/covid19/general-uml.png)
+
+## The epidemiological model
+
+In our model, our _People_ agent follow a slightly modified [SEIR model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model).
+
+![SEIR](/img/covid19/Epidemic-model-agent.png)
+
+Incubation, serial and infectious periods follow various distributions.
+![SEIR](/img/covid19/IncubationPeriod.png)
+![SEIR](/img/covid19/Serial-Infectious-Distribution.png)
 
 
 `; // Leave me as the last line please :D
