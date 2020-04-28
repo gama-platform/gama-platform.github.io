@@ -194,7 +194,7 @@ function displayPage(props) {
               <p>Those are among  the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (i.e. 2 in Vietnam to begin with).</p>
             </header>
             <div className="child float-left-child" style={{position: "relative"}}>
-              <img src="https://avatars0.githubusercontent.com/u/63448362"/>
+              <img src="../img/covid19/COMOKIT2.png"/>
             </div>
           </div>
 
