@@ -187,11 +187,11 @@ function displayPage(props) {
         <div className="post">
           <div class='parent'>
             <header className="postHeader child float-left-child" style={{width: "100%"}}>
-              <h1 id="covid19">CoViD19</h1>
-              <p>IRD, the GAMA developers and their partners in Vietnam are collaborating to support Vietnamese authorities in fighting and containing the COVID-19 pandemics.</p>
-              <h1>Description of the project</h1>
-              <blockquote>Is the containment of a neighborhood more effective than an entire village/town? Does school closure reduce the transmission peaks ? What is the most effective strategy to adopt when the resources are limited (e.g.enforcement of the rules, capacity of hospitals) ? At what point in time ?</blockquote>
-              <p>Those are among  the questions we are helping to answer using a generic model of the containment of the propagation of the COVID-19 epidemics in a city, validated on different case studies (i.e. 2 in Vietnam to begin with).</p>
+              <h1 id="covid19">COMOKIT</h1>
+              <p>IRD, the developers of GAMA and their partners in Vietnam are supporting Vietnamese authorities in their fight against the COVID-19 pandemic by developping a complete modeling platform named COMOKIT, which aims at assessing and comparing mitigation policies and interventions against the spread of the virus.</p>
+              <h1>Introduction</h1>
+              <blockquote>Is the containment of a neighborhood more effective than that of an entire village/town? Does school closure reduce the transmission peaks ? What is the most effective strategy to adopt when resources are limited (e.g. enforcement of the rules, capacity of hospitals) ? When to start a containment policy and how long should it last to be effective ?</blockquote>
+              <p>These are some of the questions adressed by this generic integrated model, which combines a sub-model of the individual clinical dynamics and epidemiological status of agents, a sub-model of agent-to-agent direct transmission of the infection, a sub-model of environmental transmission through the built environment, a sub-model of policy design and implementation, and an agenda-based model of people activities at a one-hour time step. </p>
             </header>
             <div className="child float-left-child" style={{position: "relative"}}>
               <img src="../img/covid19/COMOKIT2.png"/>
