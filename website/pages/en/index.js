@@ -217,7 +217,7 @@ class Index extends React.Component {
         <Script/>
 
         <div className="section container" style={{backgroundColor: "#3670A0"}}>
-          <a href="covid19" class="item" style={{ color: "white", textAlign: "center", width: "100%", padding: "10px 0"}}>
+          <a href="https://comokit.org" class="item" style={{ color: "white", textAlign: "center", width: "100%", padding: "10px 0"}}>
             😷 IRD and the GAMA Team are collaborating on the use of modeling for fighting the COVID-19 pandemics 😷
           </a>
         </div>
