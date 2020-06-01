@@ -130,7 +130,8 @@
 <p>The XML input file contains for example:</p>
 <pre><code class="hljs">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;
 &lt;Experiment_plan&gt;
- &lt;Simulation id=<span class="hljs-string">"2"</span> sourcePath=<span class="hljs-string">"./predatorPrey/predatorPrey.gaml"</span> finalStep=<span class="hljs-string">"1000"</span> <span class="hljs-builtin">experiment</span>=<span class="hljs-string">"predPrey"</span>&gt;
+ &lt;Simulation id=<span class="hljs-string">"2"</span> sourcePath=<span class="hljs-string">"./predatorPrey/predatorPrey.gaml"</span> finalStep=<span class="hljs-string">"1000"</span> until=<span class="hljs-string">"length(predator) = 1"</span>  
+ <span class="hljs-builtin">experiment</span>=<span class="hljs-string">"predPrey"</span>&gt;
   &lt;Parameters&gt;
     &lt;Parameter name=<span class="hljs-string">"nb_predator_init"</span> type=<span class="hljs-string">"INT"</span> value=<span class="hljs-string">"53"</span> /&gt;
     &lt;Parameter name=<span class="hljs-string">"nb_preys_init"</span> type=<span class="hljs-string">"INT"</span> value=<span class="hljs-string">"621"</span> /&gt;
@@ -146,7 +147,8 @@
 </code></pre>
 <p>Note that several simulations could be determined in one experiment plan. These simulations are run in parallel according to the number of allocated cores.</p>
 <h3><a class="anchor" aria-hidden="true" id="heading"></a><a href="#heading" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Heading</h3>
-<pre><code class="hljs">&lt;Simulation id=<span class="hljs-string">"2"</span> sourcePath=<span class="hljs-string">"./predatorPrey/predatorPrey.gaml"</span> finalStep=<span class="hljs-string">"1000"</span> <span class="hljs-builtin">experiment</span>=<span class="hljs-string">"predPrey"</span>&gt;
+<pre><code class="hljs">&lt;Simulation id=<span class="hljs-string">"2"</span> sourcePath=<span class="hljs-string">"./predatorPrey/predatorPrey.gaml"</span> finalStep=<span class="hljs-string">"1000"</span> until=<span class="hljs-string">"length(predator) = 1"</span>  
+ <span class="hljs-builtin">experiment</span>=<span class="hljs-string">"predPrey"</span>&gt;
 </code></pre>
 <ul>
 <li>with:
@@ -154,6 +156,7 @@
 <li><code>id</code>: permits to prefix output files for experiment plan with huge simulations.</li>
 <li><code>sourcePath</code>: contains the relative or absolute path to read the gaml model.</li>
 <li><code>finalStep</code>: determines the number of simulation step you want to run.</li>
+<li><code>until</code>: defines a stop condition. It can be combined with the <code>finalStep</code> facet (in this case a simulation when the stop condition is fulfilled or when the final step is reached.</li>
 <li><code>experiment</code>: determines which experiment should be run on the model. This experiment should exist, otherwise, the headless mode will exit.</li>
 </ul></li>
 </ul>
