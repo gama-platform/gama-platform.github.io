@@ -313,8 +313,8 @@
 <li><strong><code>between</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>any expression</code>, <code>date</code>, <code>date</code>) ---&gt;  <code>bool</code></li>
-<li><strong><code>between</code></strong> (<code>date</code>, <code>date</code>, <code>date</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>bool</code></li>
+<li><strong><code>between</code></strong> (<code>date</code>, <code>date</code>, <code>date</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-4"></a><a href="#result-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>returns true if the first float operand is bigger than the second float operand and smaller than the third float operand</p>
@@ -324,7 +324,7 @@
 <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var0 equals true </span>
+<span class="hljs-literal">bool</span> var2 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var2 equals true </span>
 <span class="hljs-comment">// // will return true if the current_date of the model is in_between the 2 </span>
 between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))
 </code></pre>
@@ -332,14 +332,14 @@ between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="h
 <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with 'every' to express a frequency between two dates</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var3 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var3 equals true </span>
+<span class="hljs-literal">bool</span> var5 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var5 equals true </span>
 <span class="hljs-comment">// will return true every new day between these two dates, taking the first one as the starting point </span>
 every(#day between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))) 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-3"></a><a href="#examples-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var6 &lt;- between(5.0, 1.0, 10.0); <span class="hljs-comment">// var6 equals true </span>
-<span class="hljs-literal">bool</span> var7 &lt;- between(5, 1, 10); <span class="hljs-comment">// var7 equals true</span>
+<span class="hljs-literal">bool</span> var0 &lt;- between(5.0, 1.0, 10.0); <span class="hljs-comment">// var0 equals true </span>
+<span class="hljs-literal">bool</span> var1 &lt;- between(5, 1, 10); <span class="hljs-comment">// var1 equals true</span>
 
 </code></pre>
 <hr>
@@ -445,11 +445,11 @@ every(#day between(date(<span class="hljs-string">'2000-01-01'</span>), date(<sp
 <li>If the ratio is omitted, an even blend is done</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var1 &lt;- blend(#red, #blue); <span class="hljs-comment">// var1 equals to a color very close to the purple</span>
+<span class="hljs-literal">rgb</span> var3 &lt;- blend(#red, #blue); <span class="hljs-comment">// var3 equals to a color very close to the purple</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-10"></a><a href="#examples-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var3 &lt;- blend(#red, #blue, 0.3); <span class="hljs-comment">// var3 equals to a color between the purple and the blue</span>
+<span class="hljs-literal">rgb</span> var1 &lt;- blend(#red, #blue, 0.3); <span class="hljs-comment">// var1 equals to a color between the purple and the blue</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-3"></a><a href="#see-also-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -514,12 +514,12 @@ Build a list of colors of a given type (see website <a href="http://colorbrewer2
 <li><strong><code>brewer_palettes</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>list&lt;string&gt;</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-15"></a><a href="#result-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>returns the list a palette with a given min number of classes and max number of classes)
-returns the list a palette with a given min number of classes)</p>
+<p>returns the list a palette with a given min number of classes)
+returns the list a palette with a given min number of classes and max number of classes)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-13"></a><a href="#examples-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; var0 &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; palettes &lt;- brewer_palettes(5,10);; <span class="hljs-comment">// var0 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors </span>
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; var1 &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; palettes &lt;- brewer_palettes(3);; <span class="hljs-comment">// var1 equals a list of palettes that are composed of a min of 3 colors</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; var0 &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; palettes &lt;- brewer_palettes(3);; <span class="hljs-comment">// var0 equals a list of palettes that are composed of a min of 3 colors </span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; var1 &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; palettes &lt;- brewer_palettes(5,10);; <span class="hljs-comment">// var1 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-6"></a><a href="#see-also-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -784,8 +784,8 @@ The N agents or geometries among the left-operand list of agents, species or met
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-30"></a><a href="#result-30" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string</p>
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="cone"></a><a href="#cone" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cone</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-32"></a><a href="#possible-use-32" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
@@ -1150,8 +1150,8 @@ unknown var2 &lt;- corR(X, Y); <span class="hljs-comment">// var2 equals 0.98198
 <h3><a class="anchor" aria-hidden="true" id="cos"></a><a href="#cos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cos</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-50"></a><a href="#possible-use-50" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>cos</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>cos</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>cos</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-47"></a><a href="#result-47" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees).  The argument is casted to an int before being evaluated.</p>
@@ -1161,12 +1161,12 @@ unknown var2 &lt;- corR(X, Y); <span class="hljs-comment">// var2 equals 0.98198
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-41"></a><a href="#examples-41" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">float</span> var0 &lt;- cos (0); <span class="hljs-comment">// var0 equals 1.0 </span>
-<span class="hljs-literal">float</span> var1 &lt;- cos(360); <span class="hljs-comment">// var1 equals 1.0 </span>
-<span class="hljs-literal">float</span> var2 &lt;- cos(-720); <span class="hljs-comment">// var2 equals 1.0 </span>
-<span class="hljs-literal">float</span> var3 &lt;- cos (0.0); <span class="hljs-comment">// var3 equals 1.0 </span>
-<span class="hljs-literal">float</span> var4 &lt;- cos(360.0); <span class="hljs-comment">// var4 equals 1.0 </span>
-<span class="hljs-literal">float</span> var5 &lt;- cos(-720.0); <span class="hljs-comment">// var5 equals 1.0</span>
+<span class="hljs-literal">float</span> var0 &lt;- cos (0.0); <span class="hljs-comment">// var0 equals 1.0 </span>
+<span class="hljs-literal">float</span> var1 &lt;- cos(360.0); <span class="hljs-comment">// var1 equals 1.0 </span>
+<span class="hljs-literal">float</span> var2 &lt;- cos(-720.0); <span class="hljs-comment">// var2 equals 1.0 </span>
+<span class="hljs-literal">float</span> var3 &lt;- cos (0); <span class="hljs-comment">// var3 equals 1.0 </span>
+<span class="hljs-literal">float</span> var4 &lt;- cos(360); <span class="hljs-comment">// var4 equals 1.0 </span>
+<span class="hljs-literal">float</span> var5 &lt;- cos(-720); <span class="hljs-comment">// var5 equals 1.0</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-25"></a><a href="#see-also-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
