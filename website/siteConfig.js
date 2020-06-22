@@ -179,7 +179,7 @@ const siteConfig = {
 
   // If empty disable click on image
   // otherwise write the link without the BASE_URL
-  frontPageImgLink: 'release-1.8',
+  frontPageImgLink: 'release',
 
 
 	/*
