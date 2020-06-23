@@ -4,7 +4,7 @@
         <title>GAMA-Platform Blog</title>
         <link>https://gama-platform.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest GAMA-Platform news and events.</description>
-        <lastBuildDate>Fri, 15 Nov 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Jun 2020 06:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -13,6 +13,13 @@
             <link>https://gama-platform.github.io/blog</link>
         </image>
         <copyright>2020 GAMA-Platform</copyright>
+        <item>
+            <title><![CDATA[Releasing GAMA 1.8.1]]></title>
+            <link>https://gama-platform.github.io/blog/2020/06/22/release181.html</link>
+            <guid>https://gama-platform.github.io/blog/2020/06/22/release181.html</guid>
+            <pubDate>Mon, 22 Jun 2020 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p><img src="https://avatars0.githubusercontent.com/u/1560449?s=200&amp;v=4" alt="GAMA Logo"></p> <p>We are pleased to release version 1.8.1 of the GAMA modelling and simulation platform. It is mainly a bug fix release, with a few minor enhancements. See the <a href="https://gama-platform.github.io/release">changelog here</a> (or on <a href="https://github.com/gama-platform/gama/blob/master/CHANGELOG.md">GitHub here</a>).</p> <p>All the models running on 1.8 should work without chang...</p>]]></description>
+        </item>
         <item>
             <title><![CDATA[GAMA Days 2020]]></title>
             <link>https://gama-platform.github.io/blog/2019/11/15/gama-days-2020.html</link>
