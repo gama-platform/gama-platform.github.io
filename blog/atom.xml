@@ -2,12 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gama-platform.github.io/blog</id>
     <title>GAMA-Platform Blog</title>
-    <updated>2020-06-22T06:00:00.000Z</updated>
+    <updated>2020-07-01T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gama-platform.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest GAMA-Platform news and events.</subtitle>
     <logo>https://gama-platform.github.io/img/gama-logo_white.png</logo>
     <rights>2020 GAMA-Platform</rights>
+    <entry>
+        <title type="html"><![CDATA[COMOKIT 1.0.1 is out]]></title>
+        <id>https://gama-platform.github.io/blog/2020/07/01/comokit101.html</id>
+        <link href="https://gama-platform.github.io/blog/2020/07/01/comokit101.html"/>
+        <updated>2020-07-01T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>We are thrilled to announce the release of version 1.0.1 of <a href="https://comokit.org">COMOKIT</a>, as well as its official archiving on the <a href="https://www.comses.net/codebases/7d686bf0-ff0a-46c0-b4a6-d341ef9e13c2/releases/1.0.1/">COMSES website</a>.</p> <p>COMOKIT, the COVID-19 modeling kit built on GAMA, is a computer model that allows in silico exploration of intervention poli...</p>]]></summary>
+        <author>
+            <name>GAMA Team</name>
+            <email/>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release of GAMA 1.8.1]]></title>
         <id>https://gama-platform.github.io/blog/2020/06/22/release181.html</id>
