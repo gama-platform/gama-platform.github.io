@@ -311,8 +311,8 @@
 <ul>
 <li><code>date</code> <strong><code>between</code></strong> <code>date</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>date</code> , <code>date</code>) ---&gt;  <code>bool</code></li>
-<li><strong><code>between</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>date</code>, <code>date</code>, <code>date</code>) ---&gt;  <code>bool</code></li>
+<li><strong><code>between</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>any expression</code>, <code>date</code>, <code>date</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>between</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>bool</code></li>
 </ul>
@@ -324,7 +324,7 @@
 <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with 'every' to express a frequency between two dates</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var2 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var2 equals true </span>
+<span class="hljs-literal">bool</span> var0 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var0 equals true </span>
 <span class="hljs-comment">// will return true every new day between these two dates, taking the first one as the starting point </span>
 every(#day between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))) 
 </code></pre>
@@ -332,14 +332,14 @@ every(#day between(date(<span class="hljs-string">'2000-01-01'</span>), date(<sp
 <li>returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var5 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var5 equals true </span>
+<span class="hljs-literal">bool</span> var3 &lt;- (date(<span class="hljs-string">'2016-01-01'</span>) between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))); <span class="hljs-comment">// var3 equals true </span>
 <span class="hljs-comment">// // will return true if the current_date of the model is in_between the 2 </span>
 between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="hljs-string">'2020-02-02'</span>))
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-3"></a><a href="#examples-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- between(5, 1, 10); <span class="hljs-comment">// var0 equals true </span>
-<span class="hljs-literal">bool</span> var1 &lt;- between(5.0, 1.0, 10.0); <span class="hljs-comment">// var1 equals true</span>
+<span class="hljs-literal">bool</span> var6 &lt;- between(5, 1, 10); <span class="hljs-comment">// var6 equals true </span>
+<span class="hljs-literal">bool</span> var7 &lt;- between(5.0, 1.0, 10.0); <span class="hljs-comment">// var7 equals true</span>
 
 </code></pre>
 <hr>
@@ -445,11 +445,11 @@ between(date(<span class="hljs-string">'2000-01-01'</span>), date(<span class="h
 <li>If the ratio is omitted, an even blend is done</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var1 &lt;- blend(#red, #blue); <span class="hljs-comment">// var1 equals to a color very close to the purple</span>
+<span class="hljs-literal">rgb</span> var3 &lt;- blend(#red, #blue); <span class="hljs-comment">// var3 equals to a color very close to the purple</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-10"></a><a href="#examples-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var3 &lt;- blend(#red, #blue, 0.3); <span class="hljs-comment">// var3 equals to a color between the purple and the blue</span>
+<span class="hljs-literal">rgb</span> var1 &lt;- blend(#red, #blue, 0.3); <span class="hljs-comment">// var1 equals to a color between the purple and the blue</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-3"></a><a href="#see-also-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -783,8 +783,8 @@ An agent or a geometry among the left-operand list of agents, species or meta-po
 <li><strong><code>command</code></strong> (<code>string</code>, <code>string</code>, <code>map&lt;string,string&gt;</code>) ---&gt;  <code>string</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-30"></a><a href="#result-30" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
+<p>command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string
 command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &amp;' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string&gt; of environment variables) are available.</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="cone"></a><a href="#cone" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cone</code></h3>
@@ -806,8 +806,8 @@ A cone geometry which min and max angles are given by the operands.</p>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-27"></a><a href="#examples-27" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var0 &lt;- cone(0, 45); <span class="hljs-comment">// var0 equals a geometry as a cone with min angle is 0 and max angle is 45. </span>
-<span class="hljs-literal">geometry</span> var1 &lt;- cone({0, 45}); <span class="hljs-comment">// var1 equals a geometry as a cone with min angle is 0 and max angle is 45.</span>
+<span class="hljs-literal">geometry</span> var0 &lt;- cone({0, 45}); <span class="hljs-comment">// var0 equals a geometry as a cone with min angle is 0 and max angle is 45. </span>
+<span class="hljs-literal">geometry</span> var1 &lt;- cone(0, 45); <span class="hljs-comment">// var1 equals a geometry as a cone with min angle is 0 and max angle is 45.</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-15"></a><a href="#see-also-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -881,10 +881,10 @@ returns the connected components of a graph, i.e. the list of all vertices that 
 <h3><a class="anchor" aria-hidden="true" id="contains"></a><a href="#contains" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>contains</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-37"></a><a href="#possible-use-37" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>string</code> <strong><code>contains</code></strong> <code>string</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>contains</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>bool</code></li>
 <li><code>container&lt;KeyType,ValueType&gt;</code> <strong><code>contains</code></strong> <code>unknown</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>contains</code></strong> (<code>container&lt;KeyType,ValueType&gt;</code> , <code>unknown</code>) ---&gt;  <code>bool</code></li>
+<li><code>string</code> <strong><code>contains</code></strong> <code>string</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>contains</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-35"></a><a href="#result-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>true, if the container contains the right operand, false otherwise. 'contains' can also be written 'contains_value'. On graphs, it is equivalent to calling 'contains_edge'</p>
@@ -892,21 +892,21 @@ returns the connected components of a graph, i.e. the list of all vertices that 
 <p>the contains operator behavior depends on the nature of the operand</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-8"></a><a href="#special-cases-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;</li>
 <li>if it is a map, contains, which can also be written 'contains_value', returns true if the operand is a value of the map</li>
 <li>if it is a pair, contains_key returns true if the operand is equal to the value of the pair</li>
 <li>if it is a file, contains returns true it the operand is contained in the file content</li>
 <li>if it is a population, contains returns true if the operand is an agent of the population, false otherwise</li>
 <li>if it is a graph, contains can be written 'contains_edge' and  returns true if the operand is an edge of the graph, false otherwise (use 'contains_node' for testing the presence of a node)</li>
+<li>if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;</li>
 <li>if it is a list or a matrix, contains returns true if the list or matrix contains the right operand</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var1 &lt;- [1, 2, 3] contains 2; <span class="hljs-comment">// var1 equals true </span>
-<span class="hljs-literal">bool</span> var2 &lt;- [{1,2}, {3,4}, {5,6}] contains {3,4}; <span class="hljs-comment">// var2 equals true</span>
+<span class="hljs-literal">bool</span> var0 &lt;- [1, 2, 3] contains 2; <span class="hljs-comment">// var0 equals true </span>
+<span class="hljs-literal">bool</span> var1 &lt;- [{1,2}, {3,4}, {5,6}] contains {3,4}; <span class="hljs-comment">// var1 equals true</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-31"></a><a href="#examples-31" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- <span class="hljs-string">'abcded'</span> contains <span class="hljs-string">'bc'</span>; <span class="hljs-comment">// var0 equals true</span>
+<span class="hljs-literal">bool</span> var2 &lt;- <span class="hljs-string">'abcded'</span> contains <span class="hljs-string">'bc'</span>; <span class="hljs-comment">// var2 equals true</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-19"></a><a href="#see-also-19" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -946,10 +946,10 @@ returns the connected components of a graph, i.e. the list of all vertices that 
 <h3><a class="anchor" aria-hidden="true" id="contains_any"></a><a href="#contains_any" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>contains_any</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-39"></a><a href="#possible-use-39" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>string</code> <strong><code>contains_any</code></strong> <code>list</code> ---&gt;  <code>bool</code></li>
-<li><strong><code>contains_any</code></strong> (<code>string</code> , <code>list</code>) ---&gt;  <code>bool</code></li>
 <li><code>container</code> <strong><code>contains_any</code></strong> <code>container</code> ---&gt;  <code>bool</code></li>
 <li><strong><code>contains_any</code></strong> (<code>container</code> , <code>container</code>) ---&gt;  <code>bool</code></li>
+<li><code>string</code> <strong><code>contains_any</code></strong> <code>list</code> ---&gt;  <code>bool</code></li>
+<li><strong><code>contains_any</code></strong> (<code>string</code> , <code>list</code>) ---&gt;  <code>bool</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-37"></a><a href="#result-37" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>true if the left operand contains one of the elements of the right operand, false otherwise</p>
@@ -961,11 +961,11 @@ returns the connected components of a graph, i.e. the list of all vertices that 
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-33"></a><a href="#examples-33" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">bool</span> var0 &lt;- <span class="hljs-string">"abcabcabc"</span> contains_any [<span class="hljs-string">"ca"</span>,<span class="hljs-string">"xy"</span>]; <span class="hljs-comment">// var0 equals true </span>
-<span class="hljs-literal">bool</span> var1 &lt;- [1,2,3,4,5,6] contains_any [2,4]; <span class="hljs-comment">// var1 equals true  </span>
-<span class="hljs-literal">bool</span> var2 &lt;- [1,2,3,4,5,6] contains_any [2,8]; <span class="hljs-comment">// var2 equals true </span>
-<span class="hljs-literal">bool</span> var3 &lt;- [1::2, 3::4, 5::6] contains_any [1,3]; <span class="hljs-comment">// var3 equals false </span>
-<span class="hljs-literal">bool</span> var4 &lt;- [1::2, 3::4, 5::6] contains_any [2,4]; <span class="hljs-comment">// var4 equals true</span>
+<span class="hljs-literal">bool</span> var0 &lt;- [1,2,3,4,5,6] contains_any [2,4]; <span class="hljs-comment">// var0 equals true  </span>
+<span class="hljs-literal">bool</span> var1 &lt;- [1,2,3,4,5,6] contains_any [2,8]; <span class="hljs-comment">// var1 equals true </span>
+<span class="hljs-literal">bool</span> var2 &lt;- [1::2, 3::4, 5::6] contains_any [1,3]; <span class="hljs-comment">// var2 equals false </span>
+<span class="hljs-literal">bool</span> var3 &lt;- [1::2, 3::4, 5::6] contains_any [2,4]; <span class="hljs-comment">// var3 equals true </span>
+<span class="hljs-literal">bool</span> var4 &lt;- <span class="hljs-string">"abcabcabc"</span> contains_any [<span class="hljs-string">"ca"</span>,<span class="hljs-string">"xy"</span>]; <span class="hljs-comment">// var4 equals true</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-21"></a><a href="#see-also-21" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1467,32 +1467,31 @@ csv_file f &lt;- csv_file(<span class="hljs-string">"file.csv"</span>, <span cla
 <ul>
 <li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>) ---&gt;  <code>geometry</code></li>
 <li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>point</code>) ---&gt;  <code>geometry</code></li>
-<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>point</code>, <code>point</code>) ---&gt;  <code>geometry</code></li>
-<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>geometry</code></li>
-<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>point</code>, <code>int</code>) ---&gt;  <code>geometry</code></li>
 <li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>, <code>bool</code>) ---&gt;  <code>geometry</code></li>
+<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>point</code>, <code>point</code>) ---&gt;  <code>geometry</code></li>
+<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>point</code>, <code>int</code>) ---&gt;  <code>geometry</code></li>
+<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>geometry</code></li>
 <li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>point</code>, <code>point</code>, <code>int</code>) ---&gt;  <code>geometry</code></li>
-<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>, <code>bool</code>, <code>int</code>) ---&gt;  <code>geometry</code></li>
 <li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>, <code>int</code>, <code>float</code>) ---&gt;  <code>geometry</code></li>
-<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>, <code>bool</code>, <code>int</code>, <code>float</code>) ---&gt;  <code>geometry</code></li>
+<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>, <code>bool</code>, <code>int</code>) ---&gt;  <code>geometry</code></li>
 <li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>, <code>int</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>geometry</code></li>
+<li><strong><code>curve</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>, <code>bool</code>, <code>int</code>, <code>float</code>) ---&gt;  <code>geometry</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-58"></a><a href="#result-58" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
-A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+<p>A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
+A quadratic Bezier curve geometry built from the three given points composed of 10 points.
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
 A cubic Bezier curve geometry built from the four given points composed of 10 points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
 A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
-A quadratic Bezier curve geometry built from the three given points composed of 10 points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).</p>
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-25"></a><a href="#special-cases-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
 <li>if the operand is nil, returns nil</li>
-<li>if the operand is nil, returns nil</li>
 <li>if the last operand (number of points) is inferior to 2, returns nil</li>
 <li>if the operand is nil, returns nil</li>
 <li>if the operand is nil, returns nil</li>
@@ -1500,24 +1499,25 @@ A cubic Bezier curve geometry built from the two given points with the given coe
 <li>if the operand is nil, returns nil</li>
 <li>if the operand is nil, returns nil</li>
 <li>if the operand is nil, returns nil</li>
-<li>if the last operand (number of points) is inferior to 2, returns nil</li>
 <li>if the operand is nil, returns nil</li>
+<li>if the operand is nil, returns nil</li>
+<li>if the last operand (number of points) is inferior to 2, returns nil</li>
 <li>if the operand is nil, returns nil</li>
 <li>if the operand is nil, returns nil</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-51"></a><a href="#examples-51" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var0 &lt;- curve({0,0},{10,10}, 0.5); <span class="hljs-comment">// var0 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. </span>
-<span class="hljs-literal">geometry</span> var1 &lt;- curve({0,0}, {0,10}, {10,10}); <span class="hljs-comment">// var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. </span>
+<span class="hljs-literal">geometry</span> var0 &lt;- curve({0,0}, {0,10}, {10,10}); <span class="hljs-comment">// var0 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. </span>
+<span class="hljs-literal">geometry</span> var1 &lt;- curve({0,0},{10,10}, 0.5, 100, 90); <span class="hljs-comment">// var1 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. </span>
 <span class="hljs-literal">geometry</span> var2 &lt;- curve({0,0},{10,10}, 0.5, false, 100); <span class="hljs-comment">// var2 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. </span>
-<span class="hljs-literal">geometry</span> var3 &lt;- curve({0,0},{10,10}, 0.5, false, 100, 0.8); <span class="hljs-comment">// var3 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. </span>
-<span class="hljs-literal">geometry</span> var4 &lt;- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); <span class="hljs-comment">// var4 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. </span>
-<span class="hljs-literal">geometry</span> var5 &lt;- curve({0,0}, {0,10}, {10,10}); <span class="hljs-comment">// var5 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. </span>
-<span class="hljs-literal">geometry</span> var6 &lt;- curve({0,0},{10,10}, 0.5, 90); <span class="hljs-comment">// var6 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. </span>
-<span class="hljs-literal">geometry</span> var7 &lt;- curve({0,0}, {0,10}, {10,10}, 20); <span class="hljs-comment">// var7 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. </span>
-<span class="hljs-literal">geometry</span> var8 &lt;- curve({0,0}, {0,10}, {10,10}); <span class="hljs-comment">// var8 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. </span>
-<span class="hljs-literal">geometry</span> var9 &lt;- curve({0,0},{10,10}, 0.5, false); <span class="hljs-comment">// var9 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. </span>
-<span class="hljs-literal">geometry</span> var10 &lt;- curve({0,0},{10,10}, 0.5, 100, 90); <span class="hljs-comment">// var10 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.</span>
+<span class="hljs-literal">geometry</span> var3 &lt;- curve({0,0},{10,10}, 0.5, false); <span class="hljs-comment">// var3 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. </span>
+<span class="hljs-literal">geometry</span> var4 &lt;- curve({0,0},{10,10}, 0.5); <span class="hljs-comment">// var4 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. </span>
+<span class="hljs-literal">geometry</span> var5 &lt;- curve({0,0}, {0,10}, {10,10}); <span class="hljs-comment">// var5 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. </span>
+<span class="hljs-literal">geometry</span> var6 &lt;- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); <span class="hljs-comment">// var6 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. </span>
+<span class="hljs-literal">geometry</span> var7 &lt;- curve({0,0}, {0,10}, {10,10}); <span class="hljs-comment">// var7 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. </span>
+<span class="hljs-literal">geometry</span> var8 &lt;- curve({0,0}, {0,10}, {10,10}, 20); <span class="hljs-comment">// var8 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. </span>
+<span class="hljs-literal">geometry</span> var9 &lt;- curve({0,0},{10,10}, 0.5, false, 100, 0.8); <span class="hljs-comment">// var9 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. </span>
+<span class="hljs-literal">geometry</span> var10 &lt;- curve({0,0},{10,10}, 0.5, 90); <span class="hljs-comment">// var10 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-33"></a><a href="#see-also-33" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
