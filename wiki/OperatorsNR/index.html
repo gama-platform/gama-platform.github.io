@@ -289,10 +289,10 @@
 <h3><a class="anchor" aria-hidden="true" id="neighbors_of"></a><a href="#neighbors_of" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>neighbors_of</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-2"></a><a href="#possible-use-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>graph</code> <strong><code>neighbors_of</code></strong> <code>unknown</code> ---&gt;  <code>list</code></li>
-<li><strong><code>neighbors_of</code></strong> (<code>graph</code> , <code>unknown</code>) ---&gt;  <code>list</code></li>
 <li><code>topology</code> <strong><code>neighbors_of</code></strong> <code>agent</code> ---&gt;  <code>list</code></li>
 <li><strong><code>neighbors_of</code></strong> (<code>topology</code> , <code>agent</code>) ---&gt;  <code>list</code></li>
+<li><code>graph</code> <strong><code>neighbors_of</code></strong> <code>unknown</code> ---&gt;  <code>list</code></li>
+<li><strong><code>neighbors_of</code></strong> (<code>graph</code> , <code>unknown</code>) ---&gt;  <code>list</code></li>
 <li><strong><code>neighbors_of</code></strong> (<code>topology</code>, <code>geometry</code>, <code>float</code>) ---&gt;  <code>list</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-2"></a><a href="#result-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
@@ -306,13 +306,13 @@
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-2"></a><a href="#examples-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span> var1 &lt;- graphEpidemio neighbors_of (node(3)); <span class="hljs-comment">// var1 equals [node0,node2] </span>
-<span class="hljs-literal">list</span> var2 &lt;- graphFromMap neighbors_of node({12,45}); <span class="hljs-comment">// var2 equals [{1.0,5.0},{34.0,56.0}] </span>
-<span class="hljs-literal">list</span> var3 &lt;- <span class="hljs-literal">topology</span>(self) neighbors_of self; <span class="hljs-comment">// var3 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology.</span>
+<span class="hljs-literal">list</span> var1 &lt;- <span class="hljs-literal">topology</span>(self) neighbors_of self; <span class="hljs-comment">// var1 equals returns all the agents located at a distance lower or equal to 1 to the agent applying the operator considering its topology. </span>
+<span class="hljs-literal">list</span> var2 &lt;- graphEpidemio neighbors_of (node(3)); <span class="hljs-comment">// var2 equals [node0,node2] </span>
+<span class="hljs-literal">list</span> var3 &lt;- graphFromMap neighbors_of node({12,45}); <span class="hljs-comment">// var3 equals [{1.0,5.0},{34.0,56.0}]</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-2"></a><a href="#see-also-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
-<p><a href="OperatorsNR#predecessors_of">predecessors_of</a>, <a href="OperatorsSZ#successors_of">successors_of</a>, <a href="OperatorsNR#neighbors_at">neighbors_at</a>, <a href="OperatorsBC#closest_to">closest_to</a>, <a href="OperatorsNR#overlapping">overlapping</a>, <a href="OperatorsAA#agents_overlapping">agents_overlapping</a>, <a href="OperatorsAA#agents_inside">agents_inside</a>, <a href="OperatorsAA#agent_closest_to">agent_closest_to</a>,</p>
+<p><a href="OperatorsNR#neighbors_at">neighbors_at</a>, <a href="OperatorsBC#closest_to">closest_to</a>, <a href="OperatorsNR#overlapping">overlapping</a>, <a href="OperatorsAA#agents_overlapping">agents_overlapping</a>, <a href="OperatorsAA#agents_inside">agents_inside</a>, <a href="OperatorsAA#agent_closest_to">agent_closest_to</a>, <a href="OperatorsNR#predecessors_of">predecessors_of</a>, <a href="OperatorsSZ#successors_of">successors_of</a>,</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="new_emotion"></a><a href="#new_emotion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>new_emotion</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-3"></a><a href="#possible-use-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
@@ -320,17 +320,17 @@
 <li><strong><code>new_emotion</code></strong> (<code>string</code>) ---&gt;  <code>emotion</code></li>
 <li><code>string</code> <strong><code>new_emotion</code></strong> <code>agent</code> ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>emotion</code></li>
-<li><code>string</code> <strong><code>new_emotion</code></strong> <code>predicate</code> ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>emotion</code></li>
 <li><code>string</code> <strong><code>new_emotion</code></strong> <code>float</code> ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>float</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>) ---&gt;  <code>emotion</code></li>
+<li><code>string</code> <strong><code>new_emotion</code></strong> <code>predicate</code> ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-3"></a><a href="#result-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
@@ -338,28 +338,28 @@
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name,about)
-a new emotion with the given properties (name, intensity)
-a new emotion with the given properties (name,intensity,decay)
+a new emotion with the given properties (name)
 a new emotion with the given properties (name,intensity,about)
 a new emotion with the given properties (name)
 a new emotion with the given properties (name)
+a new emotion with the given properties (name, intensity)
 a new emotion with the given properties (name)
-a new emotion with the given properties (name)</p>
+a new emotion with the given properties (name,about)
+a new emotion with the given properties (name,intensity,decay)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-3"></a><a href="#examples-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
-emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
-emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
-emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
-emotion(<span class="hljs-string">"joy"</span>,eatFood) 
-emotion(<span class="hljs-string">"joy"</span>,12.3) 
-emotion(<span class="hljs-string">"joy"</span>,12.3,4.0) 
-emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood) 
 emotion(<span class="hljs-string">"joy"</span>) 
 emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
 emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
-emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4)
+emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
+emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
+emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood) 
+emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
+emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
+emotion(<span class="hljs-string">"joy"</span>,12.3) 
+emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4) 
+emotion(<span class="hljs-string">"joy"</span>,eatFood) 
+emotion(<span class="hljs-string">"joy"</span>,12.3,4.0)
 
 </code></pre>
 <hr>
@@ -394,24 +394,24 @@ emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4)
 <li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>mental_state</code></li>
 <li><code>string</code> <strong><code>new_mental_state</code></strong> <code>mental_state</code> ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>mental_state</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
@@ -476,33 +476,33 @@ new_mental-<span class="hljs-keyword">state</span>(belief)
 <h4><a class="anchor" aria-hidden="true" id="possible-use-6"></a><a href="#possible-use-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>) ---&gt;  <code>predicate</code></li>
+<li><code>string</code> <strong><code>new_predicate</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
 <li><code>string</code> <strong><code>new_predicate</code></strong> <code>bool</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><code>string</code> <strong><code>new_predicate</code></strong> <code>map</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>map</code>) ---&gt;  <code>predicate</code></li>
-<li><code>string</code> <strong><code>new_predicate</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-6"></a><a href="#result-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>a new predicate with the given properties (name, values, is_true, agentCause)
-a new predicate with the given is_true (name, is_true)
-a new predicate with the given properties (name, values)
-a new predicate with the given properties (name, values, lifetime)
-a new predicate with the given properties (name, values, is_true)
+<p>a new predicate with the given properties (name, values, lifetime)
+a new predicate with the given properties (name, values,    agentCause)
 a new predicate with the given properties (name)
-a new predicate with the given properties (name, values,    agentCause)</p>
+a new predicate with the given is_true (name, is_true)
+a new predicate with the given properties (name, values, is_true)
+a new predicate with the given properties (name, values)
+a new predicate with the given properties (name, values, is_true, agentCause)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-6"></a><a href="#examples-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true, agentA) 
-predicate(<span class="hljs-string">"hasWater"</span>, true) 
-predicate(<span class="hljs-string">"people to meet"</span>, people1 ) 
 predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) 
-predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) 
+predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], agentA) 
 predicate(<span class="hljs-string">"people to meet"</span>) 
-predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], agentA)
+predicate(<span class="hljs-string">"hasWater"</span>, true) 
+predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) 
+predicate(<span class="hljs-string">"people to meet"</span>, people1 ) 
+predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true, agentA)
 
 </code></pre>
 <hr>
@@ -517,8 +517,8 @@ predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-
 a new social link</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-7"></a><a href="#examples-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-new_social_link(agentA,0.0,-0.1,0.2,0.1) 
-new_social_link(agentA)
+new_social_link(agentA) 
+new_social_link(agentA,0.0,-0.1,0.2,0.1)
 
 </code></pre>
 <hr>
@@ -1011,32 +1011,32 @@ void var1 &lt;- <span class="hljs-literal">file</span> f &lt;- osm_file(<span cl
 <h3><a class="anchor" aria-hidden="true" id="path_between"></a><a href="#path_between" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>path_between</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-34"></a><a href="#possible-use-34" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>topology</code> <strong><code>path_between</code></strong> <code>container&lt;unknown,geometry&gt;</code> ---&gt;  <code>path</code></li>
-<li><strong><code>path_between</code></strong> (<code>topology</code> , <code>container&lt;unknown,geometry&gt;</code>) ---&gt;  <code>path</code></li>
-<li><code>list&lt;agent&gt;</code> <strong><code>path_between</code></strong> <code>container&lt;unknown,geometry&gt;</code> ---&gt;  <code>path</code></li>
-<li><strong><code>path_between</code></strong> (<code>list&lt;agent&gt;</code> , <code>container&lt;unknown,geometry&gt;</code>) ---&gt;  <code>path</code></li>
 <li><code>map&lt;agent,unknown&gt;</code> <strong><code>path_between</code></strong> <code>container&lt;unknown,geometry&gt;</code> ---&gt;  <code>path</code></li>
 <li><strong><code>path_between</code></strong> (<code>map&lt;agent,unknown&gt;</code> , <code>container&lt;unknown,geometry&gt;</code>) ---&gt;  <code>path</code></li>
-<li><strong><code>path_between</code></strong> (<code>list&lt;agent&gt;</code>, <code>geometry</code>, <code>geometry</code>) ---&gt;  <code>path</code></li>
+<li><code>list&lt;agent&gt;</code> <strong><code>path_between</code></strong> <code>container&lt;unknown,geometry&gt;</code> ---&gt;  <code>path</code></li>
+<li><strong><code>path_between</code></strong> (<code>list&lt;agent&gt;</code> , <code>container&lt;unknown,geometry&gt;</code>) ---&gt;  <code>path</code></li>
+<li><code>topology</code> <strong><code>path_between</code></strong> <code>container&lt;unknown,geometry&gt;</code> ---&gt;  <code>path</code></li>
+<li><strong><code>path_between</code></strong> (<code>topology</code> , <code>container&lt;unknown,geometry&gt;</code>) ---&gt;  <code>path</code></li>
 <li><strong><code>path_between</code></strong> (<code>topology</code>, <code>geometry</code>, <code>geometry</code>) ---&gt;  <code>path</code></li>
-<li><strong><code>path_between</code></strong> (<code>map&lt;agent,unknown&gt;</code>, <code>geometry</code>, <code>geometry</code>) ---&gt;  <code>path</code></li>
+<li><strong><code>path_between</code></strong> (<code>list&lt;agent&gt;</code>, <code>geometry</code>, <code>geometry</code>) ---&gt;  <code>path</code></li>
 <li><strong><code>path_between</code></strong> (<code>graph</code>, <code>geometry</code>, <code>geometry</code>) ---&gt;  <code>path</code></li>
+<li><strong><code>path_between</code></strong> (<code>map&lt;agent,unknown&gt;</code>, <code>geometry</code>, <code>geometry</code>) ---&gt;  <code>path</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-31"></a><a href="#result-31" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>The shortest path between two objects according to set of cells
+<p>The shortest path between several objects according to set of cells with corresponding weights
+The shortest path between two objects according to set of cells
+The shortest path between a list of two objects in a graph
 The shortest path between two objects according to set of cells with corresponding weights
-The shortest path between several objects according to set of cells
-The shortest path between several objects according to set of cells with corresponding weights
-The shortest path between a list of two objects in a graph</p>
+The shortest path between several objects according to set of cells</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-26"></a><a href="#examples-26" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">path</span> var0 &lt;- path_between (cell_grid where each.is_free, ag1, ag2); <span class="hljs-comment">// var0 equals A path between ag1 and ag2 passing through the given cell_grid agents </span>
-<span class="hljs-literal">path</span> var1 &lt;- my_topology path_between (ag1, ag2); <span class="hljs-comment">// var1 equals A path between ag1 and ag2 </span>
-<span class="hljs-literal">path</span> var2 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); <span class="hljs-comment">// var2 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost </span>
-<span class="hljs-literal">path</span> var3 &lt;- my_topology path_between [ag1, ag2]; <span class="hljs-comment">// var3 equals A path between ag1 and ag2 </span>
-<span class="hljs-literal">path</span> var4 &lt;- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); <span class="hljs-comment">// var4 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents </span>
-<span class="hljs-literal">path</span> var5 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); <span class="hljs-comment">// var5 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost </span>
-<span class="hljs-literal">path</span> var6 &lt;- path_between (my_graph, ag1, ag2); <span class="hljs-comment">// var6 equals A path between ag1 and ag2</span>
+<span class="hljs-literal">path</span> var0 &lt;- my_topology path_between (ag1, ag2); <span class="hljs-comment">// var0 equals A path between ag1 and ag2 </span>
+<span class="hljs-literal">path</span> var1 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), [ag1, ag2, ag3]); <span class="hljs-comment">// var1 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents with minimal cost </span>
+<span class="hljs-literal">path</span> var2 &lt;- path_between (cell_grid where each.is_free, ag1, ag2); <span class="hljs-comment">// var2 equals A path between ag1 and ag2 passing through the given cell_grid agents </span>
+<span class="hljs-literal">path</span> var3 &lt;- path_between (my_graph, ag1, ag2); <span class="hljs-comment">// var3 equals A path between ag1 and ag2 </span>
+<span class="hljs-literal">path</span> var4 &lt;- path_between (cell_grid as_map (each::each.is_obstacle ? 9999.0 : 1.0), ag1, ag2); <span class="hljs-comment">// var4 equals A path between ag1 and ag2 passing through the given cell_grid agents with a minimal cost </span>
+<span class="hljs-literal">path</span> var5 &lt;- path_between (cell_grid where each.is_free, [ag1, ag2, ag3]); <span class="hljs-comment">// var5 equals A path between ag1 and ag2 and ag3 passing through the given cell_grid agents </span>
+<span class="hljs-literal">path</span> var6 &lt;- my_topology path_between [ag1, ag2]; <span class="hljs-comment">// var6 equals A path between ag1 and ag2</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-18"></a><a href="#see-also-18" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1045,10 +1045,10 @@ The shortest path between a list of two objects in a graph</p>
 <h3><a class="anchor" aria-hidden="true" id="path_to"></a><a href="#path_to" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>path_to</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-35"></a><a href="#possible-use-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><code>geometry</code> <strong><code>path_to</code></strong> <code>geometry</code> ---&gt;  <code>path</code></li>
-<li><strong><code>path_to</code></strong> (<code>geometry</code> , <code>geometry</code>) ---&gt;  <code>path</code></li>
 <li><code>point</code> <strong><code>path_to</code></strong> <code>point</code> ---&gt;  <code>path</code></li>
 <li><strong><code>path_to</code></strong> (<code>point</code> , <code>point</code>) ---&gt;  <code>path</code></li>
+<li><code>geometry</code> <strong><code>path_to</code></strong> <code>geometry</code> ---&gt;  <code>path</code></li>
+<li><strong><code>path_to</code></strong> (<code>geometry</code> , <code>geometry</code>) ---&gt;  <code>path</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-32"></a><a href="#result-32" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>A path between two geometries (geometries, agents or points) considering the topology of the agent applying the operator.</p>
@@ -1593,9 +1593,9 @@ unknown var0 &lt;- [1,2] product_of (each * 10 ); <span class="hljs-comment">// 
 <li><strong><code>range</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>list</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-62"></a><a href="#result-62" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>Allows to build a list of int representing all contiguous values from the first to the second argument, using the step represented by the third argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value. Passing a step of 0 will result in an exception. Attempting to build infinite ranges (e.g. end &gt; start with a negative step) will similarly not be accepted and yield an exception
-Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
-Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value</p>
+<p>Allows to build a list of int representing all contiguous values from zero to the argument. The range can be increasing or decreasing. Passing 0 will return a singleton list with 0
+Allows to build a list of int representing all contiguous values from the first to the second argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value
+Allows to build a list of int representing all contiguous values from the first to the second argument, using the step represented by the third argument. The range can be increasing or decreasing. Passing the same value for both will return a singleton list with this value. Passing a step of 0 will result in an exception. Attempting to build infinite ranges (e.g. end &gt; start with a negative step) will similarly not be accepted and yield an exception</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-53"></a><a href="#examples-53" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
 <span class="hljs-literal">list</span> var0 &lt;- range(0,2); <span class="hljs-comment">// var0 equals [0,1,2]</span>
@@ -1652,10 +1652,10 @@ agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hl
 <pre><code class="hljs"> 
 <span class="hljs-literal">geometry</span> var0 &lt;- rectangle({0.0,0.0}, {10.0,10.0}); <span class="hljs-comment">// var0 equals a geometry as a rectangle with {1.0,1.0} as the upper-left corner, {10.0,10.0} as the lower-right corner. </span>
 <span class="hljs-literal">float</span> var1 &lt;- rectangle({0.0,0.0}, {10.0,10.0}).area; <span class="hljs-comment">// var1 equals 100.0 </span>
-<span class="hljs-literal">geometry</span> var2 &lt;- rectangle(10, 5); <span class="hljs-comment">// var2 equals a geometry as a rectangle with width = 10 and height = 5. </span>
-<span class="hljs-literal">float</span> var3 &lt;- rectangle(10, 5).area; <span class="hljs-comment">// var3 equals 50.0 </span>
-<span class="hljs-literal">geometry</span> var4 &lt;- rectangle({10, 5}); <span class="hljs-comment">// var4 equals a geometry as a rectangle with width = 10 and height = 5. </span>
-<span class="hljs-literal">float</span> var5 &lt;- rectangle({10, 5}).area; <span class="hljs-comment">// var5 equals 50.0</span>
+<span class="hljs-literal">geometry</span> var2 &lt;- rectangle({10, 5}); <span class="hljs-comment">// var2 equals a geometry as a rectangle with width = 10 and height = 5. </span>
+<span class="hljs-literal">float</span> var3 &lt;- rectangle({10, 5}).area; <span class="hljs-comment">// var3 equals 50.0 </span>
+<span class="hljs-literal">geometry</span> var4 &lt;- rectangle(10, 5); <span class="hljs-comment">// var4 equals a geometry as a rectangle with width = 10 and height = 5. </span>
+<span class="hljs-literal">float</span> var5 &lt;- rectangle(10, 5).area; <span class="hljs-comment">// var5 equals 50.0</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-34"></a><a href="#see-also-34" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1739,8 +1739,8 @@ agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hl
 <h4><a class="anchor" aria-hidden="true" id="possible-use-76"></a><a href="#possible-use-76" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
 <li><strong><code>reverse</code></strong> (<code>map&lt;K,V&gt;</code>) ---&gt;  <code>map</code></li>
-<li><strong><code>reverse</code></strong> (<code>string</code>) ---&gt;  <code>string</code></li>
 <li><strong><code>reverse</code></strong> (<code>container&lt;KeyType,ValueType&gt;</code>) ---&gt;  <code>container&lt;unknown,unknown&gt;</code></li>
+<li><strong><code>reverse</code></strong> (<code>string</code>) ---&gt;  <code>string</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-71"></a><a href="#result-71" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>the operand elements in the reversed order in a copy of the operand.</p>
@@ -1751,28 +1751,28 @@ agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hl
 <li>if it is a file, reverse returns a copy of the file with a reversed content</li>
 <li>if it is a population, reverse returns a copy of the population with elements in the reversed order</li>
 <li>if it is a graph, reverse returns a copy of the graph (with all edges and vertexes), with all of the edges reversed</li>
-<li>if it is a string, reverse returns a new string with characters in the reversed order</li>
-</ul>
-<pre><code class="hljs"> 
-<span class="hljs-literal">string</span> var2 &lt;- reverse (<span class="hljs-string">'abcd'</span>); <span class="hljs-comment">// var2 equals 'dcba'</span>
-</code></pre>
-<ul>
 <li>if it is a list, reverse returns a copy of the operand list with elements in the reversed order</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var3 &lt;- reverse ([10,12,14]); <span class="hljs-comment">// var3 equals [14, 12, 10]</span>
+<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; var2 &lt;- reverse ([10,12,14]); <span class="hljs-comment">// var2 equals [14, 12, 10]</span>
 </code></pre>
 <ul>
 <li>if it is a map, reverse returns a copy of the operand map with each pair in the reversed order (i.e. all keys become values and values become keys)</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">string</span>&gt; var4 &lt;- reverse ([<span class="hljs-string">'k1'</span>::44, <span class="hljs-string">'k2'</span>::32, <span class="hljs-string">'k3'</span>::12]); <span class="hljs-comment">// var4 equals [44::'k1', 32::'k2', 12::'k3']</span>
+<span class="hljs-literal">map</span>&lt;<span class="hljs-literal">int</span>,<span class="hljs-literal">string</span>&gt; var3 &lt;- reverse ([<span class="hljs-string">'k1'</span>::44, <span class="hljs-string">'k2'</span>::32, <span class="hljs-string">'k3'</span>::12]); <span class="hljs-comment">// var3 equals [44::'k1', 32::'k2', 12::'k3']</span>
 </code></pre>
 <ul>
 <li>if it is a matrix, reverse returns a new matrix containing the transpose of the operand.</li>
 </ul>
 <pre><code class="hljs"> 
-<span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">string</span>&gt; var5 &lt;- reverse(<span class="hljs-literal">matrix</span>([[<span class="hljs-string">"c11"</span>,<span class="hljs-string">"c12"</span>,<span class="hljs-string">"c13"</span>],[<span class="hljs-string">"c21"</span>,<span class="hljs-string">"c22"</span>,<span class="hljs-string">"c23"</span>]])); <span class="hljs-comment">// var5 equals matrix([["c11","c21"],["c12","c22"],["c13","c23"]])</span>
+<span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">string</span>&gt; var4 &lt;- reverse(<span class="hljs-literal">matrix</span>([[<span class="hljs-string">"c11"</span>,<span class="hljs-string">"c12"</span>,<span class="hljs-string">"c13"</span>],[<span class="hljs-string">"c21"</span>,<span class="hljs-string">"c22"</span>,<span class="hljs-string">"c23"</span>]])); <span class="hljs-comment">// var4 equals matrix([["c11","c21"],["c12","c22"],["c13","c23"]])</span>
+</code></pre>
+<ul>
+<li>if it is a string, reverse returns a new string with characters in the reversed order</li>
+</ul>
+<pre><code class="hljs"> 
+<span class="hljs-literal">string</span> var5 &lt;- reverse (<span class="hljs-string">'abcd'</span>); <span class="hljs-comment">// var5 equals 'dcba'</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-60"></a><a href="#examples-60" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
@@ -1800,35 +1800,35 @@ agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hl
 <h3><a class="anchor" aria-hidden="true" id="rgb"></a><a href="#rgb" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>rgb</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-78"></a><a href="#possible-use-78" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
+<li><code>rgb</code> <strong><code>rgb</code></strong> <code>int</code> ---&gt;  <code>rgb</code></li>
+<li><strong><code>rgb</code></strong> (<code>rgb</code> , <code>int</code>) ---&gt;  <code>rgb</code></li>
 <li><code>rgb</code> <strong><code>rgb</code></strong> <code>float</code> ---&gt;  <code>rgb</code></li>
 <li><strong><code>rgb</code></strong> (<code>rgb</code> , <code>float</code>) ---&gt;  <code>rgb</code></li>
 <li><code>string</code> <strong><code>rgb</code></strong> <code>int</code> ---&gt;  <code>rgb</code></li>
 <li><strong><code>rgb</code></strong> (<code>string</code> , <code>int</code>) ---&gt;  <code>rgb</code></li>
-<li><code>rgb</code> <strong><code>rgb</code></strong> <code>int</code> ---&gt;  <code>rgb</code></li>
-<li><strong><code>rgb</code></strong> (<code>rgb</code> , <code>int</code>) ---&gt;  <code>rgb</code></li>
 <li><strong><code>rgb</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>rgb</code></li>
-<li><strong><code>rgb</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>rgb</code></li>
 <li><strong><code>rgb</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>, <code>float</code>) ---&gt;  <code>rgb</code></li>
+<li><strong><code>rgb</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>rgb</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-73"></a><a href="#result-73" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns a color defined by red, green, blue components and an alpha blending value.</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-22"></a><a href="#special-cases-22" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>It can be used with a color and an alpha between 0 and 1</li>
 <li>It can be used with r=red, g=green, b=blue, each between 0 and 255</li>
-<li>It can be used with a name of color and alpha (between 0 and 255)</li>
-<li>It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)</li>
 <li>It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0.0 and 1.0)</li>
 <li>It can be used with a color and an alpha between 0 and 255</li>
+<li>It can be used with a color and an alpha between 0 and 1</li>
+<li>It can be used with r=red, g=green, b=blue (each between 0 and 255), a=alpha (between 0 and 255)</li>
+<li>It can be used with a name of color and alpha (between 0 and 255)</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-62"></a><a href="#examples-62" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">rgb</span> var0 &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">rgb</span>(255,0,0),0.5); <span class="hljs-comment">// var0 equals a light red color </span>
-<span class="hljs-literal">rgb</span> var1 &lt;- <span class="hljs-literal">rgb</span> (255,0,0); <span class="hljs-comment">// var1 equals #red </span>
-<span class="hljs-literal">rgb</span> var2 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"red"</span>); <span class="hljs-comment">// var2 equals rgb(255,0,0) </span>
-<span class="hljs-literal">rgb</span> var3 &lt;- <span class="hljs-literal">rgb</span> (255,0,0,125); <span class="hljs-comment">// var3 equals a light red color </span>
-<span class="hljs-literal">rgb</span> var5 &lt;- <span class="hljs-literal">rgb</span> (255,0,0,0.5); <span class="hljs-comment">// var5 equals a light red color </span>
-<span class="hljs-literal">rgb</span> var6 &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">rgb</span>(255,0,0),125); <span class="hljs-comment">// var6 equals a light red color</span>
+<span class="hljs-literal">rgb</span> var0 &lt;- <span class="hljs-literal">rgb</span> (255,0,0); <span class="hljs-comment">// var0 equals #red </span>
+<span class="hljs-literal">rgb</span> var1 &lt;- <span class="hljs-literal">rgb</span> (255,0,0,0.5); <span class="hljs-comment">// var1 equals a light red color </span>
+<span class="hljs-literal">rgb</span> var2 &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">rgb</span>(255,0,0),125); <span class="hljs-comment">// var2 equals a light red color </span>
+<span class="hljs-literal">rgb</span> var3 &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">rgb</span>(255,0,0),0.5); <span class="hljs-comment">// var3 equals a light red color </span>
+<span class="hljs-literal">rgb</span> var4 &lt;- <span class="hljs-literal">rgb</span> (255,0,0,125); <span class="hljs-comment">// var4 equals a light red color </span>
+<span class="hljs-literal">rgb</span> var6 &lt;- <span class="hljs-literal">rgb</span> (<span class="hljs-string">"red"</span>); <span class="hljs-comment">// var6 equals rgb(255,0,0)</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-37"></a><a href="#see-also-37" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1868,9 +1868,9 @@ agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hl
 <li><strong><code>rnd</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 <li><code>point</code> <strong><code>rnd</code></strong> <code>point</code> ---&gt;  <code>point</code></li>
 <li><strong><code>rnd</code></strong> (<code>point</code> , <code>point</code>) ---&gt;  <code>point</code></li>
+<li><strong><code>rnd</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>rnd</code></strong> (<code>point</code>, <code>point</code>, <code>float</code>) ---&gt;  <code>point</code></li>
 <li><strong><code>rnd</code></strong> (<code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>int</code></li>
-<li><strong><code>rnd</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-75"></a><a href="#result-75" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>a random integer in the interval [0, operand]</p>
@@ -1883,14 +1883,14 @@ agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hl
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-64"></a><a href="#examples-64" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">point</span> var0 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); <span class="hljs-comment">// var0 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0 </span>
+<span class="hljs-literal">float</span> var0 &lt;- rnd (2.0, 4.0, 0.5); <span class="hljs-comment">// var0 equals a float number between 2.0 and 4.0 every 0.5 </span>
 <span class="hljs-literal">int</span> var1 &lt;- rnd (2); <span class="hljs-comment">// var1 equals 0, 1 or 2 </span>
 <span class="hljs-literal">float</span> var2 &lt;- rnd (1000) / 1000; <span class="hljs-comment">// var2 equals a float between 0 and 1 with a precision of 0.001 </span>
-<span class="hljs-literal">float</span> var3 &lt;- rnd(3.4); <span class="hljs-comment">// var3 equals a random float between 0.0 and 3.4 </span>
-<span class="hljs-literal">int</span> var4 &lt;- rnd (2, 12, 4); <span class="hljs-comment">// var4 equals 2, 6 or 10 </span>
-<span class="hljs-literal">int</span> var5 &lt;- rnd (2, 4); <span class="hljs-comment">// var5 equals 2, 3 or 4 </span>
-<span class="hljs-literal">point</span> var6 &lt;- rnd ({2.5,3, 0.0}); <span class="hljs-comment">// var6 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0 </span>
-<span class="hljs-literal">float</span> var7 &lt;- rnd (2.0, 4.0, 0.5); <span class="hljs-comment">// var7 equals a float number between 2.0 and 4.0 every 0.5 </span>
+<span class="hljs-literal">int</span> var3 &lt;- rnd (2, 4); <span class="hljs-comment">// var3 equals 2, 3 or 4 </span>
+<span class="hljs-literal">float</span> var4 &lt;- rnd(3.4); <span class="hljs-comment">// var4 equals a random float between 0.0 and 3.4 </span>
+<span class="hljs-literal">point</span> var5 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}, 1); <span class="hljs-comment">// var5 equals a point with x = 2.0, y equal to 2.0, 3.0 or 4.0 and z between 0.0 and 10.0 every 1.0 </span>
+<span class="hljs-literal">int</span> var6 &lt;- rnd (2, 12, 4); <span class="hljs-comment">// var6 equals 2, 6 or 10 </span>
+<span class="hljs-literal">point</span> var7 &lt;- rnd ({2.5,3, 0.0}); <span class="hljs-comment">// var7 equals {x,y} with x in [0.0,2.0], y in [0.0,3.0], z = 0.0 </span>
 <span class="hljs-literal">float</span> var8 &lt;- rnd (2.0, 4.0); <span class="hljs-comment">// var8 equals a float number between 2.0 and 4.0 </span>
 <span class="hljs-literal">point</span> var9 &lt;- rnd ({2.0, 4.0}, {2.0, 5.0, 10.0}); <span class="hljs-comment">// var9 equals a point with x = 2.0, y between 2.0 and 4.0 and z between 0.0 and 10.0</span>
 
@@ -1901,16 +1901,16 @@ agent_name &lt;- read (<span class="hljs-string">'name'</span>); <span class="hl
 <h3><a class="anchor" aria-hidden="true" id="rnd_choice"></a><a href="#rnd_choice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>rnd_choice</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-82"></a><a href="#possible-use-82" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
-<li><strong><code>rnd_choice</code></strong> (<code>list</code>) ---&gt;  <code>int</code></li>
 <li><strong><code>rnd_choice</code></strong> (<code>map&lt;unknown,unknown&gt;</code>) ---&gt;  <code>unknown</code></li>
+<li><strong><code>rnd_choice</code></strong> (<code>list</code>) ---&gt;  <code>int</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-76"></a><a href="#result-76" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>returns an index of the given list with a probability following the (normalized) distribution described in the list (a form of lottery)
-returns a key from the map with a probability following the (normalized) distribution described in map values (a form of lottery)</p>
+<p>returns a key from the map with a probability following the (normalized) distribution described in map values (a form of lottery)
+returns an index of the given list with a probability following the (normalized) distribution described in the list (a form of lottery)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-65"></a><a href="#examples-65" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-int var0 &lt;- rnd_choice([0.2,0.5,0.3]); // var0 equals 2/10 chances to return 0, 5/10 chances to return 1, 3/10 chances to return 2 
-unknown var1 &lt;- rnd_choice(["toto"::0.2,\"tata\"::0.5,\"tonton\"::0.3]); // var1 equals 2/10 chances to return "toto", 5/10 chances to return "tata", 3/10 chances to return "tonton"
+unknown var0 &lt;- rnd_choice(["toto"::0.2,\"tata\"::0.5,\"tonton\"::0.3]); // var0 equals 2/10 chances to return "toto", 5/10 chances to return "tata", 3/10 chances to return "tonton" 
+int var1 &lt;- rnd_choice([0.2,0.5,0.3]); // var1 equals 2/10 chances to return 0, 5/10 chances to return 1, 3/10 chances to return 2
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-39"></a><a href="#see-also-39" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1940,27 +1940,27 @@ rgb color</p>
 <h3><a class="anchor" aria-hidden="true" id="rotated_by"></a><a href="#rotated_by" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>rotated_by</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-use-84"></a><a href="#possible-use-84" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
+<li><code>geometry</code> <strong><code>rotated_by</code></strong> <code>float</code> ---&gt;  <code>geometry</code></li>
+<li><strong><code>rotated_by</code></strong> (<code>geometry</code> , <code>float</code>) ---&gt;  <code>geometry</code></li>
+<li><code>geometry</code> <strong><code>rotated_by</code></strong> <code>pair</code> ---&gt;  <code>geometry</code></li>
+<li><strong><code>rotated_by</code></strong> (<code>geometry</code> , <code>pair</code>) ---&gt;  <code>geometry</code></li>
 <li><code>geometry</code> <strong><code>rotated_by</code></strong> <code>int</code> ---&gt;  <code>geometry</code></li>
 <li><strong><code>rotated_by</code></strong> (<code>geometry</code> , <code>int</code>) ---&gt;  <code>geometry</code></li>
 <li><code>point</code> <strong><code>rotated_by</code></strong> <code>pair</code> ---&gt;  <code>point</code></li>
 <li><strong><code>rotated_by</code></strong> (<code>point</code> , <code>pair</code>) ---&gt;  <code>point</code></li>
-<li><code>geometry</code> <strong><code>rotated_by</code></strong> <code>pair</code> ---&gt;  <code>geometry</code></li>
-<li><strong><code>rotated_by</code></strong> (<code>geometry</code> , <code>pair</code>) ---&gt;  <code>geometry</code></li>
-<li><code>geometry</code> <strong><code>rotated_by</code></strong> <code>float</code> ---&gt;  <code>geometry</code></li>
-<li><strong><code>rotated_by</code></strong> (<code>geometry</code> , <code>float</code>) ---&gt;  <code>geometry</code></li>
 <li><strong><code>rotated_by</code></strong> (<code>geometry</code>, <code>float</code>, <code>point</code>) ---&gt;  <code>geometry</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-78"></a><a href="#result-78" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A geometry resulting from the application of the right-hand rotation operand (angles in degree) to the left-hand operand (geometry, agent, point)
-A geometry resulting from the application of a rotation by the right-hand operand angle (degree) to the left-hand operand (geometry, agent, point)
-A geometry resulting from the application of a rotation by the operand angles (degree) along the operand axis to the left-hand operand (geometry, agent, point)</p>
+<p>A geometry resulting from the application of a rotation by the right-hand operand angle (degree) to the left-hand operand (geometry, agent, point)
+A geometry resulting from the application of a rotation by the operand angles (degree) along the operand axis to the left-hand operand (geometry, agent, point)
+A geometry resulting from the application of the right-hand rotation operand (angles in degree) to the left-hand operand (geometry, agent, point)</p>
 <h4><a class="anchor" aria-hidden="true" id="comment-15"></a><a href="#comment-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
 <p>the right-hand operand can be a float or a intreturn a vector that results from</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-67"></a><a href="#examples-67" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"> 
-<span class="hljs-literal">geometry</span> var0 &lt;- rotated_by(pyramid(10),45.0::{1,0,0}); <span class="hljs-comment">// var0 equals the geometry resulting from a 45 degrees rotation along the {1,0,0} vector to the geometry of the agent applying the operator. </span>
-<span class="hljs-literal">geometry</span> var1 &lt;- self rotated_by 45; <span class="hljs-comment">// var1 equals the geometry resulting from a 45 degrees rotation to the geometry of the agent applying the operator. </span>
-<span class="hljs-literal">geometry</span> var2 &lt;- rotated_by(pyramid(10),45.0, {1,0,0}); <span class="hljs-comment">// var2 equals the geometry resulting from a 45 degrees rotation along the {1,0,0} vector to the geometry of the agent applying the operator.</span>
+<span class="hljs-literal">geometry</span> var0 &lt;- self rotated_by 45; <span class="hljs-comment">// var0 equals the geometry resulting from a 45 degrees rotation to the geometry of the agent applying the operator. </span>
+<span class="hljs-literal">geometry</span> var1 &lt;- rotated_by(pyramid(10),45.0, {1,0,0}); <span class="hljs-comment">// var1 equals the geometry resulting from a 45 degrees rotation along the {1,0,0} vector to the geometry of the agent applying the operator. </span>
+<span class="hljs-literal">geometry</span> var2 &lt;- rotated_by(pyramid(10),45.0::{1,0,0}); <span class="hljs-comment">// var2 equals the geometry resulting from a 45 degrees rotation along the {1,0,0} vector to the geometry of the agent applying the operator.</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="see-also-41"></a><a href="#see-also-41" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also:</h4>
@@ -1985,8 +1985,8 @@ A geometry resulting from the application of a rotation by the operand angles (d
 <h4><a class="anchor" aria-hidden="true" id="possible-use-86"></a><a href="#possible-use-86" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible use:</h4>
 <ul>
 <li><strong><code>round</code></strong> (<code>float</code>) ---&gt;  <code>int</code></li>
-<li><strong><code>round</code></strong> (<code>int</code>) ---&gt;  <code>int</code></li>
 <li><strong><code>round</code></strong> (<code>point</code>) ---&gt;  <code>point</code></li>
+<li><strong><code>round</code></strong> (<code>int</code>) ---&gt;  <code>int</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-80"></a><a href="#result-80" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the rounded value of the operand.</p>
