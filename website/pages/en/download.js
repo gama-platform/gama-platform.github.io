@@ -164,6 +164,44 @@ function Download(props) {
               <div className="blockElement imageAlignTop threeByGridBlock"></div>
             </FlexContainer>
         </div>
+
+        <div className="post">
+            <h2>Older documentation</h2>
+            <p>Below is the list to the <strong>PDF documentations</strong> of the <strong>previous versions of GAMA</strong>.</p>
+
+            <FlexContainer>
+              <div className="blockElement imageAlignTop threeByGridBlock">
+                <div className="blockContent">
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv1.8.0.pdf`} className="button buttonRed">GAMA 1.8.0 (~ 34 MB)
+                  </Button>
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv17.pdf`} className="button buttonBlue">GAMA 1.7 (~ 17 MB)
+                  </Button>
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv161.pdf`} className="button buttonOrange">GAMA 1.6.1 (~ 13 MB)
+                  </Button>
+                </div>
+              </div>
+
+              <div className="blockElement imageAlignTop threeByGridBlock">
+                <div className="blockContent">
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv16.pdf`} className="button buttonRed">GAMA 1.6 (~ 13 MB)
+                  </Button>
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv151.pdf`} className="button buttonBlue">GAMA 1.5.1 (~ 2 MB)
+                  </Button>
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv14.pdf`} className="button buttonOrange">GAMA 1.4 (> 1 MB)
+                  </Button>
+                </div>
+              </div>
+
+              <div className="blockElement imageAlignTop threeByGridBlock">
+                <div className="blockContent">
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv13.pdf`} className="button buttonRed">GAMA 1.3 (~ 2 MB)
+                  </Button>
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv11.pdf`} className="button buttonBlue">GAMA 1.1 (~ 1 MB)
+                  </Button>
+                </div>
+              </div>
+            </FlexContainer>
+        </div>
       </Container>
     </div>
   );
