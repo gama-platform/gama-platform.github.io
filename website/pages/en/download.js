@@ -150,15 +150,12 @@ function Download(props) {
         <div className="post">
             <FlexContainer>
               <div className="blockElement imageAlignTop threeByGridBlock">
-      		      <div className="blockContent">
-        			    <h2>Documentation</h2>
-        				  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMA${siteConfig.downloadVersion}.pdf`} className="button buttonRed">PDF (~ 34 MB)
+                <div className="blockContent">
+                  <h2>Documentation</h2>
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMA${siteConfig.downloadVersion}.pdf`} className="button buttonRed">PDF (~ 22 MB)
                     <span class="tooltiptext">This is the <b>offline GAMA {siteConfig.downloadVersion} documentation</b> ready to be download in a PDF file.</span>
-            			</Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMA${siteConfig.downloadVersion}.epub`} className="button buttonBlue">epub (~ 32 MB)
-                    <span class="tooltiptext">This is the <b>offline GAMA {siteConfig.downloadVersion} documentation</b> ready to be download in a EPUB file.</span>
                   </Button>
-      		      </div>
+                </div>
               </div>
 
               <div className="blockElement imageAlignTop threeByGridBlock">
