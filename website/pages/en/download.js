@@ -141,7 +141,7 @@ function Download(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="post">
           <header className="postHeader">
-            <h1>Download</h1>
+            <h1>Download latest version (currently <a href="https://github.com/gama-platform/gama/releases/latest" target="_blank">version {siteConfig.downloadVersion}</a>)</h1>
           </header>
           <p>The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the daily release.</p>
           <OsGrid version={siteConfig.downloadVersion} zipName={siteConfig.zipName} />
