@@ -323,10 +323,10 @@
 <h4><a class="anchor" aria-hidden="true" id="result-4"></a><a href="#result-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>A polygon that is equivalent to the surface of the texture</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-4"></a><a href="#examples-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">geometry</span> var0 &lt;- dem(dem,texture,z_factor); <span class="hljs-comment">// var0 equals a geometry as a rectangle of width and height equal to the texture. </span>
-<span class="hljs-literal">geometry</span> var1 &lt;- dem(dem,z_factor); <span class="hljs-comment">// var1 equals a geometry as a rectangle of weight and height equal to the texture. </span>
-<span class="hljs-literal">geometry</span> var2 &lt;- dem(dem,texture); <span class="hljs-comment">// var2 equals a geometry as a rectangle of weight and height equal to the texture. </span>
-<span class="hljs-literal">geometry</span> var3 &lt;- dem(dem); <span class="hljs-comment">// var3 equals returns a geometry as a rectangle of width and height equal to the texture.</span>
+<pre><code class="hljs"><span class="hljs-literal">geometry</span> var0 &lt;- dem(dem,z_factor); <span class="hljs-comment">// var0 equals a geometry as a rectangle of weight and height equal to the texture. </span>
+<span class="hljs-literal">geometry</span> var1 &lt;- dem(dem); <span class="hljs-comment">// var1 equals returns a geometry as a rectangle of width and height equal to the texture. </span>
+<span class="hljs-literal">geometry</span> var2 &lt;- dem(dem,texture,z_factor); <span class="hljs-comment">// var2 equals a geometry as a rectangle of width and height equal to the texture. </span>
+<span class="hljs-literal">geometry</span> var3 &lt;- dem(dem,texture); <span class="hljs-comment">// var3 equals a geometry as a rectangle of weight and height equal to the texture.</span>
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="det"></a><a href="#det" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>det</code></h3>
@@ -451,8 +451,8 @@
 <h4><a class="anchor" aria-hidden="true" id="result-13"></a><a href="#result-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Discretize a list of values into n bins (computes the bins from a numerical variable into n (default 10) bins. Returns a distribution map with the values (values key), the interval legends (legend key), the distribution parameters (params keys, for cumulative charts). Parameters can be (list), (list, nbbins) or (list,nbbins,valmin,valmax)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-10"></a><a href="#examples-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">map</span> var0 &lt;- distribution_of([1,1,2,12.5]); <span class="hljs-comment">// var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) </span>
-<span class="hljs-literal">map</span> var1 &lt;- distribution_of([1,1,2,12.5],10); <span class="hljs-comment">// var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) </span>
+<pre><code class="hljs"><span class="hljs-literal">map</span> var0 &lt;- distribution_of([1,1,2,12.5],10); <span class="hljs-comment">// var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) </span>
+<span class="hljs-literal">map</span> var1 &lt;- distribution_of([1,1,2,12.5]); <span class="hljs-comment">// var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) </span>
 <span class="hljs-literal">map</span> var2 &lt;- distribution_of([1,1,2,12.5]); <span class="hljs-comment">// var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])</span>
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsAA#as_map">as_map</a>,</p>
@@ -477,14 +477,14 @@
 <h3><a class="anchor" aria-hidden="true" id="div"></a><a href="#div" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>div</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-15"></a><a href="#possible-uses-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><code>int</code> <strong><code>div</code></strong> <code>float</code> ---&gt;  <code>int</code></li>
-<li><strong><code>div</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>int</code></li>
-<li><code>float</code> <strong><code>div</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
-<li><strong><code>div</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>int</code></li>
 <li><code>float</code> <strong><code>div</code></strong> <code>float</code> ---&gt;  <code>int</code></li>
 <li><strong><code>div</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>int</code></li>
 <li><code>int</code> <strong><code>div</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
 <li><strong><code>div</code></strong> (<code>int</code> , <code>int</code>) ---&gt;  <code>int</code></li>
+<li><code>float</code> <strong><code>div</code></strong> <code>int</code> ---&gt;  <code>int</code></li>
+<li><strong><code>div</code></strong> (<code>float</code> , <code>int</code>) ---&gt;  <code>int</code></li>
+<li><code>int</code> <strong><code>div</code></strong> <code>float</code> ---&gt;  <code>int</code></li>
+<li><strong><code>div</code></strong> (<code>int</code> , <code>float</code>) ---&gt;  <code>int</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-15"></a><a href="#result-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the truncation of the division of the left-hand operand by the right-hand operand.</p>
@@ -493,10 +493,10 @@
 <li>if the right-hand operand is equal to zero, raises an exception.</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-12"></a><a href="#examples-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var0 &lt;- 40 div 4.1; <span class="hljs-comment">// var0 equals 9 </span>
-<span class="hljs-literal">int</span> var1 &lt;- 40.5 div 3; <span class="hljs-comment">// var1 equals 13 </span>
-<span class="hljs-literal">int</span> var2 &lt;- 40.1 div 4.5; <span class="hljs-comment">// var2 equals 8 </span>
-<span class="hljs-literal">int</span> var3 &lt;- 40 div 3; <span class="hljs-comment">// var3 equals 13</span>
+<pre><code class="hljs"><span class="hljs-literal">int</span> var0 &lt;- 40.1 div 4.5; <span class="hljs-comment">// var0 equals 8 </span>
+<span class="hljs-literal">int</span> var1 &lt;- 40 div 3; <span class="hljs-comment">// var1 equals 13 </span>
+<span class="hljs-literal">int</span> var2 &lt;- 40.5 div 3; <span class="hljs-comment">// var2 equals 13 </span>
+<span class="hljs-literal">int</span> var3 &lt;- 40 div 4.1; <span class="hljs-comment">// var3 equals 9</span>
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsIM#mod">mod</a>,</p>
 <hr>
@@ -511,11 +511,11 @@
 <li><strong><code>dtw</code></strong> (<code>list</code>, <code>list</code>, <code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-16"></a><a href="#result-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>returns the dynamic time warping between the two series of values (step pattern used: symetric1)
-returns the dynamic time warping between the two series of values (step pattern used: symetric1) with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)</p>
+<p>returns the dynamic time warping between the two series of values (step pattern used: symetric1) with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
+returns the dynamic time warping between the two series of values (step pattern used: symetric1)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-13"></a><a href="#examples-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- dtw([32.0,5.0,1.0,3.0],[1.0,10.0,5.0,1.0]); <span class="hljs-comment">// var0 equals 38.0 </span>
-<span class="hljs-literal">float</span> var1 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); <span class="hljs-comment">// var1 equals 11.0</span>
+<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); <span class="hljs-comment">// var0 equals 11.0 </span>
+<span class="hljs-literal">float</span> var1 &lt;- dtw([32.0,5.0,1.0,3.0],[1.0,10.0,5.0,1.0]); <span class="hljs-comment">// var1 equals 38.0</span>
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="durbin_watson"></a><a href="#durbin_watson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>durbin_watson</code></h3>
@@ -554,25 +554,25 @@ returns the dynamic time warping between the two series of values (step pattern 
 <h3><a class="anchor" aria-hidden="true" id="edge-1"></a><a href="#edge-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>edge</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-19"></a><a href="#possible-uses-19" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>edge</code></strong> (<code>unknown</code>) ---&gt;  <code>unknown</code></li>
 <li><strong><code>edge</code></strong> (<code>pair</code>) ---&gt;  <code>unknown</code></li>
-<li><code>unknown</code> <strong><code>edge</code></strong> <code>unknown</code> ---&gt;  <code>unknown</code></li>
-<li><strong><code>edge</code></strong> (<code>unknown</code> , <code>unknown</code>) ---&gt;  <code>unknown</code></li>
-<li><code>pair</code> <strong><code>edge</code></strong> <code>float</code> ---&gt;  <code>unknown</code></li>
-<li><strong><code>edge</code></strong> (<code>pair</code> , <code>float</code>) ---&gt;  <code>unknown</code></li>
-<li><code>pair</code> <strong><code>edge</code></strong> <code>int</code> ---&gt;  <code>unknown</code></li>
-<li><strong><code>edge</code></strong> (<code>pair</code> , <code>int</code>) ---&gt;  <code>unknown</code></li>
+<li><strong><code>edge</code></strong> (<code>unknown</code>) ---&gt;  <code>unknown</code></li>
 <li><code>unknown</code> <strong><code>edge</code></strong> <code>int</code> ---&gt;  <code>unknown</code></li>
 <li><strong><code>edge</code></strong> (<code>unknown</code> , <code>int</code>) ---&gt;  <code>unknown</code></li>
+<li><code>unknown</code> <strong><code>edge</code></strong> <code>unknown</code> ---&gt;  <code>unknown</code></li>
+<li><strong><code>edge</code></strong> (<code>unknown</code> , <code>unknown</code>) ---&gt;  <code>unknown</code></li>
+<li><code>pair</code> <strong><code>edge</code></strong> <code>int</code> ---&gt;  <code>unknown</code></li>
+<li><strong><code>edge</code></strong> (<code>pair</code> , <code>int</code>) ---&gt;  <code>unknown</code></li>
+<li><code>pair</code> <strong><code>edge</code></strong> <code>float</code> ---&gt;  <code>unknown</code></li>
+<li><strong><code>edge</code></strong> (<code>pair</code> , <code>float</code>) ---&gt;  <code>unknown</code></li>
 <li><code>unknown</code> <strong><code>edge</code></strong> <code>float</code> ---&gt;  <code>unknown</code></li>
 <li><strong><code>edge</code></strong> (<code>unknown</code> , <code>float</code>) ---&gt;  <code>unknown</code></li>
-<li><strong><code>edge</code></strong> (<code>unknown</code>, <code>unknown</code>, <code>unknown</code>) ---&gt;  <code>unknown</code></li>
-<li><strong><code>edge</code></strong> (<code>unknown</code>, <code>unknown</code>, <code>float</code>) ---&gt;  <code>unknown</code></li>
-<li><strong><code>edge</code></strong> (<code>unknown</code>, <code>unknown</code>, <code>int</code>) ---&gt;  <code>unknown</code></li>
-<li><strong><code>edge</code></strong> (<code>pair</code>, <code>unknown</code>, <code>int</code>) ---&gt;  <code>unknown</code></li>
 <li><strong><code>edge</code></strong> (<code>pair</code>, <code>unknown</code>, <code>float</code>) ---&gt;  <code>unknown</code></li>
-<li><strong><code>edge</code></strong> (<code>unknown</code>, <code>unknown</code>, <code>unknown</code>, <code>float</code>) ---&gt;  <code>unknown</code></li>
+<li><strong><code>edge</code></strong> (<code>pair</code>, <code>unknown</code>, <code>int</code>) ---&gt;  <code>unknown</code></li>
+<li><strong><code>edge</code></strong> (<code>unknown</code>, <code>unknown</code>, <code>unknown</code>) ---&gt;  <code>unknown</code></li>
+<li><strong><code>edge</code></strong> (<code>unknown</code>, <code>unknown</code>, <code>int</code>) ---&gt;  <code>unknown</code></li>
+<li><strong><code>edge</code></strong> (<code>unknown</code>, <code>unknown</code>, <code>float</code>) ---&gt;  <code>unknown</code></li>
 <li><strong><code>edge</code></strong> (<code>unknown</code>, <code>unknown</code>, <code>unknown</code>, <code>int</code>) ---&gt;  <code>unknown</code></li>
+<li><strong><code>edge</code></strong> (<code>unknown</code>, <code>unknown</code>, <code>unknown</code>, <code>float</code>) ---&gt;  <code>unknown</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-19"></a><a href="#result-19" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Allows to create a wrapper (of type unknown) that wraps two objects and indicates they should be considered as the source and the target of a new edge of a graph. The third (omissible) parameter indicates which weight this edge should have in the graph</p>
@@ -712,21 +712,21 @@ returns the dynamic time warping between the two series of values (step pattern 
 <h3><a class="anchor" aria-hidden="true" id="enter"></a><a href="#enter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>enter</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-29"></a><a href="#possible-uses-29" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><code>string</code> <strong><code>enter</code></strong> <code>bool</code> ---&gt;  <code>unknown</code></li>
-<li><strong><code>enter</code></strong> (<code>string</code> , <code>bool</code>) ---&gt;  <code>unknown</code></li>
-<li><code>string</code> <strong><code>enter</code></strong> <code>float</code> ---&gt;  <code>unknown</code></li>
-<li><strong><code>enter</code></strong> (<code>string</code> , <code>float</code>) ---&gt;  <code>unknown</code></li>
-<li><code>string</code> <strong><code>enter</code></strong> <code>int</code> ---&gt;  <code>unknown</code></li>
-<li><strong><code>enter</code></strong> (<code>string</code> , <code>int</code>) ---&gt;  <code>unknown</code></li>
-<li><code>string</code> <strong><code>enter</code></strong> <code>any GAML type</code> ---&gt;  <code>unknown</code></li>
-<li><strong><code>enter</code></strong> (<code>string</code> , <code>any GAML type</code>) ---&gt;  <code>unknown</code></li>
 <li><code>string</code> <strong><code>enter</code></strong> <code>string</code> ---&gt;  <code>unknown</code></li>
 <li><strong><code>enter</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>unknown</code></li>
+<li><code>string</code> <strong><code>enter</code></strong> <code>bool</code> ---&gt;  <code>unknown</code></li>
+<li><strong><code>enter</code></strong> (<code>string</code> , <code>bool</code>) ---&gt;  <code>unknown</code></li>
+<li><code>string</code> <strong><code>enter</code></strong> <code>any GAML type</code> ---&gt;  <code>unknown</code></li>
+<li><strong><code>enter</code></strong> (<code>string</code> , <code>any GAML type</code>) ---&gt;  <code>unknown</code></li>
+<li><code>string</code> <strong><code>enter</code></strong> <code>int</code> ---&gt;  <code>unknown</code></li>
+<li><strong><code>enter</code></strong> (<code>string</code> , <code>int</code>) ---&gt;  <code>unknown</code></li>
+<li><code>string</code> <strong><code>enter</code></strong> <code>float</code> ---&gt;  <code>unknown</code></li>
+<li><strong><code>enter</code></strong> (<code>string</code> , <code>float</code>) ---&gt;  <code>unknown</code></li>
 <li><code>string</code> <strong><code>enter</code></strong> <code>unknown</code> ---&gt;  <code>unknown</code></li>
 <li><strong><code>enter</code></strong> (<code>string</code> , <code>unknown</code>) ---&gt;  <code>unknown</code></li>
 <li><strong><code>enter</code></strong> (<code>string</code>, <code>any GAML type</code>, <code>unknown</code>) ---&gt;  <code>unknown</code></li>
-<li><strong><code>enter</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>unknown</code></li>
 <li><strong><code>enter</code></strong> (<code>string</code>, <code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>unknown</code></li>
+<li><strong><code>enter</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>unknown</code></li>
 <li><strong><code>enter</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>unknown</code></li>
 <li><strong><code>enter</code></strong> (<code>string</code>, <code>int</code>, <code>int</code>, <code>int</code>, <code>int</code>) ---&gt;  <code>unknown</code></li>
 </ul>
@@ -819,28 +819,28 @@ returns the dynamic time warping between the two series of values (step pattern 
 <h3><a class="anchor" aria-hidden="true" id="every"></a><a href="#every" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>every</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-35"></a><a href="#possible-uses-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>every</code></strong> (<code>int</code>) ---&gt;  <code>bool</code></li>
 <li><strong><code>every</code></strong> (<code>any expression</code>) ---&gt;  <code>bool</code></li>
+<li><strong><code>every</code></strong> (<code>int</code>) ---&gt;  <code>bool</code></li>
 <li><code>list</code> <strong><code>every</code></strong> <code>any expression</code> ---&gt;  <code>list&lt;date&gt;</code></li>
 <li><strong><code>every</code></strong> (<code>list</code> , <code>any expression</code>) ---&gt;  <code>list&lt;date&gt;</code></li>
 <li><code>list</code> <strong><code>every</code></strong> <code>int</code> ---&gt;  <code>list</code></li>
 <li><strong><code>every</code></strong> (<code>list</code> , <code>int</code>) ---&gt;  <code>list</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-35"></a><a href="#result-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>true every operand * cycle, false otherwise
+<p>applies a step to an interval of dates defined by 'date1 to date2'
+Retrieves elements from the first argument every <code>step</code> (second argument) elements. Raises an error if the step is negative or equal to zero
 expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
-applies a step to an interval of dates defined by 'date1 to date2'
-Retrieves elements from the first argument every <code>step</code> (second argument) elements. Raises an error if the step is negative or equal to zero</p>
+true every operand * cycle, false otherwise</p>
 <h4><a class="anchor" aria-hidden="true" id="comment-5"></a><a href="#comment-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
-<p>the value of the every operator depends on the cycle. It can be used to do something every x cycle.Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting point</p>
+<p>Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to do something every x cycle.</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-25"></a><a href="#examples-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-keyword">if</span> every(2#cycle) {<span class="hljs-keyword">write</span> <span class="hljs-string">"the cycle number is even"</span>;} 
-         <span class="hljs-keyword">else</span> {<span class="hljs-keyword">write</span> <span class="hljs-string">"the cycle number is odd"</span>;} 
+<pre><code class="hljs">(date(<span class="hljs-string">'2000-01-01'</span>) to date(<span class="hljs-string">'2010-01-01'</span>)) every (#month) <span class="hljs-comment">// builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval </span>
 <span class="hljs-builtin">reflex</span> <span class="hljs-symbol">when:</span> every(2#days) since date(<span class="hljs-string">'2000-01-01'</span>) { .. } 
 <span class="hljs-keyword">state</span> a { <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> b <span class="hljs-symbol">when:</span> every(2#mn);} <span class="hljs-keyword">state</span> b { <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> a <span class="hljs-symbol">when:</span> every(30#s);} <span class="hljs-comment">// This oscillatory behavior will use the starting_date of the model as its starting point in time </span>
-(date(<span class="hljs-string">'2000-01-01'</span>) to date(<span class="hljs-string">'2010-01-01'</span>)) every (#month) <span class="hljs-comment">// builds an interval between these two dates which contains all the monthly dates starting from the beginning of the interval</span>
+<span class="hljs-keyword">if</span> every(2#cycle) {<span class="hljs-keyword">write</span> <span class="hljs-string">"the cycle number is even"</span>;} 
+         <span class="hljs-keyword">else</span> {<span class="hljs-keyword">write</span> <span class="hljs-string">"the cycle number is odd"</span>;}
 </code></pre>
-<p><strong>See also:</strong> <a href="OperatorsSZ#since">since</a>, <a href="OperatorsAA#after">after</a>, <a href="OperatorsSZ#to">to</a>,</p>
+<p><strong>See also:</strong> <a href="OperatorsSZ#to">to</a>, <a href="OperatorsSZ#since">since</a>, <a href="OperatorsAA#after">after</a>,</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="every_cycle"></a><a href="#every_cycle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>every_cycle</code></h3>
 <p>Same signification as <a href="OperatorsDH#every">every</a></p>
@@ -868,8 +868,8 @@ Retrieves elements from the first argument every <code>step</code> (second argum
 <h3><a class="anchor" aria-hidden="true" id="exp"></a><a href="#exp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>exp</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-37"></a><a href="#possible-uses-37" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>exp</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>exp</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>exp</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-37"></a><a href="#result-37" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns Euler's number e raised to the power of the operand.</p>
@@ -951,8 +951,8 @@ Retrieves elements from the first argument every <code>step</code> (second argum
 <h3><a class="anchor" aria-hidden="true" id="first"></a><a href="#first" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>first</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-43"></a><a href="#possible-uses-43" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>first</code></strong> (<code>string</code>) ---&gt;  <code>string</code></li>
 <li><strong><code>first</code></strong> (<code>container&lt;KeyType,ValueType&gt;</code>) ---&gt;  <code>ValueType</code></li>
+<li><strong><code>first</code></strong> (<code>string</code>) ---&gt;  <code>string</code></li>
 <li><code>int</code> <strong><code>first</code></strong> <code>container</code> ---&gt;  <code>list</code></li>
 <li><strong><code>first</code></strong> (<code>int</code> , <code>container</code>) ---&gt;  <code>list</code></li>
 </ul>
@@ -969,14 +969,14 @@ Retrieves elements from the first argument every <code>step</code> (second argum
 <li>if it is a matrix, first returns the element at {0,0} in the matrix</li>
 <li>for a matrix of int or float, it will return 0 if the matrix is empty</li>
 <li>for a matrix of object or geometry, it will return nil if the matrix is empty</li>
-<li>if it is a string, first returns a string composed of its first character</li>
-</ul>
-<pre><code class="hljs"><span class="hljs-literal">string</span> var0 &lt;- first (<span class="hljs-string">'abce'</span>); <span class="hljs-comment">// var0 equals 'a'</span>
-</code></pre>
-<ul>
 <li>if it is a list, first returns the first element of the list, or nil if the list is empty</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var1 &lt;- first ([1, 2, 3]); <span class="hljs-comment">// var1 equals 1</span>
+<pre><code class="hljs"><span class="hljs-literal">int</span> var0 &lt;- first ([1, 2, 3]); <span class="hljs-comment">// var0 equals 1</span>
+</code></pre>
+<ul>
+<li>if it is a string, first returns a string composed of its first character</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">string</span> var1 &lt;- first (<span class="hljs-string">'abce'</span>); <span class="hljs-comment">// var1 equals 'a'</span>
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsIM#last">last</a>,</p>
 <hr>
@@ -1129,11 +1129,11 @@ unknown var3 &lt;- (<span class="hljs-literal">list</span>(node) first_with (rou
 <li><strong><code>fuzzy_kappa</code></strong> (<code>list&lt;agent&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;float&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>matrix&lt;float&gt;</code>, <code>float</code>, <code>list&lt;unknown&gt;</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-53"></a><a href="#result-53" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
-fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21</p>
+<p>fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
+fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-40"></a><a href="#examples-40" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) 
-fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2)
+<pre><code class="hljs">fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) 
+fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0])
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="fuzzy_kappa_sim"></a><a href="#fuzzy_kappa_sim" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>fuzzy_kappa_sim</code></h3>
@@ -1281,16 +1281,16 @@ fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1
 <li><strong><code>gauss</code></strong> (<code>float</code> , <code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-64"></a><a href="#result-64" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A value from a normally distributed random variable with expected value (mean as first operand) and variance (standardDeviation as second operand). The probability density function of such a variable is a Gaussian.
-The operator can be used with an operand of type point {meand,standardDeviation}.</p>
+<p>The operator can be used with an operand of type point {meand,standardDeviation}.
+A value from a normally distributed random variable with expected value (mean as first operand) and variance (standardDeviation as second operand). The probability density function of such a variable is a Gaussian.</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-21"></a><a href="#special-cases-21" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>when standardDeviation value is 0.0, it always returns the mean value</li>
 <li>when the operand is a point, it is read as {mean, standardDeviation}</li>
+<li>when standardDeviation value is 0.0, it always returns the mean value</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-48"></a><a href="#examples-48" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- gauss(0,0.3); <span class="hljs-comment">// var0 equals 0.22354 </span>
-<span class="hljs-literal">float</span> var1 &lt;- gauss({0,0.3}); <span class="hljs-comment">// var1 equals 0.22354</span>
+<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- gauss({0,0.3}); <span class="hljs-comment">// var0 equals 0.22354 </span>
+<span class="hljs-literal">float</span> var1 &lt;- gauss(0,0.3); <span class="hljs-comment">// var1 equals 0.22354</span>
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsBC#binomial">binomial</a>, <a href="OperatorsDH#gamma_rnd">gamma_rnd</a>, <a href="OperatorsIM#lognormal_rnd">lognormal_rnd</a>, <a href="OperatorsNR#poisson">poisson</a>, <a href="OperatorsNR#rnd">rnd</a>, <a href="OperatorsSZ#skew_gauss">skew_gauss</a>, <a href="OperatorsSZ#truncated_gauss">truncated_gauss</a>, <a href="OperatorsSZ#weibull_rnd">weibull_rnd</a>,</p>
 <hr>
@@ -1344,21 +1344,21 @@ The operator can be used with an operand of type point {meand,standardDeviation}
 <p>Arguments should include following elements:</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-23"></a><a href="#special-cases-23" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>&quot;agents&quot;: list of existing node agents; &quot;edges_species&quot;: the species of edges; &quot;layoutRadius&quot;: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment; &quot;synchronized&quot;: is the graph and the species of vertices and edges synchronized?</li>
-</ul>
-<pre><code class="hljs"><span class="hljs-literal">graph</span>&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 
-            myListOfNodes, 
-            myEdgeSpecy, 
-            25, 
-        true);
-</code></pre>
-<ul>
 <li>&quot;vertices_specy&quot;: the species of vertices; &quot;edges_species&quot;: the species of edges; &quot;size&quot;: the graph will contain size nodes; &quot;layoutRadius&quot;: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment;&quot;synchronized&quot;: is the graph and the species of vertices and edges synchronized?</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">graph</span>&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 
             myVertexSpecy, 
             myEdgeSpecy, 
             10, 25, 
+        true);
+</code></pre>
+<ul>
+<li>&quot;agents&quot;: list of existing node agents; &quot;edges_species&quot;: the species of edges; &quot;layoutRadius&quot;: nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment; &quot;synchronized&quot;: is the graph and the species of vertices and edges synchronized?</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">graph</span>&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_complete_graph( 
+            myListOfNodes, 
+            myEdgeSpecy, 
+            25, 
         true);
 </code></pre>
 <ul>
@@ -1392,22 +1392,22 @@ The operator can be used with an operand of type point {meand,standardDeviation}
 <p>The Watts-Strogatz model is a random graph generation model that produces graphs with small-world properties, including short average path lengths and high clustering.A small-world network is a type of graph in which most nodes are not neighbors of one another, but most nodes can be reached from every other by a small number of hops or steps. [From Wikipedia article]The map operand should includes following elements:</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-24"></a><a href="#special-cases-24" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>&quot;agents&quot;: list of existing node agents; &quot;edges_species&quot;: the species of edges; &quot;p&quot;: probability to &quot;rewire&quot; an edge  (so it must be between 0 and 1, the parameter is often called beta in the literature);&quot;k&quot;: the base degree of each node (k must be greater than 2 and even); &quot;synchronized&quot;: is the graph and the species of vertices and edges synchronized.</li>
-</ul>
-<pre><code class="hljs"><span class="hljs-literal">graph</span>&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 
-            myListOfNodes, 
-            myEdgeSpecy, 
-            0.3, 
-            2, 
-        true);
-</code></pre>
-<ul>
 <li>&quot;vertices_specy&quot;: the species of vertices; &quot;edges_species&quot;: the species of edges; &quot;size&quot;: the graph will contain (size + 1) nodes (size must be greater than k); &quot;p&quot;: probability to &quot;rewire&quot; an edge (so it must be between 0 and 1, the parameter is often called beta in the literature); &quot;k&quot;: the base degree of each node (k must be greater than 2 and even); &quot;synchronized&quot;: is the graph and the species of vertices and edges synchronized.</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">graph</span>&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 
             myVertexSpecy, 
             myEdgeSpecy, 
             2, 
+            0.3, 
+            2, 
+        true);
+</code></pre>
+<ul>
+<li>&quot;agents&quot;: list of existing node agents; &quot;edges_species&quot;: the species of edges; &quot;p&quot;: probability to &quot;rewire&quot; an edge  (so it must be between 0 and 1, the parameter is often called beta in the literature);&quot;k&quot;: the base degree of each node (k must be greater than 2 and even); &quot;synchronized&quot;: is the graph and the species of vertices and edges synchronized.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">graph</span>&lt;myVertexSpecy,myEdgeSpecy&gt; myGraph &lt;- generate_watts_strogatz( 
+            myListOfNodes, 
+            myEdgeSpecy, 
             0.3, 
             2, 
         true);
@@ -1502,6 +1502,7 @@ The operator can be used with an operand of type point {meand,standardDeviation}
 <p><strong>See also:</strong> <a href="OperatorsAA#around">around</a>, <a href="OperatorsBC#circle">circle</a>, <a href="OperatorsBC#cone">cone</a>, <a href="OperatorsIM#link">link</a>, <a href="OperatorsNR#norm">norm</a>, <a href="OperatorsNR#point">point</a>, <a href="OperatorsSZ#polygone">polygone</a>, <a href="OperatorsNR#rectangle">rectangle</a>, <a href="OperatorsSZ#square">square</a>, <a href="OperatorsSZ#triangle">triangle</a>, <a href="OperatorsIM#line">line</a>,</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="get"></a><a href="#get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>get</code></h3>
+<p>Same signification as <a href="OperatorsNR#read">read</a></p>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-72"></a><a href="#possible-uses-72" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
 <li><code>geometry</code> <strong><code>get</code></strong> <code>string</code> ---&gt;  <code>unknown</code></li>
@@ -1548,15 +1549,15 @@ The operator can be used with an operand of type point {meand,standardDeviation}
 <h3><a class="anchor" aria-hidden="true" id="get_agent_cause"></a><a href="#get_agent_cause" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>get_agent_cause</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-75"></a><a href="#possible-uses-75" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>get_agent_cause</code></strong> (<code>predicate</code>) ---&gt;  <code>agent</code></li>
 <li><strong><code>get_agent_cause</code></strong> (<code>emotion</code>) ---&gt;  <code>agent</code></li>
+<li><strong><code>get_agent_cause</code></strong> (<code>predicate</code>) ---&gt;  <code>agent</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-75"></a><a href="#result-75" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>evaluate the agent_cause value of a predicate
-get the agent cause value of the given emotion</p>
+<p>get the agent cause value of the given emotion
+evaluate the agent_cause value of a predicate</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-53"></a><a href="#examples-53" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">get_agent_cause(pred1) 
-get_agent_cause(emotion)
+<pre><code class="hljs">get_agent_cause(emotion) 
+get_agent_cause(pred1)
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="get_belief_op"></a><a href="#get_belief_op" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>get_belief_op</code></h3>
@@ -2386,8 +2387,8 @@ get_agent_cause(emotion)
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-111"></a><a href="#examples-111" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
 <pre><code class="hljs"><span class="hljs-literal">geometry</span> var0 &lt;- hexagon(10); <span class="hljs-comment">// var0 equals a geometry as a hexagon of width of 10 and height of 10. </span>
-<span class="hljs-literal">geometry</span> var1 &lt;- hexagon(10,5); <span class="hljs-comment">// var1 equals a geometry as a hexagon of width of 10 and height of 5. </span>
-<span class="hljs-literal">geometry</span> var2 &lt;- hexagon({10,5}); <span class="hljs-comment">// var2 equals a geometry as a hexagon of width of 10 and height of 5.</span>
+<span class="hljs-literal">geometry</span> var1 &lt;- hexagon({10,5}); <span class="hljs-comment">// var1 equals a geometry as a hexagon of width of 10 and height of 5. </span>
+<span class="hljs-literal">geometry</span> var2 &lt;- hexagon(10,5); <span class="hljs-comment">// var2 equals a geometry as a hexagon of width of 10 and height of 5.</span>
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsAA#around">around</a>, <a href="OperatorsBC#circle">circle</a>, <a href="OperatorsBC#cone">cone</a>, <a href="OperatorsIM#line">line</a>, <a href="OperatorsIM#link">link</a>, <a href="OperatorsNR#norm">norm</a>, <a href="OperatorsNR#point">point</a>, <a href="OperatorsNR#polygon">polygon</a>, <a href="OperatorsNR#polyline">polyline</a>, <a href="OperatorsNR#rectangle">rectangle</a>, <a href="OperatorsSZ#triangle">triangle</a>,</p>
 <hr>
@@ -2418,8 +2419,8 @@ get_agent_cause(emotion)
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-141"></a><a href="#possible-uses-141" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
 <li><strong><code>hsb</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>rgb</code></li>
-<li><strong><code>hsb</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>rgb</code></li>
 <li><strong><code>hsb</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>rgb</code></li>
+<li><strong><code>hsb</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>rgb</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-140"></a><a href="#result-140" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color</p>
