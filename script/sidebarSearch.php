@@ -14,9 +14,9 @@
 
 // Get existing json search result
 // and transform it in JSON format
-$json = json_decode(file_get_contents("./website/static/database/index.json"), true);
+$json = json_decode(file_get_contents(dirname(__FILE__)"/../website/static/database/index.json"), true);
 
-$fp=fopen("./docs/_Sidebar.md", "r+");
+$fp=fopen(dirname(__FILE__)"/../docs/_Sidebar.md", "r+");
 while ($line = stream_get_line($fp, 1024 * 1024, "\n")) {
 
 	$item = array("tag" => "Sidebar", "title" => "", "url" => "");
@@ -29,6 +29,6 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n")) {
 
 fclose($fp);
 
-file_put_contents('./website/static/database/index.json', json_encode($json));
+file_put_contents(dirname(__FILE__)'/../website/static/database/index.json', json_encode($json));
 
 ?>
