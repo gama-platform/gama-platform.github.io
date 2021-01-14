@@ -1,0 +1,89 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java#apache-maven-with-a-settings-path
+
+name: Github Travis
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:  # For manual trigger
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Prepare git
+        run: |
+          git config --global user.name "${{ secrets.GH_NAME}}"
+          git config --global user.email "${{ secrets.GH_EMAIL}}"
+
+      - name: Apply netrc creds with direct input again
+        uses: little-core-labs/netrc-creds@master
+        with:
+          machine: github.com
+          login: ${{ secrets.GH_NAME}}
+          password: ${{ secrets.BOT_TOKEN}}
+
+      #
+      # PRE-COMPILE
+      #
+      - name: Get latest wiki
+        run: git clone https://github.com/gama-platform/gama.wiki.git
+
+      - name: Reorganise folders to be more Docusaurus-friendly
+        shell: shell
+        run: $GITHUB_WORKSPACE/script/unstructurize.sh
+
+      - name: Fix small wiki default
+        shell: shell
+        run: |
+          $GITHUB_WORKSPACE/script/link_fixer.sh
+          sed -i '/^$/d' './docs/_Sidebar.md' # Remove blank line
+
+      - name: Generate Sidebar 
+        run: |
+          php $GITHUB_WORKSPACE/script/sidebarCopy.php
+          php $GITHUB_WORKSPACE/script/sidebarSearch.
+
+      - name: Auto header
+        shell: shell
+        run: $GITHUB_WORKSPACE/script/autoHeader.sh
+
+      #
+      # COMPILATION
+      #
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '8'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install Docusaurus
+        run: |
+          cd $GITHUB_WORKSPACE/website
+          yarn install
+
+      - name: Build & Publish Docusaurus
+        run: |
+          cd $GITHUB_WORKSPACE/website
+          yarn run publish-gh-pages
+        # - bash ../script/extendedTimeout.sh ${{ secrets.GH_NAME}}
+        env:
+          GIT_USER: ${{ secrets.GH_NAME}}
