@@ -76,14 +76,12 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install Docusaurus
-        run: |
-          cd $GITHUB_WORKSPACE/website
-          yarn install
+        working-directory: $GITHUB_WORKSPACE/website
+        run: yarn install
 
       - name: Build & Publish Docusaurus
-        run: |
-          cd $GITHUB_WORKSPACE/website
-          yarn run publish-gh-pages
+        working-directory: $GITHUB_WORKSPACE/website
+        run: yarn run publish-gh-pages
         # - bash ../script/extendedTimeout.sh ${{ secrets.GH_NAME}}
         env:
           GIT_USER: ${{ secrets.GH_NAME}}
