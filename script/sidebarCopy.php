@@ -20,7 +20,7 @@ $sidebarArray = array("tuto"=> array(), "doc"=> array());
 
 $catArray=$subMenu=$subSubMenu=$prevTitle="";
 
-$fp=fopen("./docs/_Sidebar.md", "r+");
+$fp=fopen(dirname(__FILE__)."/../docs/_Sidebar.md", "r+");
 while ($line = stream_get_line($fp, 1024 * 1024, "\n")) {
 	// Title
 	if (strpos($line, '##') !== false) {
@@ -95,7 +95,7 @@ while ($line = stream_get_line($fp, 1024 * 1024, "\n")) {
 
 fclose($fp);
 
-$fp = fopen('./website/sidebars.json', 'w');
+$fp = fopen(dirname(__FILE__).'/../website/sidebars.json', 'w');
 fwrite($fp, json_encode($sidebarArray));
 fclose($fp);
 

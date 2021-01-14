@@ -14,38 +14,40 @@
 #!/bin/sh
 
 # If no folder _docs/_ create one
-if [ ! -d ./docs ];then
-	mkdir ./docs
+if [ ! -d $( dirname "${BASH_SOURCE[0]}" )/../docs ];then
+	mkdir $( dirname "${BASH_SOURCE[0]}" )/../docs
 fi
 
 # Remove folder _.git/_
-if [ -d ./gama.wiki/.git ];then
-	rm -fr ./gama.wiki/.git
+if [ -d $( dirname "${BASH_SOURCE[0]}" )/../gama.wiki/.git ];then
+	rm -fr $( dirname "${BASH_SOURCE[0]}" )/../gama.wiki/.git
 fi
 
 # Remove template webpage
-if [ -f ./website/pages/en/template.js ];then
-	rm ./website/pages/en/template.js
+if [ -f $( dirname "${BASH_SOURCE[0]}" )/../website/pages/en/template.js ];then
+	rm $( dirname "${BASH_SOURCE[0]}" )/../website/pages/en/template.js
 fi
 
 # Update folder resource in the static folder in _website/_
-if [ -d ./website/static/resources ];then
-	rm -fr ./website/static/resources
+if [ -d $( dirname "${BASH_SOURCE[0]}" )/../website/static/resources ];then
+	rm -fr $( dirname "${BASH_SOURCE[0]}" )/../website/static/resources
 fi
-mv ./gama.wiki/resources ./website/static/
+mv $( dirname "${BASH_SOURCE[0]}" )/../gama.wiki/resources $( dirname "${BASH_SOURCE[0]}" )/../website/static/
 
 # Update database.json in the static folder in _website/_
-if [ -f ./website/database/index.json ];then
-	rm ./website/database/index.json
+if [ -f $( dirname "${BASH_SOURCE[0]}" )/../website/database/index.json ];then
+	rm $( dirname "${BASH_SOURCE[0]}" )/../website/database/index.json
 fi
-mv ./gama.wiki/WikiOnly/database.json ./website/static/database/index.json 
+mv $( dirname "${BASH_SOURCE[0]}" )/../gama.wiki/WikiOnly/database.json $( dirname "${BASH_SOURCE[0]}" )/../website/static/database/index.json
 
 # Update sidebar
-if [ -f ./website/sidebars.json ];then
-	rm ./website/sidebars.json
+if [ -f $( dirname "${BASH_SOURCE[0]}" )/../website/sidebars.json ];then
+	rm $( dirname "${BASH_SOURCE[0]}" )/../website/sidebars.json
 fi
 
 # Move every <file>.md from a [sub]folder of _gama.wiki/_
 # to the folder _docs/_
 # https://superuser.com/questions/658075/how-do-i-move-files-out-of-nested-subdirectories-into-another-folder-in-ubuntu
 find gama.wiki/ -type f -iname "*.md" -exec mv --backup=numbered -t docs {} +
+
+echo echo $(find docs/ -type f -iname "*.md" | wc -l)
