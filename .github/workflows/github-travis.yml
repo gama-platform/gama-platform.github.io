@@ -21,14 +21,14 @@ jobs:
 
       - name: Prepare git
         run: |
-          git config --global user.name "${{ secrets.GH_NAME}}"
-          git config --global user.email "${{ secrets.GH_EMAIL}}"
+          git config --global user.name "${{ secrets.BOT_GH_NAME}}"
+          git config --global user.email "${{ secrets.BOT_GH_EMAIL}}"
 
       - name: Apply netrc creds with direct input again
         uses: little-core-labs/netrc-creds@master
         with:
           machine: github.com
-          login: ${{ secrets.GH_NAME}}
+          login: ${{ secrets.BOT_GH_NAME}}
           password: ${{ secrets.BOT_TOKEN}}
 
       #
@@ -83,4 +83,4 @@ jobs:
         run: yarn run publish-gh-pages
         working-directory: ./website
         env:
-          GIT_USER: ${{ secrets.GH_NAME}}
+          GIT_USER: ${{ secrets.BOT_GH_NAME}}
