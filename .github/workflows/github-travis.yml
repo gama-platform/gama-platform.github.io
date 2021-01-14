@@ -6,7 +6,7 @@ name: Github Travis
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ sources ]
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:  # For manual trigger
@@ -38,11 +38,11 @@ jobs:
         run: git clone https://github.com/gama-platform/gama.wiki.git
 
       - name: Reorganise folders to be more Docusaurus-friendly
-        shell: shell
+        shell: sh
         run: $GITHUB_WORKSPACE/script/unstructurize.sh
 
       - name: Fix small wiki default
-        shell: shell
+        shell: sh
         run: |
           $GITHUB_WORKSPACE/script/link_fixer.sh
           sed -i '/^$/d' './docs/_Sidebar.md' # Remove blank line
@@ -53,7 +53,7 @@ jobs:
           php $GITHUB_WORKSPACE/script/sidebarSearch.
 
       - name: Auto header
-        shell: shell
+        shell: sh
         run: $GITHUB_WORKSPACE/script/autoHeader.sh
 
       #
