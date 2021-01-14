@@ -20,19 +20,20 @@ DOC_DIR="docs"
 
 # Loop though every md files in subfolder $DOC_DIR
 find $DOC_DIR -name "*.md" | while read pathfile; do 
-
+	firstLine=$(awk 'FNR <= 1' "$pathfile")
 	# If no header set
 	# check if first line is "---"
-	if [ "$(awk 'FNR <= 1' \"./$pathfile\")" != "---" ];then
-	
+	if [ "$firstLine" != "---" ];then
+
 		# Looking for the main title in file (tag h1)
-		title=$(sed -n '/^\#\ /p' "$pathfile");
+		title=$(sed -n '/^\#\ /p' "$pathfile" | head -n 1 );
 
 		# If a title was find, add it in the header	
 		if [ ! -z "$title" ];then
 			# Remove the "#" from the title
 			title=$(echo "$title" | sed 's/\#//g')
 
+			# Remove the title from the file content
 			sed -i '/^\#\ /d' "$pathfile"
 		fi;
 
@@ -40,7 +41,7 @@ find $DOC_DIR -name "*.md" | while read pathfile; do
 		sed -i '1s/^/---\n\n/' "$pathfile";
 
 		# Writing title
-		sed -i -e "1s/^/title: $title\n/" "$pathfile";
+		sed -i "1s/^/title: $title\n/" "$pathfile";
 
 		# The id is (by default) egal to the filename
 		# -> We want it
