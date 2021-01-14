@@ -11,7 +11,7 @@
 #
 # ex: <baseUrl>/[docs,wiki]/<file>
 
-#!/bin/sh
+#!/bin/bash
 
 # If no folder _docs/_ create one
 if [ ! -d $( dirname "${BASH_SOURCE[0]}" )/../docs ];then
@@ -49,5 +49,3 @@ fi
 # to the folder _docs/_
 # https://superuser.com/questions/658075/how-do-i-move-files-out-of-nested-subdirectories-into-another-folder-in-ubuntu
 find gama.wiki/ -type f -iname "*.md" -exec mv --backup=numbered -t docs {} +
-
-echo echo $(find docs/ -type f -iname "*.md" | wc -l)
