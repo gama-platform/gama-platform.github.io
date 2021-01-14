@@ -76,11 +76,11 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install Docusaurus
-        working-directory: $GITHUB_WORKSPACE/website
         run: yarn install
+        working-directory: ./website
 
       - name: Build & Publish Docusaurus
-        working-directory: $GITHUB_WORKSPACE/website
         run: yarn run publish-gh-pages
+        working-directory: ./website
         env:
           GIT_USER: ${{ secrets.GH_NAME}}
