@@ -38,19 +38,19 @@ jobs:
         run: git clone https://github.com/gama-platform/gama.wiki.git
 
       - name: Reorganise folders to be more Docusaurus-friendly
-        shell: sh
+        shell: bash
         run: $GITHUB_WORKSPACE/script/unstructurize.sh
 
       - name: Fix small wiki default
         shell: sh
         run: |
           $GITHUB_WORKSPACE/script/link_fixer.sh
-          sed -i '/^$/d' './docs/_Sidebar.md' # Remove blank line
+          sed -i '/^$/d' $GITHUB_WORKSPACE/docs/_Sidebar.md # Remove blank line
 
       - name: Generate Sidebar 
         run: |
           php $GITHUB_WORKSPACE/script/sidebarCopy.php
-          php $GITHUB_WORKSPACE/script/sidebarSearch.
+          php $GITHUB_WORKSPACE/script/sidebarSearch.php
 
       - name: Auto header
         shell: sh
