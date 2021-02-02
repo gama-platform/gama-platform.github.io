@@ -54,6 +54,12 @@ h4.navGroupSubcategoryTitle {
   display: none !important;
 }
 
+.fixedHeaderContainer header img {
+  background-color: white;
+  border-radius: 100%;
+  padding: 1px;
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 

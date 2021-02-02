@@ -210,7 +210,7 @@ const siteConfig = {
 	 */
 
 	/* path to images for header/footer */
-  headerIcon: 'img/gama-logo_white.png',
+  headerIcon: 'img/gama-logo.png',
   footerIcon: 'img/gama-logo.png',
   favicon: 'img/gama-logo.png',
 
