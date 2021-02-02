@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gama-platform.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest GAMA-Platform news and events.</subtitle>
-    <logo>https://gama-platform.github.io/img/gama-logo_white.png</logo>
+    <logo>https://gama-platform.github.io/img/gama-logo.png</logo>
     <rights>2021 GAMA-Platform</rights>
     <entry>
         <title type="html"><![CDATA[COMOKIT 1.0.1 is out]]></title>
