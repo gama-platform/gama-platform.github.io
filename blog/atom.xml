@@ -2,12 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gama-platform.github.io/blog</id>
     <title>GAMA-Platform Blog</title>
-    <updated>2020-07-01T06:00:00.000Z</updated>
+    <updated>2021-03-26T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gama-platform.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest GAMA-Platform news and events.</subtitle>
     <logo>https://gama-platform.github.io/img/gama-logo.png</logo>
     <rights>2021 GAMA-Platform</rights>
+    <entry>
+        <title type="html"><![CDATA[GAMA Days 2021]]></title>
+        <id>https://gama-platform.github.io/blog/2021/03/26/gama-days-2021.html</id>
+        <link href="https://gama-platform.github.io/blog/2021/03/26/gama-days-2021.html"/>
+        <updated>2021-03-26T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p><img src="/img/cities_gama.png" alt="City"></p> <p>GAMA days 2021 is the 1st Conference where users, modelers and developers of the GAMA modeling and simulation platform will have an opportunity to meet, present their work, expose their difficulties, propose enhancements and, more generally, exchang...</p>]]></summary>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[COMOKIT 1.0.1 is out]]></title>
         <id>https://gama-platform.github.io/blog/2020/07/01/comokit101.html</id>
