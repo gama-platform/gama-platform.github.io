@@ -86,19 +86,19 @@
 </code></pre>
 <p>Experiments are also a kind of species. They can thus have variables and behaviors. Here we use the <code>simulations</code> variable that is the list of the 10 simulations (for the 10 replications). In addition, in batch mode, a reflex is executed at the end of all the replication simulations. We can thus create the list of all the <code>infected_rate</code> values (with the <code>collect</code> operator) and compute the <code>mean</code> and <code>standard_deviation</code>.</p>
 <h3><a class="anchor" aria-hidden="true" id="exploration"></a><a href="#exploration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exploration</h3>
-<p>The aim here is to explore the impact of one parameter over the simulations' result. We keep the same indicator. We add the <code>parameter</code> to explore the <code>experiment</code> and specify the possible it can take with either the <code>among</code> facet or the combination of <code>min</code>, <code>max</code> and <code>step</code> facets.</p>
+<p>The aim here is to explore the impact of one parameter over the simulations' results. We keep the same indicator. We add the <code>parameter</code> to explore the <code>experiment</code> and specify the possibility it can take with either the <code>among</code> facet or the combination of <code>min</code>, <code>max</code>, and <code>step</code> facets.</p>
 <pre><code class="hljs"><span class="hljs-builtin">experiment</span> explore_model <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">until:</span> time &gt; 2#h <span class="hljs-symbol">repeat:</span> 2 {
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"proba_leave"</span> <span class="hljs-symbol">var:</span> proba_leave <span class="hljs-symbol">among:</span> [0, 0.01, 0.05, 0.1, 1.0];
     
     <span class="hljs-builtin">reflex</span> save_results {
     <span class="hljs-keyword">ask</span> simulations {
         <span class="hljs-keyword">write</span> <span class="hljs-string">"proba_leave: "</span> + proba_leave + <span class="hljs-string">" infected_rate: "</span> + self.infected_rate;
-        <span class="hljs-keyword">save</span> [proba_leave, self.infected_rate] <span class="hljs-symbol">type:</span> csv <span class="hljs-symbol">to:</span><span class="hljs-string">"results.csv"</span>;
+        <span class="hljs-keyword">save</span> [proba_leave, self.infected_rate] <span class="hljs-symbol">type:</span> csv <span class="hljs-symbol">to:</span><span class="hljs-string">"results.csv"</span> <span class="hljs-symbol">rewrite:</span> (<span class="hljs-literal">int</span>(self) = 0) ? true : false <span class="hljs-symbol">header:</span> true ;
     }
     }
 }
 </code></pre>
-<p>In order to do a deeper investigation, in particular with an external tool, it could be useful to save the values in a file. To this purpose, we use the <a href="Statements#save"><code>save</code> statement</a>. In our example, we save a list of values in the csv file (<code>type: csv</code>) specified in the <code>to</code> facet.</p>
+<p>In order to do a deeper investigation, in particular with an external tool, it could be useful to save the values in a file. For this purpose, we use the <a href="Statements#save"><code>save</code> statement</a>. In our example, we save a list of values in the csv file (<code>type: csv</code>) specified in the <code>to</code> facet.</p>
 <h3><a class="anchor" aria-hidden="true" id="calibration"></a><a href="#calibration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Calibration</h3>
 <p>The calibration process corresponds to the search of parameter values that maximize/minimize indicators. To this purpose, we need to define:</p>
 <ul>
@@ -248,7 +248,7 @@ global {
     <span class="hljs-builtin">reflex</span> save_results {
         <span class="hljs-keyword">ask</span> simulations {
             <span class="hljs-keyword">write</span> <span class="hljs-string">"proba_leave: "</span> + proba_leave + <span class="hljs-string">" infected_rate: "</span> + self.infected_rate;
-            <span class="hljs-keyword">save</span> [proba_leave, self.infected_rate] <span class="hljs-symbol">type:</span> csv <span class="hljs-symbol">to:</span><span class="hljs-string">"results.csv"</span>;
+            <span class="hljs-keyword">save</span> [proba_leave, self.infected_rate]  <span class="hljs-symbol">type:</span> csv <span class="hljs-symbol">to:</span><span class="hljs-string">"results.csv"</span> <span class="hljs-symbol">rewrite:</span> (<span class="hljs-literal">int</span>(self) = 0) ? true : false <span class="hljs-symbol">header:</span> true ;
         }
     }
 }
