@@ -274,8 +274,8 @@
 </ul></li>
 <li><strong>GIS Coordinate Reference Systems (<a href="http://spatialreference.org/ref/epsg/">http://spatialreference.org/ref/epsg/</a> for EPSG codes)</strong>: settings about CRS to use when loading or saving GIS files
 <ul>
-<li><strong>Let GAMA decide which CRS to use to project GIS data</strong>: if true, GAMA will decide which CRS, based on input, should be used to project GIS data. Default is false (i.e. only one CRS, entered below, is used to project data in the models)</li>
-<li><strong>...or use the following CRS (EPSG code)</strong>: choose a CRS that will be applied to all GIS data when projected in the models. Please refer to <a href="http://spatialreference.org/ref/epsg/">http://spatialreference.org/ref/epsg/</a> for a list of EPSG codes.</li>
+<li><strong>Let GAMA decide which CRS to use to project GIS data</strong>: if true, GAMA will decide which CRS, based on input, should be used to project GIS data. Default is <code>true</code> (i.e. GAMA will always try to find the relevant CRS, and, if none can be found, will fall back one the one provided below)</li>
+<li><strong>...or use the following CRS (EPSG code)</strong>: choose a CRS that will be applied to all GIS data when projected in the models. Please refer to <a href="http://spatialreference.org/ref/epsg/">http://spatialreference.org/ref/epsg/</a> for a list of EPSG codes. If the option above is <code>false</code>, then the use of this CRS will be enforced in all models.Otherwise, GAMA will first try to find the most relevant CRS and then fall back on this one.</li>
 <li><strong>When no .prj file or CRS is supplied, consider GIS data to be already projected in the CRS</strong>: if true, GIS data that is not accompanied by a CRS information will be considered as projected using the above code.</li>
 <li><strong>...or use the following CRS (EPSG code)</strong>: choose a CRS that will represent the default code for loading uninformed GIS data.</li>
 <li><strong>When no CRS is provided, save the GIS data with the current CRS</strong>: if true, saving GIS data will use the projected CRS unless a CRS is provided.</li>
