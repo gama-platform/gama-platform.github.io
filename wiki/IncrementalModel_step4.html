@@ -106,7 +106,7 @@
 If the agents decide to leave, it computes a new target as a random point inside one of the buildings (randomly chosen).</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {       
     ...
-    <span class="hljs-builtin">reflex</span> stay <span class="hljs-symbol">when:</span> target = nil {
+    <span class="hljs-builtin">reflex</span> staying <span class="hljs-symbol">when:</span> target = nil {
     staying_counter &lt;- staying_counter + 1;
     <span class="hljs-keyword">if</span> flip(staying_counter / staying_coeff) {
         target &lt;- any_location_in (one_of(building));

@@ -66,12 +66,12 @@
 <li>Definition of more complex behaviors for prey and predator agents:
 <ul>
 <li>The preys agents are moving to the cell containing the highest quantity of food.</li>
-<li>The predator agents are moving if possible to a cell that contains preys, otherwise to random cell.</li>
+<li>The predator agents are moving if possible to a cell that contains preys, otherwise to a random cell.</li>
 </ul></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
 <h3><a class="anchor" aria-hidden="true" id="parent-species"></a><a href="#parent-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parent species</h3>
-<p>We modify the <code>basic_move</code> reflex of the <code>generic_species</code> in order to give the <code>prey</code> and <code>predator</code> a more complex behaviors: instead of choosing a random vegetation cell in the neighborhood, the agents will choose a vegetation cell (still in the neighborhood) thanks to a <strong><code>choose_cell</code></strong> action. This action will return an empty (<code>nil</code>) value in the parent species and will be specialized for each species.</p>
+<p>We modify the <code>basic_move</code> reflex of the <code>generic_species</code> in order to give the <code>prey</code> and <code>predator</code> more complex behaviors: instead of choosing a random vegetation cell in the neighborhood, the agents will choose a vegetation cell (still in the neighborhood) thanks to a <strong><code>choose_cell</code></strong> action. This action will return an empty (<code>nil</code>) value in the parent species and will be specialized for each species.</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> generic_species {
     ...
     <span class="hljs-builtin">reflex</span> basic_move {
@@ -123,7 +123,7 @@
     ...
     vegetation_cell choose_cell {
         vegetation_cell my_cell_tmp &lt;- shuffle(my_cell.neighbors2) first_with (!(empty (prey inside (each))));
-    <span class="hljs-keyword">if</span> my_ell_tmp != nil {
+    <span class="hljs-keyword">if</span> my_cell_tmp != nil {
         <span class="hljs-keyword">return</span> my_cell_tmp;
     } <span class="hljs-keyword">else</span> {
         <span class="hljs-keyword">return</span> one_of (my_cell.neighbors2);
@@ -143,10 +143,10 @@ global {
     <span class="hljs-literal">int</span> nb_preys_init &lt;- 200;
     <span class="hljs-literal">int</span> nb_predators_init &lt;- 20;
     <span class="hljs-literal">float</span> prey_max_energy &lt;- 1.0;
-    <span class="hljs-literal">float</span> prey_max_transfert &lt;- 0.1;
+    <span class="hljs-literal">float</span> prey_max_transfer &lt;- 0.1;
     <span class="hljs-literal">float</span> prey_energy_consum &lt;- 0.05;
     <span class="hljs-literal">float</span> predator_max_energy &lt;- 1.0;
-    <span class="hljs-literal">float</span> predator_energy_transfert &lt;- 0.5;
+    <span class="hljs-literal">float</span> predator_energy_transfer &lt;- 0.5;
     <span class="hljs-literal">float</span> predator_energy_consum &lt;- 0.02;
     <span class="hljs-literal">float</span> prey_proba_reproduce &lt;- 0.01;
     <span class="hljs-literal">int</span> prey_nb_max_offsprings &lt;- 5;
@@ -167,7 +167,7 @@ global {
     <span class="hljs-literal">float</span> size &lt;- 1.0;
     <span class="hljs-literal">rgb</span> color;
     <span class="hljs-literal">float</span> max_energy;
-    <span class="hljs-literal">float</span> max_transfert;
+    <span class="hljs-literal">float</span> max_transfer;
     <span class="hljs-literal">float</span> energy_consum;
     <span class="hljs-literal">float</span> proba_reproduce;
     <span class="hljs-literal">int</span> nb_max_offsprings;
@@ -229,7 +229,7 @@ global {
 <span class="hljs-literal">species</span> prey <span class="hljs-symbol">parent:</span> generic_species {
     <span class="hljs-literal">rgb</span> color &lt;- #blue;
     <span class="hljs-literal">float</span> max_energy &lt;- prey_max_energy;
-    <span class="hljs-literal">float</span> max_transfert &lt;- prey_max_transfert;
+    <span class="hljs-literal">float</span> max_transfer &lt;- prey_max_transfer;
     <span class="hljs-literal">float</span> energy_consum &lt;- prey_energy_consum;
     <span class="hljs-literal">float</span> proba_reproduce &lt;- prey_proba_reproduce;
     <span class="hljs-literal">int</span> nb_max_offsprings &lt;- prey_nb_max_offsprings;
@@ -237,12 +237,12 @@ global {
     image_file my_icon &lt;- image_file(<span class="hljs-string">"../includes/data/sheep.png"</span>);
 
     <span class="hljs-literal">float</span> energy_from_eat {
-        <span class="hljs-literal">float</span> energy_transfert &lt;- 0.0;
+        <span class="hljs-literal">float</span> energy_transfer &lt;- 0.0;
         <span class="hljs-keyword">if</span>(my_cell.food &gt; 0) {
-            energy_transfert &lt;- min([max_transfert, my_cell.food]);
-            my_cell.food &lt;- my_cell.food - energy_transfert;
+            energy_transfer &lt;- min([max_transfer, my_cell.food]);
+            my_cell.food &lt;- my_cell.food - energy_transfer;
         }             
-        <span class="hljs-keyword">return</span> energy_transfert;
+        <span class="hljs-keyword">return</span> energy_transfer;
     }
 
     vegetation_cell choose_cell {
@@ -253,7 +253,7 @@ global {
 <span class="hljs-literal">species</span> predator <span class="hljs-symbol">parent:</span> generic_species {
     <span class="hljs-literal">rgb</span> color &lt;- #red;
     <span class="hljs-literal">float</span> max_energy &lt;- predator_max_energy;
-    <span class="hljs-literal">float</span> energy_transfert &lt;- predator_energy_transfert;
+    <span class="hljs-literal">float</span> energy_transfer &lt;- predator_energy_transfer;
     <span class="hljs-literal">float</span> energy_consum &lt;- predator_energy_consum;
     <span class="hljs-literal">float</span> proba_reproduce &lt;- predator_proba_reproduce;
     <span class="hljs-literal">int</span> nb_max_offsprings &lt;- predator_nb_max_offsprings;
@@ -266,7 +266,7 @@ global {
             <span class="hljs-keyword">ask</span> one_of (reachable_preys) {
                 <span class="hljs-keyword">do</span> die;
             }
-            <span class="hljs-keyword">return</span> energy_transfert;
+            <span class="hljs-keyword">return</span> energy_transfer;
         }
         <span class="hljs-keyword">return</span> 0.0;
     }
@@ -292,11 +292,11 @@ grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hlj
 <span class="hljs-builtin">experiment</span> prey_predator <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of preys: "</span> <span class="hljs-symbol">var:</span> nb_preys_init <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey max energy: "</span> <span class="hljs-symbol">var:</span> prey_max_energy <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
-    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey max transfert: "</span> <span class="hljs-symbol">var:</span> prey_max_transfert <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey max transfer: "</span> <span class="hljs-symbol">var:</span> prey_max_transfer <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey energy consumption: "</span> <span class="hljs-symbol">var:</span> prey_energy_consum <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of predators: "</span> <span class="hljs-symbol">var:</span> nb_predators_init <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 200 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator max energy: "</span> <span class="hljs-symbol">var:</span> predator_max_energy <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
-    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator energy transfert: "</span> <span class="hljs-symbol">var:</span> predator_energy_transfert <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator energy transfer: "</span> <span class="hljs-symbol">var:</span> predator_energy_transfer <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator energy consumption: "</span> <span class="hljs-symbol">var:</span> predator_energy_consum <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Prey probability reproduce: '</span> <span class="hljs-symbol">var:</span> prey_proba_reproduce <span class="hljs-symbol">category:</span> <span class="hljs-string">'Prey'</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Prey nb max offsprings: '</span> <span class="hljs-symbol">var:</span> prey_nb_max_offsprings <span class="hljs-symbol">category:</span> <span class="hljs-string">'Prey'</span>;
@@ -307,13 +307,13 @@ grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hlj
 
     <span class="hljs-keyword">output</span> {
         <span class="hljs-keyword">display</span> main_display {
-            grid vegetation_cell <span class="hljs-symbol">lines:</span> #black;
+            grid vegetation_cell <span class="hljs-symbol">border:</span> #black;
             <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> icon;
             <span class="hljs-literal">species</span> predator <span class="hljs-symbol">aspect:</span> icon;
         }
 
         <span class="hljs-keyword">display</span> info_display {
-            grid vegetation_cell <span class="hljs-symbol">lines:</span> #black;
+            grid vegetation_cell <span class="hljs-symbol">border:</span> #black;
             <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> info;
             <span class="hljs-literal">species</span> predator <span class="hljs-symbol">aspect:</span> info;
         }

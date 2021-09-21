@@ -94,7 +94,7 @@ In order for each grid agents (or cell of the grid) to represent the vegetation,
 <pre><code class="hljs">grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hljs-symbol">height:</span> 50 <span class="hljs-symbol">neighbors:</span> 4 {
     <span class="hljs-literal">float</span> max_food &lt;- 1.0 ;
     <span class="hljs-literal">float</span> food_prod &lt;- rnd(0.01) ;
-    <span class="hljs-literal">float</span> food &lt;- rnd(1.0) <span class="hljs-symbol">update:</span> food + food_prod <span class="hljs-symbol">max:</span> max_food;
+    <span class="hljs-literal">float</span> food &lt;- rnd(1.0) <span class="hljs-symbol">max:</span> max_food <span class="hljs-symbol">update:</span> food + food_prod;
     <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) 
          <span class="hljs-symbol">update:</span> <span class="hljs-literal">rgb</span>(<span class="hljs-literal">int</span>(255 * (1 - food)), 255, <span class="hljs-literal">int</span>(255 * (1 - food))) ;
 }
@@ -121,10 +121,10 @@ In order for each grid agents (or cell of the grid) to represent the vegetation,
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="display"></a><a href="#display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>display</h3>
-<p>In order to visualize the vegetation, we need to add it to the display. We use for that the statement <code>grid</code> with the optional facet <code>lines</code> to draw the border of the cells. Note that grid agents have built-in aspect thus it is not necessary to define one: it is a square with the <code>color</code> attribute as value.</p>
+<p>In order to visualize the vegetation, we need to add it to the display. We use for that the statement <code>grid</code> with the optional facet <code>border</code> to draw the border of the cells. Note that grid agents have built-in aspect thus it is not necessary to define one: it is a square with the <code>color</code> attribute as value.</p>
 <pre><code class="hljs">   <span class="hljs-keyword">output</span> {
        <span class="hljs-keyword">display</span> main_display {
-           grid vegetation_cell <span class="hljs-symbol">lines:</span> #black;
+           grid vegetation_cell <span class="hljs-symbol">border:</span> #black;
            <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> base ;
        }
    }
@@ -166,7 +166,7 @@ grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hlj
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of preys: "</span> <span class="hljs-symbol">var:</span> nb_preys_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span> ;
     <span class="hljs-keyword">output</span> {
     <span class="hljs-keyword">display</span> main_display {
-        grid vegetation_cell <span class="hljs-symbol">lines:</span> #black ;
+        grid vegetation_cell <span class="hljs-symbol">border:</span> #black ;
         <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> base ;
     }
     }

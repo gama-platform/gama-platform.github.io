@@ -87,13 +87,13 @@ We define an aspect for these species. In this model, we want to represent the g
 <p>GAMA allows to automatically read GIS data that are formatted as shapefiles. In order to let the user chooses his/her shapefiles, we define two global variables. One allowing the user to choose the road shapefile, one allowing him/her to choose the building shapefile.</p>
 <p>Definition of the two global variables of type <code>file</code> representing the GIS files:</p>
 <pre><code class="hljs">global {
-    <span class="hljs-literal">file</span> shape_file_buildings &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/building.shp"</span>);
-    <span class="hljs-literal">file</span> shape_file_roads &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/road.shp"</span>);
+    <span class="hljs-literal">file</span> buildings_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/building.shp"</span>);
+    <span class="hljs-literal">file</span> roads_shapefile &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/road.shp"</span>);
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="agentification-of-gis-data"></a><a href="#agentification-of-gis-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>agentification of GIS data</h3>
 <p>In GAMA, the agentification of GIS data is very straightforward: it only requires to use the <code>create</code> command with the <strong><code>from</code></strong> facet with the shapefile. Each object of the shapefile will be directly used to instantiate one agent of the specified species.</p>
-<p>We modify the init section of the global block in order to create <code>road</code> and <code>building</code> agents from the shapefiles. Then, we define the initial location of people as a point inside one of the building.</p>
+<p>We modify the init section of the global block in order to create <code>road</code> and <code>building</code> agents from the shapefiles. Then, we define the initial location of people as a point inside one of the buildings.</p>
 <pre><code class="hljs">global {
     ...
     init {
@@ -109,12 +109,12 @@ We define an aspect for these species. In this model, we want to represent the g
     }
 } 
 </code></pre>
-<p>Note that the name of a species can be used to obtain all the agents of a species (here <code>building</code> returns the list of all the buildings). We can thus us the <code>one_of</code> operator on <code>building</code> to pick a random building agent. The <strong><code>any\_location\_in</code></strong> operator returns a random point inside a geometry or an agent geometry.</p>
+<p>Note that the name of a species can be used to obtain all the agents of a species (here <code>building</code> returns the list of all the buildings). We can thus use the <code>one_of</code> operator on <code>building</code> to pick a random building agent. The <strong><code>any_location_in</code></strong> operator returns a random point inside a geometry or an agent geometry.</p>
 <h3><a class="anchor" aria-hidden="true" id="environment"></a><a href="#environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>environment</h3>
 <p>Building a GIS environment in GAMA requires nothing special, just to define the bounds of the environment, i.e. the geometry of the <code>world</code> agent. It is possible to use a shapefile to automatically define it by computing its envelope. In this model, we use the road shapefile to define it.</p>
 <pre><code class="hljs">global {
     ...
-    <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_roads); 
+    <span class="hljs-literal">geometry</span> shape &lt;- envelope(roads_shapefile); 
     ...
 }
 </code></pre>

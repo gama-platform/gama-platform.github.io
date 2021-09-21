@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>6. Breeding · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="So far we created agents only during the initialization of the simulation. In this sixth step, we Illustrate how to create new agents during a simulation of a dynamic species."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="6. Breeding · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="So far we created agents only during the initialization of the simulation. In this sixth step, we Illustrate how to create new agents during a simulation of a dynamic species."/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.github.io/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.github.io/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>6. Breeding · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="So far we have created agents only during the initialization of the simulation. In this sixth step, we illustrate how to create new agents during a simulation of a dynamic species."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="6. Breeding · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.github.io/"/><meta property="og:description" content="So far we have created agents only during the initialization of the simulation. In this sixth step, we illustrate how to create new agents during a simulation of a dynamic species."/><meta property="og:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.github.io//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.github.io/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.github.io/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
@@ -60,14 +60,14 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">6. Breeding</h1></header><article><div><span><p>So far we created agents only during the initialization of the simulation. In this sixth step, we Illustrate how to create new agents during a simulation of a dynamic species.</p>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">6. Breeding</h1></header><article><div><span><p>So far we have created agents only during the initialization of the simulation. In this sixth step, we illustrate how to create new agents during a simulation of a dynamic species.</p>
 <h2><a class="anchor" aria-hidden="true" id="formulation"></a><a href="#formulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formulation</h2>
 <ul>
 <li>Adding of a <code>reproduce</code> behavior for the <code>prey</code> and <code>predator</code> species:
 <ul>
 <li>When an agent has enough energy, it has a certain probability to have a certain number of offspring.</li>
 <li>The energy of the offspring is equal to the parent energy divided by the number of offspring.</li>
-<li>The parent get the same energy as its offspring.</li>
+<li>The parent gets the same energy as its offspring.</li>
 </ul></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
@@ -182,10 +182,10 @@ global {
     <span class="hljs-literal">int</span> nb_preys_init &lt;- 200;
     <span class="hljs-literal">int</span> nb_predators_init &lt;- 20;
     <span class="hljs-literal">float</span> prey_max_energy &lt;- 1.0;
-    <span class="hljs-literal">float</span> prey_max_transfert &lt;- 0.1;
+    <span class="hljs-literal">float</span> prey_max_transfer &lt;- 0.1;
     <span class="hljs-literal">float</span> prey_energy_consum &lt;- 0.05;
     <span class="hljs-literal">float</span> predator_max_energy &lt;- 1.0;
-    <span class="hljs-literal">float</span> predator_energy_transfert &lt;- 0.5;
+    <span class="hljs-literal">float</span> predator_energy_transfer &lt;- 0.5;
     <span class="hljs-literal">float</span> predator_energy_consum &lt;- 0.02;
     <span class="hljs-literal">float</span> prey_proba_reproduce &lt;- 0.01;
     <span class="hljs-literal">int</span> prey_nb_max_offsprings &lt;- 5;
@@ -206,7 +206,7 @@ global {
     <span class="hljs-literal">float</span> size &lt;- 1.0;
     <span class="hljs-literal">rgb</span> color;
     <span class="hljs-literal">float</span> max_energy;
-    <span class="hljs-literal">float</span> max_transfert;
+    <span class="hljs-literal">float</span> max_transfer;
     <span class="hljs-literal">float</span> energy_consum;
     <span class="hljs-literal">float</span> proba_reproduce;
     <span class="hljs-literal">int</span> nb_max_offsprings;
@@ -254,26 +254,26 @@ global {
 <span class="hljs-literal">species</span> prey <span class="hljs-symbol">parent:</span> generic_species {
     <span class="hljs-literal">rgb</span> color &lt;- #blue;
     <span class="hljs-literal">float</span> max_energy &lt;- prey_max_energy;
-    <span class="hljs-literal">float</span> max_transfert &lt;- prey_max_transfert;
+    <span class="hljs-literal">float</span> max_transfer &lt;- prey_max_transfer;
     <span class="hljs-literal">float</span> energy_consum &lt;- prey_energy_consum;
     <span class="hljs-literal">float</span> proba_reproduce &lt;- prey_proba_reproduce;
     <span class="hljs-literal">int</span> nb_max_offsprings &lt;- prey_nb_max_offsprings;
     <span class="hljs-literal">float</span> energy_reproduce &lt;- prey_energy_reproduce;
 
     <span class="hljs-literal">float</span> energy_from_eat {
-        <span class="hljs-literal">float</span> energy_transfert &lt;- 0.0;
+        <span class="hljs-literal">float</span> energy_transfer &lt;- 0.0;
         <span class="hljs-keyword">if</span>(my_cell.food &gt; 0) {
-            energy_transfert &lt;- min([max_transfert, my_cell.food]);
-            my_cell.food &lt;- my_cell.food - energy_transfert;
+            energy_transfer &lt;- min([max_transfer, my_cell.food]);
+            my_cell.food &lt;- my_cell.food - energy_transfer;
         }             
-        <span class="hljs-keyword">return</span> energy_transfert;
+        <span class="hljs-keyword">return</span> energy_transfer;
     }
 }
 
 <span class="hljs-literal">species</span> predator <span class="hljs-symbol">parent:</span> generic_species {
     <span class="hljs-literal">rgb</span> color &lt;- #red;
     <span class="hljs-literal">float</span> max_energy &lt;- predator_max_energy;
-    <span class="hljs-literal">float</span> energy_transfert &lt;- predator_energy_transfert;
+    <span class="hljs-literal">float</span> energy_transfer &lt;- predator_energy_transfer;
     <span class="hljs-literal">float</span> energy_consum &lt;- predator_energy_consum;
     <span class="hljs-literal">float</span> proba_reproduce &lt;- predator_proba_reproduce;
     <span class="hljs-literal">int</span> nb_max_offsprings &lt;- predator_nb_max_offsprings;
@@ -285,7 +285,7 @@ global {
             <span class="hljs-keyword">ask</span> one_of (reachable_preys) {
                 <span class="hljs-keyword">do</span> die;
             }
-            <span class="hljs-keyword">return</span> energy_transfert;
+            <span class="hljs-keyword">return</span> energy_transfer;
         }
         <span class="hljs-keyword">return</span> 0.0;
     }
@@ -302,11 +302,11 @@ grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hlj
 <span class="hljs-builtin">experiment</span> prey_predator <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of preys: "</span> <span class="hljs-symbol">var:</span> nb_preys_init <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 1000 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey max energy: "</span> <span class="hljs-symbol">var:</span> prey_max_energy <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
-    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey max transfert: "</span> <span class="hljs-symbol">var:</span> prey_max_transfert <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey max transfer: "</span> <span class="hljs-symbol">var:</span> prey_max_transfer <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Prey energy consumption: "</span> <span class="hljs-symbol">var:</span> prey_energy_consum <span class="hljs-symbol">category:</span> <span class="hljs-string">"Prey"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Initial number of predators: "</span> <span class="hljs-symbol">var:</span> nb_predators_init <span class="hljs-symbol">min:</span> 0 <span class="hljs-symbol">max:</span> 200 <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator max energy: "</span> <span class="hljs-symbol">var:</span> predator_max_energy <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
-    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator energy transfert: "</span> <span class="hljs-symbol">var:</span> predator_energy_transfert <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator energy transfer: "</span> <span class="hljs-symbol">var:</span> predator_energy_transfer <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Predator energy consumption: "</span> <span class="hljs-symbol">var:</span> predator_energy_consum <span class="hljs-symbol">category:</span> <span class="hljs-string">"Predator"</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Prey probability reproduce: '</span> <span class="hljs-symbol">var:</span> prey_proba_reproduce <span class="hljs-symbol">category:</span> <span class="hljs-string">'Prey'</span>;
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Prey nb max offsprings: '</span> <span class="hljs-symbol">var:</span> prey_nb_max_offsprings <span class="hljs-symbol">category:</span> <span class="hljs-string">'Prey'</span>;
@@ -317,7 +317,7 @@ grid vegetation_cell <span class="hljs-symbol">width:</span> 50 <span class="hlj
 
     <span class="hljs-keyword">output</span> {
         <span class="hljs-keyword">display</span> main_display {
-            grid vegetation_cell <span class="hljs-symbol">lines:</span> #black;
+            grid vegetation_cell <span class="hljs-symbol">border:</span> #black;
             <span class="hljs-literal">species</span> prey <span class="hljs-symbol">aspect:</span> base;
             <span class="hljs-literal">species</span> predator <span class="hljs-symbol">aspect:</span> base;
         }
