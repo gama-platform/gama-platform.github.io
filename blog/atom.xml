@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://gama-platform.github.io/blog</id>
+    <id>https://gama-platform.org/blog</id>
     <title>GAMA-Platform Blog</title>
     <updated>2021-03-26T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://gama-platform.github.io/blog"/>
+    <link rel="alternate" href="https://gama-platform.org/blog"/>
     <subtitle>The best place to stay up-to-date with the latest GAMA-Platform news and events.</subtitle>
-    <logo>https://gama-platform.github.io/img/gama-logo.png</logo>
+    <logo>https://gama-platform.org/img/gama-logo.png</logo>
     <rights>2021 GAMA-Platform</rights>
     <entry>
         <title type="html"><![CDATA[GAMA Days 2021]]></title>
-        <id>https://gama-platform.github.io/blog/2021/03/26/gama-days-2021.html</id>
-        <link href="https://gama-platform.github.io/blog/2021/03/26/gama-days-2021.html"/>
+        <id>https://gama-platform.org/blog/2021/03/26/gama-days-2021.html</id>
+        <link href="https://gama-platform.org/blog/2021/03/26/gama-days-2021.html"/>
         <updated>2021-03-26T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p><img src="/img/cities_gama.png" alt="City"></p> <p>GAMA days 2021 is the 1st Conference where users, modelers and developers of the GAMA modeling and simulation platform will have an opportunity to meet, present their work, expose their difficulties, propose enhancements and, more generally, exchang...</p>]]></summary>
         <author>
@@ -21,8 +21,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[COMOKIT 1.0.1 is out]]></title>
-        <id>https://gama-platform.github.io/blog/2020/07/01/comokit101.html</id>
-        <link href="https://gama-platform.github.io/blog/2020/07/01/comokit101.html"/>
+        <id>https://gama-platform.org/blog/2020/07/01/comokit101.html</id>
+        <link href="https://gama-platform.org/blog/2020/07/01/comokit101.html"/>
         <updated>2020-07-01T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>We are thrilled to announce the release of version 1.0.1 of <a href="https://comokit.org">COMOKIT</a>, as well as its official archiving on the <a href="https://www.comses.net/codebases/7d686bf0-ff0a-46c0-b4a6-d341ef9e13c2/releases/1.0.1/">COMSES website</a>.</p> <p>COMOKIT, the COVID-19 modeling kit built on GAMA, is a computer model that allows in silico exploration of intervention poli...</p>]]></summary>
         <author>
@@ -32,8 +32,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Release of GAMA 1.8.1]]></title>
-        <id>https://gama-platform.github.io/blog/2020/06/22/release181.html</id>
-        <link href="https://gama-platform.github.io/blog/2020/06/22/release181.html"/>
+        <id>https://gama-platform.org/blog/2020/06/22/release181.html</id>
+        <link href="https://gama-platform.org/blog/2020/06/22/release181.html"/>
         <updated>2020-06-22T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p><img src="https://avatars0.githubusercontent.com/u/1560449?s=200&amp;v=4" alt="GAMA Logo"></p> <p>We are pleased to release version 1.8.1 of the GAMA modelling and simulation platform. It is mainly a bug fix release, with a few minor enhancements. See the <a href="https://gama-platform.github.io/release">changelog here</a> (or on <a href="https://github.com/gama-platform/gama/blob/master/CHANGELOG.md">GitHub here</a>).</p> <p>All the models running on 1.8 should work without chang...</p>]]></summary>
         <author>
@@ -43,8 +43,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[GAMA Days 2020]]></title>
-        <id>https://gama-platform.github.io/blog/2019/11/15/gama-days-2020.html</id>
-        <link href="https://gama-platform.github.io/blog/2019/11/15/gama-days-2020.html"/>
+        <id>https://gama-platform.org/blog/2019/11/15/gama-days-2020.html</id>
+        <link href="https://gama-platform.org/blog/2019/11/15/gama-days-2020.html"/>
         <updated>2019-11-15T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p><img src="/img/cities_gama.png" alt="City"></p>
 <p>Agent-based modeling is nowadays becoming increasingly popular for the study of complex systems. Nevertheless, its use requires significant computer programming work because it requires describing all agents and their behavior in the form of algorithms. The GAMA open-source platform aims to help modelers do this work.</p>
@@ -56,8 +56,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Introducing GAMA Blog]]></title>
-        <id>https://gama-platform.github.io/blog/2019/10/30/gama-blog.html</id>
-        <link href="https://gama-platform.github.io/blog/2019/10/30/gama-blog.html"/>
+        <id>https://gama-platform.org/blog/2019/10/30/gama-blog.html</id>
+        <link href="https://gama-platform.org/blog/2019/10/30/gama-blog.html"/>
         <updated>2019-10-30T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p><img src="https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1274&amp;q=80" alt="BLOG"></p>
 <p>We are very happy to introduce <strong>GAMA Blog</strong> !</p>
