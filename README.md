@@ -9,7 +9,7 @@
 
 # gama-platform.github.io - `sources` branch
 
-On this branch, you have all the sources from the website [_gama-platform.github.io_](gama-platform.github.io) which is the documentation of the _Gama-Platform_.
+On this branch, you have all the sources from the website [_gama-platform.github.io_](http://gama-platform.org) which is the documentation of the _Gama-Platform_.
 
 ## Editing Website
 
