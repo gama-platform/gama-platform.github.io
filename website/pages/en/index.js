@@ -217,8 +217,8 @@ class Index extends React.Component {
         <Script/>
 
         <div className="section container" style={{backgroundColor: "#3670A0"}}>
-          <a href="https://gama-platform.org/Gama-Days-2022/" class="item" style={{ color: "white", textAlign: "center", width: "100%", padding: "10px 0"}}>
-            📢 Don't miss the GAMA Days 2022 📢
+          <a href="https://gama-platform.org/Gama-Days-2022/CFP.html" class="item" style={{ color: "white", textAlign: "center", width: "100%", padding: "10px 0"}}>
+            📢 Don't miss the GAMA Days 2022 call for paper 📢
           </a>
         </div>
 
