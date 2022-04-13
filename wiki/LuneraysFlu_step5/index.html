@@ -80,12 +80,12 @@
     }
 }
 </code></pre>
-<p>Concerning the building species, we define an aspect called <code>geom3D</code> that draws the shape of the building with a depth of 20 meters and with using a texture &quot;texture.jpg&quot; for the face and a texture for the roof &quot;roof_top.png&quot;.</p>
+<p>Concerning the building species, we define an aspect called <code>geom3D</code> that draws the shape of the building with a depth of 20 meters and with using a texture &quot;texture.jpg&quot; for the face and a texture for the roof &quot;roof_top.jpg&quot;.</p>
 <p><img src="../resources/images/tutorials/buildings_display.png" alt="Building image for Luneray's Flu model."></p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> building {
     <span class="hljs-comment">//....</span>
     <span class="hljs-keyword">aspect</span> geom3D {
-    <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">depth:</span> 20 #m <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">texture:</span> [<span class="hljs-string">"../includes/roof_top.png"</span>,<span class="hljs-string">"../includes/texture.jpg"</span>];
+    <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">depth:</span> 20 #m <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">texture:</span> [<span class="hljs-string">"../includes/roof_top.jpg"</span>,<span class="hljs-string">"../includes/texture.jpg"</span>];
     }
 }
 </code></pre>
@@ -102,12 +102,13 @@
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="output"></a><a href="#output" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>output</h3>
-<p>We define a new display called <code>view3D</code> of type <code>opengl</code> with an <code>ambient_light</code> of 80. Inside this display, we first draw a background image representing the satellite image of the Luneray. Note that GAMA is able to manage world files to georeferenced images. In our case, as a PGW file exists in the includes folder, the satellite image will be well localized in the display. After drawing the background image, we display first the building species with their geom3D aspect, then the road species with their geom3D aspect and finally the people species with their geom3D aspect. Only the people agents will be redrawn at each simulation step.</p>
+<p>We define a new display called <code>view3D</code> of type <code>opengl</code> with the facet <code>antialias</code> set to false. Inside this display, we first set a <code>light</code> of type <code>ambient</code> and with an intensity of 80. We then draw a background image representing the satellite image of the Luneray. Note that GAMA is able to manage world files to georeferenced images. In our case, as a PGW file exists in the includes folder, the satellite image will be well localized in the display. After drawing the background image, we display first the building species with their geom3D aspect, then the road species with their geom3D aspect and finally the people species with their geom3D aspect. Only the people agents will be redrawn at each simulation step.</p>
 <pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-keyword">output</span> {
     <span class="hljs-comment">// monitor and other displays   </span>
-    <span class="hljs-keyword">display</span> view3D <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">ambient_light:</span> 80 {
-        <span class="hljs-keyword">image</span> <span class="hljs-string">"../includes/luneray.png"</span> <span class="hljs-symbol">refresh:</span> false; 
+    <span class="hljs-keyword">display</span> view3D <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">antialias:</span> false {
+        <span class="hljs-keyword">light</span> #ambient <span class="hljs-symbol">intensity:</span> 80;
+        <span class="hljs-keyword">image</span> <span class="hljs-string">"../includes/luneray.jpg"</span> <span class="hljs-symbol">refresh:</span> false; 
         <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> geom3D <span class="hljs-symbol">refresh:</span> false;
         <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> geom3D <span class="hljs-symbol">refresh:</span> false;
         <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> geom3D; 
@@ -116,7 +117,14 @@
 }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
-<pre><code class="hljs"><span class="hljs-builtin">model</span> model5
+<pre><code class="hljs"><span class="hljs-comment">/**
+* Name: Luneray's flu 5
+* Author: Patrick Taillandier
+* Description: Define a 3D display
+* Tags: 3D, obj, opengl, tutorial
+*/</span>
+
+<span class="hljs-builtin">model</span> model5
 
 global {
     <span class="hljs-literal">int</span> nb_people &lt;- 2147;
@@ -127,16 +135,18 @@ global {
     <span class="hljs-literal">geometry</span> shape &lt;- envelope(roads_shapefile);    
     <span class="hljs-literal">graph</span> road_network;
     
+    
     <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init <span class="hljs-symbol">update:</span> people count (each.is_infected);
     <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init <span class="hljs-symbol">update:</span> nb_people - nb_people_infected;
     <span class="hljs-literal">float</span> infected_rate <span class="hljs-symbol">update:</span> nb_people_infected/nb_people;
-      
+    
+    
     init{
         <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> roads_shapefile;
         road_network &lt;- as_edge_graph(road);        
         <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> buildings_shapefile;
         <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people {
-            location &lt;- any_location_in(one_of(building));                
+            location &lt;- any_location_in(one_of(building));              
         }
         <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
@@ -144,7 +154,7 @@ global {
     }
 }
 
-<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{        
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-literal">float</span> speed &lt;- (2 + rnd(3)) #km/#h;
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
     <span class="hljs-literal">point</span> target;
@@ -197,7 +207,7 @@ global {
         <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray;
     }
     <span class="hljs-keyword">aspect</span> geom3D {
-        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">depth:</span> 20 #m <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">texture:</span>[<span class="hljs-string">"../includes/roof_top.png"</span>,<span class="hljs-string">"../includes/texture.jpg"</span>];
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">depth:</span> 20 #m <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">texture:</span>[<span class="hljs-string">"../includes/roof_top.jpg"</span>,<span class="hljs-string">"../includes/texture.jpg"</span>];
     }
 }
 
@@ -210,8 +220,10 @@ global {
         <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
             <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span>geom;
             <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span>geom;
-            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;            
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;           
         }
+        
+        
         
         <span class="hljs-keyword">display</span> chart_display <span class="hljs-symbol">refresh:</span> every(10 #cycles) {
             <span class="hljs-keyword">chart</span> <span class="hljs-string">"Disease spreading"</span> <span class="hljs-symbol">type:</span> series {
@@ -219,9 +231,9 @@ global {
                 <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> nb_people_infected <span class="hljs-symbol">color:</span> #red;
             }
         }
-
-        <span class="hljs-keyword">display</span> view3D <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">ambient_light:</span> 80 {
-            <span class="hljs-keyword">image</span> <span class="hljs-string">"../includes/luneray.png"</span> <span class="hljs-symbol">refresh:</span> false; 
+        <span class="hljs-keyword">display</span> view3D <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">antialias:</span> false {
+            <span class="hljs-keyword">light</span> #ambient <span class="hljs-symbol">intensity:</span> 80;
+            <span class="hljs-keyword">image</span> <span class="hljs-string">"../includes/luneray.jpg"</span> <span class="hljs-symbol">refresh:</span> false; 
             <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> geom3D <span class="hljs-symbol">refresh:</span> false;
             <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> geom3D <span class="hljs-symbol">refresh:</span> false;
             <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> geom3D; 

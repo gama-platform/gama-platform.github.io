@@ -143,7 +143,7 @@ global {
         road_network &lt;- as_edge_graph(road);        
         <span class="hljs-keyword">create</span> building <span class="hljs-symbol">from:</span> buildings_shapefile;
         <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span>nb_people {
-            location &lt;- any_location_in(one_of(building));                
+            location &lt;- any_location_in(one_of(building));              
         }
         <span class="hljs-keyword">ask</span> nb_infected_init among people {
             is_infected &lt;- true;
@@ -151,7 +151,7 @@ global {
     }
 }
 
-<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{        
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-literal">float</span> speed &lt;- (2 + rnd(3)) #km/#h;
     <span class="hljs-literal">bool</span> is_infected &lt;- false;
     <span class="hljs-literal">point</span> target;
@@ -204,7 +204,7 @@ global {
         <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray;
     }
     <span class="hljs-keyword">aspect</span> geom3D {
-        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">depth:</span> 20 #m <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">texture:</span>[<span class="hljs-string">"../includes/roof_top.png"</span>,<span class="hljs-string">"../includes/texture.jpg"</span>];
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">depth:</span> 20 #m <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">texture:</span>[<span class="hljs-string">"../includes/roof_top.jpg"</span>,<span class="hljs-string">"../includes/texture.jpg"</span>];
     }
 }
 
@@ -212,22 +212,25 @@ global {
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Nb people infected at init"</span> <span class="hljs-symbol">var:</span> nb_infected_init <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 2147;
 
     <span class="hljs-keyword">output</span> {
+        
+        <span class="hljs-keyword">layout</span> #split ;
         <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Infected people rate"</span> <span class="hljs-symbol">value:</span> infected_rate;
         
         <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
             <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span>geom;
             <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span>geom;
-            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;            
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>circle;           
         }
     
-        <span class="hljs-keyword">display</span> chart_display <span class="hljs-symbol">refresh:</span> every(10 #cycles) {
+        <span class="hljs-keyword">display</span> chart_display <span class="hljs-symbol">type:</span> java2D <span class="hljs-symbol">refresh:</span> every(10 #cycles) {
             <span class="hljs-keyword">chart</span> <span class="hljs-string">"Disease spreading"</span> <span class="hljs-symbol">type:</span> series {
                 <span class="hljs-keyword">data</span> <span class="hljs-string">"susceptible"</span> <span class="hljs-symbol">value:</span> nb_people_not_infected <span class="hljs-symbol">color:</span> #green;
                 <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> nb_people_infected <span class="hljs-symbol">color:</span> #red;
             }
         }
-        <span class="hljs-keyword">display</span> view3D <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">ambient_light:</span> 80 {
-            <span class="hljs-keyword">image</span> <span class="hljs-string">"../includes/luneray.png"</span> <span class="hljs-symbol">refresh:</span>false; 
+        <span class="hljs-keyword">display</span> view3D <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">antialias:</span> false {
+            <span class="hljs-keyword">light</span> #ambient <span class="hljs-symbol">intensity:</span> 80;
+            <span class="hljs-keyword">image</span> <span class="hljs-string">"../includes/luneray.jpg"</span> <span class="hljs-symbol">refresh:</span>false; 
             <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span>geom3D <span class="hljs-symbol">refresh:</span> false;
             <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> geom3D <span class="hljs-symbol">refresh:</span> false;
             <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> geom3D ; 
@@ -238,7 +241,7 @@ global {
 <span class="hljs-builtin">experiment</span> test_robustness <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">until:</span> time &gt; 2#h <span class="hljs-symbol">repeat:</span> 10 {
     <span class="hljs-builtin">reflex</span> information {
         <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; vals &lt;- simulations collect each.infected_rate;
-        <span class="hljs-keyword">write</span> <span class="hljs-string">"mean: "</span> + mean(vals) + <span class="hljs-string">" standard deviation: "</span> + standard_deviation(vals);    
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"mean: "</span> + mean(vals) + <span class="hljs-string">" standard deviation: "</span> + standard_deviation(vals);   
     }
 }
 
@@ -246,9 +249,10 @@ global {
     <span class="hljs-keyword">parameter</span> <span class="hljs-string">"proba_leave"</span> <span class="hljs-symbol">var:</span> proba_leave <span class="hljs-symbol">among:</span> [0, 0.01, 0.05, 0.1, 1.0];
     
     <span class="hljs-builtin">reflex</span> save_results {
+        
         <span class="hljs-keyword">ask</span> simulations {
             <span class="hljs-keyword">write</span> <span class="hljs-string">"proba_leave: "</span> + proba_leave + <span class="hljs-string">" infected_rate: "</span> + self.infected_rate;
-            <span class="hljs-keyword">save</span> [proba_leave, self.infected_rate]  <span class="hljs-symbol">type:</span> csv <span class="hljs-symbol">to:</span><span class="hljs-string">"results.csv"</span> <span class="hljs-symbol">rewrite:</span> (<span class="hljs-literal">int</span>(self) = 0) ? true : false <span class="hljs-symbol">header:</span> true ;
+            <span class="hljs-keyword">save</span> [proba_leave, self.infected_rate] <span class="hljs-symbol">type:</span> csv <span class="hljs-symbol">to:</span><span class="hljs-string">"results.csv"</span> <span class="hljs-symbol">rewrite:</span> (<span class="hljs-literal">int</span>(self) = 0) ? true : false <span class="hljs-symbol">header:</span> true ;
         }
     }
 }
@@ -259,6 +263,7 @@ global {
     
     method <span class="hljs-keyword">genetic</span> <span class="hljs-symbol">pop_dim:</span> 3 <span class="hljs-symbol">max_gen:</span> 5 <span class="hljs-symbol">minimize:</span> abs(infected_rate - 0.5);
 }
+
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/LuneraysFlu_step5"><span class="arrow-prev">← </span><span>5. Definition of 3D displays</span></a><a class="docs-next button" href="/wiki/BDIAgents"><span>BDI Agents</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#formulation">Formulation</a></li><li><a href="#model-definition">Model Definition</a><ul class="toc-headings"><li><a href="#sensitivity-analysis-toward-stochasticity">Sensitivity analysis toward stochasticity</a></li><li><a href="#exploration">Exploration</a></li><li><a href="#calibration">Calibration</a></li></ul></li><li><a href="#complete-model">Complete Model</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
                 </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>

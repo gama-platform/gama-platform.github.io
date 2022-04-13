@@ -148,7 +148,7 @@ global {
     init
     {
         <span class="hljs-keyword">create</span> market {
-            the_market &lt;- self;    
+            the_market &lt;- self; 
         }
         <span class="hljs-keyword">create</span> gold_mine <span class="hljs-symbol">number:</span> nb_mines;
         <span class="hljs-keyword">create</span> miner <span class="hljs-symbol">number:</span> nb_miners;
@@ -179,9 +179,12 @@ global {
                 }
             }
     }
-
+    
     <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> sum(gold_mine collect each.quantity) = 0 and empty(miner where each.has_belief(has_gold)){
         <span class="hljs-keyword">do</span> pause;
+        <span class="hljs-keyword">ask</span> miner {
+            <span class="hljs-keyword">write</span> name + <span class="hljs-string">" : "</span> +gold_sold;
+        }
     }
 }
 
@@ -233,7 +236,7 @@ global {
     <span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> mine_location <span class="hljs-symbol">new_desire:</span> has_gold <span class="hljs-symbol">strength:</span> 2.0;
     <span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> has_gold <span class="hljs-symbol">new_desire:</span> sell_gold <span class="hljs-symbol">strength:</span> 3.0;
     
-    <span class="hljs-keyword">plan</span> lets_wander <span class="hljs-symbol">intention:</span>find_gold {
+    <span class="hljs-keyword">plan</span> lets_wander <span class="hljs-symbol">intention:</span>find_gold <span class="hljs-symbol">finished_when:</span> has_desire(has_gold){
         <span class="hljs-keyword">do</span> wander;
     }
     
@@ -246,14 +249,14 @@ global {
             <span class="hljs-keyword">if</span> (target = location)  {
                 gold_mine current_mine&lt;- gold_mine first_with (target = each.location);
                 <span class="hljs-keyword">if</span> current_mine.quantity &gt; 0 {
-                     <span class="hljs-keyword">do</span> add_belief(has_gold);
+                    <span class="hljs-keyword">do</span> add_belief(has_gold);
                     <span class="hljs-keyword">ask</span> current_mine {quantity &lt;- quantity - 1;}    
                 } <span class="hljs-keyword">else</span> {
                     <span class="hljs-keyword">do</span> add_belief(new_predicate(empty_mine_location, [<span class="hljs-string">"location_value"</span>::target]));
                 }
                 target &lt;- nil;
             }
-        }    
+        }   
     }
     
     <span class="hljs-keyword">plan</span> choose_closest_gold_mine <span class="hljs-symbol">intention:</span> choose_gold_mine <span class="hljs-symbol">instantaneous:</span> true{
@@ -280,12 +283,12 @@ global {
         <span class="hljs-literal">list</span>&lt;miner&gt; my_friends &lt;- <span class="hljs-literal">list</span>&lt;miner&gt;((social_link_base where (each.liking &gt; 0)) collect each.<span class="hljs-literal">agent</span>);
         <span class="hljs-keyword">loop</span> known_gold_mine <span class="hljs-symbol">over:</span> get_beliefs_with_name(mine_at_location) {
             <span class="hljs-keyword">ask</span> my_friends {
-                <span class="hljs-keyword">do</span> add_belief(known_gold_mine);
+                <span class="hljs-keyword">do</span> add_directly_belief(known_gold_mine);
             }
         }
         <span class="hljs-keyword">loop</span> known_empty_gold_mine <span class="hljs-symbol">over:</span> get_beliefs_with_name(empty_mine_location) {
             <span class="hljs-keyword">ask</span> my_friends {
-                <span class="hljs-keyword">do</span> add_belief(known_empty_gold_mine);
+                <span class="hljs-keyword">do</span> add_directly_belief(known_empty_gold_mine);
             }
         }
         
@@ -294,6 +297,7 @@ global {
 
     <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
         <span class="hljs-keyword">draw</span> circle(200) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold;
+        <span class="hljs-keyword">draw</span> circle(view_dist) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold <span class="hljs-symbol">wireframe:</span> true;
     }
 }
 
@@ -307,6 +311,7 @@ global {
     }
 }
 
+
 <span class="hljs-builtin">experiment</span> GoldBdi <span class="hljs-symbol">type:</span> gui {
     <span class="hljs-keyword">output</span> {
         <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl
@@ -315,17 +320,17 @@ global {
             <span class="hljs-literal">species</span> gold_mine ;
             <span class="hljs-literal">species</span> miner;
         }
-
+        
         <span class="hljs-keyword">display</span> socialLinks <span class="hljs-symbol">type:</span> opengl{
         <span class="hljs-literal">species</span> socialLinkRepresentation <span class="hljs-symbol">aspect:</span> base;
     }
 
         <span class="hljs-keyword">display</span> <span class="hljs-keyword">chart</span> {
-        <span class="hljs-keyword">chart</span> <span class="hljs-string">"Money"</span> <span class="hljs-symbol">type:</span> series {
-        <span class="hljs-keyword">datalist</span> <span class="hljs-symbol">legend:</span> miner accumulate each.name <span class="hljs-symbol">value:</span> miner accumulate each.gold_sold <span class="hljs-symbol">color:</span> miner accumulate each.my_color;
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Money"</span> <span class="hljs-symbol">type:</span> series {
+                <span class="hljs-keyword">datalist</span> <span class="hljs-symbol">legend:</span> miner accumulate each.name <span class="hljs-symbol">value:</span> miner accumulate each.gold_sold <span class="hljs-symbol">color:</span> miner accumulate each.my_color;
+            }
         }
-    }
-
+        
     }
 }
 </code></pre>

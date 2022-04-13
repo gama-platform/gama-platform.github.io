@@ -137,7 +137,7 @@
 <li><code>gold_sold</code>: the number of gold nuggets sold by the agent</li>
 </ul>
 <p>We define the init block of the species such as to add at the creation of the agent the desire to find gold nuggets (<code>find_gold</code> predicate). we use for that the <code>add_desire</code> action provides with the BDI architecture.</p>
-<p>At last, we define an aspect in which we draw the agent with its <code>my_color</code> color and with a depth that depends on the number of gold nuggets collected.</p>
+<p>At last, we define an aspect in which we draw the agent with its <code>my_color</code> color and with a depth that depends on the number of gold nuggets collected. We then add a circle around the miner of radius <code>view_dist</code> to visualize the distance of perception of each agent, we set the <code>wireframe</code> facet to true in order to draw only its border.</p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
     <span class="hljs-literal">float</span> view_dist &lt;- 1000.0;
     <span class="hljs-literal">float</span> speed &lt;- 2#km/#h;
@@ -150,6 +150,7 @@
     }
     <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
         <span class="hljs-keyword">draw</span> circle(200) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold;
+        <span class="hljs-keyword">draw</span> circle(view_dist) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold <span class="hljs-symbol">wireframe:</span> true;
     }
 }
 </code></pre>
@@ -326,8 +327,8 @@ global {
     <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> sum(gold_mine collect each.quantity) = 0 and empty(miner where each.has_belief(has_gold)){
         <span class="hljs-keyword">do</span> pause;
         <span class="hljs-keyword">ask</span> miner {
-        <span class="hljs-keyword">write</span> name + <span class="hljs-string">" : "</span> +gold_sold;
-    }
+            <span class="hljs-keyword">write</span> name + <span class="hljs-string">" : "</span> +gold_sold;
+        }
     }
 }
 
@@ -366,6 +367,7 @@ global {
     
     <span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> mine_location <span class="hljs-symbol">new_desire:</span> has_gold <span class="hljs-symbol">strength:</span> 2.0;
     <span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> has_gold <span class="hljs-symbol">new_desire:</span> sell_gold <span class="hljs-symbol">strength:</span> 3.0;
+    
         
     <span class="hljs-keyword">plan</span> lets_wander <span class="hljs-symbol">intention:</span> find_gold  {
         <span class="hljs-keyword">do</span> wander;
@@ -413,22 +415,25 @@ global {
 
     <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
       <span class="hljs-keyword">draw</span> circle(200) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold;
+      <span class="hljs-keyword">draw</span> circle(view_dist) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold <span class="hljs-symbol">wireframe:</span> true;
     }
 }
 
 <span class="hljs-builtin">experiment</span> GoldBdi <span class="hljs-symbol">type:</span> gui {
+
     <span class="hljs-keyword">output</span> {
         <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
             <span class="hljs-literal">species</span> market ;
             <span class="hljs-literal">species</span> gold_mine ;
             <span class="hljs-literal">species</span> miner;
         }
+        
         <span class="hljs-keyword">display</span> <span class="hljs-keyword">chart</span> {
-        <span class="hljs-keyword">chart</span> <span class="hljs-string">"Money"</span> <span class="hljs-symbol">type:</span> series {
-        <span class="hljs-keyword">datalist</span> <span class="hljs-symbol">legend:</span> miner accumulate each.name <span class="hljs-symbol">value:</span> miner accumulate each.gold_sold <span class="hljs-symbol">color:</span> miner accumulate each.my_color;
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Money"</span> <span class="hljs-symbol">type:</span> series {
+                <span class="hljs-keyword">datalist</span> <span class="hljs-symbol">legend:</span> miner accumulate each.name <span class="hljs-symbol">value:</span> miner accumulate each.gold_sold <span class="hljs-symbol">color:</span> miner accumulate each.my_color;
+            }
         }
-    }
-
+        
     }
 }
 </code></pre>
