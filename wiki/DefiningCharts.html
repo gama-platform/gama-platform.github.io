@@ -270,7 +270,49 @@ global {
 </code></pre>
 <p><img src="../resources/images/definingGUIExperiment/charts_scatter.png" alt="Display of the age distribution using a scatter chart."></p>
 <h3><a class="anchor" aria-hidden="true" id="box_whisker"></a><a href="#box_whisker" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>box_whisker</code></h3>
-<p>[TODO]</p>
+<p>The <code>box_whisker</code> charts represent the distribution of a value. A circle for the average, a horizontal line for the median, a filled bar (the &quot;box&quot;) for the top 75% and the bottom 25% and a line (the &quot;whisker&quot;) for the maximum and minimum values.</p>
+<p>For example, let consider again a population of agents representing human beings with an <code>age</code> attribute (with an aging mechanism). The following model illustrates the plot of the age distribution over the population.</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> NewModel
+
+global {
+    init {
+    <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> 100;
+    }
+}
+
+<span class="hljs-literal">species</span> people {
+    <span class="hljs-literal">float</span> age &lt;- gauss(40.0, 15.0);
+    <span class="hljs-builtin">reflex</span> older {
+    age &lt;- age + 1;
+    }
+
+    <span class="hljs-builtin">reflex</span> die <span class="hljs-symbol">when:</span> flip(age / 1000) {
+    <span class="hljs-keyword">create</span> people {
+        age &lt;- 0.0;
+    }
+    <span class="hljs-keyword">do</span> die;
+    }
+}
+
+<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">display</span> <span class="hljs-string">"chart age"</span> {
+        <span class="hljs-keyword">chart</span> <span class="hljs-string">"age"</span> <span class="hljs-symbol">type:</span> box_whisker 
+        <span class="hljs-symbol">series_label_position:</span>yaxis
+        {
+        <span class="hljs-keyword">data</span> <span class="hljs-string">"age"</span>
+           <span class="hljs-symbol">value:</span> [mean(people collect each.age),median(people collect each.age),
+            quantile((people sort_by each.age) collect each.age,0.25),quantile((people sort_by each.age)collect each.age,0.75),
+            min(people collect each.age),max(people collect each.age)]
+            <span class="hljs-symbol">color:</span> #green
+            <span class="hljs-symbol">accumulate_values:</span> true;
+        } 
+      }
+    }
+}
+</code></pre>
+<p><img src="../resources/images/definingGUIExperiment/charts_box_whisker.png" alt="Illustration of the box_whisker charts."></p>
+<p>Note that the facet <code>series_label_position</code> (with <code>yaxis</code> value) int the <code>chart</code> statement is used to display the serie label (&quot;age&quot;) on the y axis. With more series, we can display the labels as a legend (with the 'legend' value).</p>
 <h2><a class="anchor" aria-hidden="true" id="other-charts-possibilities"></a><a href="#other-charts-possibilities" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other charts possibilities</h2>
 <p>The <code>chart</code>, <code>data</code> and <code>datalist</code> come with a huge number of additional facets, allowing you to design advanced result display. We can mention here some of them.</p>
 <h3><a class="anchor" aria-hidden="true" id="error-values"></a><a href="#error-values" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error values</h3>
