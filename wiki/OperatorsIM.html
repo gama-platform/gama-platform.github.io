@@ -405,16 +405,16 @@
 <h3><a class="anchor" aria-hidden="true" id="index_of"></a><a href="#index_of" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>index_of</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-10"></a><a href="#possible-uses-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><code>matrix</code> <strong><code>index_of</code></strong> <code>unknown</code> ---&gt;  <code>point</code></li>
-<li><strong><code>index_of</code></strong> (<code>matrix</code> , <code>unknown</code>) ---&gt;  <code>point</code></li>
 <li><code>species</code> <strong><code>index_of</code></strong> <code>unknown</code> ---&gt;  <code>int</code></li>
 <li><strong><code>index_of</code></strong> (<code>species</code> , <code>unknown</code>) ---&gt;  <code>int</code></li>
-<li><code>list</code> <strong><code>index_of</code></strong> <code>unknown</code> ---&gt;  <code>int</code></li>
-<li><strong><code>index_of</code></strong> (<code>list</code> , <code>unknown</code>) ---&gt;  <code>int</code></li>
-<li><code>string</code> <strong><code>index_of</code></strong> <code>string</code> ---&gt;  <code>int</code></li>
-<li><strong><code>index_of</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>int</code></li>
+<li><code>matrix</code> <strong><code>index_of</code></strong> <code>unknown</code> ---&gt;  <code>point</code></li>
+<li><strong><code>index_of</code></strong> (<code>matrix</code> , <code>unknown</code>) ---&gt;  <code>point</code></li>
 <li><code>map&lt;unknown,unknown&gt;</code> <strong><code>index_of</code></strong> <code>unknown</code> ---&gt;  <code>unknown</code></li>
 <li><strong><code>index_of</code></strong> (<code>map&lt;unknown,unknown&gt;</code> , <code>unknown</code>) ---&gt;  <code>unknown</code></li>
+<li><code>string</code> <strong><code>index_of</code></strong> <code>string</code> ---&gt;  <code>int</code></li>
+<li><strong><code>index_of</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>int</code></li>
+<li><code>list</code> <strong><code>index_of</code></strong> <code>unknown</code> ---&gt;  <code>int</code></li>
+<li><strong><code>index_of</code></strong> (<code>list</code> , <code>unknown</code>) ---&gt;  <code>int</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-10"></a><a href="#result-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>the index of the first occurence of the right operand in the left operand container</p>
@@ -426,21 +426,21 @@
 <li>if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped</li>
 <li>if the left operand is a matrix, index_of returns the index as a point</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">point</span> var0 &lt;- <span class="hljs-literal">matrix</span>([[1,2,3],[4,5,6]]) index_of 4; <span class="hljs-comment">// var0 equals {1.0,0.0}</span>
-</code></pre>
-<ul>
-<li>if the left operand is a list, index_of returns the index as an integer</li>
-</ul>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var1 &lt;- [1,2,3,4,5,6] index_of 4; <span class="hljs-comment">// var1 equals 3 </span>
-<span class="hljs-literal">int</span> var2 &lt;- [4,2,3,4,5,4] index_of 4; <span class="hljs-comment">// var2 equals 0</span>
+<pre><code class="hljs"><span class="hljs-literal">point</span> var1 &lt;- <span class="hljs-literal">matrix</span>([[1,2,3],[4,5,6]]) index_of 4; <span class="hljs-comment">// var1 equals {1.0,0.0}</span>
 </code></pre>
 <ul>
 <li>if both operands are strings, returns the index within the left-hand string of the first occurrence of the given right-hand string</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var3 &lt;-  <span class="hljs-string">"abcabcabc"</span> index_of <span class="hljs-string">"ca"</span>; <span class="hljs-comment">// var3 equals 2</span>
+<pre><code class="hljs"><span class="hljs-literal">int</span> var2 &lt;-  <span class="hljs-string">"abcabcabc"</span> index_of <span class="hljs-string">"ca"</span>; <span class="hljs-comment">// var2 equals 2</span>
+</code></pre>
+<ul>
+<li>if the left operand is a list, index_of returns the index as an integer</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">int</span> var3 &lt;- [1,2,3,4,5,6] index_of 4; <span class="hljs-comment">// var3 equals 3 </span>
+<span class="hljs-literal">int</span> var4 &lt;- [4,2,3,4,5,4] index_of 4; <span class="hljs-comment">// var4 equals 0</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-9"></a><a href="#examples-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">unknown var4 &lt;- [1::2, 3::4, 5::6] index_of 4; <span class="hljs-comment">// var4 equals 3</span>
+<pre><code class="hljs">unknown var0 &lt;- [1::2, 3::4, 5::6] index_of 4; <span class="hljs-comment">// var0 equals 3</span>
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsAA#at">at</a>, <a href="OperatorsIM#last_index_of">last_index_of</a>,</p>
 <hr>
@@ -469,36 +469,36 @@
 <h3><a class="anchor" aria-hidden="true" id="inter"></a><a href="#inter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>inter</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-13"></a><a href="#possible-uses-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><code>geometry</code> <strong><code>inter</code></strong> <code>geometry</code> ---&gt;  <code>geometry</code></li>
-<li><strong><code>inter</code></strong> (<code>geometry</code> , <code>geometry</code>) ---&gt;  <code>geometry</code></li>
 <li><code>container</code> <strong><code>inter</code></strong> <code>container</code> ---&gt;  <code>list</code></li>
 <li><strong><code>inter</code></strong> (<code>container</code> , <code>container</code>) ---&gt;  <code>list</code></li>
+<li><code>geometry</code> <strong><code>inter</code></strong> <code>geometry</code> ---&gt;  <code>geometry</code></li>
+<li><strong><code>inter</code></strong> (<code>geometry</code> , <code>geometry</code>) ---&gt;  <code>geometry</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-13"></a><a href="#result-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
-<p>A geometry resulting from the intersection between the two geometries
-the intersection of the two operands</p>
+<p>the intersection of the two operands
+A geometry resulting from the intersection between the two geometries</p>
 <h4><a class="anchor" aria-hidden="true" id="comment-3"></a><a href="#comment-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comment:</h4>
 <p>both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-4"></a><a href="#special-cases-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>returns nil if one of the operands is nil</li>
 <li>if an operand is a graph, it will be transformed into the set of its nodes</li>
+<li>returns nil if one of the operands is nil</li>
 <li>if an operand is a map, it will be transformed into the set of its values</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">list</span> var3 &lt;- [1::2, 3::4, 5::6] inter [2,4]; <span class="hljs-comment">// var3 equals [2,4] </span>
-<span class="hljs-literal">list</span> var4 &lt;- [1::2, 3::4, 5::6] inter [1,3]; <span class="hljs-comment">// var4 equals []</span>
+<pre><code class="hljs"><span class="hljs-literal">list</span> var0 &lt;- [1::2, 3::4, 5::6] inter [2,4]; <span class="hljs-comment">// var0 equals [2,4] </span>
+<span class="hljs-literal">list</span> var1 &lt;- [1::2, 3::4, 5::6] inter [1,3]; <span class="hljs-comment">// var1 equals []</span>
 </code></pre>
 <ul>
 <li>if an operand is a matrix, it will be transformed into the set of the lines</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">list</span> var5 &lt;- <span class="hljs-literal">matrix</span>([[3,2,1],[4,5,4]]) inter [3,4]; <span class="hljs-comment">// var5 equals [3,4]</span>
+<pre><code class="hljs"><span class="hljs-literal">list</span> var2 &lt;- <span class="hljs-literal">matrix</span>([[3,2,1],[4,5,4]]) inter [3,4]; <span class="hljs-comment">// var2 equals [3,4]</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-11"></a><a href="#examples-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">geometry</span> var0 &lt;- square(10) inter circle(5); <span class="hljs-comment">// var0 equals circle(5) </span>
-<span class="hljs-literal">list</span> var1 &lt;- [1,2,3,4,5,6] inter [2,4]; <span class="hljs-comment">// var1 equals [2,4] </span>
-<span class="hljs-literal">list</span> var2 &lt;- [1,2,3,4,5,6] inter [0,8]; <span class="hljs-comment">// var2 equals []</span>
+<pre><code class="hljs"><span class="hljs-literal">list</span> var3 &lt;- [1,2,3,4,5,6] inter [2,4]; <span class="hljs-comment">// var3 equals [2,4] </span>
+<span class="hljs-literal">list</span> var4 &lt;- [1,2,3,4,5,6] inter [0,8]; <span class="hljs-comment">// var4 equals [] </span>
+<span class="hljs-literal">geometry</span> var5 &lt;- square(10) inter circle(5); <span class="hljs-comment">// var5 equals circle(5)</span>
 </code></pre>
-<p><strong>See also:</strong> <a href="OperatorsSZ#union">union</a>, <a href="OperatorsAA#+">+</a>, <a href="OperatorsAA#-">-</a>, <a href="OperatorsNR#remove_duplicates">remove_duplicates</a>,</p>
+<p><strong>See also:</strong> <a href="OperatorsNR#remove_duplicates">remove_duplicates</a>, <a href="OperatorsSZ#union">union</a>, <a href="OperatorsAA#+">+</a>, <a href="OperatorsAA#-">-</a>,</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="interleave"></a><a href="#interleave" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>interleave</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-14"></a><a href="#possible-uses-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
@@ -1050,16 +1050,16 @@ Returns the kurtosis (aka excess) of a list of values (kurtosis = { [n(n+1) / (n
 <h3><a class="anchor" aria-hidden="true" id="last_index_of"></a><a href="#last_index_of" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>last_index_of</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-61"></a><a href="#possible-uses-61" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
+<li><code>species</code> <strong><code>last_index_of</code></strong> <code>unknown</code> ---&gt;  <code>int</code></li>
+<li><strong><code>last_index_of</code></strong> (<code>species</code> , <code>unknown</code>) ---&gt;  <code>int</code></li>
 <li><code>map&lt;unknown,unknown&gt;</code> <strong><code>last_index_of</code></strong> <code>unknown</code> ---&gt;  <code>unknown</code></li>
 <li><strong><code>last_index_of</code></strong> (<code>map&lt;unknown,unknown&gt;</code> , <code>unknown</code>) ---&gt;  <code>unknown</code></li>
+<li><code>list</code> <strong><code>last_index_of</code></strong> <code>unknown</code> ---&gt;  <code>int</code></li>
+<li><strong><code>last_index_of</code></strong> (<code>list</code> , <code>unknown</code>) ---&gt;  <code>int</code></li>
 <li><code>matrix</code> <strong><code>last_index_of</code></strong> <code>unknown</code> ---&gt;  <code>point</code></li>
 <li><strong><code>last_index_of</code></strong> (<code>matrix</code> , <code>unknown</code>) ---&gt;  <code>point</code></li>
 <li><code>string</code> <strong><code>last_index_of</code></strong> <code>string</code> ---&gt;  <code>int</code></li>
 <li><strong><code>last_index_of</code></strong> (<code>string</code> , <code>string</code>) ---&gt;  <code>int</code></li>
-<li><code>species</code> <strong><code>last_index_of</code></strong> <code>unknown</code> ---&gt;  <code>int</code></li>
-<li><strong><code>last_index_of</code></strong> (<code>species</code> , <code>unknown</code>) ---&gt;  <code>int</code></li>
-<li><code>list</code> <strong><code>last_index_of</code></strong> <code>unknown</code> ---&gt;  <code>int</code></li>
-<li><strong><code>last_index_of</code></strong> (<code>list</code> , <code>unknown</code>) ---&gt;  <code>int</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-61"></a><a href="#result-61" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>the index of the last occurence of the right operand in the left operand container</p>
@@ -1073,20 +1073,20 @@ Returns the kurtosis (aka excess) of a list of values (kurtosis = { [n(n+1) / (n
 <pre><code class="hljs">unknown var0 &lt;- [1::2, 3::4, 5::4] last_index_of 4; <span class="hljs-comment">// var0 equals 5</span>
 </code></pre>
 <ul>
+<li>if the left operand is a list, last_index_of returns the index as an integer</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">int</span> var1 &lt;- [1,2,3,4,5,6] last_index_of 4; <span class="hljs-comment">// var1 equals 3 </span>
+<span class="hljs-literal">int</span> var2 &lt;- [4,2,3,4,5,4] last_index_of 4; <span class="hljs-comment">// var2 equals 5</span>
+</code></pre>
+<ul>
 <li>if the left operand is a matrix, last_index_of returns the index as a point</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">point</span> var1 &lt;- <span class="hljs-literal">matrix</span>([[1,2,3],[4,5,4]]) last_index_of 4; <span class="hljs-comment">// var1 equals {1.0,2.0}</span>
+<pre><code class="hljs"><span class="hljs-literal">point</span> var3 &lt;- <span class="hljs-literal">matrix</span>([[1,2,3],[4,5,4]]) last_index_of 4; <span class="hljs-comment">// var3 equals {1.0,2.0}</span>
 </code></pre>
 <ul>
 <li>if both operands are strings, returns the index within the left-hand string of the rightmost occurrence of the given right-hand string</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var2 &lt;- <span class="hljs-string">"abcabcabc"</span> last_index_of <span class="hljs-string">"ca"</span>; <span class="hljs-comment">// var2 equals 5</span>
-</code></pre>
-<ul>
-<li>if the left operand is a list, last_index_of returns the index as an integer</li>
-</ul>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var3 &lt;- [1,2,3,4,5,6] last_index_of 4; <span class="hljs-comment">// var3 equals 3 </span>
-<span class="hljs-literal">int</span> var4 &lt;- [4,2,3,4,5,4] last_index_of 4; <span class="hljs-comment">// var4 equals 5</span>
+<pre><code class="hljs"><span class="hljs-literal">int</span> var4 &lt;- <span class="hljs-string">"abcabcabc"</span> last_index_of <span class="hljs-string">"ca"</span>; <span class="hljs-comment">// var4 equals 5</span>
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsAA#at">at</a>, <a href="OperatorsIM#index_of">index_of</a>, <a href="OperatorsIM#last_index_of">last_index_of</a>,</p>
 <hr>
@@ -1187,8 +1187,8 @@ unknown var3 &lt;- (<span class="hljs-literal">list</span>(node) last_with (roun
 <h3><a class="anchor" aria-hidden="true" id="length"></a><a href="#length" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>length</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-68"></a><a href="#possible-uses-68" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>length</code></strong> (<code>string</code>) ---&gt;  <code>int</code></li>
 <li><strong><code>length</code></strong> (<code>container&lt;KeyType,ValueType&gt;</code>) ---&gt;  <code>int</code></li>
+<li><strong><code>length</code></strong> (<code>string</code>) ---&gt;  <code>int</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-68"></a><a href="#result-68" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>the number of elements contained in the operand</p>
@@ -1198,20 +1198,20 @@ unknown var3 &lt;- (<span class="hljs-literal">list</span>(node) last_with (roun
 <ul>
 <li>if it is a population, length returns number of agents of the population</li>
 <li>if it is a graph, length returns the number of vertexes or of edges (depending on the way it was created)</li>
-<li>if it is a string, length returns the number of characters</li>
-</ul>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var0 &lt;- length (<span class="hljs-string">'I am an agent'</span>); <span class="hljs-comment">// var0 equals 13</span>
-</code></pre>
-<ul>
 <li>if it is a list or a map, length returns the number of elements in the list or map</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var1 &lt;- length([12,13]); <span class="hljs-comment">// var1 equals 2 </span>
-<span class="hljs-literal">int</span> var2 &lt;- length([]); <span class="hljs-comment">// var2 equals 0</span>
+<pre><code class="hljs"><span class="hljs-literal">int</span> var0 &lt;- length([12,13]); <span class="hljs-comment">// var0 equals 2 </span>
+<span class="hljs-literal">int</span> var1 &lt;- length([]); <span class="hljs-comment">// var1 equals 0</span>
 </code></pre>
 <ul>
 <li>if it is a matrix, length returns the number of cells</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var3 &lt;- length(<span class="hljs-literal">matrix</span>([[<span class="hljs-string">"c11"</span>,<span class="hljs-string">"c12"</span>,<span class="hljs-string">"c13"</span>],[<span class="hljs-string">"c21"</span>,<span class="hljs-string">"c22"</span>,<span class="hljs-string">"c23"</span>]])); <span class="hljs-comment">// var3 equals 6</span>
+<pre><code class="hljs"><span class="hljs-literal">int</span> var2 &lt;- length(<span class="hljs-literal">matrix</span>([[<span class="hljs-string">"c11"</span>,<span class="hljs-string">"c12"</span>,<span class="hljs-string">"c13"</span>],[<span class="hljs-string">"c21"</span>,<span class="hljs-string">"c22"</span>,<span class="hljs-string">"c23"</span>]])); <span class="hljs-comment">// var2 equals 6</span>
+</code></pre>
+<ul>
+<li>if it is a string, length returns the number of characters</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">int</span> var3 &lt;- length (<span class="hljs-string">'I am an agent'</span>); <span class="hljs-comment">// var3 equals 13</span>
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="lgamma"></a><a href="#lgamma" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lgamma</code></h3>
@@ -1327,8 +1327,8 @@ unknown var3 &lt;- (<span class="hljs-literal">list</span>(node) last_with (roun
 <h3><a class="anchor" aria-hidden="true" id="log"></a><a href="#log" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-76"></a><a href="#possible-uses-76" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>log</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>log</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>log</code></strong> (<code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-76"></a><a href="#result-76" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>Returns the logarithm (base 10) of the operand.</p>
@@ -1337,8 +1337,8 @@ unknown var3 &lt;- (<span class="hljs-literal">list</span>(node) last_with (roun
 <li>an exception is raised if the operand is equals or less than zero.</li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="examples-32"></a><a href="#examples-32" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- log(1); <span class="hljs-comment">// var0 equals 0.0 </span>
-<span class="hljs-literal">float</span> var1 &lt;- log(10); <span class="hljs-comment">// var1 equals 1.0</span>
+<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- log(10); <span class="hljs-comment">// var0 equals 1.0 </span>
+<span class="hljs-literal">float</span> var1 &lt;- log(1); <span class="hljs-comment">// var1 equals 0.0</span>
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsIM#ln">ln</a>,</p>
 <hr>
@@ -1381,21 +1381,21 @@ unknown var3 &lt;- (<span class="hljs-literal">list</span>(node) last_with (roun
 <h3><a class="anchor" aria-hidden="true" id="lognormal_trunc_rnd"></a><a href="#lognormal_trunc_rnd" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>lognormal_trunc_rnd</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-80"></a><a href="#possible-uses-80" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>lognormal_trunc_rnd</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>, <code>bool</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>lognormal_trunc_rnd</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>lognormal_trunc_rnd</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>, <code>bool</code>) ---&gt;  <code>float</code></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="result-80"></a><a href="#result-80" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Result:</h4>
 <p>returns a random value from a truncated Log-Normal distribution (in a range or given only one boundary) with specified values of the shape (alpha) and scale (beta) parameters. See <a href="https://en.wikipedia.org/wiki/Log-normal_distribution">https://en.wikipedia.org/wiki/Log-normal_distribution</a> for more details.</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-22"></a><a href="#special-cases-22" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>when 1 float and a boolean (isMax) operands are specified, the float value represents the single boundary (max if the boolean is true, min otherwise),</li>
-</ul>
-<pre><code class="hljs">lognormal_trunc_rnd(2,3,5,true)
-</code></pre>
-<ul>
 <li>when 2 float operands are specified, they are taken as mininimum and maximum values for the result</li>
 </ul>
 <pre><code class="hljs">lognormal_trunc_rnd(2,3,0,5)
+</code></pre>
+<ul>
+<li>when 1 float and a boolean (isMax) operands are specified, the float value represents the single boundary (max if the boolean is true, min otherwise),</li>
+</ul>
+<pre><code class="hljs">lognormal_trunc_rnd(2,3,5,true)
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsIM#lognormal_rnd">lognormal_rnd</a>, <a href="OperatorsDH#gamma_trunc_rnd">gamma_trunc_rnd</a>, <a href="OperatorsSZ#weibull_trunc_rnd">weibull_trunc_rnd</a>, <a href="OperatorsSZ#truncated_gauss">truncated_gauss</a>,</p>
 <hr>
