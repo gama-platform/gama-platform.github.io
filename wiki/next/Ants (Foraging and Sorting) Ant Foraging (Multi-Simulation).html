@@ -1,0 +1,194 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Ant Foraging (Multi-Simulation) · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (keyword|architecture_fsm)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Ant Foraging (Multi-Simulation) · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (keyword|architecture_fsm)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Ant Foraging (Multi-Simulation)</h1></header><article><div><span><p>_Author : _</p>
+<p>Toy Model ant using the question of how ants search food and use pheromons to return to their nest once they did find food.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> ants
+
+global {
+    <span class="hljs-comment">//Evaporation value per cycle of the pheromons</span>
+    <span class="hljs-literal">float</span> evaporation_per_cycle &lt;- 5.0 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 240.0 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Evaporation of the signal (unit/cycle):'</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">'Signals'</span>;
+    <span class="hljs-comment">//Diffusion rate of the pheromons</span>
+    <span class="hljs-literal">float</span> diffusion_rate &lt;- 1.0 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Rate of diffusion of the signal (%/cycle):'</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">'Signals'</span>;
+    <span class="hljs-comment">//Size of the grid</span>
+    <span class="hljs-literal">int</span> gridsize &lt;- 100 <span class="hljs-symbol">min:</span> 30 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Width and Height of the grid:'</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">'Environment and Population'</span>;
+    <span class="hljs-comment">//Number of ants that will be created</span>
+    <span class="hljs-literal">int</span> ants_number &lt;- 50 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Number of ants:'</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">'Environment and Population'</span>;
+    <span class="hljs-comment">//Number of food places to create</span>
+    <span class="hljs-literal">int</span> number_of_food_places &lt;- 5 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Number of food depots:'</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">'Environment and Population'</span>;
+    <span class="hljs-literal">float</span> grid_transparency &lt;- 1.0;
+    <span class="hljs-literal">file</span> ant_shape_empty <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">'../icons/ant.png'</span>);
+    <span class="hljs-literal">string</span> ant_shape_full <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-string">'../icons/full_ant.png'</span>;
+    <span class="hljs-literal">point</span> center <span class="hljs-symbol">const:</span> true &lt;- { round(gridsize / 2), round(gridsize / 2) };
+    <span class="hljs-literal">int</span> food_gathered  &lt;- 1;
+    <span class="hljs-literal">int</span> food_placed  &lt;- 1;
+    <span class="hljs-literal">rgb</span> background <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(#99CC66);
+    <span class="hljs-literal">rgb</span> food_color <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(#312200);
+    <span class="hljs-literal">rgb</span> nest_color <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(#000000); 
+
+    <span class="hljs-literal">geometry</span> shape &lt;- square(gridsize);
+    init {
+        <span class="hljs-comment">//Creation of the food places placed randomly with a certain distance between each</span>
+        <span class="hljs-keyword">loop</span> <span class="hljs-symbol">times:</span> number_of_food_places {
+            <span class="hljs-literal">point</span> loc &lt;- { rnd(gridsize - 10) + 5, rnd(gridsize - 10) + 5 };
+            <span class="hljs-literal">list</span>&lt;ant_grid&gt; food_places &lt;- (ant_grid where ((each distance_to loc) &lt; 5));
+            <span class="hljs-keyword">ask</span> food_places {
+                <span class="hljs-keyword">if</span> food = 0 {
+                    food &lt;- 5;
+                    food_placed &lt;- food_placed + 5;
+                    color &lt;- food_color;  
+                }                                           
+            }
+        }
+        <span class="hljs-comment">//Creation of the ants that will be placed in the nest</span>
+        <span class="hljs-keyword">create</span> ant <span class="hljs-symbol">number:</span> ants_number <span class="hljs-symbol">with:</span> (<span class="hljs-symbol">location:</span> center);
+        <span class="hljs-comment">//Write the index of the simulation</span>
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"Simulation "</span> + <span class="hljs-literal">int</span>(self) + <span class="hljs-string">" created"</span>;
+    }
+    <span class="hljs-comment">//Reflex to diffuse the pheromon among the grid</span>
+    <span class="hljs-builtin">reflex</span> <span class="hljs-keyword">diffuse</span> {
+      <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span>road <span class="hljs-symbol">on:</span>ant_grid <span class="hljs-symbol">proportion:</span> diffusion_rate <span class="hljs-symbol">radius:</span>2 <span class="hljs-symbol">propagation:</span> gradient;
+   }
+  
+
+  
+} 
+
+<span class="hljs-comment">//Grid used to discretize the space to place food</span>
+grid ant_grid <span class="hljs-symbol">width:</span> gridsize <span class="hljs-symbol">height:</span> gridsize <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-comment">/*frequency: grid_frequency*/</span> <span class="hljs-symbol">use_regular_agents:</span> false <span class="hljs-symbol">use_individual_shapes:</span> false{
+    <span class="hljs-literal">bool</span> is_nest <span class="hljs-symbol">const:</span> true &lt;- (<span class="hljs-literal">topology</span>(ant_grid) distance_between [self, center]) &lt; 4;
+    <span class="hljs-literal">float</span> road &lt;- 0.0 <span class="hljs-symbol">max:</span>240.0 <span class="hljs-symbol">update:</span> (road&lt;=evaporation_per_cycle) ? 0.0 : road-evaporation_per_cycle;
+    <span class="hljs-literal">rgb</span> color &lt;- is_nest ? nest_color : ((food &gt; 0) ? food_color : ((road &lt; 0.001) ? background : <span class="hljs-literal">rgb</span>(#009900) + <span class="hljs-literal">int</span>(road * 5))) <span class="hljs-symbol">update:</span> is_nest ? nest_color : ((food &gt; 0) ?
+    food_color : ((road &lt; 0.001) ? background : <span class="hljs-literal">rgb</span>(#009900) + <span class="hljs-literal">int</span>(road * 5)));
+    <span class="hljs-literal">int</span> food &lt;- 0;
+}
+<span class="hljs-comment">//Species ant that will move and follow a final state machine</span>
+<span class="hljs-literal">species</span> ant <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> {
+    <span class="hljs-literal">float</span> speed &lt;- 1.0;
+    <span class="hljs-literal">bool</span> has_food &lt;- false;
+    
+    <span class="hljs-comment">//Reflex to place a pheromon stock in the cell</span>
+    <span class="hljs-builtin">reflex</span> diffuse_road <span class="hljs-symbol">when:</span>has_food=true{
+      ant_grid(location).road &lt;- ant_grid(location).road + 100.0;
+   }
+    <span class="hljs-comment">//Action to pick food</span>
+    <span class="hljs-keyword">action</span> pick (<span class="hljs-literal">int</span> amount) {
+        has_food &lt;- true;
+        ant_grid place &lt;- ant_grid(location);
+        place.food &lt;- place.food - amount;
+    }
+    <span class="hljs-comment">//Action to drop food</span>
+    <span class="hljs-keyword">action</span> drop {
+        food_gathered &lt;- food_gathered + 1;
+        has_food &lt;- false;
+        heading &lt;- heading - 180;
+    }
+    <span class="hljs-comment">//Action to find the best place in the neighborhood cells   </span>
+    <span class="hljs-literal">point</span> choose_best_place {
+        <span class="hljs-literal">list</span>&lt;ant_grid&gt; list_places &lt;- ant_grid(location).neighbors;
+        <span class="hljs-keyword">if</span> (list_places count (each.food &gt; 0)) &gt; 0 {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">point</span>(list_places first_with (each.food &gt; 0));
+        } <span class="hljs-keyword">else</span> {
+            list_places &lt;- (list_places where ((each.road &gt; 0) and ((each distance_to center) &gt; (self distance_to center)))) sort_by (each.road);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">point</span>(last(list_places));
+        }
+    }
+    <span class="hljs-comment">//Reflex to drop food once the ant is in the nest   </span>
+    <span class="hljs-builtin">reflex</span> drop <span class="hljs-symbol">when:</span> has_food and (ant_grid(location)).is_nest {
+        <span class="hljs-keyword">do</span> drop();
+    }
+    <span class="hljs-comment">//Reflex to pick food when there is one at the same location</span>
+    <span class="hljs-builtin">reflex</span> pick <span class="hljs-symbol">when:</span> !has_food and (ant_grid(location)).food &gt; 0 {
+        <span class="hljs-keyword">do</span> pick(1);
+    }
+    <span class="hljs-comment">//Initial state to make the ant wander </span>
+    <span class="hljs-keyword">state</span> wandering <span class="hljs-symbol">initial:</span> true {
+        <span class="hljs-keyword">do</span> wander(<span class="hljs-symbol">amplitude:</span> 90);
+        <span class="hljs-literal">float</span> pr &lt;- (ant_grid(location)).road;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> carryingFood <span class="hljs-symbol">when:</span> has_food;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> followingRoad <span class="hljs-symbol">when:</span> (pr &gt; 0.05) and (pr &lt; 4);
+    }
+    <span class="hljs-comment">//State to carry food once it has been found</span>
+    <span class="hljs-keyword">state</span> carryingFood {
+        <span class="hljs-keyword">do</span> goto(<span class="hljs-symbol">target:</span> center);
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> wandering <span class="hljs-symbol">when:</span> !has_food;
+    }
+    <span class="hljs-comment">//State to follow a pheromon road if once has been found</span>
+    <span class="hljs-keyword">state</span> followingRoad {
+        <span class="hljs-literal">point</span> next_place &lt;- choose_best_place();
+        <span class="hljs-literal">float</span> pr &lt;- (ant_grid(location)).road;
+        location &lt;- next_place;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> carryingFood <span class="hljs-symbol">when:</span> has_food;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> wandering <span class="hljs-symbol">when:</span> (pr &lt; 0.05) or (next_place = nil);
+    }
+
+    <span class="hljs-keyword">aspect</span> icon {
+        <span class="hljs-keyword">draw</span> ant_shape_empty <span class="hljs-symbol">size:</span> {8,6} <span class="hljs-symbol">rotate:</span> my heading + 1;
+    }
+
+}   
+
+
+
+
+<span class="hljs-comment">//Experiment to show how to make multi simulations</span>
+<span class="hljs-builtin">experiment</span> <span class="hljs-string">"4 Simulations"</span> <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number:'</span> <span class="hljs-symbol">var:</span> ants_number <span class="hljs-symbol">init:</span> 100 <span class="hljs-symbol">unit:</span> <span class="hljs-string">'ants'</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">'Environment and Population'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Grid dimension:'</span> <span class="hljs-symbol">var:</span> gridsize <span class="hljs-symbol">init:</span> 100 <span class="hljs-symbol">unit:</span> <span class="hljs-string">'(number of rows and columns)'</span> <span class="hljs-symbol">category:</span> <span class="hljs-string">'Environment and Population'</span>;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of food depots:'</span> <span class="hljs-symbol">var:</span> number_of_food_places <span class="hljs-symbol">init:</span> 5 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">category:</span> <span class="hljs-string">'Environment and Population'</span>;
+
+    <span class="hljs-comment">// We create three supplementary simulations using the species name 'ants_model' (automatically created from the name of the model + '_model')</span>
+
+    init {
+        <span class="hljs-keyword">create</span> ants_model <span class="hljs-symbol">with:</span> [ants_number::200,evaporation_rate::0.7,diffusion_rate::0.2];
+        <span class="hljs-keyword">create</span> ants_model <span class="hljs-symbol">with:</span> [ants_number::50,evaporation_rate::0.05,diffusion_rate::0.8];
+        <span class="hljs-keyword">create</span> ants_model <span class="hljs-symbol">with:</span> [ants_number::10,evaporation_rate::0.3,diffusion_rate::0.6];
+    }
+    
+    <span class="hljs-keyword">permanent</span> {
+        <span class="hljs-keyword">display</span> Comparison <span class="hljs-symbol">background:</span> #white {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Food Gathered"</span> <span class="hljs-symbol">type:</span> series {
+                <span class="hljs-keyword">loop</span> s <span class="hljs-symbol">over:</span> simulations {
+                    <span class="hljs-keyword">data</span> <span class="hljs-string">"Food "</span> + <span class="hljs-literal">int</span>(s) <span class="hljs-symbol">value:</span> s.food_gathered <span class="hljs-symbol">color:</span> s.color <span class="hljs-symbol">marker:</span> false <span class="hljs-symbol">style:</span> line ;
+                }
+            }
+        }
+    }
+
+
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Ants <span class="hljs-symbol">background:</span> #white <span class="hljs-symbol">type:</span> opengl{
+            <span class="hljs-keyword">image</span> <span class="hljs-string">'../images/soil.jpg'</span> <span class="hljs-symbol">position:</span> { 0.05, 0.05 } <span class="hljs-symbol">size:</span> { 0.9, 0.9 };
+            <span class="hljs-keyword">agents</span> <span class="hljs-string">"agents"</span> <span class="hljs-symbol">transparency:</span> 0.5 <span class="hljs-symbol">position:</span> { 0.05, 0.05 } <span class="hljs-symbol">size:</span> { 0.9, 0.9 } <span class="hljs-symbol">value:</span> (ant_grid as <span class="hljs-literal">list</span>) where ((each.food &gt; 0) or (each.road &gt; 0) or (each.is_nest));
+            <span class="hljs-literal">species</span> ant <span class="hljs-symbol">position:</span> { 0.05, 0.05 } <span class="hljs-symbol">size:</span> { 0.9, 0.9 } <span class="hljs-symbol">aspect:</span> icon;
+        }
+    
+    }
+}
+
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

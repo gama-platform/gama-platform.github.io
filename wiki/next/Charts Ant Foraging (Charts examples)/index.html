@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Ant Foraging (Charts examples) · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (keyword|operator_min_of)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Ant Foraging (Charts examples) · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (keyword|operator_min_of)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Ant Foraging (Charts examples)</h1></header><article><div><span><p>_Author : _</p>
+<p>Toy Model ant using the question of how ants search food and use pheromons to return to their nest once they did find food. In this model, the charts are particularly used.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> ants
+
+global {
+    <span class="hljs-comment">//Number of ants</span>
+    <span class="hljs-literal">int</span> ants_number &lt;- 100 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 2000 ;
+    <span class="hljs-comment">//Evaporation value per cycle for the pheromons</span>
+    <span class="hljs-literal">float</span> evaporation_per_cycle &lt;- 5.0 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 240.0 ;
+    <span class="hljs-comment">//Diffusion rate for the pheromons</span>
+    <span class="hljs-literal">float</span> diffusion_rate &lt;- 1.0 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 ;
+    <span class="hljs-literal">bool</span> use_icons &lt;- true ;
+    <span class="hljs-literal">bool</span> display_state &lt;- true;
+    <span class="hljs-comment">//Size of the grid</span>
+    <span class="hljs-literal">int</span> gridsize &lt;- 75 ;
+    <span class="hljs-comment">//Center of the grid to put the location of the nest</span>
+    <span class="hljs-literal">point</span> center <span class="hljs-symbol">const:</span> true &lt;- { (gridsize / 2),  (gridsize / 2)} ;
+    <span class="hljs-literal">file</span> types <span class="hljs-symbol">const:</span> true &lt;- (pgm_file(<span class="hljs-string">'../images/environment75x75.pgm'</span>)) ;
+    <span class="hljs-literal">string</span> ant_shape_empty <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-string">'../icons/ant.png'</span> ;
+    <span class="hljs-literal">string</span> ant_shape_full <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-string">'../icons/full_ant.png'</span>  ;
+    <span class="hljs-literal">rgb</span> C00CC00 <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'#00CC00'</span>) ;    
+    <span class="hljs-literal">rgb</span> C009900 <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'#009900'</span>) ; 
+    <span class="hljs-literal">rgb</span> C005500 <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'#005500'</span>) ; 
+    <span class="hljs-literal">int</span> food_gathered &lt;- 0 ;   
+    <span class="hljs-literal">geometry</span> shape &lt;- square(gridsize);
+    init{  
+        <span class="hljs-comment">//Ant are placed randomly in the nest</span>
+        <span class="hljs-keyword">create</span> ant <span class="hljs-symbol">number:</span> ants_number <span class="hljs-symbol">with:</span> [location::any_location_in (ant_grid(center))] ;
+    }
+    
+    <span class="hljs-comment">//Reflex to diffuse the road of pheromon on the grid</span>
+    <span class="hljs-builtin">reflex</span> <span class="hljs-keyword">diffuse</span> {
+      <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span>road <span class="hljs-symbol">on:</span>ant_grid <span class="hljs-symbol">proportion:</span> diffusion_rate <span class="hljs-symbol">radius:</span>2 <span class="hljs-symbol">propagation:</span> gradient;
+   }
+
+
+
+}
+
+<span class="hljs-comment">//Grid to discretize space for the food and the nest</span>
+grid ant_grid <span class="hljs-symbol">width:</span> gridsize <span class="hljs-symbol">height:</span> gridsize <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">use_regular_agents:</span> false {
+    <span class="hljs-literal">bool</span> multiagent &lt;- true ;
+    <span class="hljs-literal">float</span> road &lt;- 0.0 <span class="hljs-symbol">max:</span>240.0 <span class="hljs-symbol">update:</span> (road&lt;=evaporation_per_cycle) ? 0.0 : road-evaporation_per_cycle;
+    <span class="hljs-literal">int</span> type &lt;- <span class="hljs-literal">int</span>(types at {grid_x,grid_y}) ;
+    <span class="hljs-literal">bool</span> isNestLocation &lt;- (self distance_to center) &lt; 4 ; 
+    <span class="hljs-literal">bool</span> isFoodLocation &lt;- type = 2 ; 
+    <span class="hljs-literal">rgb</span> color &lt;- isNestLocation ? °<span class="hljs-symbol">violet:</span>((food &gt; 0)? °blue : ((road &lt; 0.001)? <span class="hljs-literal">rgb</span> ([100,100,100]) : ((road &gt; 2)? °white : ((road &gt; 0.5)? (C00CC00) : ((road &gt; 0.2)? (C009900) : (C005500)))))) <span class="hljs-symbol">update:</span> isNestLocation ? °<span class="hljs-symbol">violet:</span>((food &gt; 0)? °blue : ((road &lt; 0.001)? <span class="hljs-literal">rgb</span> ([100,100,100]) : ((road &gt; 2)? °white : ((road &gt; 0.5)? (C00CC00) : ((road &gt; 0.2)? (C009900) : (C005500)))))) ;
+    <span class="hljs-literal">int</span> food &lt;- isFoodLocation ? 5 : 0 ;
+    <span class="hljs-literal">int</span> nest <span class="hljs-symbol">const:</span> true &lt;- 300 - <span class="hljs-literal">int</span>(self distance_to center) ;
+    
+}
+<span class="hljs-comment">//Species ant that will move and follow a final state machine</span>
+<span class="hljs-literal">species</span> ant <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> {
+    <span class="hljs-literal">float</span> speed &lt;- 2.0 ;
+    ant_grid place <span class="hljs-symbol">update:</span> ant_grid (location ); 
+    <span class="hljs-literal">string</span> im &lt;- <span class="hljs-string">'ant_shape_empty'</span> ;
+    <span class="hljs-literal">bool</span> hasFood &lt;- false ;
+
+
+
+    <span class="hljs-builtin">reflex</span> diffuse_road <span class="hljs-symbol">when:</span>hasFood=true{
+      ant_grid(location).road &lt;- ant_grid(location).road + 100.0;
+   }
+   <span class="hljs-comment">//Action to pick food</span>
+    <span class="hljs-keyword">action</span> pick {
+        im &lt;- ant_shape_full ;
+        hasFood &lt;- true ;
+        place.food &lt;- place.food - 1 ;
+    }
+    <span class="hljs-comment">//Action to drop food</span>
+    <span class="hljs-keyword">action</span> drop {
+        food_gathered &lt;- food_gathered + 1 ;
+        hasFood &lt;- false ;
+        heading &lt;- heading - 180 ;
+    }
+    <span class="hljs-comment">//Action to chose the best place according to the possible food in the neighbor cells</span>
+    <span class="hljs-keyword">action</span> choose_best_place <span class="hljs-symbol">type:</span> ant_grid {
+        <span class="hljs-literal">list</span>&lt;ant_grid&gt; list_places &lt;- place.neighbors ;
+        <span class="hljs-keyword">if</span> (list_places count (each.food &gt; 0)) &gt; 0  {
+            <span class="hljs-keyword">return</span> (list_places first_with (each.food &gt; 0)) ;
+        } <span class="hljs-keyword">else</span> {
+                <span class="hljs-literal">int</span> min_nest  &lt;-  (list_places min_of (each.nest)) ;
+                list_places &lt;- list_places sort ((each.nest = min_nest) ? each.road :  0.0) ;
+                <span class="hljs-keyword">return</span> last(list_places) ;
+            }
+    }
+    
+    <span class="hljs-comment">//Initial state of the ant : wander until it finds food or find a road to follow</span>
+    <span class="hljs-keyword">state</span> wandering <span class="hljs-symbol">initial:</span> true {
+        <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span>120 ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> carryingFood <span class="hljs-symbol">when:</span> place.food &gt; 0 {
+            <span class="hljs-keyword">do</span> pick ;
+        }
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> followingRoad <span class="hljs-symbol">when:</span> place.road &gt; 0.05 ;
+    }
+    <span class="hljs-comment">//State to carry food to the nest once the food is found</span>
+    <span class="hljs-keyword">state</span> carryingFood {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> center ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> wandering <span class="hljs-symbol">when:</span> place.isNestLocation { 
+            <span class="hljs-keyword">do</span> drop ;
+        }
+    }
+    <span class="hljs-comment">//State to follow a road </span>
+    <span class="hljs-keyword">state</span> followingRoad {
+        location &lt;- (self choose_best_place []) as <span class="hljs-literal">point</span> ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> carryingFood <span class="hljs-symbol">when:</span> place.food &gt; 0 {
+            <span class="hljs-keyword">do</span> pick ;
+        }
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> wandering <span class="hljs-symbol">when:</span> (place.road &lt; 0.05) ;
+    }
+    <span class="hljs-keyword">aspect</span> text {
+        <span class="hljs-keyword">if</span> use_icons {
+            <span class="hljs-keyword">draw</span>  hasFood ? <span class="hljs-literal">file</span>(ant_shape_full) : <span class="hljs-literal">file</span>(ant_shape_empty) <span class="hljs-symbol">rotate:</span> heading <span class="hljs-symbol">at:</span> location <span class="hljs-symbol">size:</span> {7,5} ;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">draw</span> circle(1.0) <span class="hljs-symbol">empty:</span> !hasFood <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> (<span class="hljs-string">'orange'</span>) ;
+        }
+        <span class="hljs-keyword">if</span> display_state {
+            <span class="hljs-keyword">draw</span> <span class="hljs-keyword">state</span> <span class="hljs-symbol">at:</span> location + {-3,1.5} <span class="hljs-symbol">color:</span> °white <span class="hljs-symbol">size:</span> 0.8 ;
+        }
+    }
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(1.0) <span class="hljs-symbol">empty:</span> !hasFood <span class="hljs-symbol">color:</span> #orange ; 
+    }
+}
+<span class="hljs-builtin">experiment</span> Ant <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-comment">//Parameters to play with  in the gui</span>
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of ants:'</span> <span class="hljs-symbol">var:</span> ants_number <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Evaporation of the signal (unit/cycle):'</span> <span class="hljs-symbol">var:</span> evaporation_per_cycle <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Rate of diffusion of the signal (%/cycle):'</span> <span class="hljs-symbol">var:</span> diffusion_rate <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Use icons for the agents:'</span> <span class="hljs-symbol">var:</span> use_icons <span class="hljs-symbol">category:</span> <span class="hljs-string">'Display'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Display state of agents:'</span> <span class="hljs-symbol">var:</span> display_state <span class="hljs-symbol">category:</span> <span class="hljs-string">'Display'</span> ;
+
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt; nbants&lt;-[[0]];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; statesnames&lt;-[<span class="hljs-string">"wandering"</span>];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; categnames&lt;-[<span class="hljs-string">"empty"</span>,<span class="hljs-string">"carry"</span>];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt; nbantsbydist&lt;-[[0]];
+    <span class="hljs-literal">list</span> xytestvallist&lt;-[[[1,1],[2,2],[3,3]],[[1,2],[2,1],[3,4]],[[1,3],[2,3],[0,1]],[[1,4],[2,5],[0,0]]];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt; xyval&lt;-[[1,1],[2,1],[3,2]];
+
+    <span class="hljs-comment">//Reflex to update the charts, belonging to the experiment bloc as it will not be used by other experiment which don't have the charts</span>
+    <span class="hljs-builtin">reflex</span> update_charts
+    {
+        nbants&lt;-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt;([]);
+        statesnames&lt;-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt;([]);
+        categnames&lt;-[<span class="hljs-string">"empty"</span>,<span class="hljs-string">"carry"</span>];
+        nbantsbydist&lt;-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt;([]);
+        ant x&lt;-one_of(world.ant);
+        <span class="hljs-keyword">loop</span> x <span class="hljs-symbol">over:</span><span class="hljs-literal">list</span>(world.ant)
+        {
+            <span class="hljs-keyword">if</span> !(statesnames contains (x.<span class="hljs-keyword">state</span>))
+            {               
+            <span class="hljs-keyword">add</span> [(<span class="hljs-literal">list</span>(ant) count (each.<span class="hljs-keyword">state</span>=x.<span class="hljs-keyword">state</span> and !each.hasFood)),(<span class="hljs-literal">list</span>(ant) count (each.<span class="hljs-keyword">state</span>=x.<span class="hljs-keyword">state</span> and each.hasFood))] <span class="hljs-symbol">to:</span> nbants;
+            <span class="hljs-keyword">add</span> (x.<span class="hljs-keyword">state</span>) <span class="hljs-symbol">to:</span>statesnames;               
+            <span class="hljs-literal">int</span> d&lt;-0;
+            <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; nl&lt;-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;([]);
+            <span class="hljs-keyword">loop</span> d <span class="hljs-symbol">from:</span>0 <span class="hljs-symbol">to:</span>9
+                {
+            <span class="hljs-keyword">add</span> (<span class="hljs-literal">list</span>(ant) count (each.<span class="hljs-keyword">state</span>=x.<span class="hljs-keyword">state</span> and (((each distance_to center)&gt;gridsize/20*d) and ((each distance_to center)&lt;gridsize/20*(d+1))))) <span class="hljs-symbol">to:</span> nl;
+                }
+            <span class="hljs-keyword">add</span> nl <span class="hljs-symbol">to:</span>nbantsbydist;
+            }
+<span class="hljs-comment">//          add length((list(world.ant) collect (each.next_place distance_to each.location)) where (each=x)) to:nbants;</span>
+        }
+        <span class="hljs-comment">//write("nbants"+nbants);</span>
+        <span class="hljs-comment">//write("nbantsbydist"+nbantsbydist);</span>
+        <span class="hljs-comment">//write("states"+statesnames);      </span>
+    }
+    
+    <span class="hljs-comment">//The different displays</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Ants <span class="hljs-symbol">type:</span> opengl {
+            grid ant_grid ;
+            <span class="hljs-literal">species</span> ant <span class="hljs-symbol">aspect:</span> text ;
+        }
+        <span class="hljs-keyword">display</span> ProportionCarryFood {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Proportions carrying: Pie"</span>  <span class="hljs-symbol">size:</span> {0.5,0.5} <span class="hljs-symbol">position:</span> {0, 0} <span class="hljs-symbol">type:</span>pie
+            {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"empty_ants"</span> <span class="hljs-symbol">value:</span>(<span class="hljs-literal">list</span>(ant) count (!each.hasFood)) <span class="hljs-symbol">color:</span>°red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"carry_food_ants"</span> <span class="hljs-symbol">value:</span>(<span class="hljs-literal">list</span>(ant) count (each.hasFood)) <span class="hljs-symbol">color:</span>°green;
+                
+            }
+            
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Proportions carrying: Radar"</span>  <span class="hljs-symbol">size:</span> {0.5,0.5} <span class="hljs-symbol">position:</span> {0.5, 0} <span class="hljs-symbol">type:</span>radar
+            <span class="hljs-symbol">axes:</span>#white
+
+            {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"empty"</span> <span class="hljs-symbol">value:</span>(<span class="hljs-literal">list</span>(ant) count (!each.hasFood)) 
+                <span class="hljs-symbol">accumulate_values:</span>true
+                <span class="hljs-symbol">color:</span>°red;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"carry"</span> <span class="hljs-symbol">value:</span>(<span class="hljs-literal">list</span>(ant) count (each.hasFood)) 
+                <span class="hljs-symbol">accumulate_values:</span>true
+                <span class="hljs-symbol">color:</span>°blue;                
+            }
+            
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Proportion: serie"</span>   <span class="hljs-symbol">size:</span> {1.0,0.5} <span class="hljs-symbol">position:</span> {0, 0.5} <span class="hljs-symbol">type:</span>series 
+            <span class="hljs-symbol">series_label_position:</span> legend
+            <span class="hljs-symbol">style:</span>stack
+            {
+                <span class="hljs-keyword">datalist</span> [<span class="hljs-string">"empty"</span>,<span class="hljs-string">"carry"</span>] <span class="hljs-symbol">accumulate_values:</span>true 
+                <span class="hljs-symbol">value:</span>[(<span class="hljs-literal">list</span>(ant) count (!each.hasFood)),(<span class="hljs-literal">list</span>(ant) count (each.hasFood))] 
+                <span class="hljs-symbol">color:</span>[°red,°green];                
+            }
+        }
+<span class="hljs-comment">// idem with stacked bar:</span>
+<span class="hljs-comment">/* 
+        display ProportionByState {
+            chart "DataListListBar" type:histogram 
+            x_serie_labels: categnames 
+            series_label_position: legend
+            {
+                datalist value:nbants legend:statesnames style:stack;
+            }
+            
+        }
+*/</span>
+            <span class="hljs-comment">// Idem with datalist:</span>
+<span class="hljs-comment">//      display PositionByState {</span>
+<span class="hljs-comment">//          chart "Position by state (datalist)" type:scatter</span>
+<span class="hljs-comment">//          {</span>
+<span class="hljs-comment">//              datalist ["empty","carry"] value:[((list(ant) where (!each.hasFood))  collect each.location),((list(ant) where (each.hasFood))  collect each.location)] color:[°red,°green] line_visible:false;             </span>
+<span class="hljs-comment">//          }</span>
+<span class="hljs-comment">//      }</span>
+        <span class="hljs-keyword">display</span> CentroidPosition {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Positions and History of Centroide and size by Carry state"</span> <span class="hljs-symbol">type:</span>scatter
+            {
+                <span class="hljs-keyword">datalist</span> [<span class="hljs-string">"avg-carry"</span>,<span class="hljs-string">"avg-empty"</span>] <span class="hljs-symbol">value:</span>[mean((<span class="hljs-literal">list</span>(ant) where (each.hasFood)) collect each.location),
+                    mean((<span class="hljs-literal">list</span>(ant) where (!each.hasFood)) collect each.location)
+                ]
+                <span class="hljs-symbol">marker_size:</span> [length(<span class="hljs-literal">list</span>(ant) where (each.hasFood))/20,length(<span class="hljs-literal">list</span>(ant) where (!each.hasFood))/20]
+                     <span class="hljs-symbol">color:</span>[°red,°green] 
+                     <span class="hljs-symbol">fill:</span>false
+                     <span class="hljs-symbol">line_visible:</span>true;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"empty_ants"</span> <span class="hljs-symbol">value:</span>((<span class="hljs-literal">list</span>(ant) where (!each.hasFood)) collect each.location) <span class="hljs-symbol">color:</span>°red 
+                <span class="hljs-symbol">accumulate_values:</span>false
+                <span class="hljs-symbol">line_visible:</span>false;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"carry_food_ants"</span> <span class="hljs-symbol">value:</span>((<span class="hljs-literal">list</span>(ant) where (each.hasFood)) collect each.location) 
+                <span class="hljs-symbol">accumulate_values:</span>false
+                <span class="hljs-symbol">color:</span>°green <span class="hljs-symbol">line_visible:</span>false;
+
+            }
+        }   
+        <span class="hljs-keyword">display</span> Distribution2dPosition {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Distribution of the X positions"</span>   <span class="hljs-symbol">size:</span> {0.65,0.3} <span class="hljs-symbol">position:</span> {0.05, 0} <span class="hljs-symbol">type:</span>histogram
+            
+            {
+                <span class="hljs-keyword">datalist</span> (distribution_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,10,0,100) at <span class="hljs-string">"legend"</span>) 
+                    <span class="hljs-symbol">value:</span>(distribution_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,10,0,100) at <span class="hljs-string">"values"</span>);
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Distribution of the Y positions"</span>   <span class="hljs-symbol">size:</span> {0.3,0.7} <span class="hljs-symbol">position:</span> {0.7, 0.28} <span class="hljs-symbol">type:</span>histogram
+            <span class="hljs-symbol">reverse_axes:</span>true
+            
+            {
+                <span class="hljs-keyword">datalist</span> reverse(distribution_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,10,0,100) at <span class="hljs-string">"legend"</span>) 
+                    <span class="hljs-symbol">value:</span>reverse(distribution_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,10,0,100) at <span class="hljs-string">"values"</span>);
+            }
+
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Distribution2d of the XvsY positions- heatmap"</span>   <span class="hljs-symbol">size:</span> {0.7,0.7} <span class="hljs-symbol">position:</span> {0, 0.3} <span class="hljs-symbol">type:</span>heatmap
+            <span class="hljs-symbol">x_serie_labels:</span> (distribution2d_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,<span class="hljs-literal">list</span>(ant) collect each.location.y,10,0,100,10,0,100) at <span class="hljs-string">"legendx"</span>)
+            <span class="hljs-symbol">y_serie_labels:</span> (distribution2d_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,<span class="hljs-literal">list</span>(ant) collect each.location.y,10,0,100,10,0,100) at <span class="hljs-string">"legendy"</span>)
+            <span class="hljs-symbol">series_label_position:</span>none
+            {
+                <span class="hljs-keyword">data</span>  <span class="hljs-string">"XYdistrib"</span>
+                    <span class="hljs-symbol">value:</span>(distribution2d_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,<span class="hljs-literal">list</span>(ant) collect each.location.y,10,0,100,10,0,100) at <span class="hljs-string">"values"</span>)
+                    <span class="hljs-symbol">color:</span>[#red];
+            }
+        }
+        
+        <span class="hljs-keyword">display</span> DistributionPosition {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Distribution of the X positions"</span>   <span class="hljs-symbol">size:</span> {0.92,0.3} <span class="hljs-symbol">position:</span> {0, 0} <span class="hljs-symbol">type:</span>histogram
+            
+            {
+                <span class="hljs-keyword">datalist</span> (distribution_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,10,0,100) at <span class="hljs-string">"legend"</span>) 
+                    <span class="hljs-symbol">value:</span>(distribution_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,10,0,100) at <span class="hljs-string">"values"</span>);
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Distribution of the X positions- heatmap"</span>   <span class="hljs-symbol">size:</span> {1.0,0.7} <span class="hljs-symbol">position:</span> {0, 0.3} <span class="hljs-symbol">type:</span>heatmap
+            <span class="hljs-symbol">x_serie_labels:</span> (distribution_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,10,0,100) at <span class="hljs-string">"legend"</span>)
+            <span class="hljs-symbol">y_range:</span>50
+            {
+                <span class="hljs-keyword">data</span>  <span class="hljs-string">"Xdistrib"</span>
+                    <span class="hljs-symbol">value:</span>(distribution_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,10,0,100) at <span class="hljs-string">"values"</span>)
+                    <span class="hljs-symbol">color:</span>[#red];
+            }
+        }   
+        }
+    
+    }
+    
+<span class="hljs-comment">//Experiment with only two display : the grid and the ants, and a chart</span>
+<span class="hljs-builtin">experiment</span> AntOneDisp <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of ants:'</span> <span class="hljs-symbol">var:</span> ants_number <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Evaporation of the signal unit/cycle):'</span> <span class="hljs-symbol">var:</span> evaporation_per_cycle <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Rate of diffusion of the signal (%/cycle):'</span> <span class="hljs-symbol">var:</span> diffusion_rate <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Use icons for the agents:'</span> <span class="hljs-symbol">var:</span> use_icons <span class="hljs-symbol">category:</span> <span class="hljs-string">'Display'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Display state of agents:'</span> <span class="hljs-symbol">var:</span> display_state <span class="hljs-symbol">category:</span> <span class="hljs-string">'Display'</span> ;
+
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt; nbants&lt;-[[0]];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; statesnames&lt;-[<span class="hljs-string">""</span>];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; categnames&lt;-[<span class="hljs-string">"empty"</span>,<span class="hljs-string">"carry"</span>];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt; nbantsbydist&lt;-[[0]];
+    <span class="hljs-literal">list</span> xytestvallist&lt;-[[[1,1],[2,2],[3,3]],[[1,2],[2,1],[3,4]],[[1,3],[2,3],[0,1]],[[1,4],[2,5],[0,0]]];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt; xyval&lt;-[[1,1],[2,1],[3,2]];
+
+    <span class="hljs-builtin">reflex</span> update_charts
+    {
+        ant x&lt;-one_of(world.ant);
+        nbants&lt;-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;&gt;([]);
+        statesnames&lt;-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt;([]);
+        <span class="hljs-keyword">loop</span> x <span class="hljs-symbol">over:</span><span class="hljs-literal">list</span>(world.ant)
+        {
+            <span class="hljs-keyword">if</span> !(statesnames contains (x.<span class="hljs-keyword">state</span>))
+            {               
+            <span class="hljs-keyword">add</span> [(<span class="hljs-literal">list</span>(ant) count (each.<span class="hljs-keyword">state</span>=x.<span class="hljs-keyword">state</span> and !each.hasFood)),(<span class="hljs-literal">list</span>(ant) count (each.<span class="hljs-keyword">state</span>=x.<span class="hljs-keyword">state</span> and each.hasFood))] <span class="hljs-symbol">to:</span> nbants;
+            <span class="hljs-keyword">add</span> (x.<span class="hljs-keyword">state</span>) <span class="hljs-symbol">to:</span>statesnames;               
+            <span class="hljs-literal">int</span> d&lt;-0;
+            <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; nl&lt;-<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;([]);
+            <span class="hljs-keyword">loop</span> d <span class="hljs-symbol">from:</span>0 <span class="hljs-symbol">to:</span>9
+                {
+            <span class="hljs-keyword">add</span> (<span class="hljs-literal">list</span>(ant) count (each.<span class="hljs-keyword">state</span>=x.<span class="hljs-keyword">state</span> and (((each distance_to center)&gt;gridsize/20*d) and ((each distance_to center)&lt;gridsize/20*(d+1))))) <span class="hljs-symbol">to:</span> nl;
+                }
+            <span class="hljs-keyword">add</span> nl <span class="hljs-symbol">to:</span>nbantsbydist;
+            }
+        }
+        <span class="hljs-keyword">write</span>(<span class="hljs-string">"nbants"</span>+nbants);
+        <span class="hljs-keyword">write</span>(<span class="hljs-string">"nbantsbydist"</span>+nbantsbydist);
+        <span class="hljs-keyword">write</span>(<span class="hljs-string">"states"</span>+statesnames);        
+    }
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Ants <span class="hljs-symbol">type:</span> opengl {
+            grid ant_grid ;
+            <span class="hljs-literal">species</span> ant <span class="hljs-symbol">aspect:</span> text ;
+        }
+
+        <span class="hljs-keyword">display</span> ChartScatter {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Distribution2d of the XvsY positions- heatmap"</span>   <span class="hljs-symbol">size:</span> {0.7,0.7} <span class="hljs-symbol">position:</span> {0, 0.3} <span class="hljs-symbol">type:</span>heatmap
+            <span class="hljs-symbol">x_serie_labels:</span> (distribution2d_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,<span class="hljs-literal">list</span>(ant) collect each.location.y,10,0,100,10,0,100) at <span class="hljs-string">"legendx"</span>)
+            <span class="hljs-symbol">y_serie_labels:</span> (distribution2d_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,<span class="hljs-literal">list</span>(ant) collect each.location.y,10,0,100,10,0,100) at <span class="hljs-string">"legendy"</span>)
+            <span class="hljs-symbol">series_label_position:</span>none
+            {
+                <span class="hljs-keyword">data</span>  <span class="hljs-string">"XYdistrib"</span>
+                    <span class="hljs-symbol">value:</span>(distribution2d_of(<span class="hljs-literal">list</span>(ant) collect each.location.x,<span class="hljs-literal">list</span>(ant) collect each.location.y,10,0,100,10,0,100) at <span class="hljs-string">"values"</span>)
+                    <span class="hljs-symbol">color:</span>[#red];
+            }
+            
+            }
+    }
+}
+
+
+
+
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

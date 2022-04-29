@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>2. Charts · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This step Illustrates how to define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="2. Charts · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="This step Illustrates how to define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation."/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class="siteNavGroupActive"><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Incremental Model</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tutorials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Tutorials">Tutorials</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Predator Prey<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey">Predator Prey</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step2">2. Vegetation Dynamic</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step3">3. Prey Agent Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step4">4. Inspectors and Monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step5">5. Predator Agent</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step6">6. Breeding</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step7">7. Agent Aspect</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step8">8. Complex Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step9">9. Stopping condition</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step10">10. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step11">11. Writing Files</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step12">12. Image loading</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step13">13. Model exploration</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Road Traffic<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel">Road Traffic</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step1">1. Loading of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step2">2. People Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step3">3. Movement of People</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step4">4. Weight for Road Network</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step5">5. Dynamic weights</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step6">6. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step7">7. Automatic Road Repair</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">3D Tutorial<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD">3D Tutorial</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD_step2">2. Moving Cells</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD_step3">3. Connections</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Incremental Model<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel">Incremental Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step1">1. Simple SI Model</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/next/IncrementalModel_step2">2. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step3">3. Integration of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step4">4. Movement on Graph</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step5">5. Visualizing in 3D</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step6">6. Multi-Level</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step7">7. Differential Equations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Luneray&#x27;s flu<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu">Luneray&#x27;s flu</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step1">1. Creation of a first basic disease spreading model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step2">2. Definition of monitors and chart outputs</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step3">3. Importation of GIS data</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step4">4. Use of a graph to constraint the movements of people</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step5">5. Definition of 3D displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step6">6. Exploration of the model</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">BDI Agents<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents">BDI Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step1">1. Skeleton model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step2">2. BDI Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step3">3. Social relation</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step4">4. Emotions and Personality</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step5">5. Norms, obligation, and enforcement</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">2. Charts</h1></header><article><div><span><p>This step Illustrates how to define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation.</p>
+<h2><a class="anchor" aria-hidden="true" id="formulation"></a><a href="#formulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formulation</h2>
+<ul>
+<li>Definition of new global variables: current_hour, nb_people_infected, nb_people_not_infected, infected_rate.</li>
+<li>Definition of a monitor to follow the current hour and the nb of people infected.</li>
+<li>Definition of a series chart to follow the number of people infected and not infected.</li>
+<li>Definition of a stopping condition (when infected rate = 1).</li>
+</ul>
+<p><img src="../resources/images/tutorials/Incremental_model2.png" alt="Incremental model 2: plot of the disease spread."></p>
+<h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
+<h3><a class="anchor" aria-hidden="true" id="global-variables"></a><a href="#global-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global variables</h3>
+<p>In order to define dynamic variable able to update itself, we use the <strong><code>update</code></strong> facet of variable definition.
+Indeed, at each simulation step, all the agents (and the world agent) apply for each dynamic variable (in their definition order) its update expression.</p>
+<p>We add 3 new global variables:</p>
+<ul>
+<li><strong><code>nb_people_infected</code></strong> (int): nb of people with <code>is_infected</code> is <code>true</code> (use of the <strong><code>list count condition</code></strong> operator that count the number of elements of the list for which the condition is true)</li>
+<li><strong><code>nb_people_not_infected</code></strong> (int): <code>nb_people - nb_people_infected</code></li>
+<li><strong><code>infected_rate</code></strong> (float): <code>nb_people_infected / nb_people</code></li>
+</ul>
+<pre><code class="hljs">global{
+    ...
+    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init <span class="hljs-symbol">update:</span> people count (each.is_infected);
+    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init <span class="hljs-symbol">update:</span> nb_people - nb_people_infected;
+    <span class="hljs-literal">float</span> infected_rate <span class="hljs-symbol">update:</span> nb_people_infected/nb_people;
+    ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="stopping-condition"></a><a href="#stopping-condition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>stopping condition</h3>
+<p>We add a new reflex that stops the simulation when all the people agents are infected (i.e. if the <code>infected_rate</code> is equal to 1). To stop the simulation, we use the <strong><code>pause</code></strong> global action.</p>
+<pre><code class="hljs">global {
+    ...
+    <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> infected_rate = 1.0 {
+    <span class="hljs-keyword">do</span> pause;
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="monitor"></a><a href="#monitor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>monitor</h3>
+<p>A monitor allows the modeler to follow the value of an arbitrary expression in GAML. It has to be defined in an output section. A <strong><code>monitor</code></strong> is defined as follows:</p>
+<pre><code class="hljs">    <span class="hljs-keyword">monitor</span> monitor_name <span class="hljs-symbol">value:</span> an_expression <span class="hljs-symbol">refresh:</span>every(nb_steps);
+</code></pre>
+<p>With:</p>
+<ul>
+<li><code>value</code>: mandatory, its value that will be displayed in the monitor.</li>
+<li><code>refresh</code>: bool, optional: if the expression is true, compute (default is true).</li>
+</ul>
+<p>In this model, we define 2 monitors to follow: (i) the value of the variable <code>infected_rate</code>, and (ii) to follow the time in the simulation (we will display the hour day).</p>
+<p>As <a href="ManipulateDates">detailed in the dedicated page</a>, GAML language provides a datatype to manage <code>date</code> (with second, minute, hour, day, month and year), and compute automatically the date in the simulation from the global variable <code>starting_date</code> of the simulation and the <code>step</code> value: this value is stored in the <code>current_date</code> global variable. To monitor the current hour, we can access to the <code>hour</code> attribute of this variable (<code>current_date.hour</code>).</p>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span> gui {
+    ...
+    <span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Current hour"</span> <span class="hljs-symbol">value:</span> current_date.hour;
+    <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Infected people rate"</span> <span class="hljs-symbol">value:</span> infected_rate;
+    ...
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="chart"></a><a href="#chart" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>chart</h3>
+<p>GAMA can display <a href="DefiningCharts">various chart types</a>, for example:</p>
+<ul>
+<li>Time series</li>
+<li>Pie charts</li>
+<li>Histograms</li>
+</ul>
+<p>A chart must be defined in a display: it behaves exactly like any other layer.
+Definition of a chart:</p>
+<pre><code class="hljs"><span class="hljs-keyword">chart</span> chart_name <span class="hljs-symbol">type:</span> chart_type  {
+     [<span class="hljs-keyword">data</span>]
+}
+</code></pre>
+<p>The data to draw are defined inside the <code>chart</code> block with the <code>data</code> statement:</p>
+<pre><code class="hljs"><span class="hljs-keyword">data</span> data_legend <span class="hljs-symbol">value:</span> data_value
+</code></pre>
+<p>We add a new display called &quot;chart&quot; and refreshed every 10 simulation steps.
+Inside this display, we define a chart of type <code>series</code>:</p>
+<ul>
+<li>&quot;Disease spreading&quot;; background: white; of type series and style spline (no remove the markers)
+<ul>
+<li>data1: susceptible; color : green</li>
+<li>data2: infected; color : red</li>
+</ul></li>
+</ul>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span> gui{
+    ...
+    <span class="hljs-keyword">output</span> {
+    ...
+    <span class="hljs-keyword">display</span> <span class="hljs-keyword">chart</span> <span class="hljs-symbol">refresh:</span> every(10#cycles) {
+        <span class="hljs-keyword">chart</span> <span class="hljs-string">"Disease spreading"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">style:</span> spline {
+        <span class="hljs-keyword">data</span> <span class="hljs-string">"susceptible"</span> <span class="hljs-symbol">value:</span> nb_people_not_infected <span class="hljs-symbol">color:</span> #green;
+        <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> nb_people_infected <span class="hljs-symbol">color:</span> #red;
+        }
+    }
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> SI_city
+
+global {
+    <span class="hljs-literal">int</span> nb_people &lt;- 500;
+    <span class="hljs-literal">float</span> agent_speed &lt;- 5.0 #km / #h;
+    <span class="hljs-literal">float</span> step &lt;- 1 #minutes;
+    <span class="hljs-literal">geometry</span> shape &lt;- envelope(square(500 #m));
+    <span class="hljs-literal">float</span> infection_distance &lt;- 2.0 #m;
+    <span class="hljs-literal">float</span> proba_infection &lt;- 0.05;
+    <span class="hljs-literal">int</span> nb_infected_init &lt;- 5;
+    <span class="hljs-literal">int</span> nb_people_infected &lt;- nb_infected_init <span class="hljs-symbol">update:</span> people count (each.is_infected);
+    <span class="hljs-literal">int</span> nb_people_not_infected &lt;- nb_people - nb_infected_init <span class="hljs-symbol">update:</span> nb_people - nb_people_infected;
+    <span class="hljs-literal">float</span> infected_rate <span class="hljs-symbol">update:</span> nb_people_infected / nb_people;
+
+    init {
+    <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> nb_people {
+        speed &lt;- agent_speed;
+    }
+
+    <span class="hljs-keyword">ask</span> nb_infected_init among people {
+        is_infected &lt;- true;
+    }
+    }
+
+    <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> infected_rate = 1.0 {
+    <span class="hljs-keyword">do</span> pause;
+    }
+}
+
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] {
+    <span class="hljs-literal">bool</span> is_infected &lt;- false;
+
+    <span class="hljs-builtin">reflex</span> move {
+    <span class="hljs-keyword">do</span> wander;
+    }
+
+    <span class="hljs-builtin">reflex</span> infect <span class="hljs-symbol">when:</span> is_infected {
+    <span class="hljs-keyword">ask</span> people at_distance infection_distance {
+        <span class="hljs-keyword">if</span> (flip(proba_infection)) {
+        is_infected &lt;- true;
+        }
+    }
+    }
+
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">color:</span> is_infected ? #red : #green;
+    }
+}
+
+<span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Infection distance"</span> <span class="hljs-symbol">var:</span> infection_distance;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Proba infection"</span> <span class="hljs-symbol">var:</span> proba_infection <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"Nb people infected at init"</span> <span class="hljs-symbol">var:</span> nb_infected_init;
+    <span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Current hour"</span> <span class="hljs-symbol">value:</span> current_date.hour;
+    <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Infected people rate"</span> <span class="hljs-symbol">value:</span> infected_rate;
+    <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> {
+        <span class="hljs-literal">species</span> people;
+    }
+
+    <span class="hljs-keyword">display</span> <span class="hljs-keyword">chart</span> <span class="hljs-symbol">refresh:</span> every(10 #cycles) {
+        <span class="hljs-keyword">chart</span> <span class="hljs-string">"Disease spreading"</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">style:</span> spline {
+        <span class="hljs-keyword">data</span> <span class="hljs-string">"susceptible"</span> <span class="hljs-symbol">value:</span> nb_people_not_infected <span class="hljs-symbol">color:</span> #green <span class="hljs-symbol">marker:</span> false;
+        <span class="hljs-keyword">data</span> <span class="hljs-string">"infected"</span> <span class="hljs-symbol">value:</span> nb_people_infected <span class="hljs-symbol">color:</span> #red <span class="hljs-symbol">marker:</span> false;
+        }
+    }
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/IncrementalModel_step1"><span class="arrow-prev">← </span><span>1. Simple SI Model</span></a><a class="docs-next button" href="/wiki/next/IncrementalModel_step3"><span>3. Integration of GIS Data</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#formulation">Formulation</a></li><li><a href="#model-definition">Model Definition</a><ul class="toc-headings"><li><a href="#global-variables">global variables</a></li><li><a href="#stopping-condition">stopping condition</a></li><li><a href="#monitor">monitor</a></li><li><a href="#chart">chart</a></li></ul></li><li><a href="#complete-model">Complete Model</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

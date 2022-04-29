@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Preferences · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Various preferences are accessible in GAMA to allow users and modelers to personalize their working environment. This section reviews the different preference tabs available in the current version of GAMA, as well as how to access the preferences and settings inherited by GAMA from Eclipse."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Preferences · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="Various preferences are accessible in GAMA to allow users and modelers to personalize their working environment. This section reviews the different preference tabs available in the current version of GAMA, as well as how to access the preferences and settings inherited by GAMA from Eclipse."/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Platform</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Home<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Home">GAMA</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Overview">Introduction</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Platform<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/PlatformDocumentation">Platform</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InstallationAndLaunching">Installation and Launching</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Installation</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/Installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Launching">Launching GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Headless">Headless Mode</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Updating">Updating GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InstallingPlugins">Installing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Troubleshooting">Troubleshooting</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/WorkspaceProjectsAndModels">Workspace, Projects and Models</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Navigating in the Workspace</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/NavigatingWorkspace">Navigating in the Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ChangingWorkspace">Changing Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ImportingModels">Importing Models</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/EditingModels">Editing models</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">GAML Editor (Generalities)</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/GamlEditorGeneralities">The GAML Editor - Generalities</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GamlEditorToolbar">GAML Editor tools</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ValidationOfModels">Validation of Models</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/RunningExperiments">Running Experiments</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Launching Experiments</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/LaunchingExperiments">Launching Experiments from the User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ExperimentsUserInterface">Experiments User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/MenusAndCommands">Controls of experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ParametersView">Parameters View</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InspectorsAndMonitors">Inspectors and monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Displays">Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BatchSpecific">Batch Specific UI</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ErrorsView">Errors View</a></li></ul></div><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/next/Preferences">Preferences</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn GAML step by step<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/LearnGAMLStepByStep">Learn GAML Step by Step</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Introduction</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/Introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/StartWithGAML">Start with GAML</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ModelOrganization">Organization of a model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BasicProgrammingConceptsInGAML">Basic programming concepts in GAML</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateBasicSpecies">Manipulate basic species</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Global Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/GlobalSpecies">The global species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RegularSpecies">Regular species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningActionsAndBehaviors">Defining actions and behaviors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InteractionBetweenAgents">Interaction between agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/AttachingSkills">Attaching Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Inheritance">Inheritance</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining Advanced Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningAdvancedSpecies">Defining advanced species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GridSpecies">Grid Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GraphSpecies">Graph Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/MirrorSpecies">Mirror species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/MultiLevelArchitecture">Multi-level architecture</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining GUI Experiment</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningGUIExperiment">Defining GUI Experiment</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningParameters">Defining Parameters</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningDisplaysGeneralities">Defining displays (Generalities)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningCharts">Defining Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Defining3DDisplays">Defining 3D Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningMonitorsAndInspectors">Defining monitors and inspectors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningExportFiles">Defining export files</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningUserInteraction">Defining user interaction</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Exploring Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/ExploringModels">Exploring Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RunSeveralSimulations">Run Several Simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BatchExperiments">Defining Batch Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ExplorationMethods">Exploration Methods</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Optimizing Model Section</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/OptimizingModelsSection">Optimizing Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RuntimeConcepts">Runtime Concepts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OptimizingModels">Optimizing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Multi-Paradigm Modeling</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/MultiParadigmModeling">Multi-Paradigm Modeling</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ControlArchitecture">Control Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Equations">Using Equations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Recipes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Recipes">Recipes</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateOSMDatas">Manipulate OSM Datas</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Diffusion">Implementing diffusion</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingDatabase">Using Database Access</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/CallingR">Calling R</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingFIPAACL">Using FIPA ACL</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GamAnalyzer">Using GAMAnalyzer</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Using-BEN-simple-bdi">Using BEN (simple_bdi)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingDrivingSkill">Advanced Driving Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateDates">Manipulate Dates</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateLight">Implementing light</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Comodel">Using Comodel</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Save-and-restore-simulations">Save and Restore simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingNetwork">Using network</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Headless-mode-for-dummies">Editing Headless mode for dummies</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/G__GraphicalEditor">The Graphical Editor</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Using_Git">Using Git from GAMA to version and share models</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Writing_Tests">Writing Unit Tests in GAML</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/FAQ">FAQ (Frequently Asked Questions)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/KnownIssues">Known issues</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">GAML References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/GamlReference">GAML References</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Built-in Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/BuiltInSpecies">Built-in Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/AgentBuiltIn">The &#x27;agent&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ModelBuiltIn">The &#x27;model&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ExperimentBuiltIn">The &#x27;experiment&#x27; built-in species (Under Construction)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/BuiltInSkills">Built-in Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BuiltInArchitectures">Built-in Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Statements">Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DataTypes">Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/FileTypes">File Types</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Expressions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/Expressions">Expressions</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Literals">Literals</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UnitsAndConstants">Units and constants</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PseudoVariables">Pseudo-variables</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/VariablesAndAttributes">Variables and Attributes</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsAA">Operators (A to A)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsBC">Operators (B to C)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsDH">Operators (D to H)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsIM">Operators (I to M)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsNR">Operators (N to R)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsSZ">Operators (S to Z)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/Index">Exhaustive list of GAMA Keywords</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Pedagogical materials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Pedagogical-Materials">Some pedagogical materials</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Extensions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Extensions">Extensions</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Developing Extensions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingExtensions">Developing Extensions</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InstallingGitVersion">Installing the GIT version</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GamaArchitecture">Architecture of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingPlugins">Developing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingSkills">Developing Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingStatements">Developing Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingOperators">Developing Operators</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingTypes">Developing Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingSpecies">Developing Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingControlArchitectures">Developing architecture</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingIndexAnnotations">Index of annotations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/developingGAMA">Get into the GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Introduction-To-Gama-Java-API">Introduction to GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingIScope">IScope interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/CreatingAReleaseOfGama">Product your own release of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Documentation">Documentation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Scientific References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/References">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Projects using GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Training Session<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/TrainingSession">Training Session</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Coding Camp</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/CodingCamp">CodingCamp</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Event__CC15_Reorganization">Introduction</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Events<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Events">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Older versions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/OlderVersions">Versions of GAMA</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Preferences</h1></header><article><div><span><p>Various preferences are accessible in GAMA to allow users and modelers to personalize their working environment. This section reviews the different preference tabs available in the current version of GAMA, as well as how to access the preferences and settings inherited by GAMA from Eclipse.</p>
+<p>Please note that the preferences specific to GAMA will be shared, on the same machine, and for the same user, among all the workspaces managed by GAMA. <a href="ChangingWorkspace">Changing workspace</a> will not alter them. If you happen to run several instances of GAMA, they will also share these preferences.</p>
+<h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of contents</h2>
+<ul>
+<li><a href="#preferences">Preferences</a>
+<ul>
+<li><a href="#opening-preferences">Opening Preferences</a></li>
+<li><a href="#interface">Interface</a></li>
+<li><a href="#editors">Editors</a></li>
+<li><a href="#execution">Execution</a></li>
+<li><a href="#displays">Displays</a></li>
+<li><a href="#data-and-operators">Data and Operators</a></li>
+<li><a href="#manage-preferences-in-gaml">Manage preferences in GAML</a></li>
+<li><a href="#advanced-preferences">Advanced Preferences</a></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="opening-preferences"></a><a href="#opening-preferences" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Opening Preferences</h2>
+<p>To open the preferences dialog of GAMA, either click on the small &quot;form&quot; button on the top-left corner of the window or select &quot;Preferences...&quot; from the Gama, &quot;Help&quot; or &quot;Views&quot; menu depending on your OS.</p>
+<p><img src="../resources/images/preferences/pref_open_mac.png" alt="Open the Preferences from the &quot;Help&quot; menu of the interface."></p>
+<h2><a class="anchor" aria-hidden="true" id="interface"></a><a href="#interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interface</h2>
+<p>The Interface pane gathers all the preferences related to the appearance and behavior of the elements of the Graphical User Interface of GAMA.</p>
+<p><img src="../resources/images/preferences/pref_interface.png" alt="Interface pane in Preferences."></p>
+<ul>
+<li><strong>Startup</strong>
+<ul>
+<li><strong>Display welcome page</strong>: if true, and if no editors are opened, the <a href="Launching#Welcome_Page">welcome page</a> is displayed when opening GAMA.</li>
+<li><strong>Maximize GAMA window</strong>: if true, the GAMA window is open with the maximal dimensions at startup.</li>
+<li><strong>Maintain the state of the navigator across sessions</strong>: if true, the context of the navigator (project opened, file selected...) will be saved when GAMA is closed and reloaded next start.</li>
+</ul></li>
+<li><strong>Menus</strong>
+<ul>
+<li><strong>Break down agents in menu every</strong>: when <a href="InspectorsAndMonitors">inspecting</a> a large number of agents, this preference sets how many should be displayed before the decision is made to separate the population in sub-menus.</li>
+<li><strong>Sort operators menu by</strong>: among [category, name], this preference sets how the operators should be displayed in the menu <code>&quot;Model&quot; &gt; &quot;Operators&quot;</code> (<a href="GamlEditorToolbar#vocabulary-tools-in-the-menu">available only in Modeling perspective</a>, when a model editor is active).</li>
+<li><strong>Sort colors menu by</strong>: among [RGB value, Name, Brightness, Luminescence], this sets how are sorted the colors in the menu <code>&quot;Model&quot; &gt; &quot;Colors&quot;</code> (<a href="GamlEditorToolbar#vocabulary-tools-in-the-menu">available only in Modeling perspective</a>, when a model editor is active).</li>
+<li><strong>Reverse order</strong>: if true, reverse the sort order of colors sets above.</li>
+<li><strong>Group colors</strong>: if true, the colors in the previous menu are displays in several sub-menus.</li>
+</ul></li>
+<li><strong>Console</strong>
+<ul>
+<li><strong>Max. number of characters to display in the console (-1 means no limit)</strong></li>
+<li><strong>Max. number of characters to keep when paused (-1 means no limit)</strong></li>
+<li><strong>Wrap long lines (can slow down output)</strong></li>
+</ul></li>
+<li><strong>Simulations</strong>
+<ul>
+<li><strong>Append the name of simulations to their outputs</strong>: if true, the name of the simulation is added after the name of the display or monitor (interesting in case of multi-simulations).</li>
+<li><strong>Color of Simulation X in the UI (console, view tabs)</strong>: each simulation has a specific color. This is particularly interesting in case of a multi-simulations experiment to identify the displays of each simulation and its console messages.</li>
+</ul></li>
+<li><strong>Appearance</strong>
+<ul>
+<li><strong>Highlight in yellow the title of value editors when they change</strong></li>
+<li><strong>Shapefile viewer fill color</strong></li>
+<li><strong>Shapefile viewer line color</strong></li>
+<li><strong>Image viewer background color</strong>: Background color for the image viewer (when you select an image from the model explorer for example)</li>
+<li><strong>Font of buttons and dialogs</strong></li>
+<li><strong>Display metadata in navigator</strong>: if true, GAMA provides some metadata (orange, in parenthesis) after the name of files in the navigator: for a GAML model, it is the number of experiments; for data files, it depends on the kind of data: (for shapefiles) number of objects, CRS and dimensions of the bounding box, (for csv) the dimensions of the table, the delimiter, the data type ...</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="editors"></a><a href="#editors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Editors</h2>
+<p>Most of the settings and preferences regarding editors can also be found in the <a href="#advanced-preferences">advanced preferences</a>.</p>
+<p><img src="../resources/images/preferences/pref_editors.png" alt="Editors pane in Preferences."></p>
+<ul>
+<li><strong>Options</strong>
+<ul>
+<li><strong>Show warning markers in the editor</strong>: if false, the warning will only be available from the Validation View.</li>
+<li><strong>Show information markers in the editor</strong>: if false, the information will only be available from the Validation View.</li>
+<li><strong>Save all editors when switching perspectives</strong></li>
+<li><strong>Hide editors when switching to simulation perspectives (can be overridden in the 'layout' statement)</strong></li>
+<li><strong>Applying formatting on save</strong>: if true, every time a model file is saved, its code is formatted.</li>
+<li><strong>Save all model files before launching an experiment</strong></li>
+<li><strong>Drag files and resources as references in GAML files</strong>: a GAML model file is dropped in another file as an import and other resources as the definition of a variable accessing to this resource.</li>
+<li><strong>Ask before saving each file</strong></li>
+</ul></li>
+<li><strong>Edition</strong>
+<ul>
+<li><strong>Close curly brackets ({)</strong></li>
+<li><strong>Close square brackets (])</strong></li>
+<li><strong>Close parentheses</strong></li>
+<li><strong>Turn on colorization of code sections</strong>: if true, it activates the colorization of code blocks in order to improve the visual understanding of the code structure.</li>
+<li><strong>Font of editors</strong></li>
+<li><strong>Background color of editors</strong></li>
+<li><strong>Mark occurrences of symbols</strong>: if true, when a symbol is selected, all its other occurrences are also highlighted.</li>
+</ul></li>
+<li><strong>Syntax coloring</strong>: this section allows the modeler to set the font and color of each GAML keyword kind in the syntax coloring (in any GAMA editor).</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="execution"></a><a href="#execution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution</h2>
+<p>This pane gathers all the preferences related to the execution of experiments, memory management, the errors management, and the parallelism.</p>
+<p><img src="../resources/images/preferences/pref_execution.png" alt="Execution pane in Preferences."></p>
+<ul>
+<li><strong>Experiments</strong>: various settings regarding the execution of experiments.
+<ul>
+<li><strong>Auto-run experiments when they are launched</strong>: see <a href="LaunchingExperiments#Running_Experiments_Automatically">this page</a>.</li>
+<li><strong>Ask to close the previous simulation before launching a new one</strong>: if false, previous simulations (if any) will be closed without warning.</li>
+<li><strong>Ask to go to fullscreen mode</strong>: if true, ask the modeler before switching to the fullscreen mode.</li>
+<li><strong>Synchronize outputs with the simulation</strong>: if true, simulation cycles will wait for the displays to have finished their rendering before passing to the next cycle (this setting can be changed on an individual basis dynamically <a href="Displays">here</a>).</li>
+</ul></li>
+<li><strong>Tests</strong>
+<ul>
+<li><strong>Sorts the results of tests by severity</strong></li>
+<li><strong>Run tests at each start of the platform</strong></li>
+<li><strong>Include user-defined tests in the tests suite</strong></li>
+<li><strong>Only display (in the UI and in headless runs) failed and aborted tests</strong></li>
+</ul></li>
+<li><strong>Memory</strong>: a given amount of memory (RAM) is allocated to the execution of GAMA (it has to be set in the <code>Gama.ini</code> file). The allocated memory size should be chosen in accordance with the requirements of the model that is developed and the other applications running in your OS.
+<ul>
+<li><strong>Monitor memory and emit a warning if it is low</strong>: a warning will appear during an experiment run when the memory is low.</li>
+<li><strong>Trigger warnings when the percentage of available memory is below</strong></li>
+<li><strong>Interval (in seconds) at which memory should be monitored</strong></li>
+<li><strong>If true, when running out of memory, GAMA will try to close the experiment, otherwise it exits</strong></li>
+</ul></li>
+<li><strong>Runtime errors</strong>: how to manage and consider simulation errors.
+<ul>
+<li><strong>Show execution errors</strong>: whether errors should be displayed or not.</li>
+<li><strong>Show errors thrown in displays and outputs</strong>: the code defined inside the <code>aspect</code> block of a species will be executed each time the agents are repainted in a display. In particular, when the displays are not synchronized, some errors can occur due to some inconsistency between the model and the display (e.g. drawing a dead agent). As a consequence, the code executed inside an aspect should be limited as much as possible.</li>
+<li><strong>Number of errors to display</strong>: how many errors should be displayed at once</li>
+<li><strong>Display most recent first</strong>: errors will be sorted in the inverse chronological order if true.</li>
+<li><strong>Stop simulation at first error</strong>: if false, the simulations will display the errors and continue (or try to).</li>
+<li><strong>Treat warnings as errors</strong>: if true, no more distinction is made between warnings (which do not stop the simulation) and errors (which can potentially stop it).</li>
+<li><strong>Automatically open an editor and point at the faulty part of the model if an error or a warning is thrown</strong></li>
+<li><strong>Text color of errors</strong></li>
+<li><strong>Text color of warnings</strong></li>
+</ul></li>
+<li><strong>Parallelism</strong>: various settings regarding the parallel execution of experiments.
+<ul>
+<li><strong>Make experiments run simulations in parallel</strong>: if true, in the case of a multi-simulations experiment, the simulation will be executed in parallel (note that the number of simulations that can be executed in parallel will depend on the number of threads to use).</li>
+<li><strong>Make grids schedule their agents in parallel</strong>: the agents of grid species will be executed in parallel. Depending on the model, this could increase the simulation speed, but the modeler cannot have any control over the execution order of the agents.</li>
+<li><strong>Make species schedule their agents in parallel</strong></li>
+<li><strong>Number under which agents are executed sequentially</strong></li>
+<li><strong>Max. number of threads to use (available processors: 8)</strong></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="displays"></a><a href="#displays" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Displays</h2>
+<p><img src="../resources/images/preferences/pref_displays.png" alt="Displays pane in Preferences."></p>
+<ul>
+<li><strong>Presentation and Behavior of Graphical Display Views</strong>
+<ul>
+<li><strong>Default layout of display views</strong>: among [None, stacked, Split, Horizontal, Vertical]. When an experiment defines several displays, they are by default (layout None) opened in the same View. This preference can set automatically this layout. A <code>layout</code> statement can also be used in <code>experiment</code> to redefine programmatically the layout of display views.</li>
+<li><strong>Display a border around display views</strong></li>
+<li><strong>Continue to draw displays when in Modeling perspective</strong>: if true, when the simulation is running and the modeler chooses to switch to the Modeling perspective the displays are still updated. This is particularly relevant for displays showing plots of data over time.</li>
+<li><strong>Enable fast snapshots (uncomplete when the display is obscured but much faster)</strong></li>
+<li><strong>Show the display top toolbar</strong>: this could also be configured manually for each display (cf <a href="Displays">displays related page</a>).</li>
+<li><strong>Show the display bottom overlay</strong>: this could also be configured manually for each display (cf <a href="Displays">displays related page</a>).</li>
+</ul></li>
+<li><strong>Charts Preferences</strong>
+<ul>
+<li><strong>Display 'flat' histograms</strong>: if false, the histograms are displayed in a 3D style.</li>
+<li><strong>Keep values in memory (to save them as csv)</strong></li>
+<li><strong>Display grid lines</strong>: in charts (and in particular <a href="DefiningCharts"><code>series</code></a>), if true, a grid is displayed in background.</li>
+</ul></li>
+<li><strong>Default Rendering Properties</strong>: various properties of displays
+<ul>
+<li><strong>Default rendering method (JavaED fro 2D, OpenGL for 3D)</strong>: use either 'Java2D' or 'OpenGL' if nothing is specified in the <a href="DefiningDisplaysGeneralities">declaration of a display</a>.</li>
+<li><strong>Apply antialiasing</strong>: if true, displays are drawn using antialiasing, which is slower but renders a better quality of image and text (this setting can be changed on an individual basis dynamically <a href="Displays">here</a>).</li>
+<li><strong>Default background color</strong>: indicates which color to use when none is specified in the <a href="DefiningDisplaysGeneralities">declaration of a display</a>.</li>
+<li><strong>Default highlight color</strong>: indicates which color to use for highlighting agents in the displays.</li>
+<li><strong>Default shape of agents</strong>: a choice between <code>shape</code> (which represents the actual geometrical shape of the agent) and geometrical operators (<code>circle</code>, <code>square</code>, <code>triangle</code>, <code>point</code>, <code>cube</code>, <code>sphere</code> etc.) as default shape to display agents when no <code>aspect</code> is defined.</li>
+<li><strong>Default size of agents</strong>: what size to use. This expression must be constant.</li>
+<li><strong>Default color of agents</strong>: what color to use.</li>
+<li><strong>Default font to use in 'draw'</strong></li>
+</ul></li>
+<li><strong>Advanced</strong>:
+<ul>
+<li><strong>Only display visible agents (faster, may create visual oddities)</strong></li>
+<li><strong>Disable acceleration for Java2D (necessary on some configurations)</strong></li>
+</ul></li>
+<li><strong>OpenGL Rendering Properties</strong>: various properties specific to OpenGL-based displays
+<ul>
+<li><strong>Draw 3D axes</strong>: if true, the shape of the world and the 3 axes are drawn</li>
+<li><strong>Draw rotation axes</strong>: if true, a sphere appears when rotating the scene to illustrate the rotations.</li>
+<li><strong>Default line width (facet <code>width</code> of <code>draw</code>)</strong>: the value is used in <a href="Statements#draw"><code>draw</code> statement</a> that draws a line without specifying the <code>width</code> facet.</li>
+<li><strong>Number of slices of circular geometries</strong>: when a circular geometry (circle, sphere, cylinder) is displayed, it needs to be discretized in a given number of slices.</li>
+<li><strong>Set the zoom factor (0 for slow, 1 fast)</strong>: this determines the speed of the zoom (in and out), and thus its precision.</li>
+<li><strong>Max. number of frames per second</strong></li>
+<li><strong>Forces textures dimension to a power of 2 (e.g. 16x16. Necessary on some configurations)</strong></li>
+<li><strong>Use OpenGL tesselator (false is more precise, but more CPU intensive)</strong></li>
+<li><strong>Use Numeric Keypad (2,4,6,8) for camera interaction</strong>: use these numeric keys to <a href="Displays#arcball-camera-commands">make quick rotations</a>.</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="data-and-operators"></a><a href="#data-and-operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data and Operators</h2>
+<p>These preferences pertain to the use of external libraries or data with GAMA.</p>
+<p><img src="../resources/images/preferences/pref_data_and_operators.png" alt="The Data and Operators pane in Preferences."></p>
+<ul>
+<li><strong>Http connections</strong>
+<ul>
+<li><strong>Connection timeout (in ms)</strong>: set the connection timeout when the model tries to access a resource on the web. This value is used to decide when to give up the connection try to an HTTP server in case of response absence.</li>
+<li><strong>Read timeout (in ms)</strong>: similar to connection timeout, but related to the time GAMA will wait for a response in case of reading demand.</li>
+<li><strong>Number of times to retry if connection cannot be established</strong></li>
+<li><strong>Empty the local cache of files downloaded from the web</strong>: if true, after having downloaded the files and used them in the model, the files will be deleted.</li>
+</ul></li>
+<li><strong>Random Number Generation</strong>: all the options pertaining to generating random numbers in simulations
+<ul>
+<li><strong>Default random number generator</strong>: the name of the generator to use by default (if none is specified in the model).</li>
+<li><strong>Define a default seed</strong>: whether or not a default seed should be used if none is specified in the model  (otherwise it is chosen randomly by GAMA)</li>
+<li><strong>Default seed value (0 is undefined)</strong>: the value of this default seed</li>
+<li><strong>Include in the parameter</strong>: whether the choice of generator and seed is included by default in the <a href="ParametersView">parameters views</a> of experiments or not.</li>
+</ul></li>
+<li><strong>Optimizations</strong>
+<ul>
+<li><strong>Optimize constant expressions (experimental)</strong>: whether expressions considered as constants should be computed and replaced by their value when compiling models. Allows to save memory and speed, but may cause some problems with complex expressions.</li>
+<li><strong>Optimize agents memory</strong>: whether the memory used by agents is reduced (or not) when their structure appears to be simple: no sub-agents, for instance, because no sub-species is defined.</li>
+<li><strong>Optimize the 'at_distance' operator</strong>: an optimisation that considers the number of elements on each side and changes the loop to consider the fastest case.</li>
+<li><strong>Optimize the path computation operators and goto action (but with possible 'jump' issues)</strong>: when an agent is not already on a path, simplifies its choice of the closest segment to choose and makes it jump directly on it rather than letting it move towards the segment.</li>
+<li><strong>Optimize spatial queries: add agents only when necessary in the quadtree (still experimental)</strong>: if no queries is conducted against a species of agents, then it is not necessary to maintain them in the global quad tree.</li>
+<li><strong>Forces the spatial index to synchronize its operations. Useful for interactive models where the user may interfere.</strong>: when true, forces the quadtree to use concurrent data structures and to synchronize reads and writes, allowing users to interact with the simulation without raising concurrent modification errors.</li>
+<li><strong>Use object pooling to reduce memory usage (still experimental)</strong>: when true, tries to reuse the same common objects (lists, maps, etc.) over and over rather than creating new ones.</li>
+<li><strong>Tolerance for the comparison of points</strong>: depending on the way they are computed, 2 points who should be the same, could not be equal. This preference allows to be more tolerant in the way points are compared.</li>
+</ul></li>
+<li><strong>External libraries support</strong>
+<ul>
+<li><strong>Path to Spatialite (<a href="http://www.gaia-gis.it/gaia-sins/">http://www.gaia-gis.it/gaia-sins/</a>)</strong>: the path toward the spatial extension for the SQLite database.</li>
+<li><strong>Path to JRI library ($R_HOME/library/rJava/jri/libjri.jnilib) (<a href="http://www.r-project.org">http://www.r-project.org</a>)</strong>: when we need to couple GAMA and R, we need to set properly the path toward this file.</li>
+</ul></li>
+<li><strong>GIS Coordinate Reference Systems (<a href="http://spatialreference.org/ref/epsg/">http://spatialreference.org/ref/epsg/</a> for EPSG codes)</strong>: settings about CRS to use when loading or saving GIS files
+<ul>
+<li><strong>Let GAMA decide which CRS to use to project GIS data</strong>: if true, GAMA will decide which CRS, based on input, should be used to project GIS data. Default is <code>true</code> (i.e. GAMA will always try to find the relevant CRS, and, if none can be found, will fall back one the one provided below)</li>
+<li><strong>...or use the following CRS (EPSG code)</strong>: choose a CRS that will be applied to all GIS data when projected in the models. Please refer to <a href="http://spatialreference.org/ref/epsg/">http://spatialreference.org/ref/epsg/</a> for a list of EPSG codes. If the option above is <code>false</code>, then the use of this CRS will be enforced in all models.Otherwise, GAMA will first try to find the most relevant CRS and then fall back on this one.</li>
+<li><strong>When no .prj file or CRS is supplied, consider GIS data to be already projected in the CRS</strong>: if true, GIS data that is not accompanied by a CRS information will be considered as projected using the above code.</li>
+<li><strong>...or use the following CRS (EPSG code)</strong>: choose a CRS that will represent the default code for loading uninformed GIS data.</li>
+<li><strong>When no CRS is provided, save the GIS data with the current CRS</strong>: if true, saving GIS data will use the projected CRS unless a CRS is provided.</li>
+<li><strong>...or use the following CRS (EPSG code)</strong>: otherwise, you might enter a CRS to use to save files.</li>
+</ul></li>
+<li><strong>Management of dates</strong>: some preferences for default values related to <a href="ManipulateDates">the dates in GAMA</a>.
+<ul>
+<li><strong>Custom date pattern (<a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimerFormatter.html#patterns">https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimerFormatter.html#patterns</a>)</strong></li>
+<li><strong>Default date pattern for writing dates (i.e. string(date1))</strong></li>
+<li><strong>Default starting date of models</strong>: set the default value of the <a href="ManipulateDates#the-date-variable-type-and-the-use-of-a-real-calendar">global variable <code>starting_date</code></a>.</li>
+<li><strong>Default time step of models</strong>: define the default duration of a simulation step, i.e. the value of the variable <code>step</code> (<a href="ManipulateDates#definition-of-the-step-and-use-of-temporal-unity-values">by default, it is set to 1s</a>).</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="manage-preferences-in-gaml"></a><a href="#manage-preferences-in-gaml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manage preferences in GAML</h2>
+<p>All these preferences can be accessed (set or read) directly in a GAML model. To share your preferences with others (e.g. when you <a href="Troubleshooting#submitting-an-issue">report an issue</a>), you can simply export your preferences in a GAML model. Importing preferences will set your preferences from an external GAML file.</p>
+<p><img src="../resources/images/preferences/pref_other_options.png" alt="Import or export the preferences from/in a GAML model."></p>
+<p>When you export your preferences, the GAML file will look like the following code. It contains 2 experiments: one to display all the preferences in the console and the other one to set your preferences will the values written in the model.</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> preferences
+
+<span class="hljs-builtin">experiment</span> <span class="hljs-string">'Display Preferences'</span> <span class="hljs-symbol">type:</span> gui {
+init {
+    <span class="hljs-comment">//Append the name of simulations to their outputs</span>
+    <span class="hljs-keyword">write</span> sample(gama.pref_append_simulation_name);
+
+    <span class="hljs-comment">//Display grid lines</span>
+    <span class="hljs-keyword">write</span> sample(gama.pref_chart_display_gridlines);
+
+    <span class="hljs-comment">//Monitor memory and emit a warning if it is low</span>
+    <span class="hljs-keyword">write</span> sample(gama.pref_check_memory);
+
+    <span class="hljs-comment">//Max. number of characters to keep when paused (-1 = unlimited)</span>
+    <span class="hljs-keyword">write</span> sample(gama.pref_console_buffer);
+
+    <span class="hljs-comment">//Max. number of characters to display (-1 = unlimited)</span>
+    <span class="hljs-keyword">write</span> sample(gama.pref_console_size);
+
+    <span class="hljs-comment">//Wrap long lines (can slow down output)</span>
+    <span class="hljs-keyword">write</span> sample(gama.pref_console_wrap);
+
+    <span class="hljs-comment">//Custom date pattern (https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns)</span>
+    <span class="hljs-keyword">write</span> sample(gama.pref_date_custom_formatter);
+
+<span class="hljs-comment">// ...</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="advanced-preferences"></a><a href="#advanced-preferences" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced Preferences</h2>
+<p>The set of preferences described above are specific to GAMA. But there are other preferences or settings that are inherited from the Eclipse underpinnings of GAMA, which concern either the &quot;core&quot; of the platform (workspace, editors, updates, etc.) or plugins (like SVN, for instance) that are part of the distribution of GAMA.</p>
+<p>These &quot;advanced&quot; preferences are accessible by clicking on the &quot;Advanced...&quot; button in the Preferences view.</p>
+<p><img src="../resources/images/preferences/pref_open_advanced.png" alt="Open the advanced preferences."></p>
+<p>Depending on what is installed, the second view that appears will contain a tree of options on the left and preference pages on the right. <strong>Contrary to the first set of preferences, please note that these preferences will be saved in the current workspace</strong>, which means that changing workspace will revert them to their default values. It is, however, possible to import them in the new workspace using of the wizards provided in the standard &quot;Import...&quot; command (see <a href="ImportingModels">here</a>).</p>
+<p><img src="../resources/images/preferences/pref_advanced.png" alt="The advanced preferences available from the Preferences window."></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/ErrorsView"><span class="arrow-prev">← </span><span>Errors View</span></a><a class="docs-next button" href="/wiki/next/LearnGAMLStepByStep"><span>Learn GAML Step by Step</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table of contents</a></li><li><a href="#opening-preferences">Opening Preferences</a></li><li><a href="#interface">Interface</a></li><li><a href="#editors">Editors</a></li><li><a href="#execution">Execution</a></li><li><a href="#displays">Displays</a></li><li><a href="#data-and-operators">Data and Operators</a></li><li><a href="#manage-preferences-in-gaml">Manage preferences in GAML</a></li><li><a href="#advanced-preferences">Advanced Preferences</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

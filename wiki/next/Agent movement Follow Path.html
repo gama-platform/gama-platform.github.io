@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Movement of an agent on different paths · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (keyword|operator_as_path)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Movement of an agent on different paths · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (keyword|operator_as_path)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Movement of an agent on different paths</h1></header><article><div><span><p>_Author : _</p>
+<p>Model showing the movement of an agent following three different paths : one defined by its vertices, an other defined thanks to all the roads species, and finally a path defined by a graph with weights (graph created thanks to an other species)</p>
+<p>Code of the model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> path_and_follow
+
+global{
+    <span class="hljs-literal">graph</span> the_graph;
+    init{
+            <span class="hljs-comment">//It is possible to define a road by defining its shape, being a line. The line need to be created by passing the location of the vertices</span>
+       <span class="hljs-keyword">create</span> road {
+            shape &lt;- line([{0,50},{40,60}]);
+       }
+       <span class="hljs-keyword">create</span> road {
+            shape &lt;- line([{40,60},{50,50},{55,60}]);
+       }
+       <span class="hljs-keyword">create</span> road {
+            shape &lt;- line([{55,60},{65,40}]);
+       }
+       
+       <span class="hljs-keyword">create</span> road_of_graph {
+            shape &lt;- line([{65,40},{75,35}]);
+       }
+       <span class="hljs-keyword">create</span> road_of_graph {
+            shape &lt;- line([{75,35},{85,40},{80,60}]);
+       }
+       <span class="hljs-comment">//It is possible to define a weights map by linking the road and their weights (the road will be the key of the weight)</span>
+       <span class="hljs-literal">map</span>&lt;road_of_graph,<span class="hljs-literal">float</span>&gt; weight_map &lt;- road_of_graph as_map (each::each.shape.perimeter * 10);
+       
+       <span class="hljs-comment">//A graph can be defined by using a list or all the agents of a species and it is possible to use a map of weights with each key </span>
+       <span class="hljs-comment">// of the map being a road to link the road and its weight</span>
+       <span class="hljs-comment">//The as_edge_graph operator is an operator creating a graph using the list of agents passed as edges of the graph</span>
+       the_graph &lt;- as_edge_graph(road_of_graph) with_weights weight_map;
+      
+       <span class="hljs-keyword">create</span> myCircle {
+            location &lt;- {0,0};
+       }
+      
+    }  
+}
+
+<span class="hljs-literal">species</span> myCircle <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{
+    <span class="hljs-comment">//The different ways to declare a path : declaring all the lines of the path using their vertices</span>
+    <span class="hljs-comment">//                            using a list of agents representing the lines of the path</span>
+    <span class="hljs-comment">//                            using the graph as a path</span>
+    
+    
+    <span class="hljs-literal">path</span> path_to_follow1 &lt;- <span class="hljs-literal">path</span>([{0,0},{10,10},{0,20},{20,30},{20,40},{0,50}]);    
+    <span class="hljs-literal">path</span> path_to_follow2 &lt;- <span class="hljs-literal">path</span>(<span class="hljs-literal">list</span>(road));   
+    <span class="hljs-literal">path</span> path_to_follow3 &lt;- <span class="hljs-literal">list</span>(road_of_graph) as_path the_graph;  
+    
+    <span class="hljs-comment">//These two variables will change when the cycle will be higher than 100 and 200</span>
+    <span class="hljs-literal">path</span> path_following&lt;- path_to_follow1;
+    <span class="hljs-literal">rgb</span> color &lt;- #green;
+    
+    <span class="hljs-builtin">reflex</span> myfollow{ 
+        <span class="hljs-comment">//The operator follow make the agent move from the starting vertice of the starting edge of a path to the last vertice of the last edge of the path</span>
+        <span class="hljs-comment">// but following the edges of the concerned path</span>
+        <span class="hljs-keyword">do</span> follow <span class="hljs-symbol">path:</span> path_following; 
+        <span class="hljs-keyword">if</span>(cycle&gt;200)
+        {
+            path_following&lt;- path_to_follow3;   
+            color&lt;-#pink;
+        }
+        <span class="hljs-keyword">else</span>
+        {
+            <span class="hljs-keyword">if</span>(cycle&gt;100)
+            {
+                path_following&lt;- path_to_follow2;   
+                color&lt;-#blue;
+            }
+        }
+    }
+    
+    <span class="hljs-keyword">aspect</span> base {
+      <span class="hljs-keyword">draw</span> circle(1) <span class="hljs-symbol">color:</span>#red ;   
+      <span class="hljs-comment">//We loop on all the edges of the path the agent follow to display them</span>
+        <span class="hljs-keyword">loop</span> seg <span class="hljs-symbol">over:</span> path_following.edges {
+            <span class="hljs-keyword">draw</span> seg <span class="hljs-symbol">color:</span> color;
+         }
+      
+    } 
+}
+
+<span class="hljs-literal">species</span> road {
+    <span class="hljs-keyword">aspect</span> base {
+      <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>#blue ;  
+      
+    } 
+}
+
+<span class="hljs-literal">species</span> road_of_graph {
+    <span class="hljs-keyword">aspect</span> base {
+      <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span>#red ;   
+      
+    } 
+}
+
+<span class="hljs-builtin">experiment</span> main <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-literal">float</span> minimum_cycle_duration &lt;- 0.10;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> myView { 
+            <span class="hljs-literal">species</span> myCircle <span class="hljs-symbol">aspect:</span>base; 
+        }
+    }
+}
+
+
+
+
+
+
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Organization of a model · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (startConcept|model_structure)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Organization of a model · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (startConcept|model_structure)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Introduction</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Home<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Home">GAMA</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Overview">Introduction</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Platform<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/PlatformDocumentation">Platform</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InstallationAndLaunching">Installation and Launching</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Installation</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/Installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Launching">Launching GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Headless">Headless Mode</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Updating">Updating GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InstallingPlugins">Installing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Troubleshooting">Troubleshooting</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/WorkspaceProjectsAndModels">Workspace, Projects and Models</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Navigating in the Workspace</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/NavigatingWorkspace">Navigating in the Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ChangingWorkspace">Changing Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ImportingModels">Importing Models</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/EditingModels">Editing models</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">GAML Editor (Generalities)</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/GamlEditorGeneralities">The GAML Editor - Generalities</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GamlEditorToolbar">GAML Editor tools</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ValidationOfModels">Validation of Models</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/RunningExperiments">Running Experiments</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Launching Experiments</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/LaunchingExperiments">Launching Experiments from the User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ExperimentsUserInterface">Experiments User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/MenusAndCommands">Controls of experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ParametersView">Parameters View</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InspectorsAndMonitors">Inspectors and monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Displays">Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BatchSpecific">Batch Specific UI</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ErrorsView">Errors View</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/Preferences">Preferences</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn GAML step by step<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/LearnGAMLStepByStep">Learn GAML Step by Step</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Introduction</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/Introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/StartWithGAML">Start with GAML</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/next/ModelOrganization">Organization of a model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BasicProgrammingConceptsInGAML">Basic programming concepts in GAML</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateBasicSpecies">Manipulate basic species</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Global Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/GlobalSpecies">The global species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RegularSpecies">Regular species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningActionsAndBehaviors">Defining actions and behaviors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InteractionBetweenAgents">Interaction between agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/AttachingSkills">Attaching Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Inheritance">Inheritance</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining Advanced Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningAdvancedSpecies">Defining advanced species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GridSpecies">Grid Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GraphSpecies">Graph Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/MirrorSpecies">Mirror species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/MultiLevelArchitecture">Multi-level architecture</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining GUI Experiment</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningGUIExperiment">Defining GUI Experiment</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningParameters">Defining Parameters</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningDisplaysGeneralities">Defining displays (Generalities)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningCharts">Defining Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Defining3DDisplays">Defining 3D Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningMonitorsAndInspectors">Defining monitors and inspectors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningExportFiles">Defining export files</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningUserInteraction">Defining user interaction</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Exploring Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/ExploringModels">Exploring Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RunSeveralSimulations">Run Several Simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BatchExperiments">Defining Batch Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ExplorationMethods">Exploration Methods</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Optimizing Model Section</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/OptimizingModelsSection">Optimizing Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RuntimeConcepts">Runtime Concepts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OptimizingModels">Optimizing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Multi-Paradigm Modeling</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/MultiParadigmModeling">Multi-Paradigm Modeling</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ControlArchitecture">Control Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Equations">Using Equations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Recipes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Recipes">Recipes</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateOSMDatas">Manipulate OSM Datas</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Diffusion">Implementing diffusion</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingDatabase">Using Database Access</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/CallingR">Calling R</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingFIPAACL">Using FIPA ACL</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GamAnalyzer">Using GAMAnalyzer</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Using-BEN-simple-bdi">Using BEN (simple_bdi)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingDrivingSkill">Advanced Driving Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateDates">Manipulate Dates</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateLight">Implementing light</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Comodel">Using Comodel</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Save-and-restore-simulations">Save and Restore simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingNetwork">Using network</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Headless-mode-for-dummies">Editing Headless mode for dummies</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/G__GraphicalEditor">The Graphical Editor</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Using_Git">Using Git from GAMA to version and share models</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Writing_Tests">Writing Unit Tests in GAML</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/FAQ">FAQ (Frequently Asked Questions)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/KnownIssues">Known issues</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">GAML References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/GamlReference">GAML References</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Built-in Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/BuiltInSpecies">Built-in Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/AgentBuiltIn">The &#x27;agent&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ModelBuiltIn">The &#x27;model&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ExperimentBuiltIn">The &#x27;experiment&#x27; built-in species (Under Construction)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/BuiltInSkills">Built-in Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BuiltInArchitectures">Built-in Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Statements">Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DataTypes">Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/FileTypes">File Types</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Expressions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/Expressions">Expressions</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Literals">Literals</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UnitsAndConstants">Units and constants</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PseudoVariables">Pseudo-variables</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/VariablesAndAttributes">Variables and Attributes</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsAA">Operators (A to A)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsBC">Operators (B to C)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsDH">Operators (D to H)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsIM">Operators (I to M)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsNR">Operators (N to R)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsSZ">Operators (S to Z)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/Index">Exhaustive list of GAMA Keywords</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Pedagogical materials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Pedagogical-Materials">Some pedagogical materials</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Extensions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Extensions">Extensions</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Developing Extensions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingExtensions">Developing Extensions</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InstallingGitVersion">Installing the GIT version</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GamaArchitecture">Architecture of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingPlugins">Developing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingSkills">Developing Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingStatements">Developing Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingOperators">Developing Operators</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingTypes">Developing Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingSpecies">Developing Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingControlArchitectures">Developing architecture</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingIndexAnnotations">Index of annotations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/developingGAMA">Get into the GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Introduction-To-Gama-Java-API">Introduction to GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingIScope">IScope interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/CreatingAReleaseOfGama">Product your own release of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Documentation">Documentation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Scientific References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/References">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Projects using GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Training Session<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/TrainingSession">Training Session</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Coding Camp</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/CodingCamp">CodingCamp</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Event__CC15_Reorganization">Introduction</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Events<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Events">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Older versions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/OlderVersions">Versions of GAMA</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Organization of a model</h1></header><article><div><span><p>As already extensively detailed in the <a href="Introduction">introduction page</a>, defining a model in GAML amounts to defining a <em>model species</em>, which later allows to instantiate a <em>model agent</em> (aka a <em>simulation</em>), which may or may not contain micro-species, and which can be flanked by <em>experiment plans</em> in order to be simulated.</p>
+<p>This conceptual structure is respected in the definition of model files, which follows a similar pattern:</p>
+<ol>
+<li>Definition of the <em>global species</em>, preceded by a <em>header</em>, in order to represent the <em>model species</em></li>
+<li>Definition of the different micro-species (either nested inside the <em>global species</em> or at the same level)</li>
+<li>Definition of the different <em>experiment plans</em> that target this model</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of contents</h2>
+<ul>
+<li><a href="#model-header-model-species">Model Header (model species)</a></li>
+<li><a href="#species-declarations">Species declarations</a></li>
+<li><a href="#experiment-declarations">Experiment declarations</a></li>
+<li><a href="#basic-skeleton-of_a_model">Basic skeleton of a model</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="model-header-_model-species_"></a><a href="#model-header-_model-species_" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Header (<em>model species</em>)</h2>
+<p>The header of a model file begins with the declaration of the name of the model. Contrarily to other statements, this declaration <strong>does not</strong> end with a semi-colon.</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> name_of_the_model
+</code></pre>
+<p>The name of the model is not necessarily the same as the name of the file. It must conform to the general rule for naming species, i.e. be a valid identifier (beginning with a letter, containing only letters, digits, and dashes). This name will be used for building the name of the model species, from which <em>simulations</em> will be instantiated. For instance, the following declaration:</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> dummy
+</code></pre>
+<p>will internally create a species called <code>dummy_model</code>, child of the abstract species <code>model</code>, from which simulations (called <code>dummy_model0</code>, <code>dummy_model1</code>, etc.) will be instantiated.</p>
+<p>This declaration is followed by optional import statements that indicate which other models this model is importing. Import statements <strong>do not</strong> end with a semi-colon.</p>
+<p>Importing a model can take two forms. The first one, called <em>inheritance import</em>, is declared as follows:</p>
+<pre><code class="hljs">import <span class="hljs-string">"relative_path_to_a_model_file"</span>
+import <span class="hljs-string">"relative_path_to_another_model_file"</span>
+</code></pre>
+<p>The second one, called <em>usage import</em>, is declared as follows:</p>
+<pre><code class="hljs">import <span class="hljs-string">"relative_path_to_a_model_file"</span> as model_identifier
+</code></pre>
+<p>When importing models using the first form, all the declarations of the model(s) imported will be merged with those of the current model (in the order with which the import statements are declared, i.e. the latest definitions of global attributes or behaviors superseding the previous ones).
+The second form is reserved for <a href="Comodel">using models as <em>micro-models</em> of the current model</a>. This possibility is still experimental in the current version of GAMA.</p>
+<p>The last part of the <em>header</em> is the definition of the <a href="GlobalSpecies"><code>global</code> species</a>, which is the actual definition of the <em>model species</em> itself.</p>
+<pre><code class="hljs">global {
+    <span class="hljs-comment">// Definition of [global attributes](GlobalSpecies#declaration), [actions and behaviors](DefiningActionsAndBehaviors)</span>
+}
+</code></pre>
+<p>Note that neither the imports nor the definition of <code>global</code> is mandatory. Only the <code>model</code> statement is.</p>
+<h2><a class="anchor" aria-hidden="true" id="species-declarations"></a><a href="#species-declarations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Species declarations</h2>
+<p>The header is followed by the declaration of the different species of agents that populate the model.</p>
+<p>The <a href="GlobalSpecies">special species <code>global</code></a> is the world species. You will declare here all the global attributes/actions/behaviors. The global species does not have a name, and is unique in your model.</p>
+<pre><code class="hljs">global {
+    <span class="hljs-comment">// definition of global attributes, actions, behaviors</span>
+}
+</code></pre>
+<p><a href="RegularSpecies">Regular species</a> can be declared with the keyword <code>species</code>. You can declare several regular species, and they all have to be named. A species defines its <a href="RegularSpecies#declaration">attributes</a>, <a href="DefiningActionsAndBehaviors">actions and behaviors</a> and <a href="RegularSpecies#the-aspect-statement">aspects</a>.</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> nameOfSpecies {
+    <span class="hljs-comment">// definition of your species attributes, actions and behaviors and aspects</span>
+}
+</code></pre>
+<p>Note that the possibility to define the species <em>after</em> the <code>global</code> definition is actually a convenience: these species are micro-species of the model species and, hence, could be perfectly defined as nested species of <code>global</code>. For instance:</p>
+<pre><code class="hljs">global {
+    <span class="hljs-comment">// definition of global attributes, actions, behaviors</span>
+}
+
+<span class="hljs-literal">species</span> A {...}
+
+<span class="hljs-literal">species</span> B {...}
+</code></pre>
+<p>is completely equivalent to:</p>
+<pre><code class="hljs">global {
+    <span class="hljs-comment">// definition of [global attributes](GlobalSpecies#declaration), actions, behaviors</span>
+
+    <span class="hljs-literal">species</span> A {...}
+
+    <span class="hljs-literal">species</span> B {...}
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="experiment-declarations"></a><a href="#experiment-declarations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Experiment declarations</h2>
+<p>Experiments are usually declared at the end of the file. They start with the keyword <code>experiment</code>. They contains the <a href="DefiningParameters">simulation parameters</a>, and the definition of the output (such as <a href="DefiningDisplaysGeneralities">displays</a>, <a href="DefiningMonitorsAndInspectors">monitors or inspectors</a>). You can declare as many experiments as you want.</p>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> first_experiment {
+    <span class="hljs-comment">// definition of parameters (intputs)</span>
+
+    <span class="hljs-comment">// definition of output</span>
+    <span class="hljs-keyword">output</span> {...}
+}
+
+<span class="hljs-builtin">experiment</span> second_experiment {
+    <span class="hljs-comment">// definition of parameters (inputs)</span>
+
+    <span class="hljs-comment">// definition of output</span>
+}
+</code></pre>
+<p>Note that you have four types of experiments:</p>
+<ul>
+<li>A <a href="DefiningGUIExperiment">GUI experiment</a> allows you to display a graphical interface with input parameters and outputs. It is declared with the following structure:</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> gui_experiment <span class="hljs-symbol">type:</span>gui {
+   [parameters]
+   [<span class="hljs-keyword">output</span>]
+   [...]
+}
+</code></pre>
+<ul>
+<li>A <a href="BatchExperiments">Batch experiment</a> allows you to execute numerous successive simulation runs (often used for model exploration). It is declared with the following structure:</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> batch_experiment <span class="hljs-symbol">type:</span>batch {
+   [parameters]
+   [exploration method]
+   [...]
+}
+</code></pre>
+<ul>
+<li>A <a href="Writing_Tests">Test experiment</a> allows you to write unit tests on a model (used to ensure its quality). It is declared with the following structure:</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> test_experiment <span class="hljs-symbol">type:</span><span class="hljs-keyword">test</span> <span class="hljs-symbol">autorun:</span> true {
+   [<span class="hljs-keyword">setup</span>]
+   [tests]
+   [...]
+}
+</code></pre>
+<ul>
+<li>A <a href="Save-and-restore-simulations">memorize experiment</a> allows you to store each step of the simulation in memory and to backtrack to previous steps. It is declared with the following structure:</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> test_experiment <span class="hljs-symbol">type:</span>memorize {
+   [parameters]
+   [<span class="hljs-keyword">output</span>]
+   [...]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="basic-skeleton-of-a-model"></a><a href="#basic-skeleton-of-a-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic skeleton of a model</h2>
+<p>Here is the basic skeleton of a model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> name_of_the_model
+
+global {
+    <span class="hljs-comment">// definition of [global attributes](GlobalSpecies#declaration), actions, behaviours</span>
+}
+
+<span class="hljs-literal">species</span> my_specie {
+    <span class="hljs-comment">// definition of attributes, actions, behaviors</span>
+}
+
+<span class="hljs-builtin">experiment</span> my_experiment <span class="hljs-comment">/* + specify the type : "type:gui", "type:batch", "type:test", or "test:memorize" */</span>
+{
+    <span class="hljs-comment">// here the definition of your experiment, with...</span>
+    <span class="hljs-comment">// ... your inputs</span>
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-comment">// ... and your outputs</span>
+    }
+}
+</code></pre>
+<p>Don't forget this structure! This will be the basis for all the models you will create from now.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/StartWithGAML"><span class="arrow-prev">← </span><span>Start with GAML</span></a><a class="docs-next button" href="/wiki/next/BasicProgrammingConceptsInGAML"><span>Basic programming concepts in GAML</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table of contents</a></li><li><a href="#model-header-_model-species_">Model Header (<em>model species</em>)</a></li><li><a href="#species-declarations">Species declarations</a></li><li><a href="#experiment-declarations">Experiment declarations</a></li><li><a href="#basic-skeleton-of-a-model">Basic skeleton of a model</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

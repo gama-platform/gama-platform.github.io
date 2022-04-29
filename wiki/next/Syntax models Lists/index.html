@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Lists · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (keyword|operator_list_with)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Lists · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (keyword|operator_list_with)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Lists</h1></header><article><div><span><p><em>Author : Alexis Drogoul</em></p>
+<p>Examples of the syntax and various operators used to manipulate the 'list' data type. Read the comments and run the model to get a better idea on how to use lists in GAML.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs">
+<span class="hljs-builtin">model</span> Lists
+
+<span class="hljs-comment">/* Insert your model definition here */</span>
+
+<span class="hljs-literal">species</span> declaring_list_attributes {
+    
+    <span class="hljs-comment">/**
+     * Declarations of list attributes
+     */</span>
+     <span class="hljs-comment">// The simplest declaration identifies empty_list as a list that can contain any type of objects. </span>
+     <span class="hljs-comment">// Its default value will be [] (the empty list) if it is not initialized.</span>
+    <span class="hljs-literal">list</span> empty_list;
+    <span class="hljs-comment">// To provide it with an initial value, use the '&lt;-' (or 'init:') facet</span>
+    <span class="hljs-literal">list</span> explicit_empty_list &lt;- [];
+    <span class="hljs-comment">// lists can also be provided with a default size, in which case they are filled with the nil element</span>
+    <span class="hljs-literal">list</span> list_of_size_10 &lt;-[];<span class="hljs-comment">// list_size(10); // =&gt; [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]</span>
+    <span class="hljs-comment">// to fill them with a given initial value, use the 'list_with' operator</span>
+    <span class="hljs-literal">list</span> list_of_size_10_with_0 &lt;- list_with(10, 0); <span class="hljs-comment">// =&gt; [0,0,0,0,0,0,0,0,0,0]</span>
+    
+    <span class="hljs-comment">// lists can be declared so that they only accept a given type of contents.</span>
+    <span class="hljs-comment">// For instance, empty_list_of_int will only accept integer elements</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; empty_list_of_int ;
+    
+    <span class="hljs-comment">// the value passed to 'list_with' is verified and casted to the contents type of the list if necessary</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; list_of_int_size_10_filled_with_string&lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;(list_with(10,<span class="hljs-string">'1'</span>)); <span class="hljs-comment">// list_of_int_size_10_filled_with_string is filled with the casting of '1' to int, i.e. 1</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; list_of_string_size_10_filled_with_string &lt;- list_with(10,<span class="hljs-string">'1'</span>); <span class="hljs-comment">// while list_of_string_size_10_filled_with_string is filled with the string '1'</span>
+    <span class="hljs-comment">// the casting is also realized if the list is initialized with a value</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; list_of_int_with_init_of_string &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;([<span class="hljs-string">'10'</span>, <span class="hljs-string">'20'</span>]); <span class="hljs-comment">// =&gt; [10,20]</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; list_of_float_with_init_of_string &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt;(list_of_string_size_10_filled_with_string); <span class="hljs-comment">// =&gt; [1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]</span>
+    <span class="hljs-comment">// When the casting is not obvious, the default value is used</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt; list_of_float_with_impossible_casting &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt;([<span class="hljs-string">'A'</span>,<span class="hljs-string">'B'</span>]); 
+    <span class="hljs-comment">// lists can of course contain lists</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; list_of_lists &lt;- list_with (5,[]);
+    <span class="hljs-comment">// untyped lists can contain heterogeneous objects</span>
+    <span class="hljs-literal">list</span> untyped_list &lt;- [<span class="hljs-string">'5'</span>,5,[5]];
+    <span class="hljs-comment">// the casting applies to all elements when a contents type is defined (note the default last value of 0)</span>
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; recasted_list_with_int &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;(untyped_list); <span class="hljs-comment">//=&gt; [5,5,0]</span>
+
+    
+    init {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"== DECLARING LISTS =="</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">write</span> sample(empty_list);
+        <span class="hljs-keyword">write</span> sample(explicit_empty_list);
+        <span class="hljs-keyword">write</span> sample(list_of_size_10);
+        <span class="hljs-keyword">write</span> sample(list_of_size_10_with_0);
+        <span class="hljs-keyword">write</span> sample(empty_list_of_int);
+        <span class="hljs-keyword">write</span> sample(list_of_int_size_10_filled_with_string);
+        <span class="hljs-keyword">write</span> sample(list_of_string_size_10_filled_with_string);
+        <span class="hljs-keyword">write</span> sample(list_of_int_with_init_of_string);
+        <span class="hljs-keyword">write</span> sample(list_of_float_with_init_of_string);
+        <span class="hljs-keyword">write</span> sample(list_of_float_with_impossible_casting);
+        <span class="hljs-keyword">write</span> sample(list_of_lists);
+        <span class="hljs-keyword">write</span> sample(untyped_list);
+        <span class="hljs-keyword">write</span> sample(recasted_list_with_int);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-comment">// Declaring temporary variables of type list follows the same pattern</span>
+        <span class="hljs-comment">// but there are fewer facets available (notably, "size:" or "fill_with:").</span>
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; list_of_string &lt;- [<span class="hljs-string">'A'</span>,<span class="hljs-string">'B'</span>,<span class="hljs-string">'C'</span>];
+        <span class="hljs-comment">// lists are not always declared litterally and can be obtained from various elements</span>
+        <span class="hljs-comment">// by using the casting 'list()' operator</span>
+        <span class="hljs-comment">// for instance, list(species_name) will return a list of all the instances of species_name</span>
+        <span class="hljs-keyword">create</span> test_species <span class="hljs-symbol">number:</span>4;
+        <span class="hljs-literal">list</span>&lt;test_species&gt; my_agents &lt;- <span class="hljs-literal">list</span>(test_species);
+        <span class="hljs-keyword">write</span> sample(my_agents);
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; my_names &lt;- my_agents collect each.name;
+        <span class="hljs-keyword">write</span> sample(my_names);
+        <span class="hljs-comment">// 'create' can directly declare (and return) a list of the agents created. For instance:</span>
+        <span class="hljs-keyword">create</span> test_species <span class="hljs-symbol">number:</span> 5 <span class="hljs-symbol">returns:</span> my_agents2;
+        <span class="hljs-keyword">write</span> (sample(my_agents2));
+        <span class="hljs-comment">// Some special casting operations are applied to specific types, like points...</span>
+        <span class="hljs-keyword">write</span> sample(<span class="hljs-literal">list</span>(any(my_agents).location));
+        <span class="hljs-comment">// ... colors ...</span>
+        <span class="hljs-keyword">write</span> sample(<span class="hljs-literal">list</span>(°pink));
+        <span class="hljs-comment">// ... or strings</span>
+        <span class="hljs-keyword">write</span> sample(<span class="hljs-literal">list</span>(<span class="hljs-string">"This is a string"</span>));
+        
+    }
+}
+
+<span class="hljs-literal">species</span> test_species{}
+
+<span class="hljs-literal">species</span> accessing_list_elements {
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; l1 &lt;- [1,2,3,4,5,6,7,8,9,10];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; l2 &lt;- [<span class="hljs-string">'this'</span>,<span class="hljs-string">'is'</span>,<span class="hljs-string">'a'</span>,<span class="hljs-string">'list'</span>, <span class="hljs-string">'of'</span>,<span class="hljs-string">'strings'</span>];
+    init {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"== ACCESSING LIST ELEMENTS =="</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-keyword">write</span> sample(l2);
+        <span class="hljs-keyword">write</span> sample(first(l1));
+        <span class="hljs-keyword">write</span> sample(last(l1));
+        <span class="hljs-keyword">write</span> sample(l1 at 1);
+        <span class="hljs-keyword">write</span> sample(l1[1]);
+        <span class="hljs-keyword">write</span> sample(length(l1));
+        <span class="hljs-keyword">write</span> sample(mean(l1));
+        <span class="hljs-keyword">write</span> sample(max(l1));
+        <span class="hljs-keyword">write</span> sample(min(l1));
+        <span class="hljs-keyword">write</span> sample(any(l1));
+        <span class="hljs-keyword">write</span> sample(3 among l2);
+        <span class="hljs-keyword">write</span> sample(l1 contains 1);
+        <span class="hljs-keyword">write</span> sample(l1 contains_all [1,4,6, 14]);
+        <span class="hljs-keyword">write</span> sample(l1 contains_any [1,23]);
+        <span class="hljs-keyword">write</span> sample(reverse(l2));
+        <span class="hljs-keyword">write</span> sample(l1 collect (each + 1));
+        <span class="hljs-keyword">write</span> sample(l1 collect (<span class="hljs-keyword">norm</span>({each, each, each})));
+        <span class="hljs-keyword">write</span> sample(l1 where (each &gt; 5));
+        <span class="hljs-keyword">write</span> sample(l1 count (each &gt; 5));
+        <span class="hljs-keyword">write</span> sample(l1 group_by (even(each)));
+        <span class="hljs-keyword">write</span> sample(l2 index_by (each + <span class="hljs-string">"_index"</span>));
+        <span class="hljs-keyword">write</span> sample(l1 index_of 100);
+        <span class="hljs-keyword">write</span> sample(l2 last_index_of <span class="hljs-string">'is'</span>);
+        <span class="hljs-keyword">write</span> sample(l2 sort_by each);
+        <span class="hljs-keyword">write</span> sample(l2 sort_by length(each));
+        <span class="hljs-keyword">write</span> sample(l2 first_with (first(each)  = <span class="hljs-string">'o'</span>));
+        <span class="hljs-keyword">write</span> sample(l2 where (length(each) = 2) );
+        <span class="hljs-keyword">write</span> sample(l2 with_min_of (length(each)));
+        <span class="hljs-keyword">write</span> sample(l2 with_max_of (length(each)));
+        <span class="hljs-keyword">write</span> sample(l2 min_of (length(each)));
+        <span class="hljs-keyword">write</span> sample(l2 max_of (length(each))); 
+        <span class="hljs-keyword">write</span> sample(copy_between(l2,1,3));
+        <span class="hljs-keyword">write</span> sample(copy_between(l2, 1, length(l2) - 1));
+    }
+}
+
+<span class="hljs-literal">species</span> combining_lists {
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; l1 &lt;- [1,2,3,4,5,6,7,8,9,10];
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; l2 &lt;- [1,3,5,7,9];
+    init {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"== COMBINING LISTS =="</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">write</span> sample(<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt;&gt;([[1,2,3]]));
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-keyword">write</span> sample(l2);
+        <span class="hljs-keyword">write</span> sample(l1 + l2);
+        <span class="hljs-keyword">write</span> sample(l1 - l2);
+        <span class="hljs-keyword">write</span> sample(l1 inter l2);
+        <span class="hljs-keyword">write</span> sample(l1 union l2);
+        <span class="hljs-keyword">write</span> sample(interleave ([l1,l2]));
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; l3 &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt;(l1 + l2);
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"list&lt;string&gt; l3 &lt;- l1 + l2; "</span> + sample(l3);
+        <span class="hljs-keyword">write</span> sample(l1 as <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">float</span>&gt;);
+    }
+}
+
+<span class="hljs-literal">species</span> modifying_lists {
+    init {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"== MODIFYING LISTS =="</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">trace</span> {
+        <span class="hljs-comment">// Besides assigning a new value to a list, lists can be manipulated using</span>
+        <span class="hljs-comment">// the "add", "remove" and "put" statements. </span>
+        <span class="hljs-comment">// Let's define an empty list supposed to contain integer elements</span>
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt; l1;
+        <span class="hljs-comment">// and add some stuff to it using "add"</span>
+        <span class="hljs-keyword">add</span> 1 <span class="hljs-symbol">to:</span> l1;
+        <span class="hljs-keyword">add</span> 2 <span class="hljs-symbol">to:</span> l1;
+        <span class="hljs-keyword">add</span> 3 <span class="hljs-symbol">to:</span> l1;
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-comment">// the same can be done with the compact syntax introduced in GAMA 1.6 for "add"</span>
+        l1 &lt;+ 4;
+        l1 &lt;+ 5;
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-comment">// tired of writing lines of add ? The "all:" facet is here to serve:</span>
+        <span class="hljs-keyword">add</span> <span class="hljs-symbol">all:</span> [6, 7, 8, 9] <span class="hljs-symbol">to:</span> l1;
+        <span class="hljs-comment">// or, in a more compact way:</span>
+        l1 &lt;&lt;+ [10,11,12,13];
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-comment">// automatic casting applies to any element added to the list</span>
+        l1 &lt;+ (<span class="hljs-literal">int</span>(<span class="hljs-string">"14"</span>));
+        <span class="hljs-comment">// as well as any container of elements</span>
+        l1 &lt;&lt;+ (<span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;([<span class="hljs-string">"15"</span>, 16.0]));
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-comment">// elements are by default added to the end of the list</span>
+        <span class="hljs-comment">// but they can be introduced at specific positions using the "at:" facet</span>
+        <span class="hljs-keyword">add</span> 0 <span class="hljs-symbol">to:</span> l1 <span class="hljs-symbol">at:</span> 0;
+        <span class="hljs-comment">// or</span>
+        l1[0] +&lt;- 0;
+        <span class="hljs-comment">// what about replacing some elements once they have been added ?</span>
+        <span class="hljs-comment">// "put" can be used for that purpose</span>
+        <span class="hljs-keyword">put</span> -2 <span class="hljs-symbol">at:</span> 0 <span class="hljs-symbol">in:</span> l1;
+        <span class="hljs-comment">// or, more elegantly:</span>
+        l1[0] &lt;- -2;
+        <span class="hljs-comment">// Trying to put an element outside the bounds of the list will yield an error</span>
+        <span class="hljs-comment">// l1[20] &lt;- 10; will return the error "Index 20 out of bounds of l1"</span>
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-comment">// And what about replacing all the values with a new one ?</span>
+        l1[] &lt;- 0;
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-comment">// Well, l1 is a bit boring now, isnt't it ?</span>
+        <span class="hljs-comment">// Let's fill it again with fresh values</span>
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> length(l1) -1 {
+            l1[i] &lt;- rnd(3);
+        }
+        <span class="hljs-keyword">write</span>(sample(l1));
+        <span class="hljs-comment">// To remove values from it, the "remove" statement (and its compact forms) can be used</span>
+        <span class="hljs-comment">// For instance, let's try to remove its first element</span>
+        <span class="hljs-keyword">remove</span> first(l1) <span class="hljs-symbol">from:</span> l1;
+        <span class="hljs-comment">// it can also be written</span>
+        l1 &gt;- first(l1);
+        <span class="hljs-keyword">write</span>(sample(l1));
+        <span class="hljs-comment">// To remove all occurrences of a specific element, "all:" (or "&gt;&gt;-") can be used</span>
+        <span class="hljs-comment">// For instance:</span>
+        l1 &gt;&gt;- 2;
+        l1 &gt;&gt;- 1;
+        <span class="hljs-comment">// or, written using the long syntactic form</span>
+        <span class="hljs-keyword">remove</span> <span class="hljs-symbol">all:</span> 1 <span class="hljs-symbol">from:</span> l1;
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-comment">// To remove all the elements present in a given container, the same syntax can be used</span>
+        l1 &gt;&gt;- [0,3];
+        <span class="hljs-keyword">write</span> (<span class="hljs-string">"After l1 &gt;&gt;- [0,3] : "</span> + sample( l1));
+        <span class="hljs-comment">// By all means, l1 should now be empty! Let's fill it again</span>
+        <span class="hljs-keyword">loop</span> <span class="hljs-symbol">times:</span> 20 {
+            l1 &lt;+ rnd(3);
+        }
+        <span class="hljs-keyword">write</span>(sample(l1));
+        <span class="hljs-comment">// It is also possible to remove an index rather than a value (this will remove the </span>
+        <span class="hljs-comment">// value present at this index )</span>
+        l1[] &gt;- 2;
+        <span class="hljs-keyword">write</span>(<span class="hljs-string">"After l1[] &gt;- 2 : "</span> + sample(l1));
+        <span class="hljs-comment">// Removing several indexes can be written using a syntax similar to the one used</span>
+        <span class="hljs-comment">// for removing values</span>
+        l1[] &gt;&gt;- [1,2,4];
+        <span class="hljs-keyword">write</span>(<span class="hljs-string">"After l1[] &gt;&gt;- [1,2,4] : "</span> + sample(l1));
+        <span class="hljs-comment">// Random things to try out</span>
+        <span class="hljs-comment">// Using casting back and forth: all number now vary from 1000 to 31000</span>
+        l1 &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">int</span>&gt;(l1 collect (<span class="hljs-literal">string</span>(each) + <span class="hljs-string">"1000"</span>));
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-comment">// Removing elements based on a criteria</span>
+        l1 &gt;&gt;- l1 select (each &gt; 20000);
+        <span class="hljs-comment">// Removing duplicates</span>
+        l1 &lt;- remove_duplicates(l1);
+        <span class="hljs-comment">// Another way (see "../Maps.gaml")</span>
+        l1 &lt;- <span class="hljs-literal">map</span>(l1).values; 
+        <span class="hljs-keyword">write</span>(sample(l1));
+    }}
+    
+}
+
+<span class="hljs-literal">species</span> looping_on_lists {
+    init {
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"== LOOPING ON LISTS =="</span>;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">""</span>;
+        <span class="hljs-comment">// Besides iterator operators (like "collect", "where", etc.), which provide </span>
+        <span class="hljs-comment">// functional iterations (i.e. filters), one can loop over lists using the imperative</span>
+        <span class="hljs-comment">// statement 'loop'</span>
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; l1 &lt;- <span class="hljs-literal">list</span>(<span class="hljs-string">"This is a list of strings"</span>);
+        <span class="hljs-keyword">write</span> sample(l1);
+        <span class="hljs-literal">int</span> i &lt;- 0;
+        <span class="hljs-literal">list</span> l2 &lt;- [];
+        <span class="hljs-comment">// Here, the value of 's' will be that of each element of the list</span>
+        <span class="hljs-keyword">loop</span> s <span class="hljs-symbol">over:</span> l1 {
+            i &lt;- i + 1;
+            l2 &lt;&lt; <span class="hljs-string">"Word #"</span> + i + <span class="hljs-string">": "</span> + s;
+        }
+        <span class="hljs-keyword">write</span> sample(l2);
+        <span class="hljs-comment">// 'loop' can also directly use an integer index (remember lists have a zero-based index)</span>
+        l2 &lt;- [];
+        <span class="hljs-keyword">loop</span> i <span class="hljs-symbol">from:</span> 0 <span class="hljs-symbol">to:</span> length(l1) - 1 <span class="hljs-symbol">step:</span>2 {
+            l2 &lt;&lt; l1[i];
+        }
+        <span class="hljs-keyword">write</span> sample(l2);
+        <span class="hljs-comment">// Finally, list containing agents can be the support of implicit loops in the 'ask' statement</span>
+        <span class="hljs-keyword">create</span> test_species <span class="hljs-symbol">number:</span> 5 <span class="hljs-symbol">returns:</span> my_agents;
+        l2 &lt;- [];
+        <span class="hljs-keyword">ask</span> my_agents{
+            <span class="hljs-comment">// attributes of each agent can be directly accessed</span>
+            l2 &lt;&lt; name;
+        }
+        <span class="hljs-keyword">write</span> sample(l2);
+        <span class="hljs-comment">// ... which is formally equivalent to:</span>
+        l2 &lt;- [];
+        l2 &lt;&lt;+ my_agents collect each.name;
+        <span class="hljs-keyword">write</span> sample(l2);
+        <span class="hljs-comment">// ... or, even simpler (since the casting of an agent to string returns its name)</span>
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt; l3 &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt;(my_agents);
+        <span class="hljs-keyword">write</span> sample(l3);
+        <span class="hljs-comment">// Powerful filter expressions can be built by combining the various 'iterator' operators</span>
+        l3 &lt;- <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">string</span>&gt;(my_agents where even(<span class="hljs-literal">int</span>(each))) collect (<span class="hljs-string">"Agent "</span> + each + <span class="hljs-string">" has an even id"</span>);
+        <span class="hljs-keyword">write</span> sample(l3);
+    }
+}
+
+<span class="hljs-builtin">experiment</span> Lists <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Declaring lists"</span> {<span class="hljs-keyword">create</span> declaring_list_attributes;}
+    <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Accessing lists"</span> {<span class="hljs-keyword">create</span> accessing_list_elements;}
+    <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Combining lists"</span> {<span class="hljs-keyword">create</span> combining_lists;}
+    <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Modifying lists"</span> {<span class="hljs-keyword">create</span> modifying_lists;}
+    <span class="hljs-keyword">user_command</span> <span class="hljs-string">"Looping on lists"</span> {<span class="hljs-keyword">create</span> looping_on_lists;}  
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

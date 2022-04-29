@@ -1,0 +1,689 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>File Types · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (startConcept|load_complex_datas)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="File Types · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (startConcept|load_complex_datas)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>GAML References</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Home<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Home">GAMA</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Introduction<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Overview">Introduction</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Platform<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/PlatformDocumentation">Platform</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InstallationAndLaunching">Installation and Launching</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Installation</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/Installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Launching">Launching GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Headless">Headless Mode</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Updating">Updating GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InstallingPlugins">Installing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Troubleshooting">Troubleshooting</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/WorkspaceProjectsAndModels">Workspace, Projects and Models</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Navigating in the Workspace</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/NavigatingWorkspace">Navigating in the Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ChangingWorkspace">Changing Workspace</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ImportingModels">Importing Models</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/EditingModels">Editing models</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">GAML Editor (Generalities)</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/GamlEditorGeneralities">The GAML Editor - Generalities</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GamlEditorToolbar">GAML Editor tools</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ValidationOfModels">Validation of Models</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/RunningExperiments">Running Experiments</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Launching Experiments</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/LaunchingExperiments">Launching Experiments from the User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ExperimentsUserInterface">Experiments User Interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/MenusAndCommands">Controls of experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ParametersView">Parameters View</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InspectorsAndMonitors">Inspectors and monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Displays">Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BatchSpecific">Batch Specific UI</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ErrorsView">Errors View</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/Preferences">Preferences</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn GAML step by step<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/LearnGAMLStepByStep">Learn GAML Step by Step</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Introduction</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/Introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/StartWithGAML">Start with GAML</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ModelOrganization">Organization of a model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BasicProgrammingConceptsInGAML">Basic programming concepts in GAML</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateBasicSpecies">Manipulate basic species</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Global Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/GlobalSpecies">The global species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RegularSpecies">Regular species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningActionsAndBehaviors">Defining actions and behaviors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InteractionBetweenAgents">Interaction between agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/AttachingSkills">Attaching Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Inheritance">Inheritance</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining Advanced Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningAdvancedSpecies">Defining advanced species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GridSpecies">Grid Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GraphSpecies">Graph Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/MirrorSpecies">Mirror species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/MultiLevelArchitecture">Multi-level architecture</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Defining GUI Experiment</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningGUIExperiment">Defining GUI Experiment</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningParameters">Defining Parameters</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningDisplaysGeneralities">Defining displays (Generalities)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningCharts">Defining Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Defining3DDisplays">Defining 3D Displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningMonitorsAndInspectors">Defining monitors and inspectors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningExportFiles">Defining export files</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DefiningUserInteraction">Defining user interaction</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Exploring Models</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/ExploringModels">Exploring Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RunSeveralSimulations">Run Several Simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BatchExperiments">Defining Batch Experiments</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ExplorationMethods">Exploration Methods</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Optimizing Model Section</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/OptimizingModelsSection">Optimizing Models</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RuntimeConcepts">Runtime Concepts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OptimizingModels">Optimizing Models</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Multi-Paradigm Modeling</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/MultiParadigmModeling">Multi-Paradigm Modeling</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ControlArchitecture">Control Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Equations">Using Equations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Recipes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Recipes">Recipes</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateOSMDatas">Manipulate OSM Datas</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Diffusion">Implementing diffusion</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingDatabase">Using Database Access</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/CallingR">Calling R</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingFIPAACL">Using FIPA ACL</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GamAnalyzer">Using GAMAnalyzer</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Using-BEN-simple-bdi">Using BEN (simple_bdi)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingDrivingSkill">Advanced Driving Skill</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateDates">Manipulate Dates</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ManipulateLight">Implementing light</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Comodel">Using Comodel</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Save-and-restore-simulations">Save and Restore simulations</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UsingNetwork">Using network</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Headless-mode-for-dummies">Editing Headless mode for dummies</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/G__GraphicalEditor">The Graphical Editor</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Using_Git">Using Git from GAMA to version and share models</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Writing_Tests">Writing Unit Tests in GAML</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/FAQ">FAQ (Frequently Asked Questions)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/KnownIssues">Known issues</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">GAML References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/GamlReference">GAML References</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Built-in Species</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/BuiltInSpecies">Built-in Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/AgentBuiltIn">The &#x27;agent&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ModelBuiltIn">The &#x27;model&#x27; built-in species (Under Construction)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ExperimentBuiltIn">The &#x27;experiment&#x27; built-in species (Under Construction)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/BuiltInSkills">Built-in Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BuiltInArchitectures">Built-in Architectures</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Statements">Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DataTypes">Types</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/next/FileTypes">File Types</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Expressions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/Expressions">Expressions</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Literals">Literals</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/UnitsAndConstants">Units and constants</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PseudoVariables">Pseudo-variables</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/VariablesAndAttributes">Variables and Attributes</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsAA">Operators (A to A)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsBC">Operators (B to C)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsDH">Operators (D to H)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsIM">Operators (I to M)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsNR">Operators (N to R)</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/OperatorsSZ">Operators (S to Z)</a></li></ul></div><li class="navListItem"><a class="navItem" href="/wiki/next/Index">Exhaustive list of GAMA Keywords</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Pedagogical materials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Pedagogical-Materials">Some pedagogical materials</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Extensions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Extensions">Extensions</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Developing Extensions</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingExtensions">Developing Extensions</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/InstallingGitVersion">Installing the GIT version</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/GamaArchitecture">Architecture of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingPlugins">Developing Plugins</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingSkills">Developing Skills</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingStatements">Developing Statements</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingOperators">Developing Operators</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingTypes">Developing Types</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingSpecies">Developing Species</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingControlArchitectures">Developing architecture</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingIndexAnnotations">Index of annotations</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Developing GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/developingGAMA">Get into the GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Introduction-To-Gama-Java-API">Introduction to GAMA Java API</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/DevelopingIScope">IScope interface</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/CreatingAReleaseOfGama">Product your own release of GAMA</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Documentation">Documentation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Scientific References<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/References">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Projects using GAMA<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Projects">Projects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Training Session<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/TrainingSession">Training Session</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Coding Camp</h4><ul><li class="navListItem"><a class="navItem" href="/wiki/next/CodingCamp">CodingCamp</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/Event__CC15_Reorganization">Introduction</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Events<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Events">References</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Older versions<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/OlderVersions">Versions of GAMA</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">File Types</h1></header><article><div><span><p>GAMA provides modelers with a generic type for files called <strong>file</strong>. It is possible to load a file using the <em>file</em> operator:</p>
+<pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/data.csv"</span>);
+</code></pre>
+<p>However, internally, GAMA makes the difference between the different types of files.
+Indeed, for instance:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/data.csv"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">sepallength
+sepalwidth
+petallength
+petalwidth
+type
+5.1
+3.5
+1.4
+0.2
+Iris-setosa
+4.9
+3.0
+1.4
+0.2
+Iris-setosa
+...
+</code></pre>
+<p>Indeed, the content of CSV file is a matrix: each row of the matrix is a line of the file; each column of the matrix is value delimited by the separator (by default &quot;,&quot;).</p>
+<p>In contrary:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/data.shp"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">Polygon
+Polygon
+Polygon
+Polygon
+Polygon
+Polygon
+Polygon
+</code></pre>
+<p>The content of a shapefile is a list of geometries corresponding to the objects of the shapefile.</p>
+<p>In order to know how to load a file, GAMA analyzes its extension. For instance for a file with a &quot;.csv&quot; extension, GAMA knows that the file is a <strong>csv</strong> one and will try to split each line with the <em>,</em> separator. However, if the modeler wants to split each line with a different separator (for instance <strong>;</strong>) or load it as a text file, he/she will have to use a specific file operator.</p>
+<p>Indeed, GAMA integrates specific operators corresponding to different types of files.</p>
+<h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of contents</h2>
+<ul>
+<li><a href="#file-types">File Types</a>
+<ul>
+<li><a href="#text-file">Text File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#csv-file">CSV File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#shapefile">Shapefile</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#osm-file">OSM File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#grid-file">Grid File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#image-file">Image File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#svg-file">SVG File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#property-file">Property File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#r-file">R File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#3ds-file">3DS File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#obj-file">OBJ File</a>
+<ul>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="text-file"></a><a href="#text-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Text File</h2>
+<h3><a class="anchor" aria-hidden="true" id="extensions"></a><a href="#extensions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extensions for text file:</p>
+<ul>
+<li>&quot;txt&quot;</li>
+<li>&quot;data&quot;</li>
+<li>&quot;csv&quot;</li>
+<li>&quot;text&quot;</li>
+<li>&quot;tsv&quot;</li>
+<li>&quot;xml&quot;</li>
+</ul>
+<p>Note that when trying to define the type of a file with the default file loading operator (<strong>file</strong>), GAMA will first try to test the other type of file. For example, for files with &quot;.csv&quot; extension, GAMA will cast them as csv file and not as text file.</p>
+<h3><a class="anchor" aria-hidden="true" id="content"></a><a href="#content" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of a text file is a list of string corresponding to each line of the text file.
+For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- text_file(<span class="hljs-string">"../includes/data.txt"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">sepallength,sepalwidth,petallength,petalwidth,type
+5.1,3.5,1.4,0.2,Iris-setosa
+4.9,3.0,1.4,0.2,Iris-setosa
+4.7,3.2,1.3,0.2,Iris-setosa
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators"></a><a href="#operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to text files:</p>
+<ul>
+<li><strong>text_file(string path)</strong>: load a file (with an authorized extension) as a text file.</li>
+<li><strong>text_file(string path, list content)</strong>: load a file (with an authorized extension) as a text file and fill it with the given content.</li>
+<li><strong>is_text(op)</strong>: tests whether the operand is a text file</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="csv-file"></a><a href="#csv-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSV File</h2>
+<h3><a class="anchor" aria-hidden="true" id="extensions-1"></a><a href="#extensions-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extensions for csv file:</p>
+<pre><code class="hljs">* &quot;csv&quot;
+* &quot;tsv&quot;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="content-1"></a><a href="#content-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of a csv file is a matrix of string: each row of the matrix is a line of the file; each column of the matrix is value delimited by the separator (by default &quot;,&quot;).
+For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- csv_file(<span class="hljs-string">"../includes/data.csv"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">sepallength
+sepalwidth
+petallength
+petalwidth
+type
+5.1
+3.5
+1.4
+0.2
+Iris-setosa
+4.9
+3.0
+1.4
+0.2
+Iris-setosa
+...
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators-1"></a><a href="#operators-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to csv files:</p>
+<ul>
+<li><strong>csv_file(string path)</strong>: load a file (with an authorized extension) as a csv file with default separator (&quot;,&quot;).</li>
+<li><strong>csv_file(string path, string separator)</strong>: load a file (with an authorized extension) as a csv file with the given separator.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- csv_file(<span class="hljs-string">"../includes/data.csv"</span>, <span class="hljs-string">";"</span>);
+</code></pre>
+<ul>
+<li><strong>csv_file(string path, matrix content)</strong>: load a file (with an authorized extension) as a csv file and fill it with the given content.</li>
+<li><strong>is_csv(op)</strong>: tests whether the operand is a csv file</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="shapefile"></a><a href="#shapefile" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Shapefile</h2>
+<p>Shapefiles are classical GIS data files. A shapefile is not simple file, but a set of several files (source: wikipedia):</p>
+<ul>
+<li>Mandatory files :
+<ul>
+<li>.shp — shape format; the feature geometry itself</li>
+<li>.shx — shape index format; a positional index of the feature geometry to allow seeking forwards and backwards quickly</li>
+<li>.dbf — attribute format; columnar attributes for each shape, in dBase IV format</li>
+</ul></li>
+<li>Optional files :
+<ul>
+<li>.prj — projection format; the coordinate system and projection information, a plain text file describing the projection using well-known text format</li>
+<li>.sbn and .sbx — a spatial index of the features</li>
+<li>.fbn and .fbx — a spatial index of the features for shapefiles that are read-only</li>
+<li>.ain and .aih — an attribute index of the active fields in a table</li>
+<li>.ixs — a geocoding index for read-write shapefiles</li>
+<li>.mxs — a geocoding index for read-write shapefiles (ODB format)</li>
+<li>.atx — an attribute index for the .dbf file in the form of shapefile.columnname.atx (ArcGIS 8 and later)</li>
+<li>.shp.xml — geospatial metadata in XML format, such as ISO 19115 or other XML schema</li>
+<li>.cpg — used to specify the code page (only for .dbf) for identifying the character encoding to be used</li>
+</ul></li>
+</ul>
+<p>More details about shapefiles can be found <a href="http://en.wikipedia.org/wiki/Shapefile">here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="extensions-2"></a><a href="#extensions-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extension for shapefile:</p>
+<ul>
+<li>&quot;shp&quot;</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="content-2"></a><a href="#content-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of a shapefile is a list of geometries corresponding to the objects of the shapefile.
+For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- shape_file(<span class="hljs-string">"../includes/data.shp"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">Polygon
+Polygon
+Polygon
+Polygon
+Polygon
+Polygon
+Polygon
+...
+</code></pre>
+<p>Note that the attributes of each object of the shapefile are stored in their corresponding GAMA geometry. The operator &quot;get&quot; (or &quot;read&quot;) allows to get the value of corresponding attributes.</p>
+<p>For example:</p>
+<pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- shape_file(<span class="hljs-string">"../includes/data.shp"</span>);
+<span class="hljs-keyword">write</span> <span class="hljs-string">"my_file: "</span> + my_file.contents;
+<span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+    <span class="hljs-keyword">write</span> (el get <span class="hljs-string">"TYPE"</span>);
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators-2"></a><a href="#operators-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to shapefiles:</p>
+<ul>
+<li><strong>shape_file(string path)</strong>: load a file (with an authorized extension) as a shapefile with default projection (if a prj file is defined, use it, otherwise use the default projection defined in the preference).</li>
+<li><strong>shape_file(string path, string code)</strong>: load a file (with an authorized extension) as a shapefile with the given projection (GAMA will automatically decode the code. For a list of the possible projections see: <a href="http://spatialreference.org/ref/">http://spatialreference.org/ref/</a>)</li>
+<li><strong>shape_file(string path, int EPSG_ID)</strong>: load a file (with an authorized extension) as a shapefile with the given projection (GAMA will automatically decode the epsg code. For a list of the possible projections see: <a href="http://spatialreference.org/ref/">http://spatialreference.org/ref/</a>)</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- shape_file(<span class="hljs-string">"../includes/data.shp"</span>, <span class="hljs-string">"EPSG:32601"</span>);
+</code></pre>
+<ul>
+<li><strong>shape_file(string path, list content)</strong>: load a file (with an authorized extension) as a shapefile and fill it with the given content.</li>
+<li><strong>is_shape(op)</strong>: tests whether the operand is a shapefile</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="osm-file"></a><a href="#osm-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OSM File</h2>
+<p>OSM (Open Street Map) is a collaborative project to create a free editable map of the world. The data produced in this project (OSM File)  represent physical features on the ground (e.g., roads or buildings) using tags attached to its basic data structures (its nodes, ways, and relations). Each tag describes a geographic attribute of the feature being shown by that specific node, way or relation (source: openstreetmap.org).</p>
+<p>More details about OSM data can be found <a href="http://wiki.openstreetmap.org/wiki/Map_Features">here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="extensions-3"></a><a href="#extensions-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extension for shapefile:</p>
+<ul>
+<li>&quot;osm&quot;</li>
+<li>&quot;pbf&quot;</li>
+<li>&quot;bz2&quot;</li>
+<li>&quot;gz&quot;</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="content-3"></a><a href="#content-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of an OSM data is a list of geometries corresponding to the objects of the OSM file.
+For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- osm_file(<span class="hljs-string">"../includes/data.gz"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">Point
+Point
+Point
+Point
+Point
+LineString
+LineString
+Polygon
+Polygon
+Polygon
+...
+</code></pre>
+<p>Note that like for shapefiles, the attributes of each object of the osm file is stored in their corresponding GAMA geometry. The operator &quot;get&quot; (or &quot;read&quot;) allows to get the value of corresponding attributes.</p>
+<h3><a class="anchor" aria-hidden="true" id="operators-3"></a><a href="#operators-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to osm file:</p>
+<ul>
+<li><strong>osm_file(string path)</strong>: load a file (with an authorized extension) as an osm file with default projection (if a prj file is defined, use it, otherwise use the default projection defined in the preference). In this case, all the nodes and ways of the OSM file will become a geometry.</li>
+<li><strong>osm_file(string path, string code)</strong>: load a file (with an authorized extension) as an osm file with the given projection (GAMA will automatically decode the code. For a list of the possible projections see: <a href="http://spatialreference.org/ref/">http://spatialreference.org/ref/</a>). In this case, all the nodes and ways of the OSM file will become a geometry.</li>
+<li><strong>osm_file(string path, int EPSG_ID)</strong>: load a file (with an authorized extension) as an osm file with the given projection (GAMA will automatically decode the epsg code. For a list of the possible projections see: <a href="http://spatialreference.org/ref/">http://spatialreference.org/ref/</a>). In this case, all the nodes and ways of the OSM file will become a geometry.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- osm_file(<span class="hljs-string">"../includes/data.gz"</span>, <span class="hljs-string">"EPSG:32601"</span>);
+</code></pre>
+<ul>
+<li><strong>osm_file(string path, map filter)</strong>: load a file (with an authorized extension) as an osm file with default projection (if a prj file is defined, use it, otherwise use the default projection defined in the preference). In this case, only the elements with the defined values are loaded from the file.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-comment">//map used to filter the object to build from the OSM file according to attributes. </span>
+<span class="hljs-literal">map</span> filtering &lt;- <span class="hljs-literal">map</span>([<span class="hljs-string">"highway"</span>::[<span class="hljs-string">"primary"</span>, <span class="hljs-string">"secondary"</span>, <span class="hljs-string">"tertiary"</span>, <span class="hljs-string">"motorway"</span>, <span class="hljs-string">"living_street"</span>,<span class="hljs-string">"residential"</span>, <span class="hljs-string">"unclassified"</span>], <span class="hljs-string">"building"</span>::[<span class="hljs-string">"yes"</span>]]);
+
+<span class="hljs-comment">//OSM file to load</span>
+<span class="hljs-literal">file</span>&lt;<span class="hljs-literal">geometry</span>&gt; osmfile &lt;-  <span class="hljs-literal">file</span>&lt;<span class="hljs-literal">geometry</span> (osm_file(<span class="hljs-string">"../includes/rouen.gz"</span>, filtering))  ;
+</code></pre>
+<ul>
+<li><strong>osm_file(string path, map filter, string code)</strong>: load a file (with an authorized extension) as a osm file with the given projection (GAMA will automatically decode the code. For a list of the possible projections see: <a href="http://spatialreference.org/ref/">http://spatialreference.org/ref/</a>). In this case, only the elements with the defined values are loaded from the file.</li>
+<li><strong>osm_file(string path, map filter, int EPSG_ID)</strong>: load a file (with an authorized extension) as a osm file with the given projection (GAMA will automatically decode the epsg code. For a list of the possible projections see: <a href="http://spatialreference.org/ref/">http://spatialreference.org/ref/</a>). In this case, only the elements with the defined values are loaded from the file.</li>
+<li><strong>is_osm(op)</strong>: tests whether the operand is a osm file</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="grid-file"></a><a href="#grid-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Grid File</h2>
+<p>Esri ASCII Grid files are classic text raster GIS data.</p>
+<p>More details about Esri ASCII grid file can be found <a href="http://en.wikipedia.org/wiki/Esri_grid">here</a>.</p>
+<p>Note that grid files can be used to initialize a grid species. The number of rows and columns will be read from the file. Similarly, the values of each cell contained in the grid file will be accessible through the <strong>grid_value</strong> attribute.</p>
+<pre><code class="hljs">grid cell <span class="hljs-symbol">file:</span> grid_file {
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="extensions-4"></a><a href="#extensions-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extension for grid file:</p>
+<ul>
+<li>&quot;asc&quot;</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="content-4"></a><a href="#content-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of a grid file is a list of geometries corresponding to the cells of the grid.
+For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- grid_file(<span class="hljs-string">"../includes/data.asc"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">Polygon
+Polygon
+Polygon
+Polygon
+Polygon
+Polygon
+Polygon
+...
+</code></pre>
+<p>Note that the values of each cell of the grid file is stored in their corresponding GAMA geometry (<strong>grid_value</strong> attribute). The operator &quot;get&quot; (or &quot;read&quot;) allows to get the value of this attribute.</p>
+<p>For example:</p>
+<pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- grid_file(<span class="hljs-string">"../includes/data.asc"</span>);
+<span class="hljs-keyword">write</span> <span class="hljs-string">"my_file: "</span> + my_file.contents;
+<span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+    <span class="hljs-keyword">write</span> el get <span class="hljs-string">"grid_value"</span>;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators-4"></a><a href="#operators-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to shapefiles:</p>
+<ul>
+<li><strong>grid_file(string path)</strong>: load a file (with an authorized extension) as a grid file with default projection (if a prj file is defined, use it, otherwise use the default projection defined in the preference).</li>
+<li><strong>grid_file(string path, string code)</strong>: load a file (with an authorized extension) as a grid file with the given projection (GAMA will automatically decode the code. For a list of the possible projections see: <a href="http://spatialreference.org/ref/">http://spatialreference.org/ref/</a>)</li>
+<li><strong>grid_file(string path, int EPSG_ID)</strong>: load a file (with an authorized extension) as a grid file with the given projection (GAMA will automatically decode the epsg code. For a list of the possible projections see: <a href="http://spatialreference.org/ref/">http://spatialreference.org/ref/</a>)</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- grid_file(<span class="hljs-string">"../includes/data.shp"</span>, <span class="hljs-string">"EPSG:32601"</span>);
+</code></pre>
+<ul>
+<li><strong>is_grid(op)</strong>: tests whether the operand is a grid file.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="image-file"></a><a href="#image-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Image File</h2>
+<h3><a class="anchor" aria-hidden="true" id="extensions-5"></a><a href="#extensions-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extensions for image file:</p>
+<ul>
+<li>&quot;tif&quot;</li>
+<li>&quot;tiff&quot;</li>
+<li>&quot;jpg&quot;</li>
+<li>&quot;jpeg&quot;</li>
+<li>&quot;png&quot;</li>
+<li>&quot;gif&quot;</li>
+<li>&quot;pict&quot;</li>
+<li>&quot;bmp&quot;</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="content-5"></a><a href="#content-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of an image file is a matrix of int: each pixel is a value in the matrix.</p>
+<p>For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- image_file(<span class="hljs-string">"../includes/DEM.png"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">-9671572
+-9671572
+-9671572
+-9671572
+-9934744
+-9934744
+-9868951
+-9868951
+-10000537
+-10000537
+...
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators-5"></a><a href="#operators-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to csv files:</p>
+<ul>
+<li><strong>image_file(string path)</strong>: load a file (with an authorized extension) as an image file.</li>
+<li><strong>image_file(string path, matrix content)</strong>: load a file (with an authorized extension) as an image file and fill it with the given content.</li>
+<li><strong>is_image(op)</strong>: tests whether the operand is an image file</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="svg-file"></a><a href="#svg-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SVG File</h2>
+<p>Scalable Vector Graphics (SVG) is an XML-based vector image format for two-dimensional graphics with support for interactivity and animation. Note that interactivity and animation features are not supported in GAMA.</p>
+<p>More details about SVG file can be found <a href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics">here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="extensions-6"></a><a href="#extensions-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extension for SVG file:</p>
+<ul>
+<li>&quot;svg&quot;</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="content-6"></a><a href="#content-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of a SVG file is a list of geometries.
+For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- svg_file(<span class="hljs-string">"../includes/data.svg"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">Polygon
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators-6"></a><a href="#operators-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to svg files:</p>
+<ul>
+<li><strong>shape_file(string path)</strong>: load a file (with an authorized extension) as a SVG file.</li>
+<li><strong>shape_file(string path, point size)</strong>: load a file (with an authorized extension) as a SVG file with the given size:</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- svg_file(<span class="hljs-string">"../includes/data.svg"</span>, {5.0,5.0});
+</code></pre>
+<ul>
+<li><strong>is_svg(op)</strong>: tests whether the operand is a SVG file</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="property-file"></a><a href="#property-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Property File</h2>
+<h3><a class="anchor" aria-hidden="true" id="extensions-7"></a><a href="#extensions-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extensions for property file:</p>
+<ul>
+<li>&quot;properties&quot;</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="content-7"></a><a href="#content-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of a property file is a map of string corresponding to the content of the file.
+For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- property_file(<span class="hljs-string">"../includes/data.properties"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>with the given property file:</p>
+<pre><code class="hljs">sepallength = 5.0
+sepalwidth = 3.0
+petallength = 4.0
+petalwidth = 2.5
+type = Iris-setosa
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">3.0
+4.0
+5.0
+Iris-setosa
+2.5
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators-7"></a><a href="#operators-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to text files:</p>
+<ul>
+<li><strong>property_file(string path)</strong>: load a file (with an authorized extension) as a property file.</li>
+<li><strong>is_property(op)</strong>: tests whether the operand is a property file</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="r-file"></a><a href="#r-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>R File</h2>
+<p>R is a free software environment for statistical computing and graphics. GAMA allows to execute R script (if R is installed on the computer).</p>
+<p>More details about R can be found <a href="http://www.r-project.org/">here</a>.</p>
+<p>Note that GAMA also integrates some operators to manage R scripts:</p>
+<ul>
+<li><a href="Operators#R_compute">R_compute</a></li>
+<li><a href="Operators#R_compute_param">R_compute_param</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="extensions-8"></a><a href="#extensions-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extensions for R file:</p>
+<ul>
+<li>&quot;r&quot;</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="content-8"></a><a href="#content-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of a R file corresponds to the results of the application of the script contained in the file.</p>
+<p>For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- R_file(<span class="hljs-string">"../includes/data.r"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">3.0
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators-8"></a><a href="#operators-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to R files:</p>
+<ul>
+<li><strong>R_file(string path)</strong>: load a file (with an authorized extension) as a R file.</li>
+<li><strong>is_R(op)</strong>: tests whether the operand is a R file.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="3ds-file"></a><a href="#3ds-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3DS File</h2>
+<p>3DS is one of the file formats used by the Autodesk 3ds Max 3D modeling, animation and rendering software. 3DS files can be used in GAMA to load 3D geometries.</p>
+<p>More details about 3DS file can be found <a href="http://en.wikipedia.org/wiki/.3ds">here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="extensions-9"></a><a href="#extensions-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extension for 3DS file:</p>
+<ul>
+<li>&quot;3ds&quot;</li>
+<li>&quot;max&quot;</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="content-9"></a><a href="#content-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of a 3DS file is a list of geometries.
+For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- threeds_file(<span class="hljs-string">"../includes/data.3ds"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">Polygon
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators-9"></a><a href="#operators-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to 3ds files:</p>
+<ul>
+<li><strong>threeds_file(string path)</strong>: load a file (with an authorized extension) as a 3ds file.</li>
+<li><strong>is_threeds(op)</strong>: tests whether the operand is a 3DS file</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="obj-file"></a><a href="#obj-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OBJ File</h2>
+<p>OBJ file is a geometry definition file format first developed by Wavefront Technologies for its Advanced Visualizer animation package. The file format is open and has been adopted by other 3D graphics application vendors.</p>
+<p>More details about Obj file can be found <a href="http://en.wikipedia.org/wiki/Wavefront_.obj_file">here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="extensions-10"></a><a href="#extensions-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h3>
+<p>Here the list of possible extension for OBJ files:</p>
+<ul>
+<li>&quot;obj&quot;</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="content-10"></a><a href="#content-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
+<p>The content of a OBJ file is a list of geometries.
+For example:</p>
+<pre><code class="hljs">global {
+    init {
+        <span class="hljs-literal">file</span> my_file &lt;- obj_file(<span class="hljs-string">"../includes/data.obj"</span>);
+        <span class="hljs-keyword">loop</span> el <span class="hljs-symbol">over:</span> my_file {
+            <span class="hljs-keyword">write</span> el;
+        }
+    }
+}
+</code></pre>
+<p>will give:</p>
+<pre><code class="hljs">Polygon
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="operators-10"></a><a href="#operators-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
+<p>List of operators related to obj files:</p>
+<ul>
+<li><strong>obj_file(string path)</strong>: load a file (with an authorized extension) as a obj file.</li>
+<li><strong>is_obj(op)</strong>: tests whether the operand is a OBJ file</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/DataTypes"><span class="arrow-prev">← </span><span>Types</span></a><a class="docs-next button" href="/wiki/next/Expressions"><span>Expressions</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table of contents</a></li><li><a href="#text-file">Text File</a><ul class="toc-headings"><li><a href="#extensions">Extensions</a></li><li><a href="#content">Content</a></li><li><a href="#operators">Operators</a></li></ul></li><li><a href="#csv-file">CSV File</a><ul class="toc-headings"><li><a href="#extensions-1">Extensions</a></li><li><a href="#content-1">Content</a></li><li><a href="#operators-1">Operators</a></li></ul></li><li><a href="#shapefile">Shapefile</a><ul class="toc-headings"><li><a href="#extensions-2">Extensions</a></li><li><a href="#content-2">Content</a></li><li><a href="#operators-2">Operators</a></li></ul></li><li><a href="#osm-file">OSM File</a><ul class="toc-headings"><li><a href="#extensions-3">Extensions</a></li><li><a href="#content-3">Content</a></li><li><a href="#operators-3">Operators</a></li></ul></li><li><a href="#grid-file">Grid File</a><ul class="toc-headings"><li><a href="#extensions-4">Extensions</a></li><li><a href="#content-4">Content</a></li><li><a href="#operators-4">Operators</a></li></ul></li><li><a href="#image-file">Image File</a><ul class="toc-headings"><li><a href="#extensions-5">Extensions</a></li><li><a href="#content-5">Content</a></li><li><a href="#operators-5">Operators</a></li></ul></li><li><a href="#svg-file">SVG File</a><ul class="toc-headings"><li><a href="#extensions-6">Extensions</a></li><li><a href="#content-6">Content</a></li><li><a href="#operators-6">Operators</a></li></ul></li><li><a href="#property-file">Property File</a><ul class="toc-headings"><li><a href="#extensions-7">Extensions</a></li><li><a href="#content-7">Content</a></li><li><a href="#operators-7">Operators</a></li></ul></li><li><a href="#r-file">R File</a><ul class="toc-headings"><li><a href="#extensions-8">Extensions</a></li><li><a href="#content-8">Content</a></li><li><a href="#operators-8">Operators</a></li></ul></li><li><a href="#3ds-file">3DS File</a><ul class="toc-headings"><li><a href="#extensions-9">Extensions</a></li><li><a href="#content-9">Content</a></li><li><a href="#operators-9">Operators</a></li></ul></li><li><a href="#obj-file">OBJ File</a><ul class="toc-headings"><li><a href="#extensions-10">Extensions</a></li><li><a href="#content-10">Content</a></li><li><a href="#operators-10">Operators</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

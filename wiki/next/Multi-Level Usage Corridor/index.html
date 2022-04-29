@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Corridor Multi-Level Architecture · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (keyword|operator_at_location)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Corridor Multi-Level Architecture · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (keyword|operator_at_location)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Corridor Multi-Level Architecture</h1></header><article><div><span><p>_Author : _</p>
+<p>This model shows how to use multi-level architecture. A corridor can capture pedestrians going from left to right side if they are inside the corridor. This will result in changing their species from pedestrian to captured_pedestrian which will not be displayed. Once they pass enought time to consider they reach the exit of the corridor, they will be released by the corridor agent as pedestrians, letting them been displayed and going to their target.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs">
+<span class="hljs-builtin">model</span> corridor
+
+global {    
+    <span class="hljs-comment">//Capture pedestrians parameter to define if wall will capture pedestrians</span>
+    <span class="hljs-literal">bool</span> capture_pedestrians &lt;- false <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Capture pedestrians?'</span>;
+    
+    <span class="hljs-literal">int</span> environment_size <span class="hljs-symbol">init:</span> 2000;
+    <span class="hljs-literal">point</span> environment_bounds <span class="hljs-symbol">init:</span> {environment_size, environment_size} ;
+    <span class="hljs-literal">geometry</span> shape &lt;- rectangle(environment_bounds) ;       
+    
+    <span class="hljs-comment">//Pedestrians parameters</span>
+    <span class="hljs-literal">float</span> pedestrian_size <span class="hljs-symbol">init:</span> 1.0;
+    <span class="hljs-literal">geometry</span> pedestrian_shape &lt;- circle (pedestrian_size);
+    <span class="hljs-literal">rgb</span> pedestrian_color &lt;- #green; 
+    <span class="hljs-literal">float</span> pedestrian_speed &lt;- 2.0;
+    
+    
+    <span class="hljs-comment">//Wall parameters</span>
+    <span class="hljs-literal">rgb</span> corridor_wall_color &lt;- #black;
+    <span class="hljs-literal">int</span> corridor_wall_width &lt;- <span class="hljs-literal">int</span>(environment_size / 2);
+    <span class="hljs-literal">int</span> corridor_wall_height &lt;- 200;
+    <span class="hljs-literal">geometry</span> corridor_wall_0_shape &lt;- rectangle ( {corridor_wall_width, corridor_wall_height} ) at_location {environment_size / 2, corridor_wall_height / 2};
+    <span class="hljs-literal">geometry</span> corridor_wall_1_shape &lt;- rectangle ( {corridor_wall_width, corridor_wall_height} ) at_location {environment_size / 2, environment_size - (corridor_wall_height / 2)};
+    
+    <span class="hljs-comment">//Corridor parameters</span>
+    <span class="hljs-literal">rgb</span> corridor_color &lt;- #blue;
+    <span class="hljs-literal">int</span> corridor_width &lt;- <span class="hljs-literal">int</span>(environment_size / 2) ;
+    <span class="hljs-literal">int</span> corridor_height &lt;- environment_size ;
+    <span class="hljs-literal">point</span> corridor_location &lt;- {environment_size / 2, environment_size / 2} ;
+    <span class="hljs-literal">geometry</span> corridor_shape &lt;- ( (rectangle ({corridor_width, corridor_height})) at_location corridor_location) - (corridor_wall_0_shape + corridor_wall_1_shape);
+    <span class="hljs-literal">int</span> corridor_left_bounds &lt;- (<span class="hljs-literal">int</span>(corridor_location.x - (corridor_width / 2))) ;
+    <span class="hljs-literal">int</span> corridor_right_bounds &lt;- (<span class="hljs-literal">int</span>(corridor_location.x + (corridor_width / 2))) ;
+    
+    <span class="hljs-comment">//Generation of new pedestrians parameters</span>
+    <span class="hljs-literal">int</span> new_pedestrian_rate &lt;- 10;
+    <span class="hljs-literal">int</span> new_pedestian_generate_frequency &lt;- 1;
+    <span class="hljs-literal">int</span> new_pedestrian_y_distance &lt;- <span class="hljs-literal">int</span>(environment_size / new_pedestrian_rate);
+    
+    <span class="hljs-literal">list</span>&lt;pedestrian&gt; pedestrians  <span class="hljs-symbol">update:</span> <span class="hljs-literal">list</span>(pedestrian); 
+    <span class="hljs-literal">float</span> start_time &lt;- machine_time;
+    
+    init {
+        <span class="hljs-keyword">create</span> corridor;
+         
+        <span class="hljs-keyword">create</span> corridor_wall <span class="hljs-symbol">number:</span> 2 <span class="hljs-symbol">returns:</span> corridor_walls; 
+        (corridor_walls at 0).shape &lt;- corridor_wall_0_shape;
+        (corridor_walls at 1).shape &lt;- corridor_wall_1_shape;
+        
+    }
+    
+    <span class="hljs-comment">//Reflex to generate new pedestrians according to the frequency generation parameter</span>
+    <span class="hljs-builtin">reflex</span> generate_pedestrians <span class="hljs-symbol">when:</span> ((cycle mod new_pedestian_generate_frequency) = 0) {
+        <span class="hljs-keyword">create</span> pedestrian <span class="hljs-symbol">number:</span> new_pedestrian_rate <span class="hljs-symbol">returns:</span> new_pedestrians; 
+        
+        <span class="hljs-literal">int</span> loop_times &lt;- 0;
+        <span class="hljs-keyword">loop</span> p <span class="hljs-symbol">over:</span> new_pedestrians {
+            <span class="hljs-literal">int</span> y_coor &lt;- rnd (new_pedestrian_y_distance);
+            <span class="hljs-keyword">ask</span> p <span class="hljs-symbol">as:</span> pedestrian {
+                <span class="hljs-keyword">do</span> init_location <span class="hljs-symbol">loc:</span> { 0, (loop_times * new_pedestrian_y_distance) + y_coor };
+            }
+            loop_times &lt;- loop_times + 1;
+        }
+    }
+
+} 
+
+<span class="hljs-comment">//Species pedestrian which will move from one side of the experiments to another and destroy itself once the other side is reached</span>
+<span class="hljs-literal">species</span> pedestrian <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">topology:</span> ( <span class="hljs-literal">topology</span> (shape - (corridor_wall_0_shape + corridor_wall_1_shape)) ){
+    <span class="hljs-literal">geometry</span> shape &lt;-  circle (pedestrian_size);
+    <span class="hljs-literal">point</span> initial_location;
+    <span class="hljs-literal">point</span> target_location;
+    <span class="hljs-literal">int</span> heading;
+    <span class="hljs-literal">float</span> speed &lt;- 2.0;
+    
+    <span class="hljs-keyword">action</span> init_location (<span class="hljs-literal">point</span> loc) {
+        location &lt;- loc;
+        initial_location &lt;- loc;
+        target_location &lt;- {environment_size, loc.y};
+        heading &lt;- (self) towards (target_location);
+    }
+    
+    <span class="hljs-comment">//Reflex to make the agent move to its target_location</span>
+    <span class="hljs-builtin">reflex</span> move_left {
+        <span class="hljs-literal">int</span> update_heading &lt;- (self) towards (target_location);
+        
+        <span class="hljs-literal">point</span> current_location &lt;- location;
+        
+        <span class="hljs-keyword">do</span> move <span class="hljs-symbol">heading:</span> update_heading ;
+        
+        <span class="hljs-comment">//Conditions to know if the agent doesn't move, in this case we take care if it is bcause of the walls </span>
+        <span class="hljs-keyword">if</span> (current_location = location) {
+            <span class="hljs-keyword">if</span> ( (location.y &lt;= corridor_wall_height) or (location.y &gt;= environment_size - corridor_wall_height) ) {
+                <span class="hljs-keyword">do</span> move <span class="hljs-symbol">heading:</span> self towards {(environment_size / 2) - (corridor_width / 2), environment_size / 2}; 
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">do</span> move <span class="hljs-symbol">heading:</span> self towards {environment_size / 2, environment_size / 2}; 
+            }
+        }
+        
+        <span class="hljs-keyword">if</span>( (target_location.x - location.x) &lt;= speed ) { 
+            <span class="hljs-keyword">do</span> die;
+        }
+    }
+     
+    <span class="hljs-keyword">aspect</span> my_aspect {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> pedestrian_color;
+    }
+}
+
+<span class="hljs-comment">//Species which represents the corridor</span>
+<span class="hljs-literal">species</span> corridor  {
+    <span class="hljs-literal">geometry</span> shape &lt;- corridor_shape;
+    
+    <span class="hljs-comment">//Subspecies for the multi-level architectures : captured pedestrians in this case</span>
+    <span class="hljs-literal">species</span> captured_pedestrian <span class="hljs-symbol">parent:</span> pedestrian <span class="hljs-symbol">schedules:</span> [] {
+        <span class="hljs-literal">float</span> released_time;
+        
+        <span class="hljs-keyword">aspect</span> my_aspect { }
+    }
+    
+    init {
+        <span class="hljs-keyword">create</span> corridor_info_drawer <span class="hljs-symbol">number:</span> 1 <span class="hljs-symbol">with:</span> [target :: self];
+    }
+    
+    <span class="hljs-comment">//Reflex to capture pedestrians if the parameter is checked</span>
+    <span class="hljs-builtin">reflex</span> aggregate <span class="hljs-symbol">when:</span> capture_pedestrians {
+        <span class="hljs-comment">//List to get all the pedestrians inside the corridor</span>
+        <span class="hljs-literal">list</span>&lt;pedestrian&gt; tobe_captured_pedestrians &lt;- (pedestrian overlapping shape);
+        
+        <span class="hljs-comment">//If we have pedestrians inside the corridor, we capture them</span>
+        <span class="hljs-keyword">if</span> !(empty (tobe_captured_pedestrians)) {
+            <span class="hljs-keyword">capture</span> tobe_captured_pedestrians <span class="hljs-symbol">as:</span> captured_pedestrian <span class="hljs-symbol">returns:</span> cps;
+            
+            <span class="hljs-comment">//We update the time during which a pedestrian is captured according to the time the pedestrian</span>
+            <span class="hljs-comment">// should need to pass through the corridor if it wasn't captured</span>
+            <span class="hljs-keyword">loop</span> cp <span class="hljs-symbol">over:</span> cps {
+                cp.released_time &lt;- time + ( ( corridor_width - ( (((cp).location).x) - ((environment_size / 2) - (corridor_width / 2)) ) ) / pedestrian_speed) ;
+            }
+        }
+    }
+    
+    <span class="hljs-comment">//Reflex to release pedestrians which have already passed enough time in the corridor</span>
+    <span class="hljs-comment">// which means if they weren't captured by the corridor, they would have finish passing through it</span>
+    <span class="hljs-builtin">reflex</span> disaggregate  {
+        <span class="hljs-literal">list</span> tobe_released_pedestrians &lt;- members where (time &gt;= (captured_pedestrian (each)).released_time);
+        <span class="hljs-keyword">if</span> !(empty (tobe_released_pedestrians)) {
+            <span class="hljs-keyword">release</span> tobe_released_pedestrians <span class="hljs-symbol">as:</span> pedestrian <span class="hljs-symbol">in:</span> world {
+                location &lt;- {((environment_size / 2) + (corridor_width / 2)) + (2 * pedestrian_size), (location).y};
+            }
+        }
+    }
+    
+    <span class="hljs-keyword">aspect</span> my_aspect {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> corridor_color;
+    }
+}
+
+<span class="hljs-literal">species</span> corridor_wall {
+    init {
+        <span class="hljs-keyword">create</span> corridor_wall_info_drawer <span class="hljs-symbol">number:</span> 1 <span class="hljs-symbol">with:</span> [target :: self];
+    }
+    
+    <span class="hljs-keyword">aspect</span>  my_aspect {
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> corridor_wall_color;
+    }
+}
+
+<span class="hljs-literal">species</span> corridor_info_drawer {
+    corridor target;
+    
+    <span class="hljs-keyword">aspect</span> my_aspect {
+        <span class="hljs-keyword">draw</span>  <span class="hljs-string">'Captured pedestrians: '</span> + (<span class="hljs-literal">string</span> (length (target.members))) <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> (<span class="hljs-string">'blue'</span>) <span class="hljs-symbol">size:</span> 12°px <span class="hljs-symbol">at:</span> {(target.location).x - 480, (target.location).y};
+        <span class="hljs-keyword">draw</span>  <span class="hljs-string">'Pedestrians: '</span> + (<span class="hljs-literal">string</span> (length (<span class="hljs-literal">list</span> (pedestrian)))) <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> (<span class="hljs-string">'blue'</span>) <span class="hljs-symbol">size:</span> 12°px <span class="hljs-symbol">at:</span> {(target.location).x - 135, (target.location).y + 100};
+    }
+}
+
+<span class="hljs-literal">species</span> corridor_wall_info_drawer {
+    corridor_wall target;
+    
+    init {
+        location &lt;- target.location;
+    }
+    
+    <span class="hljs-keyword">aspect</span> my_aspect { 
+        <span class="hljs-keyword">draw</span> <span class="hljs-string">'WALL'</span> <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> (<span class="hljs-string">'green'</span>) <span class="hljs-symbol">size:</span> 15°px <span class="hljs-symbol">at:</span> {(location).x - 40, (location).y};
+    }
+}
+
+
+<span class="hljs-builtin">experiment</span> corridor_expr <span class="hljs-symbol">type:</span> gui{
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> defaut_display {
+            <span class="hljs-literal">species</span> pedestrian;
+            
+            <span class="hljs-literal">species</span> corridor <span class="hljs-symbol">aspect:</span> my_aspect <span class="hljs-symbol">transparency:</span> 0.8 {
+                <span class="hljs-literal">species</span> captured_pedestrian;
+            }
+            
+            <span class="hljs-literal">species</span> corridor_wall <span class="hljs-symbol">aspect:</span> my_aspect <span class="hljs-symbol">transparency:</span> 0.7;
+            <span class="hljs-literal">species</span> corridor_info_drawer <span class="hljs-symbol">aspect:</span> my_aspect;
+            <span class="hljs-literal">species</span> corridor_wall_info_drawer <span class="hljs-symbol">aspect:</span> my_aspect;
+        }
+
+        <span class="hljs-keyword">display</span> Execution_Time <span class="hljs-symbol">refresh:</span> every(25) {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'Simulation step length'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'simulation_step_length_in_mili_second'</span> <span class="hljs-symbol">value:</span> machine_time - start_time <span class="hljs-symbol">color:</span> (<span class="hljs-literal">rgb</span> (<span class="hljs-string">'green'</span>));
+            }
+        }
+        
+        <span class="hljs-keyword">display</span> Captured_Pedestrians <span class="hljs-symbol">refresh:</span> every(25){
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'Captured Pedestrian'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #white {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'captured_pedestrians'</span> <span class="hljs-symbol">value:</span> length ( ((<span class="hljs-literal">list</span> (corridor)) at 0).members ) <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> (<span class="hljs-string">'blue'</span>);
+                <span class="hljs-keyword">data</span> <span class="hljs-string">'pedestrians'</span> <span class="hljs-symbol">value:</span> length (<span class="hljs-literal">list</span> (pedestrian)) <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> (<span class="hljs-string">'white'</span>);  
+            }
+        }
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Ant Foraging (Simple) · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (keyword|operator_round)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Ant Foraging (Simple) · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (keyword|operator_round)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Ant Foraging (Simple)</h1></header><article><div><span><p>_Author : _</p>
+<p>Toy Model ant using the question of how ants search food and use pheromons to return to their nest once they did find food. This model is the simple one.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> ants
+
+global {
+    <span class="hljs-literal">int</span> t &lt;- 1;
+    <span class="hljs-comment">//Evaporation value per cycle of the pheromons</span>
+    <span class="hljs-literal">float</span> evaporation_per_cycle &lt;- 5.0 <span class="hljs-symbol">min:</span> 0.01 <span class="hljs-symbol">max:</span> 240.0 ;
+    <span class="hljs-comment">//Diffusion rate of the pheromons</span>
+    <span class="hljs-literal">float</span> diffusion_rate <span class="hljs-symbol">const:</span> true &lt;- 1.0 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 ;
+    <span class="hljs-comment">//Size of the grid</span>
+    <span class="hljs-literal">int</span> gridsize <span class="hljs-symbol">const:</span> true &lt;- 75; 
+    <span class="hljs-comment">//Number of ants to create</span>
+    <span class="hljs-literal">int</span> ants_number  &lt;- 50 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 200 <span class="hljs-symbol">parameter:</span> <span class="hljs-string">'Number of Ants:'</span>;
+    <span class="hljs-comment">//Variable to keep information about the food remaining</span>
+    <span class="hljs-literal">int</span> food_remaining <span class="hljs-symbol">update:</span> <span class="hljs-literal">list</span> ( ant_grid ) count ( each . food &gt; 0) &lt;- 10;
+    <span class="hljs-comment">//Center of the grid that will be considered as the nest of ants</span>
+    <span class="hljs-literal">point</span> center <span class="hljs-symbol">const:</span> true &lt;- { round ( gridsize / 2 ) , round ( gridsize / 2 ) };
+    <span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">int</span>&gt; types &lt;- <span class="hljs-literal">matrix</span>&lt;<span class="hljs-literal">int</span>&gt; (pgm_file ( <span class="hljs-string">'../images/environment75x75_scarce.pgm'</span> )); 
+    
+    <span class="hljs-literal">geometry</span> shape &lt;- square(gridsize);
+    
+    init {
+        <span class="hljs-comment">//Creation of the ants placed in the nest</span>
+        <span class="hljs-keyword">create</span> ant <span class="hljs-symbol">number:</span> ants_number <span class="hljs-symbol">with:</span> [ location :: center ];
+    } 
+    
+    <span class="hljs-comment">//Different actions triggered by an user interaction</span>
+    <span class="hljs-keyword">action</span> press (<span class="hljs-literal">point</span> loc, <span class="hljs-literal">list</span> selected_agents)
+    {
+        <span class="hljs-keyword">write</span>(<span class="hljs-string">"press "</span> + loc.x + <span class="hljs-string">" "</span> + loc.y + <span class="hljs-string">" "</span>+selected_agents);
+    }
+    <span class="hljs-keyword">action</span> <span class="hljs-keyword">release</span> (<span class="hljs-literal">point</span> loc, <span class="hljs-literal">list</span> selected_agents)
+    {
+        <span class="hljs-keyword">write</span>(<span class="hljs-string">"release"</span>);
+    }
+    <span class="hljs-keyword">action</span> click  (<span class="hljs-literal">point</span> loc, <span class="hljs-literal">list</span> selected_agents)
+    {
+        <span class="hljs-keyword">write</span>(<span class="hljs-string">"click"</span>);
+    }
+    <span class="hljs-keyword">action</span> click2   (<span class="hljs-literal">point</span> loc, <span class="hljs-literal">list</span> selected_agents)
+    {
+        <span class="hljs-keyword">write</span>(<span class="hljs-string">"click2"</span>);
+    }
+    <span class="hljs-comment">//Reflex to diffuse the pheromons among the grid</span>
+    <span class="hljs-builtin">reflex</span> <span class="hljs-keyword">diffuse</span> {
+      <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span>road <span class="hljs-symbol">on:</span>ant_grid <span class="hljs-symbol">proportion:</span> diffusion_rate <span class="hljs-symbol">radius:</span>2 <span class="hljs-symbol">propagation:</span> gradient;
+   }
+
+} 
+<span class="hljs-comment">//Grid used to discretize space to place food in cells</span>
+grid ant_grid <span class="hljs-symbol">width:</span> gridsize <span class="hljs-symbol">height:</span> gridsize <span class="hljs-symbol">neighbors:</span> 8 {
+    <span class="hljs-literal">bool</span> isNestLocation  &lt;- ( self distance_to center ) &lt; 4;
+    <span class="hljs-literal">bool</span> isFoodLocation &lt;-  types[grid_x , grid_y] = 2;       
+    <span class="hljs-literal">list</span>&lt;ant_grid&gt; neighbors &lt;- self neighbors_at 1;  
+    <span class="hljs-literal">float</span> road &lt;- 0.0 <span class="hljs-symbol">max:</span>240.0 <span class="hljs-symbol">update:</span> (road&lt;=evaporation_per_cycle) ? 0.0 : road-evaporation_per_cycle;
+    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>([ self.road &gt; 15 ? 255 : ( isNestLocation ? 125 : 0 ) , self.road * 30 , self.road &gt; 15 ? 255 : food * 50 ]) <span class="hljs-symbol">update:</span> <span class="hljs-literal">rgb</span>([ self.road &gt; 15 ? 255 : ( isNestLocation ? 125 : 0 ) ,self.road * 30 , self.road &gt; 15 ? 255 : food * 50 ]); 
+    <span class="hljs-literal">int</span> food &lt;- isFoodLocation ? 5 : 0; 
+    <span class="hljs-literal">int</span> nest <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">int</span>(300 - ( self distance_to center ));
+}
+
+<span class="hljs-comment">//Species ant that will move</span>
+<span class="hljs-literal">species</span> ant <span class="hljs-symbol">skills:</span> [ <span class="hljs-builtin">moving</span> ] {     
+    <span class="hljs-literal">rgb</span> color &lt;- #red;
+    ant_grid place <span class="hljs-symbol">function:</span> {ant_grid ( location )};
+    <span class="hljs-literal">bool</span> hasFood &lt;- false; 
+    <span class="hljs-literal">bool</span> hasRoad &lt;- false <span class="hljs-symbol">update:</span> place . road &gt; 0.05;
+    
+    <span class="hljs-comment">//Reflex to diffuse pheromon on the cell once the agent has food</span>
+    <span class="hljs-builtin">reflex</span> diffuse_road <span class="hljs-symbol">when:</span>hasFood=true{
+      ant_grid(location).road &lt;- ant_grid(location).road + 100.0;
+   }
+    <span class="hljs-comment">//Reflex to wander while the ant has no food</span>
+    <span class="hljs-builtin">reflex</span> wandering <span class="hljs-symbol">when:</span> ( ! hasFood ) and ( ! hasRoad ) and ( place . food = 0) {
+        <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span> 120 <span class="hljs-symbol">speed:</span> 1.0;
+    }
+    <span class="hljs-comment">//Reflex to search food when the agent has no food nor pheromon road close</span>
+    <span class="hljs-builtin">reflex</span> looking <span class="hljs-symbol">when:</span> ( ! hasFood ) and ( hasRoad ) and ( place . food = 0 ) { 
+        <span class="hljs-literal">list</span>&lt;ant_grid&gt; list_places &lt;- place . neighbors;
+        ant_grid goal &lt;- list_places first_with ( each . food &gt; 0 );
+        <span class="hljs-keyword">if</span> goal != nil {
+            location &lt;- goal.location ; 
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-literal">int</span> min_nest &lt;- ( list_places min_of ( each . nest ) );
+            list_places &lt;- list_places sort ( ( each . nest = min_nest ) ? each . road : 0.0 ) ;
+            location &lt;- <span class="hljs-literal">point</span> ( last ( list_places ) ) ;
+        }
+    }
+    <span class="hljs-comment">//Reflex to take food</span>
+    <span class="hljs-builtin">reflex</span> taking <span class="hljs-symbol">when:</span> ( ! hasFood ) and ( place . food &gt; 0 ) { 
+        hasFood &lt;- true ;
+        place . food &lt;- place . food - 1 ;
+    }
+    <span class="hljs-comment">//Reflex to make the ant return to the nest once it has food</span>
+    <span class="hljs-builtin">reflex</span> homing <span class="hljs-symbol">when:</span> ( hasFood ) and ( ! place . isNestLocation ) {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span>center  <span class="hljs-symbol">speed:</span>1.0;
+    }
+    <span class="hljs-comment">//Reflex to drop food once the ant arrived at the nest</span>
+    <span class="hljs-builtin">reflex</span> dropping <span class="hljs-symbol">when:</span> ( hasFood ) and ( place . isNestLocation ) {
+        hasFood &lt;- false ;
+        heading &lt;- heading - 180 ;
+    }
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(2.0) <span class="hljs-symbol">color:</span> color;
+    }
+    
+}
+<span class="hljs-comment">//Experiment simple to display ant and have user interaction</span>
+<span class="hljs-builtin">experiment</span> Simple <span class="hljs-symbol">type:</span>gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Evaporation:'</span> <span class="hljs-symbol">var:</span> evaporation_per_cycle;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Diffusion Rate:'</span> <span class="hljs-symbol">var:</span> diffusion_rate;
+    <span class="hljs-keyword">output</span> { 
+        <span class="hljs-keyword">display</span> Ants <span class="hljs-symbol">refresh:</span> every(2) { 
+            grid ant_grid;
+            <span class="hljs-literal">species</span> ant <span class="hljs-symbol">aspect:</span> <span class="hljs-keyword">default</span>;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">'displayText'</span> {
+                <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span> ( food_remaining ) <span class="hljs-symbol">size:</span> 24.0 <span class="hljs-symbol">at:</span> { 20 , 20 } <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'white'</span> );
+            }
+            <span class="hljs-comment">//Event triggering the action passed in parameter</span>
+            <span class="hljs-keyword">event</span> mouse_down <span class="hljs-symbol">action:</span>press;
+            <span class="hljs-keyword">event</span> mouse_up <span class="hljs-symbol">action:</span><span class="hljs-keyword">release</span>;
+        }  
+        <span class="hljs-keyword">display</span> Ants_2 <span class="hljs-symbol">refresh:</span> every(2) { 
+            grid ant_grid;
+            <span class="hljs-keyword">graphics</span> <span class="hljs-string">'displayText'</span> {
+                <span class="hljs-keyword">draw</span> <span class="hljs-literal">string</span> ( food_remaining ) <span class="hljs-symbol">size:</span> 24.0 <span class="hljs-symbol">at:</span> { 20 , 20 } <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> ( <span class="hljs-string">'white'</span> );
+            }
+            <span class="hljs-keyword">event</span> mouse_down <span class="hljs-symbol">action:</span>press;
+            <span class="hljs-keyword">event</span> mouse_up <span class="hljs-symbol">action:</span>click2;
+        }  
+    }
+}
+
+<span class="hljs-comment">// This experiment explores two parameters with an exhaustive strategy, </span>
+<span class="hljs-comment">// repeating each simulation two times, in order to find the best combination </span>
+<span class="hljs-comment">// of parameters to minimize the time taken by ants to gather all the food</span>
+<span class="hljs-builtin">experiment</span> <span class="hljs-string">'Exhaustive optimization'</span> <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 2 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> ( food_remaining = 0 ) or ( time &gt; 400 ) {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Evaporation'</span> <span class="hljs-symbol">var:</span> evaporation_per_cycle <span class="hljs-symbol">among:</span> [ 0.1 , 1.0 , 2.0 , 5.0 ,  10.0 ];
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Diffusion rate'</span> <span class="hljs-symbol">var:</span> diffusion_rate <span class="hljs-symbol">min:</span> 0.1 <span class="hljs-symbol">max:</span> 1.0 <span class="hljs-symbol">step:</span>
+    0.3;
+    method <span class="hljs-keyword">exhaustive</span> <span class="hljs-symbol">minimize:</span> time;
+}
+
+<span class="hljs-comment">// This experiment simply explores two parameters with an exhaustive strategy, </span>
+<span class="hljs-comment">// repeating each simulation two times</span>
+<span class="hljs-builtin">experiment</span> Repeated <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 2 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> (
+food_remaining = 0 ) or ( time &gt; 400 ) {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Evaporation'</span> <span class="hljs-symbol">var:</span> evaporation_per_cycle <span class="hljs-symbol">among:</span> [ 0.1 , 1.0 , 2.0 , 5.0 ,  10.0 ];
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Diffusion rate'</span> <span class="hljs-symbol">var:</span> diffusion_rate <span class="hljs-symbol">min:</span> 0.1 <span class="hljs-symbol">max:</span> 1.0 <span class="hljs-symbol">step:</span>0.3;
+}
+
+<span class="hljs-comment">// This experiment explores two parameters with a GA strategy, </span>
+<span class="hljs-comment">// repeating each simulation two times, in order to find the best combination </span>
+<span class="hljs-comment">// of parameters to minimize the time taken by ants to gather all the food </span>
+<span class="hljs-builtin">experiment</span> Genetic <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">repeat:</span> 3 <span class="hljs-symbol">until:</span> ( food_remaining
+= 0 ) or ( time &gt; 400 ) {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Evaporation'</span> <span class="hljs-symbol">var:</span> evaporation_per_cycle <span class="hljs-symbol">min:</span> 0.05 <span class="hljs-symbol">max:</span> 10.0
+    <span class="hljs-symbol">step:</span> 0.1;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Diffusion rate'</span> <span class="hljs-symbol">var:</span> diffusion_rate <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 <span class="hljs-symbol">step:</span>
+    0.01;
+    method <span class="hljs-keyword">genetic</span> <span class="hljs-symbol">pop_dim:</span> 5 <span class="hljs-symbol">crossover_prob:</span> 0.7 <span class="hljs-symbol">mutation_prob:</span> 0.1
+    <span class="hljs-symbol">nb_prelim_gen:</span> 1 <span class="hljs-symbol">max_gen:</span> 20 <span class="hljs-symbol">minimize:</span> time;
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

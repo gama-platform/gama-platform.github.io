@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>1. Skeleton model · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This first step consists in defining the skeleton model with the gold mines and the gold market."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="1. Skeleton model · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="This first step consists in defining the skeleton model with the gold mines and the gold market."/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class="siteNavGroupActive"><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>BDI Agents</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tutorials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Tutorials">Tutorials</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Predator Prey<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey">Predator Prey</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step2">2. Vegetation Dynamic</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step3">3. Prey Agent Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step4">4. Inspectors and Monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step5">5. Predator Agent</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step6">6. Breeding</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step7">7. Agent Aspect</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step8">8. Complex Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step9">9. Stopping condition</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step10">10. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step11">11. Writing Files</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step12">12. Image loading</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step13">13. Model exploration</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Road Traffic<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel">Road Traffic</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step1">1. Loading of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step2">2. People Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step3">3. Movement of People</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step4">4. Weight for Road Network</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step5">5. Dynamic weights</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step6">6. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step7">7. Automatic Road Repair</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">3D Tutorial<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD">3D Tutorial</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD_step2">2. Moving Cells</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD_step3">3. Connections</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Incremental Model<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel">Incremental Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step1">1. Simple SI Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step2">2. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step3">3. Integration of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step4">4. Movement on Graph</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step5">5. Visualizing in 3D</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step6">6. Multi-Level</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step7">7. Differential Equations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Luneray&#x27;s flu<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu">Luneray&#x27;s flu</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step1">1. Creation of a first basic disease spreading model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step2">2. Definition of monitors and chart outputs</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step3">3. Importation of GIS data</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step4">4. Use of a graph to constraint the movements of people</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step5">5. Definition of 3D displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step6">6. Exploration of the model</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">BDI Agents<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents">BDI Agents</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/next/BDIAgents_step1">1. Skeleton model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step2">2. BDI Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step3">3. Social relation</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step4">4. Emotions and Personality</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step5">5. Norms, obligation, and enforcement</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">1. Skeleton model</h1></header><article><div><span><p>This first step consists in defining the skeleton model with the gold mines and the gold market.</p>
+<h2><a class="anchor" aria-hidden="true" id="formulation"></a><a href="#formulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formulation</h2>
+<ul>
+<li>Definition of the gold mine species</li>
+<li>Definition of the market species</li>
+<li>Creation of the gold mine and market agents</li>
+<li>Definition of a display with the gold mines and the market</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
+<h3><a class="anchor" aria-hidden="true" id="species"></a><a href="#species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>species</h3>
+<p>In this first model, we have to define two species of agents: the <strong><code>gold_mine</code></strong> agents and the <strong><code>market</code></strong> ones. These agents will not have a particular behavior, they will just be displayed.
+For the gold mine species, we define a new attribute: <strong><code>quantity</code></strong> of type <code>int</code>, with for initial value a random integer between 1 and 20. We also define an <code>aspect</code> named <strong><code>default</code></strong> that displays the gold mine as a triangle with a gray color if the gold mine is empty, yellow otherwise. The size of the triangle depends on the quantity of gold nuggets in the mine.
+Concerning the market species, we define a new attribute: <strong><code>golds</code></strong> of type <code>int</code>. We define as well an aspect named <strong><code>default</code></strong> that displays the market as a blue square.</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> gold_mine {
+    <span class="hljs-literal">int</span> quantity &lt;- rnd(1,20);
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-keyword">draw</span> triangle(200 + quantity * 50) <span class="hljs-symbol">color:</span> (quantity &gt; 0) ? #yellow : #gray <span class="hljs-symbol">border:</span> #black;  
+    }
+}
+
+<span class="hljs-literal">species</span> market {
+    <span class="hljs-literal">int</span> golds;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> square(1000) <span class="hljs-symbol">color:</span> #black ;
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="global-variables"></a><a href="#global-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global variables</h3>
+<p>We define two global variables for the model: one called <strong><code>nb_mines</code></strong> that will be used to define the number of mines and that will be set to 10. One call <strong><code>the_market</code></strong> that will represent the market agent (that will be unique).</p>
+<p>In addition, we define the duration of a simulation step to 10 minutes, and we define the shape of the environment by a square with a side size of 20 kilometers.</p>
+<pre><code class="hljs">global {
+    <span class="hljs-literal">int</span> nb_mines &lt;- 10; 
+    market the_market;
+    <span class="hljs-literal">float</span> step &lt;- 10#mn;
+    <span class="hljs-literal">geometry</span> shape &lt;- square(20 #km);
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="global-init"></a><a href="#global-init" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>global init</h3>
+<p>At the initialization of the model, we create a market agent and <code>nb_mines</code> gold mine agents. For the market agent, we set the value of the <code>the_market</code> agent with the created agent.</p>
+<pre><code class="hljs">global {
+    ...
+    init {
+        <span class="hljs-keyword">create</span> market {
+        the_market &lt;- self;
+    }
+    <span class="hljs-keyword">create</span> gold_mine <span class="hljs-symbol">number:</span> nb_mines;
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="display"></a><a href="#display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>display</h3>
+<p>We define a display to visualize the market and gold mine agents. We use for that the classic <strong><code>species</code></strong> keyword. In order to optimize the display, we use an OpenGL display (facet <strong><code>type: opengl</code></strong>).</p>
+<p>In the <strong><code>experiment</code></strong> block:</p>
+<pre><code class="hljs"><span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+    <span class="hljs-literal">species</span> market ;
+    <span class="hljs-literal">species</span> gold_mine ;
+   }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> BDItutorial1
+
+global {
+    <span class="hljs-literal">int</span> nb_mines &lt;- 10; 
+    market the_market;
+    <span class="hljs-literal">float</span> step &lt;- 10#mn;    
+    <span class="hljs-literal">geometry</span> shape &lt;- square(20 #km);
+    
+    init {
+    <span class="hljs-keyword">create</span> market {
+        the_market &lt;- self;
+    }
+    <span class="hljs-keyword">create</span> gold_mine <span class="hljs-symbol">number:</span> nb_mines;
+    }
+}
+
+<span class="hljs-literal">species</span> gold_mine {
+    <span class="hljs-literal">int</span> quantity &lt;- rnd(1,20);
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-keyword">draw</span> triangle(200 + quantity * 50) <span class="hljs-symbol">color:</span> (quantity &gt; 0) ? #yellow : #gray <span class="hljs-symbol">border:</span> #black;  
+    }
+}
+
+<span class="hljs-literal">species</span> market {
+    <span class="hljs-literal">int</span> golds;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> square(1000) <span class="hljs-symbol">color:</span> #black ;
+    }
+}
+
+<span class="hljs-builtin">experiment</span> GoldBdi <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+        <span class="hljs-literal">species</span> market ;
+        <span class="hljs-literal">species</span> gold_mine ;
+    }
+    }
+}
+</code></pre>
+<p><a href="BDIAgents">Back to the start of the tutorial</a></p>
+<ol>
+<li><a href="BDIAgents_step2">Definition of the BDI miners</a></li>
+<li><a href="BDIAgents_step3">Definition of social relations between miners</a></li>
+<li><a href="BDIAgents_step4">Use of emotions and personality for the miners</a></li>
+<li><a href="BDIAgents_step5">Adding norms, obligations and enforcement</a></li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/BDIAgents"><span class="arrow-prev">← </span><span>BDI Agents</span></a><a class="docs-next button" href="/wiki/next/BDIAgents_step2"><span>2. BDI Agents</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#formulation">Formulation</a></li><li><a href="#model-definition">Model Definition</a><ul class="toc-headings"><li><a href="#species">species</a></li><li><a href="#global-variables">global variables</a></li><li><a href="#global-init">global init</a></li><li><a href="#display">display</a></li></ul></li><li><a href="#complete-model">Complete Model</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>2. BDI Agents · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This second step consists in defining the gold miner agents using the GAMA BDI architecture."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="2. BDI Agents · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="This second step consists in defining the gold miner agents using the GAMA BDI architecture."/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class="siteNavGroupActive"><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>BDI Agents</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tutorials<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/Tutorials">Tutorials</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Predator Prey<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey">Predator Prey</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step2">2. Vegetation Dynamic</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step3">3. Prey Agent Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step4">4. Inspectors and Monitors</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step5">5. Predator Agent</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step6">6. Breeding</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step7">7. Agent Aspect</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step8">8. Complex Behavior</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step9">9. Stopping condition</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step10">10. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step11">11. Writing Files</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step12">12. Image loading</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/PredatorPrey_step13">13. Model exploration</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Road Traffic<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel">Road Traffic</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step1">1. Loading of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step2">2. People Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step3">3. Movement of People</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step4">4. Weight for Road Network</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step5">5. Dynamic weights</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step6">6. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/RoadTrafficModel_step7">7. Automatic Road Repair</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">3D Tutorial<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD">3D Tutorial</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD_step1">1. Basic Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD_step2">2. Moving Cells</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/ThreeD_step3">3. Connections</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Incremental Model<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel">Incremental Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step1">1. Simple SI Model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step2">2. Charts</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step3">3. Integration of GIS Data</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step4">4. Movement on Graph</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step5">5. Visualizing in 3D</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step6">6. Multi-Level</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/IncrementalModel_step7">7. Differential Equations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Luneray&#x27;s flu<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu">Luneray&#x27;s flu</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step1">1. Creation of a first basic disease spreading model</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step2">2. Definition of monitors and chart outputs</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step3">3. Importation of GIS data</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step4">4. Use of a graph to constraint the movements of people</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step5">5. Definition of 3D displays</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/LuneraysFlu_step6">6. Exploration of the model</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">BDI Agents<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents">BDI Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step1">1. Skeleton model</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/wiki/next/BDIAgents_step2">2. BDI Agents</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step3">3. Social relation</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step4">4. Emotions and Personality</a></li><li class="navListItem"><a class="navItem" href="/wiki/next/BDIAgents_step5">5. Norms, obligation, and enforcement</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">2. BDI Agents</h1></header><article><div><span><p>This second step consists in defining the gold miner agents using the GAMA BDI architecture.</p>
+<h2><a class="anchor" aria-hidden="true" id="formulation"></a><a href="#formulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formulation</h2>
+<ul>
+<li>Definition of global predicates</li>
+<li>Definition of the gold miner species</li>
+<li>Definition of the gold miner perceptions</li>
+<li>Definition of the gold miner rules</li>
+<li>Definition of the gold miner plans</li>
+<li>Creation and display of the gold miners</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="bdi-agents"></a><a href="#bdi-agents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>BDI agents</h2>
+<p>A classic paradigm to formalize the internal architecture of cognitive agents in Agent-Oriented Software Engineering is the BDI (Belief-Desire-Intention) paradigm. This paradigm, based on the philosophy of action <a href="https://philpapers.org/rec/braipa">(Bratman, 1987)</a>, allows to design expressive and realistic agents.</p>
+<p>The concepts of Belief-Desire-Intention can be summarized as follow for the Gold Miner: the Miner agent has a general desire to find gold. As it is the only thing it wants at the beginning, it is its initial intention (what it is currently doing). To find gold, it wanders around (its plan is to wander). When it perceives some gold nuggets, it stores this information (it has a new belief about the existence and location of this gold nugget), and it adopts a new desire (it wants to extract the gold). When it perceives a gold nugget, the intention to find gold is put on hold and a new intention is selected (to extract gold). To achieve this intention, the plan has two steps, i.e. two new (sub)intentions: to choose a gold nugget to extract (among its known gold nuggets) and to go and take it. And so on.</p>
+<p>In GAMA, we propose a control architecture for agents based on this paradigm. This control architecture provides the agents with 3 databases linked to the agent cognition (that are 3 additional variables):</p>
+<ul>
+<li><strong><code>belief_base</code></strong> (what it knows): the internal knowledge the agent has about the world or about its internal state, updated during the simulation. A belief can concern any type of information (a quantity, a location, a boolean value, etc).</li>
+<li><strong><code>desire_base</code></strong> (what it wants): objectives that the agent would like to accomplish, also updated during the simulation. Desires can have hierarchical links (sub/super desires) when a desire is created as an intermediary objective.</li>
+<li><strong><code>intention_base</code></strong> (what it is doing): what the agent has chosen to do. The current intention will determine the selected plan. Intentions can be put on hold (for example when they require a sub-intention to be achieved).</li>
+</ul>
+<p>In addition, the BDI architecture provides agents with three types of behavior structures:</p>
+<ul>
+<li><strong>Perception</strong>: a perception is a function executed at each iteration to update the agent's Belief base, to know the changes in its environment (the world, the other agents and itself). The agent can perceive other agents up to a fixed distance or inside a specific geometry.</li>
+<li><strong>Rule</strong>: a rule is a function executed at each iteration to infer new desires or beliefs from the agent's current beliefs and desires, i.e. a new desire or belief can emerge from the existing ones.</li>
+<li><strong>Plan</strong>: the agent has a set of plans, which are behaviors defined to accomplish specific intentions. Plans can be instantaneous and/or persistent and may have a priority value (that can be dynamic), used to select a plan when several possible plans are available to accomplish the same intention.</li>
+</ul>
+<p>To be more precise on the behavior of BDI agents (what the agent is going to do when activated), this one is composed of 10 steps (see <a href="https://hal.archives-ouvertes.fr/hal-01216165/document">(Caillou et al., 2017)</a> and <a href="https://hal.archives-ouvertes.fr/hal-01391002/document">(Taillandier et al., 2016)</a> for more details):</p>
+<ol>
+<li><em>Perceive</em>: Perceptions are executed.</li>
+<li><em>Rule</em>: Rules are executed.</li>
+<li><em>Is one of my intentions achieved?</em>: If one of my intentions is achieved, sets the current plan to nil and removes the intention from the intention base. If the achieved intention's super-intention is on hold, it is reactivated (its sub-intention just got completed).</li>
+<li><em>Do I keep the current intention?</em>: To take into account the environment instability, an intention-persistence coefficient is applied: with this probability, the current intention is removed from the intention stack.</li>
+<li><em>Do I have a current plan?</em>: If I have a current plan, just execute it. Similarly to intentions, a plan-persistence coefficient is defined: with this probability, the current plan is just dropped.</li>
+<li><em>Choose a desire as new current intention</em>: If the current intention is on hold (or the intention base is empty), choose a desire as new current intention. The new selected intention is the desire with higher priority.</li>
+<li><em>Choose a plan as a new current plan</em>: The new current plan is selected among the plans compatible with the current intention (and if their activation condition is checked) and with the highest priority.</li>
+<li><em>Execute the plan</em>: The current plan is executed.</li>
+<li><em>Is my plan finished?</em>: To allow persistent plans, a plan may have a termination condition. If it is not reached, the same plan will be kept for the next iteration.</li>
+<li><em>Was my plan instantaneous?</em>: Most agent-based simulation frameworks (GAMA included) are synchronous frameworks using steps. One consequence is that it may be useful to apply several plans during one single step. For example, if a step represents a day or a year, it would be unrealistic for an agent to spend one step to apply a plan like &quot;choose a destination&quot;. This kind of plans (mostly reasoning plans) can be defined as instantaneous: in this case a new thinking loop is applied during the same agent step.</li>
+</ol>
+<p>The architecture introduces two new main types of variables related to cognition:</p>
+<ul>
+<li><p><strong><code>predicate</code></strong>: a predicate unifies the representation of the information about the world. It can represent a situation, an event or an action.</p></li>
+<li><p><strong><code>mental_state</code></strong>: it represents the element (belief, desire, intention) manipulated by the agent and the architecture to take a decision. A mental state is composed of a modality, a predicate or another mental state, a real value and a lifetime. The modality indicates the type of the mental state (e.g. a belief or a desire), the predicate indicates the fact about which is this mental state (a mental state can also be about another mental state like a belief about a belief, etc), the value has a different interpretation depending on the modality and finally, the lifetime indicates the duration of the mental state (it can be infinite).</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
+<h3><a class="anchor" aria-hidden="true" id="predicates"></a><a href="#predicates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>predicates</h3>
+<p>As a first step of the integration of the BDI agents in our model, we define a set of global predicates that will represent all the information that will be manipulated by the miner agents:</p>
+<ul>
+<li><code>mine_location</code>: represents the information about the location of a gold mine.</li>
+<li><code>choose_gold_mine</code>: represents the information that the miner wants to choose a gold mine.</li>
+<li><code>has_gold</code>: represents the information that the miner has a gold nugget.</li>
+<li><code>find_gold</code>: represents the information that the miner wants to find gold.</li>
+<li><code>sell_gold</code>: represents the information that the miner wants to sell gold.</li>
+</ul>
+<p>We define as well two global string (<em>mine_at_location</em> and <em>empty_mine_location</em>) for simplification purpose and to avoid misspellings.</p>
+<pre><code class="hljs">global {
+    ...
+    <span class="hljs-literal">string</span> mine_at_location &lt;- <span class="hljs-string">"mine_at_location"</span>;
+    <span class="hljs-literal">string</span> empty_mine_location &lt;- <span class="hljs-string">"empty_mine_location"</span>;
+    
+    predicate mine_location &lt;- new_predicate(mine_at_location) ;
+    predicate choose_gold_mine &lt;- new_predicate(<span class="hljs-string">"choose a gold mine"</span>);
+    predicate has_gold &lt;- new_predicate(<span class="hljs-string">"extract gold"</span>);
+    predicate find_gold &lt;- new_predicate(<span class="hljs-string">"find gold"</span>) ;
+    predicate sell_gold &lt;- new_predicate(<span class="hljs-string">"sell gold"</span>) ;
+    ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="skeleton-of-the-miner-species"></a><a href="#skeleton-of-the-miner-species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>skeleton of the miner species</h3>
+<p>We then define a miner species with the <code>moving</code> skill and the <code>simple_bdi</code> control architecture. The miner agents have 5 variables:</p>
+<ul>
+<li><code>view_dist</code>: distance of perception of the miner agent</li>
+<li><code>speed</code>: speed of the agent</li>
+<li><code>my_color</code>: the color of the agent (random color)</li>
+<li><code>target</code>: where the agent wants to go</li>
+<li><code>gold_sold</code>: the number of gold nuggets sold by the agent</li>
+</ul>
+<p>We define the init block of the species such as to add at the creation of the agent the desire to find gold nuggets (<code>find_gold</code> predicate). we use for that the <code>add_desire</code> action provides with the BDI architecture.</p>
+<p>At last, we define an aspect in which we draw the agent with its <code>my_color</code> color and with a depth that depends on the number of gold nuggets collected. We then add a circle around the miner of radius <code>view_dist</code> to visualize the distance of perception of each agent, we set the <code>wireframe</code> facet to true in order to draw only its border.</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+    <span class="hljs-literal">float</span> view_dist &lt;- 1000.0;
+    <span class="hljs-literal">float</span> speed &lt;- 2#km/#h;
+    <span class="hljs-literal">rgb</span> my_color &lt;- rnd_color(255);
+    <span class="hljs-literal">point</span> target;
+    <span class="hljs-literal">int</span> gold_sold;
+    
+    init {
+    <span class="hljs-keyword">do</span> add_desire(find_gold);
+    }
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(200) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold;
+        <span class="hljs-keyword">draw</span> circle(view_dist) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold <span class="hljs-symbol">wireframe:</span> true;
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="perception"></a><a href="#perception" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>perception</h3>
+<p>We add a <em>perceive</em> statement for the miner agents. This perceive will allow the agent to detect the gold mines that are not empty (i.e. the quantity of gold is higher than 0) at a distance lower or equal to <code>view_dist</code>. The use of the <code>focus</code> statement allows adding for each detected gold mine a belief corresponding to the location of this gold mine. The name of the belief will be <code>mine_at_location</code> and the location value of the gold_mine will be stored in the <code>values</code> (a map) variable of the belief at the key <code>location_value</code>.</p>
+<p>In addition, we ask the miner agent to remove the intention to find gold, allowing the agent to choose a new intention. The boolean value of the <code>remove_intention</code> action is used to specify if the agent should or not remove the given intention from the desire base as well. In our case, we choose to keep the desire to find golds.</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">simple_bdi</span> {
+    ... 
+    <span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span> gold_mine where (each.quantity &gt; 0) <span class="hljs-symbol">in:</span> view_dist {
+    <span class="hljs-keyword">focus</span> <span class="hljs-symbol">id:</span> mine_at_location <span class="hljs-symbol">var:</span>location;
+    <span class="hljs-keyword">ask</span> myself {
+        <span class="hljs-keyword">do</span> remove_intention(find_gold, false);
+    }
+    }
+}
+</code></pre>
+<p>Note that the perceive statement works as the <code>ask</code> statement: the instructions written in the statement are executed in the context of the perceive agents. It is for that that we have to use the <code>myself</code> keyword to ask the miner agent to execute the <code>remove_intention</code> action.</p>
+<h3><a class="anchor" aria-hidden="true" id="rules"></a><a href="#rules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>rules</h3>
+<p>We define two rules for the miner agents:</p>
+<ul>
+<li>if the agent believes that there is somewhere at least one gold mine with gold nuggets, the agent gets the new desire to has a gold nugget with a strength of 2.</li>
+<li>if the agent believes that it has a gold nugget, the agent gets the new desire to sell the gold nugget with a strength of 3.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+    ...
+    <span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> mine_location <span class="hljs-symbol">new_desire:</span> has_gold <span class="hljs-symbol">strength:</span> 2.0;
+    <span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> has_gold <span class="hljs-symbol">new_desire:</span> sell_gold <span class="hljs-symbol">strength:</span> 3.0;
+}
+</code></pre>
+<p>The strength of a desire will be used when selecting a desire as a new intention: the agent will choose as new intention the one with the highest strength. In our model, if the agent has the desires to find gold, to has gold and to sell gold, it will choose as intention to sell gold as it is the one with the highest strength. It is possible to replace this deterministic choice by a probabilistic one by setting the <code>probabilistic_choice</code> built-in variable of the BDI agent to true (false by default).</p>
+<h3><a class="anchor" aria-hidden="true" id="plans"></a><a href="#plans" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>plans</h3>
+<p>The last (and most important) part of the definition of BDI agents consists in defining the plans that the agents can carry out to achieve its intention.</p>
+<p>The first plan called <code>lets_wander</code> is defined to achieve the <code>find_gold</code> intention. This plan will just consist of executing the <code>wander</code> action of the <code>moving</code> skill (random move).</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">simple_bdi</span> {
+    ...
+    <span class="hljs-keyword">plan</span> lets_wander <span class="hljs-symbol">intention:</span> find_gold {
+    <span class="hljs-keyword">do</span> wander;
+    }
+    ...
+}
+</code></pre>
+<p>The second plan called <code>get_gold</code> is defined to achieve the <code>has_gold</code> intention. If the agent has no target (it does not know where to go), it adds a new sub-intention to choose a gold mine and puts the current intention on hold (the agent will wait to select a gold mine to go before executing again this plan). The <code>add_subintention</code> operator is used to this purpose and has 3 arguments: the sub-intention (<code>choose_gold_mine</code>), the super intention (<code>has_gold</code>) and a boolean that defines if the sub-intention should or not be added as well as a desire. The super intention (this is in fact the current intention) can be accessed with <code>get_current_intention()</code>.</p>
+<p>If the agent has already a target, it moves toward this target using the <code>goto</code> action of the <code>moving</code> skill. If the agent reaches its target (a gold mine) (target = location), the agent tries to extract gold nuggets from it. If the corresponding gold mine (that one located at the target location) is not empty, the agent extracts a gold nugget from it: the agent adds the belief that it has a gold nugget, then the quantity of golds in the gold mine is reduced. Otherwise, if the gold mine is empty, the agent adds the belief that this gold mine is empty and the target is set to nil.</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+    ...
+    <span class="hljs-keyword">plan</span> get_gold <span class="hljs-symbol">intention:</span>has_gold {
+    <span class="hljs-keyword">if</span> (target = nil) {
+        <span class="hljs-keyword">do</span> add_subintention(get_current_intention(),choose_gold_mine, true);
+        <span class="hljs-keyword">do</span> current_intention_on_hold();
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> target ;
+        <span class="hljs-keyword">if</span> (target = location)  {
+        gold_mine current_mine&lt;- gold_mine first_with (target = each.location);
+        <span class="hljs-keyword">if</span> current_mine.quantity &gt; 0 {
+            <span class="hljs-keyword">do</span> add_belief(has_gold);
+            <span class="hljs-keyword">ask</span> current_mine {quantity &lt;- quantity - 1;}    
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">do</span> add_belief(new_predicate(empty_mine_location, [<span class="hljs-string">"location_value"</span>::target]));
+        }
+        target &lt;- nil;
+        }
+    }   
+    }
+    ...
+}
+</code></pre>
+<p>The third plan called <code>choose_closest_gold_mine</code> is defined to achieve the <code>choose_gold_mine</code> intention that is instantaneous. First, the agent defines the list of all the gold mines it knows (<code>mine_at_location</code> beliefs), then removes the gold mines that it knows that they are empty (<code>empty_mine_location</code> beliefs). If the list of the possible mines is empty, the agent removes the desire and the intention to <code>extract_gold</code>. We use for that the <code>remove_intention</code> action, that removes an intention from the intention base; the second argument allows to define if the intention should be removed as well from the desire base. If the agent knows at least one gold mine that is not empty, it defines as its new target the closest gold mine.</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">simple_bdi</span> {
+    ...
+    <span class="hljs-keyword">plan</span> choose_closest_gold_mine <span class="hljs-symbol">intention:</span> choose_gold_mine <span class="hljs-symbol">instantaneous:</span> true {
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; possible_mines &lt;- get_beliefs_with_name(mine_at_location) collect (<span class="hljs-literal">point</span>(get_predicate(mental_state (each)).values[<span class="hljs-string">"location_value"</span>]));
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; empty_mines &lt;- get_beliefs_with_name(empty_mine_location) collect (<span class="hljs-literal">point</span>(get_predicate(mental_state (each)).values[<span class="hljs-string">"location_value"</span>]));
+    possible_mines &lt;- possible_mines - empty_mines;
+    <span class="hljs-keyword">if</span> (empty(possible_mines)) {
+        <span class="hljs-keyword">do</span> remove_intention(extract_gold, true); 
+    } <span class="hljs-keyword">else</span> {
+        target &lt;- (possible_mines with_min_of (each distance_to self)).location;
+    }
+    <span class="hljs-keyword">do</span> remove_intention(choose_gold_mine, true); 
+    }
+    ...
+}
+</code></pre>
+<p>The last plan called <code>return_to_base</code> is defined to achieve the <code>sell_gold</code> intention. The agent moves in the direction of the market using the <code>goto</code> action. When the agent reaches the market, it sells its gold nugget to it: first, it removes the belief that it has a gold nugget, then it removes the intention and the desire to sell golds, at last, it increments its <code>gold_sold</code> variable.</p>
+<pre><code class="hljs"><span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">simple_bdi</span> {
+    ...
+    <span class="hljs-keyword">plan</span> return_to_base <span class="hljs-symbol">intention:</span> sell_gold {
+    <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> the_market ;
+    <span class="hljs-keyword">if</span> (the_market.location = location)  {
+        <span class="hljs-keyword">do</span> remove_belief(has_gold);
+        <span class="hljs-keyword">do</span> remove_intention(sell_gold, true);
+        gold_sold &lt;- gold_sold + 1;
+    }
+    }
+    ...
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="gobal-section"></a><a href="#gobal-section" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gobal section</h2>
+<p>We define two new global variables:</p>
+<ul>
+<li><code>nb_miners</code>: number of gold miners.</li>
+<li><code>inequality</code>: recomputed at each simulation step: standard deviation of the number of gold nuggets extracted per miners.</li>
+</ul>
+<p>In the global <code>init</code>, after creating the gold mines and the market, we create the gold miner agents.</p>
+<p>At last, we define a global reflex <code>end_simulation</code> that is activated when all the gold mines are empty and no more miner has a gold nugget and that pauses the simulation and display the gold sold by each miner.</p>
+<pre><code class="hljs">global {
+    ...
+    <span class="hljs-literal">int</span> nb_minerd &lt;- 5;
+    <span class="hljs-literal">float</span> inequality &lt;- 0.0 <span class="hljs-symbol">update:</span>standard_deviation(miner collect each.gold_sold);
+    ...
+    init {
+    ...
+    <span class="hljs-keyword">create</span> miner <span class="hljs-symbol">number:</span> nb_miner;
+    }
+    
+    <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> sum(gold_mine collect each.quantity) = 0 and empty(miner where each.has_belief(has_gold)){
+    <span class="hljs-keyword">do</span> pause;
+        <span class="hljs-keyword">ask</span> miner {
+        <span class="hljs-keyword">write</span> name + <span class="hljs-string">" : "</span> +gold_sold;
+    }
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="map-display"></a><a href="#map-display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Map display</h2>
+<p>We add to the map display the miner species.
+We also create a chart showing the gold sold of each miner.</p>
+<pre><code class="hljs"><span class="hljs-builtin">experiment</span> GoldBdi <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+    <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+        <span class="hljs-literal">species</span> market ;
+        <span class="hljs-literal">species</span> gold_mine ;
+        <span class="hljs-literal">species</span> miner;
+    }
+
+        <span class="hljs-keyword">display</span> <span class="hljs-keyword">chart</span> {
+        <span class="hljs-keyword">chart</span> <span class="hljs-string">"Money"</span> <span class="hljs-symbol">type:</span> series {
+        <span class="hljs-keyword">datalist</span> <span class="hljs-symbol">legend:</span> miner accumulate each.name <span class="hljs-symbol">value:</span> miner accumulate each.gold_sold <span class="hljs-symbol">color:</span> miner accumulate each.my_color;
+        }
+    }
+
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="complete-model"></a><a href="#complete-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Model</h2>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> BDItutorial2
+
+global {
+    <span class="hljs-literal">int</span> nb_mines &lt;- 10; 
+    <span class="hljs-literal">int</span> nb_miners &lt;-5;
+    market the_market;
+    <span class="hljs-literal">geometry</span> shape &lt;- square(20 #km);
+    <span class="hljs-literal">float</span> step &lt;- 10#mn;
+    
+    <span class="hljs-literal">string</span> mine_at_location &lt;- <span class="hljs-string">"mine_at_location"</span>;
+    <span class="hljs-literal">string</span> empty_mine_location &lt;- <span class="hljs-string">"empty_mine_location"</span>;
+        
+    <span class="hljs-comment">//possible predicates concerning miners</span>
+    predicate mine_location &lt;- new_predicate(mine_at_location) ;
+    predicate choose_gold_mine &lt;- new_predicate(<span class="hljs-string">"choose a gold mine"</span>);
+    predicate has_gold &lt;- new_predicate(<span class="hljs-string">"extract gold"</span>);
+    predicate find_gold &lt;- new_predicate(<span class="hljs-string">"find gold"</span>) ;
+    predicate sell_gold &lt;- new_predicate(<span class="hljs-string">"sell gold"</span>) ;
+    
+    <span class="hljs-literal">float</span> inequality &lt;- 0.0 <span class="hljs-symbol">update:</span>standard_deviation(miner collect each.gold_sold);
+    
+    init {
+        <span class="hljs-keyword">create</span> market {
+            the_market &lt;- self;    
+        }
+        <span class="hljs-keyword">create</span> gold_mine <span class="hljs-symbol">number:</span>nb_mines;
+        <span class="hljs-keyword">create</span> miner <span class="hljs-symbol">number:</span>nb_miners;
+    }
+    
+    <span class="hljs-builtin">reflex</span> end_simulation <span class="hljs-symbol">when:</span> sum(gold_mine collect each.quantity) = 0 and empty(miner where each.has_belief(has_gold)){
+        <span class="hljs-keyword">do</span> pause;
+        <span class="hljs-keyword">ask</span> miner {
+            <span class="hljs-keyword">write</span> name + <span class="hljs-string">" : "</span> +gold_sold;
+        }
+    }
+}
+
+<span class="hljs-literal">species</span> gold_mine {
+    <span class="hljs-literal">int</span> quantity &lt;- rnd(1,20);
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> triangle(200 + quantity * 50) <span class="hljs-symbol">color:</span> (quantity &gt; 0) ? #yellow : #gray <span class="hljs-symbol">border:</span> #black;    
+    }
+}
+
+<span class="hljs-literal">species</span> market {
+    <span class="hljs-literal">int</span> golds;
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+      <span class="hljs-keyword">draw</span> square(1000) <span class="hljs-symbol">color:</span> #black ;
+    }
+}
+
+<span class="hljs-literal">species</span> miner <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span><span class="hljs-builtin">simple_bdi</span> {
+    
+    <span class="hljs-literal">float</span> view_dist&lt;-1000.0;
+    <span class="hljs-literal">float</span> speed &lt;- 2#km/#h;
+    <span class="hljs-literal">rgb</span> my_color &lt;- rnd_color(255);
+    <span class="hljs-literal">point</span> target;
+    <span class="hljs-literal">int</span> gold_sold;
+    
+    init {
+        <span class="hljs-keyword">do</span> add_desire(find_gold);
+    }
+        
+    <span class="hljs-keyword">perceive</span> <span class="hljs-symbol">target:</span> gold_mine where (each.quantity &gt; 0) <span class="hljs-symbol">in:</span> view_dist {
+        <span class="hljs-keyword">focus</span> <span class="hljs-symbol">id:</span>mine_at_location <span class="hljs-symbol">var:</span>location;
+        <span class="hljs-keyword">ask</span> myself {
+            <span class="hljs-keyword">do</span> remove_intention(find_gold, false);
+        }
+    }
+    
+    <span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> mine_location <span class="hljs-symbol">new_desire:</span> has_gold <span class="hljs-symbol">strength:</span> 2.0;
+    <span class="hljs-keyword">rule</span> <span class="hljs-symbol">belief:</span> has_gold <span class="hljs-symbol">new_desire:</span> sell_gold <span class="hljs-symbol">strength:</span> 3.0;
+    
+        
+    <span class="hljs-keyword">plan</span> lets_wander <span class="hljs-symbol">intention:</span> find_gold  {
+        <span class="hljs-keyword">do</span> wander;
+    }
+    
+    <span class="hljs-keyword">plan</span> get_gold <span class="hljs-symbol">intention:</span> has_gold  {
+        <span class="hljs-keyword">if</span> (target = nil) {
+            <span class="hljs-keyword">do</span> add_subintention(get_current_intention(),choose_gold_mine, true);
+            <span class="hljs-keyword">do</span> current_intention_on_hold();
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> target ;
+            <span class="hljs-keyword">if</span> (target = location)  {
+                gold_mine current_mine&lt;- gold_mine first_with (target = each.location);
+                <span class="hljs-keyword">if</span> current_mine.quantity &gt; 0 {
+                     <span class="hljs-keyword">do</span> add_belief(has_gold);
+                    <span class="hljs-keyword">ask</span> current_mine {quantity &lt;- quantity - 1;}    
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">do</span> add_belief(new_predicate(empty_mine_location, [<span class="hljs-string">"location_value"</span>::target]));
+                }
+                target &lt;- nil;
+            }
+        }    
+    }
+    
+    <span class="hljs-keyword">plan</span> choose_closest_gold_mine <span class="hljs-symbol">intention:</span> choose_gold_mine <span class="hljs-symbol">instantaneous:</span> true {
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; possible_mines &lt;- get_beliefs_with_name(mine_at_location) collect (<span class="hljs-literal">point</span>(get_predicate(mental_state (each)).values[<span class="hljs-string">"location_value"</span>]));
+        <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; empty_mines &lt;- get_beliefs_with_name(empty_mine_location) collect (<span class="hljs-literal">point</span>(get_predicate(mental_state (each)).values[<span class="hljs-string">"location_value"</span>]));
+        possible_mines &lt;- possible_mines - empty_mines;
+        <span class="hljs-keyword">if</span> (empty(possible_mines)) {
+            <span class="hljs-keyword">do</span> remove_intention(has_gold, true); 
+        } <span class="hljs-keyword">else</span> {
+            target &lt;- (possible_mines with_min_of (each distance_to self)).location;
+        }
+        <span class="hljs-keyword">do</span> remove_intention(choose_gold_mine, true); 
+    }
+    
+    <span class="hljs-keyword">plan</span> return_to_base <span class="hljs-symbol">intention:</span> sell_gold {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> the_market ;
+        <span class="hljs-keyword">if</span> (the_market.location = location)  {
+            <span class="hljs-keyword">do</span> remove_belief(has_gold);
+            <span class="hljs-keyword">do</span> remove_intention(sell_gold, true);
+            gold_sold &lt;- gold_sold + 1;
+        }
+    }
+
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+      <span class="hljs-keyword">draw</span> circle(200) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold;
+      <span class="hljs-keyword">draw</span> circle(view_dist) <span class="hljs-symbol">color:</span> my_color <span class="hljs-symbol">border:</span> #black <span class="hljs-symbol">depth:</span> gold_sold <span class="hljs-symbol">wireframe:</span> true;
+    }
+}
+
+<span class="hljs-builtin">experiment</span> GoldBdi <span class="hljs-symbol">type:</span> gui {
+
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> <span class="hljs-literal">map</span> <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> market ;
+            <span class="hljs-literal">species</span> gold_mine ;
+            <span class="hljs-literal">species</span> miner;
+        }
+        
+        <span class="hljs-keyword">display</span> <span class="hljs-keyword">chart</span> {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">"Money"</span> <span class="hljs-symbol">type:</span> series {
+                <span class="hljs-keyword">datalist</span> <span class="hljs-symbol">legend:</span> miner accumulate each.name <span class="hljs-symbol">value:</span> miner accumulate each.gold_sold <span class="hljs-symbol">color:</span> miner accumulate each.my_color;
+            }
+        }
+        
+    }
+}
+</code></pre>
+<p><a href="BDIAgents">Back to the start of the tutorial</a></p>
+<ol>
+<li><a href="BDIAgents_step1">Creation of the basic model: gold mines and market</a></li>
+<li><a href="BDIAgents_step3">Definition of social relations between miners</a></li>
+<li><a href="BDIAgents_step4">Use of emotions and personality for the miners</a></li>
+<li><a href="BDIAgents_step5">Adding norms, obligations and enforcement</a></li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/BDIAgents_step1"><span class="arrow-prev">← </span><span>1. Skeleton model</span></a><a class="docs-next button" href="/wiki/next/BDIAgents_step3"><span>3. Social relation</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#formulation">Formulation</a></li><li><a href="#bdi-agents">BDI agents</a></li><li><a href="#model-definition">Model Definition</a><ul class="toc-headings"><li><a href="#predicates">predicates</a></li><li><a href="#skeleton-of-the-miner-species">skeleton of the miner species</a></li><li><a href="#perception">perception</a></li><li><a href="#rules">rules</a></li><li><a href="#plans">plans</a></li></ul></li><li><a href="#gobal-section">Gobal section</a></li><li><a href="#map-display">Map display</a></li><li><a href="#complete-model">Complete Model</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

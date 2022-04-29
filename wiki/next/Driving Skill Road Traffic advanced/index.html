@@ -1,0 +1,280 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Complex Road Network · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (keyword|operator_direction_to)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Complex Road Network · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (keyword|operator_direction_to)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Complex Road Network</h1></header><article><div><span><p><em>Author : Patrick Taillandier</em></p>
+<p>Model to show how to use the driving skill to represent the traffic on a road network generated thanks to shapefiles, with intersections and traffic lights going from red to green to let people move or stop. Two experiments are presented : experiment_2D to display the model in 2D and which better display the orientation of roads and experiment_3D to display the model in 3D.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs">
+<span class="hljs-builtin">model</span> RoadTrafficComplex
+ 
+global {   
+    <span class="hljs-literal">bool</span> simple_data &lt;- false;
+    
+    <span class="hljs-comment">//Check if we use simple data or more complex roads</span>
+    <span class="hljs-literal">file</span> shape_file_roads  &lt;- simple_data ? <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/RoadCircleLanes.shp"</span>): <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/ManhattanRoads.shp"</span>) ;
+    <span class="hljs-literal">file</span> shape_file_nodes  &lt;- simple_data ? <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/NodeCircleLanes.shp"</span>) : <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/ManhattanNodes.shp"</span>);
+    <span class="hljs-literal">file</span> shape_file_bounds &lt;- simple_data ? <span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/BoundsLaneRoad.shp"</span>) :<span class="hljs-literal">file</span>(<span class="hljs-string">"../includes/ManhattanRoads.shp"</span>);
+    <span class="hljs-literal">geometry</span> shape &lt;- envelope(shape_file_bounds) + 50.0;
+    
+    <span class="hljs-literal">graph</span> road_network;  
+    <span class="hljs-literal">int</span> nb_people &lt;- simple_data ? 20 : 500;
+     
+    init {  
+        <span class="hljs-comment">//create the intersection and check if there are traffic lights or not by looking the values inside the type column of the shapefile and linking</span>
+        <span class="hljs-comment">// this column to the attribute is_traffic_signal. </span>
+        <span class="hljs-keyword">create</span> intersection <span class="hljs-symbol">from:</span> shape_file_nodes <span class="hljs-symbol">with:</span>[is_traffic_signal::(read(<span class="hljs-string">"type"</span>) = <span class="hljs-string">"traffic_signals"</span>)];
+        
+        <span class="hljs-comment">//create road agents using the shapefile and using the oneway column to check the orientation of the roads if there are directed</span>
+        <span class="hljs-keyword">create</span> road <span class="hljs-symbol">from:</span> shape_file_roads <span class="hljs-symbol">with:</span>[lanes::<span class="hljs-literal">int</span>(read(<span class="hljs-string">"lanes"</span>)), oneway::<span class="hljs-literal">string</span>(read(<span class="hljs-string">"oneway"</span>))] {
+            geom_display &lt;- shape + (2.5 * lanes);
+            maxspeed &lt;- (lanes = 1 ? 30.0 : (lanes = 2 ? 50.0 : 70.0)) °km/°h;
+            <span class="hljs-keyword">switch</span> oneway {
+                <span class="hljs-keyword">match</span> <span class="hljs-string">"no"</span> {
+                    <span class="hljs-keyword">create</span> road {
+                        lanes &lt;- max([1, <span class="hljs-literal">int</span> (myself.lanes / 2.0)]);
+                        shape &lt;- polyline(reverse(myself.shape.points));
+                        maxspeed &lt;- myself.maxspeed;
+                        geom_display  &lt;- myself.geom_display;
+                        linked_road &lt;- myself;
+                        myself.linked_road &lt;- self;
+                    }
+                    lanes &lt;- <span class="hljs-literal">int</span>(lanes /2.0 + 0.5);
+                }
+                <span class="hljs-keyword">match</span> <span class="hljs-string">"-1"</span> {
+                    shape &lt;- polyline(reverse(shape.points));
+                }   
+            }
+        }   
+        <span class="hljs-literal">map</span> general_speed_map &lt;- road as_map (each::(each.shape.perimeter / each.maxspeed));
+        
+        <span class="hljs-comment">//creation of the road network using the road and intersection agents</span>
+        road_network &lt;-  (as_driving_graph(road, intersection))  with_weights general_speed_map;
+        
+        <span class="hljs-comment">//initialize the traffic light</span>
+        <span class="hljs-keyword">ask</span> intersection {
+            <span class="hljs-keyword">do</span> initialize;
+        }
+        
+        <span class="hljs-keyword">create</span> people <span class="hljs-symbol">number:</span> nb_people { 
+            max_speed &lt;- 160 °km/°h;
+            vehicle_length &lt;- 5.0 °m;
+            right_side_driving &lt;- true;
+            proba_lane_change_up &lt;- 0.1 + (rnd(500) / 500);
+            proba_lane_change_down &lt;- 0.5+ (rnd(500) / 500);
+            location &lt;- one_of(intersection where empty(each.stop)).location;
+            security_distance_coeff &lt;- 5/9 * 3.6 * (1.5 - rnd(1000) / 1000);  
+            proba_respect_priorities &lt;- 1.0 - rnd(200/1000);
+            proba_respect_stops &lt;- [1.0];
+            proba_block_node &lt;- 0.0;
+            proba_use_linked_road &lt;- 0.0;
+            max_acceleration &lt;- 5/3.6;
+            speed_coeff &lt;- 1.2 - (rnd(400) / 1000);
+            threshold_stucked &lt;-<span class="hljs-literal">int</span> ( (1 + rnd(5))°mn);
+            proba_breakdown &lt;- 0.00001;
+            
+        }   
+    }
+    
+} 
+
+<span class="hljs-comment">//species that will represent the intersection node, it can be traffic lights or not, using the skill_road_node skill</span>
+<span class="hljs-literal">species</span> intersection <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">skill_road_node</span>] {
+    <span class="hljs-literal">bool</span> is_traffic_signal;
+    <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; stop;
+    <span class="hljs-literal">int</span> time_to_change &lt;- 100;
+    <span class="hljs-literal">int</span> counter &lt;- rnd (time_to_change) ;
+    <span class="hljs-literal">list</span>&lt;road&gt; ways1;
+    <span class="hljs-literal">list</span>&lt;road&gt; ways2;
+    <span class="hljs-literal">bool</span> is_green;
+    <span class="hljs-literal">rgb</span> color_fire;
+    
+    <span class="hljs-keyword">action</span> initialize {
+        <span class="hljs-keyword">if</span> (is_traffic_signal) {
+            <span class="hljs-keyword">do</span> compute_crossing;
+            stop&lt;&lt; [];
+            <span class="hljs-keyword">if</span> (flip(0.5)) {
+                <span class="hljs-keyword">do</span> to_green;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">do</span> to_red;
+            }   
+        }
+    }
+    
+    <span class="hljs-keyword">action</span> compute_crossing{
+        <span class="hljs-keyword">if</span>  (length(roads_in) &gt;= 2) {
+            road rd0 &lt;- road(roads_in[0]);
+            <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; pts &lt;- rd0.shape.points;                        
+            <span class="hljs-literal">float</span> ref_angle &lt;-  <span class="hljs-literal">float</span>( last(pts) direction_to rd0.location);
+            <span class="hljs-keyword">loop</span> rd <span class="hljs-symbol">over:</span> roads_in {
+                <span class="hljs-literal">list</span>&lt;<span class="hljs-literal">point</span>&gt; pts2 &lt;- road(rd).shape.points;                      
+                <span class="hljs-literal">float</span> angle_dest &lt;-  <span class="hljs-literal">float</span>( last(pts2) direction_to rd.location);
+                <span class="hljs-literal">float</span> ang &lt;- abs(angle_dest - ref_angle);
+                <span class="hljs-keyword">if</span> (ang &gt; 45 and ang &lt; 135) or  (ang &gt; 225 and ang &lt; 315) {
+                    ways2&lt;&lt; road(rd);
+                }
+            }
+        }
+        <span class="hljs-keyword">loop</span> rd <span class="hljs-symbol">over:</span> roads_in {
+            <span class="hljs-keyword">if</span> not(rd in ways2) {
+                ways1 &lt;&lt; road(rd);
+            }
+        }
+    }
+    
+    <span class="hljs-keyword">action</span> to_green {
+        stop[0] &lt;- ways2 ;
+        color_fire &lt;- #green;
+        is_green &lt;- true;
+    }
+    
+    <span class="hljs-keyword">action</span> to_red {
+        stop[0] &lt;- ways1;
+        color_fire &lt;- #red;
+        is_green &lt;- false;
+    }
+    <span class="hljs-builtin">reflex</span> dynamic_node <span class="hljs-symbol">when:</span> is_traffic_signal  {
+        counter &lt;- counter + 1;
+        <span class="hljs-keyword">if</span> (counter &gt;= time_to_change) { 
+            counter &lt;- 0;
+            <span class="hljs-keyword">if</span> is_green {<span class="hljs-keyword">do</span> to_red;}
+            <span class="hljs-keyword">else</span> {<span class="hljs-keyword">do</span> to_green;}
+        } 
+    }
+    
+    <span class="hljs-keyword">aspect</span> base {
+        <span class="hljs-keyword">if</span> (is_traffic_signal) {    
+            <span class="hljs-keyword">draw</span> circle(5) <span class="hljs-symbol">color:</span> color_fire;
+        }
+    }
+    
+    <span class="hljs-keyword">aspect</span> base3D {
+        <span class="hljs-keyword">if</span> (is_traffic_signal) {    
+            <span class="hljs-keyword">draw</span> box(1,1,10) <span class="hljs-symbol">color:</span>#black;
+            <span class="hljs-keyword">draw</span> sphere(5) <span class="hljs-symbol">at:</span> {location.x,location.y,12} <span class="hljs-symbol">color:</span> color_fire;
+        }
+    }
+}
+
+
+<span class="hljs-comment">//species that will represent the roads, it can be directed or not and uses the skill skill_road</span>
+<span class="hljs-literal">species</span> road <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">skill_road</span>] { 
+    <span class="hljs-literal">geometry</span> geom_display;
+    <span class="hljs-literal">string</span> oneway;
+    <span class="hljs-keyword">aspect</span> base {    
+        <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #gray <span class="hljs-symbol">end_arrow:</span> 10;
+    } 
+    <span class="hljs-keyword">aspect</span> base3D {    
+        <span class="hljs-keyword">draw</span> geom_display <span class="hljs-symbol">color:</span> #gray ;
+    } 
+}
+
+<span class="hljs-comment">//People species that will move on the graph of roads to a target and using the skill advanced_driving</span>
+<span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span> [advanced_driving] { 
+    <span class="hljs-literal">rgb</span> color &lt;- <span class="hljs-literal">rgb</span>(rnd(255), rnd(255), rnd(255)) ;
+    <span class="hljs-literal">int</span> counter_stucked &lt;- 0;
+    <span class="hljs-literal">int</span> threshold_stucked;
+    <span class="hljs-literal">bool</span> breakdown &lt;- false;
+    <span class="hljs-literal">float</span> proba_breakdown ;
+    intersection target;
+    
+    <span class="hljs-builtin">reflex</span> breakdown <span class="hljs-symbol">when:</span> flip(proba_breakdown){
+        breakdown &lt;- true;
+        max_speed &lt;- 1 °km/°h;
+    }
+    
+    <span class="hljs-builtin">reflex</span> time_to_go <span class="hljs-symbol">when:</span> final_target = nil {
+        target &lt;- one_of(intersection where not each.is_traffic_signal);
+        current_path &lt;- compute_path(<span class="hljs-symbol">graph:</span> road_network, <span class="hljs-symbol">target:</span> target );
+        <span class="hljs-keyword">if</span> (current_path = nil ) {
+            final_target &lt;- nil;
+        }
+    }
+    <span class="hljs-builtin">reflex</span> move <span class="hljs-symbol">when:</span> current_path != nil and final_target != nil {
+        <span class="hljs-keyword">do</span> drive;
+        <span class="hljs-keyword">if</span> real_speed &lt; 5°km/°h {
+            counter_stucked&lt;- counter_stucked + 1;
+            <span class="hljs-keyword">if</span> (counter_stucked mod threshold_stucked = 0) {
+                proba_use_linked_road &lt;- min([1.0,proba_use_linked_road + 0.1]);
+            }
+        } <span class="hljs-keyword">else</span> {
+            counter_stucked&lt;- 0;
+            proba_use_linked_road &lt;- 0.0;
+        }
+    }
+
+    <span class="hljs-keyword">aspect</span> base { 
+        <span class="hljs-keyword">draw</span> breakdown ? square(15) : triangle(15) <span class="hljs-symbol">color:</span> color <span class="hljs-symbol">rotate:</span>heading + 90;
+    } 
+    <span class="hljs-keyword">aspect</span> base3D {
+        <span class="hljs-literal">point</span> loc &lt;- calcul_loc();
+        <span class="hljs-keyword">draw</span> box(vehicle_length, 1,1) <span class="hljs-symbol">at:</span> loc <span class="hljs-symbol">rotate:</span>  heading <span class="hljs-symbol">color:</span> color;
+        
+        <span class="hljs-keyword">draw</span> triangle(0.5) <span class="hljs-symbol">depth:</span> 1.5 <span class="hljs-symbol">at:</span> loc <span class="hljs-symbol">rotate:</span>  heading + 90 <span class="hljs-symbol">color:</span> color;
+        
+        <span class="hljs-keyword">if</span> (breakdown) {
+            <span class="hljs-keyword">draw</span> circle(2) <span class="hljs-symbol">at:</span> loc <span class="hljs-symbol">color:</span> #red;
+        }
+    } 
+    
+    <span class="hljs-literal">point</span> calcul_loc {
+        <span class="hljs-keyword">if</span> (current_road = nil) {
+            <span class="hljs-keyword">return</span> location;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-literal">float</span> val &lt;- (road(current_road).lanes - current_lane) + 0.5;
+            val &lt;- on_linked_road ? val * - 1 : val;
+            <span class="hljs-keyword">if</span> (val = 0) {
+                <span class="hljs-keyword">return</span> location; 
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> (location + {cos(heading + 90) * val, sin(heading + 90) * val});
+            }
+        }
+    }
+    
+} 
+
+<span class="hljs-builtin">experiment</span> experiment_2D <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"if true, simple data (simple track), if false complex one (Manhattan):"</span> <span class="hljs-symbol">var:</span> simple_data <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> city_display {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base ;
+            <span class="hljs-literal">species</span> intersection <span class="hljs-symbol">aspect:</span> base;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base;
+        }
+    }
+}
+
+<span class="hljs-builtin">experiment</span> experiment_3D <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">"if true, simple data (simple track), if false complex one (Manhattan):"</span> <span class="hljs-symbol">var:</span> simple_data <span class="hljs-symbol">category:</span> <span class="hljs-string">"GIS"</span> ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> carte_principale <span class="hljs-symbol">type:</span> opengl {
+            <span class="hljs-literal">species</span> road <span class="hljs-symbol">aspect:</span> base3D <span class="hljs-symbol">refresh:</span> true;
+            <span class="hljs-literal">species</span> intersection <span class="hljs-symbol">aspect:</span> base3D;
+            <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> base3D ; 
+        }
+    }
+}
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

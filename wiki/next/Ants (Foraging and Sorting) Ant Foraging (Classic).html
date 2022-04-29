@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Ant Foraging (Classic) · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (keyword|architecture_fsm)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Ant Foraging (Classic) · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (keyword|architecture_fsm)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Ant Foraging (Classic)</h1></header><article><div><span><p>_Author : _</p>
+<p>Toy Model ant using the question of how ants search food and use pheromons to return to their nest once they did find food. This model is considered as the classic one.</p>
+<p>Code of the model :</p>
+<pre><code class="hljs"><span class="hljs-builtin">model</span> ants
+
+global {
+    <span class="hljs-comment">//Number of ants</span>
+    <span class="hljs-literal">int</span> ants_number &lt;- 100 <span class="hljs-symbol">min:</span> 1 <span class="hljs-symbol">max:</span> 2000 ;
+    <span class="hljs-comment">//Evaporation value per cycle</span>
+    <span class="hljs-literal">float</span> evaporation_per_cycle &lt;- 5.0 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 240.0 ;
+    <span class="hljs-comment">//Diffusion rate for the pheromon diffused among the grid</span>
+    <span class="hljs-literal">float</span> diffusion_rate &lt;- 0.5 <span class="hljs-symbol">min:</span> 0.0 <span class="hljs-symbol">max:</span> 1.0 ;
+    <span class="hljs-literal">bool</span> use_icons &lt;- true ;
+    <span class="hljs-literal">bool</span> display_state &lt;- true;
+    <span class="hljs-comment">//Size of the grid</span>
+    <span class="hljs-literal">int</span> gridsize &lt;- 75 ;
+    <span class="hljs-comment">//Center of the grid that will be used as a nest for the ants</span>
+    <span class="hljs-literal">point</span> center <span class="hljs-symbol">const:</span> true &lt;- { (gridsize / 2),  (gridsize / 2)} ;
+    <span class="hljs-literal">file</span> types <span class="hljs-symbol">const:</span> true &lt;- (pgm_file(<span class="hljs-string">'../images/environment75x75.pgm'</span>)) ;
+    <span class="hljs-literal">string</span> ant_shape_empty <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-string">'../icons/ant.png'</span> ;
+    <span class="hljs-literal">string</span> ant_shape_full <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-string">'../icons/full_ant.png'</span>  ;
+    <span class="hljs-literal">rgb</span> C00CC00 <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'#00CC00'</span>) ;    
+    <span class="hljs-literal">rgb</span> C009900 <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'#009900'</span>) ; 
+    <span class="hljs-literal">rgb</span> C005500 <span class="hljs-symbol">const:</span> true &lt;- <span class="hljs-literal">rgb</span>(<span class="hljs-string">'#005500'</span>) ; 
+    <span class="hljs-literal">int</span> food_gathered &lt;- 0 ;    
+    <span class="hljs-literal">geometry</span> shape &lt;- square(gridsize);
+    init{  
+        <span class="hljs-comment">//Creation of the ants that will be placed randomly in the nest</span>
+        <span class="hljs-keyword">create</span> ant <span class="hljs-symbol">number:</span> ants_number <span class="hljs-symbol">with:</span> [location::any_location_in (ant_grid(center))] ;
+    }
+    <span class="hljs-comment">//Reflex to diffuse the pheromon among the grid</span>
+    <span class="hljs-builtin">reflex</span> <span class="hljs-keyword">diffuse</span> {
+      <span class="hljs-keyword">diffuse</span> <span class="hljs-symbol">var:</span>road <span class="hljs-symbol">on:</span>ant_grid <span class="hljs-symbol">proportion:</span> diffusion_rate <span class="hljs-symbol">radius:</span>2 <span class="hljs-symbol">propagation:</span> gradient;
+   }
+
+}
+
+<span class="hljs-comment">//Grid that will be used to place the food in a discretized space</span>
+grid ant_grid <span class="hljs-symbol">width:</span> gridsize <span class="hljs-symbol">height:</span> gridsize <span class="hljs-symbol">neighbors:</span> 8 <span class="hljs-symbol">use_regular_agents:</span> false {
+    <span class="hljs-literal">list</span>&lt;ant_grid&gt; neighbors &lt;- self neighbors_at 1;
+    <span class="hljs-literal">float</span> road &lt;- 0.0 <span class="hljs-symbol">max:</span>240.0 <span class="hljs-symbol">update:</span> (road&lt;=evaporation_per_cycle) ? 0.0 : road-evaporation_per_cycle;
+    <span class="hljs-literal">int</span> type &lt;- <span class="hljs-literal">int</span>(types at {grid_x,grid_y}) ;
+    <span class="hljs-literal">bool</span> isNestLocation &lt;- (self distance_to center) &lt; 4 ;
+    <span class="hljs-literal">bool</span> isFoodLocation &lt;- type = 2 ; 
+    <span class="hljs-literal">rgb</span> color &lt;- isNestLocation ? °<span class="hljs-symbol">sienna:</span>((food &gt; 0)? °brown : ((road &lt; 0.001)? #<span class="hljs-symbol">darkgoldenrod:</span> ((road &gt; 2)? °white : ((road &gt; 0.5)? (C00CC00) : ((road &gt; 0.2)? (C009900) : (C005500)))))) <span class="hljs-symbol">update:</span> isNestLocation ? °<span class="hljs-symbol">sienna:</span>((food &gt; 0)? °brown : ((road &lt; 0.001)?#darkgoldenrod : ((road &gt; 2)? °white : ((road &gt; 0.5)? (C00CC00) : ((road &gt; 0.2)? (C009900) : (C005500)))))) ;
+    <span class="hljs-literal">int</span> food &lt;- isFoodLocation ? 5 : 0 ;
+    <span class="hljs-literal">int</span> nest <span class="hljs-symbol">const:</span> true &lt;- 300 - <span class="hljs-literal">int</span>(self distance_to center) ;
+    
+}
+<span class="hljs-comment">//Species ant that will move and follow a final state machine</span>
+<span class="hljs-literal">species</span> ant <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving</span>] <span class="hljs-symbol">control:</span> <span class="hljs-builtin">fsm</span> {
+    <span class="hljs-literal">float</span> speed &lt;- 2.0 ;
+    ant_grid place <span class="hljs-symbol">update:</span> ant_grid (location ); 
+    <span class="hljs-literal">string</span> im &lt;- <span class="hljs-string">'ant_shape_empty'</span> ;
+    <span class="hljs-literal">bool</span> hasFood &lt;- false ;
+    <span class="hljs-comment">//Reflex to allow the diffusion of the road of pheromon by putting pheromon inside a cell</span>
+    <span class="hljs-builtin">reflex</span> diffuse_road <span class="hljs-symbol">when:</span>hasFood=true{
+      ant_grid(location).road &lt;- ant_grid(location).road + 100.0;
+   }
+   <span class="hljs-comment">//Action to pick the food</span>
+    <span class="hljs-keyword">action</span> pick {
+        im &lt;- ant_shape_full ;
+        hasFood &lt;- true ;
+        place.food &lt;- place.food - 1 ;
+    }
+    <span class="hljs-comment">//Action to drop the food</span>
+    <span class="hljs-keyword">action</span> drop {
+        food_gathered &lt;- food_gathered + 1 ;  
+        hasFood &lt;- false ;
+        heading &lt;- heading - 180 ;
+    }
+    <span class="hljs-comment">//Action to find the best cell in the neighborhood of the ant</span>
+    <span class="hljs-keyword">action</span> choose_best_place <span class="hljs-symbol">type:</span> ant_grid {  
+        <span class="hljs-literal">list</span>&lt;ant_grid&gt; list_places &lt;- place.neighbors ;
+        <span class="hljs-keyword">if</span> (list_places count (each.food &gt; 0)) &gt; 0  { 
+            <span class="hljs-keyword">return</span> (list_places first_with (each.food &gt; 0)) ;
+        } <span class="hljs-keyword">else</span> {
+                <span class="hljs-literal">int</span> min_nest  &lt;-  (list_places min_of (each.nest)) ;
+                list_places &lt;- list_places sort ((each.nest = min_nest) ? each.road :  0.0) ;
+                <span class="hljs-keyword">return</span> last(list_places) ;
+            }
+    } 
+    <span class="hljs-comment">//initial state of the ant that will make it wander until it finds food or a road</span>
+    <span class="hljs-keyword">state</span> wandering <span class="hljs-symbol">initial:</span> true { 
+        <span class="hljs-keyword">do</span> wander <span class="hljs-symbol">amplitude:</span>120 ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> carryingFood <span class="hljs-symbol">when:</span> place.food &gt; 0 {
+            
+             
+            <span class="hljs-keyword">do</span> pick ;
+        }
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> followingRoad <span class="hljs-symbol">when:</span> place.road &gt; 0.05 ; 
+    }
+    <span class="hljs-comment">//State to carry food to the nest once it has been found</span>
+    <span class="hljs-keyword">state</span> carryingFood {
+        <span class="hljs-keyword">do</span> goto <span class="hljs-symbol">target:</span> center ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> wandering <span class="hljs-symbol">when:</span> place.isNestLocation { 
+            <span class="hljs-keyword">do</span> drop ;
+        }
+    }
+    <span class="hljs-comment">//State to follow a pheromon road once it has been found</span>
+    <span class="hljs-keyword">state</span> followingRoad {
+        location &lt;- (self choose_best_place()) as <span class="hljs-literal">point</span> ;
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> carryingFood <span class="hljs-symbol">when:</span> place.food &gt; 0 {
+            <span class="hljs-keyword">do</span> pick ;
+        }
+        <span class="hljs-keyword">transition</span> <span class="hljs-symbol">to:</span> wandering <span class="hljs-symbol">when:</span> (place.road &lt; 0.05) ;
+    }
+    <span class="hljs-keyword">aspect</span> text {
+        <span class="hljs-keyword">if</span> use_icons {
+            <span class="hljs-keyword">draw</span>  hasFood ? <span class="hljs-literal">file</span>(ant_shape_full) : <span class="hljs-literal">file</span>(ant_shape_empty) <span class="hljs-symbol">rotate:</span> heading <span class="hljs-symbol">at:</span> location <span class="hljs-symbol">size:</span> {8,5} ;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">draw</span> circle(1.0) <span class="hljs-symbol">empty:</span> !hasFood <span class="hljs-symbol">color:</span> <span class="hljs-literal">rgb</span> (<span class="hljs-string">'orange'</span>) ;
+        }
+        <span class="hljs-keyword">if</span> display_state {
+            <span class="hljs-keyword">draw</span> <span class="hljs-keyword">state</span> <span class="hljs-symbol">at:</span> location + {-3,1.5} <span class="hljs-symbol">color:</span> °white <span class="hljs-symbol">font:</span> font(<span class="hljs-string">"Helvetica"</span>, 14 * #zoom, #plain) <span class="hljs-symbol">perspective:</span>true;
+        }
+    } 
+    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
+        <span class="hljs-keyword">draw</span> circle(1.0) <span class="hljs-symbol">empty:</span> !hasFood <span class="hljs-symbol">color:</span> #orange ; 
+    }           
+}
+
+<span class="hljs-builtin">experiment</span> Ant <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Number of ants:'</span> <span class="hljs-symbol">var:</span> ants_number <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Evaporation of the signal (unit/cycle):'</span> <span class="hljs-symbol">var:</span> evaporation_per_cycle <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Rate of diffusion of the signal (%/cycle):'</span> <span class="hljs-symbol">var:</span> diffusion_rate <span class="hljs-symbol">category:</span> <span class="hljs-string">'Model'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Use icons for the agents:'</span> <span class="hljs-symbol">var:</span> use_icons <span class="hljs-symbol">category:</span> <span class="hljs-string">'Display'</span> ;
+    <span class="hljs-keyword">parameter</span> <span class="hljs-string">'Display state of agents:'</span> <span class="hljs-symbol">var:</span> display_state <span class="hljs-symbol">category:</span> <span class="hljs-string">'Display'</span> ;
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> Ants <span class="hljs-symbol">type:</span> opengl  {
+            grid ant_grid ;
+            <span class="hljs-literal">species</span> ant <span class="hljs-symbol">aspect:</span> text ;
+        }
+    }
+}
+
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

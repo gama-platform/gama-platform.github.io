@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Predefined equestions · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (keyword|operator_diff)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Predefined equestions · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (keyword|operator_diff)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Predefined equestions</h1></header><article><div><span><p><em>Author : Benoit Gaudou</em></p>
+<p>Presentation of all the predefined equation systems.Comparaison with hand-written systems to test them.</p>
+<p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations Built-In Equations/diff-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p><p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations Built-In Equations/LV-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p><p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations Built-In Equations/SEIR-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p><p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations Built-In Equations/SI-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p><p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations Built-In Equations/SIR-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p><p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations Built-In Equations/SIRS-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p><p><img src="gm_wiki/resources/images/modelLibraryScreenshots/Additionnal Plugins/Ordinary Differential Equations/Ordinary Differential Equations Built-In Equations/SISs-10.png" alt="Eclipse folder." title class="img-responsive"> == $0</p>Code of the model : 
+<pre><code class="hljs"><span class="hljs-builtin">model</span> all_predefined_equations
+
+global {
+    <span class="hljs-literal">float</span> mu &lt;- 0.02;
+    <span class="hljs-literal">float</span> alpha &lt;- 35.842;
+    <span class="hljs-literal">float</span> gamma &lt;- 100.0;
+    <span class="hljs-literal">float</span> beta0 &lt;- 1884.95;
+    <span class="hljs-literal">float</span> beta1 &lt;- 0.255;
+    <span class="hljs-literal">float</span> hKR4 &lt;- 0.01;
+    
+    init {
+        <span class="hljs-keyword">create</span> preSI  <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];
+        <span class="hljs-keyword">create</span> userSI <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];
+
+        <span class="hljs-keyword">create</span> preSIS  <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];
+        <span class="hljs-keyword">create</span> userSIS <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];
+                
+        <span class="hljs-keyword">create</span> preSIR  <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];
+        <span class="hljs-keyword">create</span> userSIR <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];
+        
+        <span class="hljs-keyword">create</span> preSIRS  <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];
+        <span class="hljs-keyword">create</span> userSIRS <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];   
+        
+        <span class="hljs-keyword">create</span> preSEIR  <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];
+        <span class="hljs-keyword">create</span> userSEIR <span class="hljs-symbol">with:</span> [h::0.1,N::500,I::1.0];       
+        
+        <span class="hljs-keyword">create</span> preLV  <span class="hljs-symbol">with:</span> [h::0.1,x::2.0,y::2.0];
+        <span class="hljs-keyword">create</span> userLV <span class="hljs-symbol">with:</span> [h::0.1,x::2.0,y::2.0];         
+    }
+}
+
+
+<span class="hljs-literal">species</span> preSI {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> S &lt;- N - I; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+
+    <span class="hljs-comment">// must be followed with exact order S, I, t  and N,beta</span>
+    <span class="hljs-keyword">equation</span> eqSI <span class="hljs-symbol">type:</span> SI <span class="hljs-symbol">vars:</span> [S,I,t] <span class="hljs-symbol">params:</span> [N,beta] ;
+    <span class="hljs-comment">/*reflex solving {
+        list i_list;
+        //solve eqSI method: "dp853" step: 0.01 cycle_length: 100 min_step: 1 max_step: 1 scalAbsoluteTolerance: 1 scalRelativeTolerance: 1 integrated_times: i_list ;
+        //solve eqSI method:rk4 step:h;
+    }*/</span>
+    
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-literal">list</span> i_list;
+        <span class="hljs-literal">list</span> v_list ;
+        <span class="hljs-keyword">solve</span> eqSI <span class="hljs-symbol">method:</span> <span class="hljs-string">"rk4"</span> <span class="hljs-symbol">step:</span> h ;<span class="hljs-comment">//cycle_length: 1/h integrated_times: i_list integrated_values: v_list;</span>
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"i_list: "</span> + i_list;
+        <span class="hljs-keyword">write</span> <span class="hljs-string">"v_list:"</span> + v_list;
+    }
+}
+
+<span class="hljs-literal">species</span> userSI {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> S &lt;- N - I; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+    
+    <span class="hljs-keyword">equation</span> eqSI {
+        diff(S,t) = -beta * S * I / N ;
+        diff(I,t) = beta * S * I / N ;
+    }       
+    <span class="hljs-builtin">reflex</span> solving{<span class="hljs-keyword">solve</span> eqSI <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;}
+    
+}
+
+
+<span class="hljs-literal">species</span> preSIS {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> S &lt;- N - I; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+    <span class="hljs-literal">float</span> gamma&lt;-0.01;          
+
+    <span class="hljs-comment">// must be followed with exact order S, I, t  and N,beta</span>
+    <span class="hljs-keyword">equation</span> eqSIS <span class="hljs-symbol">type:</span> SIS <span class="hljs-symbol">vars:</span> [S,I,t] <span class="hljs-symbol">params:</span> [N,beta,gamma] ;
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> eqSIS <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+<span class="hljs-literal">species</span> userSIS {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> S &lt;- N - I; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+    <span class="hljs-literal">float</span> gamma&lt;-0.01;          
+    
+    <span class="hljs-keyword">equation</span> eqSIS {
+        diff(S,t) = -beta * S * I / N + gamma * I;
+        diff(I,t) = beta * S * I / N - gamma * I;
+    }       
+    <span class="hljs-builtin">reflex</span> solving {    
+        <span class="hljs-keyword">solve</span> eqSIS <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+
+<span class="hljs-literal">species</span> preSIR {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> S &lt;- N - I; 
+    <span class="hljs-literal">float</span> R &lt;- 0.0; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+    <span class="hljs-literal">float</span> gamma&lt;-0.01; 
+
+    <span class="hljs-comment">// must be followed with exact order S, I, R, t  and N,beta,delta</span>
+    <span class="hljs-keyword">equation</span> eqSIR <span class="hljs-symbol">type:</span>SIR <span class="hljs-symbol">vars:</span>[S,I,R,t] <span class="hljs-symbol">params:</span>[N,beta,gamma] ;
+    <span class="hljs-builtin">reflex</span> solving {    
+        <span class="hljs-keyword">solve</span> eqSIR <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+<span class="hljs-literal">species</span> userSIR{
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> S &lt;- N - I; 
+    <span class="hljs-literal">float</span> R &lt;- 0.0; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+    <span class="hljs-literal">float</span> gamma&lt;-0.01;              
+    
+    <span class="hljs-keyword">equation</span> eqSIR {
+        diff(S,t) = (- beta * S * I / N);
+        diff(I,t) = (beta * S * I / N) - (gamma * I);
+        diff(R,t) = (gamma * I);
+    }       
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> eqSIR <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+
+<span class="hljs-literal">species</span> preSIRS {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> S &lt;- N - I; 
+    <span class="hljs-literal">float</span> R &lt;- 0.0; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+    <span class="hljs-literal">float</span> gamma&lt;-0.01; 
+    <span class="hljs-literal">float</span> omega &lt;- 0.05;
+    <span class="hljs-literal">float</span> mu &lt;- 0.01;
+
+    <span class="hljs-comment">// must be followed with exact order S, I, R, t  and N,beta,delta</span>
+    <span class="hljs-keyword">equation</span> eqSIRS <span class="hljs-symbol">type:</span> SIRS <span class="hljs-symbol">vars:</span> [S,I,R,t] <span class="hljs-symbol">params:</span> [N,beta,gamma,omega,mu] ;
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> eqSIRS <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+<span class="hljs-literal">species</span> userSIRS {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> S &lt;- N - I; 
+    <span class="hljs-literal">float</span> R &lt;- 0.0; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+    <span class="hljs-literal">float</span> gamma&lt;-0.01;  
+    <span class="hljs-literal">float</span> omega &lt;- 0.05;
+    <span class="hljs-literal">float</span> mu &lt;- 0.01;                       
+    
+    <span class="hljs-keyword">equation</span> eqSIRS {
+         diff(S,t) = mu * N + omega * R + - beta * S * I / N - mu * S ;
+         diff(I,t) = beta * S * I / N - gamma * I - mu * I ;
+         diff(R,t) = gamma * I - omega * R - mu * R ;
+    }       
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> eqSIRS <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+
+<span class="hljs-literal">species</span> preSEIR {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> S &lt;- N - I;       
+    <span class="hljs-literal">float</span> E &lt;- 0.0;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> R &lt;- 0.0; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+    <span class="hljs-literal">float</span> gamma&lt;-0.01; 
+    <span class="hljs-literal">float</span> sigma &lt;- 0.05;
+    <span class="hljs-literal">float</span> mu &lt;- 0.01;
+
+    <span class="hljs-comment">// must be followed with exact order S, E, I, R, t  and N,beta,gamma,sigma,mu</span>
+    <span class="hljs-keyword">equation</span> eqSEIR <span class="hljs-symbol">type:</span> SEIR <span class="hljs-symbol">vars:</span> [S,E,I,R,t] <span class="hljs-symbol">params:</span> [N,beta,gamma,sigma,mu] ;
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> eqSEIR <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+<span class="hljs-literal">species</span> userSEIR {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">int</span> N;
+    <span class="hljs-literal">float</span> S &lt;- N - I;       
+    <span class="hljs-literal">float</span> E &lt;- 0.0;
+    <span class="hljs-literal">float</span> I ; 
+    <span class="hljs-literal">float</span> R &lt;- 0.0; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> beta&lt;-0.4;
+    <span class="hljs-literal">float</span> gamma&lt;-0.01;  
+    <span class="hljs-literal">float</span> sigma &lt;- 0.05;
+    <span class="hljs-literal">float</span> mu &lt;- 0.01;                       
+    
+    <span class="hljs-keyword">equation</span> eqSEIR {
+        diff(S,t) = mu * N - beta * S * I / N - mu * S ;
+        diff(E,t) = beta * S * I / N - mu * E - sigma * E ;
+        diff(I,t) = sigma * E - mu * I - gamma * I;
+        diff(R,t) = gamma * I - mu * R ;
+    }       
+    <span class="hljs-builtin">reflex</span> solving {
+    <span class="hljs-keyword">solve</span> eqSEIR <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+
+<span class="hljs-literal">species</span> preLV {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">float</span> x ; 
+    <span class="hljs-literal">float</span> y ; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> alpha &lt;- 0.8 ;
+    <span class="hljs-literal">float</span> beta  &lt;- 0.3 ;
+    <span class="hljs-literal">float</span> gamma &lt;- 0.2 ;
+    <span class="hljs-literal">float</span> delta &lt;- 0.85;
+
+    <span class="hljs-comment">// must be followed with exact order x, y, t  and  alpha,beta,delta,gamma</span>
+    <span class="hljs-keyword">equation</span> eqLV <span class="hljs-symbol">type:</span> LV <span class="hljs-symbol">vars:</span> [x,y,t] <span class="hljs-symbol">params:</span> [alpha,beta,delta,gamma] ;
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> eqLV <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+<span class="hljs-literal">species</span> userLV {
+    <span class="hljs-literal">float</span> t;
+    <span class="hljs-literal">float</span> x ; 
+    <span class="hljs-literal">float</span> y ; 
+    <span class="hljs-literal">float</span> h;
+    <span class="hljs-literal">float</span> alpha &lt;- 0.8 ;
+    <span class="hljs-literal">float</span> beta  &lt;- 0.3 ;
+    <span class="hljs-literal">float</span> gamma &lt;- 0.2 ;
+    <span class="hljs-literal">float</span> delta &lt;- 0.85;
+    
+    <span class="hljs-keyword">equation</span> eqLV { 
+        diff(x,t) =   x * (alpha - beta * y);
+        diff(y,t) = - y * (delta - gamma * x);
+    }       
+    <span class="hljs-builtin">reflex</span> solving {
+        <span class="hljs-keyword">solve</span> eqLV <span class="hljs-symbol">method:</span>rk4 <span class="hljs-symbol">step:</span>h;
+    }
+}
+
+
+
+<span class="hljs-builtin">experiment</span> examples <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {        
+        <span class="hljs-keyword">display</span> SI  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplePreSI'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(preSI).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(preSI).I <span class="hljs-symbol">color:</span> #red;
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplesUserSI'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0.5} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(userSI).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(userSI).I <span class="hljs-symbol">color:</span> #red;
+            }
+        }
+
+        <span class="hljs-keyword">display</span> SISs  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplePreSIS'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(preSIS).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(preSIS).I <span class="hljs-symbol">color:</span> #red;
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplesUserSIS'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0.5} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(userSIS).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(userSIS).I <span class="hljs-symbol">color:</span> #red;
+            }           
+        }
+        
+        <span class="hljs-keyword">display</span> SIR  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplePreSIR'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(preSIR).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(preSIR).I <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"R"</span> <span class="hljs-symbol">value:</span> first(preSIR).R <span class="hljs-symbol">color:</span> #blue;
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplesUserSIR'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0.5} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(userSIR).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(userSIR).I <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"R"</span> <span class="hljs-symbol">value:</span> first(userSIR).R <span class="hljs-symbol">color:</span> #blue;
+            }           
+        }
+
+        <span class="hljs-keyword">display</span> SIRS  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplePreSIRS'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(preSIRS).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(preSIRS).I <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"R"</span> <span class="hljs-symbol">value:</span> first(preSIRS).R <span class="hljs-symbol">color:</span> #blue;
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplesUserSIRS'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0.5} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(userSIRS).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(userSIRS).I <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"R"</span> <span class="hljs-symbol">value:</span> first(userSIRS).R <span class="hljs-symbol">color:</span> #blue;
+            }           
+        }
+
+        <span class="hljs-keyword">display</span> SEIR  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplePreSEIR'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(preSEIR).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"E"</span> <span class="hljs-symbol">value:</span> first(preSEIR).E <span class="hljs-symbol">color:</span> #yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(preSEIR).I <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"R"</span> <span class="hljs-symbol">value:</span> first(preSEIR).R <span class="hljs-symbol">color:</span> #blue;
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplesUserSEIR'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0.5} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"S"</span> <span class="hljs-symbol">value:</span> first(userSEIR).S <span class="hljs-symbol">color:</span> #green;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"E"</span> <span class="hljs-symbol">value:</span> first(userSEIR).E <span class="hljs-symbol">color:</span> #yellow;               
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"I"</span> <span class="hljs-symbol">value:</span> first(userSEIR).I <span class="hljs-symbol">color:</span> #red;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"R"</span> <span class="hljs-symbol">value:</span> first(userSEIR).R <span class="hljs-symbol">color:</span> #blue;
+            }
+        }
+
+        <span class="hljs-keyword">display</span> LV  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplePreLV'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"x"</span> <span class="hljs-symbol">value:</span> first(preLV).x <span class="hljs-symbol">color:</span> #yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"y"</span> <span class="hljs-symbol">value:</span> first(preLV).y <span class="hljs-symbol">color:</span> #blue;
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'examplesUserLV'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0.5} <span class="hljs-symbol">size:</span>{1,0.5} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"x"</span> <span class="hljs-symbol">value:</span> first(userLV).x <span class="hljs-symbol">color:</span> #yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"y"</span> <span class="hljs-symbol">value:</span> first(userLV).y <span class="hljs-symbol">color:</span> #blue;
+            }           
+        }                       
+    }
+}
+
+<span class="hljs-builtin">experiment</span> diff_predefined_defined_by_user <span class="hljs-symbol">type:</span> gui {
+    <span class="hljs-keyword">output</span> {
+        <span class="hljs-keyword">display</span> diff  {
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'diffSI'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray  <span class="hljs-symbol">position:</span> {0,0} <span class="hljs-symbol">size:</span>{0.5, 0.33} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dS"</span> <span class="hljs-symbol">value:</span> (first(userSI).S - first(preSI).S) <span class="hljs-symbol">color:</span> #yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dI"</span> <span class="hljs-symbol">value:</span> (first(userSI).I - first(preSI).I) <span class="hljs-symbol">color:</span> #blue;
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'diffSIS'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0.5,0} <span class="hljs-symbol">size:</span>{0.5, 0.33} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dS"</span> <span class="hljs-symbol">value:</span> (first(userSIS).S - first(preSIS).S) <span class="hljs-symbol">color:</span> #yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dI"</span> <span class="hljs-symbol">value:</span> (first(userSIS).I - first(preSIS).I) <span class="hljs-symbol">color:</span> #blue;
+            }
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'diffSIR'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0.33} <span class="hljs-symbol">size:</span>{0.5, 0.33} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dS"</span> <span class="hljs-symbol">value:</span> (first(userSIR).S - first(preSIR).S) <span class="hljs-symbol">color:</span> #yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dI"</span> <span class="hljs-symbol">value:</span> (first(userSIR).I - first(preSIR).I) <span class="hljs-symbol">color:</span> #blue;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dR"</span> <span class="hljs-symbol">value:</span> (first(userSIR).R - first(preSIR).R) <span class="hljs-symbol">color:</span> #red;
+            }       
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'diffSIRS'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0.5,0.33} <span class="hljs-symbol">size:</span>{0.5, 0.33} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dS"</span> <span class="hljs-symbol">value:</span> (first(userSIRS).S - first(preSIRS).S) <span class="hljs-symbol">color:</span> #yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dI"</span> <span class="hljs-symbol">value:</span> (first(userSIRS).I - first(preSIRS).I) <span class="hljs-symbol">color:</span> #blue;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dR"</span> <span class="hljs-symbol">value:</span> (first(userSIRS).R - first(preSIRS).R) <span class="hljs-symbol">color:</span> #red;
+            }   
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'diffSEIR'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0,0.66} <span class="hljs-symbol">size:</span>{0.5, 0.33} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dS"</span> <span class="hljs-symbol">value:</span> (first(userSEIR).S - first(preSEIR).S) <span class="hljs-symbol">color:</span> #yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dE"</span> <span class="hljs-symbol">value:</span> (first(userSEIR).E - first(preSEIR).E) <span class="hljs-symbol">color:</span> #yellow;             
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dI"</span> <span class="hljs-symbol">value:</span> (first(userSEIR).I - first(preSEIR).I) <span class="hljs-symbol">color:</span> #blue;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dR"</span> <span class="hljs-symbol">value:</span> (first(userSEIR).R - first(preSEIR).R) <span class="hljs-symbol">color:</span> #red;
+            }   
+            <span class="hljs-keyword">chart</span> <span class="hljs-string">'diffLV'</span> <span class="hljs-symbol">type:</span> series <span class="hljs-symbol">background:</span> #lightgray <span class="hljs-symbol">position:</span> {0.5,0.66} <span class="hljs-symbol">size:</span>{0.5, 0.33} {
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dx"</span> <span class="hljs-symbol">value:</span> (first(userLV).x - first(preLV).x) <span class="hljs-symbol">color:</span> #yellow;
+                <span class="hljs-keyword">data</span> <span class="hljs-string">"dy"</span> <span class="hljs-symbol">value:</span> (first(userLV).y - first(preLV).y) <span class="hljs-symbol">color:</span> #red;                
+            }                   
+        }   
+    }
+}
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'undefined',
+                indexName: 'undefined',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
