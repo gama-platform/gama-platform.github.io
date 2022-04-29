@@ -38,12 +38,12 @@ function Versions(props) {
                   <a
                     href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
                       props.language ? props.language + '/' : ''
-                    }doc1`}>
+                    }Home`}>
                     Documentation
                   </a>
                 </td>
                 <td>
-                  <a href="">Release Notes</a>
+                  <a href={`https://github.com/gama-platform/gama/releases/tag/${latestVersion}`}>Release Notes</a>
                 </td>
               </tr>
             </tbody>
@@ -56,19 +56,19 @@ function Versions(props) {
           <table className="versions">
             <tbody>
               <tr>
-                <th>master</th>
+                <th>next</th>
                 <td>
                   {/* You are supposed to change this href where appropriate
                         Example: href="<baseUrl>/docs(/:language)/next/:id" */}
                   <a
                     href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
                       props.language ? props.language + '/' : ''
-                    }next/doc1`}>
+                    }next/Home`}>
                     Documentation
                   </a>
                 </td>
                 <td>
-                  <a href={repoUrl}>Source Code</a>
+                  <a href="https://github.com/gama-platform/gama">Source Code</a>
                 </td>
               </tr>
             </tbody>
@@ -89,12 +89,12 @@ function Versions(props) {
                         <a
                           href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
                             props.language ? props.language + '/' : ''
-                          }${version}/doc1`}>
+                          }${version}/Home`}>
                           Documentation
                         </a>
                       </td>
                       <td>
-                        <a href={`${repoUrl}/releases/tag/v${version}`}>
+                        <a href={`https://github.com/gama-platform/gama/releases/tag/${latestVersion}`}>
                           Release Notes
                         </a>
                       </td>
