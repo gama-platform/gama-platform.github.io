@@ -76,3 +76,5 @@ website/i18n
 website/i18n/*
 .travis.yml
 website/static/database/index.json
+
+*.bak
