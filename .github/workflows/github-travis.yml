@@ -47,7 +47,10 @@ jobs:
         shell: sh
         run: |
           $GITHUB_WORKSPACE/script/link_fixer.sh
-          sed -i '/^$/d' $GITHUB_WORKSPACE/docs/_Sidebar.md # Remove blank line
+          # Remove blank line
+          sed -i '/^$/d' $GITHUB_WORKSPACE/docs/_Sidebar.md
+          # Fix path for "next" version
+          find $GITHUB_WORKSPACE/docs -name "*.md" -exec sed -i "s/\](resources/\](\/resources/g" {} \;
 
       - name: Generate Sidebar 
         run: |
