@@ -14,5 +14,5 @@
 #!/bin/sh
 
 for f in ./docs/*.md ; do
-	sed -r -i "s/\]\(resources/\]\(..\/resources/g" "$f"
+	sed -r -i "s/\]\(resources/\]\(\/resources/g" "$f"
 done
