@@ -49,12 +49,34 @@ or you can choose to cite the website instead:
 A complete list of references (papers and PhD theses on or using GAMA) is available on the [references](References) page.
 
 ---
+
 # Can we record a video from an experiment ?
 
 No, we cannot directly. But you have two alternatives:
 
 - With the set of images generated with the \`autosave\` facet of an experiment, you can construct your own video file using powerful software such as [ffmpeg](https://www.ffmpeg.org/).
 - You can directly record the video stream using software such as [VLC Media Player](http://www.videolan.org/vlc/index.html) or [QuickTime](http://www.apple.com/quicktime/download/).
+
+---
+
+# Agent movement
+
+This sub-section is composed of the following models :
+
+* [ Movement of an agent on different paths](Agent-movement-Follow-Path)
+
+* [ Follow Weighted Network](Agent-movement-Follow-Weighted-Network-(Agents))
+
+* [ Directed Graph Model](Agent-movement-Goto-Directed-Graph)
+
+* [ Movement on a Grid of Cells](Agent-movement-Goto-Grid)
+
+* [ Shortest Path Computation on a Graph](Agent-movement-Goto-Network)
+
+* [ Movement on a Graph created by Polygons](Agent-movement-Goto-Polygon)
+
+* [ Movement in 3D](Agent-movement-Moving3D)
+
 ---
 
 
