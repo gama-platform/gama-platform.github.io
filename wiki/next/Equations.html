@@ -67,9 +67,9 @@
 <p>This approach makes a lot of strong hypotheses. The model does not take into account space. The population is considered as infinite and homogeneously mixed so that any agent can interact with any other one.</p>
 <h2><a class="anchor" aria-hidden="true" id="example-of-a-sir-model"></a><a href="#example-of-a-sir-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example of a SIR model</h2>
 <p>In the SIR model, the population is split into 3 compartments: S (Susceptible), I (Infected), R (Recovered). This can be represented by the following Forrester diagram: boxes represent stocks (i.e. compartments) and arrows are flows. Arrows hold the rate of a compartment population flowing to another compartment.</p>
-<p><img src="../resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR compartment representation."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR compartment representation."></p>
 <p>The corresponding ODE system contains one equation per stock. For example, the I compartment evolution is influenced by an inner (so positive) flow from the S compartment and an outer (so negative) flow to the R compartment.</p>
-<p><img src="../resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR equation system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR equation system."></p>
 <p>Integrating this system using the Runge-Kutta 4 method provides the evolution of S, I and R over time. The initial values are:</p>
 <ul>
 <li>S = 499</li>
@@ -79,7 +79,7 @@
 <li>gamma = 0.1</li>
 <li>h = 0.1</li>
 </ul>
-<p><img src="../resources/images/multiParadigmModeling/SIR-result.png" alt="Plot of SIR system integration."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIR-result.png" alt="Plot of SIR system integration."></p>
 <h2><a class="anchor" aria-hidden="true" id="why-and-when-can-we-use-ode-in-agent-based-models"></a><a href="#why-and-when-can-we-use-ode-in-agent-based-models" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why and when can we use ODE in agent-based models?</h2>
 <p>These hypotheses are very strong and cannot be fulfilled in agent-based models.</p>
 <p>But in some multi-scale models, some entities can be close. For example, if we want to implement a model describing the worldwide epidemic spread and the impact of air traffic on it, we cannot simulate the 7 billion people. But we can represent only cities with airports and airplanes as agents. In this case, cities are entities with a population of millions of inhabitants, that will not be spatially located. As we are only interested in the disease spread, we are only interested in the number of infected people in the cities (and susceptibles and recovered too). As a consequence, it appears particularly relevant to describe the evolution of the disease in the city using an ODE system.</p>
@@ -177,7 +177,7 @@
 <li>gbeta = 0.3</li>
 <li>hKR4 = 0.1</li>
 </ul>
-<p><img src="../resources/images/multiParadigmModeling/SI-split-results.png" alt="SI-split-results.png"></p>
+<p><img src="/resources/images/multiParadigmModeling/SI-split-results.png" alt="SI-split-results.png"></p>
 <h2><a class="anchor" aria-hidden="true" id="solve-an-equation"></a><a href="#solve-an-equation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>solve</code> an equation</h2>
 <p>The <code>solve</code> statement has been added in order to integrate numerically the equation system. It should be executed into a <code>reflex</code>. At each simulation step, a step of the integration is executed, the length of the integration step is defined in the <code>step_size</code> facet. The <code>solve</code> statement will update the variables used in the equation system. The integration method (defined in <code>method</code>) can be chosen among the ones provided, e.g. Runge-Kutta 4 (which is very often a good choice of integration method in terms of accuracy).</p>
 <pre><code class="hljs"><span class="hljs-builtin">reflex</span> solving {
@@ -277,7 +277,7 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
     <span class="hljs-keyword">solve</span> eqSIR <span class="hljs-symbol">method:</span> #rk4 <span class="hljs-symbol">step_size:</span> 0.01 ;
 }
 </code></pre>
-<p><img src="../resources/images/multiParadigmModeling/SIR-results-step-influence.png" alt="Impact of the `step` of the simulation on an ODE integration."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIR-results-step-influence.png" alt="Impact of the `step` of the simulation on an ODE integration."></p>
 <h3><a class="anchor" aria-hidden="true" id="list-of-built-in-ode-systems"></a><a href="#list-of-built-in-ode-systems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>List of built-in ODE systems</h3>
 <p>Several built-in equations have been defined.</p>
 <h4><a class="anchor" aria-hidden="true" id="si"></a><a href="#si" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SI</h4>
@@ -290,8 +290,8 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
    diff(I,t) = beta * S * I / N ;
 }
 </code></pre>
-<p><img src="../resources/images/multiParadigmModeling/SI-compartment.png" alt="SI compartiment representation."></p>
-<p><img src="../resources/images/multiParadigmModeling/SI-equations.png" alt="SI equations system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SI-compartment.png" alt="SI compartiment representation."></p>
+<p><img src="/resources/images/multiParadigmModeling/SI-equations.png" alt="SI equations system."></p>
 <p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
 <ul>
 <li>S = 499</li>
@@ -299,7 +299,7 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
 <li>beta = 0.4</li>
 <li>h = 0.1</li>
 </ul>
-<p><img src="../resources/images/multiParadigmModeling/SI-result.png" alt="Result of the integration of the SI system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SI-result.png" alt="Result of the integration of the SI system."></p>
 <h4><a class="anchor" aria-hidden="true" id="sis"></a><a href="#sis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SIS</h4>
 <p>The system:</p>
 <pre><code class="hljs"><span class="hljs-keyword">equation</span> eqSIS <span class="hljs-symbol">type:</span> SIS <span class="hljs-symbol">vars:</span> [S,I,t] <span class="hljs-symbol">params:</span> [N,beta,gamma];
@@ -310,8 +310,8 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
     diff(I,t) = beta * S * I / N - gamma * I;
 }
 </code></pre>
-<p><img src="../resources/images/multiParadigmModeling//SIS-compartment.png" alt="SIS compartment representation."></p>
-<p><img src="../resources/images/multiParadigmModeling/SIS-equations.png" alt="SIS equations system."></p>
+<p><img src="/resources/images/multiParadigmModeling//SIS-compartment.png" alt="SIS compartment representation."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIS-equations.png" alt="SIS equations system."></p>
 <p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
 <ul>
 <li>S = 499</li>
@@ -320,7 +320,7 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
 <li>gamma = 0.1</li>
 <li>h = 0.1</li>
 </ul>
-<p><img src="../resources/images/multiParadigmModeling/SIS-result.png" alt="Result of the integration of the SIS system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIS-result.png" alt="Result of the integration of the SIS system."></p>
 <h4><a class="anchor" aria-hidden="true" id="sir"></a><a href="#sir" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SIR</h4>
 <p>The system:</p>
 <pre><code class="hljs"><span class="hljs-keyword">equation</span> eqSIR <span class="hljs-symbol">type:</span>SIR <span class="hljs-symbol">vars:</span>[S,I,R,t] <span class="hljs-symbol">params:</span>[N,beta,gamma] ;
@@ -332,8 +332,8 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
     diff(R,t) = (gamma * I);
 }
 </code></pre>
-<p><img src="../resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR compartment representation."></p>
-<p><img src="../resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR equations system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIR-compartment.png" alt="SIR compartment representation."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIR-equations.png" alt="SIR equations system."></p>
 <p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
 <ul>
 <li>S = 499</li>
@@ -343,7 +343,7 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
 <li>gamma = 0.1</li>
 <li>h = 0.1</li>
 </ul>
-<p><img src="../resources/images/multiParadigmModeling/SIR-result.png" alt="Result of the integration of the SIR system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIR-result.png" alt="Result of the integration of the SIR system."></p>
 <h4><a class="anchor" aria-hidden="true" id="sirs"></a><a href="#sirs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SIRS</h4>
 <p>The system:</p>
 <pre><code class="hljs"><span class="hljs-keyword">equation</span> eqSIRS <span class="hljs-symbol">type:</span> SIRS <span class="hljs-symbol">vars:</span> [S,I,R,t] <span class="hljs-symbol">params:</span> [N,beta,gamma,omega,mu] ;
@@ -355,8 +355,8 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
     diff(R,t) = gamma * I - omega * R - mu * R ;
 }
 </code></pre>
-<p><img src="../resources/images/multiParadigmModeling/SIRS-compartment.png" alt="SIRS compartment representation."></p>
-<p><img src="../resources/images/multiParadigmModeling/SIRS-equations.png" alt="SIRS equations system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIRS-compartment.png" alt="SIRS compartment representation."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIRS-equations.png" alt="SIRS equations system."></p>
 <p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
 <ul>
 <li>S = 499</li>
@@ -368,7 +368,7 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
 <li>mu = 0.01</li>
 <li>h = 0.1</li>
 </ul>
-<p><img src="../resources/images/multiParadigmModeling/SIRS-result.png" alt="Result of the integration of the SIRD system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SIRS-result.png" alt="Result of the integration of the SIRD system."></p>
 <h4><a class="anchor" aria-hidden="true" id="seir"></a><a href="#seir" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SEIR</h4>
 <p>The system:</p>
 <pre><code class="hljs"><span class="hljs-keyword">equation</span> eqSEIR <span class="hljs-symbol">type:</span> SEIR <span class="hljs-symbol">vars:</span> [S,E,I,R,t] <span class="hljs-symbol">params:</span> [N,beta,gamma,sigma,mu] ;
@@ -381,8 +381,8 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
     diff(R,t) = gamma * I - mu * R ;
 }
 </code></pre>
-<p><img src="../resources/images/multiParadigmModeling/SEIR-compartment.png" alt="SEIR compartment representation."></p>
-<p><img src="../resources/images/multiParadigmModeling/SEIR-equations.png" alt="SEIR equations system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SEIR-compartment.png" alt="SEIR compartment representation."></p>
+<p><img src="/resources/images/multiParadigmModeling/SEIR-equations.png" alt="SEIR equations system."></p>
 <p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
 <ul>
 <li>S = 499</li>
@@ -395,7 +395,7 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
 <li>mu = 0.01</li>
 <li>h = 0.1</li>
 </ul>
-<p><img src="../resources/images/multiParadigmModeling/SEIR-result.png" alt="Result of the integration of the SEIR system."></p>
+<p><img src="/resources/images/multiParadigmModeling/SEIR-result.png" alt="Result of the integration of the SEIR system."></p>
 <h4><a class="anchor" aria-hidden="true" id="lv"></a><a href="#lv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LV</h4>
 <p>The system:</p>
 <pre><code class="hljs"><span class="hljs-keyword">equation</span> eqLV <span class="hljs-symbol">type:</span> LV <span class="hljs-symbol">vars:</span> [x,y,t] <span class="hljs-symbol">params:</span> [alpha,beta,delta,gamma] ;
@@ -406,7 +406,7 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
     diff(y,t) = - y * (delta - gamma * x);
 }   
 </code></pre>
-<p><img src="../resources/images/multiParadigmModeling/LV-equations.png" alt="LV equations system."></p>
+<p><img src="/resources/images/multiParadigmModeling/LV-equations.png" alt="LV equations system."></p>
 <p>The results are provided using the Runge-Kutta 4 method using following initial values:</p>
 <ul>
 <li>x = 2</li>
@@ -417,7 +417,7 @@ We can also note that the current value of a variable, i.e. <code>S</code>, equa
 <li>delta = 0.85</li>
 <li>h = 0.1</li>
 </ul>
-<p><img src="../resources/images/multiParadigmModeling/LV-result.png" alt="Result of the integration of the LV system."></p>
+<p><img src="/resources/images/multiParadigmModeling/LV-result.png" alt="Result of the integration of the LV system."></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/ControlArchitecture"><span class="arrow-prev">← </span><span>Control Architectures</span></a><a class="docs-next button" href="/wiki/next/Recipes"><span>Recipes</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#example-of-a-sir-model">Example of a SIR model</a></li><li><a href="#why-and-when-can-we-use-ode-in-agent-based-models">Why and when can we use ODE in agent-based models?</a></li><li><a href="#use-of-ode-in-a-gaml-model">Use of ODE in a GAML model</a></li><li><a href="#equation"><code>equation</code></a><ul class="toc-headings"><li><a href="#defining-an-ode-system">Defining an ODE system</a></li><li><a href="#using-a-built-in-ode-system">Using a built-in ODE system</a></li><li><a href="#split-a-system-into-several-agents">Split a system into several agents</a></li></ul></li><li><a href="#solve-an-equation"><code>solve</code> an equation</a></li><li><a href="#more-details">More details</a><ul class="toc-headings"><li><a href="#details-about-the-solve-statement">Details about the <code>solve</code> statement</a></li><li><a href="#example-of-the-influence-of-the-integration-step">Example of the influence of the integration step</a></li><li><a href="#list-of-built-in-ode-systems">List of built-in ODE systems</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
                 </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
                 document.addEventListener('keyup', function(e) {

@@ -128,7 +128,7 @@ global {
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingAdvancedSpecies/graph_related_to.png" alt="Complete graph generated using children species of `graph_node` and `edge_agent`."></p>
+<p><img src="/resources/images/definingAdvancedSpecies/graph_related_to.png" alt="Complete graph generated using children species of `graph_node` and `edge_agent`."></p>
 <p>You can, for example, link 2 agents when they are closer than a certain distance.
 Beware: The topology used in graph species is the graph topology and not the continuous topology. You can force the use of the continuous topology with the action <code>using</code> as follow:</p>
 <pre><code class="hljs"><span class="hljs-literal">bool</span> related_to(my_node other){
@@ -137,7 +137,7 @@ Beware: The topology used in graph species is the graph topology and not the con
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingAdvancedSpecies/graph_related_to2.png" alt="Distance graph generated using children species of `graph_node` and `edge_agent`."></p>
+<p><img src="/resources/images/definingAdvancedSpecies/graph_related_to2.png" alt="Distance graph generated using children species of `graph_node` and `edge_agent`."></p>
 <p>The abstract mother species <code>graph_node</code> has an attribute <code>my_graph</code>, with the type <code>graph</code>. <a href="DataTypes#graph">The <code>graph</code> type represents a graph composed of vertices linked with edges</a>. This type has built-in attributes such as <code>edges</code> (the list of all the edges agents), or <code>vertices</code> (the list of all the vertices agents).</p>
 <h3><a class="anchor" aria-hidden="true" id="declare-a-graph-by-using-a-geometry-file"></a><a href="#declare-a-graph-by-using-a-geometry-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declare a graph by using a geometry file</h3>
 <p>In most cases, you will have to construct a graph from an existing file (example: a &quot;shp&quot; file). In that case, you will have to first instantiate a species from the shape file (with the <code>create</code> statement, using the facet <code>from</code>). Then, you will have to construct a graph from the agent, using one of the available operators such as <code>as_edge_graph</code>.</p>
@@ -228,7 +228,7 @@ my_graph &lt;- my_graph add_edge (nodes at 4::nodes at 1);
 }
 </code></pre>
 <p>Here is an example of a model using those two previous concepts (a random node is chosen each step, displayed in red, and his neighbors are displayed in yellow):</p>
-<p><img src="../resources/images/definingAdvancedSpecies/graph_model.png" alt="Graph displaying the neighbor nodes of a random node."></p>
+<p><img src="/resources/images/definingAdvancedSpecies/graph_model.png" alt="Graph displaying the neighbor nodes of a random node."></p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> graph_model
 
 global {
@@ -317,7 +317,7 @@ shortest_path &lt;- path_between (my_graph, source,destination);
 </code></pre>
 <p>Another operator exists, <code>paths_between</code>, that returns a list of shortest paths between two points. Please read the documentation to learn more about this operator.</p>
 <p>Here is an example of code that shows the shortest path between two points of a graph:</p>
-<p><img src="../resources/images/definingAdvancedSpecies/shortest_path.png" alt="Display showing the shortest path between two random nodes of a distance graph."></p>
+<p><img src="/resources/images/definingAdvancedSpecies/shortest_path.png" alt="Display showing the shortest path between two random nodes of a distance graph."></p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> graph_model
 
 global {
@@ -400,7 +400,7 @@ global {
 <pre><code class="hljs">my_graph &lt;- my_graph with_weights (my_graph.edges as_map (each::<span class="hljs-literal">geometry</span>(each).perimeter));
 </code></pre>
 <p>The calculation of the shortest path can change according to the weight you choose for your edges. For example, here is the result of the calculation of the shortest path when all the edges have 1 as weight value (it is the default graph topology), and when the edges have their length as weight.</p>
-<p><img src="../resources/images/definingAdvancedSpecies/path_weight.png" alt="Illustration of different shortest paths depending on edge weights."></p>
+<p><img src="/resources/images/definingAdvancedSpecies/path_weight.png" alt="Illustration of different shortest paths depending on edge weights."></p>
 <p>Here is an example of implementation:</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> shortest_path_with_weight
 

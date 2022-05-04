@@ -61,7 +61,7 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">5. Definition of 3D displays</h1></header><article><div><span><p>This fifth step illustrates how to define 3D displays.</p>
-<p><img src="../resources/images/tutorials/luneray5.png" alt="Result of the Luneray Flu model 5."></p>
+<p><img src="/resources/images/tutorials/luneray5.png" alt="Result of the Luneray Flu model 5."></p>
 <h2><a class="anchor" aria-hidden="true" id="formulation"></a><a href="#formulation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Formulation</h2>
 <ul>
 <li>Define a new 3D aspect for roads.</li>
@@ -72,7 +72,7 @@
 <h2><a class="anchor" aria-hidden="true" id="model-definition"></a><a href="#model-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model Definition</h2>
 <h3><a class="anchor" aria-hidden="true" id="species"></a><a href="#species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>species</h3>
 <p>We define a new aspect for the road species called <code>geom3D</code> that draw the road agent that as a black tube of 2m radius built from its geometry. Note that it is possible to get the list of points composing a geometry by using the <code>points</code> variable of the geometry.</p>
-<p><img src="../resources/images/tutorials/roads_display.png" alt="Road image for Luneray's Flu model."></p>
+<p><img src="/resources/images/tutorials/roads_display.png" alt="Road image for Luneray's Flu model."></p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> road {
     <span class="hljs-comment">//....</span>
     <span class="hljs-keyword">aspect</span> geom3D {
@@ -81,7 +81,7 @@
 }
 </code></pre>
 <p>Concerning the building species, we define an aspect called <code>geom3D</code> that draws the shape of the building with a depth of 20 meters and with using a texture &quot;texture.jpg&quot; for the face and a texture for the roof &quot;roof_top.jpg&quot;.</p>
-<p><img src="../resources/images/tutorials/buildings_display.png" alt="Building image for Luneray's Flu model."></p>
+<p><img src="/resources/images/tutorials/buildings_display.png" alt="Building image for Luneray's Flu model."></p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> building {
     <span class="hljs-comment">//....</span>
     <span class="hljs-keyword">aspect</span> geom3D {
@@ -90,7 +90,7 @@
 }
 </code></pre>
 <p>At last, we define a new aspect called <code>geom3D</code> for the people species that displays the agent only if it is on a road (target != nil). In this aspect, we use an obj file that contains a 3D object. The use of the <code>obj_file</code> operator allows to apply an initial rotation to an obj file. In our case, we add a rotation of -90° along the x-axis. We specify with the <code>size</code> facet that we want to draw the 3D object inside a bounding box of 5m. As the location of the 3D object is its centroid and as we want to draw the 3D object on the top of the ground, we use the <code>at</code> facet to put an offset along the z-axis. We use also the rotate facet to change the orientation of the 3D object according to the heading of the agent. At last, we choose to draw the 3D object in green if the agent is not infected; in red otherwise.</p>
-<p><img src="../resources/images/tutorials/people_display.png" alt="3D object used to display people agents in Luneray's Flu model."></p>
+<p><img src="/resources/images/tutorials/people_display.png" alt="3D object used to display people agents in Luneray's Flu model."></p>
 <pre><code class="hljs"><span class="hljs-literal">species</span> people <span class="hljs-symbol">skills:</span>[<span class="hljs-builtin">moving</span>]{     
     <span class="hljs-comment">//....</span>
     <span class="hljs-keyword">aspect</span> geom3D {

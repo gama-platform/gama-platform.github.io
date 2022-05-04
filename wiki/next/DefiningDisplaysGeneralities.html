@@ -128,7 +128,7 @@
 }
 </code></pre>
 <p>Will have this output:</p>
-<p><img src="../resources/images/definingGUIExperiment/layers_order.png" alt="Example of 3 layers in a display showing that the last one can hide the lower ones."></p>
+<p><img src="/resources/images/definingGUIExperiment/layers_order.png" alt="Example of 3 layers in a display showing that the last one can hide the lower ones."></p>
 <p>Most of the layers have the <code>transparency</code> facet in order to see the layers which are under.</p>
 <pre><code class="hljs"><span class="hljs-builtin">experiment</span> expe <span class="hljs-symbol">type:</span>gui {
     <span class="hljs-keyword">output</span> {
@@ -143,7 +143,7 @@
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/layers_transparency.png" alt="Example of use of the transparency in a layer."></p>
+<p><img src="/resources/images/definingGUIExperiment/layers_transparency.png" alt="Example of use of the transparency in a layer."></p>
 <p>To specify a position and a size for your layer, you can use the <code>position</code> and the <code>size</code> facets.
 The <code>position</code> facet is used with a point type, between <code>{0,0}</code> and <code>{1,1}</code>, which corresponds to the position of the upper left corner of your layer in percentage. Then, if you choose the point <code>{0.5,0.5}</code>, the upper left corner of your layer will be in the center of your display. By default, this value is <code>{0,0}</code>.
 The <code>size</code> facet is used with a point type, between <code>{0,0}</code> and <code>{1,1}</code> also. It corresponds to the size occupied by the layer in percentage. By default, this value is <code>{1,1}</code>.</p>
@@ -163,7 +163,7 @@ The <code>size</code> facet is used with a point type, between <code>{0,0}</code
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/layers_size_position.png" alt="Illustration of the use of the size and position facet of a layer."></p>
+<p><img src="/resources/images/definingGUIExperiment/layers_size_position.png" alt="Illustration of the use of the size and position facet of a layer."></p>
 <p>NB: <code>displays</code> can have a <code>background</code>, while <code>graphics</code> can't. If you want to put a background for your <code>graphics</code>, a solution can be to draw the <code>shape</code> of the world (which is, by default, a square 100m*100m).</p>
 <p>A lot of other facets are available for the various layers. Please read the documentation of <a href="Statements#graphics"><code>graphics</code></a> for more information.</p>
 <h2><a class="anchor" aria-hidden="true" id="example-of-layers"></a><a href="#example-of-layers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example of layers</h2>

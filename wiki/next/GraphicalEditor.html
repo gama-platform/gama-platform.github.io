@@ -5,7 +5,7 @@
           )
         });
         </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/gama-logo.png" alt="GAMA-Platform"/><h2 class="headerTitleWithLogo">GAMA-Platform</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/wiki/next/Home" target="_self">Documentation</a></li><li class=""><a href="/wiki/next/Tutorials" target="_self">Tutorials</a></li><li class=""><a href="/download" target="_self">Download</a></li><li class=""><a href="/wiki/next/Contribute" target="_self">Contribute</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/faq" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">The Graphical Editor</h1></header><article><div><span><p>The graphical editor that allow to build diagram (gadl files) is based on the <a href="http://www.eclipse.org/graphiti/">Graphiti</a> Eclipse plugin. It allows to define a GAMA model through a graphical interface. It a allows as well to produce a graphical model (diagram) from a gaml model.</p>
-<p><img src="../resources/images/graphical_editor/gm_predator_prey.png" alt="images/graphical_editor/gm_predator_prey.png"></p>
+<p><img src="/resources/images/graphical_editor/gm_predator_prey.png" alt="images/graphical_editor/gm_predator_prey.png"></p>
 <h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of contents</h2>
 <ul>
 <li><a href="#the-graphical-editor">The Graphical Editor</a>
@@ -41,14 +41,14 @@
 <h2><a class="anchor" aria-hidden="true" id="installing-the-graphical-editor"></a><a href="#installing-the-graphical-editor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing the graphical editor</h2>
 <p>Using the graphical editor requires to install the graphical modeling plug-in. See <a href="G__InstallingPlugins">here</a> for information about plug-ins and their installation.</p>
 <p>The graphical editor plug-in is called <strong>Graphical_modeling</strong> and is directly available from GAMA update site <em><em><a href="https://gama-platform.googlecode.com/svn/update_site/">https://gama-platform.googlecode.com/svn/update_site/</a></em>.</em>*</p>
-<p><img src="../resources/images/graphical_editor/installing_graphical_editor.JPG" alt="install"></p>
+<p><img src="/resources/images/graphical_editor/installing_graphical_editor.JPG" alt="install"></p>
 <p>Note that the graphical editor is still under development. Updates of the plug-in will be add to the GAMA website. After installing the plug-in (and periodically), check for updates for this plug-in: in the &quot;Help&quot; menu, choose &quot;Check for Updates&quot; and install the proposed updates for the graphical modeling plug-in.</p>
 <h2><a class="anchor" aria-hidden="true" id="creating-a-first-model"></a><a href="#creating-a-first-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a first model</h2>
 <p>A new diagram can be created in a new GAMA project. First, right click on a project, then select &quot;New&quot; on the contextual menu.
 In the New Wizard, select &quot;GAMA -&gt; Model Diagram&quot;, then &quot;Next&gt;&quot;
-<img src="../resources/images/graphical_editor/newDiagram.png" alt="images/graphical_editor/newDiagram.png"></p>
+<img src="/resources/images/graphical_editor/newDiagram.png" alt="images/graphical_editor/newDiagram.png"></p>
 <p>In the next Wizard dialog, select the type of diagram (Empty, Skeleton or Example) then the name of the file and the author.</p>
-<p><img src="../resources/images/graphical_editor/modeldiagramNew.png" alt="images/graphical_editor/modeldiagramNew.png"></p>
+<p><img src="/resources/images/graphical_editor/modeldiagramNew.png" alt="images/graphical_editor/modeldiagramNew.png"></p>
 <p>Skeleton and Example diagram types allow to add to the diagram some basic features.</p>
 <h2><a class="anchor" aria-hidden="true" id="status-of-models-in-editors"></a><a href="#status-of-models-in-editors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status of models in editors</h2>
 <p>Similarly to GAML editor, the graphical editor proposes a live display of errors and model statuses. A graphical model can actually be in three different states, which are visually accessible above the editing area: <strong>Functional</strong> (orange color), <strong>Experimentable</strong> (green color) and <strong>InError</strong> (red color). See <a href="CompilingModels161">the section on model compilation</a> for more precise information about these statuses.</p>
@@ -57,83 +57,83 @@ In the New Wizard, select &quot;GAMA -&gt; Model Diagram&quot;, then &quot;Next&
 <p>Experiment buttons are updated in real-time to reflect what's in your code. If more than one experiment is defined, corresponding buttons will be displayed in addition to the first one.</p>
 <h2><a class="anchor" aria-hidden="true" id="diagram-definition-framework"></a><a href="#diagram-definition-framework" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Diagram definition framework</h2>
 <p>The following figure presents the editing framework:
-<img src="../resources/images/graphical_editor/framework.png" alt="images/graphical_editor/framework.png"></p>
+<img src="/resources/images/graphical_editor/framework.png" alt="images/graphical_editor/framework.png"></p>
 <h2><a class="anchor" aria-hidden="true" id="features"></a><a href="#features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h2>
 <h3><a class="anchor" aria-hidden="true" id="agents"></a><a href="#agents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>agents</h3>
 <h4><a class="anchor" aria-hidden="true" id="species"></a><a href="#species" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>species</h4>
-<p><img src="../resources/images/graphical_editor/species.png" alt="images/graphical_editor/species.png"></p>
+<p><img src="/resources/images/graphical_editor/species.png" alt="images/graphical_editor/species.png"></p>
 <p>The species feature allows to define a species with a continuous topology. A species is always a micro-species of another species. The top level (macro-species of all species) is the world species.</p>
 <ul>
 <li><strong>source</strong>: a species (macro-species)</li>
 <li><strong>target</strong>: -</li>
 </ul>
-<p><img src="../resources/images/graphical_editor/Frame_Speciesdef1.png" alt="images/graphical_editor/Frame_Speciesdef1.png"></p>
-<p><img src="../resources/images/graphical_editor/Frame_Speciesdef2.png" alt="images/graphical_editor/Frame_Speciesdef2.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_Speciesdef1.png" alt="images/graphical_editor/Frame_Speciesdef1.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_Speciesdef2.png" alt="images/graphical_editor/Frame_Speciesdef2.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="grid"></a><a href="#grid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>grid</h4>
-<p><img src="../resources/images/graphical_editor/grid.png" alt="images/graphical_editor/grid.png"></p>
+<p><img src="/resources/images/graphical_editor/grid.png" alt="images/graphical_editor/grid.png"></p>
 <p>The grid feature allows to define a <a href="Species151">species</a> with a <a href="Sections151#environment">grid topology</a>. A grid is always a micro-species of another species.</p>
 <ul>
 <li><strong>source</strong>: a species (macro-species)</li>
 <li><strong>target</strong>: -</li>
 </ul>
-<p><img src="../resources/images/graphical_editor/Frame_grid.png" alt="images/graphical_editor/Frame_grid.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_grid.png" alt="images/graphical_editor/Frame_grid.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="inheriting-link"></a><a href="#inheriting-link" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inheriting link</h4>
 <p>The inheriting link feature allows to define an inheriting link between two species.</p>
 <ul>
 <li><strong>source</strong>: a species (parent)</li>
 <li><strong>target</strong>: a species (child)</li>
 </ul>
-<p><img src="../resources/images/graphical_editor/inhereting_link.png" alt="images/graphical_editor/inhereting_link.png"></p>
+<p><img src="/resources/images/graphical_editor/inhereting_link.png" alt="images/graphical_editor/inhereting_link.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="world"></a><a href="#world" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>world</h4>
-<p><img src="../resources/images/graphical_editor/world.png" alt="images/graphical_editor/world.png"></p>
+<p><img src="/resources/images/graphical_editor/world.png" alt="images/graphical_editor/world.png"></p>
 <p>When a model is created, a world species is always defined. It represent the global part of the model. The world species, which is unique, is the top level species. All other species are micro-species of the world species.</p>
-<p><img src="../resources/images/graphical_editor/Frame_world.png" alt="images/graphical_editor/Frame_world.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_world.png" alt="images/graphical_editor/Frame_world.png"></p>
 <h3><a class="anchor" aria-hidden="true" id="agent-features"></a><a href="#agent-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>agent features</h3>
 <h4><a class="anchor" aria-hidden="true" id="action"></a><a href="#action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>action</h4>
-<p><img src="../resources/images/graphical_editor/action.png" alt="images/graphical_editor/action.png"></p>
+<p><img src="/resources/images/graphical_editor/action.png" alt="images/graphical_editor/action.png"></p>
 <p>The action feature allows to define an action for a species.</p>
 <ul>
 <li><strong>source</strong>: a species (owner of the action)</li>
 <li><strong>target</strong>: -</li>
 </ul>
-<p><img src="../resources/images/graphical_editor/Frame_action.png" alt="images/graphical_editor/Frame_action.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_action.png" alt="images/graphical_editor/Frame_action.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="reflex"></a><a href="#reflex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>reflex</h4>
-<p><img src="../resources/images/graphical_editor/reflex.png" alt="images/graphical_editor/reflex.png"></p>
+<p><img src="/resources/images/graphical_editor/reflex.png" alt="images/graphical_editor/reflex.png"></p>
 <p>The reflex feature allows to define a reflex for a species.</p>
 <ul>
 <li><strong>source</strong>: a species (owner of the reflex)</li>
 <li><strong>target</strong>: -</li>
 </ul>
-<p><img src="../resources/images/graphical_editor/Frame_reflex.png" alt="images/graphical_editor/Frame_reflex.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_reflex.png" alt="images/graphical_editor/Frame_reflex.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="aspect"></a><a href="#aspect" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>aspect</h4>
-<p><img src="../resources/images/graphical_editor/aspect.png" alt="images/graphical_editor/aspect.png"></p>
+<p><img src="/resources/images/graphical_editor/aspect.png" alt="images/graphical_editor/aspect.png"></p>
 <p>The aspect feature allows to define an aspect for a species.</p>
 <ul>
 <li><strong>source</strong>: a species (owner of the aspect)</li>
 <li><strong>target</strong>: -</li>
 </ul>
-<p><img src="../resources/images/graphical_editor/Frame_aspect.png" alt="images/graphical_editor/Frame_aspect.png"></p>
-<p><img src="../resources/images/graphical_editor/Frame_Aspect_layer.png" alt="images/graphical_editor/Frame_Aspect_layer.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_aspect.png" alt="images/graphical_editor/Frame_aspect.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_Aspect_layer.png" alt="images/graphical_editor/Frame_Aspect_layer.png"></p>
 <h3><a class="anchor" aria-hidden="true" id="experiment"></a><a href="#experiment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>experiment</h3>
 <h4><a class="anchor" aria-hidden="true" id="gui-experiment"></a><a href="#gui-experiment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GUI experiment</h4>
-<p><img src="../resources/images/graphical_editor/guiXP.png" alt="images/graphical_editor/guiXP.png"></p>
+<p><img src="/resources/images/graphical_editor/guiXP.png" alt="images/graphical_editor/guiXP.png"></p>
 <p>The GUI Experiment feature allows to define a GUI experiment.</p>
 <ul>
 <li><strong>source</strong>: world species</li>
 <li><strong>target</strong>: -</li>
 </ul>
-<p><img src="../resources/images/graphical_editor/Frame_Experiment.png" alt="images/graphical_editor/Frame_Experiment.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_Experiment.png" alt="images/graphical_editor/Frame_Experiment.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="display"></a><a href="#display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>display</h4>
-<p><img src="../resources/images/graphical_editor/display.png" alt="images/graphical_editor/display.png"></p>
+<p><img src="/resources/images/graphical_editor/display.png" alt="images/graphical_editor/display.png"></p>
 <p>The display feature allows to define a display.</p>
 <ul>
 <li><strong>source</strong>: GUI experiment</li>
 <li><strong>target</strong>: -</li>
 </ul>
-<p><img src="../resources/images/graphical_editor/Frame_display.png" alt="images/graphical_editor/Frame_display.png"></p>
-<p><img src="../resources/images/graphical_editor/Frame_layer_display.png" alt="images/graphical_editor/Frame_layer_display.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_display.png" alt="images/graphical_editor/Frame_display.png"></p>
+<p><img src="/resources/images/graphical_editor/Frame_layer_display.png" alt="images/graphical_editor/Frame_layer_display.png"></p>
 <h4><a class="anchor" aria-hidden="true" id="batch-experiment"></a><a href="#batch-experiment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>batch experiment</h4>
-<p><img src="../resources/images/graphical_editor/batchxp.png" alt="images/graphical_editor/batchxp.png"></p>
+<p><img src="/resources/images/graphical_editor/batchxp.png" alt="images/graphical_editor/batchxp.png"></p>
 <p>The Batch Experiment feature allows to define a Batch experiment.</p>
 <ul>
 <li><strong>source</strong>: world species</li>

@@ -133,7 +133,7 @@ global {
 }
 </code></pre>
 <p>You may ask, what is the purpose of such a thing ? Well, with such a short model, it is not very interesting, for sure. But you can imagine running a simulation, and if the simulation reaches a certain state, it can be closed, and another simulation can be run instead with different parameters (a simulation can be closed by doing a &quot;do die&quot; on itself). You can also imagine to run two simulations, and to communicate from one to an other through the experiment, as it is shown in this easy model, where agents can move from one simulation to another :</p>
-<p><img src="../resources/images/exploringModel/change_world.png" alt="resources/images/exploringModel/change_world.png"></p>
+<p><img src="/resources/images/exploringModel/change_world.png" alt="resources/images/exploringModel/change_world.png"></p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> smallWorld
 
 global {
@@ -205,7 +205,7 @@ grid cell <span class="hljs-symbol">width:</span> grid_size <span class="hljs-sy
 }
 </code></pre>
 <p>Here is an other example of application of application, available in the model library. Here we run 4 times the Ant Foraging model, with different parameters.</p>
-<p><img src="../resources/images/exploringModel/multi_foraging.jpg" alt="resources/images/exploringModel/multi_foraging.jpg"></p>
+<p><img src="/resources/images/exploringModel/multi_foraging.jpg" alt="resources/images/exploringModel/multi_foraging.jpg"></p>
 <h2><a class="anchor" aria-hidden="true" id="random-seed"></a><a href="#random-seed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Random seed</h2>
 <h3><a class="anchor" aria-hidden="true" id="defining-the-seed-from-the-model"></a><a href="#defining-the-seed-from-the-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining the seed from the model</h3>
 <p>If you run several simulations, you may want to use the same seed for each one of those simulations (to compare the influence of a certain parameter, in exactly the same conditions).</p>
@@ -223,7 +223,7 @@ grid cell <span class="hljs-symbol">width:</span> grid_size <span class="hljs-sy
 <h3><a class="anchor" aria-hidden="true" id="defining-the-seed-from-the-experiment"></a><a href="#defining-the-seed-from-the-experiment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining the seed from the experiment</h3>
 <p>The experiment agent also have a built-in attribute <code>seed</code>. The value of this seed is defined in your <a href="Preferences#simulation">simulation preferences</a>. The first simulation created is created <strong>with the seed value of the experiment</strong>.</p>
 <p>The following sequence diagram can explain you better how the affectation of the seed attribute works :</p>
-<p><img src="../resources/images/exploringModel/sequence_diagram_seed_affectation.png" alt="resources/images/exploringModel/sequence_diagram_seed_affectation.png"></p>
+<p><img src="/resources/images/exploringModel/sequence_diagram_seed_affectation.png" alt="resources/images/exploringModel/sequence_diagram_seed_affectation.png"></p>
 <p>The affectation of an attribute is always done in this order :
 (1) the attribute is affected with a specific value in the species scope. If no attribute value is specified, the value is a default value.
 (2) if a value is specified for this attribute in the <code>create</code> statement, then the attribute value is affected again.
@@ -262,7 +262,7 @@ global {
 }
 </code></pre>
 <p>When you run this simulation, their execution is exactly similar.</p>
-<p><img src="../resources/images/exploringModel/same_simulation_one_agent.png" alt="resources/images/exploringModel/same_simulation_one_agent.png"></p>
+<p><img src="/resources/images/exploringModel/same_simulation_one_agent.png" alt="resources/images/exploringModel/same_simulation_one_agent.png"></p>
 <p>Let's try now to add a new species in this model, and to add a parameter to the simulation for the number of agents created for this species.</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> multi_simulations
 
@@ -307,7 +307,7 @@ global {
 }
 </code></pre>
 <p>Then you run the experiment, you may find something strange...</p>
-<p><img src="../resources/images/exploringModel/same_simulation_2_species.png" alt="resources/images/exploringModel/same_simulation_2_species.png"></p>
+<p><img src="/resources/images/exploringModel/same_simulation_2_species.png" alt="resources/images/exploringModel/same_simulation_2_species.png"></p>
 <p>Even if the first step seems ok (the green agent and one of the two red agent is initialized with the same location), the simulation differs completely. You should have expected to have the same behavior for the green agent in both of the simulation, but it is not the case. The explanation of this behavior is that a random number generator has generated more random numbers in the second simulation than in the first one.</p>
 <p>If you don't understand, here is a short example that may help you to understand better :</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> multi_simulations

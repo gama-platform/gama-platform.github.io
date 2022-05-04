@@ -115,7 +115,7 @@
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/charts_pie.png" alt="Simple example of a simple chart (pie) display."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_pie.png" alt="Simple example of a simple chart (pie) display."></p>
 <p>The <code>datalist</code> statement is used to write several <code>data</code> statements in one statement.  Instead of giving simple values, <code>datalist</code> is expecting value lists. The previous chart is thus equivalent to the following one using the <code>datalist</code> statement:</p>
 <pre><code class="hljs"><span class="hljs-keyword">display</span> <span class="hljs-string">"my_display2"</span> {
     <span class="hljs-keyword">chart</span> <span class="hljs-string">"my_chart2"</span> <span class="hljs-symbol">type:</span> pie {
@@ -159,7 +159,7 @@ global {
 }
 
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/charts_datalist.png" alt="Illustration of the datalist statement when the number of series to plot change during the simulation."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_datalist.png" alt="Illustration of the datalist statement when the number of series to plot change during the simulation."></p>
 <p><code>datalist</code> provides you some additional facets you can use. If you want to learn more about them, <a href="Statements#datalist">please read the documentation</a>.</p>
 <h2><a class="anchor" aria-hidden="true" id="various-types-of-charts"></a><a href="#various-types-of-charts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Various types of charts</h2>
 <p>As we already said, you can display several types of graphs: the histograms, the pies, the series, the radars, heatmap...</p>
@@ -184,10 +184,10 @@ It has already been illustrated above.</p>
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/charts_series.png" alt="Illustration of the series charts."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_series.png" alt="Illustration of the series charts."></p>
 <h3><a class="anchor" aria-hidden="true" id="histogram"></a><a href="#histogram" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>histogram</code></h3>
 <p>The <code>histogram</code> charts represent with bars the value of several data series. The previous example can be displayed with a <code>histogram</code> chart.</p>
-<p><img src="../resources/images/definingGUIExperiment/charts_histogram.png" alt="Illustration of the histogram charts."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_histogram.png" alt="Illustration of the histogram charts."></p>
 <p>Histograms are often used to display the distribution of a value inside a population. For example, let consider a population of agents representing human beings with an <code>age</code> attribute. The following model illustrates the plot of the age distribution over the population. We used the operator <code>distribution_of</code> to compute the distribution to plot: here we display the number of people agent in 20 ranges computed among the ages between 0 and 100.</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> NewModel
 
@@ -212,7 +212,7 @@ global {
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/charts_histogram_distribution.png" alt="Illustration of the histogram charts to plot the age distribution in an agent population."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_histogram_distribution.png" alt="Illustration of the histogram charts to plot the age distribution in an agent population."></p>
 <p>Note that the facet <code>reverse_axes</code> (with <code>true</code> value) can be added to the <code>chart</code> statement to display horizontal bars.</p>
 <h3><a class="anchor" aria-hidden="true" id="xy"></a><a href="#xy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>xy</code></h3>
 <p>The <code>xy</code> displays are used when we want to display a value in function of another one (instead of plotting a value in function of the time): in this case, the x-axis does not represent the time in general. It can be used for example to plot a phase portrait, e.g. in the Lotka-Volterra model (prey-predator model) in which we want to plot the number of preys according to the number of predators. The code for the chart is then:</p>
@@ -222,7 +222,7 @@ global {
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/charts_xy.png" alt="Use of the xy chart in order to display the phase portrait of the Lotka-Volterra model (number of prey according to the number of predators)."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_xy.png" alt="Use of the xy chart in order to display the phase portrait of the Lotka-Volterra model (number of prey according to the number of predators)."></p>
 <h3><a class="anchor" aria-hidden="true" id="radar"></a><a href="#radar" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>radar</code></h3>
 <p>A <code>radar</code> chart displays the evolution of expression over time in a kind of circular representation: the radar representation. If reuse the example describes previously and used in the previous types of charts, we get the following adapted model:</p>
 <pre><code class="hljs">global {
@@ -241,7 +241,7 @@ global {
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/charts_radar.png" alt="Simple example of a radar representation for 2 data series."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_radar.png" alt="Simple example of a radar representation for 2 data series."></p>
 <h3><a class="anchor" aria-hidden="true" id="heatmap"></a><a href="#heatmap" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>heatmap</code></h3>
 <p>The heatmap in GAMA is close to a stack of histograms charts (allowing to keep a view of the evolution of values over time), representing the height of the bars by color in a gradient.</p>
 <p>Let consider the model of a human population characterized by their age. We had a population dynamic: at each step, their age is incremented by 1. They also have a probability to die at each step (that increases with their age). When an agent dies, it creates a new agent with an age equals to 0.</p>
@@ -288,7 +288,7 @@ global {
 }
 </code></pre>
 <p>We thus displayed the evolution of the age distribution using both a histogram chart (for the instantaneous distribution) and a heatmap display to key a track of the evolution over time. In the heatmap, the left Y-axis represents the time (the simulation step number); as a consequence 1 line represents the state at 1 simulation step. The x-axis represents the various ranges of the distribution (same meaning as for histograms). The right Y-axis shows the meaning of the color gradient.</p>
-<p><img src="../resources/images/definingGUIExperiment/charts_heatmap.png" alt="Distribution of the age in an agent population and its evolution in a heatmap."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_heatmap.png" alt="Distribution of the age in an agent population and its evolution in a heatmap."></p>
 <h3><a class="anchor" aria-hidden="true" id="scatter"></a><a href="#scatter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>scatter</code></h3>
 <p>The scatter chart allows us to represent in a 2D space the &quot;spatial distribution&quot; of a set of values. As an example, it allows us to plot the <code>age</code> of all the <code>people</code> agents: the X-axis represents the possible age value and not the time as in a <code>series</code> charts.</p>
 <p>Here is an example of a chart of type <code>scatter</code> on the previous model example:</p>
@@ -302,7 +302,7 @@ global {
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/charts_scatter.png" alt="Display of the age distribution using a scatter chart."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_scatter.png" alt="Display of the age distribution using a scatter chart."></p>
 <h3><a class="anchor" aria-hidden="true" id="box_whisker"></a><a href="#box_whisker" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>box_whisker</code></h3>
 <p>The <code>box_whisker</code> charts represent the distribution of a value. A circle for the average, a horizontal line for the median, a filled bar (the &quot;box&quot;) for the top 75% and the bottom 25% and a line (the &quot;whisker&quot;) for the maximum and minimum values.</p>
 <p>For example, let consider again a population of agents representing human beings with an <code>age</code> attribute (with an aging mechanism). The following model illustrates the plot of the age distribution over the population.</p>
@@ -345,7 +345,7 @@ global {
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/charts_box_whisker.png" alt="Illustration of the box_whisker charts."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_box_whisker.png" alt="Illustration of the box_whisker charts."></p>
 <p>Note that the facet <code>series_label_position</code> (with <code>yaxis</code> value) int the <code>chart</code> statement is used to display the serie label (&quot;age&quot;) on the y axis. With more series, we can display the labels as a legend (with the 'legend' value).</p>
 <h2><a class="anchor" aria-hidden="true" id="other-charts-possibilities"></a><a href="#other-charts-possibilities" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other charts possibilities</h2>
 <p>The <code>chart</code>, <code>data</code> and <code>datalist</code> come with a huge number of additional facets, allowing you to design advanced result display. We can mention here some of them.</p>
@@ -363,7 +363,7 @@ global {
     }
 }
 </code></pre>
-<p><img src="../resources/images/definingGUIExperiment/charts_error.png" alt="Display of the mean of the age distribution with vertical min and max values."></p>
+<p><img src="/resources/images/definingGUIExperiment/charts_error.png" alt="Display of the mean of the age distribution with vertical min and max values."></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/DefiningDisplaysGeneralities"><span class="arrow-prev">← </span><span>Defining displays (Generalities)</span></a><a class="docs-next button" href="/wiki/next/Defining3DDisplays"><span>Defining 3D Displays</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#index">Index</a></li><li><a href="#define-a-chart">Define a chart</a></li><li><a href="#data-definition">Data definition</a></li><li><a href="#various-types-of-charts">Various types of charts</a><ul class="toc-headings"><li><a href="#pie"><code>pie</code></a></li><li><a href="#series"><code>series</code></a></li><li><a href="#histogram"><code>histogram</code></a></li><li><a href="#xy"><code>xy</code></a></li><li><a href="#radar"><code>radar</code></a></li><li><a href="#heatmap"><code>heatmap</code></a></li><li><a href="#scatter"><code>scatter</code></a></li><li><a href="#box_whisker"><code>box_whisker</code></a></li></ul></li><li><a href="#other-charts-possibilities">Other charts possibilities</a><ul class="toc-headings"><li><a href="#error-values">Error values</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
                 </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
                 document.addEventListener('keyup', function(e) {

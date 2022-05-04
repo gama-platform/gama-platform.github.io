@@ -63,30 +63,30 @@
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Manipulate OSM Datas</h1></header><article><div><span><p>This section will be presented as a quick tutorial, showing how to proceed to manipulate OSM (Open street map) data, clean them and load them into GAMA. We will use the software <a href="http://www.qgis.org/en/site/">QGIS</a> to change the attributes of the OSM file.</p>
 <p>Note that GAMA can read and import OpenStreetMap data natively and create agents from them. An example model is provided in the Model Library (Data Importation / OSM File Import.gaml). In this case, you will have to write a model to import, select data from OpenStreetMap before creating agents and then could export them into shapefiles, much easier to use in GAMA.</p>
 <p>From the website <a href="https://www.openstreetmap.org/">openstreetmap.org</a>, we will choose a place (in this example, we will take a neighborhood in New York City). Directly from the website, you can export the chosen area in the osm format.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_1.png" alt="OpenStreetMap website to select a place."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_1.png" alt="OpenStreetMap website to select a place."></p>
 <p>We have now to manipulate the attributes for the exported osm file.
 Several softwares can be used, but we will focus on <a href="http://www.qgis.org/en/site/">QGIS</a>, which is totally free and provides a lot of possibilities in term of manipulation of data.</p>
 <p>Once you have installed correctly QGIS, launch QGIS Desktop, and start to import the topology from the osm file.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_2.png" alt="Import OpenStreetMap data into QGIS."></p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_3.png" alt="Import OpenStreetMap data into QGIS 2."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_2.png" alt="Import OpenStreetMap data into QGIS."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_3.png" alt="Import OpenStreetMap data into QGIS 2."></p>
 <p>A message indicates that the import was successful. An output file .osm.db is created. You have now to export the topology to SpatiaLite.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_4.png" alt="Export the data to SpatiaLite (through QGIS)."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_4.png" alt="Export the data to SpatiaLite (through QGIS)."></p>
 <p>Specify the path for your DataBase file, then choose the export type (in your case, we will choose the type &quot;Polygons (closed ways)&quot;), choose an output layer name. If you want to use the open street maps attributes values, click on &quot;Load from DB&quot;, and select the attributes you want to keep. Click OK then.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_5.png" alt="Select the OSM attribute before importation."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_5.png" alt="Select the OSM attribute before importation."></p>
 <p>A message indicates that the export was successful, and you have now a new layer created.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_6.png" alt="Display of OSM data imported in QGIS."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_6.png" alt="Display of OSM data imported in QGIS."></p>
 <p>We will now manipulate the attributes of your datafile. Right-click on the layer, and select &quot;Open Attribute Table&quot;.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_7.png" alt="Open attribute table to display all the agents."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_7.png" alt="Open attribute table to display all the agents."></p>
 <p>The table of attribute appears. Select the little pencil on the top-left corner of the window to modify the table.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_8.png" alt="Attribute tables."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_8.png" alt="Attribute tables."></p>
 <p>We will add an attribute manually. Click on the button &quot;new column&quot;, choose a name and a type (we will choose the type &quot;text&quot;).</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_9.png" alt="Add an attribute to the attribute table."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_9.png" alt="Add an attribute to the attribute table."></p>
 <p>A new column appears at the end of the table. Let's fill some values (for instance blue/red). Once you finish, click on the &quot;save edit&quot; button.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_10.png" alt="Fill the new attribute with values."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_10.png" alt="Fill the new attribute with values."></p>
 <p>Our file is now ready to be exported. Right-click on the layer, and click on &quot;Save As&quot;.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_11.png" alt="Open the save data window."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_11.png" alt="Open the save data window."></p>
 <p>Choose &quot;shapefile&quot; as format, choose a save path and click ok.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_12.png" alt="Save the data in a shapefile."></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_12.png" alt="Save the data in a shapefile."></p>
 <p>Copy passed all the .shp created in the include folder of your GAMA project. You are now ready to write the model.</p>
 <pre><code class="hljs"><span class="hljs-builtin">model</span> HowToUseOpenStreetMap
 
@@ -124,7 +124,7 @@ global {
 }
 </code></pre>
 <p>Here is the result, with a special colorization of the different elements regarding the value of the attribute &quot;attrForGama&quot;, and an elevation regarding the value of the attribute &quot;height&quot;.</p>
-<p><img src="../resources/images/recipes/manipulate_OSM_file_13.png" alt="images/manipulate_OSM_file_13.png"></p>
+<p><img src="/resources/images/recipes/manipulate_OSM_file_13.png" alt="images/manipulate_OSM_file_13.png"></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/Recipes"><span class="arrow-prev">← </span><span>Recipes</span></a><a class="docs-next button" href="/wiki/next/Diffusion"><span>Implementing diffusion</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
                 </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
                 document.addEventListener('keyup', function(e) {
