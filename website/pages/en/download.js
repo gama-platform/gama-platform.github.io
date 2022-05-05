@@ -27,13 +27,13 @@ function Download(props) {
   );
 
   const OsBlock = props => (
-    <div className="blockElement imageAlignTop threeByGridBlock">
+    <div className="blockElement imageAlignTop twoByGridBlock">
       <div className="blockImage">
         <img src={props.src} alt={props.os} ></img>
       </div>
       <div className="blockContent">
         <h2>{props.os}</h2>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.${props.zipExtension}`} className="button buttonRed">Default installer (&lt;400MB)
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.${props.zipExtension}`} className="button buttonRed">Default installer ({props.zipSize} MB)
               <span className="tooltiptext">This is the easiest version to run. Run installer and start GAMA.</span>
             </Button>
             <Button href={`https://github.com/gama-platform/gama/releases/tag/${props.version}`} className="button buttonBlue" target="_blank">More installer
@@ -48,9 +48,10 @@ function Download(props) {
 
   const OsGrid = props => (
     <FlexContainer>
-      <OsBlock src="img/windows-logo.svg" os="Windows" version={props.version} zipName={props.zipName} zipOS='Windows' zipExtension='exe' />
-      <OsBlock src="img/apple-logo.svg" os="MacOS" version={props.version} zipName={props.zipName} zipOS='MacOS' zipExtension='dmg' />
-      <OsBlock src="img/linux-logo.svg" os="Linux" version={props.version} zipName={props.zipName} zipOS='Linux' zipExtension='deb' />
+      <OsBlock src="img/windows-logo.svg" os="Windows" version={props.version} zipName={props.zipName} zipOS='Windows' zipExtension='exe' zipSize='300' />
+      <OsBlock src="img/linux-logo.svg" os="Linux" version={props.version} zipName={props.zipName} zipOS='Linux' zipExtension='deb' zipSize='400' />
+      <OsBlock src="img/apple-logo.svg" os="MacOS (Intel)" version={props.version} zipName={props.zipName} zipOS='MacOS' zipExtension='dmg' zipSize='670' />
+      <OsBlock src="img/apple-M1-logo.svg" os="MacOS (Apple Silicon)" version={props.version} zipName={props.zipName} zipOS='MacOS_M1' zipExtension='dmg' zipSize='670' />
     </FlexContainer>
   );
 
@@ -131,6 +132,12 @@ function Download(props) {
       }
       a.disabled {
         pointer-events: none;
+      }
+      .imageAlignTop .blockImage {
+        max-width: 100%;
+      }
+      .imageAlignTop .blockImage img {
+        max-height: 80px;
       }
     `}} />
   );
