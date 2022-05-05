@@ -33,14 +33,14 @@ function Download(props) {
       </div>
       <div className="blockContent">
         <h2>{props.os}</h2>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.zip`} className="button buttonRed">with JDK (~ 275MB)
-              <span className="tooltiptext">This is the easiest version to run. No need to install anything more.<br/><b>Note that the embedded JDK should not be used to run other softwares</b></span>
+            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.${props.zipExtension}`} className="button buttonRed">Default installer (&lt;400MB)
+              <span className="tooltiptext">This is the easiest version to run. Run installer and start GAMA.</span>
             </Button>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}.zip`} className="button buttonBlue">Without JDK (&lt; 100MB)
-              <span className="tooltiptext">Install this version if you <b>already installed Oracle JDK 8</b> on your computer.</span>
+            <Button href={`https://github.com/gama-platform/gama/releases/tag/${props.version}`} className="button buttonBlue" target="_blank">More installer
+              <span className="tooltiptext">GAMA is distibuted in various format, feel free to check then.<br/><b>Use this only if you know what you do.</b></span>
             </Button>
             <Button href="https://github.com/gama-platform/gama/releases/tag/1.8.2" className="button buttonOrange">Alpha Version
-              <span className="tooltiptext">Install this version if you feel adventurous.</span>
+              <span className="tooltiptext">This is the <b>in-development version</b> of GAMA. It can be broken or have some issues.<br/>Install this version if you feel adventurous.</span>
             </Button>
       </div>
     </div>
@@ -48,9 +48,9 @@ function Download(props) {
 
   const OsGrid = props => (
     <FlexContainer>
-      <OsBlock src="img/windows-logo.svg" os="Windows" version={props.version} zipName={props.zipName} zipOS='Windows' />
-      <OsBlock src="img/apple-logo.svg" os="MacOS" version={props.version} zipName={props.zipName} zipOS='MacOS' />
-      <OsBlock src="img/linux-logo.svg" os="Linux" version={props.version} zipName={props.zipName} zipOS='Linux' />
+      <OsBlock src="img/windows-logo.svg" os="Windows" version={props.version} zipName={props.zipName} zipOS='Windows' zipExtension='exe' />
+      <OsBlock src="img/apple-logo.svg" os="MacOS" version={props.version} zipName={props.zipName} zipOS='MacOS' zipExtension='dmg' />
+      <OsBlock src="img/linux-logo.svg" os="Linux" version={props.version} zipName={props.zipName} zipOS='Linux' zipExtension='deb' />
     </FlexContainer>
   );
 
@@ -143,7 +143,7 @@ function Download(props) {
           <header className="postHeader">
             <h1>Download latest version (currently <a href="https://github.com/gama-platform/gama/releases/latest" target="_blank">version {siteConfig.downloadVersion}</a>)</h1>
           </header>
-          <p>The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the daily release.</p>
+          <p>The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the latest alpha (unstable) release.</p>
           <OsGrid version={siteConfig.downloadVersion} zipName={siteConfig.zipName} />
 
         </div>
@@ -152,7 +152,7 @@ function Download(props) {
               <div className="blockElement imageAlignTop threeByGridBlock">
                 <div className="blockContent">
                   <h2>Documentation</h2>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMA${siteConfig.downloadVersion}.pdf`} className="button buttonRed">PDF (~ 22 MB)
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMA${siteConfig.downloadVersion}.pdf`} className="button buttonRed">GAMA {siteConfig.downloadVersion} PDF (~ 22 MB)
                     <span class="tooltiptext">This is the <b>offline GAMA {siteConfig.downloadVersion} documentation</b> ready to be download in a PDF file.</span>
                   </Button>
                 </div>
@@ -167,36 +167,38 @@ function Download(props) {
 
         <div className="post">
             <h2>Older documentation</h2>
-            <p>Below is the list to the <strong>PDF documentations</strong> of the <strong>previous versions of GAMA</strong>.</p>
+            <p>Below is the list to the <strong>PDF documentations</strong> of the <strong>previous versions of GAMA</strong>. You may also browse some <a href="https://gama-platform.org/versions">here</a>.</p>
 
             <FlexContainer>
               <div className="blockElement imageAlignTop threeByGridBlock">
                 <div className="blockContent">
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv1.8.0.pdf`} className="button buttonRed">GAMA 1.8.0 (~ 34 MB)
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv1.8.1.pdf`} className="button buttonRed">GAMA 1.8.1 (~ 22 MB)
                   </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv17.pdf`} className="button buttonBlue">GAMA 1.7 (~ 17 MB)
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv1.8.0.pdf`} className="button buttonBlue">GAMA 1.8.0 (~ 34 MB)
                   </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv161.pdf`} className="button buttonOrange">GAMA 1.6.1 (~ 13 MB)
-                  </Button>
-                </div>
-              </div>
-
-              <div className="blockElement imageAlignTop threeByGridBlock">
-                <div className="blockContent">
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv16.pdf`} className="button buttonRed">GAMA 1.6 (~ 13 MB)
-                  </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv151.pdf`} className="button buttonBlue">GAMA 1.5.1 (~ 2 MB)
-                  </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv14.pdf`} className="button buttonOrange">GAMA 1.4 (> 1 MB)
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv17.pdf`} className="button buttonOrange">GAMA 1.7 (~ 17 MB)
                   </Button>
                 </div>
               </div>
 
               <div className="blockElement imageAlignTop threeByGridBlock">
                 <div className="blockContent">
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv13.pdf`} className="button buttonRed">GAMA 1.3 (~ 2 MB)
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv161.pdf`} className="button buttonRed">GAMA 1.6.1 (~ 13 MB)
                   </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv11.pdf`} className="button buttonBlue">GAMA 1.1 (~ 1 MB)
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv16.pdf`} className="button buttonBlue">GAMA 1.6 (~ 13 MB)
+                  </Button>
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv151.pdf`} className="button buttonOrange">GAMA 1.5.1 (~ 2 MB)
+                  </Button>
+                </div>
+              </div>
+
+              <div className="blockElement imageAlignTop threeByGridBlock">
+                <div className="blockContent">
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv14.pdf`} className="button buttonRed">GAMA 1.4 (> 1 MB)
+                  </Button>
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv13.pdf`} className="button buttonBlue">GAMA 1.3 (~ 2 MB)
+                  </Button>
+                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv11.pdf`} className="button buttonOrange">GAMA 1.1 (~ 1 MB)
                   </Button>
                 </div>
               </div>
