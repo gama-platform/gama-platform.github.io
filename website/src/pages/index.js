@@ -7,224 +7,158 @@
 
 import React from 'react';
 import Layout from '@theme/Layout';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
-const Container = CompLibrary.Container;
-const GridBlock = CompLibrary.GridBlock;
+/*  FIRST MAIN BLOCK  */
+function HomeSplash() { //} extends React.Component {
+  const {siteConfig} = useDocusaurusContext();
+  const docUrl = doc => `${useBaseUrl(siteConfig.routeBasePath)}/${doc}`
 
-/*	FIRST MAIN BLOCK	*/
-class HomeSplash extends React.Component {
-  render() {
-    const {siteConfig, language = ''} = this.props;
-    const {baseUrl, docsUrl} = siteConfig;
-    const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
-    const langPart = `${language ? `${language}/` : ''}`;
-    const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+  const FlexContainer = props => ( <div className="container"> {props.children} </div> );
+  const FlexItem = props => ( <div className={`col${props.size} ${props.className}`}>{props.children}</div> );
 
-    const SplashContainer = props => (
-      <div className="homeContainer">
-        <div className="homeSplashFade">
-          <div className="wrapper homeWrapper">{props.children}</div>
+  const Logo = props => (
+    <div className="projectLogo">
+      <img src={props.src} alt="Project Logo" />
+    </div>
+  );
+
+  const Button = props => (
+    <div style={props.customStyle}>
+      <a className={props.className} href={props.href} target={props.target} style={{fontSize: "24px"}} >
+        {props.children}
+      </a>
+    </div>
+  );
+
+  return (
+    <div>
+
+      <div className="row firstLine">
+        <FlexItem className="logoItem" size="--12 col">
+            <div className="" style={{textAlign: "center"}} >
+
+              <a href={`${useBaseUrl("download")}`} >
+                <img id="imgSoft" src={`${useBaseUrl(siteConfig.customFields.frontPageImg)}`} alt="GAMA-Platform Software" />
+              </a>
+            </div>
+        </FlexItem>
+        <FlexItem className="" size="">
+          <div style={{paddingTop: "4em", textAlign: "center", color: "white"}} >
+            <h1 class="hero__title">{siteConfig.tagline}-Platform</h1>
+            <p class="hero__subtitle" >GAMA is a modeling and simulation development environment<br/>for building spatially explicit agent-based simulations.</p>
+          </div>
+        </FlexItem>
+       </div>
+
+       <div className="row" style={{"paddingTop": "5vh"}}>
+          <div className="col col--2 col--offset-3">
+            <Button href={`${useBaseUrl("download")}`}  className="button button--warning" customStyle={{"textAlign": "center"}}>Download</Button>
+          </div>
+          <div className="col col--2" style={{display: "contents"}} >
+            <Button href={docUrl('Home')} className="button button--outline button--danger" customStyle={{"textAlign": "center"}}>Documentation</Button>
+          </div>
+          <div className="col col--2" style={{float: "left",display: "flex"}} >
+              <Button href={docUrl('Tutorials')} className="button button--outline button--primary" customStyle={{"textAlign": "center"}}>Tutorial</Button>
+          </div>
         </div>
-      </div>
-    );
+        
 
-    const FlexContainer = props => ( <div className="section container"> {props.children} </div> );
-    const FlexItem = props => ( <div className={`item ${props.className}`}>{props.children}</div> );
-
-    const Logo = props => (
-      <div className="projectLogo">
-        <img src={props.src} alt="Project Logo" />
-      </div>
-    );
-
-    const ProjectTitle = () => (
-      <h2 className="projectTitle">
-        {siteConfig.tagline}
-        <small>{siteConfig.frontPagePresentation}</small>
-      </h2>
-    );
-
-    const PromoSection = props => (
-      <div id="promo" className="section promoSection">
-        <div className="promoRow">
-          <div className="pluginRowBlock">{props.children}</div>
-        </div>
-      </div>
-    );
-
-    const Button = props => (
-      <div className="pluginWrapper buttonWrapper">
-        <a className={props.className} href={props.href} target={props.target}>
-          {props.children}
-        </a>
-      </div>
-    );
-
-    const ImgSoftware = props => (
-      <div className="pluginWrapper">
-
-        <a href={`${baseUrl}${siteConfig.frontPageImgLink}`} >
-          <img id="imgSoft" src={`${baseUrl}${siteConfig.frontPageImg}`} alt="GAMA-Platform Software" />
-        </a>
-
-      </div>
-    );
-
-    return (
-      <SplashContainer>
-        <div className="inner">
-          <FlexContainer>
-            <FlexItem className="logoItem">
-              <Logo src={`${baseUrl}${siteConfig.footerIcon}`} />
-            </FlexItem>
-            <FlexItem className="">
-              <ProjectTitle siteConfig={siteConfig} />
-            </FlexItem>
-          </FlexContainer>
-          <FlexContainer>
-            <FlexItem className="fRight">
-              <Button href={`${baseUrl}download`}  className="button buttonWhiteActive">Download</Button>
-            </FlexItem>
-            <FlexItem className="fLeft">
-              <PromoSection>
-                <Button href={docUrl('Home')} className="button buttonOrange">Discover</Button>
-                <Button href={docUrl('Tutorials')} className="button buttonRed">Learn</Button>
-                <Button href={'blog'} className="button buttonBlue">Blog</Button>
-              </PromoSection>
-            </FlexItem>
-          </FlexContainer>
-          <ImgSoftware />
-        </div>
-      </SplashContainer>
-    );
-  }
+    </div>
+  );
 }
 
-class Index extends React.Component {
-  render() {
-    const {config: siteConfig, language = ''} = this.props;
+export default function Hello() {
+  const {siteConfig} = useDocusaurusContext();
 
-    const Design = props => (    
-      <style dangerouslySetInnerHTML={{__html: `
-        .container {
-          display:  inline-flex;
-          align-items: center;
-          width: 100%;
-        }
-        .item{
-          width: 50%;
-          margin: 0 3em;
-        }
-        /*  One Screen  */
-        .fixedHeaderContainer, footer{ display: none; }
-        .navPusher{ padding: 0; }
+  const Design = props => (    
+    <style dangerouslySetInnerHTML={{__html: `
+      :root {
+        --ifm-color-warning: #eeb64f;
+        --ifm-color-danger: #d36737;
+        --ifm-color-primary: #3271a1;
+      }
 
-        .homeSplashFade {
-            height: 100vh;
-            position: relative;
-        }
-        body { background-color: black; }
-        .projectTitle {
-          text-align: left;
-          color: white;
-        }
-        .projectTitle > small {
-          margin: 1.5em 0;
-          text-align: justify;
-        }
-        .promoSection { margin: 3em 0; }
+      .row {
+        padding-top: 10vh;
+      }
 
-        .projectLogo {
-          position: inherit !important;
-          padding: 0 !important;
-        }
+      .projectLogo img{ 
+        width: auto; 
+        max-height: 250px;
+      }
 
-        .projectLogo img{ 
-          width: auto; 
-        }
+      .firstLine .col{
+        margin: 0 3em;
+      }
 
-        /*  BUTTONS */
-        .button { border-width: 2px;font-weight: bold; }
+      /*  One Screen  */
+      /*.fixedHeaderContainer, footer{ display: none; }*/
+      .navPusher{ padding: 0; }
 
-        .fLeft,   .fRight  > div {
-          float: right;
-        }
-        .promoSection .promoRow .pluginRowBlock {
-          justify-content: flex-start !important;
-        }
-        .fRight {
-          padding-right: 71px;
-        }
+      html { 
+        background-color: black;
+      }
 
-        .logoItem {
-          text-align: right;
-        }
+      footer {
+        display: none;
+      }
 
-        #back-to-top {
-          display: none;
-        }
+      .projectTitle {
+        text-align: left;
+        color: white;
+      }
+      .projectTitle small {
+        margin: 1.5em 0;
+        text-align: justify;
+      }
+      .promoSection { margin: 3em 0; }
 
-          .inner {
-            padding-top: 5vh;
-          }
+      .projectLogo {
+        position: inherit !important;
+        padding: 0 !important;
+      }
 
-        @media only screen and (max-width: 1200px) {
-          .homeContainer .homeWrapper .projectLogo {
-            display: block;
-          }
-          .homeContainer .homeWrapper .projectLogo img {
-            height: 100%;
-            max-height: 250px;
-          }
-        }
+      /*  BUTTONS */
+      .button { border-width: 2px;font-weight: bold; }
 
-        @media only screen and (max-device-width: 736px) {
-          .logoItem {
-            display: none;
-          }
-          .item {
-            width: 100%
-          }
-          h2, h2 small {
-            text-align: center !important;
-            text-justify: inherit;
-          }
-          .container{
-            flex-wrap: wrap;
-          }
-          .fLeft,   .fRight {
-            padding: 0;
-            width: auto;
-            margin: 0 auto;
-          }
+      .fLeft,   .fRight  > div {
+        float: right;
+      }
+      .promoSection .promoRow .pluginRowBlock {
+        justify-content: flex-start !important;
+      }
+      .fRight {
+        padding-right: 71px;
+      }
 
-          .inner {
-            padding-top: 0;
-          }
-        }
-      `}} />
-    );
+      .logoItem {
+        text-align: right;
+      }
+
+      #back-to-top {
+        display: none;
+      }
+    `}} />
+  );
 
   const Script = props => (
     <script type="text/javascript" src="./js/index.js"></script>
   );
 
-    return (
-      <div>
-        <Design/>
-        <Script/>
+  return (
+    <Layout>
+      <Design/>
+      <Script/>
 
-        <div className="section container" style={{backgroundColor: "#3670A0"}}>
-          <a href="https://gama-platform.org/Gama-Days-2022/CFP.html" class="item" style={{ color: "white", textAlign: "center", width: "100%", padding: "10px 0"}}>
-            📢 Don't miss the GAMA Days 2022 call for paper 📢
-          </a>
+      <div className="container">
+        <div className="row" style={{"padding": "2em", margingTop: "5vh", display: 'none'}}>
         </div>
 
-        <HomeSplash siteConfig={siteConfig} language={language} />
-      </div>
-    );
-  }
-}
+        <HomeSplash />
 
-module.exports = Index;
+      </div>  
+    </Layout>
+  );
+}

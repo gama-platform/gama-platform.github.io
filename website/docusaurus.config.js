@@ -22,10 +22,10 @@ module.exports={
       "src": "/js/code-block-buttons.js",
       "async": false
     },
-    {
+/*    {
       "src": "/js/searchEngine.js",
       "async": false
-    },
+    },*/
     {
       "src": "/js/dark.js",
       "async": false
@@ -65,12 +65,13 @@ module.exports={
           "path": "blog"
         },
         "theme": {
-          "customCss": "../src/css/customTheme.css"
+          "customCss": "/src/css/customTheme.css"
         }
       }
     ]
   ],
-  "plugins": [],
+  "plugins": [
+  ],
   "themeConfig": {
     "navbar": {
       "title": "GAMA-Platform",
