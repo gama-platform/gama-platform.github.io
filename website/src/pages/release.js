@@ -4,10 +4,9 @@
  * This source code is licensed under the GPL3 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-const React = require('react');
-
-const CompLibrary = require('../../core/CompLibrary.js');
+ 
+import React from 'react';
+import Layout from '@theme/Layout';
 const MarkdownBlock = CompLibrary.MarkdownBlock;
 
 const Container = CompLibrary.Container;

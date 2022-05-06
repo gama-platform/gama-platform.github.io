@@ -79,3 +79,4 @@ website/static/database/index.json
 
 *.bak
 website/.docusaurus
+v1-website
