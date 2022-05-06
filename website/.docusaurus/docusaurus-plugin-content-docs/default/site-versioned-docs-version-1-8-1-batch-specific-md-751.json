@@ -1,0 +1,30 @@
+{
+  "unversionedId": "BatchSpecific",
+  "id": "version-1.8.1/BatchSpecific",
+  "title": "Batch Specific UI",
+  "description": "When an experiment of type Batch is run, a dedicated UI is displayed, depending on the parameters to explore and of the exploration methods.",
+  "source": "@site/versioned_docs/version-1.8.1/BatchSpecific.md",
+  "sourceDirName": ".",
+  "slug": "/BatchSpecific",
+  "permalink": "/docs/BatchSpecific",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Batch Specific UI",
+    "id": "BatchSpecific",
+    "original_id": "BatchSpecific"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Displays",
+    "permalink": "/docs/Displays"
+  },
+  "next": {
+    "title": "Errors View",
+    "permalink": "/docs/ErrorsView"
+  }
+}

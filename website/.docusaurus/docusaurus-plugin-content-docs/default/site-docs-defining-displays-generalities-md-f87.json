@@ -1,0 +1,19 @@
+{
+  "unversionedId": "DefiningDisplaysGeneralities",
+  "id": "DefiningDisplaysGeneralities",
+  "title": "Defining displays (Generalities)",
+  "description": "[//]: # (startConcept|2d_displays)",
+  "source": "@site/../docs/DefiningDisplaysGeneralities.md",
+  "sourceDirName": ".",
+  "slug": "/DefiningDisplaysGeneralities",
+  "permalink": "/docs/DefiningDisplaysGeneralities",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining displays (Generalities)"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "unversionedId": "Documentation",
+  "id": "Documentation",
+  "title": "Documentation",
+  "description": "Table of contents",
+  "source": "@site/../docs/Documentation.md",
+  "sourceDirName": ".",
+  "slug": "/Documentation",
+  "permalink": "/docs/Documentation",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Documentation"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Product your own release of GAMA",
+    "permalink": "/docs/CreatingAReleaseOfGama"
+  },
+  "next": {
+    "title": "Scientific References",
+    "permalink": "/docs/References"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Clock Clock",
+  "id": "version-1.8.1/Clock Clock",
+  "title": "Clock",
+  "description": "[//]: # (keyword|constant_#msec)",
+  "source": "@site/versioned_docs/version-1.8.1/Clock Clock.md",
+  "sourceDirName": ".",
+  "slug": "/Clock Clock",
+  "permalink": "/docs/Clock Clock",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Clock",
+    "id": "Clock Clock",
+    "original_id": "Clock Clock"
+  }
+}

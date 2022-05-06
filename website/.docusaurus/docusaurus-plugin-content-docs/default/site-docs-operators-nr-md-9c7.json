@@ -1,0 +1,19 @@
+{
+  "unversionedId": "OperatorsNR",
+  "id": "OperatorsNR",
+  "title": "Operators (N to R)",
+  "description": "----",
+  "source": "@site/../docs/OperatorsNR.md",
+  "sourceDirName": ".",
+  "slug": "/OperatorsNR",
+  "permalink": "/docs/OperatorsNR",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Operators (N to R)"
+  }
+}

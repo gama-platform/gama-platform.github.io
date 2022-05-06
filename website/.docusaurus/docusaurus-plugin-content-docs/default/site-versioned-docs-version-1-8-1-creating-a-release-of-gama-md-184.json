@@ -1,0 +1,30 @@
+{
+  "unversionedId": "CreatingAReleaseOfGama",
+  "id": "version-1.8.1/CreatingAReleaseOfGama",
+  "title": "Product your own release of GAMA",
+  "description": "Install Maven if not already installed",
+  "source": "@site/versioned_docs/version-1.8.1/CreatingAReleaseOfGama.md",
+  "sourceDirName": ".",
+  "slug": "/CreatingAReleaseOfGama",
+  "permalink": "/docs/CreatingAReleaseOfGama",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Product your own release of GAMA",
+    "id": "CreatingAReleaseOfGama",
+    "original_id": "CreatingAReleaseOfGama"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "IScope interface",
+    "permalink": "/docs/DevelopingIScope"
+  },
+  "next": {
+    "title": "Documentation",
+    "permalink": "/docs/Documentation"
+  }
+}

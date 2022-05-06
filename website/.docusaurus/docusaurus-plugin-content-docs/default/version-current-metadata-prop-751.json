@@ -1,0 +1,2205 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": null,
+  "badge": false,
+  "className": "docs-version-current",
+  "isLast": true,
+  "docsSidebars": {
+    "tuto": [
+      {
+        "type": "category",
+        "label": "Tutorials",
+        "items": [
+          {
+            "type": "link",
+            "label": "Tutorials",
+            "href": "/docs/Tutorials",
+            "docId": "Tutorials"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Predator Prey",
+        "items": [
+          {
+            "type": "link",
+            "label": "Predator Prey",
+            "href": "/docs/PredatorPrey",
+            "docId": "PredatorPrey"
+          },
+          {
+            "type": "link",
+            "label": "1. Basic Model",
+            "href": "/docs/PredatorPrey_step1",
+            "docId": "PredatorPrey_step1"
+          },
+          {
+            "type": "link",
+            "label": "2. Vegetation Dynamic",
+            "href": "/docs/PredatorPrey_step2",
+            "docId": "PredatorPrey_step2"
+          },
+          {
+            "type": "link",
+            "label": "3. Prey Agent Behavior",
+            "href": "/docs/PredatorPrey_step3",
+            "docId": "PredatorPrey_step3"
+          },
+          {
+            "type": "link",
+            "label": "4. Inspectors and Monitors",
+            "href": "/docs/PredatorPrey_step4",
+            "docId": "PredatorPrey_step4"
+          },
+          {
+            "type": "link",
+            "label": "5. Predator Agent",
+            "href": "/docs/PredatorPrey_step5",
+            "docId": "PredatorPrey_step5"
+          },
+          {
+            "type": "link",
+            "label": "6. Breeding",
+            "href": "/docs/PredatorPrey_step6",
+            "docId": "PredatorPrey_step6"
+          },
+          {
+            "type": "link",
+            "label": "7. Agent Aspect",
+            "href": "/docs/PredatorPrey_step7",
+            "docId": "PredatorPrey_step7"
+          },
+          {
+            "type": "link",
+            "label": "8. Complex Behavior",
+            "href": "/docs/PredatorPrey_step8",
+            "docId": "PredatorPrey_step8"
+          },
+          {
+            "type": "link",
+            "label": "9. Stopping condition",
+            "href": "/docs/PredatorPrey_step9",
+            "docId": "PredatorPrey_step9"
+          },
+          {
+            "type": "link",
+            "label": "10. Charts",
+            "href": "/docs/PredatorPrey_step10",
+            "docId": "PredatorPrey_step10"
+          },
+          {
+            "type": "link",
+            "label": "11. Writing Files",
+            "href": "/docs/PredatorPrey_step11",
+            "docId": "PredatorPrey_step11"
+          },
+          {
+            "type": "link",
+            "label": "12. Image loading",
+            "href": "/docs/PredatorPrey_step12",
+            "docId": "PredatorPrey_step12"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Road Traffic",
+        "items": [
+          {
+            "type": "link",
+            "label": "Road Traffic",
+            "href": "/docs/RoadTrafficModel",
+            "docId": "RoadTrafficModel"
+          },
+          {
+            "type": "link",
+            "label": "1. Loading of GIS Data",
+            "href": "/docs/RoadTrafficModel_step1",
+            "docId": "RoadTrafficModel_step1"
+          },
+          {
+            "type": "link",
+            "label": "2. People Agents",
+            "href": "/docs/RoadTrafficModel_step2",
+            "docId": "RoadTrafficModel_step2"
+          },
+          {
+            "type": "link",
+            "label": "3. Movement of People",
+            "href": "/docs/RoadTrafficModel_step3",
+            "docId": "RoadTrafficModel_step3"
+          },
+          {
+            "type": "link",
+            "label": "4. Weight for Road Network",
+            "href": "/docs/RoadTrafficModel_step4",
+            "docId": "RoadTrafficModel_step4"
+          },
+          {
+            "type": "link",
+            "label": "5. Dynamic weights",
+            "href": "/docs/RoadTrafficModel_step5",
+            "docId": "RoadTrafficModel_step5"
+          },
+          {
+            "type": "link",
+            "label": "6. Charts",
+            "href": "/docs/RoadTrafficModel_step6",
+            "docId": "RoadTrafficModel_step6"
+          },
+          {
+            "type": "link",
+            "label": "7. Automatic Road Repair",
+            "href": "/docs/RoadTrafficModel_step7",
+            "docId": "RoadTrafficModel_step7"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "3D Tutorial",
+        "items": [
+          {
+            "type": "link",
+            "label": "3D Tutorial",
+            "href": "/docs/ThreeD",
+            "docId": "ThreeD"
+          },
+          {
+            "type": "link",
+            "label": "1. Basic Model",
+            "href": "/docs/ThreeD_step1",
+            "docId": "ThreeD_step1"
+          },
+          {
+            "type": "link",
+            "label": "2. Moving Cells",
+            "href": "/docs/ThreeD_step2",
+            "docId": "ThreeD_step2"
+          },
+          {
+            "type": "link",
+            "label": "3. Connections",
+            "href": "/docs/ThreeD_step3",
+            "docId": "ThreeD_step3"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Incremental Model",
+        "items": [
+          {
+            "type": "link",
+            "label": "Incremental Model",
+            "href": "/docs/IncrementalModel",
+            "docId": "IncrementalModel"
+          },
+          {
+            "type": "link",
+            "label": "1. Simple SI Model",
+            "href": "/docs/IncrementalModel_step1",
+            "docId": "IncrementalModel_step1"
+          },
+          {
+            "type": "link",
+            "label": "2. Charts",
+            "href": "/docs/IncrementalModel_step2",
+            "docId": "IncrementalModel_step2"
+          },
+          {
+            "type": "link",
+            "label": "3. Integration of GIS Data",
+            "href": "/docs/IncrementalModel_step3",
+            "docId": "IncrementalModel_step3"
+          },
+          {
+            "type": "link",
+            "label": "4. Movement on Graph",
+            "href": "/docs/IncrementalModel_step4",
+            "docId": "IncrementalModel_step4"
+          },
+          {
+            "type": "link",
+            "label": "5. Visualizing in 3D",
+            "href": "/docs/IncrementalModel_step5",
+            "docId": "IncrementalModel_step5"
+          },
+          {
+            "type": "link",
+            "label": "6. Multi-Level",
+            "href": "/docs/IncrementalModel_step6",
+            "docId": "IncrementalModel_step6"
+          },
+          {
+            "type": "link",
+            "label": "7. Differential Equations",
+            "href": "/docs/IncrementalModel_step7",
+            "docId": "IncrementalModel_step7"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Luneray's flu",
+        "items": [
+          {
+            "type": "link",
+            "label": "Luneray's flu",
+            "href": "/docs/LuneraysFlu",
+            "docId": "LuneraysFlu"
+          },
+          {
+            "type": "link",
+            "label": "1. Creation of a first basic disease spreading model",
+            "href": "/docs/LuneraysFlu_step1",
+            "docId": "LuneraysFlu_step1"
+          },
+          {
+            "type": "link",
+            "label": "2. Definition of monitors and chart outputs",
+            "href": "/docs/LuneraysFlu_step2",
+            "docId": "LuneraysFlu_step2"
+          },
+          {
+            "type": "link",
+            "label": "3. Importation of GIS data",
+            "href": "/docs/LuneraysFlu_step3",
+            "docId": "LuneraysFlu_step3"
+          },
+          {
+            "type": "link",
+            "label": "4. Use of a graph to constraint the movements of people",
+            "href": "/docs/LuneraysFlu_step4",
+            "docId": "LuneraysFlu_step4"
+          },
+          {
+            "type": "link",
+            "label": "5. Definition of 3D displays",
+            "href": "/docs/LuneraysFlu_step5",
+            "docId": "LuneraysFlu_step5"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Co-modeling",
+        "items": [
+          {
+            "type": "link",
+            "label": "Co-modeling tutorial",
+            "href": "/docs/CoModelingTutorial",
+            "docId": "CoModelingTutorial"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "BDI Agents",
+        "items": [
+          {
+            "type": "link",
+            "label": "BDI Agents",
+            "href": "/docs/BDIAgents",
+            "docId": "BDIAgents"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      }
+    ],
+    "side": [
+      {
+        "type": "category",
+        "label": "Home",
+        "items": [
+          {
+            "type": "link",
+            "label": "GAMA",
+            "href": "/docs/Home",
+            "docId": "Home"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Introduction",
+        "items": [
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/docs/Overview",
+            "docId": "Overview"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Platform",
+        "items": [
+          {
+            "type": "link",
+            "label": "Platform",
+            "href": "/docs/PlatformDocumentation",
+            "docId": "PlatformDocumentation"
+          },
+          {
+            "type": "category",
+            "label": "Installation and Launching",
+            "items": [
+              {
+                "type": "link",
+                "label": "Installation and Launching",
+                "href": "/docs/InstallationAndLaunching",
+                "docId": "InstallationAndLaunching"
+              },
+              {
+                "type": "link",
+                "label": "Installation",
+                "href": "/docs/Installation",
+                "docId": "Installation"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "category",
+            "label": "Workspace, Projects and Models",
+            "items": [
+              {
+                "type": "link",
+                "label": "Workspace, Projects and Models",
+                "href": "/docs/WorkspaceProjectsAndModels",
+                "docId": "WorkspaceProjectsAndModels"
+              },
+              {
+                "type": "link",
+                "label": "Navigating in the Workspace",
+                "href": "/docs/NavigatingWorkspace",
+                "docId": "NavigatingWorkspace"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "category",
+            "label": "Editing Models",
+            "items": [
+              {
+                "type": "link",
+                "label": "Editing models",
+                "href": "/docs/EditingModels",
+                "docId": "EditingModels"
+              },
+              {
+                "type": "link",
+                "label": "The GAML Editor - Generalities",
+                "href": "/docs/GamlEditorGeneralities",
+                "docId": "GamlEditorGeneralities"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "category",
+            "label": "Running Experiments",
+            "items": [
+              {
+                "type": "link",
+                "label": "Running Experiments",
+                "href": "/docs/RunningExperiments",
+                "docId": "RunningExperiments"
+              },
+              {
+                "type": "link",
+                "label": "Launching Experiments from the User Interface",
+                "href": "/docs/LaunchingExperiments",
+                "docId": "LaunchingExperiments"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "link",
+            "label": "Preferences",
+            "href": "/docs/Preferences",
+            "docId": "Preferences"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Learn GAML step by step",
+        "items": [
+          {
+            "type": "link",
+            "label": "Learn GAML Step by Step",
+            "href": "/docs/LearnGAMLStepByStep",
+            "docId": "LearnGAMLStepByStep"
+          },
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/docs/Introduction",
+            "docId": "Introduction"
+          },
+          {
+            "type": "category",
+            "label": "Start with GAML",
+            "items": [
+              {
+                "type": "link",
+                "label": "Start with GAML",
+                "href": "/docs/StartWithGAML",
+                "docId": "StartWithGAML"
+              },
+              {
+                "type": "link",
+                "label": "Organization of a model",
+                "href": "/docs/ModelOrganization",
+                "docId": "ModelOrganization"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "category",
+            "label": "Manipulate basic Species",
+            "items": [
+              {
+                "type": "link",
+                "label": "Manipulate basic species",
+                "href": "/docs/ManipulateBasicSpecies",
+                "docId": "ManipulateBasicSpecies"
+              },
+              {
+                "type": "link",
+                "label": "The global species",
+                "href": "/docs/GlobalSpecies",
+                "docId": "GlobalSpecies"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "category",
+            "label": "Defining Advanced Species",
+            "items": [
+              {
+                "type": "link",
+                "label": "Defining advanced species",
+                "href": "/docs/DefiningAdvancedSpecies",
+                "docId": "DefiningAdvancedSpecies"
+              },
+              {
+                "type": "link",
+                "label": "Grid Species",
+                "href": "/docs/GridSpecies",
+                "docId": "GridSpecies"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "category",
+            "label": "Defining GUI Experiment",
+            "items": [
+              {
+                "type": "link",
+                "label": "Defining GUI Experiment",
+                "href": "/docs/DefiningGUIExperiment",
+                "docId": "DefiningGUIExperiment"
+              },
+              {
+                "type": "link",
+                "label": "Defining Parameters",
+                "href": "/docs/DefiningParameters",
+                "docId": "DefiningParameters"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "category",
+            "label": "Exploring Models",
+            "items": [
+              {
+                "type": "link",
+                "label": "Exploring Models",
+                "href": "/docs/ExploringModels",
+                "docId": "ExploringModels"
+              },
+              {
+                "type": "link",
+                "label": "Run Several Simulations",
+                "href": "/docs/RunSeveralSimulations",
+                "docId": "RunSeveralSimulations"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "category",
+            "label": "Optimizing Model Section",
+            "items": [
+              {
+                "type": "link",
+                "label": "Optimizing Models",
+                "href": "/docs/OptimizingModelsSection",
+                "docId": "OptimizingModelsSection"
+              },
+              {
+                "type": "link",
+                "label": "Runtime Concepts",
+                "href": "/docs/RuntimeConcepts",
+                "docId": "RuntimeConcepts"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "category",
+            "label": "Multi-Paradigm Modeling",
+            "items": [
+              {
+                "type": "link",
+                "label": "Multi-Paradigm Modeling",
+                "href": "/docs/MultiParadigmModeling",
+                "docId": "MultiParadigmModeling"
+              },
+              {
+                "type": "link",
+                "label": "Control Architectures",
+                "href": "/docs/ControlArchitecture",
+                "docId": "ControlArchitecture"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Recipes",
+        "items": [
+          {
+            "type": "link",
+            "label": "Recipes",
+            "href": "/docs/Recipes",
+            "docId": "Recipes"
+          },
+          {
+            "type": "link",
+            "label": "Manipulate OSM Datas",
+            "href": "/docs/ManipulateOSMDatas",
+            "docId": "ManipulateOSMDatas"
+          },
+          {
+            "type": "link",
+            "label": "Implementing diffusion",
+            "href": "/docs/Diffusion",
+            "docId": "Diffusion"
+          },
+          {
+            "type": "link",
+            "label": "Using Database Access",
+            "href": "/docs/UsingDatabase",
+            "docId": "UsingDatabase"
+          },
+          {
+            "type": "link",
+            "label": "Calling R",
+            "href": "/docs/CallingR",
+            "docId": "CallingR"
+          },
+          {
+            "type": "link",
+            "label": "Using FIPA ACL",
+            "href": "/docs/UsingFIPAACL",
+            "docId": "UsingFIPAACL"
+          },
+          {
+            "type": "link",
+            "label": "Using GAMAnalyzer",
+            "href": "/docs/GamAnalyzer",
+            "docId": "GamAnalyzer"
+          },
+          {
+            "type": "link",
+            "label": "Advanced Driving Skill",
+            "href": "/docs/UsingDrivingSkill",
+            "docId": "UsingDrivingSkill"
+          },
+          {
+            "type": "link",
+            "label": "Manipulate Dates",
+            "href": "/docs/ManipulateDates",
+            "docId": "ManipulateDates"
+          },
+          {
+            "type": "link",
+            "label": "Implementing light",
+            "href": "/docs/ManipulateLight",
+            "docId": "ManipulateLight"
+          },
+          {
+            "type": "link",
+            "label": "Using Comodel",
+            "href": "/docs/Comodel",
+            "docId": "Comodel"
+          },
+          {
+            "type": "link",
+            "label": "Save and Restore simulations",
+            "href": "/docs/Save-and-restore-simulations",
+            "docId": "Save-and-restore-simulations"
+          },
+          {
+            "type": "link",
+            "label": "Using network",
+            "href": "/docs/UsingNetwork",
+            "docId": "UsingNetwork"
+          },
+          {
+            "type": "link",
+            "label": "Editing Headless mode for dummies",
+            "href": "/docs/Headless-mode-for-dummies",
+            "docId": "Headless-mode-for-dummies"
+          },
+          {
+            "type": "link",
+            "label": "The Graphical Editor",
+            "href": "/docs/G__GraphicalEditor",
+            "docId": "G__GraphicalEditor"
+          },
+          {
+            "type": "link",
+            "label": "Known issues",
+            "href": "/docs/KnownIssues",
+            "docId": "KnownIssues"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "GAML References",
+        "items": [
+          {
+            "type": "link",
+            "label": "GAML References",
+            "href": "/docs/GamlReference",
+            "docId": "GamlReference"
+          },
+          {
+            "type": "category",
+            "label": "Built-in Species",
+            "items": [
+              {
+                "type": "link",
+                "label": "Built-in Species",
+                "href": "/docs/BuiltInSpecies",
+                "docId": "BuiltInSpecies"
+              },
+              {
+                "type": "link",
+                "label": "The 'agent' built-in species (Under Construction)",
+                "href": "/docs/AgentBuiltIn",
+                "docId": "AgentBuiltIn"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "link",
+            "label": "Built-in Skills",
+            "href": "/docs/BuiltInSkills",
+            "docId": "BuiltInSkills"
+          },
+          {
+            "type": "link",
+            "label": "Built-in Architectures",
+            "href": "/docs/BuiltInArchitectures",
+            "docId": "BuiltInArchitectures"
+          },
+          {
+            "type": "link",
+            "label": "Statements",
+            "href": "/docs/Statements",
+            "docId": "Statements"
+          },
+          {
+            "type": "link",
+            "label": "Types",
+            "href": "/docs/DataTypes",
+            "docId": "DataTypes"
+          },
+          {
+            "type": "link",
+            "label": "File Types",
+            "href": "/docs/FileTypes",
+            "docId": "FileTypes"
+          },
+          {
+            "type": "category",
+            "label": "Expressions",
+            "items": [
+              {
+                "type": "link",
+                "label": "Expressions",
+                "href": "/docs/Expressions",
+                "docId": "Expressions"
+              },
+              {
+                "type": "link",
+                "label": "Literals",
+                "href": "/docs/Literals",
+                "docId": "Literals"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true
+          },
+          {
+            "type": "link",
+            "label": "Exhaustive list of GAMA Keywords",
+            "href": "/docs/",
+            "docId": "Index"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Developing Extensions",
+        "items": [
+          {
+            "type": "link",
+            "label": "Developing Extensions",
+            "href": "/docs/DevelopingExtensions",
+            "docId": "DevelopingExtensions"
+          },
+          {
+            "type": "link",
+            "label": "Installing the GIT version",
+            "href": "/docs/InstallingGitVersion",
+            "docId": "InstallingGitVersion"
+          },
+          {
+            "type": "link",
+            "label": "Architecture of GAMA",
+            "href": "/docs/GamaArchitecture",
+            "docId": "GamaArchitecture"
+          },
+          {
+            "type": "link",
+            "label": "Developing Plugins",
+            "href": "/docs/DevelopingPlugins",
+            "docId": "DevelopingPlugins"
+          },
+          {
+            "type": "link",
+            "label": "Developing Skills",
+            "href": "/docs/DevelopingSkills",
+            "docId": "DevelopingSkills"
+          },
+          {
+            "type": "link",
+            "label": "Developing Statements",
+            "href": "/docs/DevelopingStatements",
+            "docId": "DevelopingStatements"
+          },
+          {
+            "type": "link",
+            "label": "Developing Operators",
+            "href": "/docs/DevelopingOperators",
+            "docId": "DevelopingOperators"
+          },
+          {
+            "type": "link",
+            "label": "Developing Types",
+            "href": "/docs/DevelopingTypes",
+            "docId": "DevelopingTypes"
+          },
+          {
+            "type": "link",
+            "label": "Developing Species",
+            "href": "/docs/DevelopingSpecies",
+            "docId": "DevelopingSpecies"
+          },
+          {
+            "type": "link",
+            "label": "Developing architecture",
+            "href": "/docs/DevelopingControlArchitectures",
+            "docId": "DevelopingControlArchitectures"
+          },
+          {
+            "type": "link",
+            "label": "Index of annotations",
+            "href": "/docs/DevelopingIndexAnnotations",
+            "docId": "DevelopingIndexAnnotations"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Developing GAMA",
+        "items": [
+          {
+            "type": "link",
+            "label": "Get into the GAMA Java API",
+            "href": "/docs/developingGAMA",
+            "docId": "developingGAMA"
+          },
+          {
+            "type": "link",
+            "label": "IScope interface",
+            "href": "/docs/DevelopingIScope",
+            "docId": "DevelopingIScope"
+          },
+          {
+            "type": "link",
+            "label": "Product your own release of GAMA",
+            "href": "/docs/CreatingAReleaseOfGama",
+            "docId": "CreatingAReleaseOfGama"
+          },
+          {
+            "type": "link",
+            "label": "Documentation",
+            "href": "/docs/Documentation",
+            "docId": "Documentation"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Scientific References",
+        "items": [
+          {
+            "type": "link",
+            "label": "Scientific References",
+            "href": "/docs/References",
+            "docId": "References"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Projects using GAMA",
+        "items": [
+          {
+            "type": "link",
+            "label": "Projects",
+            "href": "/docs/Projects",
+            "docId": "Projects"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Training Session",
+        "items": [
+          {
+            "type": "link",
+            "label": "Training Session",
+            "href": "/docs/TrainingSession",
+            "docId": "TrainingSession"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Events",
+        "items": [
+          {
+            "type": "link",
+            "label": "Events",
+            "href": "/docs/Events",
+            "docId": "Events"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Older versions",
+        "items": [
+          {
+            "type": "link",
+            "label": "Versions of GAMA",
+            "href": "/docs/OlderVersions",
+            "docId": "OlderVersions"
+          },
+          {
+            "type": "link",
+            "label": "Introduction",
+            "href": "/docs/Event__CC15_Reorganization",
+            "docId": "Event__CC15_Reorganization"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      }
+    ]
+  },
+  "docs": {
+    "AgentBuiltIn": {
+      "id": "AgentBuiltIn",
+      "title": "The 'agent' built-in species (Under Construction)",
+      "description": "As described in the presentation of GAML, the hierarchy of species derives from a single built-in species called agent. All its components (attributes, actions) will then be inherited by all direct or indirect children species (including model and experiment), with the exception of species that explicitly mention useminimalagents: true as a facet, which inherit from a stripped-down version of agent (see below).",
+      "sidebar": "side"
+    },
+    "AttachingSkills": {
+      "id": "AttachingSkills",
+      "title": "Attaching Skills",
+      "description": "[//]: # (startConcept|attaching_skills)"
+    },
+    "BasicProgrammingConceptsInGAML": {
+      "id": "BasicProgrammingConceptsInGAML",
+      "title": "Basic programming concepts in GAML",
+      "description": "[//]: # (startConcept|programming_basis)"
+    },
+    "BatchExperiments": {
+      "id": "BatchExperiments",
+      "title": "Defining Batch Experiments",
+      "description": "Batch experiments allow to execute numerous successive simulation runs. They are used to explore the parameter space of a model or to optimize a set of model parameters. Exploration methods are detailed in this page."
+    },
+    "BatchSpecific": {
+      "id": "BatchSpecific",
+      "title": "Batch Specific UI",
+      "description": "When an experiment of type Batch is run, a dedicated UI is displayed, depending on the parameters to explore and of the exploration methods."
+    },
+    "BDIAgents": {
+      "id": "BDIAgents",
+      "title": "BDI Agents",
+      "description": "This tutorial aims at presenting the use of BDI agents in GAMA. In particular, this tutorial shows how to define a BDI agents, then to add social relation between BDI agents, to add emotions and a personality to the agents and finally social norms, obligations and enforcements. These notions come from the BEN architecture, described in details in the page Using BEN architecture.",
+      "sidebar": "tuto"
+    },
+    "BDIAgents_step1": {
+      "id": "BDIAgents_step1",
+      "title": "1. Skeleton model",
+      "description": "This first step consists in defining the skeleton model with the gold mines and the gold market."
+    },
+    "BDIAgents_step2": {
+      "id": "BDIAgents_step2",
+      "title": "2. BDI Agents",
+      "description": "This second step consists in defining the gold miner agents using the GAMA BDI architecture."
+    },
+    "BDIAgents_step3": {
+      "id": "BDIAgents_step3",
+      "title": "3. Social relation",
+      "description": "This third step consists in adding social relation between agents and the possibility to share information about the known gold mines."
+    },
+    "BDIAgents_step4": {
+      "id": "BDIAgents_step4",
+      "title": "4. Emotions and Personality",
+      "description": "This fourth step consists of adding emotions that will impact the gold miner agent behavior and defining the personality of the agents."
+    },
+    "BDIAgents_step5": {
+      "id": "BDIAgents_step5",
+      "title": "5. Norms, obligation, and enforcement",
+      "description": "This last step consists of adding social norms, obligations, and enforcement into the agents' behavior."
+    },
+    "BuiltInArchitectures": {
+      "id": "BuiltInArchitectures",
+      "title": "Built-in Architectures",
+      "description": "----",
+      "sidebar": "side"
+    },
+    "BuiltInSkills": {
+      "id": "BuiltInSkills",
+      "title": "Built-in Skills",
+      "description": "----",
+      "sidebar": "side"
+    },
+    "BuiltInSpecies": {
+      "id": "BuiltInSpecies",
+      "title": "Built-in Species",
+      "description": "----",
+      "sidebar": "side"
+    },
+    "CallingR": {
+      "id": "CallingR",
+      "title": "Calling R",
+      "description": "[//]: # (startConcept|call_r)",
+      "sidebar": "side"
+    },
+    "ChangingWorkspace": {
+      "id": "ChangingWorkspace",
+      "title": "Changing Workspace",
+      "description": "It is possible, and actually common, to store different projects/models in different workspaces and to tell GAMA to switch between these workspaces. Doing so involves being able to create one or several new workspace locations (even if GAMA has been told to remember the current one) and being able to easily switch between them."
+    },
+    "Comodel": {
+      "id": "Comodel",
+      "title": "Using Comodel",
+      "description": "Introduction",
+      "sidebar": "side"
+    },
+    "CoModelingTutorial": {
+      "id": "CoModelingTutorial",
+      "title": "Co-modeling tutorial",
+      "description": "This tutorial introduces the co-modeling feature offered by GAMA.",
+      "sidebar": "tuto"
+    },
+    "Contribute": {
+      "id": "Contribute",
+      "title": "Contribute",
+      "description": "GAMA is a free opensource software and we take pride in sharing the source code with anyone who wants to contribute to the platform. Note that GAMA is easy to extend by developing additional plugins."
+    },
+    "ControlArchitecture": {
+      "id": "ControlArchitecture",
+      "title": "Control Architectures",
+      "description": "[//]: # (keyword|concept_architecture)",
+      "sidebar": "side"
+    },
+    "CreatingAReleaseOfGama": {
+      "id": "CreatingAReleaseOfGama",
+      "title": "Product your own release of GAMA",
+      "description": "Install Maven if not already installed",
+      "sidebar": "side"
+    },
+    "DataTypes": {
+      "id": "DataTypes",
+      "title": "Types",
+      "description": "A variable's or expression's type (or data type) determines the values it can take, plus the operations that can be performed on or with it. GAML is a statically-typed language, which means that the type of an expression is always known at compile time, and is even enforced with casting operations.",
+      "sidebar": "side"
+    },
+    "Defining3DDisplays": {
+      "id": "Defining3DDisplays",
+      "title": "Defining 3D Displays",
+      "description": "[//]: # (startConcept|3d_displays)"
+    },
+    "DefiningActionsAndBehaviors": {
+      "id": "DefiningActionsAndBehaviors",
+      "title": "Defining actions and behaviors",
+      "description": "[//]: # (startConcept|actionsandbehaviors)"
+    },
+    "DefiningAdvancedSpecies": {
+      "id": "DefiningAdvancedSpecies",
+      "title": "Defining advanced species",
+      "description": "In the previous chapter, we saw how to declare and manipulate regular species and the global species (as a reminder, the instance of the global species is the world agent).",
+      "sidebar": "side"
+    },
+    "DefiningCharts": {
+      "id": "DefiningCharts",
+      "title": "Defining Charts",
+      "description": "[//]: # (startConcept|defining_charts)"
+    },
+    "DefiningDisplaysGeneralities": {
+      "id": "DefiningDisplaysGeneralities",
+      "title": "Defining displays (Generalities)",
+      "description": "[//]: # (startConcept|2d_displays)"
+    },
+    "DefiningExportFiles": {
+      "id": "DefiningExportFiles",
+      "title": "Defining export files",
+      "description": "[//]: # (startConcept|export_files)"
+    },
+    "DefiningGUIExperiment": {
+      "id": "DefiningGUIExperiment",
+      "title": "Defining GUI Experiment",
+      "description": "[//]: # (startConcept|gui_experiments)",
+      "sidebar": "side"
+    },
+    "DefiningMonitorsAndInspectors": {
+      "id": "DefiningMonitorsAndInspectors",
+      "title": "Defining monitors and inspectors",
+      "description": "[//]: # (startConcept|monitorsandinspectors)"
+    },
+    "DefiningParameters": {
+      "id": "DefiningParameters",
+      "title": "Defining Parameters",
+      "description": "[//]: # (startConcept|define_parameters)",
+      "sidebar": "side"
+    },
+    "DefiningUserInteraction": {
+      "id": "DefiningUserInteraction",
+      "title": "Defining user interaction",
+      "description": "[//]: # (keyword|concept_gui)"
+    },
+    "DevelopingControlArchitectures": {
+      "id": "DevelopingControlArchitectures",
+      "title": "Developing architecture",
+      "description": "In addition to existing control architectures, developers can add new ones.",
+      "sidebar": "side"
+    },
+    "DevelopingExtensions": {
+      "id": "DevelopingExtensions",
+      "title": "Developing Extensions",
+      "description": "GAMA accepts extensions to the GAML language, defined by external programmers and dynamically loaded by the platform each time it is run. Extensions can represent new built-in species, types, file-types, skills, operators, statements, new control architectures or even types of displays. Other internal structures of GAML will be progressively \"opened\" to this mechanism in the future: display layers (hardwired for the moment), new types of outputs (hardwired for the moment), scheduling policies (hardwired for the moment), random number generators (hardwired for the moment).",
+      "sidebar": "side"
+    },
+    "developingGAMA": {
+      "id": "developingGAMA",
+      "title": "Get into the GAMA Java API",
+      "description": "GAMA is written in Java and made of tens of Eclipse plugins and projects, thousand of classes, methods and annotations. This section of the wiki should help you have a general idea on how to manipulate GAMA Java API and where to find the proper classes and methods. A general introduction to the GAMA architecture gives a general overview of the organization of Java packages and Eclipse plugins, and should be read first. In the following sub-sections we give a more practical introduction.",
+      "sidebar": "side"
+    },
+    "DevelopingIndexAnnotations": {
+      "id": "DevelopingIndexAnnotations",
+      "title": "Index of annotations",
+      "description": "Annotations are used to link Java methods and classes to GAML language.",
+      "sidebar": "side"
+    },
+    "DevelopingIScope": {
+      "id": "DevelopingIScope",
+      "title": "IScope interface",
+      "description": "An object of type IScope represents the context of execution of an agent (including experiments, simulations, and \"regular\" agents). Everywhere it is accessible (either passed as a parameter or available as an instance variable in some objects), it provides an easy access to a number of features: the current active agent, the shared random number generator, the global clock, the current simulation and experiment agents, the local variables declared in the current block, etc.",
+      "sidebar": "side"
+    },
+    "DevelopingOperators": {
+      "id": "DevelopingOperators",
+      "title": "Developing Operators",
+      "description": "Operators in the GAML language are used to compose complex expressions. An operator performs a function on one, two, or n operands (which are other expressions and thus may be themselves composed of operators) and returns the result of this function. Developing a new operator allows, then, to add a new function to GAML.",
+      "sidebar": "side"
+    },
+    "DevelopingPlugins": {
+      "id": "DevelopingPlugins",
+      "title": "Developing Plugins",
+      "description": "This page details how to create a new plug-in in order to extend the GAML language with new skills, species, displays or operators.",
+      "sidebar": "side"
+    },
+    "DevelopingSkills": {
+      "id": "DevelopingSkills",
+      "title": "Developing Skills",
+      "description": "A skill adds new features (attributes) and new capabilities (actions) to the instances of the species that use it.",
+      "sidebar": "side"
+    },
+    "DevelopingSpecies": {
+      "id": "DevelopingSpecies",
+      "title": "Developing Species",
+      "description": "Additional built-in species can be defined in Java in order to be used in GAML models. Additional attributes and actions can be defined. It could be very useful in order to define its behavior thanks to external libraries (e.g. mulit-criteria decision-making, database connection...).",
+      "sidebar": "side"
+    },
+    "DevelopingStatements": {
+      "id": "DevelopingStatements",
+      "title": "Developing Statements",
+      "description": "Statements are a fundamental part of GAML, as they represent both commands (imperative programming style) or declarations (declarative programming style). Developing a new statement allows, then, to add a new instruction to GAML.",
+      "sidebar": "side"
+    },
+    "DevelopingTypes": {
+      "id": "DevelopingTypes",
+      "title": "Developing Types",
+      "description": "GAML provides a given number of built-in simple types (int, bool...) and more complex ones (path, graph...).",
+      "sidebar": "side"
+    },
+    "Diffusion": {
+      "id": "Diffusion",
+      "title": "Implementing diffusion",
+      "description": "[//]: # (startConcept|diffusion)",
+      "sidebar": "side"
+    },
+    "Displays": {
+      "id": "Displays",
+      "title": "Displays",
+      "description": "GAMA allows modelers to define several kinds of displays in a GUI experiment:"
+    },
+    "Documentation": {
+      "id": "Documentation",
+      "title": "Documentation",
+      "description": "Table of contents",
+      "sidebar": "side"
+    },
+    "Download": {
+      "id": "Download",
+      "title": "Download GAMA",
+      "description": "GAMA 1.7 Continuous Release"
+    },
+    "EditingModels": {
+      "id": "EditingModels",
+      "title": "Editing models",
+      "description": "Editing models in GAMA is very similar to editing programs in a modern IDE like Eclipse. After having successfully launched the program, the user has two fundamental concepts at its disposal: a workspace, which contains models or links to models organized like a hierarchy of files in a filesystem, and the workbench (aka, the main window), which contains the tools to create, modify and experiment these models.",
+      "sidebar": "side"
+    },
+    "Equations": {
+      "id": "Equations",
+      "title": "Using Equations",
+      "description": "[//]: # (startConcept|equation)"
+    },
+    "ErrorsView": {
+      "id": "ErrorsView",
+      "title": "Errors View",
+      "description": "Whenever a runtime error, or a warning, is issued by the currently running experiment, a view called \"Errors\" is opened automatically. This view provides, together with the error/warning itself, some contextual information about who raised the error (i.e. which agent(s)) and where (i.e. in which portion of the model code). As with other \"status\" in GAMA, errors will appear in red color and warnings in orange."
+    },
+    "Event__CC15_Reorganization": {
+      "id": "Event__CC15_Reorganization",
+      "title": "Introduction",
+      "description": "Le but est de proposer une réorganisation des plug-ins de Gama",
+      "sidebar": "side"
+    },
+    "Event__CodingCamp2012": {
+      "id": "Event__CodingCamp2012",
+      "title": "Coding Activities Summary",
+      "description": "March 19-24th 2012"
+    },
+    "Event__CodingCampFall2012": {
+      "id": "Event__CodingCampFall2012",
+      "title": "Introduction",
+      "description": "The Fall GAMA Coding Camp 2012 will take place from the 17th to the 19th of November in the hotel called \"Hon Trem Resort & Spa \". You can find more information about it here//www.hontremresort-spa.com."
+    },
+    "Event__CodingCampFall2012_bug": {
+      "id": "Event__CodingCampFall2012_bug",
+      "title": "Eliminating bugs found in the 1.5 version",
+      "description": "* Arnaud: Opengl is now working with Java2D (possibility to define n opengl display and n java2D display in the same output)"
+    },
+    "Event__CodingCampFall2012_coupling": {
+      "id": "Event__CodingCampFall2012_coupling",
+      "title": "Coupling GAMA with hydrodynamics simulators",
+      "description": "The maps.gaml.extensions has been extended in order to allow modeler to write its own equation systems (as simple strings), specify parameters with their values and variables and \"solve\"/integrate them either step by step or N steps by N steps."
+    },
+    "Event__CodingCampFall2012_improvements": {
+      "id": "Event__CodingCampFall2012_improvements",
+      "title": "Possibility to directly create agents from a CSV file",
+      "description": "Improvements and Enhancements"
+    },
+    "Event__CodingCampFall2012_models": {
+      "id": "Event__CodingCampFall2012_models",
+      "title": "3D River morphology display",
+      "description": "Display the channel bed of a river in 3D from synthetic data and can be applied directly to real data."
+    },
+    "Event__CP12Archi": {
+      "id": "Event__CP12Archi",
+      "title": "Event__CP12Archi",
+      "description": ""
+    },
+    "Event__CP12Batch": {
+      "id": "Event__CP12Batch",
+      "title": "Batch Experiments",
+      "description": "By the Batch People"
+    },
+    "Event__CP12Development": {
+      "id": "Event__CP12Development",
+      "title": "Event__CP12Development",
+      "description": ""
+    },
+    "Event__CP12Doc": {
+      "id": "Event__CP12Doc",
+      "title": "Event__CP12Doc",
+      "description": ""
+    },
+    "Event__CP12FIPA": {
+      "id": "Event__CP12FIPA",
+      "title": "Event__CP12FIPA",
+      "description": ""
+    },
+    "Event__CP12Git": {
+      "id": "Event__CP12Git",
+      "title": "Gama on Git",
+      "description": "http://eclipselabs.org/p/gama"
+    },
+    "Event__CP12Graph": {
+      "id": "Event__CP12Graph",
+      "title": "Graph operators and indicators",
+      "description": "goals"
+    },
+    "Event__CP12Headless": {
+      "id": "Event__CP12Headless",
+      "title": "Headless operation",
+      "description": "Be able to launch a simulation without any interface."
+    },
+    "Event__CP12IDE": {
+      "id": "Event__CP12IDE",
+      "title": "Event__CP12IDE",
+      "description": ""
+    },
+    "Event__CP12Library": {
+      "id": "Event__CP12Library",
+      "title": "Event__CP12Library",
+      "description": ""
+    },
+    "Event__CP12MultiScale": {
+      "id": "Event__CP12MultiScale",
+      "title": "Event__CP12MultiScale",
+      "description": ""
+    },
+    "Event__CP12OpenGL": {
+      "id": "Event__CP12OpenGL",
+      "title": "OpenGL Display",
+      "description": "Integrate OpenGL (jogl) view in Gama."
+    },
+    "Event__CP12SLD": {
+      "id": "Event__CP12SLD",
+      "title": "SLD-based aspects",
+      "description": "Not chosen as a work theme for the coding camp..."
+    },
+    "Event__CP12Stats": {
+      "id": "Event__CP12Stats",
+      "title": "Event__CP12Stats",
+      "description": ""
+    },
+    "Event__CP12Test": {
+      "id": "Event__CP12Test",
+      "title": "Test Models  Language",
+      "description": "* A Coding Dojo (5 people) was organized in order to sensibilize developpers about unit tests."
+    },
+    "Event__CP12traffic": {
+      "id": "Event__CP12traffic",
+      "title": "Traffic simulation and Physics constraints operators",
+      "description": "Traffic simulation"
+    },
+    "Event__CP12Water": {
+      "id": "Event__CP12Water",
+      "title": "Water-management tutorial",
+      "description": "We did not work on this theme, but we made some decisions :"
+    },
+    "Event__Events": {
+      "id": "Event__Events",
+      "title": "Coding Camps",
+      "description": "List of GAMA Coding Camps :"
+    },
+    "Event__MIMSCOP2012": {
+      "id": "Event__MIMSCOP2012",
+      "title": "Introduction",
+      "description": "The MIMSCOP Summer school 2012 (Modélisation Informatique et Mathématique des Systèmes Complexes de Pêcherie took place from the 16th to the 21th of July in the AIMS-IRD Campus at Mbour (Senegal)."
+    },
+    "Event__PDI2012": {
+      "id": "Event__PDI2012",
+      "title": "Introduction",
+      "description": "During the PDI2012 nearly 50 PhD students were working together on different topic related to complex system modeling."
+    },
+    "Event__TrainingSessionHanoi2009": {
+      "id": "Event__TrainingSessionHanoi2009",
+      "title": "Event__TrainingSessionHanoi2009",
+      "description": "Training session on agent-based modeling and a tutorial on GAMA 1.1 organized at the IFI from the 26th to the 28th of October, 2009"
+    },
+    "Event__TraininSessionPDI2011": {
+      "id": "Event__TraininSessionPDI2011",
+      "title": "Event__TraininSessionPDI2011",
+      "description": "Training session on GAMA 1.4 at IRD Bondy (France) the 5th of December, 2011."
+    },
+    "Events": {
+      "id": "Events",
+      "title": "Events",
+      "description": "This page references the events that are linked to GAMA.",
+      "sidebar": "side"
+    },
+    "ExperimentBuiltIn": {
+      "id": "ExperimentBuiltIn",
+      "title": "The 'experiment' built-in species (Under Construction)",
+      "description": "As described in the presentation of GAML, any experiment attached to a model is a species (introduced by the keyword experiment which directly or indirectly inherits from an abstract species called experiment itself. This abstract species (sub-species of agent) defines several attributes and actions that can then be used in any experiment."
+    },
+    "ExperimentsUserInterface": {
+      "id": "ExperimentsUserInterface",
+      "title": "Experiments User Interface",
+      "description": "As soon as an experiment is launched, the modeler is facing a new environment (with different menus and views) called the Simulation Perspective). The Navigator is still available in this perspective (below the parameter view), though, and it is still possible to edit models in it, but it is considered as good practice to use each perspective for what it has been designed for: editing models in the Modeling perspective and running simulations in the Simulation perspective. Switching perspectives is easy. The small button in the top-left corner of the window allows to switch back and forth the two perspectives."
+    },
+    "ExplorationMethods": {
+      "id": "ExplorationMethods",
+      "title": "Exploration Methods",
+      "description": "[//]: # (startConcept|exploration_methods)"
+    },
+    "ExploringModels": {
+      "id": "ExploringModels",
+      "title": "Exploring Models",
+      "description": "[//]: # (keyword|concept_experiment)",
+      "sidebar": "side"
+    },
+    "Expressions": {
+      "id": "Expressions",
+      "title": "Expressions",
+      "description": "Expressions in GAML are the value part of the statements' facets. They represent or compute data that will be used as the value of the facet when the statement will be executed.",
+      "sidebar": "side"
+    },
+    "Extension": {
+      "id": "Extension",
+      "title": "Extensions",
+      "description": "----"
+    },
+    "FileTypes": {
+      "id": "FileTypes",
+      "title": "File Types",
+      "description": "[//]: # (startConcept|loadcomplexdatas)",
+      "sidebar": "side"
+    },
+    "G__GraphicalEditor": {
+      "id": "G__GraphicalEditor",
+      "title": "The Graphical Editor",
+      "description": "The graphical editor that allows defining a GAMA model through a graphical interface (gadl files). It is based on the Graphiti Eclipse plugin. It allows as well to produce a graphical model (diagram) from a gaml model. A tutorial is available here.",
+      "sidebar": "side"
+    },
+    "G__GraphicalEditorTutorial": {
+      "id": "G__GraphicalEditorTutorial",
+      "title": "Creation of a basic disease spreading model",
+      "description": "This tutorial illustrates how to create simple agents and make them move in their environment."
+    },
+    "GamaArchitecture": {
+      "id": "GamaArchitecture",
+      "title": "Architecture of GAMA",
+      "description": "GAMA is made of a number of Eclipse Java projects, some representing the core projects without which the platform cannot be run, others additional plugins adding functionalities or concepts to the platform.",
+      "sidebar": "side"
+    },
+    "GamAnalyzer": {
+      "id": "GamAnalyzer",
+      "title": "Using GAMAnalyzer",
+      "description": "[//]: # (startConcept|runseveralmodelsusinggamanalyzer)",
+      "sidebar": "side"
+    },
+    "GamlEditorGeneralities": {
+      "id": "GamlEditorGeneralities",
+      "title": "The GAML Editor - Generalities",
+      "description": "The GAML Editor is a text editor that proposes several services to support the modeler in writing correct models: an integrated live validation system, a ribbon header that gives access to experiments, information, warning and error markers.",
+      "sidebar": "side"
+    },
+    "GamlEditorToolbar": {
+      "id": "GamlEditorToolbar",
+      "title": "GAML Editor tools",
+      "description": "The GAML Editor provides some tools to make the editing easier, covering a lot of functionalities, such as tools for changes of visualization, tools for navigation through your model, tools to format your code, or also tools to help you to find the correct keywords to use in a given context. Some can be accessed directly from the toolbar on top of the editor, but most of the tools are available in the menu \"Model\", that is only available when the GAML editor is active (i.e. when the modeler is editing the model)."
+    },
+    "GamlLanguage": {
+      "id": "GamlLanguage",
+      "title": "GAML",
+      "description": "Models that users want to simulate in GAMA have to be written in a special language, called GAML (short for GAma Modeling Language)"
+    },
+    "GamlReference": {
+      "id": "GamlReference",
+      "title": "GAML References",
+      "description": "The GAML references describe in details all the keywords of the GAML language. In particular, they detail all the expressions (operators, units, literals...), statements, data types, file types, skills, architectures, built-in species...",
+      "sidebar": "side"
+    },
+    "GamlReferences": {
+      "id": "GamlReferences",
+      "title": "Gaml Reference",
+      "description": "The following pages introduce the various constructs that are made available to the modelers in GAML. All these constructs are built-in, i.e. defined in Java, either in the core of GAMA or in its extensions. They include species, skills, control architectures, statements, data types, and various types of expressions, including a long and quite exhaustive list of operators."
+    },
+    "GlobalSpecies": {
+      "id": "GlobalSpecies",
+      "title": "The global species",
+      "description": "[//]: # (startConcept|global_species)",
+      "sidebar": "side"
+    },
+    "GraphicalEditor": {
+      "id": "GraphicalEditor",
+      "title": "The Graphical Editor",
+      "description": "The graphical editor that allow to build diagram (gadl files) is based on the Graphiti Eclipse plugin. It allows to define a GAMA model through a graphical interface. It a allows as well to produce a graphical model (diagram) from a gaml model."
+    },
+    "GraphSpecies": {
+      "id": "GraphSpecies",
+      "title": "Graph Species",
+      "description": "[//]: # (startConcept|graph)"
+    },
+    "GridSpecies": {
+      "id": "GridSpecies",
+      "title": "Grid Species",
+      "description": "[//]: # (startConcept|grid)",
+      "sidebar": "side"
+    },
+    "Headless": {
+      "id": "Headless",
+      "title": "Headless Mode",
+      "description": "The aim of this feature is to be able to run one or multiple instances of GAMA without any user interface so that models and experiments can be launched on a grid or a cluster. Without GUI, the memory footprint, as well as the speed of the simulations, are usually greatly improved."
+    },
+    "Headless-mode-for-dummies": {
+      "id": "Headless-mode-for-dummies",
+      "title": "Editing Headless mode for dummies",
+      "description": "Overview",
+      "sidebar": "side"
+    },
+    "Home": {
+      "id": "Home",
+      "title": "GAMA",
+      "description": "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
+      "sidebar": "side"
+    },
+    "ImportingModels": {
+      "id": "ImportingModels",
+      "title": "Importing Models",
+      "description": "Importing a model refers to making a model file (or a complete project) available for edition and experimentation in the workspace. With the exception of headless experiments, GAMA requires that models be manageable in the current workspace to be able to validate them and eventually experiment them."
+    },
+    "IncrementalModel": {
+      "id": "IncrementalModel",
+      "title": "Incremental Model",
+      "description": "This tutorial has for goal to give an overview all most of the capabilities of GAMA. In particular, it presents how to build a simple model and the use of GIS data, graphs, 3D visualization, multi-level modeling and differential equations. All the files related to this tutorial (images and models) are available in the Models Library (project Tutorials/Incremental Model).",
+      "sidebar": "tuto"
+    },
+    "IncrementalModel_step1": {
+      "id": "IncrementalModel_step1",
+      "title": "1. Simple SI Model",
+      "description": "This first step Illustrates how to write a model in GAMA. In particular, it describes how to structure a model and how to define species - which are the key components of GAMA models.",
+      "sidebar": "tuto"
+    },
+    "IncrementalModel_step2": {
+      "id": "IncrementalModel_step2",
+      "title": "2. Charts",
+      "description": "This step Illustrates how to define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation.",
+      "sidebar": "tuto"
+    },
+    "IncrementalModel_step3": {
+      "id": "IncrementalModel_step3",
+      "title": "3. Integration of GIS Data",
+      "description": "This step illustrates how to load and agentry GIS data.",
+      "sidebar": "tuto"
+    },
+    "IncrementalModel_step4": {
+      "id": "IncrementalModel_step4",
+      "title": "4. Movement on Graph",
+      "description": "This step illustrates how to load a graph and use it for the displacement of our agents.",
+      "sidebar": "tuto"
+    },
+    "IncrementalModel_step5": {
+      "id": "IncrementalModel_step5",
+      "title": "5. Visualizing in 3D",
+      "description": "This step Illustrates how to define a 3D display.",
+      "sidebar": "tuto"
+    },
+    "IncrementalModel_step6": {
+      "id": "IncrementalModel_step6",
+      "title": "6. Multi-Level",
+      "description": "This step illustrates how to define a multi-level model.",
+      "sidebar": "tuto"
+    },
+    "IncrementalModel_step7": {
+      "id": "IncrementalModel_step7",
+      "title": "7. Differential Equations",
+      "description": "This step illustrates how to use differential equations.",
+      "sidebar": "tuto"
+    },
+    "Index": {
+      "id": "Index",
+      "title": "Exhaustive list of GAMA Keywords",
+      "description": "----",
+      "sidebar": "side"
+    },
+    "Inheritance": {
+      "id": "Inheritance",
+      "title": "Inheritance",
+      "description": "[//]: # (startConcept|inheritance)"
+    },
+    "InspectorsAndMonitors": {
+      "id": "InspectorsAndMonitors",
+      "title": "Inspectors and monitors",
+      "description": "GAMA offers some tools to obtain information about one or several agents. There are two kinds of tools:"
+    },
+    "Installation": {
+      "id": "Installation",
+      "title": "Installation",
+      "description": "We made efforts to make the last release of GAMA (1.8.2) as easy as possible to install, by providing a version with an embedded Java JDK, limiting the installation to a 3-steps procedure: download, install and launch.",
+      "sidebar": "side"
+    },
+    "InstallationAndLaunching": {
+      "id": "InstallationAndLaunching",
+      "title": "Installation and Launching",
+      "description": "The GAMA platform can be easily installed in your machine, either if you are using Windows, Mac OS or Ubuntu. GAMA can then be extended by using a number of additional plugins.",
+      "sidebar": "side"
+    },
+    "InstallingGitVersion": {
+      "id": "InstallingGitVersion",
+      "title": "Installing the GIT version",
+      "description": "Important note",
+      "sidebar": "side"
+    },
+    "InstallingPlugins": {
+      "id": "InstallingPlugins",
+      "title": "Installing Plugins",
+      "description": "Besides the plugins delivered by the developers of the GAMA platform, there are a number of additional plugins that can be installed to add new functionalities to GAMA or enhance the existing ones. GAMA being based on Eclipse, a number of plugins developed for Eclipse are then available (a complete listing of Eclipse plugins can be found in the so-called Eclipse MarketPlace)."
+    },
+    "InteractionBetweenAgents": {
+      "id": "InteractionBetweenAgents",
+      "title": "Interaction between agents",
+      "description": "[//]: # (startConcept|interactionbetweenagents)"
+    },
+    "Introduction": {
+      "id": "Introduction",
+      "title": "Introduction",
+      "description": "GAML is an agent-oriented language dedicated to the definition of agent-based simulations. It takes its roots in object-oriented languages like Java or Smalltalk, but extends the object-oriented programming approach with powerful concepts (like skills, declarative definitions or agent migration) to allow for a better expressivity in models.",
+      "sidebar": "side"
+    },
+    "Introduction-To-Gama-Java-API": {
+      "id": "Introduction-To-Gama-Java-API",
+      "title": "Introduction to GAMA Java API",
+      "description": "This introduction to the Java API is dedicated to programmers that want to participate in the java code of GAMA. The main purpose is to describe the main packages and classes of the API to makes it simple to find such crucial information such as: how GAMA create containers, agent and geometries, how exceptions and log are managed, how java code maintain Type safety, etc."
+    },
+    "KnownIssues": {
+      "id": "KnownIssues",
+      "title": "Known issues",
+      "description": "[//]: # (keyword|concept_opengl)",
+      "sidebar": "side"
+    },
+    "Launching": {
+      "id": "Launching",
+      "title": "Launching GAMA",
+      "description": "Running GAMA for the first time requires that you launch the application (Gama.app on MacOS X, Gama.exe on Windows, Gama on Linux, located in the folder called GAMA1.8YOUROSNAME once you have unzipped the downloaded archive). In case you are unable to launch the application, or if error messages appear, please refer to the installation or troubleshooting instructions."
+    },
+    "LaunchingExperiments": {
+      "id": "LaunchingExperiments",
+      "title": "Launching Experiments from the User Interface",
+      "description": "GAMA supports multiple ways of launching experiments from within the Modeling Perspective, in editors or in the navigator.",
+      "sidebar": "side"
+    },
+    "LearnGAMLStepByStep": {
+      "id": "LearnGAMLStepByStep",
+      "title": "Learn GAML Step by Step",
+      "description": "This large progressive tutorial has been designed to help you to learn GAML (GAma Modeling Language).",
+      "sidebar": "side"
+    },
+    "Literals": {
+      "id": "Literals",
+      "title": "Literals",
+      "description": "(some literal expressions are also described in data types)",
+      "sidebar": "side"
+    },
+    "LuneraysFlu": {
+      "id": "LuneraysFlu",
+      "title": "Luneray's flu",
+      "description": "This tutorial has for goal to introduce how to build a model with GAMA and to use GIS data and graphs. In particular, this tutorial shows how to write a simple GAMA model (the structure of a model, the notion of species...) load gis data, to agentify them and to use a network of polylines to constraint the movement of agents. All the files related to this tutorial (shapefiles and models) are available here.",
+      "sidebar": "tuto"
+    },
+    "LuneraysFlu_step1": {
+      "id": "LuneraysFlu_step1",
+      "title": "1. Creation of a first basic disease spreading model",
+      "description": "This first step illustrates how to create simple agents and make them move in their environment.",
+      "sidebar": "tuto"
+    },
+    "LuneraysFlu_step2": {
+      "id": "LuneraysFlu_step2",
+      "title": "2. Definition of monitors and chart outputs",
+      "description": "This second step illustrates how to create monitors and charts to follows the evolution of variables and to add an ending condition to the simulation.",
+      "sidebar": "tuto"
+    },
+    "LuneraysFlu_step3": {
+      "id": "LuneraysFlu_step3",
+      "title": "3. Importation of GIS data",
+      "description": "This third step illustrates how to load GIS data and to agentify them.",
+      "sidebar": "tuto"
+    },
+    "LuneraysFlu_step4": {
+      "id": "LuneraysFlu_step4",
+      "title": "4. Use of a graph to constraint the movements of people",
+      "description": "This fourth step illustrates how to use a graph to constraint the movements of agents",
+      "sidebar": "tuto"
+    },
+    "LuneraysFlu_step5": {
+      "id": "LuneraysFlu_step5",
+      "title": "5. Definition of 3D displays",
+      "description": "This fifth step illustrates how to define 3D displays.",
+      "sidebar": "tuto"
+    },
+    "LuneraysFlu_step6": {
+      "id": "LuneraysFlu_step6",
+      "title": "6. Exploration of the model",
+      "description": "This final step illustrates how to explore the model through the introduction of batch experiments."
+    },
+    "ManipulateBasicSpecies": {
+      "id": "ManipulateBasicSpecies",
+      "title": "Manipulate basic species",
+      "description": "In this chapter, we will learn how to manipulate some basic species. As you already know, a species can be seen as the definition of a type of agent (we call agent the instance of a species). In OOP (Object-Oriented Programming), a species can be seen as the class. Each species is then defined by some attributes (\"member\" in OOP), actions (\"method\" in OOP) and behavior (\"method\" in OOP).",
+      "sidebar": "side"
+    },
+    "ManipulateDates": {
+      "id": "ManipulateDates",
+      "title": "Manipulate Dates",
+      "description": "[//]: # (keyword|concept_date)",
+      "sidebar": "side"
+    },
+    "ManipulateLight": {
+      "id": "ManipulateLight",
+      "title": "Implementing light",
+      "description": "[//]: # (startConcept|light)",
+      "sidebar": "side"
+    },
+    "ManipulateOSMDatas": {
+      "id": "ManipulateOSMDatas",
+      "title": "Manipulate OSM Datas",
+      "description": "[//]: # (startConcept|useosmdatas)",
+      "sidebar": "side"
+    },
+    "MenusAndCommands": {
+      "id": "MenusAndCommands",
+      "title": "Controls of experiments",
+      "description": "The simulation perspective adds on the user interface a number of new menus and commands (i.e. buttons) that are specific to experiment-related tasks."
+    },
+    "MirrorSpecies": {
+      "id": "MirrorSpecies",
+      "title": "Mirror species",
+      "description": "[//]: # (startConcept|mirror_species)"
+    },
+    "ModelBuiltIn": {
+      "id": "ModelBuiltIn",
+      "title": "The 'model' built-in species (Under Construction)",
+      "description": "As described in the presentation of GAML, any model in GAMA is a species (introduced by the keyword global) which directly inherits from an abstract species called model. This abstract species (sub-species of agent) defines several attributes and actions that can then be used in any global section of any model."
+    },
+    "ModelOrganization": {
+      "id": "ModelOrganization",
+      "title": "Organization of a model",
+      "description": "[//]: # (startConcept|model_structure)",
+      "sidebar": "side"
+    },
+    "MultiLevelArchitecture": {
+      "id": "MultiLevelArchitecture",
+      "title": "Multi-level architecture",
+      "description": "[//]: # (startConcept|multi_level)"
+    },
+    "MultiParadigmModeling": {
+      "id": "MultiParadigmModeling",
+      "title": "Multi-Paradigm Modeling",
+      "description": "[//]: # (keyword|concept_architecture)",
+      "sidebar": "side"
+    },
+    "NavigatingWorkspace": {
+      "id": "NavigatingWorkspace",
+      "title": "Navigating in the Workspace",
+      "description": "All the models that you edit or run using GAMA are accessible from a central location: the Navigator, which is always on the left-hand side of the main window and cannot be closed. This view presents the models currently present in (or linked from) your workspace.",
+      "sidebar": "side"
+    },
+    "OlderVersions": {
+      "id": "OlderVersions",
+      "title": "Versions of GAMA",
+      "description": "GAMA exists since 2007 and has undergone a number of changes since its first release, materialized by different versions of the platform. Although we do not maintain these versions anymore, some are still used in lectures or specific projects. This page provides a list of these versions and, for each of them, a summary of its features and a link to its documentation in PDF format.",
+      "sidebar": "side"
+    },
+    "Operators": {
+      "id": "Operators",
+      "title": "Operators",
+      "description": "----"
+    },
+    "OperatorsAA": {
+      "id": "OperatorsAA",
+      "title": "Operators (A to A)",
+      "description": "----"
+    },
+    "OperatorsBC": {
+      "id": "OperatorsBC",
+      "title": "Operators (B to C)",
+      "description": "----"
+    },
+    "OperatorsDH": {
+      "id": "OperatorsDH",
+      "title": "Operators (D to H)",
+      "description": "----"
+    },
+    "OperatorsIM": {
+      "id": "OperatorsIM",
+      "title": "Operators (I to M)",
+      "description": "----"
+    },
+    "OperatorsNR": {
+      "id": "OperatorsNR",
+      "title": "Operators (N to R)",
+      "description": "----"
+    },
+    "OperatorsSplitted": {
+      "id": "OperatorsSplitted",
+      "title": "Operators",
+      "description": "----"
+    },
+    "OperatorsSZ": {
+      "id": "OperatorsSZ",
+      "title": "Operators (S to Z)",
+      "description": "----"
+    },
+    "OptimizingModels": {
+      "id": "OptimizingModels",
+      "title": "Optimizing Models",
+      "description": "[//]: # (startConcept|optimizing_tips)"
+    },
+    "OptimizingModelsSection": {
+      "id": "OptimizingModelsSection",
+      "title": "Optimizing Models",
+      "description": "[//]: # (keyword|concept_optimization)",
+      "sidebar": "side"
+    },
+    "OtherBuiltInSpecies": {
+      "id": "OtherBuiltInSpecies",
+      "title": "Other Built-in Species (Under Construction)",
+      "description": "TODO"
+    },
+    "Overview": {
+      "id": "Overview",
+      "title": "Introduction",
+      "description": "Demonstration of some of the features of the GAMA Platform",
+      "sidebar": "side"
+    },
+    "ParametersView": {
+      "id": "ParametersView",
+      "title": "Parameters View",
+      "description": "In the case of an experiment, the modeler can define the parameters s/he wants to be able to modify to explore the simulation, and thus the ones he wants to be able to display and alter in the GUI interface."
+    },
+    "Pedagogical-Materials": {
+      "id": "Pedagogical-Materials",
+      "title": "Some pedagogical materials",
+      "description": "Initiation to algorithms with Scratch"
+    },
+    "PlatformDocumentation": {
+      "id": "PlatformDocumentation",
+      "title": "Platform",
+      "description": "GAMA consists of a single application that is based on the RCP architecture provided by Eclipse. Within this single application software, often referred to as a **platform**, users can undertake, without the need of additional third-parties softwares, most of the activities related to modeling and simulation, namely editing models and simulating, visualizing and exploring them using dedicated tools.",
+      "sidebar": "side"
+    },
+    "PredatorPrey": {
+      "id": "PredatorPrey",
+      "title": "Predator Prey",
+      "description": "This tutorial presents the structure of a GAMA model as well as the use of a grid topology. In particular, this tutorial shows how to define a basic model, to define \"grid agents\" which are able to move within the constraints. It also introduces the displays and agents' aspect.",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step1": {
+      "id": "PredatorPrey_step1",
+      "title": "1. Basic Model",
+      "description": "Content",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step10": {
+      "id": "PredatorPrey_step10",
+      "title": "10. Charts",
+      "description": "This 10th step illustrates how to define charts.",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step11": {
+      "id": "PredatorPrey_step11",
+      "title": "11. Writing Files",
+      "description": "This 11th step illustrates how to save data in a text file.",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step12": {
+      "id": "PredatorPrey_step12",
+      "title": "12. Image loading",
+      "description": "This 12th step illustrates how to load an image file and to use it to initialize a grid.",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step13": {
+      "id": "PredatorPrey_step13",
+      "title": "13. Model exploration",
+      "description": "This 13th step illustrates how to explore the model using a batch experiment."
+    },
+    "PredatorPrey_step2": {
+      "id": "PredatorPrey_step2",
+      "title": "2. Vegetation Dynamic",
+      "description": "This second step presents the idea of environment or topological space. Defining a \"vegetation\" environment allows to define the movement of the preys through dynamic variables (use of the update facet). We will also discover more about displays.",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step3": {
+      "id": "PredatorPrey_step3",
+      "title": "3. Prey Agent Behavior",
+      "description": "This third step illustrates how to define the behaviors of prey agents and the concept of spatial topology.",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step4": {
+      "id": "PredatorPrey_step4",
+      "title": "4. Inspectors and Monitors",
+      "description": "This fourth step illustrates how to monitor more precisely the simulation. Practically, we will define monitors to follow the evolution of specific variables (or expressions) whereas inspectors allow the user to follow the state of a given agent (or a species).",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step5": {
+      "id": "PredatorPrey_step5",
+      "title": "5. Predator Agent",
+      "description": "This fifth step illustrates how to use parent species. Indeed, prey and predators share a few common features thus we will define a generic species that will regroup all the common elements (variables, behaviors, and aspects) between the prey and the predator species.",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step6": {
+      "id": "PredatorPrey_step6",
+      "title": "6. Breeding",
+      "description": "So far we have created agents only during the initialization of the simulation. In this sixth step, we illustrate how to create new agents during a simulation of a dynamic species.",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step7": {
+      "id": "PredatorPrey_step7",
+      "title": "7. Agent Aspect",
+      "description": "In this seventh step, we will focus on the display and more specifically the aspects of the agents: how they are represented. It can be a simple shape (circle, square, etc.), an icon, a polygon (see later GIS support).",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step8": {
+      "id": "PredatorPrey_step8",
+      "title": "8. Complex Behavior",
+      "description": "This eighth step illustrates how to define more complex actions, how to use conditional statements and iterator operators over containers.",
+      "sidebar": "tuto"
+    },
+    "PredatorPrey_step9": {
+      "id": "PredatorPrey_step9",
+      "title": "9. Stopping condition",
+      "description": "This 9th step illustrates how to use the pause action to stop a simulation.",
+      "sidebar": "tuto"
+    },
+    "Preferences": {
+      "id": "Preferences",
+      "title": "Preferences",
+      "description": "Various preferences are accessible in GAMA to allow users and modelers to personalize their working environment. This section reviews the different preference tabs available in the current version of GAMA, as well as how to access the preferences and settings inherited by GAMA from Eclipse.",
+      "sidebar": "side"
+    },
+    "Projects": {
+      "id": "Projects",
+      "title": "Projects",
+      "description": "Publications",
+      "sidebar": "side"
+    },
+    "PseudoVariables": {
+      "id": "PseudoVariables",
+      "title": "Pseudo-variables",
+      "description": "[//]: # (keyword|conceptpseudovariable)"
+    },
+    "Recipes": {
+      "id": "Recipes",
+      "title": "Recipes",
+      "description": "Understanding the structure of models in GAML and gaining some insight of the language is required, but is usually not sufficient to build correct models or models that need to deal with specific approaches (like equation-based modeling). This section is intended to provide readers with practical \"how to\"s on various subjects, ranging from the use of database access to the design of agent communication languages. It is by no means exhaustive, and will progressively be extended with more \"recipes\" in the future, depending on the concrete questions asked by users.",
+      "sidebar": "side"
+    },
+    "References": {
+      "id": "References",
+      "title": "Scientific References",
+      "description": "This page contains a subset of the scientific papers that have been written either about GAMA or using the platform as an experimental/modeling support.",
+      "sidebar": "side"
+    },
+    "RegularSpecies": {
+      "id": "RegularSpecies",
+      "title": "Regular species",
+      "description": "[//]: # (startConcept|regular_species)"
+    },
+    "RoadTrafficModel": {
+      "id": "RoadTrafficModel",
+      "title": "Road Traffic",
+      "description": "This tutorial has for goal to present the use of GIS data and complex geometries. In particular, this tutorial shows how to load gis data, to agentify them and to use a network of polylines to constraint the movement of agents. All the files related to this tutorial (shapefiles and models) are available in the Library models (Tutorials, Road Traffic).",
+      "sidebar": "tuto"
+    },
+    "RoadTrafficModel_step1": {
+      "id": "RoadTrafficModel_step1",
+      "title": "1. Loading of GIS Data",
+      "description": "This first step Illustrates how to load GIS data (shapefiles) and to read attributes from GIS data.",
+      "sidebar": "tuto"
+    },
+    "RoadTrafficModel_step2": {
+      "id": "RoadTrafficModel_step2",
+      "title": "2. People Agents",
+      "description": "This second step illustrates how to obtain a random point inside a geometry. We will also define some moving agent called people.",
+      "sidebar": "tuto"
+    },
+    "RoadTrafficModel_step3": {
+      "id": "RoadTrafficModel_step3",
+      "title": "3. Movement of People",
+      "description": "This third step presents how to create a road system from GIS data. More precisely, it shows how to build a graph from a list of polylines and to constrain the movement of an agent according to this graph.",
+      "sidebar": "tuto"
+    },
+    "RoadTrafficModel_step4": {
+      "id": "RoadTrafficModel_step4",
+      "title": "4. Weight for Road Network",
+      "description": "The present model will introduce how to design a road system, or graph, based on the road GIS data and provide each edge a weight representing the destruction level of the road.",
+      "sidebar": "tuto"
+    },
+    "RoadTrafficModel_step5": {
+      "id": "RoadTrafficModel_step5",
+      "title": "5. Dynamic weights",
+      "description": "This 5th step illustrates how to obtain the shortest path from a point to another one and to update the weights of an existing graph.",
+      "sidebar": "tuto"
+    },
+    "RoadTrafficModel_step6": {
+      "id": "RoadTrafficModel_step6",
+      "title": "6. Charts",
+      "description": "This 6th step illustrates how to display charts.",
+      "sidebar": "tuto"
+    },
+    "RoadTrafficModel_step7": {
+      "id": "RoadTrafficModel_step7",
+      "title": "7. Automatic Road Repair",
+      "description": "This 7th step illustrates how to select in a list of elements that optimizes a given function.",
+      "sidebar": "tuto"
+    },
+    "RunningExperiments": {
+      "id": "RunningExperiments",
+      "title": "Running Experiments",
+      "description": "Running an experiment is the only way, in GAMA, to execute simulations on a model. Experiments can be run in different ways.",
+      "sidebar": "side"
+    },
+    "RunSeveralSimulations": {
+      "id": "RunSeveralSimulations",
+      "title": "Run Several Simulations",
+      "description": "[//]: # (startConcept|runsimulationsas_agents)",
+      "sidebar": "side"
+    },
+    "RuntimeConcepts": {
+      "id": "RuntimeConcepts",
+      "title": "Runtime Concepts",
+      "description": "[//]: # (startConcept|runtimeandschedulers)",
+      "sidebar": "side"
+    },
+    "Save-and-restore-simulations": {
+      "id": "Save-and-restore-simulations",
+      "title": "Save and Restore simulations",
+      "description": "[//]: # (startConcept|use_saveSimulation)",
+      "sidebar": "side"
+    },
+    "SpeciesBuiltIn": {
+      "id": "SpeciesBuiltIn",
+      "title": "Built-in Species",
+      "description": "This file is automatically generated from java files. Do Not Edit It."
+    },
+    "StartWithGAML": {
+      "id": "StartWithGAML",
+      "title": "Start with GAML",
+      "description": "In this part, we will present you some basic concepts of GAML that will help you a lot for the next pages.",
+      "sidebar": "side"
+    },
+    "Statements": {
+      "id": "Statements",
+      "title": "Statements",
+      "description": "----",
+      "sidebar": "side"
+    },
+    "ThreeD": {
+      "id": "ThreeD",
+      "title": "3D Tutorial",
+      "description": "This tutorial introduces the 3D features offered by GAMA.",
+      "sidebar": "tuto"
+    },
+    "ThreeD_step1": {
+      "id": "ThreeD_step1",
+      "title": "1. Basic Model",
+      "description": "In this first step, we will see how to define a 3D environment and populate it.",
+      "sidebar": "tuto"
+    },
+    "ThreeD_step2": {
+      "id": "ThreeD_step2",
+      "title": "2. Moving Cells",
+      "description": "This second step model adds the moving3D skill to the cell agents and simply makes the cell agents move by defining a reflex that will call the action move. We will also add additional visual information to the display.",
+      "sidebar": "tuto"
+    },
+    "ThreeD_step3": {
+      "id": "ThreeD_step3",
+      "title": "3. Connections",
+      "description": "Formulation",
+      "sidebar": "tuto"
+    },
+    "TrainingSession": {
+      "id": "TrainingSession",
+      "title": "Training Session",
+      "description": "Modeling for supporting decisions in urban management issues",
+      "sidebar": "side"
+    },
+    "Troubleshooting": {
+      "id": "Troubleshooting",
+      "title": "Troubleshooting",
+      "description": "This page exposes some of the most common problems a user may encounter when running GAMA — and offers advices and workarounds for them. It will be regularly enriched with new contents. Note also that the Issues section of the website might contain precious information on crashes and bugs encountered by other users. If neither the workarounds described here nor the solutions provided by other users allow to solve your particular problem, please submit a new issue report to the developers."
+    },
+    "Tutorials": {
+      "id": "Tutorials",
+      "title": "Tutorials",
+      "description": "We propose some tutorials that are designed to allow modelers to become progressively autonomous with the GAMA platform. These tutorials cover different aspects of GAMA (Grid environment, GIS integration, 3D, multi-level modeling, equation-based models...). It is a good idea to keep a copy of the reference of the GAML language around when undertaking one of these tutorials.",
+      "sidebar": "tuto"
+    },
+    "UnitsAndConstants": {
+      "id": "UnitsAndConstants",
+      "title": "Units and constants",
+      "description": "----"
+    },
+    "UnitsAndConstantsPDF": {
+      "id": "UnitsAndConstantsPDF",
+      "title": "Units and constants",
+      "description": "----"
+    },
+    "Updating": {
+      "id": "Updating",
+      "title": "Updating GAMA",
+      "description": "Unless you are using the version of GAMA built from the sources available in the GIT repository of the project (see here), you are normally running a specific release of GAMA that sports a given version number (e.g. GAMA 1.8.1, GAMA 1.7, GAMA 1.6.1, etc.). When new features were developed, or when serious issues were fixed, the release you had on your disk, prior to GAMA 1.6.1, could not benefit from them. Since the version 1.6.1, however, GAMA has been enhanced to support a self\\update_ mechanism, which allows you to import from the GAMA update site additional plugins (offering new features) or updated versions of the plugins that constitute the core of GAMA."
+    },
+    "Using_Git": {
+      "id": "Using_Git",
+      "title": "Using Git from GAMA to version and share models",
+      "description": "Install the Git client [Tested on the GAMA 1.8.2]"
+    },
+    "Using-BEN-simple-bdi": {
+      "id": "Using-BEN-simple-bdi",
+      "title": "Using BEN (simple_bdi)",
+      "description": "[//]: # (keyword|concept_bdi)"
+    },
+    "UsingDatabase": {
+      "id": "UsingDatabase",
+      "title": "Using Database Access",
+      "description": "[//]: # (startConcept|use_database)",
+      "sidebar": "side"
+    },
+    "UsingDrivingSkill": {
+      "id": "UsingDrivingSkill",
+      "title": "Advanced Driving Skill",
+      "description": "[//]: # (keyword|concept_transport)",
+      "sidebar": "side"
+    },
+    "UsingFIPAACL": {
+      "id": "UsingFIPAACL",
+      "title": "Using FIPA ACL",
+      "description": "[//]: # (keyword|concept_fipa)",
+      "sidebar": "side"
+    },
+    "UsingNetwork": {
+      "id": "UsingNetwork",
+      "title": "Using network",
+      "description": "[//]: # (keyword|concept_network)",
+      "sidebar": "side"
+    },
+    "ValidationOfModels": {
+      "id": "ValidationOfModels",
+      "title": "Validation of Models",
+      "description": "When editing a model, GAMA will continuously validate (i.e. compile) what the modeler is entering and indicate, with specific visual affordances, various information on the state of the model. This information ranges from documentation items to errors indications. We will review some of them in this section."
+    },
+    "VariablesAndAttributes": {
+      "id": "VariablesAndAttributes",
+      "title": "Variables and Attributes",
+      "description": "Variables and attributes represent named data that can be used in an expression. They can be accessed depending on their scope:"
+    },
+    "WhatsNext": {
+      "id": "WhatsNext",
+      "title": "What's next ?",
+      "description": "Now you have a runnable GAMA on your computer, and you know a bit more about how to use the platform, you are ready to navigate through the website. Use the new powerful functionnalities of the website :"
+    },
+    "WorkspaceProjectsAndModels": {
+      "id": "WorkspaceProjectsAndModels",
+      "title": "Workspace, Projects and Models",
+      "description": "The workspace is a directory in which GAMA stores all the current projects on which the user is working, links to other projects, as well as some meta-data like preference settings, the current status of the different projects, error markers, and so on.",
+      "sidebar": "side"
+    },
+    "Writing_Tests": {
+      "id": "Writing_Tests",
+      "title": "Writing Unit Tests in GAML",
+      "description": "Unit testing is an essential instrument to ensure the quality of any software and it has been implemented in GAMA: this allows in particular that parts of the model are behaving as expected and that evolutions in the model do not introduce unexpected changes. To these purposes, the modeler can define a set of assertions that will be tested. Before the execution of the embedded set of instructions, if a setup is defined in the species, model or experiment, it is executed. In a test, if one assertion fails, the evaluation of other assertions continue."
+    },
+    "WritingModels": {
+      "id": "WritingModels",
+      "title": "Writing Models",
+      "description": "Models in GAMA play the same role as classes in Java or C++: they represent both the knowledge about a particular phenomenon a user wants to simulate and the way(s) to simulate it. A model is nothing more than a text file (or a collection of text files that refer to each other), which contains instructions in a specific language called GAML (for \"GAMA Modeling Language\")."
+    }
+  }
+}

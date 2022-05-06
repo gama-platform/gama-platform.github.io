@@ -1,0 +1,17 @@
+{
+  "unversionedId": "Event__TrainingSessionHanoi2009",
+  "id": "Event__TrainingSessionHanoi2009",
+  "title": "Event__TrainingSessionHanoi2009",
+  "description": "Training session on agent-based modeling and a tutorial on GAMA 1.1 organized at the IFI from the 26th to the 28th of October, 2009",
+  "source": "@site/../docs/Event__TrainingSessionHanoi2009.md",
+  "sourceDirName": ".",
+  "slug": "/Event__TrainingSessionHanoi2009",
+  "permalink": "/docs/Event__TrainingSessionHanoi2009",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {}
+}

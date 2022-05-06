@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Segregation (Schelling) Segregation (Cellular Automata)",
+  "id": "version-1.8.1/Segregation (Schelling) Segregation (Cellular Automata)",
+  "title": "segregationGrid",
+  "description": "[//]: # (keyword|operator_sum)",
+  "source": "@site/versioned_docs/version-1.8.1/Segregation (Schelling) Segregation (Cellular Automata).md",
+  "sourceDirName": ".",
+  "slug": "/Segregation (Schelling) Segregation (Cellular Automata)",
+  "permalink": "/docs/Segregation (Schelling) Segregation (Cellular Automata)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "segregationGrid",
+    "id": "Segregation (Schelling) Segregation (Cellular Automata)",
+    "original_id": "Segregation (Schelling) Segregation (Cellular Automata)"
+  }
+}

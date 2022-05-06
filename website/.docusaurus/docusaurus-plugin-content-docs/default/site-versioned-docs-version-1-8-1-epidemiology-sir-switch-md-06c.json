@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Epidemiology SIR (Switch)",
+  "id": "version-1.8.1/Epidemiology SIR (Switch)",
+  "title": "SIR_switch",
+  "description": "[//]: # (keyword|operator_round)",
+  "source": "@site/versioned_docs/version-1.8.1/Epidemiology SIR (Switch).md",
+  "sourceDirName": ".",
+  "slug": "/Epidemiology SIR (Switch)",
+  "permalink": "/docs/Epidemiology SIR (Switch)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "SIR_switch",
+    "id": "Epidemiology SIR (Switch)",
+    "original_id": "Epidemiology SIR (Switch)"
+  }
+}

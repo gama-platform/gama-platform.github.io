@@ -1,0 +1,30 @@
+{
+  "unversionedId": "GamAnalyzer",
+  "id": "version-1.8.1/GamAnalyzer",
+  "title": "Using GAMAnalyzer",
+  "description": "[//]: # (startConcept|runseveralmodelsusinggamanalyzer)",
+  "source": "@site/versioned_docs/version-1.8.1/GamAnalyzer.md",
+  "sourceDirName": ".",
+  "slug": "/GamAnalyzer",
+  "permalink": "/docs/GamAnalyzer",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Using GAMAnalyzer",
+    "id": "GamAnalyzer",
+    "original_id": "GamAnalyzer"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Using FIPA ACL",
+    "permalink": "/docs/UsingFIPAACL"
+  },
+  "next": {
+    "title": "Using BEN (simple_bdi)",
+    "permalink": "/docs/Using-BEN-simple-bdi"
+  }
+}

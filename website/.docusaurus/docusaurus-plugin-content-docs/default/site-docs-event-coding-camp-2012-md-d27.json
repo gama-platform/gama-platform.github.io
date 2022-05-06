@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Event__CodingCamp2012",
+  "id": "Event__CodingCamp2012",
+  "title": "Coding Activities Summary",
+  "description": "March 19-24th 2012",
+  "source": "@site/../docs/Event__CodingCamp2012.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CodingCamp2012",
+  "permalink": "/docs/Event__CodingCamp2012",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Coding Activities Summary"
+  }
+}

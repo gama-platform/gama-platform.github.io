@@ -1,0 +1,68 @@
+{
+  "permalink": "/blog/2019/11/15/gama-days-2020",
+  "source": "@site/blog/2019-11-15-gama-days-2020.md",
+  "title": "GAMA Days 2020",
+  "description": "City",
+  "date": "2019-11-15T00:00:00.000Z",
+  "formattedDate": "November 15, 2019",
+  "tags": [
+    {
+      "label": "even",
+      "permalink": "/blog/tags/even"
+    },
+    {
+      "label": "gama days",
+      "permalink": "/blog/tags/gama-days"
+    },
+    {
+      "label": "toulouse",
+      "permalink": "/blog/tags/toulouse"
+    },
+    {
+      "label": "france",
+      "permalink": "/blog/tags/france"
+    }
+  ],
+  "readingTime": 2.67,
+  "truncated": true,
+  "authors": [
+    {
+      "name": "GAMA Team",
+      "url": "https://github.com/gama-platform"
+    }
+  ],
+  "frontMatter": {
+    "<!-- If \"true\" the post will be accessible only by direct link -->": "",
+    "<!-- If you want to post it, remove the line below -->": "",
+    "unlisted": false,
+    "title": "GAMA Days 2020",
+    "<!-- Author Part -->": "",
+    "<!-- Update if you want to put your name, otherwise leave it to default -->": "",
+    "author": "GAMA Team",
+    "authorURL": "https://github.com/gama-platform",
+    "<!-- If you're special, you can uncomment the entry below and set your status -->": "",
+    "<!-- This will be display below your name -->": "",
+    "<!-- authorTitle": "The best dev so far -->",
+    "<!-- Image auto by authorFBID (from Facebook) -->": "",
+    "<!-- If no FB, put a custom link below for your PP -->": "",
+    "authorFBID": "GamaPlatform",
+    "<!-- To be linked on twitter if someone share your link -->": "",
+    "<!-- @[authorTwitter] // ex": "@gamaplatform -->",
+    "authorTwitter": "gamaplatform",
+    "<!-- Will be used in the next version (v2) of the Docusaurus framework -->": "",
+    "tags": [
+      "even",
+      "gama days",
+      "toulouse",
+      "france"
+    ]
+  },
+  "prevItem": {
+    "title": "GAMA Platform is now on Docker",
+    "permalink": "/blog/2020/02/20/gama-docker"
+  },
+  "nextItem": {
+    "title": "Introducing GAMA Blog",
+    "permalink": "/blog/2019/10/30/gama-blog"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Multi-Level Usage Predators, Preys and Shelters",
+  "id": "version-1.8.1/Multi-Level Usage Predators, Preys and Shelters",
+  "title": "Multi-Level Architecture with Preys and Predators",
+  "description": "[//]: # (keyword|operatorofspecies)",
+  "source": "@site/versioned_docs/version-1.8.1/Multi-Level Usage Predators, Preys and Shelters.md",
+  "sourceDirName": ".",
+  "slug": "/Multi-Level Usage Predators, Preys and Shelters",
+  "permalink": "/docs/Multi-Level Usage Predators, Preys and Shelters",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Multi-Level Architecture with Preys and Predators",
+    "id": "Multi-Level Usage Predators, Preys and Shelters",
+    "original_id": "Multi-Level Usage Predators, Preys and Shelters"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Literals",
+  "id": "version-1.8.1/Literals",
+  "title": "Literals",
+  "description": "(some literal expressions are also described in data types)",
+  "source": "@site/versioned_docs/version-1.8.1/Literals.md",
+  "sourceDirName": ".",
+  "slug": "/Literals",
+  "permalink": "/docs/Literals",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Literals",
+    "id": "Literals",
+    "original_id": "Literals"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Expressions",
+    "permalink": "/docs/Expressions"
+  },
+  "next": {
+    "title": "Units and constants",
+    "permalink": "/docs/UnitsAndConstants"
+  }
+}

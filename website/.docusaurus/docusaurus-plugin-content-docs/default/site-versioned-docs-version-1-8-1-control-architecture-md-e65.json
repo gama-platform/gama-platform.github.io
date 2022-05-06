@@ -1,0 +1,30 @@
+{
+  "unversionedId": "ControlArchitecture",
+  "id": "version-1.8.1/ControlArchitecture",
+  "title": "Control Architectures",
+  "description": "[//]: # (keyword|concept_architecture)",
+  "source": "@site/versioned_docs/version-1.8.1/ControlArchitecture.md",
+  "sourceDirName": ".",
+  "slug": "/ControlArchitecture",
+  "permalink": "/docs/ControlArchitecture",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Control Architectures",
+    "id": "ControlArchitecture",
+    "original_id": "ControlArchitecture"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Multi-Paradigm Modeling",
+    "permalink": "/docs/MultiParadigmModeling"
+  },
+  "next": {
+    "title": "Using Equations",
+    "permalink": "/docs/Equations"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "DefiningUserInteraction",
+  "id": "version-1.8.1/DefiningUserInteraction",
+  "title": "Defining user interaction",
+  "description": "[//]: # (keyword|concept_gui)",
+  "source": "@site/versioned_docs/version-1.8.1/DefiningUserInteraction.md",
+  "sourceDirName": ".",
+  "slug": "/DefiningUserInteraction",
+  "permalink": "/docs/DefiningUserInteraction",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining user interaction",
+    "id": "DefiningUserInteraction",
+    "original_id": "DefiningUserInteraction"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Defining export files",
+    "permalink": "/docs/DefiningExportFiles"
+  },
+  "next": {
+    "title": "Exploring Models",
+    "permalink": "/docs/ExploringModels"
+  }
+}

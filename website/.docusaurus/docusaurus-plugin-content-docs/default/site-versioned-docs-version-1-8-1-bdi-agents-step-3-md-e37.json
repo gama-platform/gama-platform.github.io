@@ -1,0 +1,30 @@
+{
+  "unversionedId": "BDIAgents_step3",
+  "id": "version-1.8.1/BDIAgents_step3",
+  "title": "3. Social relation",
+  "description": "This third step consists in adding social relation between agents and the possibility to share information about the known gold mines.",
+  "source": "@site/versioned_docs/version-1.8.1/BDIAgents_step3.md",
+  "sourceDirName": ".",
+  "slug": "/BDIAgents_step3",
+  "permalink": "/docs/BDIAgents_step3",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "3. Social relation",
+    "id": "BDIAgents_step3",
+    "original_id": "BDIAgents_step3"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "2. BDI Agents",
+    "permalink": "/docs/BDIAgents_step2"
+  },
+  "next": {
+    "title": "4. Emotions and Personality",
+    "permalink": "/docs/BDIAgents_step4"
+  }
+}

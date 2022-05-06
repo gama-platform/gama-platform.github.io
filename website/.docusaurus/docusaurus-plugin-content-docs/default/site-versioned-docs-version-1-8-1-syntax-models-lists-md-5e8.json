@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Syntax models Lists",
+  "id": "version-1.8.1/Syntax models Lists",
+  "title": "Lists",
+  "description": "[//]: # (keyword|operatorlistwith)",
+  "source": "@site/versioned_docs/version-1.8.1/Syntax models Lists.md",
+  "sourceDirName": ".",
+  "slug": "/Syntax models Lists",
+  "permalink": "/docs/Syntax models Lists",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Lists",
+    "id": "Syntax models Lists",
+    "original_id": "Syntax models Lists"
+  }
+}

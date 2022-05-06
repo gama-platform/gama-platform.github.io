@@ -1,0 +1,30 @@
+{
+  "unversionedId": "LaunchingExperiments",
+  "id": "version-1.8.1/LaunchingExperiments",
+  "title": "Launching Experiments from the User Interface",
+  "description": "GAMA supports multiple ways of launching experiments from within the Modeling Perspective, in editors or in the navigator.",
+  "source": "@site/versioned_docs/version-1.8.1/LaunchingExperiments.md",
+  "sourceDirName": ".",
+  "slug": "/LaunchingExperiments",
+  "permalink": "/docs/LaunchingExperiments",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Launching Experiments from the User Interface",
+    "id": "LaunchingExperiments",
+    "original_id": "LaunchingExperiments"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Running Experiments",
+    "permalink": "/docs/RunningExperiments"
+  },
+  "next": {
+    "title": "Launching Experiments from the User Interface",
+    "permalink": "/docs/LaunchingExperiments"
+  }
+}

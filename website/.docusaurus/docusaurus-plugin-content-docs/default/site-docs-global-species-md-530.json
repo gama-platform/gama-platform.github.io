@@ -1,0 +1,28 @@
+{
+  "unversionedId": "GlobalSpecies",
+  "id": "GlobalSpecies",
+  "title": "The global species",
+  "description": "[//]: # (startConcept|global_species)",
+  "source": "@site/../docs/GlobalSpecies.md",
+  "sourceDirName": ".",
+  "slug": "/GlobalSpecies",
+  "permalink": "/docs/GlobalSpecies",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "The global species"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Manipulate basic species",
+    "permalink": "/docs/ManipulateBasicSpecies"
+  },
+  "next": {
+    "title": "Defining advanced species",
+    "permalink": "/docs/DefiningAdvancedSpecies"
+  }
+}

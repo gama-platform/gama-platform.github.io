@@ -1,0 +1,21 @@
+{
+  "unversionedId": "FIPA Skill FIPA CFP (2)",
+  "id": "version-1.8.1/FIPA Skill FIPA CFP (2)",
+  "title": "FIPA Contract Net (2)",
+  "description": "[//]: # (keyword|operator_in)",
+  "source": "@site/versioned_docs/version-1.8.1/FIPA Skill FIPA CFP (2).md",
+  "sourceDirName": ".",
+  "slug": "/FIPA Skill FIPA CFP (2)",
+  "permalink": "/docs/FIPA Skill FIPA CFP (2)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "FIPA Contract Net (2)",
+    "id": "FIPA Skill FIPA CFP (2)",
+    "original_id": "FIPA Skill FIPA CFP (2)"
+  }
+}

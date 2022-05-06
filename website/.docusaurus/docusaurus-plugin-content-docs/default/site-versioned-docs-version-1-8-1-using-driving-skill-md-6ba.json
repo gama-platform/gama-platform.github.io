@@ -1,0 +1,30 @@
+{
+  "unversionedId": "UsingDrivingSkill",
+  "id": "version-1.8.1/UsingDrivingSkill",
+  "title": "Advanced Driving Skill",
+  "description": "[//]: # (keyword|concept_transport)",
+  "source": "@site/versioned_docs/version-1.8.1/UsingDrivingSkill.md",
+  "sourceDirName": ".",
+  "slug": "/UsingDrivingSkill",
+  "permalink": "/docs/UsingDrivingSkill",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Advanced Driving Skill",
+    "id": "UsingDrivingSkill",
+    "original_id": "UsingDrivingSkill"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Using BEN (simple_bdi)",
+    "permalink": "/docs/Using-BEN-simple-bdi"
+  },
+  "next": {
+    "title": "Manipulate Dates",
+    "permalink": "/docs/ManipulateDates"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "unversionedId": "BDIAgents_step1",
+  "id": "BDIAgents_step1",
+  "title": "1. Skeleton model",
+  "description": "This first step consists in defining the skeleton model with the gold mines and the gold market.",
+  "source": "@site/../docs/BDIAgents_step1.md",
+  "sourceDirName": ".",
+  "slug": "/BDIAgents_step1",
+  "permalink": "/docs/BDIAgents_step1",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "1. Skeleton model"
+  }
+}

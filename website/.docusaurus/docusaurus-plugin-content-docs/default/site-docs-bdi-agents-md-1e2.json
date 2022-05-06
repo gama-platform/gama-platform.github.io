@@ -1,0 +1,24 @@
+{
+  "unversionedId": "BDIAgents",
+  "id": "BDIAgents",
+  "title": "BDI Agents",
+  "description": "This tutorial aims at presenting the use of BDI agents in GAMA. In particular, this tutorial shows how to define a BDI agents, then to add social relation between BDI agents, to add emotions and a personality to the agents and finally social norms, obligations and enforcements. These notions come from the BEN architecture, described in details in the page Using BEN architecture.",
+  "source": "@site/../docs/BDIAgents.md",
+  "sourceDirName": ".",
+  "slug": "/BDIAgents",
+  "permalink": "/docs/BDIAgents",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "BDI Agents"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "Co-modeling tutorial",
+    "permalink": "/docs/CoModelingTutorial"
+  }
+}

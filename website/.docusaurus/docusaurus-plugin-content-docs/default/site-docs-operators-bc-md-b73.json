@@ -1,0 +1,19 @@
+{
+  "unversionedId": "OperatorsBC",
+  "id": "OperatorsBC",
+  "title": "Operators (B to C)",
+  "description": "----",
+  "source": "@site/../docs/OperatorsBC.md",
+  "sourceDirName": ".",
+  "slug": "/OperatorsBC",
+  "permalink": "/docs/OperatorsBC",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Operators (B to C)"
+  }
+}

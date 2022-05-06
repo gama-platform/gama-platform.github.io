@@ -1,0 +1,28 @@
+{
+  "unversionedId": "ManipulateOSMDatas",
+  "id": "ManipulateOSMDatas",
+  "title": "Manipulate OSM Datas",
+  "description": "[//]: # (startConcept|useosmdatas)",
+  "source": "@site/../docs/ManipulateOSMDatas.md",
+  "sourceDirName": ".",
+  "slug": "/ManipulateOSMDatas",
+  "permalink": "/docs/ManipulateOSMDatas",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Manipulate OSM Datas"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Recipes",
+    "permalink": "/docs/Recipes"
+  },
+  "next": {
+    "title": "Implementing diffusion",
+    "permalink": "/docs/Diffusion"
+  }
+}

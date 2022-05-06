@@ -1,0 +1,19 @@
+{
+  "unversionedId": "MenusAndCommands",
+  "id": "MenusAndCommands",
+  "title": "Controls of experiments",
+  "description": "The simulation perspective adds on the user interface a number of new menus and commands (i.e. buttons) that are specific to experiment-related tasks.",
+  "source": "@site/../docs/MenusAndCommands.md",
+  "sourceDirName": ".",
+  "slug": "/MenusAndCommands",
+  "permalink": "/docs/MenusAndCommands",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Controls of experiments"
+  }
+}

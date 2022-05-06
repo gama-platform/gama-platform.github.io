@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Epidemiology SIR (Split in Agents)",
+  "id": "version-1.8.1/Epidemiology SIR (Split in Agents)",
+  "title": "SIR_split_in_agents",
+  "description": "[//]: # (keyword|operator_diff)",
+  "source": "@site/versioned_docs/version-1.8.1/Epidemiology SIR (Split in Agents).md",
+  "sourceDirName": ".",
+  "slug": "/Epidemiology SIR (Split in Agents)",
+  "permalink": "/docs/Epidemiology SIR (Split in Agents)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "SIR_split_in_agents",
+    "id": "Epidemiology SIR (Split in Agents)",
+    "original_id": "Epidemiology SIR (Split in Agents)"
+  }
+}

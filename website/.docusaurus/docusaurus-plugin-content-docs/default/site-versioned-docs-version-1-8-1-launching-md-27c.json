@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Launching",
+  "id": "version-1.8.1/Launching",
+  "title": "Launching GAMA",
+  "description": "Running GAMA for the first time requires that you launch the application (Gama.app on MacOS X, Gama.exe on Windows, Gama on Linux, located in the folder called GAMA1.8YOUROSNAME once you have unzipped the downloaded archive). In case you are unable to launch the application, or if error messages appear, please refer to the installation or troubleshooting instructions.",
+  "source": "@site/versioned_docs/version-1.8.1/Launching.md",
+  "sourceDirName": ".",
+  "slug": "/Launching",
+  "permalink": "/docs/Launching",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Launching GAMA",
+    "id": "Launching",
+    "original_id": "Launching"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Installation",
+    "permalink": "/docs/Installation"
+  },
+  "next": {
+    "title": "Headless Mode",
+    "permalink": "/docs/Headless"
+  }
+}

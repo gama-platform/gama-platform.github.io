@@ -1,0 +1,28 @@
+{
+  "unversionedId": "UsingFIPAACL",
+  "id": "UsingFIPAACL",
+  "title": "Using FIPA ACL",
+  "description": "[//]: # (keyword|concept_fipa)",
+  "source": "@site/../docs/UsingFIPAACL.md",
+  "sourceDirName": ".",
+  "slug": "/UsingFIPAACL",
+  "permalink": "/docs/UsingFIPAACL",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Using FIPA ACL"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Calling R",
+    "permalink": "/docs/CallingR"
+  },
+  "next": {
+    "title": "Using GAMAnalyzer",
+    "permalink": "/docs/GamAnalyzer"
+  }
+}

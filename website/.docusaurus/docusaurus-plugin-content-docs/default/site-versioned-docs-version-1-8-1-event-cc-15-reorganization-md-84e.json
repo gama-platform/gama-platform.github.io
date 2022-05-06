@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CC15_Reorganization",
+  "id": "version-1.8.1/Event__CC15_Reorganization",
+  "title": "Introduction",
+  "description": "Le but est de proposer une réorganisation des plug-ins de Gama",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CC15_Reorganization.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CC15_Reorganization",
+  "permalink": "/docs/Event__CC15_Reorganization",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Introduction",
+    "id": "Event__CC15_Reorganization",
+    "original_id": "Event__CC15_Reorganization"
+  }
+}

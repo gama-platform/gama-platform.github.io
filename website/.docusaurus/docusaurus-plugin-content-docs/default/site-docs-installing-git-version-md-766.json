@@ -1,0 +1,28 @@
+{
+  "unversionedId": "InstallingGitVersion",
+  "id": "InstallingGitVersion",
+  "title": "Installing the GIT version",
+  "description": "Important note",
+  "source": "@site/../docs/InstallingGitVersion.md",
+  "sourceDirName": ".",
+  "slug": "/InstallingGitVersion",
+  "permalink": "/docs/InstallingGitVersion",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Installing the GIT version"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Developing Extensions",
+    "permalink": "/docs/DevelopingExtensions"
+  },
+  "next": {
+    "title": "Architecture of GAMA",
+    "permalink": "/docs/GamaArchitecture"
+  }
+}

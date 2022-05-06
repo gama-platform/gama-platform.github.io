@@ -1,0 +1,30 @@
+{
+  "unversionedId": "LuneraysFlu_step5",
+  "id": "version-1.8.1/LuneraysFlu_step5",
+  "title": "5. Definition of 3D displays",
+  "description": "This fifth step illustrates how to define 3D displays.",
+  "source": "@site/versioned_docs/version-1.8.1/LuneraysFlu_step5.md",
+  "sourceDirName": ".",
+  "slug": "/LuneraysFlu_step5",
+  "permalink": "/docs/LuneraysFlu_step5",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "5. Definition of 3D displays",
+    "id": "LuneraysFlu_step5",
+    "original_id": "LuneraysFlu_step5"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "4. Use of a graph to constraint the movements of people",
+    "permalink": "/docs/LuneraysFlu_step4"
+  },
+  "next": {
+    "title": "6. Exploration of the model",
+    "permalink": "/docs/LuneraysFlu_step6"
+  }
+}

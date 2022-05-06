@@ -1,0 +1,28 @@
+{
+  "unversionedId": "PredatorPrey_step2",
+  "id": "PredatorPrey_step2",
+  "title": "2. Vegetation Dynamic",
+  "description": "This second step presents the idea of environment or topological space. Defining a \"vegetation\" environment allows to define the movement of the preys through dynamic variables (use of the update facet). We will also discover more about displays.",
+  "source": "@site/../docs/PredatorPrey_step2.md",
+  "sourceDirName": ".",
+  "slug": "/PredatorPrey_step2",
+  "permalink": "/docs/PredatorPrey_step2",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "2. Vegetation Dynamic"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "1. Basic Model",
+    "permalink": "/docs/PredatorPrey_step1"
+  },
+  "next": {
+    "title": "3. Prey Agent Behavior",
+    "permalink": "/docs/PredatorPrey_step3"
+  }
+}

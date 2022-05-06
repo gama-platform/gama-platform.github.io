@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Boids Boids With Flocks",
+  "id": "version-1.8.1/Boids Boids With Flocks",
+  "title": "Boids With Flocks",
+  "description": "[//]: # (keyword|operator_copy)",
+  "source": "@site/versioned_docs/version-1.8.1/Boids Boids With Flocks.md",
+  "sourceDirName": ".",
+  "slug": "/Boids Boids With Flocks",
+  "permalink": "/docs/Boids Boids With Flocks",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Boids With Flocks",
+    "id": "Boids Boids With Flocks",
+    "original_id": "Boids Boids With Flocks"
+  }
+}

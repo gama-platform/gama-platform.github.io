@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Recipes",
+  "id": "version-1.8.1/Recipes",
+  "title": "Recipes",
+  "description": "Understanding the structure of models in GAML and gaining some insight of the language is required, but is usually not sufficient to build correct models or models that need to deal with specific approaches (like equation-based modeling). This section is intended to provide readers with practical \"how to\"s on various subjects, ranging from the use of database access to the design of agent communication languages. It is by no means exhaustive, and will progressively be extended with more \"recipes\" in the future, depending on the concrete questions asked by users.",
+  "source": "@site/versioned_docs/version-1.8.1/Recipes.md",
+  "sourceDirName": ".",
+  "slug": "/Recipes",
+  "permalink": "/docs/Recipes",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Recipes",
+    "id": "Recipes",
+    "original_id": "Recipes"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Using Equations",
+    "permalink": "/docs/Equations"
+  },
+  "next": {
+    "title": "Manipulate OSM Datas",
+    "permalink": "/docs/ManipulateOSMDatas"
+  }
+}

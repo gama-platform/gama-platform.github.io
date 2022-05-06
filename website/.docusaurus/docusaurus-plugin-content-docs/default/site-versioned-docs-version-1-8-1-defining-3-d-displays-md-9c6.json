@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Defining3DDisplays",
+  "id": "version-1.8.1/Defining3DDisplays",
+  "title": "Defining 3D Displays",
+  "description": "[//]: # (startConcept|3d_displays)",
+  "source": "@site/versioned_docs/version-1.8.1/Defining3DDisplays.md",
+  "sourceDirName": ".",
+  "slug": "/Defining3DDisplays",
+  "permalink": "/docs/Defining3DDisplays",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining 3D Displays",
+    "id": "Defining3DDisplays",
+    "original_id": "Defining3DDisplays"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Defining Charts",
+    "permalink": "/docs/DefiningCharts"
+  },
+  "next": {
+    "title": "Defining monitors and inspectors",
+    "permalink": "/docs/DefiningMonitorsAndInspectors"
+  }
+}

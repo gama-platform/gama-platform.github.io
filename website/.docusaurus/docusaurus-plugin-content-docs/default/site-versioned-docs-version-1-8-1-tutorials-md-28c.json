@@ -1,0 +1,26 @@
+{
+  "unversionedId": "Tutorials",
+  "id": "version-1.8.1/Tutorials",
+  "title": "Tutorials",
+  "description": "We propose some tutorials that are designed to allow modelers to become progressively autonomous with the GAMA platform. These tutorials cover different aspects of GAMA (Grid environment, GIS integration, 3D, multi-level modeling, equation-based models...). It is a good idea to keep a copy of the reference of the GAML language around when undertaking one of these tutorials.",
+  "source": "@site/versioned_docs/version-1.8.1/Tutorials.md",
+  "sourceDirName": ".",
+  "slug": "/Tutorials",
+  "permalink": "/docs/Tutorials",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Tutorials",
+    "id": "Tutorials",
+    "original_id": "Tutorials"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "next": {
+    "title": "Predator Prey",
+    "permalink": "/docs/PredatorPrey"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "IncrementalModel_step7",
+  "id": "version-1.8.1/IncrementalModel_step7",
+  "title": "7. Differential Equations",
+  "description": "This step illustrates how to use differential equations.",
+  "source": "@site/versioned_docs/version-1.8.1/IncrementalModel_step7.md",
+  "sourceDirName": ".",
+  "slug": "/IncrementalModel_step7",
+  "permalink": "/docs/IncrementalModel_step7",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "7. Differential Equations",
+    "id": "IncrementalModel_step7",
+    "original_id": "IncrementalModel_step7"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "6. Multi-Level",
+    "permalink": "/docs/IncrementalModel_step6"
+  },
+  "next": {
+    "title": "Luneray's flu",
+    "permalink": "/docs/LuneraysFlu"
+  }
+}

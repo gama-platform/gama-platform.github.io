@@ -1,0 +1,30 @@
+{
+  "unversionedId": "BuiltInSpecies",
+  "id": "version-1.8.1/BuiltInSpecies",
+  "title": "Built-in Species",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/BuiltInSpecies.md",
+  "sourceDirName": ".",
+  "slug": "/BuiltInSpecies",
+  "permalink": "/docs/BuiltInSpecies",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Built-in Species",
+    "id": "BuiltInSpecies",
+    "original_id": "BuiltInSpecies"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "GAML References",
+    "permalink": "/docs/GamlReference"
+  },
+  "next": {
+    "title": "Built-in Species",
+    "permalink": "/docs/BuiltInSpecies"
+  }
+}

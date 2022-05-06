@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Additionnal Plugins",
+  "id": "version-1.8.1/Additionnal Plugins",
+  "title": "Additionnal Plugins",
+  "description": "This section is composed of the following sub-section :",
+  "source": "@site/versioned_docs/version-1.8.1/Additionnal Plugins.md",
+  "sourceDirName": ".",
+  "slug": "/Additionnal Plugins",
+  "permalink": "/docs/Additionnal Plugins",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Additionnal Plugins",
+    "id": "Additionnal Plugins",
+    "original_id": "Additionnal Plugins"
+  }
+}

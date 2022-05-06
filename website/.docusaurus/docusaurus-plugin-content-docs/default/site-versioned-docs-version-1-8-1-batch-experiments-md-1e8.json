@@ -1,0 +1,30 @@
+{
+  "unversionedId": "BatchExperiments",
+  "id": "version-1.8.1/BatchExperiments",
+  "title": "Defining Batch Experiments",
+  "description": "Batch experiments allow to execute numerous successive simulation runs. They are used to explore the parameter space of a model or to optimize a set of model parameters. Exploration methods are detailed in this page.",
+  "source": "@site/versioned_docs/version-1.8.1/BatchExperiments.md",
+  "sourceDirName": ".",
+  "slug": "/BatchExperiments",
+  "permalink": "/docs/BatchExperiments",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining Batch Experiments",
+    "id": "BatchExperiments",
+    "original_id": "BatchExperiments"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Run Several Simulations",
+    "permalink": "/docs/RunSeveralSimulations"
+  },
+  "next": {
+    "title": "Exploration Methods",
+    "permalink": "/docs/ExplorationMethods"
+  }
+}

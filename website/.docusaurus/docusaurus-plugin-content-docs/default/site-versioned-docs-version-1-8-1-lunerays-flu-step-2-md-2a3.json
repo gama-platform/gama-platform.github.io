@@ -1,0 +1,30 @@
+{
+  "unversionedId": "LuneraysFlu_step2",
+  "id": "version-1.8.1/LuneraysFlu_step2",
+  "title": "2. Definition of monitors and chart outputs",
+  "description": "This second step illustrates how to create monitors and charts to follows the evolution of variables and to add an ending condition to the simulation.",
+  "source": "@site/versioned_docs/version-1.8.1/LuneraysFlu_step2.md",
+  "sourceDirName": ".",
+  "slug": "/LuneraysFlu_step2",
+  "permalink": "/docs/LuneraysFlu_step2",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "2. Definition of monitors and chart outputs",
+    "id": "LuneraysFlu_step2",
+    "original_id": "LuneraysFlu_step2"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "1. Creation of a first basic disease spreading model",
+    "permalink": "/docs/LuneraysFlu_step1"
+  },
+  "next": {
+    "title": "3. Importation of GIS data",
+    "permalink": "/docs/LuneraysFlu_step3"
+  }
+}

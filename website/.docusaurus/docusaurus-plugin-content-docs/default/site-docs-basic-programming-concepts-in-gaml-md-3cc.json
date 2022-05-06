@@ -1,0 +1,19 @@
+{
+  "unversionedId": "BasicProgrammingConceptsInGAML",
+  "id": "BasicProgrammingConceptsInGAML",
+  "title": "Basic programming concepts in GAML",
+  "description": "[//]: # (startConcept|programming_basis)",
+  "source": "@site/../docs/BasicProgrammingConceptsInGAML.md",
+  "sourceDirName": ".",
+  "slug": "/BasicProgrammingConceptsInGAML",
+  "permalink": "/docs/BasicProgrammingConceptsInGAML",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Basic programming concepts in GAML"
+  }
+}

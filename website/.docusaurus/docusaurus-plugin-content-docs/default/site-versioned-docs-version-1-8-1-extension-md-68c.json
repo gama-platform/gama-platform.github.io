@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Extension",
+  "id": "version-1.8.1/Extension",
+  "title": "Extensions",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/Extension.md",
+  "sourceDirName": ".",
+  "slug": "/Extension",
+  "permalink": "/docs/Extension",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Extensions",
+    "id": "Extension",
+    "original_id": "Extension"
+  }
+}

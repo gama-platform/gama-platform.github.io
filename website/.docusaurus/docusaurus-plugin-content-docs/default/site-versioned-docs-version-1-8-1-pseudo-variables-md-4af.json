@@ -1,0 +1,30 @@
+{
+  "unversionedId": "PseudoVariables",
+  "id": "version-1.8.1/PseudoVariables",
+  "title": "Pseudo-variables",
+  "description": "[//]: # (keyword|conceptpseudovariable)",
+  "source": "@site/versioned_docs/version-1.8.1/PseudoVariables.md",
+  "sourceDirName": ".",
+  "slug": "/PseudoVariables",
+  "permalink": "/docs/PseudoVariables",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Pseudo-variables",
+    "id": "PseudoVariables",
+    "original_id": "PseudoVariables"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Units and constants",
+    "permalink": "/docs/UnitsAndConstants"
+  },
+  "next": {
+    "title": "Variables and Attributes",
+    "permalink": "/docs/VariablesAndAttributes"
+  }
+}

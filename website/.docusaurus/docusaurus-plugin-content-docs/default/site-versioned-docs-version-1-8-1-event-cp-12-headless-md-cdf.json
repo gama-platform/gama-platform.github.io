@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CP12Headless",
+  "id": "version-1.8.1/Event__CP12Headless",
+  "title": "Headless operation",
+  "description": "Be able to launch a simulation without any interface.",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CP12Headless.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CP12Headless",
+  "permalink": "/docs/Event__CP12Headless",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Headless operation",
+    "id": "Event__CP12Headless",
+    "original_id": "Event__CP12Headless"
+  }
+}

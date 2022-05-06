@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Database Usage Create Agents and Insert in MySQL",
+  "id": "version-1.8.1/Database Usage Create Agents and Insert in MySQL",
+  "title": "create_agents_Insert_result_MySQL",
+  "description": "[//]: # (keyword|skill_SQLSKILL)",
+  "source": "@site/versioned_docs/version-1.8.1/Database Usage Create Agents and Insert in MySQL.md",
+  "sourceDirName": ".",
+  "slug": "/Database Usage Create Agents and Insert in MySQL",
+  "permalink": "/docs/Database Usage Create Agents and Insert in MySQL",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "create_agents_Insert_result_MySQL",
+    "id": "Database Usage Create Agents and Insert in MySQL",
+    "original_id": "Database Usage Create Agents and Insert in MySQL"
+  }
+}

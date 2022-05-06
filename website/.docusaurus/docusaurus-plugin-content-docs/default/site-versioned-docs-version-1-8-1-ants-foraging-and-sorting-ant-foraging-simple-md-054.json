@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Ants (Foraging and Sorting) Ant Foraging (Simple)",
+  "id": "version-1.8.1/Ants (Foraging and Sorting) Ant Foraging (Simple)",
+  "title": "Ant Foraging (Simple)",
+  "description": "[//]: # (keyword|operator_round)",
+  "source": "@site/versioned_docs/version-1.8.1/Ants (Foraging and Sorting) Ant Foraging (Simple).md",
+  "sourceDirName": ".",
+  "slug": "/Ants (Foraging and Sorting) Ant Foraging (Simple)",
+  "permalink": "/docs/Ants (Foraging and Sorting) Ant Foraging (Simple)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Ant Foraging (Simple)",
+    "id": "Ants (Foraging and Sorting) Ant Foraging (Simple)",
+    "original_id": "Ants (Foraging and Sorting) Ant Foraging (Simple)"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Evacuation",
+  "id": "version-1.8.1/Evacuation",
+  "title": "Evacuation",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Evacuation.md",
+  "sourceDirName": ".",
+  "slug": "/Evacuation",
+  "permalink": "/docs/Evacuation",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Evacuation",
+    "id": "Evacuation",
+    "original_id": "Evacuation"
+  }
+}

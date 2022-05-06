@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Data Importation ASC file Import",
+  "id": "version-1.8.1/Data Importation ASC file Import",
+  "title": "ESRI ASCII to grid model",
+  "description": "[//]: # (keyword|concept_grid)",
+  "source": "@site/versioned_docs/version-1.8.1/Data Importation ASC file Import.md",
+  "sourceDirName": ".",
+  "slug": "/Data Importation ASC file Import",
+  "permalink": "/docs/Data Importation ASC file Import",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "ESRI ASCII to grid model",
+    "id": "Data Importation ASC file Import",
+    "original_id": "Data Importation ASC file Import"
+  }
+}

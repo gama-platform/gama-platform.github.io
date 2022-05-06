@@ -1,0 +1,28 @@
+{
+  "unversionedId": "RoadTrafficModel_step3",
+  "id": "RoadTrafficModel_step3",
+  "title": "3. Movement of People",
+  "description": "This third step presents how to create a road system from GIS data. More precisely, it shows how to build a graph from a list of polylines and to constrain the movement of an agent according to this graph.",
+  "source": "@site/../docs/RoadTrafficModel_step3.md",
+  "sourceDirName": ".",
+  "slug": "/RoadTrafficModel_step3",
+  "permalink": "/docs/RoadTrafficModel_step3",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "3. Movement of People"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "2. People Agents",
+    "permalink": "/docs/RoadTrafficModel_step2"
+  },
+  "next": {
+    "title": "4. Weight for Road Network",
+    "permalink": "/docs/RoadTrafficModel_step4"
+  }
+}

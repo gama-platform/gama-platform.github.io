@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CP12traffic",
+  "id": "version-1.8.1/Event__CP12traffic",
+  "title": "Traffic simulation and Physics constraints operators",
+  "description": "Traffic simulation",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CP12traffic.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CP12traffic",
+  "permalink": "/docs/Event__CP12traffic",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Traffic simulation and Physics constraints operators",
+    "id": "Event__CP12traffic",
+    "original_id": "Event__CP12traffic"
+  }
+}

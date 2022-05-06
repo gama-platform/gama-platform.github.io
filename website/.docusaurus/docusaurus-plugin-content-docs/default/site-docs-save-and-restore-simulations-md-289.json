@@ -1,0 +1,28 @@
+{
+  "unversionedId": "Save-and-restore-simulations",
+  "id": "Save-and-restore-simulations",
+  "title": "Save and Restore simulations",
+  "description": "[//]: # (startConcept|use_saveSimulation)",
+  "source": "@site/../docs/Save-and-restore-simulations.md",
+  "sourceDirName": ".",
+  "slug": "/Save-and-restore-simulations",
+  "permalink": "/docs/Save-and-restore-simulations",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Save and Restore simulations"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Using Comodel",
+    "permalink": "/docs/Comodel"
+  },
+  "next": {
+    "title": "Using network",
+    "permalink": "/docs/UsingNetwork"
+  }
+}

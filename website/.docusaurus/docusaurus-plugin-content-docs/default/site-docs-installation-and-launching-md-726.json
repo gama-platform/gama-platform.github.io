@@ -1,0 +1,28 @@
+{
+  "unversionedId": "InstallationAndLaunching",
+  "id": "InstallationAndLaunching",
+  "title": "Installation and Launching",
+  "description": "The GAMA platform can be easily installed in your machine, either if you are using Windows, Mac OS or Ubuntu. GAMA can then be extended by using a number of additional plugins.",
+  "source": "@site/../docs/InstallationAndLaunching.md",
+  "sourceDirName": ".",
+  "slug": "/InstallationAndLaunching",
+  "permalink": "/docs/InstallationAndLaunching",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Installation and Launching"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Platform",
+    "permalink": "/docs/PlatformDocumentation"
+  },
+  "next": {
+    "title": "Installation",
+    "permalink": "/docs/Installation"
+  }
+}

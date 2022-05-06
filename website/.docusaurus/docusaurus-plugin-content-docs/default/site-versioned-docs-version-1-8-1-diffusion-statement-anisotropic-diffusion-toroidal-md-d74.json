@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Diffusion Statement Anisotropic Diffusion (Toroidal)",
+  "id": "version-1.8.1/Diffusion Statement Anisotropic Diffusion (Toroidal)",
+  "title": "Anisotropic diffusion (Toroidal)",
+  "description": "[//]: # (keyword|operator_hsb)",
+  "source": "@site/versioned_docs/version-1.8.1/Diffusion Statement Anisotropic Diffusion (Toroidal).md",
+  "sourceDirName": ".",
+  "slug": "/Diffusion Statement Anisotropic Diffusion (Toroidal)",
+  "permalink": "/docs/Diffusion Statement Anisotropic Diffusion (Toroidal)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Anisotropic diffusion (Toroidal)",
+    "id": "Diffusion Statement Anisotropic Diffusion (Toroidal)",
+    "original_id": "Diffusion Statement Anisotropic Diffusion (Toroidal)"
+  }
+}

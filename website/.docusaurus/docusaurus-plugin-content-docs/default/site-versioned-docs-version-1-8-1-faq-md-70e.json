@@ -1,0 +1,30 @@
+{
+  "unversionedId": "FAQ",
+  "id": "version-1.8.1/FAQ",
+  "title": "FAQ (Frequently Asked Questions)",
+  "description": "[//]: # (concept|video)",
+  "source": "@site/versioned_docs/version-1.8.1/FAQ.md",
+  "sourceDirName": ".",
+  "slug": "/FAQ",
+  "permalink": "/docs/FAQ",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "FAQ (Frequently Asked Questions)",
+    "id": "FAQ",
+    "original_id": "FAQ"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Writing Unit Tests in GAML",
+    "permalink": "/docs/Writing_Tests"
+  },
+  "next": {
+    "title": "Known issues",
+    "permalink": "/docs/KnownIssues"
+  }
+}

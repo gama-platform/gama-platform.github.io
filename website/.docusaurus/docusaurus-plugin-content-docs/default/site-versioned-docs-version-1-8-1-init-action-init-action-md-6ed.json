@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Init Action Init Action",
+  "id": "version-1.8.1/Init Action Init Action",
+  "title": "InitAction",
+  "description": "[//]: # (keyword|operatoruserinput)",
+  "source": "@site/versioned_docs/version-1.8.1/Init Action Init Action.md",
+  "sourceDirName": ".",
+  "slug": "/Init Action Init Action",
+  "permalink": "/docs/Init Action Init Action",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "InitAction",
+    "id": "Init Action Init Action",
+    "original_id": "Init Action Init Action"
+  }
+}

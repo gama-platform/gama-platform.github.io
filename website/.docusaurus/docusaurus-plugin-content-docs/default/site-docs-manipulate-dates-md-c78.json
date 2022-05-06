@@ -1,0 +1,28 @@
+{
+  "unversionedId": "ManipulateDates",
+  "id": "ManipulateDates",
+  "title": "Manipulate Dates",
+  "description": "[//]: # (keyword|concept_date)",
+  "source": "@site/../docs/ManipulateDates.md",
+  "sourceDirName": ".",
+  "slug": "/ManipulateDates",
+  "permalink": "/docs/ManipulateDates",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Manipulate Dates"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Advanced Driving Skill",
+    "permalink": "/docs/UsingDrivingSkill"
+  },
+  "next": {
+    "title": "Implementing light",
+    "permalink": "/docs/ManipulateLight"
+  }
+}

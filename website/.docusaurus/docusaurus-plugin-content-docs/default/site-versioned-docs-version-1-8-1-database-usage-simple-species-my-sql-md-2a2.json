@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Database Usage Simple Species MySQL",
+  "id": "version-1.8.1/Database Usage Simple Species MySQL",
+  "title": "Simple Species MySql",
+  "description": "[//]: # (keyword|concept_database)",
+  "source": "@site/versioned_docs/version-1.8.1/Database Usage Simple Species MySQL.md",
+  "sourceDirName": ".",
+  "slug": "/Database Usage Simple Species MySQL",
+  "permalink": "/docs/Database Usage Simple Species MySQL",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Simple Species MySql",
+    "id": "Database Usage Simple Species MySQL",
+    "original_id": "Database Usage Simple Species MySQL"
+  }
+}

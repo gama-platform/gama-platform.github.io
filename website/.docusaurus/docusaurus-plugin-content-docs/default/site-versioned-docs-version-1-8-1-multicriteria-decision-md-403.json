@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Multicriteria decision",
+  "id": "version-1.8.1/Multicriteria decision",
+  "title": "Multicriteria decision",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Multicriteria decision.md",
+  "sourceDirName": ".",
+  "slug": "/Multicriteria decision",
+  "permalink": "/docs/Multicriteria decision",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Multicriteria decision",
+    "id": "Multicriteria decision",
+    "original_id": "Multicriteria decision"
+  }
+}

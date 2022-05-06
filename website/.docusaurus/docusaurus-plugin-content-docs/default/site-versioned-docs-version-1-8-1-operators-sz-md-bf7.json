@@ -1,0 +1,30 @@
+{
+  "unversionedId": "OperatorsSZ",
+  "id": "version-1.8.1/OperatorsSZ",
+  "title": "Operators (S to Z)",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/OperatorsSZ.md",
+  "sourceDirName": ".",
+  "slug": "/OperatorsSZ",
+  "permalink": "/docs/OperatorsSZ",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Operators (S to Z)",
+    "id": "OperatorsSZ",
+    "original_id": "OperatorsSZ"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Operators (N to R)",
+    "permalink": "/docs/OperatorsNR"
+  },
+  "next": {
+    "title": "Exhaustive list of GAMA Keywords",
+    "permalink": "/docs/"
+  }
+}

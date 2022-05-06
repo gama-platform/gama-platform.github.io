@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Map comparison",
+  "id": "version-1.8.1/Map comparison",
+  "title": "Map comparison",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Map comparison.md",
+  "sourceDirName": ".",
+  "slug": "/Map comparison",
+  "permalink": "/docs/Map comparison",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Map comparison",
+    "id": "Map comparison",
+    "original_id": "Map comparison"
+  }
+}

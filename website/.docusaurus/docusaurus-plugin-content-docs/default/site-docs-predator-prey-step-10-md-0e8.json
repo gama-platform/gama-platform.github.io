@@ -1,0 +1,28 @@
+{
+  "unversionedId": "PredatorPrey_step10",
+  "id": "PredatorPrey_step10",
+  "title": "10. Charts",
+  "description": "This 10th step illustrates how to define charts.",
+  "source": "@site/../docs/PredatorPrey_step10.md",
+  "sourceDirName": ".",
+  "slug": "/PredatorPrey_step10",
+  "permalink": "/docs/PredatorPrey_step10",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "10. Charts"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "9. Stopping condition",
+    "permalink": "/docs/PredatorPrey_step9"
+  },
+  "next": {
+    "title": "11. Writing Files",
+    "permalink": "/docs/PredatorPrey_step11"
+  }
+}

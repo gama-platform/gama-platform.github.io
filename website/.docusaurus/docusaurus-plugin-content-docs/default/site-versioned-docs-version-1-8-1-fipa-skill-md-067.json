@@ -1,0 +1,21 @@
+{
+  "unversionedId": "FIPA Skill",
+  "id": "version-1.8.1/FIPA Skill",
+  "title": "FIPA Skill",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/FIPA Skill.md",
+  "sourceDirName": ".",
+  "slug": "/FIPA Skill",
+  "permalink": "/docs/FIPA Skill",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "FIPA Skill",
+    "id": "FIPA Skill",
+    "original_id": "FIPA Skill"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Expressions",
+  "id": "version-1.8.1/Expressions",
+  "title": "Expressions",
+  "description": "Expressions in GAML are the value part of the statements' facets. They represent or compute data that will be used as the value of the facet when the statement will be executed.",
+  "source": "@site/versioned_docs/version-1.8.1/Expressions.md",
+  "sourceDirName": ".",
+  "slug": "/Expressions",
+  "permalink": "/docs/Expressions",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Expressions",
+    "id": "Expressions",
+    "original_id": "Expressions"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "File Types",
+    "permalink": "/docs/FileTypes"
+  },
+  "next": {
+    "title": "Expressions",
+    "permalink": "/docs/Expressions"
+  }
+}

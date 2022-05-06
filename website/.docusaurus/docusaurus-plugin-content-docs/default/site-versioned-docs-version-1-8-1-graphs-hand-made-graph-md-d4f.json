@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Graphs Hand Made Graph",
+  "id": "version-1.8.1/Graphs Hand Made Graph",
+  "title": "Hand Made Graph",
+  "description": "[//]: # (keyword|operator_edge)",
+  "source": "@site/versioned_docs/version-1.8.1/Graphs Hand Made Graph.md",
+  "sourceDirName": ".",
+  "slug": "/Graphs Hand Made Graph",
+  "permalink": "/docs/Graphs Hand Made Graph",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Hand Made Graph",
+    "id": "Graphs Hand Made Graph",
+    "original_id": "Graphs Hand Made Graph"
+  }
+}

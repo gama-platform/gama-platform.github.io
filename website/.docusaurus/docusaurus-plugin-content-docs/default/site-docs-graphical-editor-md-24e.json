@@ -1,0 +1,19 @@
+{
+  "unversionedId": "GraphicalEditor",
+  "id": "GraphicalEditor",
+  "title": "The Graphical Editor",
+  "description": "The graphical editor that allow to build diagram (gadl files) is based on the Graphiti Eclipse plugin. It allows to define a GAMA model through a graphical interface. It a allows as well to produce a graphical model (diagram) from a gaml model.",
+  "source": "@site/../docs/GraphicalEditor.md",
+  "sourceDirName": ".",
+  "slug": "/GraphicalEditor",
+  "permalink": "/docs/GraphicalEditor",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "The Graphical Editor"
+  }
+}

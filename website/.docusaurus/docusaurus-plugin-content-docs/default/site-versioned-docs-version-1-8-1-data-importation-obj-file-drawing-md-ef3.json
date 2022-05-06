@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Data Importation OBJ file drawing",
+  "id": "version-1.8.1/Data Importation OBJ file drawing",
+  "title": "OBJ File to Geometry",
+  "description": "[//]\\:)",
+  "source": "@site/versioned_docs/version-1.8.1/Data Importation OBJ file drawing.md",
+  "sourceDirName": ".",
+  "slug": "/Data Importation OBJ file drawing",
+  "permalink": "/docs/Data Importation OBJ file drawing",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "OBJ File to Geometry",
+    "id": "Data Importation OBJ file drawing",
+    "original_id": "Data Importation OBJ file drawing"
+  }
+}

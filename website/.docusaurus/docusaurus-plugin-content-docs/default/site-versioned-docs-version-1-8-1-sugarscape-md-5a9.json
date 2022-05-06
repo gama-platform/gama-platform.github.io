@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Sugarscape",
+  "id": "version-1.8.1/Sugarscape",
+  "title": "Sugarscape",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Sugarscape.md",
+  "sourceDirName": ".",
+  "slug": "/Sugarscape",
+  "permalink": "/docs/Sugarscape",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Sugarscape",
+    "id": "Sugarscape",
+    "original_id": "Sugarscape"
+  }
+}

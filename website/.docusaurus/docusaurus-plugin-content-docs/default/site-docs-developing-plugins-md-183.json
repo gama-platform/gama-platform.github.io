@@ -1,0 +1,28 @@
+{
+  "unversionedId": "DevelopingPlugins",
+  "id": "DevelopingPlugins",
+  "title": "Developing Plugins",
+  "description": "This page details how to create a new plug-in in order to extend the GAML language with new skills, species, displays or operators.",
+  "source": "@site/../docs/DevelopingPlugins.md",
+  "sourceDirName": ".",
+  "slug": "/DevelopingPlugins",
+  "permalink": "/docs/DevelopingPlugins",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Developing Plugins"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Architecture of GAMA",
+    "permalink": "/docs/GamaArchitecture"
+  },
+  "next": {
+    "title": "Developing Skills",
+    "permalink": "/docs/DevelopingSkills"
+  }
+}

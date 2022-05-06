@@ -1,0 +1,19 @@
+{
+  "unversionedId": "VariablesAndAttributes",
+  "id": "VariablesAndAttributes",
+  "title": "Variables and Attributes",
+  "description": "Variables and attributes represent named data that can be used in an expression. They can be accessed depending on their scope:",
+  "source": "@site/../docs/VariablesAndAttributes.md",
+  "sourceDirName": ".",
+  "slug": "/VariablesAndAttributes",
+  "permalink": "/docs/VariablesAndAttributes",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Variables and Attributes"
+  }
+}

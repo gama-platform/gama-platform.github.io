@@ -1,0 +1,28 @@
+{
+  "unversionedId": "StartWithGAML",
+  "id": "StartWithGAML",
+  "title": "Start with GAML",
+  "description": "In this part, we will present you some basic concepts of GAML that will help you a lot for the next pages.",
+  "source": "@site/../docs/StartWithGAML.md",
+  "sourceDirName": ".",
+  "slug": "/StartWithGAML",
+  "permalink": "/docs/StartWithGAML",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Start with GAML"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/docs/Introduction"
+  },
+  "next": {
+    "title": "Organization of a model",
+    "permalink": "/docs/ModelOrganization"
+  }
+}

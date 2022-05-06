@@ -1,0 +1,28 @@
+{
+  "unversionedId": "NavigatingWorkspace",
+  "id": "NavigatingWorkspace",
+  "title": "Navigating in the Workspace",
+  "description": "All the models that you edit or run using GAMA are accessible from a central location: the Navigator, which is always on the left-hand side of the main window and cannot be closed. This view presents the models currently present in (or linked from) your workspace.",
+  "source": "@site/../docs/NavigatingWorkspace.md",
+  "sourceDirName": ".",
+  "slug": "/NavigatingWorkspace",
+  "permalink": "/docs/NavigatingWorkspace",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Navigating in the Workspace"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Workspace, Projects and Models",
+    "permalink": "/docs/WorkspaceProjectsAndModels"
+  },
+  "next": {
+    "title": "Editing models",
+    "permalink": "/docs/EditingModels"
+  }
+}

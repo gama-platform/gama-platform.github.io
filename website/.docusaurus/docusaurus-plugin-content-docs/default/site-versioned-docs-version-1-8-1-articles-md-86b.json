@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Articles",
+  "id": "version-1.8.1/Articles",
+  "title": "Articles",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Articles.md",
+  "sourceDirName": ".",
+  "slug": "/Articles",
+  "permalink": "/docs/Articles",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Articles",
+    "id": "Articles",
+    "original_id": "Articles"
+  }
+}

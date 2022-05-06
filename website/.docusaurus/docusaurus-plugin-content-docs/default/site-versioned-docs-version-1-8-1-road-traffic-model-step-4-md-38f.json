@@ -1,0 +1,30 @@
+{
+  "unversionedId": "RoadTrafficModel_step4",
+  "id": "version-1.8.1/RoadTrafficModel_step4",
+  "title": "4. Weight for Road Network",
+  "description": "The present model will introduce how to design a road system, or graph, based on the road GIS data and provide each edge a weight representing the destruction level of the road.",
+  "source": "@site/versioned_docs/version-1.8.1/RoadTrafficModel_step4.md",
+  "sourceDirName": ".",
+  "slug": "/RoadTrafficModel_step4",
+  "permalink": "/docs/RoadTrafficModel_step4",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "4. Weight for Road Network",
+    "id": "RoadTrafficModel_step4",
+    "original_id": "RoadTrafficModel_step4"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "3. Movement of People",
+    "permalink": "/docs/RoadTrafficModel_step3"
+  },
+  "next": {
+    "title": "5. Dynamic weights",
+    "permalink": "/docs/RoadTrafficModel_step5"
+  }
+}

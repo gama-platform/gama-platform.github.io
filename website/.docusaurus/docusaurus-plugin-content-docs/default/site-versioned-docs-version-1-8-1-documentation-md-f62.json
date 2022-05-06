@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Documentation",
+  "id": "version-1.8.1/Documentation",
+  "title": "Documentation",
+  "description": "Table of contents",
+  "source": "@site/versioned_docs/version-1.8.1/Documentation.md",
+  "sourceDirName": ".",
+  "slug": "/Documentation",
+  "permalink": "/docs/Documentation",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Documentation",
+    "id": "Documentation",
+    "original_id": "Documentation"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Product your own release of GAMA",
+    "permalink": "/docs/CreatingAReleaseOfGama"
+  },
+  "next": {
+    "title": "How to write the Website Content",
+    "permalink": "/docs/WebsiteGeneration"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Driving Skill Road Traffic simple (City)",
+  "id": "version-1.8.1/Driving Skill Road Traffic simple (City)",
+  "title": "Simple Road Network",
+  "description": "[//]: # (keyword|operatorasmap)",
+  "source": "@site/versioned_docs/version-1.8.1/Driving Skill Road Traffic simple (City).md",
+  "sourceDirName": ".",
+  "slug": "/Driving Skill Road Traffic simple (City)",
+  "permalink": "/docs/Driving Skill Road Traffic simple (City)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Simple Road Network",
+    "id": "Driving Skill Road Traffic simple (City)",
+    "original_id": "Driving Skill Road Traffic simple (City)"
+  }
+}

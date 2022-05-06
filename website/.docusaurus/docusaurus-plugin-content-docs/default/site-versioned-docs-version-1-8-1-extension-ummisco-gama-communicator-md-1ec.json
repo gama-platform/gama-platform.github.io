@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Extension_ummisco.gama.communicator",
+  "id": "version-1.8.1/Extension_ummisco.gama.communicator",
+  "title": "Extension",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/Extension_ummisco.gama.communicator.md",
+  "sourceDirName": ".",
+  "slug": "/Extension_ummisco.gama.communicator",
+  "permalink": "/docs/Extension_ummisco.gama.communicator",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Extension",
+    "id": "Extension_ummisco.gama.communicator",
+    "original_id": "Extension_ummisco.gama.communicator"
+  }
+}

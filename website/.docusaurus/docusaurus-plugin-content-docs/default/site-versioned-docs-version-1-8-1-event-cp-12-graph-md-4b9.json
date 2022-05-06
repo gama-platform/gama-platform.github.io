@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CP12Graph",
+  "id": "version-1.8.1/Event__CP12Graph",
+  "title": "Graph operators and indicators",
+  "description": "goals",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CP12Graph.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CP12Graph",
+  "permalink": "/docs/Event__CP12Graph",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Graph operators and indicators",
+    "id": "Event__CP12Graph",
+    "original_id": "Event__CP12Graph"
+  }
+}

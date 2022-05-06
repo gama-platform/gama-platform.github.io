@@ -1,0 +1,30 @@
+{
+  "unversionedId": "OperatorsDH",
+  "id": "version-1.8.1/OperatorsDH",
+  "title": "Operators (D to H)",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/OperatorsDH.md",
+  "sourceDirName": ".",
+  "slug": "/OperatorsDH",
+  "permalink": "/docs/OperatorsDH",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Operators (D to H)",
+    "id": "OperatorsDH",
+    "original_id": "OperatorsDH"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Operators (B to C)",
+    "permalink": "/docs/OperatorsBC"
+  },
+  "next": {
+    "title": "Operators (I to M)",
+    "permalink": "/docs/OperatorsIM"
+  }
+}

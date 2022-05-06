@@ -1,0 +1,64 @@
+{
+  "permalink": "/blog/2021/03/26/gama-days-2021",
+  "source": "@site/blog/2021-03-26-gama-days-2021.md",
+  "title": "GAMA Days 2021",
+  "description": "City",
+  "date": "2021-03-26T00:00:00.000Z",
+  "formattedDate": "March 26, 2021",
+  "tags": [
+    {
+      "label": "even",
+      "permalink": "/blog/tags/even"
+    },
+    {
+      "label": "gama days",
+      "permalink": "/blog/tags/gama-days"
+    },
+    {
+      "label": "toulouse",
+      "permalink": "/blog/tags/toulouse"
+    },
+    {
+      "label": "france",
+      "permalink": "/blog/tags/france"
+    }
+  ],
+  "readingTime": 2.26,
+  "truncated": false,
+  "authors": [
+    {
+      "name": "GAMA Team",
+      "url": "https://github.com/gama-platform"
+    }
+  ],
+  "frontMatter": {
+    "<!-- If \"true\" the post will be accessible only by direct link -->": "",
+    "<!-- If you want to post it, remove the line below -->": "",
+    "unlisted": false,
+    "title": "GAMA Days 2021",
+    "<!-- Author Part -->": "",
+    "<!-- Update if you want to put your name, otherwise leave it to default -->": "",
+    "author": "GAMA Team",
+    "authorURL": "https://github.com/gama-platform",
+    "<!-- If you're special, you can uncomment the entry below and set your status -->": "",
+    "<!-- This will be display below your name -->": "",
+    "<!-- authorTitle": "The best dev so far -->",
+    "<!-- Image auto by authorFBID (from Facebook) -->": "",
+    "<!-- If no FB, put a custom link below for your PP -->": "",
+    "authorFBID": "GamaPlatform",
+    "<!-- To be linked on twitter if someone share your link -->": "",
+    "<!-- @[authorTwitter] // ex": "@gamaplatform -->",
+    "authorTwitter": "gamaplatform",
+    "<!-- Will be used in the next version (v2) of the Docusaurus framework -->": "",
+    "tags": [
+      "even",
+      "gama days",
+      "toulouse",
+      "france"
+    ]
+  },
+  "nextItem": {
+    "title": "COMOKIT 1.0.1 is out",
+    "permalink": "/blog/2020/07/01/comokit101"
+  }
+}

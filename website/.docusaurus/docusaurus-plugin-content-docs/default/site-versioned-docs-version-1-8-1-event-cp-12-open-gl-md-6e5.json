@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CP12OpenGL",
+  "id": "version-1.8.1/Event__CP12OpenGL",
+  "title": "OpenGL Display",
+  "description": "Integrate OpenGL (jogl) view in Gama.",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CP12OpenGL.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CP12OpenGL",
+  "permalink": "/docs/Event__CP12OpenGL",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "OpenGL Display",
+    "id": "Event__CP12OpenGL",
+    "original_id": "Event__CP12OpenGL"
+  }
+}

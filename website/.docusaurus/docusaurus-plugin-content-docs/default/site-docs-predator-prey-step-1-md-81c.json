@@ -1,0 +1,28 @@
+{
+  "unversionedId": "PredatorPrey_step1",
+  "id": "PredatorPrey_step1",
+  "title": "1. Basic Model",
+  "description": "Content",
+  "source": "@site/../docs/PredatorPrey_step1.md",
+  "sourceDirName": ".",
+  "slug": "/PredatorPrey_step1",
+  "permalink": "/docs/PredatorPrey_step1",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "1. Basic Model"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "Predator Prey",
+    "permalink": "/docs/PredatorPrey"
+  },
+  "next": {
+    "title": "2. Vegetation Dynamic",
+    "permalink": "/docs/PredatorPrey_step2"
+  }
+}

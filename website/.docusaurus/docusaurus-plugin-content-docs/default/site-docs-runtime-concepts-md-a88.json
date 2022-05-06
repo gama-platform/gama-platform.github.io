@@ -1,0 +1,28 @@
+{
+  "unversionedId": "RuntimeConcepts",
+  "id": "RuntimeConcepts",
+  "title": "Runtime Concepts",
+  "description": "[//]: # (startConcept|runtimeandschedulers)",
+  "source": "@site/../docs/RuntimeConcepts.md",
+  "sourceDirName": ".",
+  "slug": "/RuntimeConcepts",
+  "permalink": "/docs/RuntimeConcepts",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Runtime Concepts"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Optimizing Models",
+    "permalink": "/docs/OptimizingModelsSection"
+  },
+  "next": {
+    "title": "Multi-Paradigm Modeling",
+    "permalink": "/docs/MultiParadigmModeling"
+  }
+}

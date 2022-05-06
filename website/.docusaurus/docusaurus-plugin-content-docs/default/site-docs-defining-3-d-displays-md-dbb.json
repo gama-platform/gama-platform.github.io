@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Defining3DDisplays",
+  "id": "Defining3DDisplays",
+  "title": "Defining 3D Displays",
+  "description": "[//]: # (startConcept|3d_displays)",
+  "source": "@site/../docs/Defining3DDisplays.md",
+  "sourceDirName": ".",
+  "slug": "/Defining3DDisplays",
+  "permalink": "/docs/Defining3DDisplays",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining 3D Displays"
+  }
+}

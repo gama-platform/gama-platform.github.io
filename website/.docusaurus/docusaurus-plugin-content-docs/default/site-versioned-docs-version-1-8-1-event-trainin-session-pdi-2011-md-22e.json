@@ -1,0 +1,17 @@
+{
+  "unversionedId": "Event__TraininSessionPDI2011",
+  "id": "version-1.8.1/Event__TraininSessionPDI2011",
+  "title": "Event__TraininSessionPDI2011",
+  "description": "Training session on GAMA 1.4 at IRD Bondy (France) the 5th of December, 2011.",
+  "source": "@site/versioned_docs/version-1.8.1/Event__TraininSessionPDI2011.md",
+  "sourceDirName": ".",
+  "slug": "/Event__TraininSessionPDI2011",
+  "permalink": "/docs/Event__TraininSessionPDI2011",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {}
+}

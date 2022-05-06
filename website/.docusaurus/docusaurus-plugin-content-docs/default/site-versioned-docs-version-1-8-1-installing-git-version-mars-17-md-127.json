@@ -1,0 +1,21 @@
+{
+  "unversionedId": "InstallingGitVersionMars17",
+  "id": "version-1.8.1/InstallingGitVersionMars17",
+  "title": "Installing the GIT version",
+  "description": "Tested on MacOS X (10.9 to 10.11), Windows (8 to 10) and Ubuntu 15.04 (Vivid)",
+  "source": "@site/versioned_docs/version-1.8.1/InstallingGitVersionMars17.md",
+  "sourceDirName": ".",
+  "slug": "/InstallingGitVersionMars17",
+  "permalink": "/docs/InstallingGitVersionMars17",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Installing the GIT version",
+    "id": "InstallingGitVersionMars17",
+    "original_id": "InstallingGitVersionMars17"
+  }
+}
