@@ -85,7 +85,7 @@ if __name__ == '__main__':
     ite = 0
     while ite < len(chars) - 1:
         currentChar = chars[ite]
-        if currentChar.val == "<" and re.match("[a-zA-Z]", chars[ite+1].val):
+        if currentChar.val == "<" and re.match("[a-zA-Z\d]", chars[ite+1].val):
             #we found a new tag
             tag = [currentChar]
             ite += 1
