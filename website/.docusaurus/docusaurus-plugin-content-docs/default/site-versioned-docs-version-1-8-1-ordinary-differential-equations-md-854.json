@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Ordinary Differential Equations",
+  "id": "version-1.8.1/Ordinary Differential Equations",
+  "title": "Ordinary Differential Equations",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Ordinary Differential Equations.md",
+  "sourceDirName": ".",
+  "slug": "/Ordinary Differential Equations",
+  "permalink": "/docs/Ordinary Differential Equations",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Ordinary Differential Equations",
+    "id": "Ordinary Differential Equations",
+    "original_id": "Ordinary Differential Equations"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Multi-simulation",
+  "id": "version-1.8.1/Multi-simulation",
+  "title": "Multi-simulation",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Multi-simulation.md",
+  "sourceDirName": ".",
+  "slug": "/Multi-simulation",
+  "permalink": "/docs/Multi-simulation",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Multi-simulation",
+    "id": "Multi-simulation",
+    "original_id": "Multi-simulation"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "BuiltInSkills",
+  "id": "version-1.8.1/BuiltInSkills",
+  "title": "Built-in Skills",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/BuiltInSkills.md",
+  "sourceDirName": ".",
+  "slug": "/BuiltInSkills",
+  "permalink": "/docs/BuiltInSkills",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Built-in Skills",
+    "id": "BuiltInSkills",
+    "original_id": "BuiltInSkills"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "The 'experiment' built-in species (Under Construction)",
+    "permalink": "/docs/ExperimentBuiltIn"
+  },
+  "next": {
+    "title": "Built-in Architectures",
+    "permalink": "/docs/BuiltInArchitectures"
+  }
+}

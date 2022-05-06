@@ -1,0 +1,28 @@
+{
+  "unversionedId": "BuiltInSkills",
+  "id": "BuiltInSkills",
+  "title": "Built-in Skills",
+  "description": "----",
+  "source": "@site/../docs/BuiltInSkills.md",
+  "sourceDirName": ".",
+  "slug": "/BuiltInSkills",
+  "permalink": "/docs/BuiltInSkills",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Built-in Skills"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "The 'agent' built-in species (Under Construction)",
+    "permalink": "/docs/AgentBuiltIn"
+  },
+  "next": {
+    "title": "Built-in Architectures",
+    "permalink": "/docs/BuiltInArchitectures"
+  }
+}

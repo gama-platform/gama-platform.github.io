@@ -1,0 +1,21 @@
+{
+  "unversionedId": "User Interaction",
+  "id": "version-1.8.1/User Interaction",
+  "title": "User Interaction",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/User Interaction.md",
+  "sourceDirName": ".",
+  "slug": "/User Interaction",
+  "permalink": "/docs/User Interaction",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "User Interaction",
+    "id": "User Interaction",
+    "original_id": "User Interaction"
+  }
+}

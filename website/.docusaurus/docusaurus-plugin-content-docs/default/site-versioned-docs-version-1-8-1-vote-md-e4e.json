@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Vote",
+  "id": "version-1.8.1/Vote",
+  "title": "Vote",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Vote.md",
+  "sourceDirName": ".",
+  "slug": "/Vote",
+  "permalink": "/docs/Vote",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Vote",
+    "id": "Vote",
+    "original_id": "Vote"
+  }
+}

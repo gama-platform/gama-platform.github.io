@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Epidemiology Susceptible Infected Recovered (SIR)",
+  "id": "version-1.8.1/Epidemiology Susceptible Infected Recovered (SIR)",
+  "title": "SIR without ODE",
+  "description": "[//]: # (keyword|operator_accumulate)",
+  "source": "@site/versioned_docs/version-1.8.1/Epidemiology Susceptible Infected Recovered (SIR).md",
+  "sourceDirName": ".",
+  "slug": "/Epidemiology Susceptible Infected Recovered (SIR)",
+  "permalink": "/docs/Epidemiology Susceptible Infected Recovered (SIR)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "SIR without ODE",
+    "id": "Epidemiology Susceptible Infected Recovered (SIR)",
+    "original_id": "Epidemiology Susceptible Infected Recovered (SIR)"
+  }
+}

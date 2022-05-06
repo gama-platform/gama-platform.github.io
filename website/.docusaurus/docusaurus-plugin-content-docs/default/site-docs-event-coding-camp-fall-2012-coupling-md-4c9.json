@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Event__CodingCampFall2012_coupling",
+  "id": "Event__CodingCampFall2012_coupling",
+  "title": "Coupling GAMA with hydrodynamics simulators",
+  "description": "The maps.gaml.extensions has been extended in order to allow modeler to write its own equation systems (as simple strings), specify parameters with their values and variables and \"solve\"/integrate them either step by step or N steps by N steps.",
+  "source": "@site/../docs/Event__CodingCampFall2012_coupling.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CodingCampFall2012_coupling",
+  "permalink": "/docs/Event__CodingCampFall2012_coupling",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Coupling GAMA with hydrodynamics simulators"
+  }
+}

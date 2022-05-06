@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CP12Batch",
+  "id": "version-1.8.1/Event__CP12Batch",
+  "title": "Batch Experiments",
+  "description": "By the Batch People",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CP12Batch.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CP12Batch",
+  "permalink": "/docs/Event__CP12Batch",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Batch Experiments",
+    "id": "Event__CP12Batch",
+    "original_id": "Event__CP12Batch"
+  }
+}

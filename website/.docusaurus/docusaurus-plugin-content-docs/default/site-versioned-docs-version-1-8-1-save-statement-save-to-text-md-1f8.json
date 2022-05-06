@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Save statement Save_to_text",
+  "id": "version-1.8.1/Save statement Save_to_text",
+  "title": "Save to Text",
+  "description": "[//]: # (keyword|statement_save)",
+  "source": "@site/versioned_docs/version-1.8.1/Save statement Save_to_text.md",
+  "sourceDirName": ".",
+  "slug": "/Save statement Save_to_text",
+  "permalink": "/docs/Save statement Save_to_text",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Save to Text",
+    "id": "Save statement Save_to_text",
+    "original_id": "Save statement Save_to_text"
+  }
+}

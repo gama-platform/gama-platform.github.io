@@ -1,0 +1,28 @@
+{
+  "unversionedId": "IncrementalModel_step1",
+  "id": "IncrementalModel_step1",
+  "title": "1. Simple SI Model",
+  "description": "This first step Illustrates how to write a model in GAMA. In particular, it describes how to structure a model and how to define species - which are the key components of GAMA models.",
+  "source": "@site/../docs/IncrementalModel_step1.md",
+  "sourceDirName": ".",
+  "slug": "/IncrementalModel_step1",
+  "permalink": "/docs/IncrementalModel_step1",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "1. Simple SI Model"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "Incremental Model",
+    "permalink": "/docs/IncrementalModel"
+  },
+  "next": {
+    "title": "2. Charts",
+    "permalink": "/docs/IncrementalModel_step2"
+  }
+}

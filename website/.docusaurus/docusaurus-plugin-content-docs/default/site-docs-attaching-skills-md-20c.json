@@ -1,0 +1,19 @@
+{
+  "unversionedId": "AttachingSkills",
+  "id": "AttachingSkills",
+  "title": "Attaching Skills",
+  "description": "[//]: # (startConcept|attaching_skills)",
+  "source": "@site/../docs/AttachingSkills.md",
+  "sourceDirName": ".",
+  "slug": "/AttachingSkills",
+  "permalink": "/docs/AttachingSkills",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Attaching Skills"
+  }
+}

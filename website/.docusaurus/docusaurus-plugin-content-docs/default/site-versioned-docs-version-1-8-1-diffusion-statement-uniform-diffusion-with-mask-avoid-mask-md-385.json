@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Diffusion Statement Uniform diffusion with mask (Avoid mask)",
+  "id": "version-1.8.1/Diffusion Statement Uniform diffusion with mask (Avoid mask)",
+  "title": "Uniform diffusion with mask (Avoid mask)",
+  "description": "[//]: # (keyword|operatorasmatrix)",
+  "source": "@site/versioned_docs/version-1.8.1/Diffusion Statement Uniform diffusion with mask (Avoid mask).md",
+  "sourceDirName": ".",
+  "slug": "/Diffusion Statement Uniform diffusion with mask (Avoid mask)",
+  "permalink": "/docs/Diffusion Statement Uniform diffusion with mask (Avoid mask)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Uniform diffusion with mask (Avoid mask)",
+    "id": "Diffusion Statement Uniform diffusion with mask (Avoid mask)",
+    "original_id": "Diffusion Statement Uniform diffusion with mask (Avoid mask)"
+  }
+}

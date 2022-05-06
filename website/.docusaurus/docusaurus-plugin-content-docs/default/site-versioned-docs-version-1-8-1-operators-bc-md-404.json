@@ -1,0 +1,30 @@
+{
+  "unversionedId": "OperatorsBC",
+  "id": "version-1.8.1/OperatorsBC",
+  "title": "Operators (B to C)",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/OperatorsBC.md",
+  "sourceDirName": ".",
+  "slug": "/OperatorsBC",
+  "permalink": "/docs/OperatorsBC",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Operators (B to C)",
+    "id": "OperatorsBC",
+    "original_id": "OperatorsBC"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Operators (A to A)",
+    "permalink": "/docs/OperatorsAA"
+  },
+  "next": {
+    "title": "Operators (D to H)",
+    "permalink": "/docs/OperatorsDH"
+  }
+}

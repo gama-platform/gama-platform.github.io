@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Segregation (Schelling) Segregation (GIS)",
+  "id": "version-1.8.1/Segregation (Schelling) Segregation (GIS)",
+  "title": "segregationGIS",
+  "description": "[//]: # (keyword|operator_sum)",
+  "source": "@site/versioned_docs/version-1.8.1/Segregation (Schelling) Segregation (GIS).md",
+  "sourceDirName": ".",
+  "slug": "/Segregation (Schelling) Segregation (GIS)",
+  "permalink": "/docs/Segregation (Schelling) Segregation (GIS)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "segregationGIS",
+    "id": "Segregation (Schelling) Segregation (GIS)",
+    "original_id": "Segregation (Schelling) Segregation (GIS)"
+  }
+}

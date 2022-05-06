@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Driving Skill Road Traffic simple (Simple track)",
+  "id": "version-1.8.1/Driving Skill Road Traffic simple (Simple track)",
+  "title": "Easy Road Network",
+  "description": "[//]: # (keyword|operatorwithmin_of)",
+  "source": "@site/versioned_docs/version-1.8.1/Driving Skill Road Traffic simple (Simple track).md",
+  "sourceDirName": ".",
+  "slug": "/Driving Skill Road Traffic simple (Simple track)",
+  "permalink": "/docs/Driving Skill Road Traffic simple (Simple track)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Easy Road Network",
+    "id": "Driving Skill Road Traffic simple (Simple track)",
+    "original_id": "Driving Skill Road Traffic simple (Simple track)"
+  }
+}

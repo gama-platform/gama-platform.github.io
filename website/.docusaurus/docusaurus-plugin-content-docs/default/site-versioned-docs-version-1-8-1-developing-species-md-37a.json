@@ -1,0 +1,30 @@
+{
+  "unversionedId": "DevelopingSpecies",
+  "id": "version-1.8.1/DevelopingSpecies",
+  "title": "Developing Species",
+  "description": "Additional built-in species can be defined in Java in order to be used in GAML models. Additional attributes and actions can be defined. It could be very useful in order to define its behavior thanks to external libraries (e.g. mulit-criteria decision-making, database connection...).",
+  "source": "@site/versioned_docs/version-1.8.1/DevelopingSpecies.md",
+  "sourceDirName": ".",
+  "slug": "/DevelopingSpecies",
+  "permalink": "/docs/DevelopingSpecies",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Developing Species",
+    "id": "DevelopingSpecies",
+    "original_id": "DevelopingSpecies"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Developing Types",
+    "permalink": "/docs/DevelopingTypes"
+  },
+  "next": {
+    "title": "Developing architecture",
+    "permalink": "/docs/DevelopingControlArchitectures"
+  }
+}

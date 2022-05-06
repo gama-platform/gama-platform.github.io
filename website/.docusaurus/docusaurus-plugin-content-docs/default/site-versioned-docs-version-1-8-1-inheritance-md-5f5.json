@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Inheritance",
+  "id": "version-1.8.1/Inheritance",
+  "title": "Inheritance",
+  "description": "[//]: # (startConcept|inheritance)",
+  "source": "@site/versioned_docs/version-1.8.1/Inheritance.md",
+  "sourceDirName": ".",
+  "slug": "/Inheritance",
+  "permalink": "/docs/Inheritance",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Inheritance",
+    "id": "Inheritance",
+    "original_id": "Inheritance"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Attaching Skills",
+    "permalink": "/docs/AttachingSkills"
+  },
+  "next": {
+    "title": "Defining advanced species",
+    "permalink": "/docs/DefiningAdvancedSpecies"
+  }
+}

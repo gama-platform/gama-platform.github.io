@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Articles ville_5",
+  "id": "version-1.8.1/Articles ville_5",
+  "title": "Ville 5",
+  "description": "[//]: # (keyword|operator_gauss)",
+  "source": "@site/versioned_docs/version-1.8.1/Articles ville_5.md",
+  "sourceDirName": ".",
+  "slug": "/Articles ville_5",
+  "permalink": "/docs/Articles ville_5",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Ville 5",
+    "id": "Articles ville_5",
+    "original_id": "Articles ville_5"
+  }
+}

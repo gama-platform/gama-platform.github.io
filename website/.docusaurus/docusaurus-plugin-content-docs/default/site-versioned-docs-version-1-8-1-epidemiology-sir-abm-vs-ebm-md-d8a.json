@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Epidemiology SIR (ABM vs EBM)",
+  "id": "version-1.8.1/Epidemiology SIR (ABM vs EBM)",
+  "title": "comparison_ABM_EBM_SIR",
+  "description": "[//]: # (keyword|operator_^)",
+  "source": "@site/versioned_docs/version-1.8.1/Epidemiology SIR (ABM vs EBM).md",
+  "sourceDirName": ".",
+  "slug": "/Epidemiology SIR (ABM vs EBM)",
+  "permalink": "/docs/Epidemiology SIR (ABM vs EBM)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "comparison_ABM_EBM_SIR",
+    "id": "Epidemiology SIR (ABM vs EBM)",
+    "original_id": "Epidemiology SIR (ABM vs EBM)"
+  }
+}

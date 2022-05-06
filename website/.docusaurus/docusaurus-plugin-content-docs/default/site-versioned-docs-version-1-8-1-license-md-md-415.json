@@ -1,0 +1,21 @@
+{
+  "unversionedId": "LICENSE.md",
+  "id": "version-1.8.1/LICENSE.md",
+  "title": "LICENSE.md",
+  "description": "GNU Free Documentation License",
+  "source": "@site/versioned_docs/version-1.8.1/LICENSE.md.md",
+  "sourceDirName": ".",
+  "slug": "/LICENSE.md",
+  "permalink": "/docs/LICENSE.md",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "LICENSE.md",
+    "id": "LICENSE.md",
+    "original_id": "LICENSE.md"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Spatial Operators spatialinterpolation",
+  "id": "version-1.8.1/Spatial Operators spatialinterpolation",
+  "title": "Spatial Interpolation",
+  "description": "[//]: # (keyword|operator_^)",
+  "source": "@site/versioned_docs/version-1.8.1/Spatial Operators spatialinterpolation.md",
+  "sourceDirName": ".",
+  "slug": "/Spatial Operators spatialinterpolation",
+  "permalink": "/docs/Spatial Operators spatialinterpolation",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Spatial Interpolation",
+    "id": "Spatial Operators spatialinterpolation",
+    "original_id": "Spatial Operators spatialinterpolation"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Event__CP12Water",
+  "id": "Event__CP12Water",
+  "title": "Water-management tutorial",
+  "description": "We did not work on this theme, but we made some decisions :",
+  "source": "@site/../docs/Event__CP12Water.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CP12Water",
+  "permalink": "/docs/Event__CP12Water",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Water-management tutorial"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Headless-mode-for-dummies",
+  "id": "version-1.8.1/Headless-mode-for-dummies",
+  "title": "Editing Headless mode for dummies",
+  "description": "Overview",
+  "source": "@site/versioned_docs/version-1.8.1/Headless-mode-for-dummies.md",
+  "sourceDirName": ".",
+  "slug": "/Headless-mode-for-dummies",
+  "permalink": "/docs/Headless-mode-for-dummies",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Editing Headless mode for dummies",
+    "id": "Headless-mode-for-dummies",
+    "original_id": "Headless-mode-for-dummies"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Using network",
+    "permalink": "/docs/UsingNetwork"
+  },
+  "next": {
+    "title": "The Graphical Editor",
+    "permalink": "/docs/G__GraphicalEditor"
+  }
+}

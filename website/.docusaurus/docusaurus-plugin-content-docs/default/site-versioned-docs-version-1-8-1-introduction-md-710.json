@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Introduction",
+  "id": "version-1.8.1/Introduction",
+  "title": "Introduction",
+  "description": "GAML is an agent-oriented language dedicated to the definition of agent-based simulations. It takes its roots in object-oriented languages like Java or Smalltalk, but extends the object-oriented programming approach with powerful concepts (like skills, declarative definitions or agent migration) to allow for a better expressivity in models.",
+  "source": "@site/versioned_docs/version-1.8.1/Introduction.md",
+  "sourceDirName": ".",
+  "slug": "/Introduction",
+  "permalink": "/docs/Introduction",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Introduction",
+    "id": "Introduction",
+    "original_id": "Introduction"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Learn GAML Step by Step",
+    "permalink": "/docs/LearnGAMLStepByStep"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/docs/Introduction"
+  }
+}

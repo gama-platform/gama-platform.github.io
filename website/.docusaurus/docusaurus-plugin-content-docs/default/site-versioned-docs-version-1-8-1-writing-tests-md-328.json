@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Writing_Tests",
+  "id": "version-1.8.1/Writing_Tests",
+  "title": "Writing Unit Tests in GAML",
+  "description": "Unit testing is an essential instrument to ensure the quality of any software and it has been implemented in GAMA: this allows in particular that parts of the model are behaving as expected and that evolutions in the model do not introduce unexpected changes. To these purposes, the modeler can define a set of assertions that will be tested. Before the execution of the embedded set of instructions, if a setup is defined in the species, model or experiment, it is executed. In a test, if one assertion fails, the evaluation of other assertions continue.",
+  "source": "@site/versioned_docs/version-1.8.1/Writing_Tests.md",
+  "sourceDirName": ".",
+  "slug": "/Writing_Tests",
+  "permalink": "/docs/Writing_Tests",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Writing Unit Tests in GAML",
+    "id": "Writing_Tests",
+    "original_id": "Writing_Tests"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Using Git from GAMA to version and share models",
+    "permalink": "/docs/Using_Git"
+  },
+  "next": {
+    "title": "FAQ (Frequently Asked Questions)",
+    "permalink": "/docs/FAQ"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Event__CodingCampFall2012_improvements",
+  "id": "Event__CodingCampFall2012_improvements",
+  "title": "Possibility to directly create agents from a CSV file",
+  "description": "Improvements and Enhancements",
+  "source": "@site/../docs/Event__CodingCampFall2012_improvements.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CodingCampFall2012_improvements",
+  "permalink": "/docs/Event__CodingCampFall2012_improvements",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Possibility to directly create agents from a CSV file"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "RoadTrafficModel_step7",
+  "id": "version-1.8.1/RoadTrafficModel_step7",
+  "title": "7. Automatic Road Repair",
+  "description": "This 7th step illustrates how to select in a list of elements that optimizes a given function.",
+  "source": "@site/versioned_docs/version-1.8.1/RoadTrafficModel_step7.md",
+  "sourceDirName": ".",
+  "slug": "/RoadTrafficModel_step7",
+  "permalink": "/docs/RoadTrafficModel_step7",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "7. Automatic Road Repair",
+    "id": "RoadTrafficModel_step7",
+    "original_id": "RoadTrafficModel_step7"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "6. Charts",
+    "permalink": "/docs/RoadTrafficModel_step6"
+  },
+  "next": {
+    "title": "3D Tutorial",
+    "permalink": "/docs/ThreeD"
+  }
+}

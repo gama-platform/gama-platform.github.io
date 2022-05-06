@@ -1,0 +1,30 @@
+{
+  "unversionedId": "DefiningCharts",
+  "id": "version-1.8.1/DefiningCharts",
+  "title": "Defining Charts",
+  "description": "[//]: # (startConcept|defining_charts)",
+  "source": "@site/versioned_docs/version-1.8.1/DefiningCharts.md",
+  "sourceDirName": ".",
+  "slug": "/DefiningCharts",
+  "permalink": "/docs/DefiningCharts",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining Charts",
+    "id": "DefiningCharts",
+    "original_id": "DefiningCharts"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Defining displays (Generalities)",
+    "permalink": "/docs/DefiningDisplaysGeneralities"
+  },
+  "next": {
+    "title": "Defining 3D Displays",
+    "permalink": "/docs/Defining3DDisplays"
+  }
+}

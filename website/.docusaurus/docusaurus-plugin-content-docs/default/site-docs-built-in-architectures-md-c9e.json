@@ -1,0 +1,28 @@
+{
+  "unversionedId": "BuiltInArchitectures",
+  "id": "BuiltInArchitectures",
+  "title": "Built-in Architectures",
+  "description": "----",
+  "source": "@site/../docs/BuiltInArchitectures.md",
+  "sourceDirName": ".",
+  "slug": "/BuiltInArchitectures",
+  "permalink": "/docs/BuiltInArchitectures",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Built-in Architectures"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Built-in Skills",
+    "permalink": "/docs/BuiltInSkills"
+  },
+  "next": {
+    "title": "Statements",
+    "permalink": "/docs/Statements"
+  }
+}

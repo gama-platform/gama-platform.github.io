@@ -1,0 +1,28 @@
+{
+  "unversionedId": "ModelOrganization",
+  "id": "ModelOrganization",
+  "title": "Organization of a model",
+  "description": "[//]: # (startConcept|model_structure)",
+  "source": "@site/../docs/ModelOrganization.md",
+  "sourceDirName": ".",
+  "slug": "/ModelOrganization",
+  "permalink": "/docs/ModelOrganization",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Organization of a model"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Start with GAML",
+    "permalink": "/docs/StartWithGAML"
+  },
+  "next": {
+    "title": "Manipulate basic species",
+    "permalink": "/docs/ManipulateBasicSpecies"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Spatial Operators Geometry discretization",
+  "id": "version-1.8.1/Spatial Operators Geometry discretization",
+  "title": "Discretization of Topology",
+  "description": "[//]: # (keyword|operatortosquares)",
+  "source": "@site/versioned_docs/version-1.8.1/Spatial Operators Geometry discretization.md",
+  "sourceDirName": ".",
+  "slug": "/Spatial Operators Geometry discretization",
+  "permalink": "/docs/Spatial Operators Geometry discretization",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Discretization of Topology",
+    "id": "Spatial Operators Geometry discretization",
+    "original_id": "Spatial Operators Geometry discretization"
+  }
+}

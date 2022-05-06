@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Displays",
+  "id": "version-1.8.1/Displays",
+  "title": "Displays",
+  "description": "GAMA allows modelers to define several kinds of displays in a GUI experiment:",
+  "source": "@site/versioned_docs/version-1.8.1/Displays.md",
+  "sourceDirName": ".",
+  "slug": "/Displays",
+  "permalink": "/docs/Displays",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Displays",
+    "id": "Displays",
+    "original_id": "Displays"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Inspectors and monitors",
+    "permalink": "/docs/InspectorsAndMonitors"
+  },
+  "next": {
+    "title": "Batch Specific UI",
+    "permalink": "/docs/BatchSpecific"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CodingCampFall2012",
+  "id": "version-1.8.1/Event__CodingCampFall2012",
+  "title": "Introduction",
+  "description": "The Fall GAMA Coding Camp 2012 will take place from the 17th to the 19th of November in the hotel called \"Hon Trem Resort & Spa \". You can find more information about it here//www.hontremresort-spa.com.",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CodingCampFall2012.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CodingCampFall2012",
+  "permalink": "/docs/Event__CodingCampFall2012",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Introduction",
+    "id": "Event__CodingCampFall2012",
+    "original_id": "Event__CodingCampFall2012"
+  }
+}

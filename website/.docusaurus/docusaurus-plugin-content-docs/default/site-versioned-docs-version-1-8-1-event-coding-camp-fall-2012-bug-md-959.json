@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CodingCampFall2012_bug",
+  "id": "version-1.8.1/Event__CodingCampFall2012_bug",
+  "title": "Eliminating bugs found in the 1.5 version",
+  "description": "* Arnaud: Opengl is now working with Java2D (possibility to define n opengl display and n java2D display in the same output)",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CodingCampFall2012_bug.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CodingCampFall2012_bug",
+  "permalink": "/docs/Event__CodingCampFall2012_bug",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Eliminating bugs found in the 1.5 version",
+    "id": "Event__CodingCampFall2012_bug",
+    "original_id": "Event__CodingCampFall2012_bug"
+  }
+}

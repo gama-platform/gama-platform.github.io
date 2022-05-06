@@ -1,0 +1,28 @@
+{
+  "unversionedId": "Literals",
+  "id": "Literals",
+  "title": "Literals",
+  "description": "(some literal expressions are also described in data types)",
+  "source": "@site/../docs/Literals.md",
+  "sourceDirName": ".",
+  "slug": "/Literals",
+  "permalink": "/docs/Literals",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Literals"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Expressions",
+    "permalink": "/docs/Expressions"
+  },
+  "next": {
+    "title": "Exhaustive list of GAMA Keywords",
+    "permalink": "/docs/"
+  }
+}

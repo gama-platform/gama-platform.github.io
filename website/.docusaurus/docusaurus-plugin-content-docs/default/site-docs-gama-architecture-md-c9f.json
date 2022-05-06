@@ -1,0 +1,28 @@
+{
+  "unversionedId": "GamaArchitecture",
+  "id": "GamaArchitecture",
+  "title": "Architecture of GAMA",
+  "description": "GAMA is made of a number of Eclipse Java projects, some representing the core projects without which the platform cannot be run, others additional plugins adding functionalities or concepts to the platform.",
+  "source": "@site/../docs/GamaArchitecture.md",
+  "sourceDirName": ".",
+  "slug": "/GamaArchitecture",
+  "permalink": "/docs/GamaArchitecture",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Architecture of GAMA"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Installing the GIT version",
+    "permalink": "/docs/InstallingGitVersion"
+  },
+  "next": {
+    "title": "Developing Plugins",
+    "permalink": "/docs/DevelopingPlugins"
+  }
+}

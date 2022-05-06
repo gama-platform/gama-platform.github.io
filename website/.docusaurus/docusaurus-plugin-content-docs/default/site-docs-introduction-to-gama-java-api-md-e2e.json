@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Introduction-To-Gama-Java-API",
+  "id": "Introduction-To-Gama-Java-API",
+  "title": "Introduction to GAMA Java API",
+  "description": "This introduction to the Java API is dedicated to programmers that want to participate in the java code of GAMA. The main purpose is to describe the main packages and classes of the API to makes it simple to find such crucial information such as: how GAMA create containers, agent and geometries, how exceptions and log are managed, how java code maintain Type safety, etc.",
+  "source": "@site/../docs/Introduction-To-Gama-Java-API.md",
+  "sourceDirName": ".",
+  "slug": "/Introduction-To-Gama-Java-API",
+  "permalink": "/docs/Introduction-To-Gama-Java-API",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Introduction to GAMA Java API"
+  }
+}

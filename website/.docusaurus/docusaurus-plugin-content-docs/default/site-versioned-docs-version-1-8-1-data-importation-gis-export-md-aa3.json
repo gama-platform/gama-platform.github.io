@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Data Importation GIS Export",
+  "id": "version-1.8.1/Data Importation GIS Export",
+  "title": "Shapefiles Import and Save",
+  "description": "[//]: # (keyword|operator_get)",
+  "source": "@site/versioned_docs/version-1.8.1/Data Importation GIS Export.md",
+  "sourceDirName": ".",
+  "slug": "/Data Importation GIS Export",
+  "permalink": "/docs/Data Importation GIS Export",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Shapefiles Import and Save",
+    "id": "Data Importation GIS Export",
+    "original_id": "Data Importation GIS Export"
+  }
+}

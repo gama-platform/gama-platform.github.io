@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Pedagogical-Materials",
+  "id": "Pedagogical-Materials",
+  "title": "Some pedagogical materials",
+  "description": "Initiation to algorithms with Scratch",
+  "source": "@site/../docs/Pedagogical-Materials.md",
+  "sourceDirName": ".",
+  "slug": "/Pedagogical-Materials",
+  "permalink": "/docs/Pedagogical-Materials",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Some pedagogical materials"
+  }
+}

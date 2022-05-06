@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Ants (Foraging and Sorting) Ant Foraging (Classic)",
+  "id": "version-1.8.1/Ants (Foraging and Sorting) Ant Foraging (Classic)",
+  "title": "Ant Foraging (Classic)",
+  "description": "[//]: # (keyword|architecture_fsm)",
+  "source": "@site/versioned_docs/version-1.8.1/Ants (Foraging and Sorting) Ant Foraging (Classic).md",
+  "sourceDirName": ".",
+  "slug": "/Ants (Foraging and Sorting) Ant Foraging (Classic)",
+  "permalink": "/docs/Ants (Foraging and Sorting) Ant Foraging (Classic)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Ant Foraging (Classic)",
+    "id": "Ants (Foraging and Sorting) Ant Foraging (Classic)",
+    "original_id": "Ants (Foraging and Sorting) Ant Foraging (Classic)"
+  }
+}

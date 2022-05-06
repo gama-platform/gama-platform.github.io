@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Evacuation Continuous Move",
+  "id": "version-1.8.1/Evacuation Continuous Move",
+  "title": "continuous_move",
+  "description": "[//]: # (keyword|operator_copy)",
+  "source": "@site/versioned_docs/version-1.8.1/Evacuation Continuous Move.md",
+  "sourceDirName": ".",
+  "slug": "/Evacuation Continuous Move",
+  "permalink": "/docs/Evacuation Continuous Move",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "continuous_move",
+    "id": "Evacuation Continuous Move",
+    "original_id": "Evacuation Continuous Move"
+  }
+}

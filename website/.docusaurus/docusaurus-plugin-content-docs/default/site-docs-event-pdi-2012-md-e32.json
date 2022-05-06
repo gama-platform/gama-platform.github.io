@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Event__PDI2012",
+  "id": "Event__PDI2012",
+  "title": "Introduction",
+  "description": "During the PDI2012 nearly 50 PhD students were working together on different topic related to complex system modeling.",
+  "source": "@site/../docs/Event__PDI2012.md",
+  "sourceDirName": ".",
+  "slug": "/Event__PDI2012",
+  "permalink": "/docs/Event__PDI2012",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Introduction"
+  }
+}

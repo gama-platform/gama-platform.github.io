@@ -1,0 +1,28 @@
+{
+  "unversionedId": "DefiningAdvancedSpecies",
+  "id": "DefiningAdvancedSpecies",
+  "title": "Defining advanced species",
+  "description": "In the previous chapter, we saw how to declare and manipulate regular species and the global species (as a reminder, the instance of the global species is the world agent).",
+  "source": "@site/../docs/DefiningAdvancedSpecies.md",
+  "sourceDirName": ".",
+  "slug": "/DefiningAdvancedSpecies",
+  "permalink": "/docs/DefiningAdvancedSpecies",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining advanced species"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "The global species",
+    "permalink": "/docs/GlobalSpecies"
+  },
+  "next": {
+    "title": "Grid Species",
+    "permalink": "/docs/GridSpecies"
+  }
+}

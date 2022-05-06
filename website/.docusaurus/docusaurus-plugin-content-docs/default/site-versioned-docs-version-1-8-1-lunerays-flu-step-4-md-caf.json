@@ -1,0 +1,30 @@
+{
+  "unversionedId": "LuneraysFlu_step4",
+  "id": "version-1.8.1/LuneraysFlu_step4",
+  "title": "4. Use of a graph to constraint the movements of people",
+  "description": "This fourth step illustrates how to use a graph to constraint the movements of agents",
+  "source": "@site/versioned_docs/version-1.8.1/LuneraysFlu_step4.md",
+  "sourceDirName": ".",
+  "slug": "/LuneraysFlu_step4",
+  "permalink": "/docs/LuneraysFlu_step4",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "4. Use of a graph to constraint the movements of people",
+    "id": "LuneraysFlu_step4",
+    "original_id": "LuneraysFlu_step4"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "3. Importation of GIS data",
+    "permalink": "/docs/LuneraysFlu_step3"
+  },
+  "next": {
+    "title": "5. Definition of 3D displays",
+    "permalink": "/docs/LuneraysFlu_step5"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "unversionedId": "IncrementalModel",
+  "id": "IncrementalModel",
+  "title": "Incremental Model",
+  "description": "This tutorial has for goal to give an overview all most of the capabilities of GAMA. In particular, it presents how to build a simple model and the use of GIS data, graphs, 3D visualization, multi-level modeling and differential equations. All the files related to this tutorial (images and models) are available in the Models Library (project Tutorials/Incremental Model).",
+  "source": "@site/../docs/IncrementalModel.md",
+  "sourceDirName": ".",
+  "slug": "/IncrementalModel",
+  "permalink": "/docs/IncrementalModel",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Incremental Model"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "3. Connections",
+    "permalink": "/docs/ThreeD_step3"
+  },
+  "next": {
+    "title": "1. Simple SI Model",
+    "permalink": "/docs/IncrementalModel_step1"
+  }
+}

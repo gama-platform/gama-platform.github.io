@@ -1,0 +1,19 @@
+{
+  "unversionedId": "DefiningCharts",
+  "id": "DefiningCharts",
+  "title": "Defining Charts",
+  "description": "[//]: # (startConcept|defining_charts)",
+  "source": "@site/../docs/DefiningCharts.md",
+  "sourceDirName": ".",
+  "slug": "/DefiningCharts",
+  "permalink": "/docs/DefiningCharts",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining Charts"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Data Importation Grid DEM",
+  "id": "version-1.8.1/Data Importation Grid DEM",
+  "title": "ASCII File to DEM Representation",
+  "description": "[//]: # (keyword|operator_dem)",
+  "source": "@site/versioned_docs/version-1.8.1/Data Importation Grid DEM.md",
+  "sourceDirName": ".",
+  "slug": "/Data Importation Grid DEM",
+  "permalink": "/docs/Data Importation Grid DEM",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "ASCII File to DEM Representation",
+    "id": "Data Importation Grid DEM",
+    "original_id": "Data Importation Grid DEM"
+  }
+}

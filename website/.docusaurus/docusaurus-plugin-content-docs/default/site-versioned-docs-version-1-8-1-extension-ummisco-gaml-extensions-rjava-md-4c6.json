@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Extension_ummisco.gaml.extensions.rjava",
+  "id": "version-1.8.1/Extension_ummisco.gaml.extensions.rjava",
+  "title": "Extension",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/Extension_ummisco.gaml.extensions.rjava.md",
+  "sourceDirName": ".",
+  "slug": "/Extension_ummisco.gaml.extensions.rjava",
+  "permalink": "/docs/Extension_ummisco.gaml.extensions.rjava",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Extension",
+    "id": "Extension_ummisco.gaml.extensions.rjava",
+    "original_id": "Extension_ummisco.gaml.extensions.rjava"
+  }
+}

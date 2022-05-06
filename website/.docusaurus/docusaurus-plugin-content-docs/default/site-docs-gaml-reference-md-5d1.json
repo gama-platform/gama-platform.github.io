@@ -1,0 +1,28 @@
+{
+  "unversionedId": "GamlReference",
+  "id": "GamlReference",
+  "title": "GAML References",
+  "description": "The GAML references describe in details all the keywords of the GAML language. In particular, they detail all the expressions (operators, units, literals...), statements, data types, file types, skills, architectures, built-in species...",
+  "source": "@site/../docs/GamlReference.md",
+  "sourceDirName": ".",
+  "slug": "/GamlReference",
+  "permalink": "/docs/GamlReference",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "GAML References"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Known issues",
+    "permalink": "/docs/KnownIssues"
+  },
+  "next": {
+    "title": "Built-in Species",
+    "permalink": "/docs/BuiltInSpecies"
+  }
+}

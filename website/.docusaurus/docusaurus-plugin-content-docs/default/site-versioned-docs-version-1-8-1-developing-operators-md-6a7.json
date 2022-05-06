@@ -1,0 +1,30 @@
+{
+  "unversionedId": "DevelopingOperators",
+  "id": "version-1.8.1/DevelopingOperators",
+  "title": "Developing Operators",
+  "description": "Operators in the GAML language are used to compose complex expressions. An operator performs a function on one, two, or n operands (which are other expressions and thus may be themselves composed of operators) and returns the result of this function. Developing a new operator allows, then, to add a new function to GAML.",
+  "source": "@site/versioned_docs/version-1.8.1/DevelopingOperators.md",
+  "sourceDirName": ".",
+  "slug": "/DevelopingOperators",
+  "permalink": "/docs/DevelopingOperators",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Developing Operators",
+    "id": "DevelopingOperators",
+    "original_id": "DevelopingOperators"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Developing Statements",
+    "permalink": "/docs/DevelopingStatements"
+  },
+  "next": {
+    "title": "Developing Types",
+    "permalink": "/docs/DevelopingTypes"
+  }
+}

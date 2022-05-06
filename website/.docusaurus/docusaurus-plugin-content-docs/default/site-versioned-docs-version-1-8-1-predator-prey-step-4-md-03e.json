@@ -1,0 +1,30 @@
+{
+  "unversionedId": "PredatorPrey_step4",
+  "id": "version-1.8.1/PredatorPrey_step4",
+  "title": "4. Inspectors and Monitors",
+  "description": "This fourth step illustrates how to monitor more precisely the simulation. Practically, we will define monitors to follow the evolution of specific variables (or expression) whereas inspectors allow the user to follow the state of a given agent (or a species).",
+  "source": "@site/versioned_docs/version-1.8.1/PredatorPrey_step4.md",
+  "sourceDirName": ".",
+  "slug": "/PredatorPrey_step4",
+  "permalink": "/docs/PredatorPrey_step4",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "4. Inspectors and Monitors",
+    "id": "PredatorPrey_step4",
+    "original_id": "PredatorPrey_step4"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "3. Prey Agent Behavior",
+    "permalink": "/docs/PredatorPrey_step3"
+  },
+  "next": {
+    "title": "5. Predator Agent",
+    "permalink": "/docs/PredatorPrey_step5"
+  }
+}

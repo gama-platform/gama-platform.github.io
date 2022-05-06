@@ -1,0 +1,19 @@
+{
+  "unversionedId": "UnitsAndConstantsPDF",
+  "id": "UnitsAndConstantsPDF",
+  "title": "Units and constants",
+  "description": "----",
+  "source": "@site/../docs/UnitsAndConstantsPDF.md",
+  "sourceDirName": ".",
+  "slug": "/UnitsAndConstantsPDF",
+  "permalink": "/docs/UnitsAndConstantsPDF",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Units and constants"
+  }
+}

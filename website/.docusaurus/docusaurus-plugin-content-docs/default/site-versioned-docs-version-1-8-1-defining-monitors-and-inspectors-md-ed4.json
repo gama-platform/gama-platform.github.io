@@ -1,0 +1,30 @@
+{
+  "unversionedId": "DefiningMonitorsAndInspectors",
+  "id": "version-1.8.1/DefiningMonitorsAndInspectors",
+  "title": "Defining monitors and inspectors",
+  "description": "[//]: # (startConcept|monitorsandinspectors)",
+  "source": "@site/versioned_docs/version-1.8.1/DefiningMonitorsAndInspectors.md",
+  "sourceDirName": ".",
+  "slug": "/DefiningMonitorsAndInspectors",
+  "permalink": "/docs/DefiningMonitorsAndInspectors",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining monitors and inspectors",
+    "id": "DefiningMonitorsAndInspectors",
+    "original_id": "DefiningMonitorsAndInspectors"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Defining 3D Displays",
+    "permalink": "/docs/Defining3DDisplays"
+  },
+  "next": {
+    "title": "Defining export files",
+    "permalink": "/docs/DefiningExportFiles"
+  }
+}

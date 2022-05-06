@@ -1,0 +1,19 @@
+{
+  "unversionedId": "ImportingModels",
+  "id": "ImportingModels",
+  "title": "Importing Models",
+  "description": "Importing a model refers to making a model file (or a complete project) available for edition and experimentation in the workspace. With the exception of headless experiments, GAMA requires that models be manageable in the current workspace to be able to validate them and eventually experiment them.",
+  "source": "@site/../docs/ImportingModels.md",
+  "sourceDirName": ".",
+  "slug": "/ImportingModels",
+  "permalink": "/docs/ImportingModels",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Importing Models"
+  }
+}

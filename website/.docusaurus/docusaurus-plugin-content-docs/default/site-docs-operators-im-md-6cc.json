@@ -1,0 +1,19 @@
+{
+  "unversionedId": "OperatorsIM",
+  "id": "OperatorsIM",
+  "title": "Operators (I to M)",
+  "description": "----",
+  "source": "@site/../docs/OperatorsIM.md",
+  "sourceDirName": ".",
+  "slug": "/OperatorsIM",
+  "permalink": "/docs/OperatorsIM",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Operators (I to M)"
+  }
+}

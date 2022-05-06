@@ -1,0 +1,21 @@
+{
+  "unversionedId": "ModelLibrary",
+  "id": "version-1.8.1/ModelLibrary",
+  "title": "Models Library",
+  "description": "Here is the list of models accessible when you download GAMA. Do not hesitate to consult those models to have an idea of the possibilities of the platform.",
+  "source": "@site/versioned_docs/version-1.8.1/ModelLibrary.md",
+  "sourceDirName": ".",
+  "slug": "/ModelLibrary",
+  "permalink": "/docs/ModelLibrary",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Models Library",
+    "id": "ModelLibrary",
+    "original_id": "ModelLibrary"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "WorkspaceProjectsAndModels",
+  "id": "version-1.8.1/WorkspaceProjectsAndModels",
+  "title": "Workspace, Projects and Models",
+  "description": "The workspace is a directory in which GAMA stores all the current projects on which the user is working, links to other projects, as well as some meta-data like preference settings, the current status of the different projects, error markers, and so on.",
+  "source": "@site/versioned_docs/version-1.8.1/WorkspaceProjectsAndModels.md",
+  "sourceDirName": ".",
+  "slug": "/WorkspaceProjectsAndModels",
+  "permalink": "/docs/WorkspaceProjectsAndModels",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Workspace, Projects and Models",
+    "id": "WorkspaceProjectsAndModels",
+    "original_id": "WorkspaceProjectsAndModels"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Troubleshooting",
+    "permalink": "/docs/Troubleshooting"
+  },
+  "next": {
+    "title": "Navigating in the Workspace",
+    "permalink": "/docs/NavigatingWorkspace"
+  }
+}

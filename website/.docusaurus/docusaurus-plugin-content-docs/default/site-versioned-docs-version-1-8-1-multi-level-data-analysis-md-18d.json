@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Multi-level data analysis",
+  "id": "version-1.8.1/Multi-level data analysis",
+  "title": "Multi-level data analysis",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Multi-level data analysis.md",
+  "sourceDirName": ".",
+  "slug": "/Multi-level data analysis",
+  "permalink": "/docs/Multi-level data analysis",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Multi-level data analysis",
+    "id": "Multi-level data analysis",
+    "original_id": "Multi-level data analysis"
+  }
+}

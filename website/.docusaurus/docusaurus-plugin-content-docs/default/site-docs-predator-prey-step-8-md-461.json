@@ -1,0 +1,28 @@
+{
+  "unversionedId": "PredatorPrey_step8",
+  "id": "PredatorPrey_step8",
+  "title": "8. Complex Behavior",
+  "description": "This eighth step illustrates how to define more complex actions, how to use conditional statements and iterator operators over containers.",
+  "source": "@site/../docs/PredatorPrey_step8.md",
+  "sourceDirName": ".",
+  "slug": "/PredatorPrey_step8",
+  "permalink": "/docs/PredatorPrey_step8",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "8. Complex Behavior"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "7. Agent Aspect",
+    "permalink": "/docs/PredatorPrey_step7"
+  },
+  "next": {
+    "title": "9. Stopping condition",
+    "permalink": "/docs/PredatorPrey_step9"
+  }
+}

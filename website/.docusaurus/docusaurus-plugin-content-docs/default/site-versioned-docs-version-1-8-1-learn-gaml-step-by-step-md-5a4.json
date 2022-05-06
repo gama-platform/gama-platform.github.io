@@ -1,0 +1,30 @@
+{
+  "unversionedId": "LearnGAMLStepByStep",
+  "id": "version-1.8.1/LearnGAMLStepByStep",
+  "title": "Learn GAML Step by Step",
+  "description": "This large progressive tutorial has been designed to help you to learn GAML (GAma Modeling Language).",
+  "source": "@site/versioned_docs/version-1.8.1/LearnGAMLStepByStep.md",
+  "sourceDirName": ".",
+  "slug": "/LearnGAMLStepByStep",
+  "permalink": "/docs/LearnGAMLStepByStep",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Learn GAML Step by Step",
+    "id": "LearnGAMLStepByStep",
+    "original_id": "LearnGAMLStepByStep"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Preferences",
+    "permalink": "/docs/Preferences"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/docs/Introduction"
+  }
+}

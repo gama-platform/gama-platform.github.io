@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Data Importation CSV Agents",
+  "id": "version-1.8.1/Data Importation CSV Agents",
+  "title": "CSV to Agents Model",
+  "description": "[//]: # (keyword|operatorcsvfile)",
+  "source": "@site/versioned_docs/version-1.8.1/Data Importation CSV Agents.md",
+  "sourceDirName": ".",
+  "slug": "/Data Importation CSV Agents",
+  "permalink": "/docs/Data Importation CSV Agents",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "CSV to Agents Model",
+    "id": "Data Importation CSV Agents",
+    "original_id": "Data Importation CSV Agents"
+  }
+}

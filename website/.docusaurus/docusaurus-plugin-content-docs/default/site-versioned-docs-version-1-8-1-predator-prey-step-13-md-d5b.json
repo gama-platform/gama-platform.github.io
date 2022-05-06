@@ -1,0 +1,30 @@
+{
+  "unversionedId": "PredatorPrey_step13",
+  "id": "version-1.8.1/PredatorPrey_step13",
+  "title": "13. Model exploration",
+  "description": "This 13th step illustrates how to explore the model using a batch experiment.",
+  "source": "@site/versioned_docs/version-1.8.1/PredatorPrey_step13.md",
+  "sourceDirName": ".",
+  "slug": "/PredatorPrey_step13",
+  "permalink": "/docs/PredatorPrey_step13",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "13. Model exploration",
+    "id": "PredatorPrey_step13",
+    "original_id": "PredatorPrey_step13"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "12. Image loading",
+    "permalink": "/docs/PredatorPrey_step12"
+  },
+  "next": {
+    "title": "Road Traffic",
+    "permalink": "/docs/RoadTrafficModel"
+  }
+}

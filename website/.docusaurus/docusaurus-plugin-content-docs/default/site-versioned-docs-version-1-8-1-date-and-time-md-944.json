@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Date and Time",
+  "id": "version-1.8.1/Date and Time",
+  "title": "Date and Time",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Date and Time.md",
+  "sourceDirName": ".",
+  "slug": "/Date and Time",
+  "permalink": "/docs/Date and Time",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Date and Time",
+    "id": "Date and Time",
+    "original_id": "Date and Time"
+  }
+}

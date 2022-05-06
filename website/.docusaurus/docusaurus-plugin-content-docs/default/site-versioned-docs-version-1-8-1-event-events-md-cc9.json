@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__Events",
+  "id": "version-1.8.1/Event__Events",
+  "title": "Coding Camps",
+  "description": "List of GAMA Coding Camps :",
+  "source": "@site/versioned_docs/version-1.8.1/Event__Events.md",
+  "sourceDirName": ".",
+  "slug": "/Event__Events",
+  "permalink": "/docs/Event__Events",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Coding Camps",
+    "id": "Event__Events",
+    "original_id": "Event__Events"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Installation",
+  "id": "version-1.8.1/Installation",
+  "title": "Installation",
+  "description": "We made efforts to make the last release of GAMA (1.8.0) as easy as possible to install, by providing a version with an embedded Java JDK, limiting the installation to a 3-steps procedure: download, extract and launch.",
+  "source": "@site/versioned_docs/version-1.8.1/Installation.md",
+  "sourceDirName": ".",
+  "slug": "/Installation",
+  "permalink": "/docs/Installation",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Installation",
+    "id": "Installation",
+    "original_id": "Installation"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Installation and Launching",
+    "permalink": "/docs/InstallationAndLaunching"
+  },
+  "next": {
+    "title": "Installation",
+    "permalink": "/docs/Installation"
+  }
+}

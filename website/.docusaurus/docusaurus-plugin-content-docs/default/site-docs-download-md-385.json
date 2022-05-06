@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Download",
+  "id": "Download",
+  "title": "Download GAMA",
+  "description": "GAMA 1.7 Continuous Release",
+  "source": "@site/../docs/Download.md",
+  "sourceDirName": ".",
+  "slug": "/Download",
+  "permalink": "/docs/Download",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Download GAMA"
+  }
+}

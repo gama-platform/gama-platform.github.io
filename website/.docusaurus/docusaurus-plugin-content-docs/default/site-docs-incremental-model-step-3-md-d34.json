@@ -1,0 +1,28 @@
+{
+  "unversionedId": "IncrementalModel_step3",
+  "id": "IncrementalModel_step3",
+  "title": "3. Integration of GIS Data",
+  "description": "This step illustrates how to load and agentry GIS data.",
+  "source": "@site/../docs/IncrementalModel_step3.md",
+  "sourceDirName": ".",
+  "slug": "/IncrementalModel_step3",
+  "permalink": "/docs/IncrementalModel_step3",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "3. Integration of GIS Data"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "2. Charts",
+    "permalink": "/docs/IncrementalModel_step2"
+  },
+  "next": {
+    "title": "4. Movement on Graph",
+    "permalink": "/docs/IncrementalModel_step4"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Co-model Example comodelBoidsVoronoi",
+  "id": "version-1.8.1/Co-model Example comodelBoidsVoronoi",
+  "title": "Comodel of Boids and Voronoi",
+  "description": "[//]: # (keyword|operator_copy)",
+  "source": "@site/versioned_docs/version-1.8.1/Co-model Example comodelBoidsVoronoi.md",
+  "sourceDirName": ".",
+  "slug": "/Co-model Example comodelBoidsVoronoi",
+  "permalink": "/docs/Co-model Example comodelBoidsVoronoi",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Comodel of Boids and Voronoi",
+    "id": "Co-model Example comodelBoidsVoronoi",
+    "original_id": "Co-model Example comodelBoidsVoronoi"
+  }
+}

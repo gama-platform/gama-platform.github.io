@@ -1,0 +1,28 @@
+{
+  "unversionedId": "DefiningGUIExperiment",
+  "id": "DefiningGUIExperiment",
+  "title": "Defining GUI Experiment",
+  "description": "[//]: # (startConcept|gui_experiments)",
+  "source": "@site/../docs/DefiningGUIExperiment.md",
+  "sourceDirName": ".",
+  "slug": "/DefiningGUIExperiment",
+  "permalink": "/docs/DefiningGUIExperiment",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining GUI Experiment"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Grid Species",
+    "permalink": "/docs/GridSpecies"
+  },
+  "next": {
+    "title": "Defining Parameters",
+    "permalink": "/docs/DefiningParameters"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "RoadTrafficModel_step2",
+  "id": "version-1.8.1/RoadTrafficModel_step2",
+  "title": "2. People Agents",
+  "description": "This second step illustrates how to obtain a random point inside a geometry. We will also define some moving agent called people.",
+  "source": "@site/versioned_docs/version-1.8.1/RoadTrafficModel_step2.md",
+  "sourceDirName": ".",
+  "slug": "/RoadTrafficModel_step2",
+  "permalink": "/docs/RoadTrafficModel_step2",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "2. People Agents",
+    "id": "RoadTrafficModel_step2",
+    "original_id": "RoadTrafficModel_step2"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "1. Loading of GIS Data",
+    "permalink": "/docs/RoadTrafficModel_step1"
+  },
+  "next": {
+    "title": "3. Movement of People",
+    "permalink": "/docs/RoadTrafficModel_step3"
+  }
+}

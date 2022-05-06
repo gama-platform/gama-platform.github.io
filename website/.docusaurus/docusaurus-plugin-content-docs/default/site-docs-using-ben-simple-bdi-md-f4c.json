@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Using-BEN-simple-bdi",
+  "id": "Using-BEN-simple-bdi",
+  "title": "Using BEN (simple_bdi)",
+  "description": "[//]: # (keyword|concept_bdi)",
+  "source": "@site/../docs/Using-BEN-simple-bdi.md",
+  "sourceDirName": ".",
+  "slug": "/Using-BEN-simple-bdi",
+  "permalink": "/docs/Using-BEN-simple-bdi",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Using BEN (simple_bdi)"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unversionedId": "References",
+  "id": "version-1.8.1/References",
+  "title": "References",
+  "description": "This page contains a subset of the scientific papers that have been written either about GAMA or using the platform as an experimental/modeling support.",
+  "source": "@site/versioned_docs/version-1.8.1/References.md",
+  "sourceDirName": ".",
+  "slug": "/References",
+  "permalink": "/docs/References",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "References",
+    "id": "References",
+    "original_id": "References"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "How to write the Website Content",
+    "permalink": "/docs/WebsiteGeneration"
+  },
+  "next": {
+    "title": "Projects",
+    "permalink": "/docs/Projects"
+  }
+}

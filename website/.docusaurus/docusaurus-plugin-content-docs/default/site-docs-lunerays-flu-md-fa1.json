@@ -1,0 +1,28 @@
+{
+  "unversionedId": "LuneraysFlu",
+  "id": "LuneraysFlu",
+  "title": "Luneray's flu",
+  "description": "This tutorial has for goal to introduce how to build a model with GAMA and to use GIS data and graphs. In particular, this tutorial shows how to write a simple GAMA model (the structure of a model, the notion of species...) load gis data, to agentify them and to use a network of polylines to constraint the movement of agents. All the files related to this tutorial (shapefiles and models) are available here.",
+  "source": "@site/../docs/LuneraysFlu.md",
+  "sourceDirName": ".",
+  "slug": "/LuneraysFlu",
+  "permalink": "/docs/LuneraysFlu",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Luneray's flu"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "7. Differential Equations",
+    "permalink": "/docs/IncrementalModel_step7"
+  },
+  "next": {
+    "title": "1. Creation of a first basic disease spreading model",
+    "permalink": "/docs/LuneraysFlu_step1"
+  }
+}

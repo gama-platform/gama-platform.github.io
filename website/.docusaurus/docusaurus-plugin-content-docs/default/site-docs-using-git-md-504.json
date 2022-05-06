@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Using_Git",
+  "id": "Using_Git",
+  "title": "Using Git from GAMA to version and share models",
+  "description": "Install the Git client [Tested on the GAMA 1.8.2]",
+  "source": "@site/../docs/Using_Git.md",
+  "sourceDirName": ".",
+  "slug": "/Using_Git",
+  "permalink": "/docs/Using_Git",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Using Git from GAMA to version and share models"
+  }
+}

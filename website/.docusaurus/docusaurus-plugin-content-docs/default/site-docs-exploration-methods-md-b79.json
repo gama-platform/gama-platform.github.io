@@ -1,0 +1,19 @@
+{
+  "unversionedId": "ExplorationMethods",
+  "id": "ExplorationMethods",
+  "title": "Exploration Methods",
+  "description": "[//]: # (startConcept|exploration_methods)",
+  "source": "@site/../docs/ExplorationMethods.md",
+  "sourceDirName": ".",
+  "slug": "/ExplorationMethods",
+  "permalink": "/docs/ExplorationMethods",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Exploration Methods"
+  }
+}

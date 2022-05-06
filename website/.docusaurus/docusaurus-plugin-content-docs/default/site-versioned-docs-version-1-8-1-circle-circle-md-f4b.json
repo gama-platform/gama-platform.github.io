@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Circle Circle",
+  "id": "version-1.8.1/Circle Circle",
+  "title": "Circle",
+  "description": "[//]: # (keyword|operator_towards)",
+  "source": "@site/versioned_docs/version-1.8.1/Circle Circle.md",
+  "sourceDirName": ".",
+  "slug": "/Circle Circle",
+  "permalink": "/docs/Circle Circle",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Circle",
+    "id": "Circle Circle",
+    "original_id": "Circle Circle"
+  }
+}

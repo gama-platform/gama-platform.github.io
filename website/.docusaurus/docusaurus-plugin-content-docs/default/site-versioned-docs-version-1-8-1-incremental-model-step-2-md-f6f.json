@@ -1,0 +1,30 @@
+{
+  "unversionedId": "IncrementalModel_step2",
+  "id": "version-1.8.1/IncrementalModel_step2",
+  "title": "2. Charts",
+  "description": "This step Illustrates how to define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation.",
+  "source": "@site/versioned_docs/version-1.8.1/IncrementalModel_step2.md",
+  "sourceDirName": ".",
+  "slug": "/IncrementalModel_step2",
+  "permalink": "/docs/IncrementalModel_step2",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "2. Charts",
+    "id": "IncrementalModel_step2",
+    "original_id": "IncrementalModel_step2"
+  },
+  "sidebar": "version-1.8.1/tuto",
+  "previous": {
+    "title": "1. Simple SI Model",
+    "permalink": "/docs/IncrementalModel_step1"
+  },
+  "next": {
+    "title": "3. Integration of GIS Data",
+    "permalink": "/docs/IncrementalModel_step3"
+  }
+}

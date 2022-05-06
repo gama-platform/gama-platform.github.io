@@ -1,0 +1,19 @@
+{
+  "unversionedId": "ModelBuiltIn",
+  "id": "ModelBuiltIn",
+  "title": "The 'model' built-in species (Under Construction)",
+  "description": "As described in the presentation of GAML, any model in GAMA is a species (introduced by the keyword global) which directly inherits from an abstract species called model. This abstract species (sub-species of agent) defines several attributes and actions that can then be used in any global section of any model.",
+  "source": "@site/../docs/ModelBuiltIn.md",
+  "sourceDirName": ".",
+  "slug": "/ModelBuiltIn",
+  "permalink": "/docs/ModelBuiltIn",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "The 'model' built-in species (Under Construction)"
+  }
+}

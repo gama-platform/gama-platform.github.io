@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CP12SLD",
+  "id": "version-1.8.1/Event__CP12SLD",
+  "title": "SLD-based aspects",
+  "description": "Not chosen as a work theme for the coding camp...",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CP12SLD.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CP12SLD",
+  "permalink": "/docs/Event__CP12SLD",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "SLD-based aspects",
+    "id": "Event__CP12SLD",
+    "original_id": "Event__CP12SLD"
+  }
+}

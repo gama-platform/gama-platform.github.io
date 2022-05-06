@@ -1,0 +1,28 @@
+{
+  "unversionedId": "RunningExperiments",
+  "id": "RunningExperiments",
+  "title": "Running Experiments",
+  "description": "Running an experiment is the only way, in GAMA, to execute simulations on a model. Experiments can be run in different ways.",
+  "source": "@site/../docs/RunningExperiments.md",
+  "sourceDirName": ".",
+  "slug": "/RunningExperiments",
+  "permalink": "/docs/RunningExperiments",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Running Experiments"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "The GAML Editor - Generalities",
+    "permalink": "/docs/GamlEditorGeneralities"
+  },
+  "next": {
+    "title": "Launching Experiments from the User Interface",
+    "permalink": "/docs/LaunchingExperiments"
+  }
+}

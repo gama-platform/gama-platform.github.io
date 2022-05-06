@@ -1,0 +1,19 @@
+{
+  "unversionedId": "OperatorsSplitted",
+  "id": "OperatorsSplitted",
+  "title": "Operators",
+  "description": "----",
+  "source": "@site/../docs/OperatorsSplitted.md",
+  "sourceDirName": ".",
+  "slug": "/OperatorsSplitted",
+  "permalink": "/docs/OperatorsSplitted",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Operators"
+  }
+}

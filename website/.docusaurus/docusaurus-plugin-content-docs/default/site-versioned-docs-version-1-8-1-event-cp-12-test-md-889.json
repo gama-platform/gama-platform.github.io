@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Event__CP12Test",
+  "id": "version-1.8.1/Event__CP12Test",
+  "title": "Test Models  Language",
+  "description": "* A Coding Dojo (5 people) was organized in order to sensibilize developpers about unit tests.",
+  "source": "@site/versioned_docs/version-1.8.1/Event__CP12Test.md",
+  "sourceDirName": ".",
+  "slug": "/Event__CP12Test",
+  "permalink": "/docs/Event__CP12Test",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Test Models  Language",
+    "id": "Event__CP12Test",
+    "original_id": "Event__CP12Test"
+  }
+}

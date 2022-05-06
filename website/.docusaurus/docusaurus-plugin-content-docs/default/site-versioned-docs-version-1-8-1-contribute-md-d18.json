@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Contribute",
+  "id": "version-1.8.1/Contribute",
+  "title": "Contribute",
+  "description": "GAMA is a free opensource software and we take pride in sharing the source code with anyone who wants to contribute to the platform. Note that GAMA is easy to extend by developing additional plugins.",
+  "source": "@site/versioned_docs/version-1.8.1/Contribute.md",
+  "sourceDirName": ".",
+  "slug": "/Contribute",
+  "permalink": "/docs/Contribute",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Contribute",
+    "id": "Contribute",
+    "original_id": "Contribute"
+  }
+}

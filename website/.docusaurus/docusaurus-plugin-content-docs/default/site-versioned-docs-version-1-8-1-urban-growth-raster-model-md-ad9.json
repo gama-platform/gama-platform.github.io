@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Urban Growth raster model",
+  "id": "version-1.8.1/Urban Growth raster model",
+  "title": "Cellular Automaton Based Urban Growth",
+  "description": "[//]: # (keyword|operatormaxof)",
+  "source": "@site/versioned_docs/version-1.8.1/Urban Growth raster model.md",
+  "sourceDirName": ".",
+  "slug": "/Urban Growth raster model",
+  "permalink": "/docs/Urban Growth raster model",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Cellular Automaton Based Urban Growth",
+    "id": "Urban Growth raster model",
+    "original_id": "Urban Growth raster model"
+  }
+}

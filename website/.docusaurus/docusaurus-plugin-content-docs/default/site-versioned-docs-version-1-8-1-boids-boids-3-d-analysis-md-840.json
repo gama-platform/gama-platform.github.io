@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Boids Boids 3D Analysis",
+  "id": "version-1.8.1/Boids Boids 3D Analysis",
+  "title": "Boids 3D Analysis",
+  "description": "[//]: # (keyword|operator_sin)",
+  "source": "@site/versioned_docs/version-1.8.1/Boids Boids 3D Analysis.md",
+  "sourceDirName": ".",
+  "slug": "/Boids Boids 3D Analysis",
+  "permalink": "/docs/Boids Boids 3D Analysis",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Boids 3D Analysis",
+    "id": "Boids Boids 3D Analysis",
+    "original_id": "Boids Boids 3D Analysis"
+  }
+}

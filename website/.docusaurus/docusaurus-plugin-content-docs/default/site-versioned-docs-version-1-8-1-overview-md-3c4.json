@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Overview",
+  "id": "version-1.8.1/Overview",
+  "title": "Introduction",
+  "description": "Demonstration of some of the features of the GAMA Platform",
+  "source": "@site/versioned_docs/version-1.8.1/Overview.md",
+  "sourceDirName": ".",
+  "slug": "/Overview",
+  "permalink": "/docs/Overview",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Introduction",
+    "id": "Overview",
+    "original_id": "Overview"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "GAMA",
+    "permalink": "/docs/Home"
+  },
+  "next": {
+    "title": "Changes from 1.6.1 to 1.8",
+    "permalink": "/docs/New-Version-Changes"
+  }
+}

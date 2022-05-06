@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Equations",
+  "id": "Equations",
+  "title": "Using Equations",
+  "description": "[//]: # (startConcept|equation)",
+  "source": "@site/../docs/Equations.md",
+  "sourceDirName": ".",
+  "slug": "/Equations",
+  "permalink": "/docs/Equations",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Using Equations"
+  }
+}

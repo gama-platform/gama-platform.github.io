@@ -1,0 +1,28 @@
+{
+  "unversionedId": "DevelopingStatements",
+  "id": "DevelopingStatements",
+  "title": "Developing Statements",
+  "description": "Statements are a fundamental part of GAML, as they represent both commands (imperative programming style) or declarations (declarative programming style). Developing a new statement allows, then, to add a new instruction to GAML.",
+  "source": "@site/../docs/DevelopingStatements.md",
+  "sourceDirName": ".",
+  "slug": "/DevelopingStatements",
+  "permalink": "/docs/DevelopingStatements",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Developing Statements"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Developing Skills",
+    "permalink": "/docs/DevelopingSkills"
+  },
+  "next": {
+    "title": "Developing Operators",
+    "permalink": "/docs/DevelopingOperators"
+  }
+}

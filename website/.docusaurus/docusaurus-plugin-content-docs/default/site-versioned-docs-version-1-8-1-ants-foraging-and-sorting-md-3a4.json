@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Ants (Foraging and Sorting)",
+  "id": "version-1.8.1/Ants (Foraging and Sorting)",
+  "title": "Ants (Foraging and Sorting)",
+  "description": "This sub-section is composed of the following models :",
+  "source": "@site/versioned_docs/version-1.8.1/Ants (Foraging and Sorting).md",
+  "sourceDirName": ".",
+  "slug": "/Ants (Foraging and Sorting)",
+  "permalink": "/docs/Ants (Foraging and Sorting)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Ants (Foraging and Sorting)",
+    "id": "Ants (Foraging and Sorting)",
+    "original_id": "Ants (Foraging and Sorting)"
+  }
+}

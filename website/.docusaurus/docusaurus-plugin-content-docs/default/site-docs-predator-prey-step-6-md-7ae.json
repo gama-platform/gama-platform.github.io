@@ -1,0 +1,28 @@
+{
+  "unversionedId": "PredatorPrey_step6",
+  "id": "PredatorPrey_step6",
+  "title": "6. Breeding",
+  "description": "So far we have created agents only during the initialization of the simulation. In this sixth step, we illustrate how to create new agents during a simulation of a dynamic species.",
+  "source": "@site/../docs/PredatorPrey_step6.md",
+  "sourceDirName": ".",
+  "slug": "/PredatorPrey_step6",
+  "permalink": "/docs/PredatorPrey_step6",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "6. Breeding"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "5. Predator Agent",
+    "permalink": "/docs/PredatorPrey_step5"
+  },
+  "next": {
+    "title": "7. Agent Aspect",
+    "permalink": "/docs/PredatorPrey_step7"
+  }
+}

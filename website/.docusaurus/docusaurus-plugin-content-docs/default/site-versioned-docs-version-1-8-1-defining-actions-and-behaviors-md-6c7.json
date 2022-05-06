@@ -1,0 +1,30 @@
+{
+  "unversionedId": "DefiningActionsAndBehaviors",
+  "id": "version-1.8.1/DefiningActionsAndBehaviors",
+  "title": "Defining actions and behaviors",
+  "description": "[//]: # (startConcept|actionsandbehaviors)",
+  "source": "@site/versioned_docs/version-1.8.1/DefiningActionsAndBehaviors.md",
+  "sourceDirName": ".",
+  "slug": "/DefiningActionsAndBehaviors",
+  "permalink": "/docs/DefiningActionsAndBehaviors",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Defining actions and behaviors",
+    "id": "DefiningActionsAndBehaviors",
+    "original_id": "DefiningActionsAndBehaviors"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Regular species",
+    "permalink": "/docs/RegularSpecies"
+  },
+  "next": {
+    "title": "Interaction between agents",
+    "permalink": "/docs/InteractionBetweenAgents"
+  }
+}

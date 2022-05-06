@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Data Importation 3D shapefile Loading",
+  "id": "version-1.8.1/Data Importation 3D shapefile Loading",
+  "title": "3D shapefile loading",
+  "description": "[//]: # (keyword|operatorshapefile)",
+  "source": "@site/versioned_docs/version-1.8.1/Data Importation 3D shapefile Loading.md",
+  "sourceDirName": ".",
+  "slug": "/Data Importation 3D shapefile Loading",
+  "permalink": "/docs/Data Importation 3D shapefile Loading",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "3D shapefile loading",
+    "id": "Data Importation 3D shapefile Loading",
+    "original_id": "Data Importation 3D shapefile Loading"
+  }
+}

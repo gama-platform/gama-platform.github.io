@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Statements",
+  "id": "version-1.8.1/Statements",
+  "title": "Statements",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/Statements.md",
+  "sourceDirName": ".",
+  "slug": "/Statements",
+  "permalink": "/docs/Statements",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Statements",
+    "id": "Statements",
+    "original_id": "Statements"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Built-in Architectures",
+    "permalink": "/docs/BuiltInArchitectures"
+  },
+  "next": {
+    "title": "Types",
+    "permalink": "/docs/DataTypes"
+  }
+}

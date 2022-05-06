@@ -1,0 +1,28 @@
+{
+  "unversionedId": "BuiltInSpecies",
+  "id": "BuiltInSpecies",
+  "title": "Built-in Species",
+  "description": "----",
+  "source": "@site/../docs/BuiltInSpecies.md",
+  "sourceDirName": ".",
+  "slug": "/BuiltInSpecies",
+  "permalink": "/docs/BuiltInSpecies",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Built-in Species"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "GAML References",
+    "permalink": "/docs/GamlReference"
+  },
+  "next": {
+    "title": "The 'agent' built-in species (Under Construction)",
+    "permalink": "/docs/AgentBuiltIn"
+  }
+}

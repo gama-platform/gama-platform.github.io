@@ -1,0 +1,28 @@
+{
+  "unversionedId": "G__GraphicalEditor",
+  "id": "G__GraphicalEditor",
+  "title": "The Graphical Editor",
+  "description": "The graphical editor that allows defining a GAMA model through a graphical interface (gadl files). It is based on the Graphiti Eclipse plugin. It allows as well to produce a graphical model (diagram) from a gaml model. A tutorial is available here.",
+  "source": "@site/../docs/G__GraphicalEditor.md",
+  "sourceDirName": ".",
+  "slug": "/G__GraphicalEditor",
+  "permalink": "/docs/G__GraphicalEditor",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "The Graphical Editor"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Editing Headless mode for dummies",
+    "permalink": "/docs/Headless-mode-for-dummies"
+  },
+  "next": {
+    "title": "Known issues",
+    "permalink": "/docs/KnownIssues"
+  }
+}

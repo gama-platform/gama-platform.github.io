@@ -1,0 +1,28 @@
+{
+  "unversionedId": "ThreeD",
+  "id": "ThreeD",
+  "title": "3D Tutorial",
+  "description": "This tutorial introduces the 3D features offered by GAMA.",
+  "source": "@site/../docs/ThreeD.md",
+  "sourceDirName": ".",
+  "slug": "/ThreeD",
+  "permalink": "/docs/ThreeD",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "3D Tutorial"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "7. Automatic Road Repair",
+    "permalink": "/docs/RoadTrafficModel_step7"
+  },
+  "next": {
+    "title": "1. Basic Model",
+    "permalink": "/docs/ThreeD_step1"
+  }
+}

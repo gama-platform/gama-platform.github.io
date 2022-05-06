@@ -1,0 +1,19 @@
+{
+  "unversionedId": "RegularSpecies",
+  "id": "RegularSpecies",
+  "title": "Regular species",
+  "description": "[//]: # (startConcept|regular_species)",
+  "source": "@site/../docs/RegularSpecies.md",
+  "sourceDirName": ".",
+  "slug": "/RegularSpecies",
+  "permalink": "/docs/RegularSpecies",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Regular species"
+  }
+}

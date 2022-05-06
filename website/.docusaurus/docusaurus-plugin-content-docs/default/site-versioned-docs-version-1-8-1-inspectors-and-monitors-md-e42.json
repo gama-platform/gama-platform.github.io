@@ -1,0 +1,30 @@
+{
+  "unversionedId": "InspectorsAndMonitors",
+  "id": "version-1.8.1/InspectorsAndMonitors",
+  "title": "Inspectors and monitors",
+  "description": "GAMA offers some tools to obtain information about one or several agents. There are two kinds of tools:",
+  "source": "@site/versioned_docs/version-1.8.1/InspectorsAndMonitors.md",
+  "sourceDirName": ".",
+  "slug": "/InspectorsAndMonitors",
+  "permalink": "/docs/InspectorsAndMonitors",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Inspectors and monitors",
+    "id": "InspectorsAndMonitors",
+    "original_id": "InspectorsAndMonitors"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Parameters View",
+    "permalink": "/docs/ParametersView"
+  },
+  "next": {
+    "title": "Displays",
+    "permalink": "/docs/Displays"
+  }
+}

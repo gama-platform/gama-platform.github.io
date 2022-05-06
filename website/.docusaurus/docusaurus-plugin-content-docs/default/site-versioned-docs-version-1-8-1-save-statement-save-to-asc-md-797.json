@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Save statement Save_to_asc",
+  "id": "version-1.8.1/Save statement Save_to_asc",
+  "title": "Save to Ascii",
+  "description": "[//]: # (keyword|statement_save)",
+  "source": "@site/versioned_docs/version-1.8.1/Save statement Save_to_asc.md",
+  "sourceDirName": ".",
+  "slug": "/Save statement Save_to_asc",
+  "permalink": "/docs/Save statement Save_to_asc",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Save to Ascii",
+    "id": "Save statement Save_to_asc",
+    "original_id": "Save statement Save_to_asc"
+  }
+}

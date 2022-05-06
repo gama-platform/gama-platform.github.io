@@ -1,0 +1,28 @@
+{
+  "unversionedId": "PredatorPrey_step12",
+  "id": "PredatorPrey_step12",
+  "title": "12. Image loading",
+  "description": "This 12th step illustrates how to load an image file and to use it to initialize a grid.",
+  "source": "@site/../docs/PredatorPrey_step12.md",
+  "sourceDirName": ".",
+  "slug": "/PredatorPrey_step12",
+  "permalink": "/docs/PredatorPrey_step12",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "12. Image loading"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "11. Writing Files",
+    "permalink": "/docs/PredatorPrey_step11"
+  },
+  "next": {
+    "title": "Road Traffic",
+    "permalink": "/docs/RoadTrafficModel"
+  }
+}

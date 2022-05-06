@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Events",
+  "id": "version-1.8.1/Events",
+  "title": "References",
+  "description": "This page references the events that are linked to GAMA.",
+  "source": "@site/versioned_docs/version-1.8.1/Events.md",
+  "sourceDirName": ".",
+  "slug": "/Events",
+  "permalink": "/docs/Events",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "References",
+    "id": "Events",
+    "original_id": "Events"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Training Session",
+    "permalink": "/docs/TrainingSession"
+  },
+  "next": {
+    "title": "Versions of GAMA",
+    "permalink": "/docs/OlderVersions"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Data Importation CSV File Loading",
+  "id": "version-1.8.1/Data Importation CSV File Loading",
+  "title": "Convertion of CSV data to Matrix",
+  "description": "[//]: # (keyword|operatorcsvfile)",
+  "source": "@site/versioned_docs/version-1.8.1/Data Importation CSV File Loading.md",
+  "sourceDirName": ".",
+  "slug": "/Data Importation CSV File Loading",
+  "permalink": "/docs/Data Importation CSV File Loading",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Convertion of CSV data to Matrix",
+    "id": "Data Importation CSV File Loading",
+    "original_id": "Data Importation CSV File Loading"
+  }
+}

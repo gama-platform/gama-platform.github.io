@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Data Importation Raster Image Import",
+  "id": "version-1.8.1/Data Importation Raster Image Import",
+  "title": "Raster File in a Grid of cells",
+  "description": "[//]: # (keyword|operator_inside)",
+  "source": "@site/versioned_docs/version-1.8.1/Data Importation Raster Image Import.md",
+  "sourceDirName": ".",
+  "slug": "/Data Importation Raster Image Import",
+  "permalink": "/docs/Data Importation Raster Image Import",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Raster File in a Grid of cells",
+    "id": "Data Importation Raster Image Import",
+    "original_id": "Data Importation Raster Image Import"
+  }
+}

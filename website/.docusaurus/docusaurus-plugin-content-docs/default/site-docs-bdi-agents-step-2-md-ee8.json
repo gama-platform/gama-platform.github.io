@@ -1,0 +1,19 @@
+{
+  "unversionedId": "BDIAgents_step2",
+  "id": "BDIAgents_step2",
+  "title": "2. BDI Agents",
+  "description": "This second step consists in defining the gold miner agents using the GAMA BDI architecture.",
+  "source": "@site/../docs/BDIAgents_step2.md",
+  "sourceDirName": ".",
+  "slug": "/BDIAgents_step2",
+  "permalink": "/docs/BDIAgents_step2",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "2. BDI Agents"
+  }
+}

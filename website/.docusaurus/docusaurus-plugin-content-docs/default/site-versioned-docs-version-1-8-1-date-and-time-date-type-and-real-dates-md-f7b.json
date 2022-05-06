@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Date and Time Date type and real dates",
+  "id": "version-1.8.1/Date and Time Date type and real dates",
+  "title": "Use of the Date variables",
+  "description": "[//]: # (keyword|operatoraddyears)",
+  "source": "@site/versioned_docs/version-1.8.1/Date and Time Date type and real dates.md",
+  "sourceDirName": ".",
+  "slug": "/Date and Time Date type and real dates",
+  "permalink": "/docs/Date and Time Date type and real dates",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Use of the Date variables",
+    "id": "Date and Time Date type and real dates",
+    "original_id": "Date and Time Date type and real dates"
+  }
+}

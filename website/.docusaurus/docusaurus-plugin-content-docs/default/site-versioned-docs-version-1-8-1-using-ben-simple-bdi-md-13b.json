@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Using-BEN-simple-bdi",
+  "id": "version-1.8.1/Using-BEN-simple-bdi",
+  "title": "Using BEN (simple_bdi)",
+  "description": "[//]: # (keyword|concept_bdi)",
+  "source": "@site/versioned_docs/version-1.8.1/Using-BEN-simple-bdi.md",
+  "sourceDirName": ".",
+  "slug": "/Using-BEN-simple-bdi",
+  "permalink": "/docs/Using-BEN-simple-bdi",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Using BEN (simple_bdi)",
+    "id": "Using-BEN-simple-bdi",
+    "original_id": "Using-BEN-simple-bdi"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Using GAMAnalyzer",
+    "permalink": "/docs/GamAnalyzer"
+  },
+  "next": {
+    "title": "Advanced Driving Skill",
+    "permalink": "/docs/UsingDrivingSkill"
+  }
+}

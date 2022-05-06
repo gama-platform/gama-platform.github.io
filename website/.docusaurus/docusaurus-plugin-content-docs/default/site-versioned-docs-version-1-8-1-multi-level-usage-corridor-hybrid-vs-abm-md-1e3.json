@@ -1,0 +1,21 @@
+{
+  "unversionedId": "Multi-Level Usage Corridor (Hybrid vs ABM)",
+  "id": "version-1.8.1/Multi-Level Usage Corridor (Hybrid vs ABM)",
+  "title": "Corridor Multi-Level Architecture with Mathematics Model and Agent Based Model",
+  "description": "[//]: # (keyword|operatoratlocation)",
+  "source": "@site/versioned_docs/version-1.8.1/Multi-Level Usage Corridor (Hybrid vs ABM).md",
+  "sourceDirName": ".",
+  "slug": "/Multi-Level Usage Corridor (Hybrid vs ABM)",
+  "permalink": "/docs/Multi-Level Usage Corridor (Hybrid vs ABM)",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Corridor Multi-Level Architecture with Mathematics Model and Agent Based Model",
+    "id": "Multi-Level Usage Corridor (Hybrid vs ABM)",
+    "original_id": "Multi-Level Usage Corridor (Hybrid vs ABM)"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "unversionedId": "MultiParadigmModeling",
+  "id": "MultiParadigmModeling",
+  "title": "Multi-Paradigm Modeling",
+  "description": "[//]: # (keyword|concept_architecture)",
+  "source": "@site/../docs/MultiParadigmModeling.md",
+  "sourceDirName": ".",
+  "slug": "/MultiParadigmModeling",
+  "permalink": "/docs/MultiParadigmModeling",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Multi-Paradigm Modeling"
+  },
+  "sidebar": "side",
+  "previous": {
+    "title": "Runtime Concepts",
+    "permalink": "/docs/RuntimeConcepts"
+  },
+  "next": {
+    "title": "Control Architectures",
+    "permalink": "/docs/ControlArchitecture"
+  }
+}

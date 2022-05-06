@@ -1,0 +1,28 @@
+{
+  "unversionedId": "PredatorPrey_step7",
+  "id": "PredatorPrey_step7",
+  "title": "7. Agent Aspect",
+  "description": "In this seventh step, we will focus on the display and more specifically the aspects of the agents: how they are represented. It can be a simple shape (circle, square, etc.), an icon, a polygon (see later GIS support).",
+  "source": "@site/../docs/PredatorPrey_step7.md",
+  "sourceDirName": ".",
+  "slug": "/PredatorPrey_step7",
+  "permalink": "/docs/PredatorPrey_step7",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "7. Agent Aspect"
+  },
+  "sidebar": "tuto",
+  "previous": {
+    "title": "6. Breeding",
+    "permalink": "/docs/PredatorPrey_step6"
+  },
+  "next": {
+    "title": "8. Complex Behavior",
+    "permalink": "/docs/PredatorPrey_step8"
+  }
+}

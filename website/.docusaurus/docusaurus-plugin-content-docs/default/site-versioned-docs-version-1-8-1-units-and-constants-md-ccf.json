@@ -1,0 +1,30 @@
+{
+  "unversionedId": "UnitsAndConstants",
+  "id": "version-1.8.1/UnitsAndConstants",
+  "title": "Units and constants",
+  "description": "----",
+  "source": "@site/versioned_docs/version-1.8.1/UnitsAndConstants.md",
+  "sourceDirName": ".",
+  "slug": "/UnitsAndConstants",
+  "permalink": "/docs/UnitsAndConstants",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Units and constants",
+    "id": "UnitsAndConstants",
+    "original_id": "UnitsAndConstants"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Literals",
+    "permalink": "/docs/Literals"
+  },
+  "next": {
+    "title": "Pseudo-variables",
+    "permalink": "/docs/PseudoVariables"
+  }
+}

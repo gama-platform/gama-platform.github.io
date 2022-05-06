@@ -1,0 +1,30 @@
+{
+  "unversionedId": "Equations",
+  "id": "version-1.8.1/Equations",
+  "title": "Using Equations",
+  "description": "[//]: # (startConcept|equation)",
+  "source": "@site/versioned_docs/version-1.8.1/Equations.md",
+  "sourceDirName": ".",
+  "slug": "/Equations",
+  "permalink": "/docs/Equations",
+  "draft": false,
+  "tags": [],
+  "version": "1.8.1",
+  "lastUpdatedBy": "Author",
+  "lastUpdatedAt": 1539502055,
+  "formattedLastUpdatedAt": "10/14/2018",
+  "frontMatter": {
+    "title": "Using Equations",
+    "id": "Equations",
+    "original_id": "Equations"
+  },
+  "sidebar": "version-1.8.1/doc",
+  "previous": {
+    "title": "Control Architectures",
+    "permalink": "/docs/ControlArchitecture"
+  },
+  "next": {
+    "title": "Recipes",
+    "permalink": "/docs/Recipes"
+  }
+}
