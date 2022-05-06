@@ -231,7 +231,7 @@ For example:</p>
 * &quot;tsv&quot;
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="content-1"></a><a href="#content-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Content</h3>
-<p>The content of a csv file is a matrix of string: each row of the matrix is a line of the file; each column of the matrix is value delimited by the separator (by default &quot;,&quot;).
+<p>The content of a csv file is a matrix of objects: each row of the matrix is a line of the file; each column of the matrix is values delimited by the separator. By default, the delimiter is the &quot;,&quot; and the datatype depends on the dataset.
 For example:</p>
 <pre><code class="hljs">global {
     init {
@@ -260,16 +260,32 @@ Iris-setosa
 Iris-setosa
 ...
 </code></pre>
+<p>To manipulate easily the data, we can consider the <code>contents</code> of the data file, that is a matrix.
+As  an example, we can access the number of lines and columns of a data file named <code>my_file</code> with <code>my_file.contents.dimension</code>.</p>
 <h3><a class="anchor" aria-hidden="true" id="operators-1"></a><a href="#operators-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h3>
-<p>List of operators related to csv files:</p>
+<p>There are many operators available to load a csv_file.</p>
 <ul>
-<li><strong>csv_file(string path)</strong>: load a file (with an authorized extension) as a csv file with default separator (&quot;,&quot;).</li>
-<li><strong>csv_file(string path, string separator)</strong>: load a file (with an authorized extension) as a csv file with the given separator.</li>
+<li><strong>csv_file(string path)</strong>: load a file (with an authorized extension) as a csv file with default separator (&quot;,&quot;), and no assumption on the type of data.</li>
+<li><strong>csv_file(string path,bool header)&quot;</strong>: load a file as a CSV file with the default separator (coma), with specifying if the model has a header or not (boolean), and no assumption on the type of data.</li>
+<li><strong>csv_file(string path, string separator)</strong>: load a file (with an authorized extension) as a csv file with the given separator, without making any assumption on the type of data. Headers should be detected automatically if they exist.</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- csv_file(<span class="hljs-string">"../includes/data.csv"</span>, <span class="hljs-string">";"</span>);
 </code></pre>
 <ul>
-<li><strong>csv_file(string path, matrix content)</strong>: load a file (with an authorized extension) as a csv file and fill it with the given content.</li>
+<li><strong>csv_file(string path, string separator, bool header)</strong>: load a file (with an authorized extension) as a csv file, specifying (1) the separator used; (2) if the model has a header or not, without making any assumption on the type of data.</li>
+<li><strong>csv_file(string path, string separator, string text_qualifier, bool header)</strong>: load a file as a csv file specifying (1) the separator used; (2) the text qualifier used; (3) if the model has a header or not, without making any assumption on the type of data&quot;,</li>
+<li><strong>csv_file(string path, string separator, type datatype)</strong>: load a file as a csv file specifying a given separator, no header, and the type of data. No text qualifier will be used.</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-literal">file</span> my_file &lt;- csv_file(<span class="hljs-string">"../includes/data.csv"</span>, <span class="hljs-string">";"</span>, <span class="hljs-literal">int</span>);
+</code></pre>
+<ul>
+<li><strong>csv_file(string path, string separator, string text_qualifier, type datatype)</strong>: load a file as a csv file specifying the separator, text qualifier to use, and the type of data to read.  Headers should be detected automatically if they exist.</li>
+<li><strong>csv_file(string path, string separator, type datatype, bool header)</strong>: load a file as a csv file specifying the given separator, the type of data, with specifying if the model has a header or not (boolean). No text qualifier will be used&quot;.</li>
+<li><strong>csv_file(string path, string separator, type datatype, bool header, point dimensions)</strong>: load a file as a csv file specifying a given separator, the type of data, with specifying the number of cols and rows taken into account. No text qualifier will be used.</li>
+<li><strong>csv_file(string path, matrix content)</strong>: This file constructor allows to store a matrix in a CSV file (it does not save it - just store it in memory)</li>
+</ul>
+<p>Finally, it is possible to check whether a file is a csv file:</p>
+<ul>
 <li><strong>is_csv(op)</strong>: tests whether the operand is a csv file</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="shapefile"></a><a href="#shapefile" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Shapefile</h2>
