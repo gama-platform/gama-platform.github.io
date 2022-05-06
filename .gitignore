@@ -78,3 +78,4 @@ website/i18n/*
 website/static/database/index.json
 
 *.bak
+website/.docusaurus
