@@ -37,6 +37,7 @@ module.exports={
   ],
   "favicon": "img/gama-logo.png",
   "customFields": {
+    footerIcon: 'img/gama-logo.png',
     "docsUrl": "wiki",
     "zipName": "GAMA_1.8.2",
     "downloadVersion": "1.8.2",
@@ -115,13 +116,78 @@ module.exports={
               "activeBaseRegex": "docs/next/(?!support|team|resources)"
             }
           ]
+        },
+        {
+          href: 'https://github.com/gama-platform/gama',
+          label: 'GitHub',
+          position: 'right',
         }
       ]
     },
     "image": "/resources/images/general/GamaPlatform.png",
     "footer": {
-      "links": [],
-      "copyright": "2022 GAMA-Platform",
+      links: [
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'Github',
+              href: 'https://github.com/gama-platform',
+            },
+            {
+              label: 'Facebook',
+              href: 'https://www.facebook.com/GamaPlatform/',
+            },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/gamaplatform',
+            },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/gama-platform',
+            },
+            {
+              label: 'Youtube',
+              href: 'https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ',
+            },
+            {
+              label: 'Blog RSS',
+              href: 'https://gama-platform.org/blog/feed',
+            }
+          ],
+        },
+        {
+          title: 'Mailing list',
+          items: [
+            {
+              label: 'Style Guide',
+              to: 'docs/',
+            },
+            {
+              label: 'Second Doc',
+              to: 'docs/doc2/',
+            },
+          ],
+        },
+        {
+          title: 'Licence',
+          items: [
+            {
+              html: `
+                  <p>
+                    Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+                  </p>
+                `,
+            },
+            {
+              html: `
+                  <p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p>
+                `,
+            }
+          ],
+        }
+      ],
+      "copyright": "Copyright (C) - 2022 GAMA-Platform.",
       "logo": {
         "src": "img/gama-logo.png"
       }
