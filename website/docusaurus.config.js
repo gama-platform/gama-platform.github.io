@@ -56,7 +56,10 @@ module.exports={
           "showLastUpdateAuthor": true,
           "showLastUpdateTime": true,
           "path": "../docs",
-          "sidebarPath": "../website/sidebars.json"
+          routeBasePath: 'wiki',
+          "sidebarPath": "../website/sidebars.json",
+          editUrl: ({docPath}) => `https://github.com/gama-platform/gama/wiki/${docPath.slice(0, -3)}/_edit`,
+          editCurrentVersion: true
         },
         "blog": {
           "path": "blog"
@@ -76,12 +79,12 @@ module.exports={
       },
       "items": [
         {
-          "to": "docs/Home",
+          "to": "wiki/Home",
           "label": "Documentation",
           "position": "left"
         },
         {
-          "to": "docs/Tutorials",
+          "to": "wiki/Tutorials",
           "label": "Tutorials",
           "position": "left"
         },
@@ -91,8 +94,13 @@ module.exports={
           "position": "left"
         },
         {
-          "to": "docs/Contribute",
+          "to": "wiki/Contribute",
           "label": "Contribute",
+          "position": "left"
+        },
+        {
+          "to": "/blog",
+          "label": "Blog",
           "position": "left"
         },
         {
