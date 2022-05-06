@@ -96,11 +96,11 @@
 <p><img src="/resources/images/runningExperiments/batch_Parameters_pane_exhaustive.png" alt="The batch UI for an exhaustive exploration method."></p>
 <p>The interface summarises all model parameters and the parameters given to the exploration method:</p>
 <ul>
-<li><strong>Environment and Population</strong>: displays all the model parameters that should not be explored.</li>
+<li><strong>Environment and Population</strong>: displays all the model parameters that should not be explored. Those parameters must be initialized with a fixed value when they are defined in the <code>experiment</code>.</li>
 <li><strong>Parameters to explore</strong>: the parameters to explore are the parameters defined in the experiment with a range of values (with <code>among</code> facet or <code>min</code>, <code>max</code> and <code>step</code> facets);</li>
-<li><strong>Exploration method</strong>: it summarises the Exploration method and the stop condition. For the exhaustive method, it also computes the parameter space. For other methods, it also displays the method parameters (e.g. mutation or crossover probability...). Finally, the best and the last fitnesses found are displayed (with the associated parameter set).</li>
+<li><strong>Exploration method</strong>: it displays information about the exploration method and the stop condition. It displays the size of the parameter space in the case of the exhaustive method, and different parameters (e.g. mutation or crossover probability...) for other methods. Finally, the best and the last fitnesses found are shown, along with the associated parameter sets.</li>
 </ul>
-<p>The following interface with the same experiment as previously, with only one difference: the exploration method is <a href="ExplorationMethods#genetic-algorithm">the <code>genetic</code> method</a>.</p>
+<p>The following interface corresponds to the same experiment as previously, but with <a href="ExplorationMethods#genetic-algorithm">the <code>genetic</code> exploration method</a>.</p>
 <pre><code class="hljs"><span class="hljs-builtin">experiment</span> Batch <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 2 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> (food_gathered = food_placed) or (time &gt; 400) {
    <span class="hljs-comment">// [Parameters]</span>
    method <span class="hljs-keyword">genetic</span> <span class="hljs-symbol">maximize:</span> food_gathered;

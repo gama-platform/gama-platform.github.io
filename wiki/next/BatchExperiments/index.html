@@ -79,7 +79,7 @@
 <p>Batch experiments have the following three facets:</p>
 <ul>
 <li><code>until</code>: (expression) Specifies when to stop each simulation. Its value is a condition on variables defined in the model. The run will stop when the condition is evaluated to true. If omitted, the first simulation run will go forever, preventing any subsequent run to take place (unless a halt command is used in the model itself).</li>
-<li><code>repeat</code>: (integer) A parameter configuration corresponds to a set of values assigned to each parameter. The attribute repeat specifies the number of times each configuration will be repeated, meaning that as many simulations will be run with the same parameter values. Different random seeds are given to the pseudo-random number generator. This allows to get some statistical power from the experiments conducted. The default value is 1.</li>
+<li><code>repeat</code>: (integer) Specifies the number of simulations replications for each parameter configuration (a set of values assigned to the parameters). This means that several simulation will be run with the same parameter values, however a different random seed will be used for the pseudo-random number generator for each simulation. This allows to get some statistical power from the experiments conducted for stochastic models. The default value is 1.</li>
 <li><code>keep_seed</code>: (boolean) If true, the same series of random seeds will be used from one parameter configuration to another. The default value is false.</li>
 </ul>
 <pre><code class="hljs"><span class="hljs-builtin">experiment</span> my_batch_experiment <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 5 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> (cycle = 300) {
@@ -89,8 +89,8 @@
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="action-_step_-and-reflexes"></a><a href="#action-_step_-and-reflexes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Action <code>_step_</code> and reflexes</h2>
 <p>As for any species, <code>experiment</code> can define as many <code>reflex</code> as needed. In a <code>batch</code> experiment, they will be executed at the end of each bunch of simulations (set of replications) for a given parameters configuration. Note that at the experiment level, you have access to all the species and all the global variables and to all the simulations (variable <code>simulations</code>).</p>
-<p>To be complete, in fact, each experiment (as any agent) will call at each step (i.e. the end of the replications set) the <code>_step_</code> action: this action is in charge of executing the behavior of the experiment agent, that is by default the execution of each of its <code>reflex</code>. So it is also possible to redefine the action <code>_step_</code>, but it will inhibit the reflexes.</p>
-<p>For instance, the following experiment runs the simulation 5 times, and, at the end of the 5 simulations, saves the people agents in a shapefile.</p>
+<p>To be complete, each experiment (as any agent) will call at each step (i.e. the end of the replications set) the <code>_step_</code> action: this action is in charge of executing the behavior of the experiment agent, that is by default the execution of each of its <code>reflex</code>. It is possible to redefine the action <code>_step_</code>, but this should be used with care since this inhibits the reflexes.</p>
+<p>For instance, the following experiment runs the simulation 5 times, and saves the people agents in a single shapefile at the end of the 5 simulations.</p>
 <pre><code class="hljs"><span class="hljs-builtin">experiment</span> <span class="hljs-string">'Run 5 simulations'</span> <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 5 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> ( time &gt; 1000 ) {
     <span class="hljs-literal">int</span> cpt &lt;- 0;
 
@@ -101,8 +101,7 @@
 }
 </code></pre>
 <p>The same can be done using the <code>action _step_ {</code> instead of <code>reflex save_people {</code>.</p>
-<p>But if now we want to save information from the 5 simulations as save 1 shapefile per replication or save aggregated values over the five simulations, we need to use the built-in attribute <code>simulations</code>.</p>
-<p>To save 1 shapefile per simulation run, we thus need to write:</p>
+<p>But if now we want to save information from the 5 simulations and save 1 shapefile per replication, we need to use the built-in attribute <code>simulations</code>. To save 1 shapefile per simulation run, we thus need to write:</p>
 <pre><code class="hljs"><span class="hljs-builtin">experiment</span> <span class="hljs-string">'Run 5 simulations'</span> <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 5 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> ( time &gt; 1000 ) {
     <span class="hljs-builtin">reflex</span> end_of_runs {
     <span class="hljs-literal">int</span> cpt &lt;- 0;
@@ -113,7 +112,7 @@
     }
 }
 </code></pre>
-<p>If now we want to save in a file the average number of infected people over the five simulations.</p>
+<p>If now we want to save in a file aggregated values over the five simulations, such as the average number of infected people over the five simulations, we need to write:</p>
 <pre><code class="hljs"><span class="hljs-builtin">experiment</span> <span class="hljs-string">'Run 5 simulations'</span> <span class="hljs-symbol">type:</span> batch <span class="hljs-symbol">repeat:</span> 5 <span class="hljs-symbol">keep_seed:</span> true <span class="hljs-symbol">until:</span> ( cycle &gt; 1000 ) {
     <span class="hljs-builtin">reflex</span> t {
         <span class="hljs-keyword">save</span> [cycle, simulations mean_of each.nb_infected] <span class="hljs-symbol">to:</span> <span class="hljs-string">"result.txt"</span> <span class="hljs-symbol">type:</span> <span class="hljs-string">"csv"</span>;
