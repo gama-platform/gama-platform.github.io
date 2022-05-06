@@ -168,12 +168,12 @@ module.exports={
           title: 'Mailing list',
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/',
+              label: "For Users: gama-platform@googlegroups.com",
+              to: 'https://groups.google.com/forum/#!forum/gama-platform',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
+              label: 'For Developers: gama-dev@googlegroups.com',
+              to: 'https://groups.google.com/forum/#!forum/gama-dev',
             },
           ],
         },
