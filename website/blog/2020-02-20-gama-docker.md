@@ -1,36 +1,26 @@
 ---
-<!-- Below you'll find a prepared template to create a blog post, but you can find the full official documentation here : -->
-<!-- https://docusaurus.io/docs/en/adding-blog -->
-
-
-<!-- If "true" the post will be accessible only by direct link -->
-<!-- If you want to post it, remove the line below -->
+<!-- Below you'll find a prepared template to create a blog post, but you can find the full official documentation here: "-->"
+<!-- https: "//docusaurus.io/docs/en/adding-blog -->"
+<!-- If "true" the post will be accessible only by direct link -->: ""
+<!-- If you want to post it, remove the line below -->: ""
 unlisted: true
-
 title: GAMA Platform is now on Docker
-
-<!-- Author Part -->
-<!-- Update if you want to put your name, otherwise leave it to default -->
+<!-- Author Part -->: ""
+<!-- Update if you want to put your name, otherwise leave it to default -->: ""
 author: GAMA Team
-authorURL: https://github.com/gama-platform
-
-<!-- If you want to specify your title, position, status... , you can uncomment the entry below and set your status -->
-<!-- This will be display below your name -->
-<!-- authorTitle: Community Manager -->
-
-<!-- An image can be fetched from your FaceBook account, given by the authorFBID (from Facebook) -->
-<!-- Your authorFBID is available in the URL of your FB page: https://www.facebook.com/[authorFBID]-->
+authorURL: "https://github.com/gama-platform"
+<!-- If you want to specify your title, position, status... , you can uncomment the entry below and set your status -->: ""
+<!-- This will be display below your name -->: ""
+<!-- authorTitle: "Community Manager -->"
+<!-- An image can be fetched from your FaceBook account, given by the authorFBID (from Facebook) -->: ""
+<!-- Your authorFBID is available in the URL of your FB page: "https://www.facebook.com/[authorFBID]-->"
 authorFBID: GamaPlatform
-
-<!-- If no FB, put a custom link below for your Personal Profile -->
-authorImageURL: 
-
-<!-- To be linked on twitter if someone share your link -->
-<!-- @[authorTwitter] // ex: @gamaplatform -->
+<!-- If no FB, put a custom link below for your Personal Profile -->: ""
+<!-- To be linked on twitter if someone share your link -->: ""
+<!-- @[authorTwitter] // ex: "@gamaplatform -->"
 authorTwitter: gamaplatform
-
-<!-- Tags/Categories will be used in the next version (v2) of the Docusaurus framework -->
-<!-- but they can already be specified in your article header.-->
+<!-- Tags/Categories will be used in the next version (v2) of the Docusaurus framework -->: ""
+<!-- but they can already be specified in your article header.-->: ""
 tags: [docker, headless, release]
 ---
 
