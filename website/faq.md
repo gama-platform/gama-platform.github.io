@@ -87,7 +87,8 @@ Nevertheless, GAMA provides several ways to speed up simulations runs, e.g. by m
 
 If you aim at reproductibility, you need to reduce as many as possible all the sources of uncertainty.
   * Set the random number generator seed (give a given value to the model `seed` global attribute).
-  * Reduce the parallel execution of agents' behaviors.
+  * Reduce the parallel execution of agents' behaviors. 
+    * remove all the explicity parallel execution, in particular remove / set to  false all the `parallel` facets (e.g. in the loop, ask...).
     * Set the values of some dedicated preferences to remove automatic parallel executions. This can be done in the experiment block.
 ```
 experiment 'any exp' {
@@ -103,7 +104,6 @@ experiment 'any exp' {
   }
 }
 ```
-    * remove all the explicity parallel executioin, in particular remove / set to  false all the `parallel` facets (e.g. in the loop, ask...).
   * Displays are computed independently from the simulation, and in parallel. Limit computation and model moddifications in the aspects.
     * Remove any modification of the model in the aspects.
     * Do not use  any random operators in the aspectss (e.g. `rnd`, `one_of`, `any` ...).
