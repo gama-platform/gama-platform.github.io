@@ -282,7 +282,7 @@ global {
         <span class="hljs-keyword">monitor</span> <span class="hljs-string">"Infected people rate"</span> <span class="hljs-symbol">value:</span> infected_rate;
         <span class="hljs-keyword">display</span> map_3D <span class="hljs-symbol">type:</span> opengl {
             <span class="hljs-keyword">light</span> #ambient <span class="hljs-symbol">intensity:</span> 20;
-            <span class="hljs-keyword">light</span> #<span class="hljs-keyword">default</span> <span class="hljs-symbol">intensity:</span>(is_night ? 0 : 127);
+            <span class="hljs-keyword">light</span> #<span class="hljs-keyword">default</span> <span class="hljs-symbol">intensity:</span>(is_night ? 127 : 255);
             <span class="hljs-keyword">image</span> <span class="hljs-string">"../includes/soil.jpg"</span>;
             <span class="hljs-literal">species</span> road;
             <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span> sphere3D;
