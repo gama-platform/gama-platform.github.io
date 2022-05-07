@@ -54,7 +54,7 @@ function HomeSplash() { //} extends React.Component {
             <Button href={docUrl('Home')} className="button button--outline button--danger" customStyle={{"textAlign": "center"}}>Documentation</Button>
           </div>
           <div className="col col--2" style={{float: "left",display: "flex"}} >
-              <Button href={docUrl('Tutorials')} className="button button--outline button--primary" customStyle={{"textAlign": "center"}}>Tutorial</Button>
+              <Button href={docUrl('Tutorials')} className="button button--outline button--primary" customStyle={{"textAlign": "center"}}>Tutorials</Button>
           </div>
         </div>
         
