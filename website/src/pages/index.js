@@ -18,12 +18,6 @@ function HomeSplash() { //} extends React.Component {
   const FlexContainer = props => ( <div className="container"> {props.children} </div> );
   const FlexItem = props => ( <div className={`col${props.size} ${props.className}`}>{props.children}</div> );
 
-  const Logo = props => (
-    <div className="projectLogo">
-      <img src={props.src} alt="Project Logo" />
-    </div>
-  );
-
   const Button = props => (
     <div style={props.customStyle}>
       <a className={props.className} href={props.href} target={props.target} style={{fontSize: "24px"}} >
@@ -36,7 +30,7 @@ function HomeSplash() { //} extends React.Component {
     <div>
 
       <div className="row firstLine">
-        <FlexItem className="logoItem" size="--12 col">
+        <FlexItem className="" size="--12 col">
             <div className="" style={{textAlign: "center"}} >
 
               <a href={`${useBaseUrl("download")}`} >
@@ -83,59 +77,17 @@ export default function Hello() {
       .row {
         padding-top: 10vh;
       }
-
-      .projectLogo img{ 
-        width: auto; 
-        max-height: 250px;
-      }
-
+      
       .firstLine .col{
         margin: 0 3em;
       }
 
       /*  One Screen  */
-      /*.fixedHeaderContainer, footer{ display: none; }*/
-      .navPusher{ padding: 0; }
-
-      html { 
-        background-color: black;
-      }
-
-      footer {
-        display: none;
-      }
-
-      .projectTitle {
-        text-align: left;
-        color: white;
-      }
-      .projectTitle small {
-        margin: 1.5em 0;
-        text-align: justify;
-      }
-      .promoSection { margin: 3em 0; }
-
-      .projectLogo {
-        position: inherit !important;
-        padding: 0 !important;
-      }
+      html { background-color: black; }
+      footer { display: none; }
 
       /*  BUTTONS */
       .button { border-width: 2px;font-weight: bold; }
-
-      .fLeft,   .fRight  > div {
-        float: right;
-      }
-      .promoSection .promoRow .pluginRowBlock {
-        justify-content: flex-start !important;
-      }
-      .fRight {
-        padding-right: 71px;
-      }
-
-      .logoItem {
-        text-align: right;
-      }
 
       #back-to-top {
         display: none;
