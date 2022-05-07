@@ -116,7 +116,7 @@
 <li><strong><code>max_acceleration</code></strong>: float; maximal acceleration of the vehicle.</li>
 <li><strong><code>max_speed</code></strong>: float; maximal speed of the vehicle.</li>
 <li><strong><code>right_side_driving</code></strong>: boolean; do drivers drive on the right side of the road?</li>
-<li><strong><code>speed_coef</code></strong>: float; coefficient that defines if the driver will try to drive above or below the speed limits.</li>
+<li><strong><code>speed_coeff</code></strong>: float; coefficient that defines if the driver will try to drive above or below the speed limits.</li>
 <li><strong><code>safety_distance_coeff</code></strong>: float; coefficient for the security distance. The security distance will depend on the driver speed and on this coefficient.</li>
 <li><strong><code>proba_lane_change_up</code></strong>: float; probability to change lane to an upper lane if necessary (and if possible).</li>
 <li><strong><code>proba_lane_change_down</code></strong>: float; probability to change lane to a lower lane if necessary (and if possible).</li>
@@ -124,6 +124,21 @@
 <li><strong><code>proba_respect_priorities</code></strong>: float; probability to respect left/right (according to the driving side) priority at intersections.</li>
 <li><strong><code>proba_respect_stops</code></strong>: list of float; probabilities to respect each type of stop signals (traffic light, stop sign...).</li>
 <li><strong><code>proba_block_node</code></strong>: float; probability to accept to block the intersecting roads to enter a new road.</li>
+<li><strong><code>lane_change_cooldown</code></strong>: float;  the duration that a vehicle must wait before changing lanes again</li>
+<li><strong><code>max_safe_deceleration</code></strong>: float;  the maximum deceleration that the vehicle is willing to induce on its back vehicle when changing lanes. Known as the parameter 'b_save' in the MOBIL lane changing model</li>
+<li><strong><code>min_safety_distance</code></strong>: float; the minimum distance of the vehicle's front bumper to the leading vehicle's rear bumper, known as the parameter
+s0 in the Intelligent Driver Model</li>
+<li><strong><code>lane_change_limit</code></strong>: int; the maximum number of lanes that the vehicle can change during a simulation step</li>
+<li><strong><code>acc_gain_threshold</code></strong>: float; the minimum acceleration gain for the vehicle to switch to another lane, introduced to prevent frantic lane changing. Known as the parameter 'a_th' in the MOBIL lane changing model</li>
+<li><strong><code>linked_lane_limit</code></strong>: int; the maximum number of linked lanes that the vehicle can use; the default value is -1, i.e. the vehicle can use all available linked lanes</li>
+<li><strong><code>ignore_oneway</code></strong>: bool; if set to <code>true</code>, the vehicle will be able to violate one-way traffic rule</li>
+<li><strong><code>lowest_lane</code></strong>: int; the lane with the smallest index that the vehicle is in</li>
+<li><strong><code>acc_bias</code></strong>: float; the bias term used for asymmetric lane changing, parameter 'a_bias' in MOBIL</li>
+<li><strong><code>allowed_lanes</code></strong>: list of int; a list containing possible lane index values for the attribute lowest_lane</li>
+<li><strong><code>time_headway</code></strong>: float; the time gap that to the leading vehicle that the driver must maintain. Known as the parameter 'T' in the Intelligent Driver Model</li>
+<li><strong><code>delta_idm</code></strong>: float; the exponent used in the computation of free-road acceleration in the Intelligent Driver Model</li>
+<li><strong><code>max_deceleration</code></strong>: float; the maximum deceleration of the vehicle. Known as the parameter 'b' in the Intelligent Driver Model</li>
+<li><strong><code>politeness_factor</code></strong>: float; determines the politeness level of the vehicle when changing lanes. Known as the parameter 'p' in the MOBIL lane changing model</li>
 </ul>
 <p>It provides as well the driver agents with several read-only variables:</p>
 <ul>
