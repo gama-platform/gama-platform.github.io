@@ -53,8 +53,8 @@ module.exports={
       "@docusaurus/preset-classic",
       {
         "docs": {
-          "showLastUpdateAuthor": true,
-          "showLastUpdateTime": true,
+          "showLastUpdateAuthor": false,
+          "showLastUpdateTime": false,
           "path": "../docs",
           routeBasePath: 'wiki',
           "sidebarPath": "../website/sidebars.json",
