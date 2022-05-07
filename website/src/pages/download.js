@@ -16,7 +16,7 @@ export default function Download() {
 
   const ButtonHover = props => (
     <div class="dropdown dropdown--hoverable col col--12">
-      <button className={`button button--outline button--${props.buttonColor}`}>{props.buttonTxt}</button>
+      <a href={props.href} className={`button button--outline button--${props.buttonColor}`}>{props.buttonTxt}</a>
       <ul class="dropdown__menu">
         <li>
           <span className="dropdown__link">
@@ -68,7 +68,7 @@ export default function Download() {
         .dropdown__link:hover {
           background-color: inherit;
         }
-        .button{
+        .button {
           width: 65%;;
           margin: .5em auto;
         }
