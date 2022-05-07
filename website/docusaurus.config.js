@@ -116,13 +116,13 @@ module.exports={
           "items": [
             {
               "label": "1.8.1",
-              "to": "docs/",
-              "activeBaseRegex": "docs/(?!1.8.1|next)"
+              "to": "wiki/",
+              "activeBaseRegex": "wiki/(?!1.8.1|next)"
             },
             {
               "label": "Main/Unreleased",
-              "to": "docs/next/",
-              "activeBaseRegex": "docs/next/(?!support|team|resources)"
+              "to": "wiki/next/",
+              "activeBaseRegex": "wiki/next/(?!support|team|resources)"
             }
           ]
         },
