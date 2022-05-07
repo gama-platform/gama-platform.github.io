@@ -7,3 +7,9 @@
   --ifm-color-primary-darker: #2E5F88;
   --ifm-color-primary-darkest: #264E70;
 }
+
+:root {
+  --ifm-color-warning: #eeb64f;
+  --ifm-color-danger: #d36737;
+  --ifm-color-primary: #3271a1;
+}
