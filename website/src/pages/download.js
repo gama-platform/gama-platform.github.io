@@ -7,212 +7,149 @@
  
 import React from 'react';
 import Layout from '@theme/Layout';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-const Container = CompLibrary.Container;
-const GridBlock = CompLibrary.GridBlock;
+export default function Download() {
+  const {siteConfig} = useDocusaurusContext();
+  const docUrl = doc => `${useBaseUrl(siteConfig.routeBasePath)}/${doc}`;
 
-function Download(props) {
-  const {config: siteConfig} = props;
-
-  const FlexContainer = props => ( <div className="gridBlock"> {props.children} </div> );
-  const FlexItem = props => ( <div className="blockElement imageAlignTop threeByGridBlock">{props.children}</div> );
-
-  const Button = props => (
-    <div className="pluginWrapper buttonWrapper">
-      <a className={props.className} href={props.href} target={props.target}>
-        {props.children}
-      </a>
+  const ButtonHover = props => (
+    <div class="dropdown dropdown--hoverable col col--12">
+      <button className={`button button--outline button--${props.buttonColor}`}>{props.buttonTxt}</button>
+      <ul class="dropdown__menu">
+        <li>
+          <span className="dropdown__link">
+            {props.children}</span>
+        </li>
+      </ul>
     </div>
   );
 
+  const Button = props => (
+    <button className={`button button--outline button--${props.buttonColor}`}>
+      <a href={`${props.href}`} target="_blank">{props.children}</a></button>
+  );
+
   const OsBlock = props => (
-    <div className="blockElement imageAlignTop twoByGridBlock">
+    <div className="blockElement imageAlignTop col col--6" style={{marginTop:"3em", textAlign: "center"}}>
       <div className="blockImage">
         <img src={props.src} alt={props.os} ></img>
       </div>
       <div className="blockContent">
         <h2>{props.os}</h2>
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.${props.zipExtension}`} className="button buttonRed">Default installer ({props.zipSize} MB)
-              <span className="tooltiptext">This is the easiest version to run. Run installer and start GAMA.</span>
-            </Button>
-            <Button href={`https://github.com/gama-platform/gama/releases/tag/${props.version}`} className="button buttonBlue" target="_blank">More installer
-              <span className="tooltiptext">GAMA is distibuted in various format, feel free to check then.<br/><b>Use this only if you know what you do.</b></span>
-            </Button>
-            <Button href="https://github.com/gama-platform/gama/releases/tag/1.8.2" className="button buttonOrange">Alpha Version
-              <span className="tooltiptext">This is the <b>in-development version</b> of GAMA. It can be broken or have some issues.<br/>Install this version if you feel adventurous.</span>
-            </Button>
+            <ButtonHover href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.${props.zipExtension}`} buttonTxt={`Default installer (${props.zipSize} MB)`} buttonColor="warning">This is the easiest version to run. Run installer and start GAMA.
+            </ButtonHover>
+            <ButtonHover href={`https://github.com/gama-platform/gama/releases/tag/${props.version}`} buttonColor="danger" buttonTxt="More installer" target="_blank">GAMA is distibuted in various format, feel free to check then.<br/><b>Use this only if you know what you do.</b>
+            </ButtonHover>
+            <ButtonHover href="https://github.com/gama-platform/gama/releases/tag/1.8.2" buttonColor="primary" buttonTxt="Alpha Version">This is the <b>in-development version</b> of GAMA. It can be broken or have some issues.<br/>Install this version if you feel adventurous.
+            </ButtonHover>
       </div>
     </div>
   );
 
-  const OsGrid = props => (
-    <FlexContainer>
-      <OsBlock src="img/windows-logo.svg" os="Windows" version={props.version} zipName={props.zipName} zipOS='Windows' zipExtension='exe' zipSize='300' />
-      <OsBlock src="img/linux-logo.svg" os="Linux" version={props.version} zipName={props.zipName} zipOS='Linux' zipExtension='deb' zipSize='400' />
-      <OsBlock src="img/apple-logo.svg" os="MacOS (Intel)" version={props.version} zipName={props.zipName} zipOS='MacOS' zipExtension='dmg' zipSize='670' />
-      <OsBlock src="img/apple-M1-logo.svg" os="MacOS (Apple Silicon)" version={props.version} zipName={props.zipName} zipOS='MacOS_M1' zipExtension='dmg' zipSize='670' />
-    </FlexContainer>
-  );
-
-  const Design = props => (    
-    <style dangerouslySetInnerHTML={{__html: `
-      .container {
-        display:  inline-flex;
-        align-items: center;
-      }
-      .button {
-        margin-bottom: 1em;
-        text-align: center;
-
-        /* Tooltip */
-        position: relative;
-        display: inline-block;
-      }
-      /* Tooltip text */
-      .button .tooltiptext {
-        visibility: hidden;
-        width: 100%;
-        background-color: #555;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-        text-transform: none;
-
-        /* Position the tooltip text */
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 0%;
-
-        /* Fade in tooltip */
-        opacity: 0;
-        transition: opacity 0.3s;
-        padding: 1em;
-      }
-
-      /* Tooltip arrow */
-      .button .tooltiptext::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: #555 transparent transparent transparent;
-      }
-
-      /* Show the tooltip text when you mouse over the tooltip container */
-      .button:hover .tooltiptext {
-        visibility: visible;
-        opacity: 1;
-      }
-      .gridBlock {
-        text-align: center;
-      }
-      .blockImage {
-        margin: 0 auto 20px auto;
-      }
-      @media only screen and (min-width: 1024px) {
-        .button { width: 75%; }
-        .gridBlock { padding-top: 1.5em; }
-      }
-      @media only screen and (max-width: 1023px) { 
-        .button { width: 100%; }
-      }
-      .buttonGray:hover{ background: #bbb; }
-      .buttonGray {
-        border-color: #bbb;
-        color: #bbb;
-      }
-      .smallButton {
-        width: auto;
-      }
-      a.disabled {
-        pointer-events: none;
-      }
-      .imageAlignTop .blockImage {
-        max-width: 100%;
-      }
-      .imageAlignTop .blockImage img {
-        max-height: 80px;
-      }
-    `}} />
-  );
-
   return (
-    <div className="docMainWrapper wrapper">
-      <Design />
-      <Container className="mainContainer documentContainer postContainer">
-        <div className="post">
-          <header className="postHeader">
-            <h1>Download latest version (currently <a href="https://github.com/gama-platform/gama/releases/latest" target="_blank">version {siteConfig.downloadVersion}</a>)</h1>
-          </header>
-          <p>The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the latest alpha (unstable) release.</p>
-          <OsGrid version={siteConfig.downloadVersion} zipName={siteConfig.zipName} />
+    <Layout>
 
+      <style dangerouslySetInnerHTML={{__html: `
+        .row {
+          margin-top: 1.5em;
+        }
+        .main-wrapper {
+          padding: 40px 0;
+        }
+        .blockImage {
+          max-width: 100%;
+          margin: 0 auto 20px auto;
+        }
+        .blockImage img {
+          max-height: 80px;
+        }
+        .dropdown__link:hover {
+          background-color: inherit;
+        }
+        .button{
+          width: 65%;;
+          margin: .5em auto;
+        }
+        .button a { color: inherit }
+        .row img {
+          -webkit-filter: drop-shadow( 0px 0px 5px rgb(255, 255, 255));
+          filter: drop-shadow( 0px 0px 5px rgb(255, 255, 255));
+        }
+
+        #release > .col {
+          margin-top: 3em;
+        }
+      `}} />
+
+      <div className="container">
+
+        <div className="row">
+          <div className="col col--12">
+            <header className="postHeader">
+              <h1>Download stable version <span style={{fontSize: "medium"}}>(currently <a href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} target="_blank">version {siteConfig.customFields.downloadVersion}</a>)</span></h1>
+            </header>
+            <p>The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the latest alpha (unstable) release.</p>
+          </div>
         </div>
-        <div className="post">
-            <FlexContainer>
-              <div className="blockElement imageAlignTop threeByGridBlock">
-                <div className="blockContent">
-                  <h2>Documentation</h2>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMA${siteConfig.downloadVersion}.pdf`} className="button buttonRed">GAMA {siteConfig.downloadVersion} PDF (~ 22 MB)
-                    <span class="tooltiptext">This is the <b>offline GAMA {siteConfig.downloadVersion} documentation</b> ready to be download in a PDF file.</span>
-                  </Button>
-                </div>
-              </div>
 
-              <div className="blockElement imageAlignTop threeByGridBlock">
-              </div>
+        <div id="release" className="row">
+          <OsBlock src="img/windows-logo.svg" os="Windows" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Windows' zipExtension='exe' zipSize='300' />
+          <OsBlock src="img/linux-logo.svg" os="Linux" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Linux' zipExtension='deb' zipSize='400' />
+          <OsBlock src="img/apple-logo.svg" os="MacOS (Intel)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS' zipExtension='dmg' zipSize='670' />
+          <OsBlock src="img/apple-M1-logo.svg" os="MacOS (Apple Silicon)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS_M1' zipExtension='dmg' zipSize='670' />
 
-              <div className="blockElement imageAlignTop threeByGridBlock"></div>
-            </FlexContainer>
+          <div className="blockElement imageAlignTop col col--6" style={{marginBottom:"3em", textAlign: "center"}}>
+            <div className="blockContent">
+              <h2>Documentation</h2>
+              <ButtonHover href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMA${siteConfig.downloadVersion}.pdf`} buttonTxt={`GAMA ${siteConfig.customFields.downloadVersion} PDF (~ XXX MB)`} buttonColor="warning">This is the <b>offline GAMA {siteConfig.downloadVersion} documentation</b> ready to be download in a PDF file.
+              </ButtonHover>
+            </div>
+          </div>
         </div>
 
-        <div className="post">
-            <h2>Older documentation</h2>
-            <p>Below is the list to the <strong>PDF documentations</strong> of the <strong>previous versions of GAMA</strong>. You may also browse some <a href="https://gama-platform.org/versions">here</a>.</p>
-
-            <FlexContainer>
-              <div className="blockElement imageAlignTop threeByGridBlock">
-                <div className="blockContent">
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv1.8.1.pdf`} className="button buttonRed">GAMA 1.8.1 (~ 22 MB)
-                  </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv1.8.0.pdf`} className="button buttonBlue">GAMA 1.8.0 (~ 34 MB)
-                  </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv17.pdf`} className="button buttonOrange">GAMA 1.7 (~ 17 MB)
-                  </Button>
-                </div>
-              </div>
-
-              <div className="blockElement imageAlignTop threeByGridBlock">
-                <div className="blockContent">
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv161.pdf`} className="button buttonRed">GAMA 1.6.1 (~ 13 MB)
-                  </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv16.pdf`} className="button buttonBlue">GAMA 1.6 (~ 13 MB)
-                  </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv151.pdf`} className="button buttonOrange">GAMA 1.5.1 (~ 2 MB)
-                  </Button>
-                </div>
-              </div>
-
-              <div className="blockElement imageAlignTop threeByGridBlock">
-                <div className="blockContent">
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv14.pdf`} className="button buttonRed">GAMA 1.4 (> 1 MB)
-                  </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv13.pdf`} className="button buttonBlue">GAMA 1.3 (~ 2 MB)
-                  </Button>
-                  <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv11.pdf`} className="button buttonOrange">GAMA 1.1 (~ 1 MB)
-                  </Button>
-                </div>
-              </div>
-            </FlexContainer>
+        <div className="row">
+          <div className="col col--12">
+            <header className="postHeader">
+              <h2>Older documentation</h2>
+            </header>
+            <p>Below is the list to the <strong>PDF documentations</strong> of the <strong>previous versions of GAMA</strong>.</p>
+          </div>
         </div>
-      </Container>
-    </div>
+
+        <div className="row" style={{textAlign: "center"}}>
+          <div className="col">
+              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv181.pdf`} buttonColor="warning">GAMA 1.8.1 (~ 22 MB)
+              </Button>
+              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv1.8.0.pdf`} buttonColor="danger">GAMA 1.8.0 (~ 34 MB)
+              </Button>
+              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv17.pdf`} buttonColor="primary">GAMA 1.7 (~ 17 MB)
+              </Button>
+          </div>
+
+          <div className="col">
+              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv161.pdf`} buttonColor="warning">GAMA 1.6.1 (~ 13 MB)
+              </Button>
+              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv16.pdf`} buttonColor="danger">GAMA 1.6 (~ 13 MB)
+              </Button>
+              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv151.pdf`} buttonColor="primary">GAMA 1.5.1 (~ 2 MB)
+              </Button>
+          </div>
+
+          <div className="col">
+                <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv14.pdf`} buttonColor="warning">GAMA 1.4 (> 1 MB)
+                </Button>
+                <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv13.pdf`} buttonColor="danger">GAMA 1.3 (~ 2 MB)
+                </Button>
+                <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv11.pdf`} buttonColor="primary">GAMA 1.1 (~ 1 MB)
+                </Button>
+          </div>
+        </div>
+
+      </div>
+
+    </Layout> 
+
   );
 }
-
-module.exports = Download;
