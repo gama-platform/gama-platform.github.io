@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Defining 3D Displays · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[//]: # (startConcept|3d_displays)"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Defining 3D Displays · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="[//]: # (startConcept|3d_displays)"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Defining 3D Displays · GAMA-Platform</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## OpenGL display"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Defining 3D Displays · GAMA-Platform"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gama-platform.org/"/><meta property="og:description" content="## OpenGL display"/><meta property="og:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://gama-platform.org//resources/images/general/GamaPlatform.png"/><link rel="shortcut icon" href="/img/gama-logo.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://gama-platform.org/blog/atom.xml" title="GAMA-Platform Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://gama-platform.org/blog/feed.xml" title="GAMA-Platform Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script type="text/javascript" src="/js/searchEngine.js"></script><script type="text/javascript" src="/js/dark.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
@@ -60,28 +60,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Defining 3D Displays</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="table-of-contents"></a><a href="#table-of-contents" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Table of contents</h2>
-<ul>
-<li><a href="#opengl-display">OpenGL display</a>
-<ul>
-<li><a href="#position">Position</a></li>
-<li><a href="#size">Size</a></li>
-</ul></li>
-<li><a href="#camera">Camera</a></li>
-<li><a href="#dynamic-camera">Dynamic camera</a>
-<ul>
-<li><a href="#camera-position">Camera position</a></li>
-<li><a href="#camera-direction-look-position">Camera direction (Look Position)</a></li>
-<li><a href="#camera-orientation-up-vector">Camera orientation (Up Vector)</a>
-<ul>
-<li><a href="#default-view">Default view</a></li>
-<li><a href="#first-person-view">First person view</a></li>
-<li><a href="#third-person-view">Third Person view</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#lighting">Lighting</a></li>
-</ul>
-<h2><a class="anchor" aria-hidden="true" id="opengl-display"></a><a href="#opengl-display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OpenGL display</h2>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Defining 3D Displays</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="opengl-display"></a><a href="#opengl-display" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OpenGL display</h2>
 <p>The use an OpenGL display, we have to define the attribute <code>type</code> of the display with <code>type:opengl</code> in the chosen <code>display</code> of your model (or use the preferences-&gt;display windows to use it by default):</p>
 <pre><code class="hljs"><span class="hljs-keyword">output</span> {
     <span class="hljs-keyword">display</span> DisplayName <span class="hljs-symbol">type:</span> opengl {
@@ -89,154 +68,20 @@
     }
 }
 </code></pre>
-<p>The OpenGL display shares most of the features that the java2D offers and that are described <a href="DefiningDisplaysGeneralities">here</a>.</p>
-<p>Using 3D display offers much more options to draw and show a simulation. A layer can be positioned and scaled in a 3D world. It is possible to superpose layers on different z value and display different information on the model at different positions on the screen.</p>
-<h3><a class="anchor" aria-hidden="true" id="position"></a><a href="#position" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>position</code></h3>
-<p>Layers can be drawn on a different location (x,y, and z) using the <code>position</code> facet.</p>
-<h3><a class="anchor" aria-hidden="true" id="size"></a><a href="#size" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>size</code></h3>
-<p>Layers can be drawn with a different size (x,y, and z) using the <code>size</code> facet.</p>
-<p>Here is an example of a display using all the previous facet (experiment to add to the model <code>Incremental Model 5</code> with a new <code>aspect</code> for the <code>building</code> species). You can also dynamically change those value by modifying the sidebar in the display.</p>
-<pre><code class="hljs"><span class="hljs-comment">// Incremental Model 05.gaml</span>
-
-<span class="hljs-literal">species</span> building {
-    <span class="hljs-literal">float</span> height &lt;- 10#m + rnd(10) #m;
-    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
-    <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> #grey  <span class="hljs-symbol">depth:</span> height;
-    }
-    <span class="hljs-keyword">aspect</span> infection {
-    <span class="hljs-keyword">draw</span> shape <span class="hljs-symbol">color:</span> (people overlapping self) one_matches(each.is_infected)? #red : #green  <span class="hljs-symbol">depth:</span> height;
-    }   
-}
-
-<span class="hljs-builtin">experiment</span> main_experiment <span class="hljs-symbol">type:</span>gui{
-    <span class="hljs-keyword">output</span> {
-    <span class="hljs-keyword">display</span> map_3D <span class="hljs-symbol">type:</span> opengl {
-        <span class="hljs-literal">species</span> road ;
-        <span class="hljs-literal">species</span> road <span class="hljs-symbol">size:</span> {0.3,0.3,0.3};           
-        <span class="hljs-literal">species</span> building <span class="hljs-symbol">transparency:</span> 0.5;
-        <span class="hljs-literal">species</span> building <span class="hljs-symbol">aspect:</span> infection <span class="hljs-symbol">size:</span> {0.3,0.3} <span class="hljs-symbol">position:</span> {0.7,0.0,0.0};
-        <span class="hljs-literal">species</span> people <span class="hljs-symbol">aspect:</span>sphere3D;             
-    }
-    }
-}
-</code></pre>
-<p><img src="/resources/images/definingGUIExperiment/displays3D_postion_size.png" alt="Illustration of the position and size facets on a 3D display."></p>
-<h2><a class="anchor" aria-hidden="true" id="camera"></a><a href="#camera" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Camera</h2>
-<p>GAMA platform provides 2 ways of controlling the camera: <a href="Displays#arcball-camera-commands">Arcball Camera</a>
-and <a href="Displays#freefly-camera-commands">FreeFly Camera</a>, that can be activated from the <a href="#Preferences">Preferences window</a> or from the display sidebar.</p>
-<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=rMIVQlul1Ag"><img src="/resources/images/definingGUIExperiment/displays3D_camera_youtube_image.jpg" alt="Demonstration of the various camera possibilities of the GAMA Platform."></a></p>
-<h2><a class="anchor" aria-hidden="true" id="dynamic-camera"></a><a href="#dynamic-camera" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dynamic camera</h2>
-<p>Users have the possibility to set dynamically the parameters of the camera (observer). The <a href="Displays#opengl-displays">basic camera properties</a> are its <strong>position</strong>, the <strong>direction</strong> in which is pointing, and its <strong>orientation</strong>. Those 3 parameters can be set dynamically at each iteration of the simulation.</p>
-<h3><a class="anchor" aria-hidden="true" id="camera-position"></a><a href="#camera-position" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Camera position</h3>
-<p>The facet <code>camera_pos</code> (expecting a 3D point) places the camera at the given position.
-The default camera position is <code>{world.width/2, world.height/2, world.maxDim * 1.5}</code> to place the camera at the middle of the environment at an altitude that enables to see the entire environment.</p>
-<h3><a class="anchor" aria-hidden="true" id="camera-direction-look-position"></a><a href="#camera-direction-look-position" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Camera direction (Look Position)</h3>
-<p>The facet <code>camera_look_pos</code> (expecting a 3D point) points the camera toward the given position. The default look position is <code>{world.width/2, world.height/2, 0}</code> to look at the center of the environment.</p>
-<h3><a class="anchor" aria-hidden="true" id="camera-orientation-up-vector"></a><a href="#camera-orientation-up-vector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Camera orientation (Up Vector)</h3>
-<p>The camera <code>camera_up_vector</code> (expecting a 3D point) sets the <em>up vector</em> of the camera.
-The <em>up vector</em> direction in your scene is the <em>up</em> direction on your display screen.
-The default value is <code>{0,1,0}</code>.</p>
-<p>Here are some examples that can be done using those 3 parameters. You can test it by running the following model:</p>
-<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=lQVGD8aDKZY"><img src="/resources/images/definingGUIExperiment/displays3D_camera_simu_youtube_image.jpg" alt="Demonstration of the various possibilities of camera controls from the simulation."></a></p>
-<h4><a class="anchor" aria-hidden="true" id="default-view"></a><a href="#default-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default view</h4>
-<pre><code class="hljs"><span class="hljs-keyword">display</span> RealBoids <span class="hljs-symbol">type:</span> opengl {
-    ...     
-}
-</code></pre>
-<h4><a class="anchor" aria-hidden="true" id="first-person-view"></a><a href="#first-person-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>First person view</h4>
-<p>You can set the position as a first person shooter video game using:</p>
-<pre><code class="hljs"><span class="hljs-keyword">display</span> FirstPerson <span class="hljs-symbol">type:</span> opengl
-    <span class="hljs-symbol">camera_pos:</span> {boids(1).location.x,-boids(1).location.y,10} 
-    <span class="hljs-symbol">camera_look_pos:</span> {cos(boids(1).heading)*world.shape.width,-sin(boids(1).heading)*world.shape.height,0} 
-    <span class="hljs-symbol">camera_up_vector:</span> {0.0,0.0,1.0}  {
-       ...
-}
-</code></pre>
-<h4><a class="anchor" aria-hidden="true" id="third-person-view"></a><a href="#third-person-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Third Person view</h4>
-<p>You can follow an agent during a simulation by positioning the camera above it using:</p>
-<pre><code class="hljs"><span class="hljs-keyword">display</span> ThirdPerson <span class="hljs-symbol">type:</span> opengl 
-    <span class="hljs-symbol">camera_pos:</span>{boids(1).location.x,-boids(1).location.y,250}  
-    <span class="hljs-symbol">camera_look_pos:</span>{boids(1).location.x,-boids(1).location.y,boids(1).location.z}  {
-        ...
-} 
-</code></pre>
-<h2><a class="anchor" aria-hidden="true" id="lighting"></a><a href="#lighting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Lighting</h2>
-<p>In a 3D scene once can define light sources. The way how light sources and 3D object interact is called lighting. Lighting is an important factor to render realistic scenes.</p>
-<p>In the real world, the color that we see depend on the interaction between color material surfaces, the light sources and the position of the viewer. There are four kinds of lighting called <em>ambient</em>, <em>diffuse</em>, <em>specular</em> and <em>emissive</em>.</p>
-<p>Gama handles <em>ambient</em> light with the following facets on <code>display</code>:</p>
+<p>The OpenGL display shares most of the features that the java2D offers and that are described <a href="DefiningDisplaysGeneralities">here</a>. Using 3D display offers much more options to draw and show a simulation. A layer can be positioned and scaled in a 3D world. It is possible to superpose layers on different z value and display different information on the model at different positions on the screen.</p>
+<p>Most of the features offers by GAMA in 3D can be found as model example in the model library in the <a href="https://github.com/gama-platform/gama/tree/GAMA_1.8.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization">Visualization and User Interaction/3D Visualization</a></p>
+<p>Such as:</p>
 <ul>
-<li><code>ambient_light</code>: Allows to define the value of the ambient light either using an int (<code>ambient_light: 125</code>) or a rgb color (<code>ambient_light: rgb(255,255,255)</code>). Default is <code>rgb(125,125,125)</code>.</li>
+<li><p>3D Model: Creating a simple model with building in 3D from a GIS file extruded in <a href="https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Building%20Elevation.gaml">Building Elevation.gaml</a></p></li>
+<li><p>Built-in 3D shapes supported by GAMA are described in <a href="https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Built-In%20Shapes.gaml">Built-In Shapes.gaml</a></p></li>
+<li><p>Features related to camera and the way to manipulate it are found in <a href="https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Camera%20Definitions.gaml">Camera Definitions.gaml</a></p></li>
+<li><p>Different point of view can be described on the same simulation and shared by different displays in <a href="https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Camera%20Shared%20Zoom.experiment">Camera Shared Zoom.experiment</a></p></li>
+<li><p>Any GIS file can be visualized in 3D and a texture can be applied to the 3D shape in <a href="https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/GIS%20Visualization.gaml">GIS Visualization.gaml</a></p></li>
+<li><p>GAMA is handling different kind of lighting such as spot lights and point lights as illustrated in <a href="https://github.com/gama-platform/gama/blob/GAMA_1.8.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Lighting.gaml">Lighting.gaml</a></p></li>
+<li><p><a href="https://github.com/gama-platform/gama/blob/GAMA_1.8.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Moving%203D%20object.gaml">Moving 3D object.gaml</a> which shows how to draw a moving objet as a OBJ File and how to apply a 3D rotation on it</p></li>
+<li><p>Specular light can also be defined as illustrated in <a href="https://github.com/gama-platform/gama/blob/GAMA_1.8.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Specular%20effects.gaml">Specular effects.gaml</a></p></li>
 </ul>
-<p>Additional lights can be added in each display using the <code>light</code> statement. GAMA provides 3 types of light, each of them with a <code>color</code> (expecting an rgb expression) and a <code>draw_light</code> (expecting a boolean expression, it will display a representation of the light) facet:</p>
-<ul>
-<li><code>point</code>, similarly to a camera, it is characterized by its location (<code>position</code>) and its orientation (<code>direction</code>).</li>
-<li><code>spot</code>: it is only characterized by a location, diffusing the light in all the directions.</li>
-<li><code>direction</code>: it is only characterized by a direction.</li>
-</ul>
-<pre><code class="hljs"><span class="hljs-builtin">model</span> Tuto3D
-
-global {
-    <span class="hljs-literal">int</span> environmentSize &lt;- 100;
-    <span class="hljs-literal">geometry</span> shape &lt;- cube(environmentSize);
-
-    init {
-    <span class="hljs-keyword">create</span> cells <span class="hljs-symbol">number:</span> 100 {
-        location &lt;- {rnd(environmentSize), rnd(environmentSize), rnd(environmentSize)};
-    }
-    }
-}
-
-<span class="hljs-literal">species</span> cells <span class="hljs-symbol">skills:</span> [<span class="hljs-builtin">moving3D</span>] {
-    <span class="hljs-keyword">aspect</span> <span class="hljs-keyword">default</span> {
-    <span class="hljs-keyword">draw</span> sphere(environmentSize * 0.01) <span class="hljs-symbol">color:</span> #white;
-    }
-}
-
-<span class="hljs-builtin">experiment</span> Tuto3D <span class="hljs-symbol">type:</span> gui {
-    <span class="hljs-keyword">output</span> {
-    <span class="hljs-keyword">display</span> LigthSpot <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">background:</span> <span class="hljs-literal">rgb</span>(10, 40, 55) <span class="hljs-symbol">ambient_light:</span> 0 {
-        <span class="hljs-keyword">light</span> <span class="hljs-symbol">id:</span> 1 <span class="hljs-symbol">type:</span> <span class="hljs-literal">point</span>
-            <span class="hljs-symbol">position:</span> {environmentSize * (0.5 + cos(cycle + 180)), environmentSize * (0.5 + sin(cycle + 180)), environmentSize / 2}  
-            <span class="hljs-symbol">color:</span> #red 
-            <span class="hljs-symbol">draw_light:</span> true;               
-        
-            <span class="hljs-keyword">graphics</span> <span class="hljs-string">"env"</span> {
-        <span class="hljs-keyword">draw</span> cube(environmentSize) <span class="hljs-symbol">color:</span> #black <span class="hljs-symbol">empty:</span> true;
-        }
-
-        <span class="hljs-literal">species</span> cells;
-    }
-    <span class="hljs-keyword">display</span> LightPoint <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">background:</span> <span class="hljs-literal">rgb</span>(10, 40, 55) <span class="hljs-symbol">ambient_light:</span> 0 {
-        <span class="hljs-keyword">light</span> <span class="hljs-symbol">id:</span> 1 <span class="hljs-symbol">type:</span> spot
-        <span class="hljs-symbol">position:</span> {environmentSize * (0.5 + cos(cycle + 180)), environmentSize * (0.5 + sin(cycle + 180)), environmentSize / 2}  
-        <span class="hljs-symbol">direction:</span> {1,1,1} 
-        <span class="hljs-symbol">color:</span> #blue 
-        <span class="hljs-symbol">draw_light:</span> true;           
-        <span class="hljs-keyword">graphics</span> <span class="hljs-string">"env"</span> {
-        <span class="hljs-keyword">draw</span> cube(environmentSize) <span class="hljs-symbol">color:</span> #black <span class="hljs-symbol">empty:</span> true;
-        }
-
-        <span class="hljs-literal">species</span> cells;
-    }
-        
-    <span class="hljs-keyword">display</span> LightDirection <span class="hljs-symbol">type:</span> opengl <span class="hljs-symbol">background:</span> <span class="hljs-literal">rgb</span>(10, 40, 55) <span class="hljs-symbol">ambient_light:</span> 0 {
-        <span class="hljs-keyword">light</span> <span class="hljs-symbol">id:</span> 1 <span class="hljs-symbol">type:</span> direction
-        <span class="hljs-symbol">direction:</span> {1,1,1} 
-        <span class="hljs-symbol">color:</span> #green 
-        <span class="hljs-symbol">draw_light:</span> true;           
-        <span class="hljs-keyword">graphics</span> <span class="hljs-string">"env"</span> {
-        <span class="hljs-keyword">draw</span> cube(environmentSize) <span class="hljs-symbol">color:</span> #black <span class="hljs-symbol">empty:</span> true;
-        }
-
-        <span class="hljs-literal">species</span> cells;
-    }       
-    }
-}
-</code></pre>
-<p><img src="/resources/images/definingGUIExperiment/displays3D_light.png" alt="Illustration of the three kinds of lights."></p>
-<p>Here is an example using all the available facet to define a diffuse light that rotates around the world.</p>
-<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=op56elmEEYs"><img src="/resources/images/definingGUIExperiment/displays3D_lighting_youtube_image.jpg" alt="Demonstration of the various possibilities of lighting."></a></p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/DefiningDisplaysGeneralities"><span class="arrow-prev">← </span><span>Defining displays (Generalities)</span></a><a class="docs-next button" href="/wiki/next/DefiningCharts"><span>Defining Charts</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#table-of-contents">Table of contents</a></li><li><a href="#opengl-display">OpenGL display</a><ul class="toc-headings"><li><a href="#position"><code>position</code></a></li><li><a href="#size"><code>size</code></a></li></ul></li><li><a href="#camera">Camera</a></li><li><a href="#dynamic-camera">Dynamic camera</a><ul class="toc-headings"><li><a href="#camera-position">Camera position</a></li><li><a href="#camera-direction-look-position">Camera direction (Look Position)</a></li><li><a href="#camera-orientation-up-vector">Camera orientation (Up Vector)</a></li></ul></li><li><a href="#lighting">Lighting</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/wiki/next/DefiningDisplaysGeneralities"><span class="arrow-prev">← </span><span>Defining displays (Generalities)</span></a><a class="docs-next button" href="/wiki/next/DefiningCharts"><span>Defining Charts</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#opengl-display">OpenGL display</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="margin-bottom:0"><a href="/" class="nav-home"><img src="/img/gama-logo.png" alt="GAMA-Platform" width="66" height="58"/></a><div><h5>Networks</h5><a href="https://github.com/gama-platform"><i class="fab fa-github"></i> GitHub</a><a href="https://www.facebook.com/GamaPlatform/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><a href="https://twitter.com/gamaplatform" target="_blank"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.linkedin.com/company/gama-platform" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank"><i class="fab fa-youtube"></i> Youtube</a><a href="https://gama-platform.github.io/blog/feed" target="_blank"><i class="fa fa-rss"></i> Blog RSS</a></div><div style="flex-grow:2"><h5>Mailing list</h5><a href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br/>gama-platform@googlegroups.com</a><a href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br/>gama-dev@googlegroups.com</a></div><div style="color:hsla(0,0%,100%,.4);flex-grow:3"><h5>License</h5><p>Copyright (C) - 2022 GAMA-Platform.</p><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p><p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.fbAsyncInit = function() {FB.init({appId:'524881055001796',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
                 </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
