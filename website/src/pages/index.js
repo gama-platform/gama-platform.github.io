@@ -68,12 +68,6 @@ export default function Hello() {
 
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `
-      :root {
-        --ifm-color-warning: #eeb64f;
-        --ifm-color-danger: #d36737;
-        --ifm-color-primary: #3271a1;
-      }
-
       .row {
         padding-top: 10vh;
       }
