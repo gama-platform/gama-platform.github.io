@@ -76,40 +76,6 @@ This sub-section is composed of the following models :
 * [ Movement on a Graph created by Polygons](Agent-movement-Goto-Polygon)
 
 * [ Movement in 3D](Agent-movement-Moving3D)
-
----
-
-# How to ensure reproductibility of a model? 
-
-There is a huge effort in GAMA development in order to ensure the reproductibility of the simulations, i.e. when several simulations of the same models are launched with the same random  generator seed and same parameter values, they are supposed to provide the same results.
-
-Nevertheless, GAMA provides several ways to speed up simulations runs, e.g. by making parallel the execution of some agents' behaviors. The use of parallelism may destroy the reproductibility of the simulations. More generally, there are many sources of uncertainty which can break this reproductibility.
-
-If you aim at reproductibility, you need to reduce as many as possible all the sources of uncertainty.
-* Set the random number generator seed (give a given value to the model `seed` global attribute).
-* Reduce the parallel execution of agents' behaviors. 
-  * remove all the explicity parallel execution, in particular remove / set to  false all the `parallel` facets (e.g. in the loop, ask...).
-  * Set the values of some dedicated preferences to remove automatic parallel executions. This can be done in the experiment block.
-
-```
-experiment 'any exp' {
-  init {
-	//Make grids schedule their agents in parallel
-	gama.pref_parallel_grids <- false;
-
-	//Make experiments run simulations in parallel
-	gama.pref_parallel_simulations <- true;
-
-	//Make species schedule their agents in parallel
-	gama.pref_parallel_species <- false;
-  }
-}
-```
-
-* Displays are computed independently from the simulation, and in parallel. Limit computation and model moddifications in the aspects.
-  * Remove any modification of the model in the aspects.
-  * Do not use  any random operators in the aspectss (e.g. `rnd`, `one_of`, `any` ...).
-* The use of asynchronous communications (using network) with external applications, the use of files (in particular if they are changed  externally) can also modify the behavior of simulations
     
 ---
 
