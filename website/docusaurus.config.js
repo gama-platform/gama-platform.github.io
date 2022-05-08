@@ -1,41 +1,36 @@
 module.exports={
+  // Main website options
   "title": "GAMA-Platform",
   "tagline": "GAMA",
   "url": "https://gama-platform.org",
   "baseUrl": "/",
+  "favicon": "img/gama-logo.png",
+  titleDelimiter: '|',
+
+  // Compilation/deploy options
   "organizationName": "gama-platform",
   "projectName": "gama-platform.github.io",
+  "onBrokenLinks": "log",
+  "onBrokenMarkdownLinks": "log",
+  "deploymentBranch": "master",
+
+  // Adding in header
   "scripts": [
-    {
-      "src": "https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.4/fuse.min.js",
-      "async": false
-    },
-    {
+    /*{
       "src": "https://buttons.github.io/buttons.js",
       "async": false
     },
     {
       "src": "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js",
       "async": false
-    },
-    {
-      "src": "/js/code-block-buttons.js",
-      "async": false
-    },
-/*    {
-      "src": "/js/searchEngine.js",
-      "async": false
-    },*/
-    {
-      "src": "/js/dark.js",
-      "async": false
-    }
+    }*/
   ],
   "stylesheets": [
     "/css/code-block-buttons.css",
     "https://use.fontawesome.com/releases/v5.8.2/css/all.css"
   ],
-  "favicon": "img/gama-logo.png",
+
+  // Custom variables in page
   "customFields": {
     footerIcon: 'img/gama-logo.png',
     "docsUrl": "wiki",
@@ -45,8 +40,10 @@ module.exports={
     "frontPagePresentation": "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
     "frontPageImgLink": "release"
   },
-  "onBrokenLinks": "log",
-  "onBrokenMarkdownLinks": "log",
+
+  /*
+   *  DOCUSAURUS CONFIGURATION
+   */
   "presets": [
     [
       "@docusaurus/preset-classic",
@@ -58,7 +55,20 @@ module.exports={
           routeBasePath: 'wiki',
           "sidebarPath": "../website/sidebars.json",
           editUrl: ({docPath}) => `https://github.com/gama-platform/gama/wiki/${docPath.slice(0, -3)}/_edit`,
-          editCurrentVersion: true
+          editCurrentVersion: true,
+
+          // Version dropdown options
+          /*lastVersion: '1.8.1',
+          versions: {
+            "1.8.1": {
+              label: '1.8.1',
+              path: '',
+            },
+            "1.8.2": {
+              label: '1.8.2',
+              path: 'next',
+            },
+          },*/
         },
         "blog": {
           "path": "blog"
@@ -69,34 +79,24 @@ module.exports={
       }
     ]
   ],
-  "plugins": [
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        indexBlog: false,
-        docsRouteBasePath: "/wiki",
-        highlightSearchTermsOnTargetPage: true,
-        docsDir: "../docs"
-      },
-    ],
-    require.resolve('@saucelabs/theme-github-codeblock'),
-  ],
   "themeConfig": {
     "navbar": {
       "title": "GAMA-Platform",
       "logo": {
         "src": "img/gama-logo.png"
       },
+      // Navigator bar
       "items": [
+        // Left side
         {
-          "to": "wiki/Home",
+          type: 'doc',
+          "docId": "Home",
           "label": "Documentation",
           "position": "left"
         },
         {
-          "to": "wiki/Tutorials",
+          type: 'doc',
+          "docId": "Tutorials",
           "label": "Tutorials",
           "position": "left"
         },
@@ -106,7 +106,8 @@ module.exports={
           "position": "left"
         },
         {
-          "to": "wiki/Contribute",
+          type: 'doc',
+          "docId": "Contribute",
           "label": "Contribute",
           "position": "left"
         },
@@ -120,22 +121,13 @@ module.exports={
           "label": "FAQ",
           "position": "left"
         },
+
+        // Right Side
         {
-          "label": "Version",
-          "to": "docs",
-          "position": "right",
-          "items": [
-            {
-              "label": "1.8.1",
-              "to": "wiki/",
-              "activeBaseRegex": "wiki/(?!1.8.1|next)"
-            },
-            {
-              "label": "Main/Unreleased",
-              "to": "wiki/next/",
-              "activeBaseRegex": "wiki/next/(?!support|team|resources)"
-            }
-          ]
+          type: 'docsVersionDropdown',
+          position: 'right',
+          //dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+          dropdownActiveClassDisabled: false,
         },
         {
           href: 'https://github.com/gama-platform/gama',
@@ -212,5 +204,23 @@ module.exports={
         "src": "img/gama-logo.png"
       }
     }
-  }
+  },
+
+  /*
+   *  PLUGINS
+   */
+  "plugins": [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        indexBlog: false,
+        docsRouteBasePath: "/wiki",
+        highlightSearchTermsOnTargetPage: true,
+        docsDir: "../docs"
+      },
+    ],
+    require.resolve('@saucelabs/theme-github-codeblock'),
+  ],
 }
