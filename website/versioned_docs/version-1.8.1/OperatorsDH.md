@@ -2504,7 +2504,7 @@ file f <- geojson_file("file.json", "EPSG:32648",true);
   *  **`geometric_mean`** (`container`) --->  `float` 
 
 #### Result: 
-the geometric mean of the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Geometric_mean">Geometric_mean</A> for more details.  
+the geometric mean of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Geometric_mean">Geometric_mean</a> for more details.  
 
 #### Comment: 
 The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
@@ -3907,7 +3907,7 @@ map&lt;bool,list> var3 <- [1::2, 3::4, 5::6] group_by (each > 4); // var3 equals
   *  **`harmonic_mean`** (`container`) --->  `float` 
 
 #### Result: 
-the harmonic mean of the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Harmonic_mean">Harmonic_mean</A> for more details.  
+the harmonic mean of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Harmonic_mean">Harmonic_mean</a> for more details.  
 
 #### Comment: 
 The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
