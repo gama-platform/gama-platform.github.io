@@ -82,6 +82,7 @@ module.exports={
         docsDir: "../docs"
       },
     ],
+    require.resolve('@saucelabs/theme-github-codeblock'),
   ],
   "themeConfig": {
     "navbar": {
