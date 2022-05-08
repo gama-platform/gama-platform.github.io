@@ -131,7 +131,9 @@ def generateMain(mdList: list[str] = []):
 		if mdList[i].startswith("#"):
 			if len(mdList) > i+1:
 				if mdList[i+1].startswith("#"):
-					print("not a category title - NOT SUPPORTED YET")
+					#print("not a category title - NOT SUPPORTED YET")
+					# Is supported now ;) 
+					indexTitleCat.append("~" + str(i))
 				else:
 					indexTitleCat.append(i)
 
@@ -140,7 +142,10 @@ def generateMain(mdList: list[str] = []):
 
 	mainList = []
 	for i in range((len(indexTitleCat)-1)):
-		mainList.append( makeSubCat(mdList[indexTitleCat[i]:indexTitleCat[i+1]]) )
+		if str(indexTitleCat[i]).startswith(str("~")):
+			mainList.append( mdList[int(indexTitleCat[i][1:])].split("](")[1].split(")")[0] )
+		else:
+			mainList.append( makeSubCat(mdList[indexTitleCat[i]:int(str(indexTitleCat[i+1]).replace("~",""))]) )
 
 	return mainList
 
