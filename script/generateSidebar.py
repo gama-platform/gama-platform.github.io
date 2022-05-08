@@ -109,13 +109,13 @@ def makeSubCat(subList: list[str]):
 							endSubCatList = True
 					else:
 						endSubCatList = True
-				print(skipIndex, entry)
+				#print(skipIndex, entry)
 				items.append( makeSubCat(subCatList) )
 				entry = entry + skipIndex-1
 			else:
-				items.append(subList[entry].split("(")[1].split(")")[0])
+				items.append(subList[entry].split("](")[1].split(")")[0])
 		else:
-			items.append(subList[entry].split("(")[1].split(")")[0])
+			items.append(subList[entry].split("](")[1].split(")")[0])
 
 		# Manual loop process
 		entry += 1
