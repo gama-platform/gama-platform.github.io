@@ -13,17 +13,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 /*  FIRST MAIN BLOCK  */
 function HomeSplash() { //} extends React.Component {
   const {siteConfig} = useDocusaurusContext();
-  const docUrl = doc => `${useBaseUrl(siteConfig.routeBasePath)}/${doc}`
+  const docUrl = doc => `${useBaseUrl("wiki")}/${doc}`
 
   const FlexContainer = props => ( <div className="container"> {props.children} </div> );
   const FlexItem = props => ( <div className={`col${props.size} ${props.className}`}>{props.children}</div> );
 
   const Button = props => (
-    <div style={props.customStyle}>
-      <a className={props.className} href={props.href} target={props.target} style={{fontSize: "24px"}} >
+    <a className={props.className} href={props.href} target={props.target} style={{fontSize: "24px", margin: "0 .5em"}} >
         {props.children}
       </a>
-    </div>
   );
 
   return (
@@ -34,30 +32,23 @@ function HomeSplash() { //} extends React.Component {
             <div className="" style={{textAlign: "center"}} >
 
               <a href={`${useBaseUrl("download")}`} >
-                <img id="imgSoft" src={`${useBaseUrl(siteConfig.customFields.frontPageImg)}`} alt="GAMA-Platform Software" />
+                <img id="imgSoft" src="/img/gama-logo.png" alt="GAMA-Platform Software" style={{maxHeight: "280px"}} />
               </a>
             </div>
         </FlexItem>
-        <FlexItem className="" size="">
-          <div style={{paddingTop: "4em", textAlign: "center", color: "white"}} >
+        <FlexItem className="" size="--12 col">
+          <div style={{paddingTop: "4em", textAlign: "center"}} >
             <h1 class="hero__title">{siteConfig.tagline}-Platform</h1>
             <p class="hero__subtitle" >GAMA is a modeling and simulation development environment<br/>for building spatially explicit agent-based simulations.</p>
           </div>
         </FlexItem>
-       </div>
 
-       <div className="row" style={{"paddingTop": "5vh"}}>
-          <div className="col col--2 col--offset-3">
-            <Button href={`${useBaseUrl("download")}`}  className="button button--warning" customStyle={{"textAlign": "center"}}>Download</Button>
+          <div className="col col--12" style={{"textAlign": "center", marginTop: "3em"}} >
+            <Button href={`${useBaseUrl("download")}`}  className="button button--warning">Download</Button>
+            <Button href={docUrl('Home')} className="button button--outline button--danger">Documentation</Button>
+              <Button href={docUrl('Tutorials')} className="button button--outline button--primary">Tutorials</Button>
           </div>
-          <div className="col col--2" style={{display: "contents"}} >
-            <Button href={docUrl('Home')} className="button button--outline button--danger" customStyle={{"textAlign": "center"}}>Documentation</Button>
-          </div>
-          <div className="col col--2" style={{float: "left",display: "flex"}} >
-              <Button href={docUrl('Tutorials')} className="button button--outline button--primary" customStyle={{"textAlign": "center"}}>Tutorials</Button>
-          </div>
-        </div>
-        
+       </div>
 
     </div>
   );
@@ -77,7 +68,7 @@ export default function Hello() {
       }
 
       /*  One Screen  */
-      html { background-color: black; }
+      /*html { background-color: black; }*/
       footer { display: none; }
 
       /*  BUTTONS */

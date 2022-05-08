@@ -43,7 +43,6 @@ module.exports={
     "downloadVersion": "1.8.2",
     "facebookAppId": 524881055001796,
     "frontPagePresentation": "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
-    "frontPageImg": "img/GAMA_1.8_IS_OUT.mov.gif",
     "frontPageImgLink": "release"
   },
   "onBrokenLinks": "log",
