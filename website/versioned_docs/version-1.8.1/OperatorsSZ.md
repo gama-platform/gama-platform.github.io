@@ -1839,7 +1839,7 @@ geometry var0 <- squircle(4,4); // var0 equals a geometry as a squircle of side 
   *  **`standard_deviation`** (`container`) --->  `float` 
 
 #### Result: 
-the standard deviation on the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Standard_deviation">Standard_deviation</A> for more details.  
+the standard deviation on the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Standard_deviation">Standard_deviation</a> for more details.  
 
 #### Comment: 
 The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
@@ -3203,7 +3203,7 @@ unknown var0 <- (agents closest_to self) using topology(world); // var0 equals t
   *  **`variance`** (`container`) --->  `float` 
 
 #### Result: 
-the variance of the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Variance">Variance</A> for more details.  
+the variance of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Variance">Variance</a> for more details.  
 
 #### Comment: 
 The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.

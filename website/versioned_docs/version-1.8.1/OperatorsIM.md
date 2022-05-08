@@ -2709,7 +2709,7 @@ unknown var0 <- mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 5.125
   *  **`mean_deviation`** (`container`) --->  `float` 
 
 #### Result: 
-the deviation from the mean of all the elements of the operand. See <A href= "http://en.wikipedia.org/wiki/Absolute_deviation" >Mean_deviation</A> for more details.  
+the deviation from the mean of all the elements of the operand. See <a href= "http://en.wikipedia.org/wiki/Absolute_deviation" >Mean_deviation</a> for more details.  
 
 #### Comment: 
 The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
