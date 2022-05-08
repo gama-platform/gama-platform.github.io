@@ -43,21 +43,25 @@ jobs:
         shell: bash
         run: $GITHUB_WORKSPACE/script/unstructurize.sh
 
-      - name: Fix small wiki default
+      - name: Enforce wiki MDX compliance
         shell: sh
         run: |
           $GITHUB_WORKSPACE/script/link_fixer.sh
-          # Remove blank line
-          sed -i '/^$/d' $GITHUB_WORKSPACE/docs/_Sidebar.md
+          # Turn wiki MDX compliante
+          find ./docs -name "*md" -exec python $GITHUB_WORKSPACE/script/escapingTags.py -i {} -o {} \;
 
       - name: Generate Sidebar 
         run: |
-          php $GITHUB_WORKSPACE/script/sidebarCopy.php
-          php $GITHUB_WORKSPACE/script/sidebarSearch.php
+          python $GITHUB_WORKSPACE/script/generateSidebar.py > $GITHUB_WORKSPACE/website/sidebars.json
+          cat $GITHUB_WORKSPACE/website/sidebars.json
 
       - name: Auto header
         shell: sh
         run: $GITHUB_WORKSPACE/script/autoHeader.sh
+
+      - name: Finish cleaning docs folder
+        shell: bash
+        run: $GITHUB_WORKSPACE/script/finalClean.sh
 
       #
       # COMPILATION
@@ -65,7 +69,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '17'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
