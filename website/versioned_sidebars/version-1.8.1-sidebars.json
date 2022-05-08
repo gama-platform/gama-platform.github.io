@@ -1,0 +1,315 @@
+{
+  "tuto": [
+    "Tutorials",
+    {
+      "type": "category",
+      "label": "Predator Prey",
+      "link": {
+        "type": "doc",
+        "id": "PredatorPrey"
+      },
+      "collapsed": "true",
+      "items": [
+        "PredatorPrey_step1",
+        "PredatorPrey_step2",
+        "PredatorPrey_step3",
+        "PredatorPrey_step4",
+        "PredatorPrey_step5",
+        "PredatorPrey_step6",
+        "PredatorPrey_step7",
+        "PredatorPrey_step8",
+        "PredatorPrey_step9",
+        "PredatorPrey_step10",
+        "PredatorPrey_step11",
+        "PredatorPrey_step12",
+        "PredatorPrey_step13"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Road Traffic",
+      "link": {
+        "type": "doc",
+        "id": "RoadTrafficModel"
+      },
+      "collapsed": "true",
+      "items": [
+        "RoadTrafficModel_step1",
+        "RoadTrafficModel_step2",
+        "RoadTrafficModel_step3",
+        "RoadTrafficModel_step4",
+        "RoadTrafficModel_step5",
+        "RoadTrafficModel_step6",
+        "RoadTrafficModel_step7"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "3D Tutorial",
+      "link": {
+        "type": "doc",
+        "id": "ThreeD"
+      },
+      "collapsed": "true",
+      "items": [
+        "ThreeD_step1",
+        "ThreeD_step2",
+        "ThreeD_step3"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Incremental Model",
+      "link": {
+        "type": "doc",
+        "id": "IncrementalModel"
+      },
+      "collapsed": "true",
+      "items": [
+        "IncrementalModel_step1",
+        "IncrementalModel_step2",
+        "IncrementalModel_step3",
+        "IncrementalModel_step4",
+        "IncrementalModel_step5",
+        "IncrementalModel_step6",
+        "IncrementalModel_step7"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Luneray's flu",
+      "link": {
+        "type": "doc",
+        "id": "LuneraysFlu"
+      },
+      "collapsed": "true",
+      "items": [
+        "LuneraysFlu_step1",
+        "LuneraysFlu_step2",
+        "LuneraysFlu_step3",
+        "LuneraysFlu_step4",
+        "LuneraysFlu_step5",
+        "LuneraysFlu_step6"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "BDI Agents",
+      "link": {
+        "type": "doc",
+        "id": "BDIAgents"
+      },
+      "collapsed": "true",
+      "items": [
+        "BDIAgents_step1",
+        "BDIAgents_step2",
+        "BDIAgents_step3",
+        "BDIAgents_step4",
+        "BDIAgents_step5"
+      ]
+    }
+  ],
+  "side": [
+    "Home",
+    "Overview",
+    "New-Version-Changes",
+    "Next-Version-Goals",
+    {
+      "type": "category",
+      "label": "Platform",
+      "link": {
+        "type": "doc",
+        "id": "PlatformDocumentation"
+      },
+      "collapsed": "true",
+      "items": [
+        "InstallationAndLaunching",
+        "Installation",
+        "Launching",
+        "Headless",
+        "Updating",
+        "InstallingPlugins",
+        "Troubleshooting",
+        "WorkspaceProjectsAndModels",
+        "NavigatingWorkspace",
+        "ChangingWorkspace",
+        "ImportingModels",
+        "EditingModels",
+        "GamlEditorGeneralities",
+        "GamlEditorToolbar",
+        "ValidationOfModels",
+        "RunningExperiments",
+        "LaunchingExperiments",
+        "ExperimentsUserInterface",
+        "MenusAndCommands",
+        "ParametersView",
+        "InspectorsAndMonitors",
+        "Displays",
+        "BatchSpecific",
+        "ErrorsView",
+        "Preferences"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Learn GAML step by step",
+      "link": {
+        "type": "doc",
+        "id": "LearnGAMLStepByStep"
+      },
+      "collapsed": "true",
+      "items": [
+        "Introduction",
+        "StartWithGAML",
+        "ModelOrganization",
+        "BasicProgrammingConceptsInGAML",
+        "ManipulateBasicSpecies",
+        "GlobalSpecies",
+        "RegularSpecies",
+        "DefiningActionsAndBehaviors",
+        "InteractionBetweenAgents",
+        "AttachingSkills",
+        "Inheritance",
+        "DefiningAdvancedSpecies",
+        "GridSpecies",
+        "GraphSpecies",
+        "MirrorSpecies",
+        "MultiLevelArchitecture",
+        "DefiningGUIExperiment",
+        "DefiningParameters",
+        "DefiningDisplaysGeneralities",
+        "DefiningCharts",
+        "Defining3DDisplays",
+        "DefiningMonitorsAndInspectors",
+        "DefiningExportFiles",
+        "DefiningUserInteraction",
+        "ExploringModels",
+        "RunSeveralSimulations",
+        "BatchExperiments",
+        "ExplorationMethods",
+        "OptimizingModelsSection",
+        "RuntimeConcepts",
+        "OptimizingModels",
+        "MultiParadigmModeling",
+        "ControlArchitecture",
+        "Equations"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Recipes",
+      "link": {
+        "type": "doc",
+        "id": "Recipes"
+      },
+      "collapsed": "true",
+      "items": [
+        "ManipulateOSMDatas",
+        "Diffusion",
+        "UsingDatabase",
+        "CallingR",
+        "UsingFIPAACL",
+        "GamAnalyzer",
+        "Using-BEN-simple-bdi",
+        "UsingDrivingSkill",
+        "ManipulateDates",
+        "ManipulateLight",
+        "Comodel",
+        "Save-and-restore-simulations",
+        "UsingNetwork",
+        "Headless-mode-for-dummies",
+        "G__GraphicalEditor",
+        "Using_Git",
+        "Writing_Tests",
+        "FAQ",
+        "KnownIssues"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "GAML References",
+      "link": {
+        "type": "doc",
+        "id": "GamlReference"
+      },
+      "collapsed": "true",
+      "items": [
+        "BuiltInSpecies",
+        "AgentBuiltIn",
+        "ModelBuiltIn",
+        "ExperimentBuiltIn",
+        "BuiltInSkills",
+        "BuiltInArchitectures",
+        "Statements",
+        "DataTypes",
+        "FileTypes",
+        "Expressions",
+        "Literals",
+        "UnitsAndConstants",
+        "PseudoVariables",
+        "VariablesAndAttributes",
+        "OperatorsAA",
+        "OperatorsBC",
+        "OperatorsDH",
+        "OperatorsIM",
+        "OperatorsNR",
+        "OperatorsSZ",
+        "Index"
+      ]
+    },
+    "Pedagogical-Materials",
+    {
+      "type": "category",
+      "label": "Extensions",
+      "link": {
+        "type": "doc",
+        "id": "Extensions"
+      },
+      "collapsed": "true",
+      "items": [
+        "DevelopingExtensions",
+        "InstallingGitVersion",
+        "GamaArchitecture",
+        "DevelopingPlugins",
+        "DevelopingSkills",
+        "DevelopingStatements",
+        "DevelopingOperators",
+        "DevelopingTypes",
+        "DevelopingSpecies",
+        "DevelopingControlArchitectures",
+        "DevelopingIndexAnnotations"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Developing GAMA",
+      "link": {
+        "type": "doc",
+        "id": "developingGAMA"
+      },
+      "collapsed": "true",
+      "items": [
+        "Introduction-To-Gama-Java-API",
+        "DevelopingIScope",
+        "CreatingAReleaseOfGama",
+        "Documentation",
+        "WebsiteGeneration"
+      ]
+    },
+    "References",
+    "Projects",
+    {
+      "type": "category",
+      "label": "Training Session",
+      "link": {
+        "type": "doc",
+        "id": "TrainingSession"
+      },
+      "collapsed": "true",
+      "items": [
+        "Event__CC15_Reorganization"
+      ]
+    },
+    "Events"
+  ]
+}
