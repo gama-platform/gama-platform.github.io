@@ -85,12 +85,12 @@ if __name__ == '__main__':
     ite = 0
     while ite < len(chars) - 1:
         currentChar = chars[ite]
-        if currentChar.val == "<" and re.match("[a-zA-Z\d]", chars[ite+1].val):
+        if currentChar.val == "<" and re.match("[\?a-zA-Z\d]", chars[ite+1].val):
             #we found a new tag
             tag = [currentChar]
             ite += 1
             #we parse to have the name
-            while re.match("[a-zA-Z\d]", chars[ite].val):
+            while re.match("[\?a-zA-Z\d]", chars[ite].val):
                 tag += [chars[ite]]
                 ite += 1
                 currentChar = chars[ite]
