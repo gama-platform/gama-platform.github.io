@@ -212,12 +212,6 @@ module.exports={
       "logo": {
         "src": "img/gama-logo.png"
       }
-    },
-    "algolia": {
-      "appId": 'YOUR_APP_ID',
-      apiKey: 'YOUR_SEARCH_API_KEY',
-      indexName: 'YOUR_INDEX_NAME',
-      "placeholder": "Search"
     }
   }
 }
