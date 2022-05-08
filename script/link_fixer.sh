@@ -9,11 +9,11 @@
 #
 # ex: <baseUrl>/[docs,wiki]/<file>	
 #	prev: ![images/parent_species.png](resources/images/tutorials/parent_species.png)
-#	new : ![images/parent_species.png](../resources/images/tutorials/parent_species.png)
+#	new : ![images/parent_species.png](/resources/images/tutorials/parent_species.png)
 
 #!/bin/sh
 
-for f in ./docs/*.md ; do
+for f in $( dirname "${BASH_SOURCE[0]}" )/../*.md ; do
 	sed -r -i "s/\]\(resources/\]\(\/resources/g" "$f"
 	sed -i "s/> == \$0/\/>/g" "$f"
 done
