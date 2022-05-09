@@ -1074,13 +1074,13 @@ returns true if both operands are equal, false otherwise</p>
 <li><strong><code>add_attribute</code></strong> (<code>gen_population_generator</code>, <code>string</code>, <code>any GAML type</code>, <code>list</code>, <code>string</code>, <code>any GAML type</code>) ---&gt;  <code>gen_population_generator</code></li>
 <li><strong><code>add_attribute</code></strong> (<code>gen_population_generator</code>, <code>string</code>, <code>any GAML type</code>, <code>list</code>, <code>bool</code>, <code>string</code>, <code>any GAML type</code>) ---&gt;  <code>gen_population_generator</code></li>
 </ul>
-<p><strong>Result:</strong> add an attribute defined by its name (string), its datatype (type), its list of values (list) and record name (name of the attribute to record) to a population_generator
-add an attribute defined by its name (string), its datatype (type), its list of values (list) to a population_generator
+<p><strong>Result:</strong> add an attribute defined by its name (string), its datatype (type), its list of values (list) to a population_generator
+add an attribute defined by its name (string), its datatype (type), its list of values (list) and record name (name of the attribute to record) to a population_generator
 add an attribute defined by its name (string), its datatype (type), its list of values (list) to a population_generator
 add an attribute defined by its name (string), its datatype (type), its list of values (list) and attributeType name (type of the attribute among &quot;range&quot; and &quot;unique&quot;) to a population_generator</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-16"></a><a href="#examples-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">add_attribute(pop_gen, <span class="hljs-string">"iris"</span>, <span class="hljs-literal">string</span>,liste_iris, <span class="hljs-string">"unique"</span>, <span class="hljs-string">"P13_POP"</span>) 
-add_attribute(pop_gen, <span class="hljs-string">"Sex"</span>, <span class="hljs-literal">string</span>,[<span class="hljs-string">"Man"</span>, <span class="hljs-string">"Woman"</span>]) 
+<pre><code class="hljs">add_attribute(pop_gen, <span class="hljs-string">"Sex"</span>, <span class="hljs-literal">string</span>,[<span class="hljs-string">"Man"</span>, <span class="hljs-string">"Woman"</span>]) 
+add_attribute(pop_gen, <span class="hljs-string">"iris"</span>, <span class="hljs-literal">string</span>,liste_iris, <span class="hljs-string">"unique"</span>, <span class="hljs-string">"P13_POP"</span>) 
 add_attribute(pop_gen, <span class="hljs-string">"Sex"</span>, <span class="hljs-literal">string</span>,[<span class="hljs-string">"Man"</span>, <span class="hljs-string">"Woman"</span>]) 
 add_attribute(pop_gen, <span class="hljs-string">"iris"</span>, <span class="hljs-literal">string</span>, liste_iris, <span class="hljs-string">"unique"</span>)
 </code></pre>
@@ -3238,11 +3238,11 @@ copy a file or a folder</p>
 <li><strong><code>dtw</code></strong> (<code>list</code> , <code>list</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>dtw</code></strong> (<code>list</code>, <code>list</code>, <code>int</code>) ---&gt;  <code>float</code></li>
 </ul>
-<p><strong>Result:</strong> returns the dynamic time warping between the two series of values (step pattern used: symetric1)
-returns the dynamic time warping between the two series of values (step pattern used: symetric1) with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)</p>
+<p><strong>Result:</strong> returns the dynamic time warping between the two series of values (step pattern used: symetric1) with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
+returns the dynamic time warping between the two series of values (step pattern used: symetric1)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-132"></a><a href="#examples-132" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- dtw([32.0,5.0,1.0,3.0],[1.0,10.0,5.0,1.0]); <span class="hljs-comment">// var0 equals 38.0 </span>
-<span class="hljs-literal">float</span> var1 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); <span class="hljs-comment">// var1 equals 11.0</span>
+<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); <span class="hljs-comment">// var0 equals 11.0 </span>
+<span class="hljs-literal">float</span> var1 &lt;- dtw([32.0,5.0,1.0,3.0],[1.0,10.0,5.0,1.0]); <span class="hljs-comment">// var1 equals 38.0</span>
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="durbin_watson"></a><a href="#durbin_watson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>durbin_watson</code></h3>
@@ -3829,11 +3829,11 @@ Test whether the parameter is the path to an existing folder. False if it doesnt
 <li><strong><code>fuzzy_kappa</code></strong> (<code>list&lt;agent&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;float&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>matrix&lt;float&gt;</code>, <code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>fuzzy_kappa</code></strong> (<code>list&lt;agent&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;float&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>matrix&lt;float&gt;</code>, <code>float</code>, <code>list&lt;unknown&gt;</code>) ---&gt;  <code>float</code></li>
 </ul>
-<p><strong>Result:</strong> fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
-fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21</p>
+<p><strong>Result:</strong> fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21
+fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling &amp; Software, 21</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-159"></a><a href="#examples-159" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) 
-fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2)
+<pre><code class="hljs">fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) 
+fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0])
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="fuzzy_kappa_sim"></a><a href="#fuzzy_kappa_sim" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>fuzzy_kappa_sim</code></h3>
@@ -3842,11 +3842,11 @@ fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2
 <li><strong><code>fuzzy_kappa_sim</code></strong> (<code>list&lt;agent&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;float&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>matrix&lt;float&gt;</code>, <code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>fuzzy_kappa_sim</code></strong> (<code>list&lt;agent&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>list&lt;float&gt;</code>, <code>list&lt;unknown&gt;</code>, <code>matrix&lt;float&gt;</code>, <code>float</code>, <code>list&lt;unknown&gt;</code>) ---&gt;  <code>float</code></li>
 </ul>
-<p><strong>Result:</strong> fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
+<p><strong>Result:</strong> fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-160"></a><a href="#examples-160" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) 
-fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2)
+<pre><code class="hljs">fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) 
+fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0])
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="gaml_file"></a><a href="#gaml_file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>gaml_file</code></h3>
@@ -4318,14 +4318,14 @@ returns a random small-world network (following Watts-Strogatz model).</p>
 <h3><a class="anchor" aria-hidden="true" id="get_agent_cause"></a><a href="#get_agent_cause" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>get_agent_cause</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-232"></a><a href="#possible-uses-232" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>get_agent_cause</code></strong> (<code>predicate</code>) ---&gt;  <code>agent</code></li>
 <li><strong><code>get_agent_cause</code></strong> (<code>emotion</code>) ---&gt;  <code>agent</code></li>
+<li><strong><code>get_agent_cause</code></strong> (<code>predicate</code>) ---&gt;  <code>agent</code></li>
 </ul>
-<p><strong>Result:</strong> evaluate the agent_cause value of a predicate
-get the agent cause value of the given emotion</p>
+<p><strong>Result:</strong> get the agent cause value of the given emotion
+evaluate the agent_cause value of a predicate</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-172"></a><a href="#examples-172" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">get_agent_cause(pred1) 
-get_agent_cause(emotion)
+<pre><code class="hljs">get_agent_cause(emotion) 
+get_agent_cause(pred1)
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="get_belief_op"></a><a href="#get_belief_op" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>get_belief_op</code></h3>
@@ -5937,10 +5937,10 @@ kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, w
 <ul>
 <li>kappa_sim can be used with an additional weights operand</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">float</span> var1 &lt;- kappa_sim([<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat2"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat1"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat3"</span>], [1.0, 2.0, 3.0, 1.0, 5.0]); <span class="hljs-comment">// var1 equals 0.2702702702702703</span>
+<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- kappa_sim([<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat2"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat1"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat3"</span>], [1.0, 2.0, 3.0, 1.0, 5.0]); <span class="hljs-comment">// var0 equals 0.2702702702702703</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-256"></a><a href="#examples-256" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- kappa_sim([<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat2"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat1"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat3"</span>]); <span class="hljs-comment">// var0 equals 0.3333333333333335</span>
+<pre><code class="hljs"><span class="hljs-literal">float</span> var1 &lt;- kappa_sim([<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat2"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat3"</span>,<span class="hljs-string">"cat1"</span>],[<span class="hljs-string">"cat1"</span>,<span class="hljs-string">"cat2"</span>,<span class="hljs-string">"cat3"</span>]); <span class="hljs-comment">// var1 equals 0.3333333333333335</span>
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="kmeans"></a><a href="#kmeans" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>kmeans</code></h3>
@@ -5955,10 +5955,10 @@ kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, w
 <ul>
 <li>The maximum number of (third operand) can be omitted.</li>
 </ul>
-<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; var0 &lt;- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2); <span class="hljs-comment">// var0 equals [[0,2,3],[1]]</span>
+<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; var1 &lt;- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2); <span class="hljs-comment">// var1 equals [[0,2,3],[1]]</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-257"></a><a href="#examples-257" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; var1 &lt;- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10); <span class="hljs-comment">// var1 equals [[0,2,3],[1]]</span>
+<pre><code class="hljs"><span class="hljs-literal">list</span>&lt;<span class="hljs-literal">list</span>&gt; var0 &lt;- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10); <span class="hljs-comment">// var0 equals [[0,2,3],[1]]</span>
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="kml"></a><a href="#kml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>kml</code></h3>
@@ -6836,23 +6836,28 @@ date var1 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) minus_ms 100
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-425"></a><a href="#possible-uses-425" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>) ---&gt;  <code>emotion</code></li>
-<li><code>string</code> <strong><code>new_emotion</code></strong> <code>predicate</code> ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>emotion</code></li>
 <li><code>string</code> <strong><code>new_emotion</code></strong> <code>float</code> ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>float</code>) ---&gt;  <code>emotion</code></li>
+<li><code>string</code> <strong><code>new_emotion</code></strong> <code>predicate</code> ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>predicate</code>) ---&gt;  <code>emotion</code></li>
 <li><code>string</code> <strong><code>new_emotion</code></strong> <code>agent</code> ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>) ---&gt;  <code>emotion</code></li>
-<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>emotion</code></li>
+<li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 <li><strong><code>new_emotion</code></strong> (<code>string</code>, <code>float</code>, <code>predicate</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>emotion</code></li>
 </ul>
 <p><strong>Result:</strong> a new emotion with the given properties (at least its name, and eventually intensity, parameters...)</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-132"></a><a href="#special-cases-132" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
+<ul>
+<li>a new emotion with a name and an initial intensity:</li>
+</ul>
+<pre><code class="hljs">new_emotion(<span class="hljs-string">"joy"</span>,12.3)
+</code></pre>
 <ul>
 <li>a new emotion with a given name and the predicate it is about</li>
 </ul>
@@ -6860,19 +6865,9 @@ date var1 &lt;- date(<span class="hljs-string">'2000-01-01'</span>) minus_ms 100
 new_emotion(<span class="hljs-string">"joy"</span>,agent1)
 </code></pre>
 <ul>
-<li>a new emotion with a name and an initial intensity:</li>
-</ul>
-<pre><code class="hljs">new_emotion(<span class="hljs-string">"joy"</span>,12.3)
-</code></pre>
-<ul>
 <li>a new emotion with a given name and the agent which has caused this emotion</li>
 </ul>
 <pre><code class="hljs">new_emotion(<span class="hljs-string">"joy"</span>,agent1)
-</code></pre>
-<ul>
-<li>A decay value value can be added to define a new emotion.</li>
-</ul>
-<pre><code class="hljs">new_emotion(<span class="hljs-string">"joy"</span>,12.3,4.0)
 </code></pre>
 <ul>
 <li>Various combinations are possible to create the emotion: (name,intensity,about), (name,about,cause), (name,intensity,cause)...</li>
@@ -6881,11 +6876,16 @@ new_emotion(<span class="hljs-string">"joy"</span>,agent1)
 new_emotion(<span class="hljs-string">"joy"</span>,eatFood,agent1) 
 new_emotion(<span class="hljs-string">"joy"</span>,12.3,agent1)
 </code></pre>
+<ul>
+<li>A decay value value can be added to define a new emotion.</li>
+</ul>
+<pre><code class="hljs">new_emotion(<span class="hljs-string">"joy"</span>,12.3,4.0)
+</code></pre>
 <h4><a class="anchor" aria-hidden="true" id="examples-296"></a><a href="#examples-296" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">emotion(<span class="hljs-string">"joy"</span>, 12.3, 4, agent1) 
-new_emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4.0) 
+<pre><code class="hljs">new_emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4.0) 
 emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,4,agent1) 
 new_emotion(<span class="hljs-string">"joy"</span>) 
+emotion(<span class="hljs-string">"joy"</span>, 12.3, 4, agent1) 
 new_emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,agent1)
 </code></pre>
 <hr>
@@ -6916,80 +6916,80 @@ new_emotion(<span class="hljs-string">"joy"</span>,12.3,eatFood,agent1)
 <li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>mental_state</code>) ---&gt;  <code>mental_state</code></li>
 <li><code>string</code> <strong><code>new_mental_state</code></strong> <code>emotion</code> ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code> , <code>emotion</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>) ---&gt;  <code>mental_state</code></li>
+<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>predicate</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 <li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>emotion</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
-<li><strong><code>new_mental_state</code></strong> (<code>string</code>, <code>mental_state</code>, <code>float</code>, <code>int</code>, <code>agent</code>) ---&gt;  <code>mental_state</code></li>
 </ul>
 <p><strong>Result:</strong> creates a new mental state with a given modality (e.g. belief or desire) and various properties (a predicate it is about, a strength, a lifetime, an ower agent  and an emotion it is about</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-298"></a><a href="#examples-298" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">new_mental_state(<span class="hljs-string">"belief"</span>, raining, 12.3, agent1) 
+<pre><code class="hljs">new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 12.3, 10, agent1) 
 new_mental_state(<span class="hljs-string">"belief"</span>, raining) 
-new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, 12.3) 
+new_mental_state(<span class="hljs-string">"belief"</span>, raining, 10, agent1) 
+new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, agent1) 
+new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, 12.3, agent1) 
 new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 10) 
-new_mental_state(<span class="hljs-string">"belief"</span>) 
+new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 12.2, agent1) 
 new_mental_state(<span class="hljs-string">"belief"</span>, raining, 12.4, 10) 
-new_mental_state(<span class="hljs-string">"belief"</span>,  my_joy, 10) 
+new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 12.3, 10) 
+new_mental_state(<span class="hljs-string">"belief"</span>) 
+new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, 12.3) 
 new_mental_state(<span class="hljs-string">"belief"</span>, raining, 10) 
 new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, 10, agent1) 
-new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 12.3, 10) 
-new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, agent1) 
-new_mental_state(<span class="hljs-string">"belief"</span>,raining, 12.3, 10, agent1) 
-new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 12.2, agent1) 
-new_mental_state(<span class="hljs-string">"belief"</span>, raining, 0.5) 
-new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, 12.3, agent1) 
-new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 10, agent1) 
 new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1) 
-new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, 12.3, 10, agent1) 
-new_mental_state(<span class="hljs-string">"belief"</span>, my_joy) 
-new_mental_state(<span class="hljs-string">"belief"</span>, raining, 10, agent1) 
-new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, 12.3, 10) 
 new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, agent1) 
-new_mental_state(<span class="hljs-string">"belief"</span>, raining, agent1) 
 new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 12.3) 
-new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 12.3, 10, agent1)
+new_mental_state(<span class="hljs-string">"belief"</span>, mental_state1, 10, agent1) 
+new_mental_state(<span class="hljs-string">"belief"</span>, raining, 0.5) 
+new_mental_state(<span class="hljs-string">"belief"</span>, my_joy) 
+new_mental_state(<span class="hljs-string">"belief"</span>,raining, 12.3, 10, agent1) 
+new_mental_state(<span class="hljs-string">"belief"</span>, raining, 12.3, agent1) 
+new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, 12.3, 10) 
+new_mental_state(<span class="hljs-string">"belief"</span>, raining, agent1) 
+new_mental_state(<span class="hljs-string">"belief"</span>,  my_joy, 10) 
+new_mental_state(<span class="hljs-string">"belief"</span>, my_joy, 12.3, 10, agent1)
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="new_predicate"></a><a href="#new_predicate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>new_predicate</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-428"></a><a href="#possible-uses-428" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>) ---&gt;  <code>predicate</code></li>
+<li><code>string</code> <strong><code>new_predicate</code></strong> <code>map</code> ---&gt;  <code>predicate</code></li>
+<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>map</code>) ---&gt;  <code>predicate</code></li>
 <li><code>string</code> <strong><code>new_predicate</code></strong> <code>bool</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><code>string</code> <strong><code>new_predicate</code></strong> <code>agent</code> ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>agent</code>) ---&gt;  <code>predicate</code></li>
-<li><code>string</code> <strong><code>new_predicate</code></strong> <code>map</code> ---&gt;  <code>predicate</code></li>
-<li><strong><code>new_predicate</code></strong> (<code>string</code> , <code>map</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
 <li><strong><code>new_predicate</code></strong> (<code>string</code>, <code>map</code>, <code>bool</code>, <code>agent</code>) ---&gt;  <code>predicate</code></li>
 </ul>
 <p><strong>Result:</strong> creates a new predicate with a given name and adidtional properties (values, agent causing the predicate, whether it is true...)</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-299"></a><a href="#examples-299" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">new_predicate(<span class="hljs-string">"hasWater"</span>, true) 
-new_predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) 
+<pre><code class="hljs">new_predicate(<span class="hljs-string">"people to meet"</span>) 
 new_predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true, agentA) 
-new_predicate(<span class="hljs-string">"people to meet"</span>, agent1) 
+new_predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], true) 
 new_predicate(<span class="hljs-string">"people to meet"</span>, [<span class="hljs-string">"time"</span>::10], agentA) 
 new_predicate(<span class="hljs-string">"people to meet"</span>, <span class="hljs-literal">map</span>([<span class="hljs-string">"val1"</span>::23]) ) 
-new_predicate(<span class="hljs-string">"people to meet"</span>)
+new_predicate(<span class="hljs-string">"hasWater"</span>, true) 
+new_predicate(<span class="hljs-string">"people to meet"</span>, agent1)
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="new_social_link"></a><a href="#new_social_link" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>new_social_link</code></h3>
@@ -7000,8 +7000,8 @@ new_predicate(<span class="hljs-string">"people to meet"</span>)
 </ul>
 <p><strong>Result:</strong> creates a new social link with another agent (eventually given additional parameters such as the appreciation, dominance, solidarity, and familiarity values).</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-300"></a><a href="#examples-300" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs">new_social_link(agentA) 
-new_social_link(agentA,0.0,-0.1,0.2,0.1)
+<pre><code class="hljs">new_social_link(agentA,0.0,-0.1,0.2,0.1) 
+new_social_link(agentA)
 </code></pre>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="node"></a><a href="#node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>node</code></h3>
@@ -9770,18 +9770,18 @@ Asks the user for some values and returns a map containing these values. Takes a
 <h3><a class="anchor" aria-hidden="true" id="variance"></a><a href="#variance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>variance</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-618"></a><a href="#possible-uses-618" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>variance</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>variance</code></strong> (<code>container</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>variance</code></strong> (<code>float</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>variance</code></strong> (<code>int</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code></li>
 </ul>
-<p><strong>Result:</strong> Returns the variance from a standard deviation.
-Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
-the variance of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Variance">Variance</a> for more details.</p>
-<p><strong>Comment:</strong> In the example we consider variance of [1,3,5,7]. The size is 4, the sum is 1+3+5+7=16 and the sum of squares is 84.The variance is (84- 16^2/4)/4. CQFD.The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.</p>
+<p><strong>Result:</strong> the variance of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Variance">Variance</a> for more details.
+Returns the variance from a standard deviation.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.</p>
+<p><strong>Comment:</strong> The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded. In the example we consider variance of [1,3,5,7]. The size is 4, the sum is 1+3+5+7=16 and the sum of squares is 84.The variance is (84- 16^2/4)/4. CQFD.</p>
 <h4><a class="anchor" aria-hidden="true" id="examples-447"></a><a href="#examples-447" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples:</h4>
-<pre><code class="hljs"><span class="hljs-literal">int</span> var0 &lt;- <span class="hljs-literal">int</span>(variance([1,3,5,6,9,11,12,13])); <span class="hljs-comment">// var0 equals 17 </span>
-<span class="hljs-literal">int</span> var1 &lt;- <span class="hljs-literal">int</span>(variance(4,16,84)); <span class="hljs-comment">// var1 equals 5 </span>
-<span class="hljs-literal">float</span> var2 &lt;- variance ([4.5, 3.5, 5.5, 7.0]); <span class="hljs-comment">// var2 equals 1.671875</span>
+<pre><code class="hljs"><span class="hljs-literal">float</span> var0 &lt;- variance ([4.5, 3.5, 5.5, 7.0]); <span class="hljs-comment">// var0 equals 1.671875 </span>
+<span class="hljs-literal">int</span> var1 &lt;- <span class="hljs-literal">int</span>(variance([1,3,5,6,9,11,12,13])); <span class="hljs-comment">// var1 equals 17 </span>
+<span class="hljs-literal">int</span> var2 &lt;- <span class="hljs-literal">int</span>(variance(4,16,84)); <span class="hljs-comment">// var2 equals 5</span>
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsIM#mean">mean</a>, <a href="OperatorsIM#median">median</a>,</p>
 <hr>
@@ -9844,20 +9844,20 @@ the variance of the elements of the operand. See <a href="http://en.wikipedia.or
 <h3><a class="anchor" aria-hidden="true" id="weibull_trunc_rnd"></a><a href="#weibull_trunc_rnd" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>weibull_trunc_rnd</code></h3>
 <h4><a class="anchor" aria-hidden="true" id="possible-uses-624"></a><a href="#possible-uses-624" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Possible uses:</h4>
 <ul>
-<li><strong><code>weibull_trunc_rnd</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>, <code>bool</code>) ---&gt;  <code>float</code></li>
 <li><strong><code>weibull_trunc_rnd</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>, <code>float</code>) ---&gt;  <code>float</code></li>
+<li><strong><code>weibull_trunc_rnd</code></strong> (<code>float</code>, <code>float</code>, <code>float</code>, <code>bool</code>) ---&gt;  <code>float</code></li>
 </ul>
 <p><strong>Result:</strong> returns a random value from a truncated Weibull distribution (in a range or given only one boundary) with specified values of the shape (alpha) and scale (beta) parameters. See <a href="https://mathworld.wolfram.com/WeibullDistribution.html">https://mathworld.wolfram.com/WeibullDistribution.html</a> for more details (equations 1 and 2).</p>
 <h4><a class="anchor" aria-hidden="true" id="special-cases-189"></a><a href="#special-cases-189" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Special cases:</h4>
 <ul>
-<li>when 1 float and a boolean (isMax) operands are specified, the float value represents the single boundary (max if the boolean is true, min otherwise),</li>
-</ul>
-<pre><code class="hljs">weibull_trunc_rnd(2,3,5,true)
-</code></pre>
-<ul>
 <li>when 2 float operands are specified, they are taken as mininimum and maximum values for the result</li>
 </ul>
 <pre><code class="hljs">weibull_trunc_rnd(2,3,0.0,5.0)
+</code></pre>
+<ul>
+<li>when 1 float and a boolean (isMax) operands are specified, the float value represents the single boundary (max if the boolean is true, min otherwise),</li>
+</ul>
+<pre><code class="hljs">weibull_trunc_rnd(2,3,5,true)
 </code></pre>
 <p><strong>See also:</strong> <a href="OperatorsSZ#weibull_rnd">weibull_rnd</a>, <a href="OperatorsDH#gamma_trunc_rnd">gamma_trunc_rnd</a>, <a href="OperatorsIM#lognormal_trunc_rnd">lognormal_trunc_rnd</a>, <a href="OperatorsSZ#truncated_gauss">truncated_gauss</a>,</p>
 <hr>
