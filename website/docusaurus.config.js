@@ -80,6 +80,11 @@ module.exports={
     ]
   ],
   "themeConfig": {
+    "docs": {
+      "sidebar": {
+        "autoCollapseCategories": true,
+      },
+    },
     "navbar": {
       "title": "GAMA-Platform",
       "logo": {
