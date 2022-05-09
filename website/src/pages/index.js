@@ -79,6 +79,12 @@ export default function Hello() {
       }
       #background > .row { position: relative; }
 
+      @media only screen and (max-width: 600px) {
+        img.bgGif {
+          display: none;
+        }
+      }
+
     `}} />
   );
 
