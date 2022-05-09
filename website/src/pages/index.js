@@ -59,24 +59,26 @@ export default function Hello() {
 
   const Design = props => (    
     <style dangerouslySetInnerHTML={{__html: `
-      .row {
-        padding-top: 10vh;
-      }
-      
-      .firstLine .col{
-        margin: 0 3em;
-      }
-
-      /*  One Screen  */
-      /*html { background-color: black; }*/
+      .row { padding-top: 10vh; }
+      .firstLine .col{ margin: 0 3em; }
       footer { display: none; }
-
-      /*  BUTTONS */
       .button { border-width: 2px;font-weight: bold; }
-
-      #back-to-top {
-        display: none;
+      #back-to-top { display: none; }
+      body{ overflow: hidden; }
+      #background.container { position: relative; }
+      .bgGif {
+        opacity: 0.6;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom:auto;
+        margin-top: 10vh;
       }
+      #background > .row { position: relative; }
+
     `}} />
   );
 
@@ -89,12 +91,11 @@ export default function Hello() {
       <Design/>
       <Script/>
 
-      <div className="container">
-        <div className="row" style={{"padding": "2em", margingTop: "5vh", display: 'none'}}>
+      <div id="background" className="container">
+        <img class="bgGif" src="/img/GAMA_1.8.2_transparent.gif" alt="" />
+        <div className="row" style={{"zIndex": "2", paddingTop: "0"}}>
+          <HomeSplash />
         </div>
-
-        <HomeSplash />
-
       </div>  
     </Layout>
   );
