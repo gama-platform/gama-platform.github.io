@@ -1,9 +1,9 @@
 ---
 <!-- If "true" the post will be accessible only by direct link -->
 <!-- If you want to post it, remove the line below -->
-unlisted: true
+unlisted: false
 
-title: GAMA Coding camp 2021
+title: GAMA Coding camp 2022
 
 <!-- Author Part -->
 <!-- Update if you want to put your name, otherwise leave it to default -->
