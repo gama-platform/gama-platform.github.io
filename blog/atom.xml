@@ -2,12 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gama-platform.org/blog</id>
     <title>GAMA-Platform Blog</title>
-    <updated>2021-03-26T06:00:00.000Z</updated>
+    <updated>2022-05-10T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gama-platform.org/blog"/>
     <subtitle>The best place to stay up-to-date with the latest GAMA-Platform news and events.</subtitle>
     <logo>https://gama-platform.org/img/gama-logo.png</logo>
     <rights>2022 GAMA-Platform</rights>
+    <entry>
+        <title type="html"><![CDATA[GAMA Coding camp 2022]]></title>
+        <id>https://gama-platform.org/blog/2022/05/10/coding-camp.html</id>
+        <link href="https://gama-platform.org/blog/2022/05/10/coding-camp.html"/>
+        <updated>2022-05-10T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p><img src="/img/coding_camp_2022.jpeg" alt="CodingCamp"></p> <p>From the 4th to the 9th of May 2022 the Gama team held a Coding camp gathering Gama enthousiasts in Tam Cốc at <a href="https://lejournaldeloan.com">chez loan</a> to work on the next Gama release and on future models.</p> <p>The main focus was on getting a last round of developement to finish Gama...</p>]]></summary>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GAMA Days 2021]]></title>
         <id>https://gama-platform.org/blog/2021/03/26/gama-days-2021.html</id>
