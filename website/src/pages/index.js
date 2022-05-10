@@ -77,11 +77,18 @@ export default function Hello() {
         margin-bottom:auto;
         margin-top: 10vh;
       }
-      #background > .row { position: relative; }
+      #background > .row {
+        position: relative;
+        paddingTop: "0";
+        z-index = 2;
+      }
 
       @media only screen and (max-width: 600px) {
         img.bgGif {
           display: none;
+        }
+        #background > .row {
+          z-index = 0;
         }
       }
 
@@ -99,7 +106,7 @@ export default function Hello() {
 
       <div id="background" className="container">
         <img class="bgGif" src="/img/GAMA_1.8.2_transparent.gif" alt="" />
-        <div className="row" style={{"zIndex": "2", paddingTop: "0"}}>
+        <div className="row">
           <HomeSplash />
         </div>
       </div>  
