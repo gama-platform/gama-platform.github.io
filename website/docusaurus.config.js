@@ -1,6 +1,6 @@
 module.exports={
   // Main website options
-  "title": "GAMA-Platform",
+  "title": "GAMA Platform",
   "tagline": "GAMA",
   "url": "https://gama-platform.org",
   "baseUrl": "/",
@@ -16,18 +16,13 @@ module.exports={
 
   // Adding in header
   "scripts": [
-    /*{
-      "src": "https://buttons.github.io/buttons.js",
+    {
+      "src": "/js/blogFacebook-iFrame.js",
       "async": false
     },
-    {
-      "src": "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js",
-      "async": false
-    }*/
   ],
   "stylesheets": [
-    "/css/code-block-buttons.css",
-    "https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    "https://use.fontawesome.com/releases/v5.8.2/css/all.css",
   ],
 
   // Custom variables in page
@@ -86,7 +81,7 @@ module.exports={
       },
     },
     "navbar": {
-      "title": "GAMA-Platform",
+      "title": "GAMA Platform",
       "logo": {
         "src": "img/gama-logo.png"
       },
@@ -204,7 +199,7 @@ module.exports={
           ],
         }
       ],
-      "copyright": "Copyright (C) - 2022 GAMA-Platform.",
+      "copyright": "Copyright (C) - 2022 GAMA Platform.",
       "logo": {
         "src": "img/gama-logo.png"
       }
@@ -215,17 +210,15 @@ module.exports={
    *  PLUGINS
    */
   "plugins": [
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        indexBlog: false,
-        docsRouteBasePath: "/wiki",
-        highlightSearchTermsOnTargetPage: true,
-        docsDir: "../docs"
-      },
-    ],
     require.resolve('@saucelabs/theme-github-codeblock'),
+    [
+      require.resolve('docusaurus-lunr-search'), 
+      {
+        excludeRoutes: [
+          'wiki/next/*', // exclude changelogs from indexing
+          'blog/*'
+        ]
+      }
+    ]
   ],
 }
