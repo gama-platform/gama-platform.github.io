@@ -167,12 +167,10 @@ module.exports={
           title: 'Mailing list',
           items: [
             {
-              label: "For Users: gama-platform@googlegroups.com",
-              to: 'https://groups.google.com/forum/#!forum/gama-platform',
+              html: '<a class="footer__link-item" href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br>gama-platform@googlegroups.com</a>',
             },
             {
-              label: 'For Developers: gama-dev@googlegroups.com',
-              to: 'https://groups.google.com/forum/#!forum/gama-dev',
+              html: '<a class="footer__link-item" href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br>gama-dev@googlegroups.com</a>',
             },
           ],
         },
