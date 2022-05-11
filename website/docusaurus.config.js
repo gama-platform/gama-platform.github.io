@@ -22,7 +22,7 @@ module.exports={
     },
   ],
   "stylesheets": [
-    "https://use.fontawesome.com/releases/v5.8.2/css/all.css",
+    "https://use.fontawesome.com/releases/v6.1.1/css/all.css",
   ],
 
   // Custom variables in page
