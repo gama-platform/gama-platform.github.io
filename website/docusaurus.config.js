@@ -144,28 +144,22 @@ module.exports={
           title: 'Community',
           items: [
             {
-              label: 'Github',
-              href: 'https://github.com/gama-platform',
+              html: '<a class="footer__link-item" href="https://github.com/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Github <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>'
             },
             {
-              label: 'Facebook',
-              href: 'https://www.facebook.com/GamaPlatform/',
+              html: '<a class="footer__link-item" href="https://www.facebook.com/GamaPlatform/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>'
+            },
+            /*{
+              html: '<a class="footer__link-item" href="https://twitter.com/gamaplatform" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>'
+            },*/
+            {
+              html: '<a class="footer__link-item" href="https://www.linkedin.com/company/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>'
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/gamaplatform',
+              html: '<a class="footer__link-item" href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Youtube <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>'
             },
             {
-              label: 'LinkedIn',
-              href: 'https://www.linkedin.com/company/gama-platform',
-            },
-            {
-              label: 'Youtube',
-              href: 'https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ',
-            },
-            {
-              label: 'Blog RSS',
-              href: 'https://gama-platform.org/blog/feed',
+              html: '<a class="footer__link-item" href="https://gama-platform.org/blog/feed" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss"></i> Blog RSS <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>'
             }
           ],
         },
