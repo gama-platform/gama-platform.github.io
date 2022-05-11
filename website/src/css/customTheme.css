@@ -11,6 +11,10 @@
   --ifm-color-primary: #3271a1;
 }
 
+nav a {
+  max-height: 32px;
+}
+
 /* 
  * SEARCH BAR
  */
