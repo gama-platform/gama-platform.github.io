@@ -131,7 +131,8 @@ module.exports={
         },
         {
           href: 'https://github.com/gama-platform/gama',
-          label: 'GitHub',
+          html: '<i class="fab fa-github" style="font-size: 24px;"></i>',
+          //label: 'GitHub repository',
           position: 'right',
         }
       ]
