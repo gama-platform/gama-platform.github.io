@@ -173,7 +173,7 @@ string fruits <- "banana" among: ["pear","apple","banana"];
 [//]: # (keyword|concept_operator)
 ## Operators in GAMA
 
-In GAML language, you can use a lot of different operators. **An operator is a function, i.e. a way to get the result of a computation.** All of them are listed in this [page](Operators), but here are the most useful ones:
+In GAML language, you can use a lot of different operators. **An operator is a function, i.e. a way to get the result of a computation.** All of them are listed in this [page](Exhaustive-list-of-GAMA-Keywords), but here are the most useful ones:
 
 [//]: # (keyword|operator_+)
 [//]: # (keyword|operator_-)
@@ -491,7 +491,7 @@ Here are some other operators which can be useful to manipulate lists: `sort`, `
 When you will implement your model, you will have to manipulate some random values quite often. 
 
 [//]: # (keyword|operator_rnd)
-To get a random value in a range of value, use the operator [`rnd`](Operators#rnd). You can use this operator in many ways:
+To get a random value in a range of value, use the operator [`rnd`](OperatorsNR#rnd). You can use this operator in many ways:
 
 ```
 int var0 <- rnd (2);    // var0 equals 0, 1 or 2
@@ -507,14 +507,14 @@ float var9 <- rnd (2.0, 4.0);   // var9 equals a float number between 2.0 and 4.
 ```
 
 [//]: # (keyword|operator_flip)
-Use the operator [`flip`](Operators#flip) if you want to pick a boolean value with a certain probability:
+Use the operator [`flip`](OperatorsDH#flip) if you want to pick a boolean value with a certain probability:
 
 ```
 bool result <- flip(0.2); // result will have 20% of chance to be true
 ```
 
 [//]: # (keyword|operator_shuffle)
-You can use randomness in list, by using the operator [`shuffle`](Operators#shuffle), or also by using the operator [`among`](Operators#among) to pick randomly one (or several) element of your list:
+You can use randomness in list, by using the operator [`shuffle`](OperatorsSZ#shuffle), or also by using the operator [`among`](OperatorsAA#among) to pick randomly one (or several) element of your list:
 
 ```
 list TwoRandomValuesFromTheList <- 2 among [5,4,9,8];
@@ -522,6 +522,6 @@ list TwoRandomValuesFromTheList <- 2 among [5,4,9,8];
 ```
 
 [//]: # (keyword|concept_distribution)
-You can use probabilistic laws, using operators such as [`gauss`](Operators#gauss), [`poisson`](Operators#poisson), [`binomial`](Operators#binomial), or [`truncated_gauss`](Operators#truncated_gauss) (we invite you to read the documentation for those operators).
+You can use probabilistic laws, using operators such as [`gauss`](OperatorsDH#gauss), [`poisson`](OperatorsNR#poisson), [`binomial`](OperatorsBC#binomial), or [`truncated_gauss`](OperatorsSZ#truncated_gauss) (we invite you to read the documentation for those operators).
 
 [//]: # (endConcept|programming_basis)

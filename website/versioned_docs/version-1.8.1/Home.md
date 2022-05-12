@@ -16,7 +16,7 @@ Its latest version, **1.8**, can be freely [downloaded](https://gama-platform.gi
 
 ## Multiple application domains
 
-GAMA has been developed with a very general approach and can be used for many application domains. Some [additional plugins](TODO_URL) had been developed to fit with particular needs.
+GAMA has been developed with a very general approach and can be used for many application domains. Some [additional plugins](https://github.com/gama-platform/gama.experimental/tree/GAMA_1.8.1) had been developed to fit with particular needs.
 
 Example of application domains where GAMA is mostly present:
 
