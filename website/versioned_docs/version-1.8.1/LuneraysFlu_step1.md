@@ -49,7 +49,7 @@ species people {
 }
 ```
 
-In addition, we want to add a new capability to our agent: the possibility to move randomly. For that, we add a specific skill to our people agents. A [skill](AttachingSkills) is a built-in module that provides the modeler a self-contain and relevant set of actions and variables. The [moving](__BuiltInSkills#moving) provides the agents with several attributes and actions related to movement. 
+In addition, we want to add a new capability to our agent: the possibility to move randomly. For that, we add a specific skill to our people agents. A [skill](AttachingSkills) is a built-in module that provides the modeler a self-contain and relevant set of actions and variables. The [moving](BuiltInSkills#moving) provides the agents with several attributes and actions related to movement. 
 
 ```
 species people skills: [moving]{
@@ -80,7 +80,7 @@ species people skills:[moving]{
     bool is_infected <- false;
 }
 ```
-Note we use the [rnd](Operators#rnd) operator to define a random value between 2 and 5 for the speed. In addition, we precise a unit for the speed value by using the # symbol. For more details about units, see [here](UnitsAndConstants).
+Note we use the [rnd](OperatorsNR#rnd) operator to define a random value between 2 and 5 for the speed. In addition, we precise a unit for the speed value by using the # symbol. For more details about units, see [here](UnitsAndConstants).
 
 #### Behavior
 GAMA proposes several ways to define the behavior of a species: dynamic variables (update facet), reflexes...
@@ -116,7 +116,7 @@ species people skills:[moving]{
     }
 }
 ```
-The [ask](Statements#ask) allows an agent to ask other agents to do something (i.e. to execute a sequence of statements). The [at_distance](Operators#at_distance) operator allows to get the list of agents (here of people agents) that are located at a distance lower or equal to the given distance (here 10m). The [flip](Operators#flip) operator allows to test a probability.
+The [ask](Statements#ask) allows an agent to ask other agents to do something (i.e. to execute a sequence of statements). The [at_distance](OperatorsAA#at_distance) operator allows to get the list of agents (here of people agents) that are located at a distance lower or equal to the given distance (here 10m). The [flip](OperatorsDH#flip) operator allows to test a probability.
 
 #### Display
 An agent [aspects](RegularSpecies#the-aspect-statement) have to be defined. An aspect is a way to display the agents of a species: `aspect aspect_name {...}`

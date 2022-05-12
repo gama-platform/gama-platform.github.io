@@ -21,7 +21,7 @@ title:  Exhaustive list of GAMA Keywords
 ----
 
 ## Architectures
-[fsm](BuiltInControlArchitectures#fsm), [parallel_bdi](BuiltInControlArchitectures#parallel_bdi), [probabilistic_tasks](BuiltInControlArchitectures#probabilistic_tasks), [reflex](BuiltInControlArchitectures#reflex), [simple_bdi](BuiltInControlArchitectures#simple_bdi), [sorted_tasks](BuiltInControlArchitectures#sorted_tasks), [user_first](BuiltInControlArchitectures#user_first), [user_last](BuiltInControlArchitectures#user_last), [user_only](BuiltInControlArchitectures#user_only), [weighted_tasks](BuiltInControlArchitectures#weighted_tasks), 
+[fsm](BuiltInArchitectures#fsm), [parallel_bdi](BuiltInArchitectures#parallel_bdi), [probabilistic_tasks](BuiltInArchitectures#probabilistic_tasks), [reflex](BuiltInArchitectures#reflex), [simple_bdi](BuiltInArchitectures#simple_bdi), [sorted_tasks](BuiltInArchitectures#sorted_tasks), [user_first](BuiltInArchitectures#user_first), [user_last](BuiltInArchitectures#user_last), [user_only](BuiltInArchitectures#user_only), [weighted_tasks](BuiltInArchitectures#weighted_tasks), 
 
 ----
 
@@ -92,8 +92,6 @@ title:  Exhaustive list of GAMA Keywords
 ----
 
 ## Other concepts
-[scheduling](RuntimeConcepts#Scheduling_of_Agents ), [step](RuntimeConcepts#Agents_Step), [Key concepts](KeyConcepts),
-[KeyConcepts#Vocabulary_correspondance_with_the_agent-based_paradigm_as_in_Ne
-correspondance GAMA Netlogo], [operators statements type
+[scheduling](RuntimeConcepts#Scheduling_of_Agents ), [step](RuntimeConcepts#Agents_Step), [operators statements type
 species](KeyConcepts#Translation_into_a_concrete_syntax)
 

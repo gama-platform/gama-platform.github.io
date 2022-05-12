@@ -23,7 +23,7 @@ Beyond these features, GAMA also offers:
 
 
 ## Documentation
-The documentation of GAMA is available online on the wiki of the project. It is organized around a few central activities ([installing GAMA](Installation), [writing models](WritingModels), [running experiments](LaunchingExperiments), [developing new extensions to the platform](DevelopingExtensions)) and provides complete references on both the [GAML language](GamlLanguage), the platform itself, and the scientific aspects of our work (with a complete [bibliography](References)). Several [tutorials](Tutorials) are also provided in the documentation in order to minimize the learning curve, allowing users to build, step by step, the models corresponding to these tutorials, which are of course shipped with the platform.
+The documentation of GAMA is available online on the wiki of the project. It is organized around a few central activities ([installing GAMA](Installation), [writing models](EditingModels), [running experiments](LaunchingExperiments), [developing new extensions to the platform](DevelopingExtensions)) and provides complete references on both the [GAML language](GamlReference), the platform itself, and the scientific aspects of our work (with a complete [bibliography](References)). Several [tutorials](Tutorials) are also provided in the documentation in order to minimize the learning curve, allowing users to build, step by step, the models corresponding to these tutorials, which are of course shipped with the platform.
 
 The documentation can be accessed from the sidebar of this page. A good starting point for new users is [the installation page](Installation).
 
@@ -31,7 +31,7 @@ A standalone version of the documentation, in PDF format, can be directly downlo
 
 
 ## Source Code
-GAMA can be [downloaded](Download) as a regular application or [built from source](https://github.com/gama-platform/gama), which is necessary if you want to contribute to the platform.
+GAMA can be [downloaded](https://gama-platform.org/download) as a regular application or [built from source](https://github.com/gama-platform/gama), which is necessary if you want to contribute to the platform.
 The source code is available from this GITHub repository:
 
 ```
