@@ -92,6 +92,5 @@ title:  Exhaustive list of GAMA Keywords
 ----
 
 ## Other concepts
-[scheduling](RuntimeConcepts#Scheduling_of_Agents ), [step](RuntimeConcepts#Agents_Step), [operators statements type
-species](KeyConcepts#Translation_into_a_concrete_syntax)
+[scheduling](RuntimeConcepts#Scheduling_of_Agents ), [step](RuntimeConcepts#Agents_Step)
 
