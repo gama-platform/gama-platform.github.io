@@ -208,6 +208,19 @@ module.exports={
   "plugins": [
     require.resolve('@saucelabs/theme-github-codeblock'),
     [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/wiki', to: '/wiki/Home',
+          },
+          {
+            from: '/wiki/next', to: '/wiki/next/Home',
+          },
+        ]
+      }
+    ],
+    [
       require.resolve('docusaurus-lunr-search'), 
       {
         excludeRoutes: [
