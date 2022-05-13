@@ -75,6 +75,9 @@ module.exports={
     ]
   ],
   "themeConfig": {
+    "colorMode": {
+      respectPrefersColorScheme: true,
+    },
     "docs": {
       "sidebar": {
         "autoCollapseCategories": true,
