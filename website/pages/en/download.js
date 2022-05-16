@@ -39,7 +39,7 @@ function Download(props) {
             <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}.zip`} className="button buttonBlue">Without JDK (&lt; 100MB)
               <span className="tooltiptext">Install this version if you <b>already installed Oracle JDK 8</b> on your computer.</span>
             </Button>
-            <Button href="https://github.com/gama-platform/gama/releases/tag/1.8.2" className="button buttonOrange">Alpha Version
+            <Button href="https://github.com/gama-platform/gama/releases/tag/1.8.2-RC1" className="button buttonOrange">Alpha Version
               <span className="tooltiptext">Install this version if you feel adventurous.</span>
             </Button>
       </div>
