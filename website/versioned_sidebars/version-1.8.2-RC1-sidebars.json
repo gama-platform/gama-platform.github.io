@@ -461,7 +461,6 @@
       "items": [
         "References",
         "TrainingSession",
-        "Events",
         "OlderVersions"
       ]
     }
