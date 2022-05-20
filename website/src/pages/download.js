@@ -42,7 +42,7 @@ export default function Download() {
             </ButtonHover>
             <ButtonHover href={`https://github.com/gama-platform/gama/releases/tag/${props.version}`} buttonColor="danger" buttonTxt="More installer" target="_blank">GAMA is distibuted in various format, feel free to check then.<br/><b>Use this only if you know what you do.</b>
             </ButtonHover>
-            <ButtonHover href="https://github.com/gama-platform/gama/releases/tag/1.8.2" buttonColor="primary" buttonTxt="Alpha Version">This is the <b>in-development version</b> of GAMA. It can be broken or have some issues.<br/>Install this version if you feel adventurous.
+            <ButtonHover href="https://github.com/gama-platform/gama/releases" buttonColor="primary" buttonTxt="Alpha Version">This is the <b>in-development version</b> of GAMA. It can be broken or have some issues.<br/>Install this version if you feel adventurous.
             </ButtonHover>
       </div>
     </div>
