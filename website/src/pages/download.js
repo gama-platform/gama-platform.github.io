@@ -95,10 +95,10 @@ export default function Download() {
         </div>
 
         <div id="release" className="row">
-          <OsBlock src="img/windows-logo.svg" os="Windows" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Windows' zipExtension='exe' zipSize='310' />
-          <OsBlock src="img/linux-logo.svg" os="Linux" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Linux' zipExtension='deb' zipSize='384' />
-          <OsBlock src="img/apple-logo.svg" os="MacOS (Intel)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS' zipExtension='dmg' zipSize='360' />
-          <OsBlock src="img/apple-M1-logo.svg" os="MacOS (Apple Silicon)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS_M1' zipExtension='dmg' zipSize='350' />
+          <OsBlock src="/img/windows-logo.svg" os="Windows" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Windows' zipExtension='exe' zipSize='310' />
+          <OsBlock src="/img/linux-logo.svg" os="Linux" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Linux' zipExtension='deb' zipSize='384' />
+          <OsBlock src="/img/apple-logo.svg" os="MacOS (Intel)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS' zipExtension='dmg' zipSize='360' />
+          <OsBlock src="/img/apple-M1-logo.svg" os="MacOS (Apple Silicon)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS_M1' zipExtension='dmg' zipSize='350' />
 
           <div className="blockElement imageAlignTop col col--6" style={{marginBottom:"3em", textAlign: "center"}}>
             <div className="blockContent">
