@@ -22,7 +22,7 @@ title:  Exhaustive list of GAMA Keywords
 ----
 
 ## Architectures
-[fsm](BuiltInControlArchitectures#fsm), [parallel_bdi](BuiltInControlArchitectures#parallel_bdi), [probabilistic_tasks](BuiltInControlArchitectures#probabilistic_tasks), [reflex](BuiltInControlArchitectures#reflex), [rules](BuiltInControlArchitectures#rules), [simple_bdi](BuiltInControlArchitectures#simple_bdi), [sorted_tasks](BuiltInControlArchitectures#sorted_tasks), [user_first](BuiltInControlArchitectures#user_first), [user_last](BuiltInControlArchitectures#user_last), [user_only](BuiltInControlArchitectures#user_only), [weighted_tasks](BuiltInControlArchitectures#weighted_tasks), 
+[fsm](BuiltInArchitectures#fsm), [parallel_bdi](BuiltInArchitectures#parallel_bdi), [probabilistic_tasks](BuiltInArchitectures#probabilistic_tasks), [reflex](BuiltInArchitectures#reflex), [rules](BuiltInArchitectures#rules), [simple_bdi](BuiltInArchitectures#simple_bdi), [sorted_tasks](BuiltInArchitectures#sorted_tasks), [user_first](BuiltInArchitectures#user_first), [user_last](BuiltInArchitectures#user_last), [user_only](BuiltInArchitectures#user_only), [weighted_tasks](BuiltInArchitectures#weighted_tasks), 
 
 ----
 
@@ -85,6 +85,6 @@ title:  Exhaustive list of GAMA Keywords
 
 ## Other concepts
 [scheduling](RuntimeConcepts#Scheduling_of_Agents ), [step](RuntimeConcepts#agents-step), [Key concepts](BasicProgrammingConceptsInGAML),
-[Object-oriented paradigm to GAML](Introduction#vocabulary-correspondence-with-the-object-oriented-paradigm-as-in-java), [Correspondence GAML and Netlogo](/Introduction#vocabulary-correspondence-with-the-agent-based-paradigm-as-in-netlogo)
+[Object-oriented paradigm to GAML](Introduction#vocabulary-correspondence-with-the-object-oriented-paradigm-as-in-java), [Correspondence GAML and Netlogo](Introduction#vocabulary-correspondence-with-the-agent-based-paradigm-as-in-netlogo)
 
 

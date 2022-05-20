@@ -9,6 +9,6 @@ This part is dedicated to explain how to [install GAMA](Installation), [launchin
 
 * [Installation](Installation)
 * [Launching GAMA](Launching)
-* [Headless Mode](Headless)
+* [Headless Mode](RunningHeadless)
 * [Updating GAMA](Updating)
 * [Installing Plugins](InstallingPlugins)
