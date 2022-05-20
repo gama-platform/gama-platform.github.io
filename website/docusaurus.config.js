@@ -215,15 +215,13 @@ module.exports={
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          {
-            from: '/wiki/next', to: '/wiki/next/Home',
-          },
-          {
-            from: '/wiki', to: '/wiki/Home',
-          },
-          {
-            from: '/wiki/1.8.1', to: '/wiki/1.8.1/Home',
-          },
+          // Default wiki page
+          { from: '/wiki/next', to: '/wiki/next/Home', },
+          { from: '/wiki', to: '/wiki/Home', },
+          { from: '/wiki/1.8.1', to: '/wiki/1.8.1/Home', },
+          // Debug
+          { from: '/wiki/next/Operators', to: '/wiki/next/Exhaustive-list-of-GAMA-Keywords', },
+          { from: '/wiki/next/Headless', to: '/wiki/next/RunningHeadless', },
         ]
       }
     ],
