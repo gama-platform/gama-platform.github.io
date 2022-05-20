@@ -1,7 +1,5 @@
 ---
-title: 2. BDI Agents
-id: version-1.8.1-BDIAgents_step2
-original_id: BDIAgents_step2
+title:  2. BDI Agents
 ---
 
 This second step consists in defining the gold miner agents using the GAMA BDI architecture.
@@ -199,8 +197,8 @@ The third plan called `choose_closest_gold_mine` is defined to achieve the `choo
 species miner skills: [moving] control: simple_bdi {
     ...
     plan choose_closest_gold_mine intention: choose_gold_mine instantaneous: true {
-	list<point> possible_mines <- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
-	list<point> empty_mines <- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+	list&lt;point> possible_mines <- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+	list&lt;point> empty_mines <- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
 	possible_mines <- possible_mines - empty_mines;
 	if (empty(possible_mines)) {
 	    do remove_intention(extract_gold, true); 
@@ -384,8 +382,8 @@ species miner skills: [moving] control:simple_bdi {
     }
     
     plan choose_closest_gold_mine intention: choose_gold_mine instantaneous: true {
-        list<point> possible_mines <- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
-        list<point> empty_mines <- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+        list&lt;point> possible_mines <- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+        list&lt;point> empty_mines <- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
         possible_mines <- possible_mines - empty_mines;
         if (empty(possible_mines)) {
             do remove_intention(has_gold, true); 

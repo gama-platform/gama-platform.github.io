@@ -1,7 +1,5 @@
 ---
-title: Installing Plugins
-id: version-1.8.1-InstallingPlugins
-original_id: InstallingPlugins
+title:  Installing Plugins
 ---
 
 
@@ -51,18 +49,18 @@ http://updates.gama-platform.org/experimental
 
 Among all the plugins, select `RJava` in the category "Optional components of GAMA" and click on "Next >" button.
 
-![Selection of the plugin to install.](../resources/images/installationAndLaunching/installPlugin_choice.png)
+![Selection of the plugin to install.](/resources/images/installationAndLaunching/installPlugin_choice.png)
 
 The initial dialog is followed by two other ones, a first to report that the plugin satisfies all the dependencies, a second to ask the user to accept the license agreement.
 
-![List of plugins to be installed, including possible dependencies.](../resources/images/installationAndLaunching/installPlugin_Summary.png)
+![List of plugins to be installed, including possible dependencies.](/resources/images/installationAndLaunching/installPlugin_Summary.png)
 
-![Licences of the plugin, that need to be accepted to install it.](../resources/images/installationAndLaunching/installPlugin_Licences.png)
+![Licences of the plugin, that need to be accepted to install it.](/resources/images/installationAndLaunching/installPlugin_Licences.png)
 
 Once we dismiss the warning that the plugin is not signed and accept to restart GAMA, we can test the new plugin.
 In the case of plugins extending the features of GAMA, some example models are often provided with the new plugins to illustrate its use (and it is the case for `RJava`). These new models are accessible in GAMA from `Plugin models` in a dedicated folder (`GAMA to Rjava` in the case of `RJava`). We may need to refresh the model library to let it appear. **Notice that you need [to configure GAMA to access R](CallingR) before running these models.**
 
-![Models provided with the RJava plugin](../resources/images/installationAndLaunching/installPlugin_RJavaModels.png)
+![Models provided with the RJava plugin](/resources/images/installationAndLaunching/installPlugin_RJavaModels.png)
 
 
 ## Selected plugins provided by the GAMA community
@@ -105,12 +103,12 @@ In addition to the plugins provided by GAMA community described above, below is 
   * Git integration for Eclipse	(in Git integration for Eclipse category).
 * **How to use it**:
   * This plugin adds new View for GAMA available from: "Views > Other... > Show view > Other..."
-![Available views added by Egit](../resources/images/installationAndLaunching/installPlugin_egitViews.png)
+![Available views added by Egit](/resources/images/installationAndLaunching/installPlugin_egitViews.png)
   * As an example, choose "Git Repositories".
   * A new view appears in GAMA. You have to clone an existing Git repository or add a local one. [Details and tutorials about the use of Git in Eclipse](https://www.eclipse.org/egit/).
   * The projects available in the Git repository can now be imported in your `User models`.
 
-![How to import a plugin from a Git repository](../resources/images/installationAndLaunching/installPlugin_egitImportProject.png)
+![How to import a plugin from a Git repository](/resources/images/installationAndLaunching/installPlugin_egitImportProject.png)
 
 
 ### CSV Edit
@@ -119,7 +117,7 @@ In addition to the plugins provided by GAMA community described above, below is 
 * **Update site**: [https://raw.githubusercontent.com/SegFaultError/CsvEdit/master/csvedit.update/site.xml](https://raw.githubusercontent.com/SegFaultError/CsvEdit/master/csvedit.update/site.xml)
 * Website: [https://github.com/Mathieuu/CsvEdit](https://github.com/Mathieuu/CsvEdit)
 
-![Screenshot of a CSV file opened with CSV Edit](../resources/images/installationAndLaunching/installPlugin_csv_edit.png)
+![Screenshot of a CSV file opened with CSV Edit](/resources/images/installationAndLaunching/installPlugin_csv_edit.png)
 
 
 ### Quickimage
@@ -128,7 +126,7 @@ In addition to the plugins provided by GAMA community described above, below is 
 * **Update site**: [http://manu26.manufrog.com/~psnetnu/eclipse/updates/](http://manu26.manufrog.com/~psnetnu/eclipse/updates/)
 * Website (but seems outdated): [https://github.com/persal/quickimage](https://github.com/persal/quickimage)
 
-![Displaying all images of a projects as thumbnails with Quickimage](../resources/images/installationAndLaunching/installPlugin_quickimage.png)
+![Displaying all images of a projects as thumbnails with Quickimage](/resources/images/installationAndLaunching/installPlugin_quickimage.png)
 
 
 ### RSS/Atom Feed View
@@ -139,11 +137,11 @@ In addition to the plugins provided by GAMA community described above, below is 
 * Website: [http://junginger.biz/eclipse/](http://junginger.biz/eclipse/)
 * **How to use it**:
   * This plugin adds new View for GAMA available from: "Views > Other... > Show view > Other..."
-![Available view added by RSS/Atom Feed View](../resources/images/installationAndLaunching/installPlugin_RSSchoiceView.png)
+![Available view added by RSS/Atom Feed View](/resources/images/installationAndLaunching/installPlugin_RSSchoiceView.png)
   * To monitor the issues of GAMA from within GAMA itself: right-click on the RSS View and choose "Add a new feed"
   * Add the address: `http://gh-feed.imsun.net/gama-platform/gama/issues`
 
-![View of the GAMA issues inside GAMA](../resources/images/installationAndLaunching/installPlugin_RSS_GAMAIssues.png)
+![View of the GAMA issues inside GAMA](/resources/images/installationAndLaunching/installPlugin_RSS_GAMAIssues.png)
 
 
 ### CKEditor
@@ -152,7 +150,7 @@ In addition to the plugins provided by GAMA community described above, below is 
 * **Update site**: [https://kosz.bitbucket.io/eclipse-ckeditor/update-site](https://kosz.bitbucket.io/eclipse-ckeditor/update-site)
 * Website: [https://ckeditor.com/](https://ckeditor.com/)
 
-![CKEditor in GAMA to provide a WYSIWIG HTML editor.](../resources/images/installationAndLaunching/installPlugin_ckeditor.png)
+![CKEditor in GAMA to provide a WYSIWIG HTML editor.](/resources/images/installationAndLaunching/installPlugin_ckeditor.png)
 
 
 ### Markdown Text Editor
@@ -163,7 +161,7 @@ In addition to the plugins provided by GAMA community described above, below is 
   * Any markdown file can be opened with the **Markdown Editor** (to provide syntax highlighting)
   * The plugin adds to the GAMA view: the **Markdown View**, to render the markdown file.
 
-![A Markdown editor and viewer integrated into GAMA](../resources/images/installationAndLaunching/installPlugin_markdowneditor.png)
+![A Markdown editor and viewer integrated into GAMA](/resources/images/installationAndLaunching/installPlugin_markdowneditor.png)
 
 
 ### Startexplorer
@@ -171,7 +169,7 @@ In addition to the plugins provided by GAMA community described above, below is 
 * A nice utility that allows the user to select files, folders or projects in the [Navigator](NavigatingWorkspace) and open them in the filesystem (either the UI Explorer, Finder, whatever, or in a terminal).
 * **Update site**: [http://basti1302.github.com/startexplorer/update/](http://basti1302.github.com/startexplorer/update/)
 
-![The possible actions provided by the Start Explorer plugin](../resources/images/installationAndLaunching/installPlugin_start_explorer.png)
+![The possible actions provided by the Start Explorer plugin](/resources/images/installationAndLaunching/installPlugin_start_explorer.png)
 
 
 ### Pathtools
@@ -179,5 +177,5 @@ In addition to the plugins provided by GAMA community described above, below is 
 * Same purpose as StartExplorer, but much more complete, and additionally offers the possibility to add new commands to handle files (open them in specific editors, execute external programs on them, etc.). Very nice and professional. Works flawlessly in GAMA except that contributions to the toolbar are not accepted (so you have to rely on the commands present in the [Navigator](NavigatingWorkspace) pop-up menu).
 * **Update site**: [http://cdn.rawgit.com/sandipchitale/pathtools/1.0.64/PathToolsUpdateSite/site.xml](http://cdn.rawgit.com/sandipchitale/pathtools/1.0.64/PathToolsUpdateSite/site.xml)
 
-![The possible actions provided by the Pathtools plugin](../resources/images/installationAndLaunching/installPlugin_pathtools.png)
+![The possible actions provided by the Pathtools plugin](/resources/images/installationAndLaunching/installPlugin_pathtools.png)
 

@@ -1,7 +1,5 @@
 ---
-title: Recipes
-id: version-1.8.1-Recipes
-original_id: Recipes
+title:  Recipes
 ---
 
 

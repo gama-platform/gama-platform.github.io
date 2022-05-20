@@ -1,7 +1,5 @@
 ---
-title: Known issues
-id: version-1.8.1-KnownIssues
-original_id: KnownIssues
+title:  Known issues
 ---
 
 
@@ -12,14 +10,14 @@ If you are using GAMA with Windows, and your video card is a Radeon AMD, then GA
 
 To disable your video card, open the control panel, click on Hardware and Sound / Devices and Printers / Device manager, and then right click on your video card (as shown in the following image)
 
-![resources/images/recipes/disable_amd_radeon.png](../resources/images/recipes/disable_amd_radeon.png)
+![resources/images/recipes/disable_amd_radeon.png](/resources/images/recipes/disable_amd_radeon.png)
 
 [//]: # (keyword|concept_grid)
 ## Grid not displayed right using openGL
 
 When you try to display a grid with opengl, the cells have not a regular shape (as it is shown in the following image)
 
-![resources/images/recipes/grid_display_problem.png](../resources/images/recipes/grid_display_problem.png)
+![resources/images/recipes/grid_display_problem.png](/resources/images/recipes/grid_display_problem.png)
 
 The reason of this problem is that we can only map a grid of 2^n x 2^n cells in the plan. Here are some solutions for this problem:
 

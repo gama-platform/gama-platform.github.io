@@ -1,7 +1,5 @@
 ---
-title: 2. Charts
-id: version-1.8.1-IncrementalModel_step2
-original_id: IncrementalModel_step2
+title:  2. Charts
 ---
 
 This step Illustrates how to define monitors and charts in GAMA. In addition, it illustrates how to define a stopping condition for the simulation.
@@ -14,7 +12,7 @@ This step Illustrates how to define monitors and charts in GAMA. In addition, it
 * Definition of a series chart to follow the number of people infected and not infected.
 * Definition of a stopping condition (when infected rate = 1).
 
-![Incremental model 2: plot of the disease spread.](../resources/images/tutorials/Incremental_model2.png)
+![Incremental model 2: plot of the disease spread.](/resources/images/tutorials/Incremental_model2.png)
 
 
 

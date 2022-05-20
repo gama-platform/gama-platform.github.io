@@ -1,7 +1,5 @@
 ---
-title: Introduction
-id: version-1.8.1-Event__CC15_Reorganization
-original_id: Event__CC15_Reorganization
+title:  Introduction
 ---
 
 

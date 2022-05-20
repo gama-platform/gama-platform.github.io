@@ -1,7 +1,5 @@
 ---
-title: 1. Skeleton model
-id: version-1.8.1-BDIAgents_step1
-original_id: BDIAgents_step1
+title:  1. Skeleton model
 ---
 
 This first step consists in defining the skeleton model with the gold mines and the gold market.

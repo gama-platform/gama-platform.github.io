@@ -1,2 +1,4 @@
-*.lock
+*lock
 .docusaurus
+static
+sidebars.json

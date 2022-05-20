@@ -1,7 +1,5 @@
 ---
-title: GAMA
-id: version-1.8.1-Home
-original_id: Home
+title:  GAMA
 ---
 
 
@@ -18,7 +16,7 @@ Its latest version, **1.8**, can be freely [downloaded](https://gama-platform.gi
 
 ## Multiple application domains
 
-GAMA has been developed with a very general approach and can be used for many application domains. Some [additional plugins](TODO_URL) had been developed to fit with particular needs.
+GAMA has been developed with a very general approach and can be used for many application domains. Some [additional plugins](https://github.com/gama-platform/gama.experimental/tree/GAMA_1.8.1) had been developed to fit with particular needs.
 
 Example of application domains where GAMA is mostly present:
 
@@ -31,7 +29,7 @@ Example of application domains where GAMA is mostly present:
 Some [training sessions](TrainingSession) about topics such as "urban management", "epidemiology", "risk management" are also provided by the team.
 Since GAMA is an open-source software that continues to grow, if you have any particular needs for improvement, feel free to [share it to its active community](https://groups.google.com/forum/#!forum/gama-platform)!
 
-![Multiple application domains](../resources/images/general/multiple_application_domains.png)  
+![Multiple application domains](/resources/images/general/multiple_application_domains.png)  
 
 ## High-level and intuitive agent-based language
 
@@ -41,7 +39,7 @@ GAML is the language used in GAMA, coded in Java. It is an agent-based language,
 
 We provide you a continual support through the [active mailing list](https://groups.google.com/forum/#!forum/gama-platform) where the team will answer your questions. Besides, you can learn GAML on your own, following the [step by step tutorial](LearnGAMLStepByStep), or [personal learning path](Tutorials) in order reach the point you are interested in.
 
-![High level language](../resources/images/general/high_level_language.png)  
+![High level language](/resources/images/general/high_level_language.png)  
 
 
 ## GIS and Data-Driven models
@@ -54,7 +52,7 @@ Some advanced features provide you the possibility to [connect GAMA to databases
 
 GAMA has been used in [large-scale projects](Projects), using a great number of agents (up to millions of agents).
 
-![Data-driven models](../resources/images/general/data_driven_models.png)  
+![Data-driven models](/resources/images/general/data_driven_models.png)  
 
 
 ## Declarative user interface
@@ -65,7 +63,7 @@ Advanced [3D displays](Defining3DDisplays) are provided: you can control lights,
 
 During the simulations, some advanced features are available to [inspect the population of your agents](InspectorsAndMonitors). To make your model more interactive, you can add easily some [user-controlled action panels, or mouse events](DefiningUserInteraction).
 
-![Declarative User Interface](../resources/images/general/declarative_UI.png)  
+![Declarative User Interface](/resources/images/general/declarative_UI.png)  
 
 ______________________________________
 ## Development Team
@@ -96,11 +94,11 @@ A complete list of references (papers and PhD theses on or using GAMA) is availa
 
 ## Acknowledgement  
 
-![YourKit logo](../resources/images/introduction/yourkit_logo.png)  
+![YourKit logo](/resources/images/introduction/yourkit_logo.png)  
 
 YourKit supports open source projects with its full-featured Java Profiler.
 YourKit, LLC is the creator of <a href="https://www.yourkit.com/java/profiler/index.jsp">YourKit Java Profiler</a>
 and <a href="https://www.yourkit.com/.net/profiler/index.jsp">YourKit .NET Profiler</a>,
 innovative and intelligent tools for profiling Java and .NET applications.
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

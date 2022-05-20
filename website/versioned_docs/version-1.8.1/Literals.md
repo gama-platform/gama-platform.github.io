@@ -1,7 +1,5 @@
 ---
-title: Literals
-id: version-1.8.1-Literals
-original_id: Literals
+title:  Literals
 ---
 
 
@@ -33,7 +31,7 @@ Values of simple (i.e. not composed) types can all be expressed using literal ex
 
 
 ## Literal Constructors
-Although they are not strictly literals in the sense given above, some special constructs (called _literal constructors_) allow the modeler to declare constants of other data types. They are actually [operators](Operators) but can be thought of literals when used with constant operands.
+Although they are not strictly literals in the sense given above, some special constructs (called _literal constructors_) allow the modeler to declare constants of other data types. They are actually [operators](Exhaustive-list-of-GAMA-Keywords) but can be thought of literals when used with constant operands.
 
 * **pair**: the key and the value separated by `::` (e.g. `12::'abc'`)
 * **list**: the elements, separated by commas, enclosed inside square brackets (e.g. `[12,15,15]`)

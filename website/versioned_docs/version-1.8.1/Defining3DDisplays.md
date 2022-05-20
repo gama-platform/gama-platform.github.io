@@ -1,7 +1,5 @@
 ---
-title: Defining 3D Displays
-id: version-1.8.1-Defining3DDisplays
-original_id: Defining3DDisplays
+title:  Defining 3D Displays
 ---
 
 [//]: # (startConcept|3d_displays)
@@ -74,7 +72,7 @@ experiment main_experiment type:gui{
 }
 ```
 
-![Illustration of the position and size facets on a 3D display.](../resources/images/definingGUIExperiment/displays3D_postion_size.png)
+![Illustration of the position and size facets on a 3D display.](/resources/images/definingGUIExperiment/displays3D_postion_size.png)
 
 
 [//]: # (keyword|concept_camera)
@@ -83,7 +81,7 @@ experiment main_experiment type:gui{
 GAMA platform provides 2 ways of controlling the camera: [Arcball Camera](Displays#arcball-camera-commands)
  and [FreeFly Camera](Displays#freefly-camera-commands), that can be activated from the [Preferences window](#Preferences) or from the display sidebar.
 
-[![Demonstration of the various camera possibilities of the GAMA Platform.](../resources/images/definingGUIExperiment/displays3D_camera_youtube_image.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=rMIVQlul1Ag)
+[![Demonstration of the various camera possibilities of the GAMA Platform.](/resources/images/definingGUIExperiment/displays3D_camera_youtube_image.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=rMIVQlul1Ag)
 
 
 ## Dynamic camera
@@ -107,7 +105,7 @@ The default value is `{0,1,0}`.
 
 Here are some examples that can be done using those 3 parameters. You can test it by running the following model:
 
-[![Demonstration of the various possibilities of camera controls from the simulation.](../resources/images/definingGUIExperiment/displays3D_camera_simu_youtube_image.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=lQVGD8aDKZY)
+[![Demonstration of the various possibilities of camera controls from the simulation.](/resources/images/definingGUIExperiment/displays3D_camera_simu_youtube_image.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=lQVGD8aDKZY)
 
 
 #### Default view
@@ -219,11 +217,11 @@ experiment Tuto3D type: gui {
 }
 ```
 
-![Illustration of the three kinds of lights.](../resources/images/definingGUIExperiment/displays3D_light.png)
+![Illustration of the three kinds of lights.](/resources/images/definingGUIExperiment/displays3D_light.png)
 
 
 Here is an example using all the available facet to define a diffuse light that rotates around the world.
 
-[![Demonstration of the various possibilities of lighting.](../resources/images/definingGUIExperiment/displays3D_lighting_youtube_image.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=op56elmEEYs)
+[![Demonstration of the various possibilities of lighting.](/resources/images/definingGUIExperiment/displays3D_lighting_youtube_image.jpg)](http://www.youtube.com/watch?feature=player_embedded&v=op56elmEEYs)
 
 [//]: # (endConcept|3d_displays)

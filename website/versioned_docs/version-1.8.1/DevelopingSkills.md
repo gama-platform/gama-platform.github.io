@@ -1,7 +1,5 @@
 ---
-title: Developing a New Skill
-id: version-1.8.1-DevelopingSkills
-original_id: DevelopingSkills
+title:  Developing a New Skill
 ---
 
 

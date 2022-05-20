@@ -1,7 +1,5 @@
 ---
-title: 2. Vegetation Dynamic
-id: version-1.8.1-PredatorPrey_step2
-original_id: PredatorPrey_step2
+title:  2. Vegetation Dynamic
 ---
 
 
@@ -56,7 +54,7 @@ grid vegetation_cell width: 50 height: 50 neighbors: 4 {
 
 There are several ways to define colors in GAML:
 
-* the simplest way consists in using the symbol `#` + the color name (for a limited set of  [colors](Index#Constants_and_colors)): `#blue`, `#red`...
+* the simplest way consists in using the symbol `#` + the color name (for a limited set of  [colors](Exhaustive-list-of-GAMA-Keywords#constants-and-colors)): `#blue`, `#red`...
 * Another way consists in defining the 3 RGB integer values: rgb(red, green, blue) with red, green and blue between 0 and 255 (as we used in the current model): `rgb(0,0,0)`  for black, `rgb(255,255,255)` for white, `rgb(255,0,0)` for red, `rgb(0,255,0)` for green, or  `rgb(0,0,255)` for blue.
 
 

@@ -1,7 +1,5 @@
 ---
-title: 1. Basic Model
-id: version-1.8.1-ThreeD_step1
-original_id: ThreeD_step1
+title:  1. Basic Model
 ---
 
 
@@ -16,7 +14,7 @@ Initialize a 3D world with a population of cells placed randomly in a 3D 100x100
 * Creation of **`nb_cells`** **cell** agents randomly located in the 3D environment, that is defined as a cub of dimensions: 100x100x100.
 
 
-![images/3D_model_LQ.png](../resources/images/tutorials/3D_model_LQ.png)
+![images/3D_model_LQ.png](/resources/images/tutorials/3D_model_LQ.png)
 
 
 

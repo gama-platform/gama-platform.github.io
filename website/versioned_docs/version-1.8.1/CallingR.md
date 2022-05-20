@@ -1,7 +1,5 @@
 ---
-title: Calling R
-id: version-1.8.1-CallingR
-original_id: CallingR
+title:  Calling R
 ---
 
 [//]: # (startConcept|call_r)

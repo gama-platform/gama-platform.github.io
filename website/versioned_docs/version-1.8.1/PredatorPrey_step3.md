@@ -1,7 +1,5 @@
 ---
-title: 3. Prey Agent Behavior
-id: version-1.8.1-PredatorPrey_step3
-original_id: PredatorPrey_step3
+title:  3. Prey Agent Behavior
 ---
 
 This third step illustrates how to define the behaviors of prey agents and the concept of spatial topology.
@@ -46,7 +44,7 @@ We add a new variable for the `vegetation_cell` grid called `neighbors2`, that c
 ```
 grid vegetation_cell width: 50 height: 50 neighbors: 4 {
     ...
-    list<vegetation_cell> neighbors2 <- self neighbors_at 2;
+    list&lt;vegetation_cell> neighbors2 <- self neighbors_at 2;
 }
 ```
 
@@ -196,7 +194,7 @@ grid vegetation_cell width: 50 height: 50 neighbors: 4 {
     float food_prod <- rnd(0.01) ;
     float food <- rnd(1.0) max: max_food update: food + food_prod ;
     rgb color <- rgb(int(255 * (1 - food)), 255, int(255 * (1 - food))) update: rgb(int(255 * (1 - food)), 255, int(255 *(1 - food))) ;
-    list<vegetation_cell> neighbors2  <- (self neighbors_at 2);
+    list&lt;vegetation_cell> neighbors2  <- (self neighbors_at 2);
 }
 
 experiment prey_predator type: gui {

@@ -1,7 +1,5 @@
 ---
-title: Importing Models
-id: version-1.8.1-ImportingModels
-original_id: ImportingModels
+title:  Importing Models
 ---
 
 
@@ -30,7 +28,7 @@ Since model files need to reside in a project to be managed by GAMA, it is usual
 
 The simplest, safest and most secure way to import a project into the workspace is to use the built-in "Import..." menu command, available in the contextual menu on the _User models_ (the modeler can only import projects in this category).
 
-![The Import... command in the contextual menu from User models](../resources/images/workspaceProjectsAndModels/import_menu_file_import.png)
+![The Import... command in the contextual menu from User models](/resources/images/workspaceProjectsAndModels/import_menu_file_import.png)
 
 The "Import..." command allows the modeler to choose between:
 
@@ -49,7 +47,7 @@ When "GAMA project..." is chosen, a dialog box will pop-up where the user will b
 2. Choose among the list of available projects (computed by GAMA) the ones to effectively import. Only projects that are not already in the workspace can be imported.
 3. Indicate whether or not these projects need to be **copied to** or **linked from** the workspace (the latter is done by default). In the case of an import from an archive, the content will be automatically copied in the workspace.
 
-![Dialog box to import a project.](../resources/images/workspaceProjectsAndModels/import_dialog_import_projects.png)
+![Dialog box to import a project.](/resources/images/workspaceProjectsAndModels/import_dialog_import_projects.png)
 
 ### Import "External files from disk..." and "External files from archive..."
 
@@ -59,7 +57,7 @@ These two commands allow the user to **import some external files into an existi
 2. Select the files to import.
 3. Select the project in the workspace where the files will be copied.
 
-![Dialog box to import external files into an existing project of the workspace.](../resources/images/workspaceProjectsAndModels/import_dialog_import_external_files.png)
+![Dialog box to import external files into an existing project of the workspace.](/resources/images/workspaceProjectsAndModels/import_dialog_import_external_files.png)
 
 
 ### "Other" imports
@@ -68,7 +66,7 @@ When invoked, this command will open a dialog asking the user to choose the sour
 
 If some extensions have been installed, they could add some entries in this menu (e.g. the [Git extension](InstallingPlugins#git)).
 
-![The dialog box gathering all the possible way of importing a project.](../resources/images/workspaceProjectsAndModels/import_dialog_import.png)
+![The dialog box gathering all the possible way of importing a project.](/resources/images/workspaceProjectsAndModels/import_dialog_import.png)
 
 
 

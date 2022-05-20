@@ -1,7 +1,5 @@
 ---
-title: Extensions
-id: version-1.8.1-Extensions
-original_id: Extensions
+title:  Extensions
 ---
 
 

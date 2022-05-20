@@ -1,13 +1,11 @@
 ---
-title: 2. Definition of monitors and chart outputs
-id: version-1.8.1-LuneraysFlu_step2
-original_id: LuneraysFlu_step2
+title:  2. Definition of monitors and chart outputs
 ---
 
 This second step illustrates how to create monitors and charts to follows the evolution of variables and to add an ending condition to the simulation.
 
 
-![Result of the Luneray Flu model 2.](../resources/images/tutorials/luneray2.png)
+![Result of the Luneray Flu model 2.](/resources/images/tutorials/luneray2.png)
 
 
 ## Formulation
@@ -44,7 +42,7 @@ global{
 }
 ```
 
-We used the [count](Operators#count) operator that allows to count the number of elements of a list for which the left condition is true. The keyword `each` represents each element of the list.
+We used the [count](OperatorsBC#count) operator that allows to count the number of elements of a list for which the left condition is true. The keyword `each` represents each element of the list.
 
 #### Ending condition
 

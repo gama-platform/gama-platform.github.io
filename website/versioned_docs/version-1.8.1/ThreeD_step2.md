@@ -1,7 +1,5 @@
 ---
-title: 2. Moving Cells
-id: version-1.8.1-ThreeD_step2
-original_id: ThreeD_step2
+title:  2. Moving Cells
 ---
 
 
@@ -17,7 +15,7 @@ This second step model adds the **`moving3D`** skill to the `cell` agents and si
 * Add a graphics layer.
 
 
-[![3D tutorial: moving cells in a 3D space.](../resources/images/tutorials/3D_model1.png)](http://www.youtube.com/watch?feature=player_embedded&v=_QqUbC0MWRU)
+[![3D tutorial: moving cells in a 3D space.](/resources/images/tutorials/3D_model1.png)](http://www.youtube.com/watch?feature=player_embedded&v=_QqUbC0MWRU)
 
 
 ## Model Definition

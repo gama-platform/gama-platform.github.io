@@ -1,7 +1,5 @@
 ---
-title: Units and constants
-id: version-1.8.1-UnitsAndConstants
-original_id: UnitsAndConstants
+title:  Units and constants
 ---
 
 

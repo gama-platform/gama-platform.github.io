@@ -1,7 +1,5 @@
 ---
-title: Editing Headless mode for dummies
-id: version-1.8.1-Headless-mode-for-dummies
-original_id: Headless-mode-for-dummies
+title:  Editing Headless mode for dummies
 ---
 
 
@@ -83,9 +81,9 @@ The script looks like this :
 ** N.B. this version of the script, given as an example, is deprecated**
 
 
-	<?xml version="1.0" encoding="UTF-8"?>
-	<Experiment_plan>
-	<Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" experiment="predPrey">
+	&lt;?xml version="1.0" encoding="UTF-8"?>
+	&lt;Experiment_plan>
+	&lt;Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" experiment="predPrey">
 		<Parameters>
 			<Parameter name="nb_predator_init" type="INT" value="53" />
 			<Parameter name="nb_preys_init" type="INT" value="621" />
@@ -157,7 +155,7 @@ In our case there is only one, called `prey_predator` and  it looks like this :
 
 So we are now able to constitute the entire Simulation tag: 
 
-`<Simulation id="2" sourcePath="~/GAMA/plugins/msi.gama.models_1.7.0.201702260518/models/Tutorials/Predator Prey/models/Model 01.gaml" finalStep="1000" experiment="prey_predator">`
+`&lt;Simulation id="2" sourcePath="~/GAMA/plugins/msi.gama.models_1.7.0.201702260518/models/Tutorials/Predator Prey/models/Model 01.gaml" finalStep="1000" experiment="prey_predator">`
 	
 
 N.B. the numbers after `msi.gama.models` (the number of your GAMA release actually) have to be adapted to your own release of GAMA number.
@@ -215,9 +213,9 @@ We also save a **display ** output, that is an image of the simulation graphical
 
 Our new version of the experiment file is ready : 
 
-<?xml version="1.0" encoding="UTF-8"?>
-<Experiment_plan>
-	<Simulation id="2" sourcePath="/absolute/path/to/your/model/file/Model 04.gaml" finalStep="1000" experiment="prey_predator">
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;Experiment_plan>
+	&lt;Simulation id="2" sourcePath="/absolute/path/to/your/model/file/Model 04.gaml" finalStep="1000" experiment="prey_predator">
 		<Parameters>
 			<Parameter name="Initial number of preys: " type="INT" value="621" />
 			<Parameter name="Prey max energy: " type="FLOAT" value="1.0" />
@@ -320,7 +318,7 @@ This may be a problem of type declaration in the parameter section.
 ### Experiments of several simulation
 
 You can launch several simulation by replicating the simulation declaration in your ExperimentFile.xml and varying the values of the parameters.
-Since you will have to edit the experiment file by hand, you should do that only for a reasonable number of simulations (e.g. <10 )
+Since you will have to edit the experiment file by hand, you should do that only for a reasonable number of simulations (e.g. &lt;10 )
 
 
 

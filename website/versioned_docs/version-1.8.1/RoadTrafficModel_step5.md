@@ -1,7 +1,5 @@
 ---
-title: 5. Dynamic weights
-id: version-1.8.1-RoadTrafficModel_step5
-original_id: RoadTrafficModel_step5
+title:  5. Dynamic weights
 ---
 
 This 5th step illustrates how to obtain the shortest path from a point to another one and to update the weights of an existing graph.
@@ -37,7 +35,7 @@ We define a new reflex that updates the graph at each simulation step. For that,
 global {
     ...
     reflex update_graph{
-        map<road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
+        map&lt;road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
         the_graph <- the_graph with_weights weights_map;
      }
 }
@@ -51,7 +49,7 @@ species people skills: [moving]{
     ...
     reflex move when: the_target != nil {
 	path path_followed <- goto(target: the_target, on:the_graph, return_path: true);
-	list<geometry> segments <- path_followed.segments;
+	list&lt;geometry> segments <- path_followed.segments;
 	loop line over: segments {
 	    float dist <- line.perimeter;
 	    ask road(path_followed agent_from_geometry line) { 
@@ -97,11 +95,11 @@ global {
 	    }
 	}
 	create road from: shape_file_roads ;
-	map<road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
+	map&lt;road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
 	the_graph <- as_edge_graph(road) with_weights weights_map;	
 		
-	list<building> residential_buildings <- building where (each.type="Residential");
-	list<building> industrial_buildings <- building  where (each.type="Industrial") ;
+	list&lt;building> residential_buildings <- building where (each.type="Residential");
+	list&lt;building> industrial_buildings <- building  where (each.type="Industrial") ;
 	create people number: nb_people {
 	    speed <- rnd(min_speed, max_speed);
 	    start_work <- rnd (min_work_start, max_work_start);
@@ -114,7 +112,7 @@ global {
     }
 	
     reflex update_graph{
-	map<road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
+	map&lt;road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
 	the_graph <- the_graph with_weights weights_map;
     }
 }
@@ -159,7 +157,7 @@ species people skills:[moving] {
 	 
     reflex move when: the_target != nil {
 	path path_followed <- goto(target: the_target, on:the_graph, return_path: true);
-	list<geometry> segments <- path_followed.segments;
+	list&lt;geometry> segments <- path_followed.segments;
 	loop line over: segments {
 	    float dist <- line.perimeter;
 	    ask road(path_followed agent_from_geometry line) { 

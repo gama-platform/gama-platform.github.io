@@ -1,7 +1,5 @@
 ---
-title: 1. Basic Model
-id: version-1.8.1-PredatorPrey_step1
-original_id: PredatorPrey_step1
+title:  1. Basic Model
 ---
 
 

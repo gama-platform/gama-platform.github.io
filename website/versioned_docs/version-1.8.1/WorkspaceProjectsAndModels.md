@@ -1,7 +1,5 @@
 ---
-title: Workspace, Projects and Models
-id: version-1.8.1-WorkspaceProjectsAndModels
-original_id: WorkspaceProjectsAndModels
+title:  Workspace, Projects and Models
 ---
 
 

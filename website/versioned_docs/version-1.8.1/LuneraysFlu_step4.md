@@ -1,12 +1,10 @@
 ---
-title: 4. Use of a graph to constraint the movements of people
-id: version-1.8.1-LuneraysFlu_step4
-original_id: LuneraysFlu_step4
+title:  4. Use of a graph to constraint the movements of people
 ---
 
 This fourth step illustrates how to use a graph to constraint the movements of agents
 
-![Result of the Luneray Flu model 4.](../resources/images/tutorials/luneray4.png)
+![Result of the Luneray Flu model 4.](/resources/images/tutorials/luneray4.png)
 
 
 ## Formulation
@@ -36,7 +34,7 @@ global{
 }
 ```
 
-In order to compute the graph from the road network, we use, just after having created the road agents, the [as_edge_graph](Operators#as_edge_graph) operator. This operator automatically built a graph from a set of polylines. Each extremity point of the lines will become a node in the graph, and each polyline an edge. By default, the graph is not oriented and the weights of the edges are the perimeters of the polylines. It is of course possible to change through the use of some operators.  
+In order to compute the graph from the road network, we use, just after having created the road agents, the [as_edge_graph](OperatorsAA#as_edge_graph) operator. This operator automatically built a graph from a set of polylines. Each extremity point of the lines will become a node in the graph, and each polyline an edge. By default, the graph is not oriented and the weights of the edges are the perimeters of the polylines. It is of course possible to change through the use of some operators.  
 
 ```
 global {

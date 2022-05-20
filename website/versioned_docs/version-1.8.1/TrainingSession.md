@@ -1,7 +1,5 @@
 ---
-title: Training Session
-id: version-1.8.1-TrainingSession
-original_id: TrainingSession
+title:  Training Session
 ---
 
 
@@ -9,7 +7,7 @@ original_id: TrainingSession
 
 **_7-11 December 2015 - Siem Reap (Cambodia)_**
 
-![resources/other/trainingSession/SiemReap2015/photos/group.JPG](../resources/other/trainingSession/SiemReap2015/photos/group.JPG)
+![resources/other/trainingSession/SiemReap2015/photos/group.JPG](/resources/other/trainingSession/SiemReap2015/photos/group.JPG)
 
 This training session took place at the Apsara Authorities, where we introduced how to build a model with agent-based approach, using GAMA. In a new and very fast-growing city such as Siem Reap, some measures have to be taken to anticipate the future of the city, and modeling is a science that can give some solutions to face those problems.
 
@@ -24,7 +22,7 @@ The training session was divided into 2 parts:
   * Use of experiments to calibrate and explore models
 * A practical part (2 days) to build a model about urban mobility in Siem Reap (by groups of 4/5 people)
 
-|![resources/other/trainingSession/SiemReap2015/photos/theorie.JPG](../resources/other/trainingSession/SiemReap2015/photos/theorie.JPG)|![resources/other/trainingSession/SiemReap2015/photos/group_Alexis.JPG](../resources/other/trainingSession/SiemReap2015/photos/group_Alexis.JPG)|
+|![resources/other/trainingSession/SiemReap2015/photos/theorie.JPG](/resources/other/trainingSession/SiemReap2015/photos/theorie.JPG)|![resources/other/trainingSession/SiemReap2015/photos/group_Alexis.JPG](/resources/other/trainingSession/SiemReap2015/photos/group_Alexis.JPG)|
 |---|---|
 
 Trainers: Drogoul Alexis, Gaudou Benoit, Trung Quang, Philippon Damien, Mazars Julien.

@@ -1,7 +1,5 @@
 ---
-title: 5. Norms, obligation, and enforcement
-id: version-1.8.1-BDIAgents_step5
-original_id: BDIAgents_step5
+title:  5. Norms, obligation, and enforcement
 ---
 
 This last step consists of adding social norms, obligations, and enforcement into the agents' behavior.
@@ -74,7 +72,7 @@ The second norm is a social norm to communicate the list of known mines to one's
 species miner skills: [moving] control: simple_bdi {
     ...
     norm share_information intention: share_information threshold: threshold_norm instantaneous: true {
-	list<miner> my_friends <- list<miner>((social_link_base where (each.liking > 0)) collect each.agent);
+	list&lt;miner> my_friends <- list&lt;miner>((social_link_base where (each.liking > 0)) collect each.agent);
 	loop known_gold_mine over: get_beliefs_with_name(mine_at_location) {
 	    ask my_friends {
 		do add_belief(known_gold_mine);
@@ -440,8 +438,8 @@ species miner skills: [moving] control:simple_bdi {
     }
     
     plan choose_closest_gold_mine intention: choose_gold_mine instantaneous: true{
-        list<point> possible_mines <- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
-        list<point> empty_mines <- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+        list&lt;point> possible_mines <- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+        list&lt;point> empty_mines <- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
         possible_mines <- possible_mines - empty_mines;
         if (empty(possible_mines)) {
             do remove_intention(has_gold, true); 
@@ -462,7 +460,7 @@ species miner skills: [moving] control:simple_bdi {
     }
     
     norm share_information intention:share_information threshold:threshold_norm instantaneous: true{
-        list<miner> my_friends <- list<miner>((social_link_base where (each.liking > 0)) collect each.agent);
+        list&lt;miner> my_friends <- list&lt;miner>((social_link_base where (each.liking > 0)) collect each.agent);
         loop known_gold_mine over: get_beliefs_with_name(mine_at_location) {
             ask my_friends {
                 do add_belief(known_gold_mine);
@@ -478,7 +476,7 @@ species miner skills: [moving] control:simple_bdi {
     }
     
     plan share_information_to_friends intention: share_information instantaneous: true{
-        list<miner> my_friends <- list<miner>((social_link_base where (each.liking > 0)) collect each.agent);
+        list&lt;miner> my_friends <- list&lt;miner>((social_link_base where (each.liking > 0)) collect each.agent);
         loop known_gold_mine over: get_beliefs_with_name(empty_mine_location) {
             ask my_friends {
                 do add_belief(known_gold_mine);

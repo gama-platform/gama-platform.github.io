@@ -1,7 +1,5 @@
 ---
-title: Installation
-id: version-1.8.1-Installation
-original_id: Installation
+title:  Installation
 ---
 
 

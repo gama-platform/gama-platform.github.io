@@ -1,7 +1,5 @@
 ---
-title: Troubleshooting
-id: version-1.8.1-Troubleshooting
-original_id: Troubleshooting
+title:  Troubleshooting
 ---
 
 
@@ -107,13 +105,13 @@ The most common causes of problems when running GAMA are memory problems. Depend
 Memory problems are easy to detect: on the bottom right corner of its window, GAMA will always display the status of the current memory. The first number represents the memory currently used (in MB), the second (always larger) the memory currently allocated by the JVM. And the little trash icon allows to "garbage collect" the memory still used by agents that are not used anymore (if any). If GAMA appears to hang or crash and if you can see that the two numbers are very close, it means that the memory required by GAMA exceeds the memory allocated.
 
 
-![Memory bar status in GAMA.](../resources/images/installationAndLaunching/trouble_memory_status.png)
+![Memory bar status in GAMA.](/resources/images/installationAndLaunching/trouble_memory_status.png)
 
 There are two ways to circumvent this problem: the first one is to increase the memory allocated to GAMA by the Java Virtual Machine. The second, detailed [on this page](OptimizingModels) is to try to optimize your models to reduce their memory footprint at runtime.
 To increase the memory allocated, first locate the file called `Gama.ini`. On Windows and Ubuntu, it is located next to the executable. On Mac OS X, you have to right-click on `Gama.app`, choose "Display Package Contents...", and you will find `Gama.ini` in `Contents/Eclipse`.
 This file typically looks like the following (some options/keywords may vary depending on the system), and we are interested in two JVM arguments:
 
-![Gama.ini file: the place to allocate more memory to GAMA to deal with big projects.](../resources/images/installationAndLaunching/trouble_gama_ini.png)
+![Gama.ini file: the place to allocate more memory to GAMA to deal with big projects.](/resources/images/installationAndLaunching/trouble_gama_ini.png)
 
 
 `-Xms` supplies the minimal amount of memory the JVM should allocate to GAMA, `-Xmx` the maximal amount. By changing these values (esp. the second one, of course, for example to 4096M, or 4g, or more!), saving the file and relaunching GAMA, you can probably solve your problem. Note that 32 bits versions of GAMA will not accept to run with a value of `-Xmx` greater than 1500M. See [here](http://stackoverflow.com/questions/14763079/what-are-the-xms-and-xmx-parameters-when-starting-jvms) for additional information on these two options.
@@ -131,19 +129,19 @@ If you think you have found a new bug/issue in GAMA, it is time to create an iss
 Two files may be particularly interesting to attach to your issue: the **configuration details** and the **error log**. Both can be obtained quite easily from within GAMA itself in a few steps. First, click the "About GAMA..." menu item (under the "Gama Platform" menu on Mac OS X, "Help" menu on Linux & Windows)
 
 
-![Open information about GAMA windows.](../resources/images/installationAndLaunching/trouble_menu_about_gama.png)
+![Open information about GAMA windows.](/resources/images/installationAndLaunching/trouble_menu_about_gama.png)
 
 
 In the dialog that appears, you will find a button called "Installation Details".
 
 
-![images/dialog_about_gama.png](../resources/images/installationAndLaunching/trouble_dialog_about_gama.png)
+![images/dialog_about_gama.png](/resources/images/installationAndLaunching/trouble_dialog_about_gama.png)
 
 
 Click this button and a new dialog appears with several tabs.
 
 
-![images/dialog_configuration.png](../resources/images/installationAndLaunching/trouble_dialog_configuration.png)
+![images/dialog_configuration.png](/resources/images/installationAndLaunching/trouble_dialog_configuration.png)
 
 
 To provide complete information about the status of your system at the time of the error, you can
@@ -153,5 +151,5 @@ To provide complete information about the status of your system at the time of t
 (2) click the "View error log" button, which will bring you to the location, in your file system, of a file called "log", which you can then attach to your issue as well.
 
 
-![images/log_file.png](../resources/images/installationAndLaunching/trouble_log_file.png)
+![images/log_file.png](/resources/images/installationAndLaunching/trouble_log_file.png)
 

@@ -1,14 +1,12 @@
 ---
-title: Multi-Paradigm Modeling
-id: version-1.8.1-MultiParadigmModeling
-original_id: MultiParadigmModeling
+title:  Multi-Paradigm Modeling
 ---
 
 [//]: # (keyword|concept_architecture)
 [//]: # (keyword|concept_equation)
 
-![images/multiParadigmModeling/equation.png](../resources/images/multiParadigmModeling/equation.png)
-![images/fsm.png](../resources/images/multiParadigmModeling/fsm.png)
+![images/multiParadigmModeling/equation.png](/resources/images/multiParadigmModeling/equation.png)
+![images/fsm.png](/resources/images/multiParadigmModeling/fsm.png)
 
 [//]: # (keyword|concept_behavior)
 Multi-paradigm modeling is a research field focused on how to define a model semantically. From the beginning of this step by step tutorial, our approach is based on [behavior](DefiningActionsAndBehaviors#behaviors) (or reflex), for each agents. In this part, we will see that GAMA provides other ways to implement your model, using several control architectures. Sometime, it will be easier to implement your models choosing other paradigms.

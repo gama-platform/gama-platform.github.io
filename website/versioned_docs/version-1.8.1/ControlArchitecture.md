@@ -1,7 +1,5 @@
 ---
-title: Control Architectures
-id: version-1.8.1-ControlArchitecture
-original_id: ControlArchitecture
+title:  Control Architectures
 ---
 
 [//]: # (keyword|concept_architecture)
@@ -389,6 +387,6 @@ If no panel is described or if all panels are empty (i.e. no `user_command`), th
 
 ## Other Control Architectures
 
-Some other control architectures are available in additional plugins. For instance, [BDI (Belief, desire, intention) architecture](UsingBDI) is available. Feel free to read about it if you want to learn more.
+Some other control architectures are available in additional plugins. For instance, [BDI (Belief, desire, intention) architecture](BDIAgents) is available. Feel free to read about it if you want to learn more.
 
 Do you need some other control architectures for your model? Feel free to make your suggestion to the team of developers through the [mailing list](https://groups.google.com/forum/#!forum/gama-platform). Remember also that GAMA is an open-source platform, you can design your own control architecture easily. Go to the section Community/contribute if you want to jump into coding!

@@ -1,7 +1,5 @@
 ---
-title: Operators (B to C)
-id: version-1.8.1-OperatorsBC
-original_id: OperatorsBC
+title:  Operators (B to C)
 ---
 
  	
@@ -424,33 +422,33 @@ float var1 <- beta_index(graphEpidemio); // var1 equals the beta index of the gr
 #### Possible use: 
   * `date` **`between`** `date` --->  `bool`
   *  **`between`** (`date` , `date`) --->  `bool`
-  *  **`between`** (`int`, `int`, `int`) --->  `bool`
-  *  **`between`** (`float`, `float`, `float`) --->  `bool`
+  *  **`between`** (`date`, `date`, `date`) --->  `bool`
   *  **`between`** (`any expression`, `date`, `date`) --->  `bool`
-  *  **`between`** (`date`, `date`, `date`) --->  `bool` 
+  *  **`between`** (`float`, `float`, `float`) --->  `bool`
+  *  **`between`** (`int`, `int`, `int`) --->  `bool` 
 
 #### Result: 
-returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand
 returns true if the first float operand is bigger than the second float operand and smaller than the third float operand
+returns true the first integer operand is bigger than the second integer operand and smaller than the third integer operand
 
 #### Special cases:     
-  * returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others 
-  
-```
- 
-bool var2 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var2 equals true 
-// // will return true if the current_date of the model is in_between the 2 
-between(date('2000-01-01'), date('2020-02-02'))
-``` 
-
-    
   * returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with 'every' to express a frequency between two dates 
   
 ```
  
-bool var5 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var5 equals true 
+bool var0 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var0 equals true 
 // will return true every new day between these two dates, taking the first one as the starting point 
 every(#day between(date('2000-01-01'), date('2020-02-02'))) 
+``` 
+
+    
+  * returns true if the first operand is between the two dates passed in arguments (both exclusive). The version with 2 arguments compares the current_date with the 2 others 
+  
+```
+ 
+bool var3 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var3 equals true 
+// // will return true if the current_date of the model is in_between the 2 
+between(date('2000-01-01'), date('2020-02-02'))
 ``` 
 
 
@@ -458,8 +456,8 @@ every(#day between(date('2000-01-01'), date('2020-02-02')))
 #### Examples: 
 ```
  
-bool var0 <- between(5, 1, 10); // var0 equals true 
-bool var1 <- between(5.0, 1.0, 10.0); // var1 equals true
+bool var6 <- between(5.0, 1.0, 10.0); // var6 equals true 
+bool var7 <- between(5, 1, 10); // var7 equals true
 
 ```
   
@@ -496,7 +494,7 @@ map var1 <- betweenness_centrality(graphEpidemio); // var1 equals the betweennes
 ### `biggest_cliques_of`
 
 #### Possible use: 
-  *  **`biggest_cliques_of`** (`graph`) --->  `list<list>` 
+  *  **`biggest_cliques_of`** (`graph`) --->  `list&lt;list>` 
 
 #### Result: 
 returns the biggest cliques of a graph using the Bron-Kerbosch clique detection algorithm
@@ -505,7 +503,7 @@ returns the biggest cliques of a graph using the Bron-Kerbosch clique detection 
 ```
  
 graph my_graph <- graph([]); 
-list<list> var1 <- biggest_cliques_of (my_graph); // var1 equals the list of the biggest cliques as list
+list&lt;list> var1 <- biggest_cliques_of (my_graph); // var1 equals the list of the biggest cliques as list
 
 ```
       
@@ -691,9 +689,9 @@ the center of the box is by default the location of the current agent in which h
 #### Examples: 
 ```
  
-geometry var0 <- box({10, 5 , 5}); // var0 equals a geometry as a rectangle with width = 10, height = 5 depth= 5. 
-float var1 <-  (box({10, 10 , 5}) at_location point(50,50,0)).location.y; // var1 equals 50.0 
-geometry var2 <- box(10, 5 , 5); // var2 equals a geometry as a rectangle with width = 10, height = 5 depth= 5.
+geometry var0 <- box(10, 5 , 5); // var0 equals a geometry as a rectangle with width = 10, height = 5 depth= 5. 
+geometry var1 <- box({10, 5 , 5}); // var1 equals a geometry as a rectangle with width = 10, height = 5 depth= 5. 
+float var2 <-  (box({10, 10 , 5}) at_location point(50,50,0)).location.y; // var2 equals 50.0
 
 ```
       
@@ -712,19 +710,19 @@ geometry var2 <- box(10, 5 , 5); // var2 equals a geometry as a rectangle with w
 ### `brewer_colors`
 
 #### Possible use: 
-  *  **`brewer_colors`** (`string`) --->  `list<rgb>`
-  * `string` **`brewer_colors`** `int` --->  `list<rgb>`
-  *  **`brewer_colors`** (`string` , `int`) --->  `list<rgb>` 
+  *  **`brewer_colors`** (`string`) --->  `list&lt;rgb>`
+  * `string` **`brewer_colors`** `int` --->  `list&lt;rgb>`
+  *  **`brewer_colors`** (`string` , `int`) --->  `list&lt;rgb>` 
 
 #### Result: 
-Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
 Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes
+Build a list of colors of a given type (see website http://colorbrewer2.org/) with a given number of classes
 
 #### Examples: 
 ```
  
-list<rgb> var0 <- list<rgb> colors <- brewer_colors("Pastel1", 5);; // var0 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes 
-list<rgb> var1 <- list<rgb> colors <- brewer_colors("OrRd");; // var1 equals a list of 6 blue colors
+list&lt;rgb> var0 <- list&lt;rgb> colors <- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
+list&lt;rgb> var1 <- list&lt;rgb> colors <- brewer_colors("Pastel1", 5);; // var1 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes
 
 ```
       
@@ -743,19 +741,19 @@ list<rgb> var1 <- list<rgb> colors <- brewer_colors("OrRd");; // var1 equals a l
 ### `brewer_palettes`
 
 #### Possible use: 
-  *  **`brewer_palettes`** (`int`) --->  `list<string>`
-  * `int` **`brewer_palettes`** `int` --->  `list<string>`
-  *  **`brewer_palettes`** (`int` , `int`) --->  `list<string>` 
+  *  **`brewer_palettes`** (`int`) --->  `list&lt;string>`
+  * `int` **`brewer_palettes`** `int` --->  `list&lt;string>`
+  *  **`brewer_palettes`** (`int` , `int`) --->  `list&lt;string>` 
 
 #### Result: 
-returns the list a palette with a given min number of classes and max number of classes)
 returns the list a palette with a given min number of classes)
+returns the list a palette with a given min number of classes and max number of classes)
 
 #### Examples: 
 ```
  
-list<string> var0 <- list<string> palettes <- brewer_palettes(5,10);; // var0 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors 
-list<string> var1 <- list<string> palettes <- brewer_palettes(3);; // var1 equals a list of palettes that are composed of a min of 3 colors
+list&lt;string> var0 <- list&lt;string> palettes <- brewer_palettes(3);; // var0 equals a list of palettes that are composed of a min of 3 colors 
+list&lt;string> var1 <- list&lt;string> palettes <- brewer_palettes(5,10);; // var1 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors
 
 ```
       
@@ -947,8 +945,8 @@ Allows the user to choose a value by specifying a title, a type, and a list of p
   *  **`circle`** (`float` , `point`) --->  `geometry` 
 
 #### Result: 
-A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.
-A circle geometry which radius is equal to the operand.  
+A circle geometry which radius is equal to the operand.
+A circle geometry which radius is equal to the first operand, and the center has the location equal to the second operand.  
 
 #### Comment: 
 the center of the circle is by default the location of the current agent in which has been called this operator.
@@ -960,8 +958,8 @@ the center of the circle is by default the location of the current agent in whic
 #### Examples: 
 ```
  
-geometry var0 <- circle(10,{80,30}); // var0 equals a geometry as a circle of radius 10, the center will be in the location {80,30}. 
-geometry var1 <- circle(10); // var1 equals a geometry as a circle of radius 10.
+geometry var0 <- circle(10); // var0 equals a geometry as a circle of radius 10. 
+geometry var1 <- circle(10,{80,30}); // var1 equals a geometry as a circle of radius 10, the center will be in the location {80,30}.
 
 ```
       
@@ -1005,7 +1003,7 @@ geometry var0 <- clean(self); // var0 equals returns the geometry resulting from
 ### `clean_network`
 
 #### Possible use: 
-  *  **`clean_network`** (`list<geometry>`, `float`, `bool`, `bool`) --->  `list<geometry>` 
+  *  **`clean_network`** (`list&lt;geometry>`, `float`, `bool`, `bool`) --->  `list&lt;geometry>` 
 
 #### Result: 
 A list of polylines corresponding to the cleaning of the first operand (list of polyline geometry or agents), considering the tolerance distance given by the second operand; the third operator is used to define if the operator should as well split the lines at their intersections(true to split the lines); the last operandis used to specify if the operator should as well keep only the main connected component of the network. Usage: clean_network(lines:list of geometries or agents, tolerance: float, split_lines: bool, keepMainConnectedComponent: bool)  
@@ -1016,8 +1014,8 @@ The cleaned set of polylines
 #### Examples: 
 ```
  
-list<geometry> var0 <- clean_network(my_road_shapefile.contents, 1.0, true, false); // var0 equals returns the list of polulines resulting from the cleaning of the geometry of the agent applying the operator with a tolerance of 1m, and splitting the lines at their intersections. 
-list<geometry> var1 <- clean_network([line({10,10}, {20,20}), line({10,20},{20,10})],3.0,true,false); // var1 equals [line({10.0,20.0,0.0},{15.0,15.0,0.0}),line({15.0,15.0,0.0},{20.0,10.0,0.0}), line({10.0,10.0,0.0},{15.0,15.0,0.0}), line({15.0,15.0,0.0},{20.0,20.0,0.0})]
+list&lt;geometry> var0 <- clean_network(my_road_shapefile.contents, 1.0, true, false); // var0 equals returns the list of polulines resulting from the cleaning of the geometry of the agent applying the operator with a tolerance of 1m, and splitting the lines at their intersections. 
+list&lt;geometry> var1 <- clean_network([line({10,10}, {20,20}), line({10,20},{20,10})],3.0,true,false); // var1 equals [line({10.0,20.0,0.0},{15.0,15.0,0.0}),line({15.0,15.0,0.0},{20.0,10.0,0.0}), line({10.0,10.0,0.0},{15.0,15.0,0.0}), line({15.0,15.0,0.0},{20.0,20.0,0.0})]
 
 ```
   
@@ -1031,8 +1029,8 @@ list<geometry> var1 <- clean_network([line({10,10}, {20,20}), line({10,20},{20,1
 ### `closest_points_with`
 
 #### Possible use: 
-  * `geometry` **`closest_points_with`** `geometry` --->  `list<point>`
-  *  **`closest_points_with`** (`geometry` , `geometry`) --->  `list<point>` 
+  * `geometry` **`closest_points_with`** `geometry` --->  `list&lt;point>`
+  *  **`closest_points_with`** (`geometry` , `geometry`) --->  `list&lt;point>` 
 
 #### Result: 
 A list of two closest points between the two geometries.
@@ -1040,7 +1038,7 @@ A list of two closest points between the two geometries.
 #### Examples: 
 ```
  
-list<point> var0 <- geom1 closest_points_with(geom2); // var0 equals [pt1, pt2] with pt1 the closest point of geom1 to geom2 and pt1 the closest point of geom2 to geom1
+list&lt;point> var0 <- geom1 closest_points_with(geom2); // var0 equals [pt1, pt2] with pt1 the closest point of geom1 to geom2 and pt1 the closest point of geom2 to geom1
 
 ```
       
@@ -1059,13 +1057,13 @@ list<point> var0 <- geom1 closest_points_with(geom2); // var0 equals [pt1, pt2] 
 ### `closest_to`
 
 #### Possible use: 
-  * `container<unknown,geometry>` **`closest_to`** `geometry` --->  `geometry`
-  *  **`closest_to`** (`container<unknown,geometry>` , `geometry`) --->  `geometry`
-  *  **`closest_to`** (`container<unknown,geometry>`, `geometry`, `int`) --->  `list<geometry>` 
+  * `container&lt;unknown,geometry>` **`closest_to`** `geometry` --->  `geometry`
+  *  **`closest_to`** (`container&lt;unknown,geometry>` , `geometry`) --->  `geometry`
+  *  **`closest_to`** (`container&lt;unknown,geometry>`, `geometry`, `int`) --->  `list&lt;geometry>` 
 
 #### Result: 
-An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the closest to the operand (casted as a geometry).
-The N agents or geometries among the left-operand list of agents, species or meta-population (addition of species), that are the closest to the operand (casted as a geometry).  
+The N agents or geometries among the left-operand list of agents, species or meta-population (addition of species), that are the closest to the operand (casted as a geometry).
+An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the closest to the operand (casted as a geometry).  
 
 #### Comment: 
 the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.the distance is computed in the topology of the calling agent (the agent in which this operator is used), with the distance algorithm specific to the topology.
@@ -1073,10 +1071,10 @@ the distance is computed in the topology of the calling agent (the agent in whic
 #### Examples: 
 ```
  
-geometry var0 <- [ag1, ag2, ag3] closest_to(self); // var0 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator. 
-(species1 + species2) closest_to self 
-list<geometry> var2 <- [ag1, ag2, ag3] closest_to(self, 2); // var2 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator. 
-(species1 + species2) closest_to (self, 5)
+list&lt;geometry> var0 <- [ag1, ag2, ag3] closest_to(self, 2); // var0 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator. 
+(species1 + species2) closest_to (self, 5) 
+geometry var2 <- [ag1, ag2, ag3] closest_to(self); // var2 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator. 
+(species1 + species2) closest_to self
 
 ```
       
@@ -1132,8 +1130,8 @@ list var3 <- (list(node) collect (node(each).location.x * 2); // var3 equals the
 ### `column_at`
 
 #### Possible use: 
-  * `matrix<unknown>` **`column_at`** `int` --->  `list<unknown>`
-  *  **`column_at`** (`matrix<unknown>` , `int`) --->  `list<unknown>` 
+  * `matrix&lt;unknown>` **`column_at`** `int` --->  `list&lt;unknown>`
+  *  **`column_at`** (`matrix&lt;unknown>` , `int`) --->  `list&lt;unknown>` 
 
 #### Result: 
 returns the column at a num_col (right-hand operand)
@@ -1141,7 +1139,7 @@ returns the column at a num_col (right-hand operand)
 #### Examples: 
 ```
  
-list<unknown> var0 <- matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]) column_at 2; // var0 equals ["el31","el32","el33"]
+list&lt;unknown> var0 <- matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]) column_at 2; // var0 equals ["el31","el32","el33"]
 
 ```
       
@@ -1160,7 +1158,7 @@ list<unknown> var0 <- matrix([["el11","el12","el13"],["el21","el22","el23"],["el
 ### `columns_list`
 
 #### Possible use: 
-  *  **`columns_list`** (`matrix<unknown>`) --->  `list<list<unknown>>` 
+  *  **`columns_list`** (`matrix&lt;unknown>`) --->  `list&lt;list&lt;unknown>>` 
 
 #### Result: 
 returns a list of the columns of the matrix, with each column as a list of elements
@@ -1168,7 +1166,7 @@ returns a list of the columns of the matrix, with each column as a list of eleme
 #### Examples: 
 ```
  
-list<list<unknown>> var0 <- columns_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]])); // var0 equals [["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]
+list&lt;list&lt;unknown>> var0 <- columns_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]])); // var0 equals [["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]
 
 ```
       
@@ -1190,12 +1188,12 @@ list<list<unknown>> var0 <- columns_list(matrix([["el11","el12","el13"],["el21",
   *  **`command`** (`string`) --->  `string`
   * `string` **`command`** `string` --->  `string`
   *  **`command`** (`string` , `string`) --->  `string`
-  *  **`command`** (`string`, `string`, `map<string,string>`) --->  `string` 
+  *  **`command`** (`string`, `string`, `map&lt;string,string>`) --->  `string` 
 
 #### Result: 
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string> of environment variables) are available.
 command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string
-command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map<string, string> of environment variables) are available.
+command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string> of environment variables) are available.
     	
 ----
 
@@ -1224,8 +1222,8 @@ the center of the cone is by default the location of the current agent in which 
 #### Examples: 
 ```
  
-geometry var0 <- cone(0, 45); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
-geometry var1 <- cone({0, 45}); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
+geometry var0 <- cone({0, 45}); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
+geometry var1 <- cone(0, 45); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
 
 ```
       
@@ -1278,9 +1276,9 @@ geometry var0 <- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a ba
 ### `connected_components_of`
 
 #### Possible use: 
-  *  **`connected_components_of`** (`graph`) --->  `list<list>`
-  * `graph` **`connected_components_of`** `bool` --->  `list<list>`
-  *  **`connected_components_of`** (`graph` , `bool`) --->  `list<list>` 
+  *  **`connected_components_of`** (`graph`) --->  `list&lt;list>`
+  * `graph` **`connected_components_of`** `bool` --->  `list&lt;list>`
+  *  **`connected_components_of`** (`graph` , `bool`) --->  `list&lt;list>` 
 
 #### Result: 
 returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components. 
@@ -1290,9 +1288,9 @@ returns the connected components of a graph, i.e. the list of all vertices that 
 ```
  
 graph my_graph2 <- graph([]); 
-list<list> var1 <- connected_components_of (my_graph2, true); // var1 equals the list of all the components as list 
+list&lt;list> var1 <- connected_components_of (my_graph2, true); // var1 equals the list of all the components as list 
 graph my_graph <- graph([]); 
-list<list> var3 <- connected_components_of (my_graph); // var3 equals the list of all the components as list
+list&lt;list> var3 <- connected_components_of (my_graph); // var3 equals the list of all the components as list
 
 ```
       
@@ -1350,10 +1348,10 @@ float var1 <- connectivity_index(graphEpidemio); // var1 equals the connectivity
 ### `contains`
 
 #### Possible use: 
+  * `container&lt;KeyType,ValueType>` **`contains`** `unknown` --->  `bool`
+  *  **`contains`** (`container&lt;KeyType,ValueType>` , `unknown`) --->  `bool`
   * `string` **`contains`** `string` --->  `bool`
-  *  **`contains`** (`string` , `string`) --->  `bool`
-  * `container<KeyType,ValueType>` **`contains`** `unknown` --->  `bool`
-  *  **`contains`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool` 
+  *  **`contains`** (`string` , `string`) --->  `bool` 
 
 #### Result: 
 true, if the container contains the right operand, false otherwise. 'contains' can also be written 'contains_value'. On graphs, it is equivalent to calling 'contains_edge'  
@@ -1362,18 +1360,18 @@ true, if the container contains the right operand, false otherwise. 'contains' c
 the contains operator behavior depends on the nature of the operand
 
 #### Special cases:     
-  * if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;    
   * if it is a map, contains, which can also be written 'contains_value', returns true if the operand is a value of the map    
   * if it is a pair, contains_key returns true if the operand is equal to the value of the pair    
   * if it is a file, contains returns true it the operand is contained in the file content    
   * if it is a population, contains returns true if the operand is an agent of the population, false otherwise    
   * if it is a graph, contains can be written 'contains_edge' and  returns true if the operand is an edge of the graph, false otherwise (use 'contains_node' for testing the presence of a node)    
+  * if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;    
   * if it is a list or a matrix, contains returns true if the list or matrix contains the right operand 
   
 ```
  
-bool var1 <- [1, 2, 3] contains 2; // var1 equals true 
-bool var2 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var2 equals true
+bool var0 <- [1, 2, 3] contains 2; // var0 equals true 
+bool var1 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var1 equals true
 ``` 
 
 
@@ -1381,7 +1379,7 @@ bool var2 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var2 equals true
 #### Examples: 
 ```
  
-bool var0 <- 'abcded' contains 'bc'; // var0 equals true
+bool var2 <- 'abcded' contains 'bc'; // var2 equals true
 
 ```
       
@@ -1447,10 +1445,10 @@ bool var4 <- [1::2, 3::4, 5::6] contains_all [2,4]; // var4 equals true
 ### `contains_any`
 
 #### Possible use: 
-  * `container` **`contains_any`** `container` --->  `bool`
-  *  **`contains_any`** (`container` , `container`) --->  `bool`
   * `string` **`contains_any`** `list` --->  `bool`
-  *  **`contains_any`** (`string` , `list`) --->  `bool` 
+  *  **`contains_any`** (`string` , `list`) --->  `bool`
+  * `container` **`contains_any`** `container` --->  `bool`
+  *  **`contains_any`** (`container` , `container`) --->  `bool` 
 
 #### Result: 
 true if the left operand contains one of the elements of the right operand, false otherwise  
@@ -1464,11 +1462,11 @@ the definition of contains depends on the container
 #### Examples: 
 ```
  
-bool var0 <- [1,2,3,4,5,6] contains_any [2,4]; // var0 equals true  
-bool var1 <- [1,2,3,4,5,6] contains_any [2,8]; // var1 equals true 
-bool var2 <- [1::2, 3::4, 5::6] contains_any [1,3]; // var2 equals false 
-bool var3 <- [1::2, 3::4, 5::6] contains_any [2,4]; // var3 equals true 
-bool var4 <- "abcabcabc" contains_any ["ca","xy"]; // var4 equals true
+bool var0 <- "abcabcabc" contains_any ["ca","xy"]; // var0 equals true 
+bool var1 <- [1,2,3,4,5,6] contains_any [2,4]; // var1 equals true  
+bool var2 <- [1,2,3,4,5,6] contains_any [2,8]; // var2 equals true 
+bool var3 <- [1::2, 3::4, 5::6] contains_any [1,3]; // var3 equals false 
+bool var4 <- [1::2, 3::4, 5::6] contains_any [2,4]; // var4 equals true
 
 ```
       
@@ -1487,10 +1485,10 @@ bool var4 <- "abcabcabc" contains_any ["ca","xy"]; // var4 equals true
 ### `contains_edge`
 
 #### Possible use: 
-  * `graph` **`contains_edge`** `unknown` --->  `bool`
-  *  **`contains_edge`** (`graph` , `unknown`) --->  `bool`
   * `graph` **`contains_edge`** `pair` --->  `bool`
-  *  **`contains_edge`** (`graph` , `pair`) --->  `bool` 
+  *  **`contains_edge`** (`graph` , `pair`) --->  `bool`
+  * `graph` **`contains_edge`** `unknown` --->  `bool`
+  *  **`contains_edge`** (`graph` , `unknown`) --->  `bool` 
 
 #### Result: 
 returns true if the graph(left-hand operand) contains the given edge (righ-hand operand), false otherwise
@@ -1501,7 +1499,7 @@ returns true if the graph(left-hand operand) contains the given edge (righ-hand 
   
 ```
  
-bool var2 <- graphEpidemio contains_edge (node(0)::node(3)); // var2 equals true
+bool var0 <- graphEpidemio contains_edge (node(0)::node(3)); // var0 equals true
 ``` 
 
 
@@ -1510,7 +1508,7 @@ bool var2 <- graphEpidemio contains_edge (node(0)::node(3)); // var2 equals true
 ```
  
 graph graphFromMap <-  as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); 
-bool var1 <- graphFromMap contains_edge link({1,5},{12,45}); // var1 equals true
+bool var2 <- graphFromMap contains_edge link({1,5},{12,45}); // var2 equals true
 
 ```
       
@@ -1529,8 +1527,8 @@ bool var1 <- graphFromMap contains_edge link({1,5},{12,45}); // var1 equals true
 ### `contains_key`
 
 #### Possible use: 
-  * `container<KeyType,ValueType>` **`contains_key`** `unknown` --->  `bool`
-  *  **`contains_key`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool` 
+  * `container&lt;KeyType,ValueType>` **`contains_key`** `unknown` --->  `bool`
+  *  **`contains_key`** (`container&lt;KeyType,ValueType>` , `unknown`) --->  `bool` 
 
 #### Result: 
 true, if the left-hand operand -- the container -- contains a key -- or an index -- equal to the right-hand operand, false otherwise. On graphs, 'contains_key' is equivalent to calling 'contains_vertex'  
@@ -1665,8 +1663,8 @@ returns a copy of the operand.
 ### `copy_between`
 
 #### Possible use: 
-  *  **`copy_between`** (`list`, `int`, `int`) --->  `list`
-  *  **`copy_between`** (`string`, `int`, `int`) --->  `string` 
+  *  **`copy_between`** (`string`, `int`, `int`) --->  `string`
+  *  **`copy_between`** (`list`, `int`, `int`) --->  `list` 
 
 #### Result: 
 Returns a copy of the first operand between the indexes determined by the second (inclusive) and third operands (exclusive)
@@ -1679,8 +1677,8 @@ Returns a copy of the first operand between the indexes determined by the second
 #### Examples: 
 ```
  
-list var0 <-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var0 equals [1, 6] 
-string var1 <- copy_between("abcabcabc", 2,6); // var1 equals "cabc"
+string var0 <- copy_between("abcabcabc", 2,6); // var0 equals "cabc" 
+list var1 <-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var1 equals [1, 6]
 
 ```
   
@@ -1942,9 +1940,9 @@ returns a new map using the left operand as keys for the right operand
 #### Examples: 
 ```
  
-map<int,string> var0 <- create_map([0,1,2],['a','b','c']); // var0 equals [0::'a',1::'b',2::'c'] 
-map<int,float> var1 <- create_map([0,1],[0.1,0.2,0.3]); // var1 equals [0::0.1,1::0.2] 
-map<string,float> var2 <- create_map(['a','b','c','d'],[1.0,2.0,3.0]); // var2 equals ['a'::1.0,'b'::2.0,'c'::3.0]
+map&lt;int,string> var0 <- create_map([0,1,2],['a','b','c']); // var0 equals [0::'a',1::'b',2::'c'] 
+map&lt;int,float> var1 <- create_map([0,1],[0.1,0.2,0.3]); // var1 equals [0::0.1,1::0.2] 
+map&lt;string,float> var2 <- create_map(['a','b','c','d'],[1.0,2.0,3.0]); // var2 equals ['a'::1.0,'b'::2.0,'c'::3.0]
 
 ```
   
@@ -2051,11 +2049,11 @@ string var0 <- crs(my_shapefile); // var0 equals the crs of the shapefile
   *  **`CRS_transform`** (`geometry`, `string`, `string`) --->  `geometry`
 
 #### Special cases:     
-  * returns the geometry corresponding to the transformation of the given geometry from the first CRS to the second CRS (Coordinate Reference System) 
+  * returns the geometry corresponding to the transformation of the given geometry by the current CRS (Coordinate Reference System), the one corresponding to the world's agent one 
   
 ```
  
-geometry var0 <- {8.35,47.22} CRS_transform("EPSG:4326","EPSG:4326"); // var0 equals {929517.7481238344,5978057.894895313,0.0}
+geometry var0 <- CRS_transform(shape); // var0 equals a geometry corresponding to the agent geometry transformed into the current CRS
 ``` 
 
     
@@ -2067,11 +2065,11 @@ geometry var1 <- shape CRS_transform("EPSG:4326"); // var1 equals a geometry cor
 ``` 
 
     
-  * returns the geometry corresponding to the transformation of the given geometry by the current CRS (Coordinate Reference System), the one corresponding to the world's agent one 
+  * returns the geometry corresponding to the transformation of the given geometry from the first CRS to the second CRS (Coordinate Reference System) 
   
 ```
  
-geometry var2 <- CRS_transform(shape); // var2 equals a geometry corresponding to the agent geometry transformed into the current CRS
+geometry var2 <- {8.35,47.22} CRS_transform("EPSG:4326","EPSG:4326"); // var2 equals {929517.7481238344,5978057.894895313,0.0}
 ``` 
 
 
@@ -2090,8 +2088,8 @@ geometry var2 <- CRS_transform(shape); // var2 equals a geometry corresponding t
   *  **`csv_file`** (`string` , `bool`) --->  `file`
   * `string` **`csv_file`** `string` --->  `file`
   *  **`csv_file`** (`string` , `string`) --->  `file`
-  * `string` **`csv_file`** `matrix<unknown>` --->  `file`
-  *  **`csv_file`** (`string` , `matrix<unknown>`) --->  `file`
+  * `string` **`csv_file`** `matrix&lt;unknown>` --->  `file`
+  *  **`csv_file`** (`string` , `matrix&lt;unknown>`) --->  `file`
   *  **`csv_file`** (`string`, `string`, `bool`) --->  `file`
   *  **`csv_file`** (`string`, `string`, `any GAML type`) --->  `file`
   *  **`csv_file`** (`string`, `string`, `string`, `bool`) --->  `file`
@@ -2175,7 +2173,7 @@ csv_file f <- csv_file("file.csv", ";",int,true, {5, 100});
 ``` 
 
     
-  * csv_file(string,matrix<unknown>): This file constructor allows to store a matrix in a CSV file (it does not save it - just store it in memory), 
+  * csv_file(string,matrix&lt;unknown>): This file constructor allows to store a matrix in a CSV file (it does not save it - just store it in memory), 
   
 ```
  
@@ -2231,60 +2229,60 @@ geometry var0 <- cube(10); // var0 equals a geometry as a square of side size 10
 ### `curve`
 
 #### Possible use: 
-  *  **`curve`** (`point`, `point`, `point`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `point`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `float`, `float`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `int`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `int`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
   *  **`curve`** (`point`, `point`, `point`, `point`, `int`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry`
-  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry` 
+  *  **`curve`** (`point`, `point`, `float`, `int`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry`
+  *  **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry` 
 
 #### Result: 
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
-A quadratic Bezier curve geometry built from the three given points composed of 10 points.
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
 A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5).
-A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis).
 A quadratic Bezier curve geometry built from the three given points composed of a given numnber of points.
-A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given inflection point (between 0.0 and 1.0 - default 0.5), and the given rotation angle (90 = along the z axis).
 A cubic Bezier curve geometry built from the four given points composed of 10 points.
+A cubic Bezier curve geometry built from the four given points composed of a given number of points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis).
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points.
+A quadratic Bezier curve geometry built from the three given points composed of 10 points.
+A cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points - the last boolean is used to specified if it is the right side.
 
 #### Special cases:     
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
-  * if the operand is nil, returns nil    
-  * if the operand is nil, returns nil    
-  * if the operand is nil, returns nil    
+  * if the last operand (number of points) is inferior to 2, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the operand is nil, returns nil    
   * if the last operand (number of points) is inferior to 2, returns nil    
   * if the operand is nil, returns nil    
-  * if the last operand (number of points) is inferior to 2, returns nil    
+  * if the operand is nil, returns nil    
+  * if the operand is nil, returns nil    
+  * if the operand is nil, returns nil    
   * if the operand is nil, returns nil
 
 #### Examples: 
 ```
  
-geometry var0 <- curve({0,0},{10,10}, 0.5, 90); // var0 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var1 <- curve({0,0},{10,10}, 0.5, false); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side. 
-geometry var2 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var2 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var3 <- curve({0,0},{10,10}, 0.5, false, 100); // var3 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var4 <- curve({0,0}, {0,10}, {10,10}); // var4 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
-geometry var5 <- curve({0,0},{10,10}, 0.5, 100, 90); // var5 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var6 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var6 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
-geometry var7 <- curve({0,0},{10,10}, 0.5); // var7 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
-geometry var8 <- curve({0,0}, {0,10}, {10,10}, 20); // var8 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
-geometry var9 <- curve({0,0}, {0,10}, {10,10}); // var9 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
-geometry var10 <- curve({0,0}, {0,10}, {10,10}); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.
+geometry var0 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var0 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var1 <- curve({0,0},{10,10}, 0.5, 90); // var1 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var2 <- curve({0,0}, {0,10}, {10,10}, 20); // var2 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2. 
+geometry var3 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var3 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var4 <- curve({0,0}, {0,10}, {10,10}); // var4 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var5 <- curve({0,0}, {0,10}, {10,10}); // var5 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3. 
+geometry var6 <- curve({0,0},{10,10}, 0.5, 100, 90); // var6 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var7 <- curve({0,0},{10,10}, 0.5, false, 100); // var7 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side. 
+geometry var8 <- curve({0,0},{10,10}, 0.5); // var8 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1. 
+geometry var9 <- curve({0,0}, {0,10}, {10,10}); // var9 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2. 
+geometry var10 <- curve({0,0},{10,10}, 0.5, false); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side.
 
 ```
       

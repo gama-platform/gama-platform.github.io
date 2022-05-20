@@ -1,7 +1,5 @@
 ---
-title: 1. Simple SI Model
-id: version-1.8.1-IncrementalModel_step1
-original_id: IncrementalModel_step1
+title:  1. Simple SI Model
 ---
 
 
@@ -14,7 +12,7 @@ This first step Illustrates how to write a model in GAMA. In particular, it desc
 * Creation of **500** `people` agents randomly located in the environment (size: 500x500).
 * Definition a display to visualize the people agents.
 
-![Incremental model 1: display of people agents taking into account the infectious state of the agents.](../resources/images/tutorials/Incremental_model1.jpg)
+![Incremental model 1: display of people agents taking into account the infectious state of the agents.](/resources/images/tutorials/Incremental_model1.jpg)
 
 
 ## Model Definition
@@ -222,7 +220,7 @@ Each display can include different layers (like in a GIS):
 * Images: `image image_file_name;`.
 * Charts: see later.
 
-Note that it is possible to define a [opengl display](G__3DSpecificInstructions) (for 3D display) by using the facet **`type: opengl`**.
+Note that it is possible to define a [opengl display](Defining3DDisplays#opengl-display) (for 3D display) by using the facet **`type: opengl`**.
 
 In our model, we define a display to draw the `people` agents with their `default` aspect. (note that, if the `aspect` facet is omitted, the aspect named `default` will be used)
 ```

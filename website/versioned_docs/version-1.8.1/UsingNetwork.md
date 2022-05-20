@@ -1,7 +1,5 @@
 ---
-title: Using network
-id: version-1.8.1-UsingNetwork
-original_id: UsingNetwork
+title:  Using network
 ---
 
 [//]: # (keyword|concept_network)
