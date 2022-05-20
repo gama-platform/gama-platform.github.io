@@ -13,7 +13,7 @@
 
 #!/bin/sh
 
-for f in ../docs/*.md ; do
+for f in ./docs/*.md ; do
 	sed -r -i "s/\]\(resources/\]\(\/resources/g" "$f"
 	sed -i "s/\"> == \$0/\" \/>/g" "$f"
 done
