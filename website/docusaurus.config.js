@@ -78,6 +78,10 @@ module.exports={
     "colorMode": {
       respectPrefersColorScheme: true,
     },
+    "prism": {
+      additionalLanguages: ['java'],
+      defaultLanguage: 'java',
+    },
     "docs": {
       "sidebar": {
         "autoCollapseCategories": true,
