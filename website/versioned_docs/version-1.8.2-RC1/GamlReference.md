@@ -8,4 +8,4 @@ The GAML references describe in details all the keywords of the GAML language. I
 
 ## Index of keywords
 
-The [Index](Index) page contains the exhaustive list of the GAML keywords, with a link to a detailed description of each of them.
+The [Index](Exhaustive-list-of-GAMA-Keywords) page contains the exhaustive list of the GAML keywords, with a link to a detailed description of each of them.

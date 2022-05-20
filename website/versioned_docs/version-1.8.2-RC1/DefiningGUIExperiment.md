@@ -54,7 +54,7 @@ experiment name type: gui autorun: true benchmark: true { }
 ```
 When `autorun` is set to `true` the launch of the experiment will be followed automatically by its run. When `benchmark` is set to true, GAMA records the number of invocations and running time of the statements and operators of the simulations launched in this experiment. The results are automatically saved in a csv file in a folder called 'benchmarks' when the experiment is closed.
 
-Other built-ins are available, to learn more about, go to the page **[experiment built-in](ExperimentBuiltIn)**.
+Other built-ins are available, to learn more about, go to the page **[experiment built-in](Statements#experiment)**.
 
 
 ## Defining displays layout

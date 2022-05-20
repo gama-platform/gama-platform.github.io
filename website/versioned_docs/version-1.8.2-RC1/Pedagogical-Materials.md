@@ -29,7 +29,7 @@ This is a set of slides used to introduce GAMA in a practical way to master stud
 A set of exercises going from the building of simple models (opinion diffusion) to training exercises about specific modeling aspects (iterators on containers, scheduling...)
 * **Keywords:** grid, displays, plot, containers, iterators, scheduling.
 * **Subject:** [PDF](/resources/other/PedagogicalMaterial/1.8.2/PedagogicalMaterials-Exercices-GAMAv1.8.2.pdf)
-* **A correction:** [gaml files](c)
+* **A correction:** gaml files
 
 
 ## Exercice (*): Firefly synchronization

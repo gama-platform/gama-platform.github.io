@@ -34,7 +34,7 @@ The graphical editor that allow to build diagram (gadl files) is based on the [G
 
 
 ## Installing the graphical editor
-Using the graphical editor requires to install the graphical modeling plug-in. See [here](G__InstallingPlugins) for information about plug-ins and their installation.
+Using the graphical editor requires to install the graphical modeling plug-in. See [here](InstallingPlugins) for information about plug-ins and their installation.
 
 The graphical editor plug-in is called **Graphical\_modeling** and is directly available from GAMA update site **https://gama-platform.googlecode.com/svn/update_site/*.**
 
@@ -65,7 +65,7 @@ Skeleton and Example diagram types allow to add to the diagram some basic featur
 
 ## Status of models in editors
 
-Similarly to GAML editor, the graphical editor proposes a live display of errors and model statuses. A graphical model can actually be in three different states, which are visually accessible above the editing area: **Functional** (orange color), **Experimentable** (green color) and **InError** (red color). See [the section on model compilation](CompilingModels161) for more precise information about these statuses.
+Similarly to GAML editor, the graphical editor proposes a live display of errors and model statuses. A graphical model can actually be in three different states, which are visually accessible above the editing area: **Functional** (orange color), **Experimentable** (green color) and **InError** (red color).
 
 In its initial state, a model is always in the **Functional** state, which means it compiles without problems, but cannot be used to launch experiments. The **InError** state occurs when the file contains errors (syntactic or semantic ones).
 
@@ -106,7 +106,7 @@ The species feature allows to define a species with a continuous topology. A spe
 
 ![images/graphical_editor/grid.png](/resources/images/graphical_editor/grid.png)
 
-The grid feature allows to define a [species](Species151) with a [grid topology](Sections151#environment). A grid is always a micro-species of another species.
+The grid feature allows to define a species with a grid topology. A grid is always a micro-species of another species.
 
 * **source**: a species (macro-species)
 * **target**: -

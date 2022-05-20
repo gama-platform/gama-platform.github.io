@@ -107,4 +107,4 @@ Although these durations are entirely dependent on the speed of the simulation e
 ![Toolbar to set the minimum duration for 1 cycle.](/resources/images/runningExperiments/menuCommand_toolbar_running_with_delay.png)
 
 
-In case it is necessary to have more than 1s of delay, it has to be defined, instead, as an attribute of the [experiment](ExperimentBuiltIn).
+In case it is necessary to have more than 1s of delay, it has to be defined, instead, as an attribute of the [experiment](Statements#experiment).

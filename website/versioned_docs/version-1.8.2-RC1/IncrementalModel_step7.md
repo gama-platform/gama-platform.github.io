@@ -6,7 +6,7 @@ This step illustrates how to use differential equations.
 
 
 ## Formulation
-We are interested in the spreading of the disease inside the buildings. In order to model it, we will use [differential equations](Equations). So, we will need to:
+We are interested in the spreading of the disease inside the buildings. In order to model it, we will use [differential equations](DifferentialEquations). So, we will need to:
 
 * Add two global variables to define the building epidemic properties (**`beta`**) and numerical integration parameter (**`h`**).
 * Add new variables for the buildings (**`I`**, **`S`**, **`T`**, **`t`**, **`I_to1`**) to manage epidemic;

@@ -220,7 +220,7 @@ Each display can include different layers (like in a GIS):
 * Images: `image image_file_name;`.
 * Charts: see later.
 
-Note that it is possible to define a [opengl display](G__3DSpecificInstructions) (for 3D display) by using the facet **`type: opengl`**.
+Note that it is possible to define a [opengl display](Defining3DDisplays#opengl-display) (for 3D display) by using the facet **`type: opengl`**.
 
 In our model, we define a display to draw the `people` agents with their `default` aspect. (note that, if the `aspect` facet is omitted, the aspect named `default` will be used)
 ```

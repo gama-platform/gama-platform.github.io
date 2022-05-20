@@ -39,7 +39,7 @@ Three main elements can be defined in a species:
 * their behavior
 * how they are displayed (aspects)
 
-In our model, we define a new people species. In addition, we want to add a new capability to our agent: the possibility to move randomly. For that, we add a specific skill to our people agents. A [skill](AttachingSkills) is a built-in module that provides the modeler a self-contain and relevant set of actions and variables. The [moving](__BuiltInSkills#moving) provides the agents with several attributes and actions related to movement. 
+In our model, we define a new people species. In addition, we want to add a new capability to our agent: the possibility to move randomly. For that, we add a specific skill to our people agents. A [skill](AttachingSkills) is a built-in module that provides the modeler a self-contain and relevant set of actions and variables. The [moving](BuiltInSkills#moving) provides the agents with several attributes and actions related to movement. 
 
 #### Internal state
 An [attribute](RegularSpecies#declaration) is defined as follows: type of the attribute and name. Numerous types of attributes are available: _int (integer), float (floating-point number), string, bool (boolean, true or false), point (coordinates), list, pair, map, file, matrix, agents species, rgb (color), graph, path..._
@@ -79,7 +79,7 @@ ask people at_distance 5.0 {
 }
 ```
 
-The [ask](Statements#ask) allows an agent to ask other agents to do something (i.e. to execute a sequence of statements). The [at_distance](Operators#at_distance) operator allows to get the list of agents (here of people agents) that are located at a distance lower or equal to the given distance (here 5m). The [flip](Operators#flip) operator allows to test a probability.
+The [ask](Statements#ask) allows an agent to ask other agents to do something (i.e. to execute a sequence of statements). The [at_distance](OperatorsAA#at_distance) operator allows to get the list of agents (here of people agents) that are located at a distance lower or equal to the given distance (here 5m). The [flip](OperatorsDH#flip) operator allows to test a probability.
 
 #### Display
 
