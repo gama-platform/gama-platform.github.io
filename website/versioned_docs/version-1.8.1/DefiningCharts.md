@@ -1,7 +1,5 @@
 ---
-title: Defining Charts
-id: version-1.8.1-DefiningCharts
-original_id: DefiningCharts
+title:  Defining Charts
 ---
 
 [//]: # (startConcept|defining_charts)
@@ -70,7 +68,7 @@ experiment my_experiment type: gui {
 }
 ```
 
-![Simple example of a simple chart (pie) display.](../resources/images/definingGUIExperiment/charts_pie.png)
+![Simple example of a simple chart (pie) display.](/resources/images/definingGUIExperiment/charts_pie.png)
 
 
 The `datalist` statement is used to write several `data` statements in one statement.  Instead of giving simple values, `datalist` is expecting value lists. The previous chart is thus equivalent to the following one using the `datalist` statement:
@@ -88,7 +86,7 @@ display "my_display2" {
 ```
 ```
 
-![Illustration of the datalist statement when the number of series to plot change during the simulation.](../resources/images/definingGUIExperiment/charts_datalist.png)
+![Illustration of the datalist statement when the number of series to plot change during the simulation.](/resources/images/definingGUIExperiment/charts_datalist.png)
 
 `datalist` provides you some additional facets you can use. If you want to learn more about them, [please read the documentation](Statements#datalist).
 
@@ -124,14 +122,14 @@ experiment my_experiment type: gui {
 }
 ```
 
-![Illustration of the series charts.](../resources/images/definingGUIExperiment/charts_series.png)
+![Illustration of the series charts.](/resources/images/definingGUIExperiment/charts_series.png)
 
 
 ### `histogram`
 
 The `histogram` charts represent with bars the value of several data series. The previous example can be displayed with a `histogram` chart.
 
-![Illustration of the histogram charts.](../resources/images/definingGUIExperiment/charts_histogram.png)
+![Illustration of the histogram charts.](/resources/images/definingGUIExperiment/charts_histogram.png)
 
 Histograms are often used to display the distribution of a value inside a population. For example, let consider a population of agents representing human beings with an `age` attribute. The following model illustrates the plot of the age distribution over the population. We used the operator `distribution_of` to compute the distribution to plot: here we display the number of people agent in 20 ranges computed among the ages between 0 and 100. 
 
@@ -160,7 +158,7 @@ experiment my_experiment type: gui {
 }
 ```
 
-![Illustration of the histogram charts to plot the age distribution in an agent population.](../resources/images/definingGUIExperiment/charts_histogram_distribution.png)
+![Illustration of the histogram charts to plot the age distribution in an agent population.](/resources/images/definingGUIExperiment/charts_histogram_distribution.png)
 
 Note that the facet `reverse_axes` (with `true` value) can be added to the `chart` statement to display horizontal bars.
 
@@ -177,7 +175,7 @@ display PhasePortrait  {
 }
 ```
 
-![Use of the xy chart in order to display the phase portrait of the Lotka-Volterra model (number of prey according to the number of predators).](../resources/images/definingGUIExperiment/charts_xy.png)
+![Use of the xy chart in order to display the phase portrait of the Lotka-Volterra model (number of prey according to the number of predators).](/resources/images/definingGUIExperiment/charts_xy.png)
 
 ### `radar`
 
@@ -201,7 +199,7 @@ experiment my_experiment type: gui {
 }
 ```
 
-![Simple example of a radar representation for 2 data series.](../resources/images/definingGUIExperiment/charts_radar.png)
+![Simple example of a radar representation for 2 data series.](/resources/images/definingGUIExperiment/charts_radar.png)
 
 
 ### `heatmap`
@@ -256,7 +254,7 @@ experiment my_experiment type: gui {
 
 We thus displayed the evolution of the age distribution using both a histogram chart (for the instantaneous distribution) and a heatmap display to key a track of the evolution over time. In the heatmap, the left Y-axis represents the time (the simulation step number); as a consequence 1 line represents the state at 1 simulation step. The x-axis represents the various ranges of the distribution (same meaning as for histograms). The right Y-axis shows the meaning of the color gradient.
 
-![Distribution of the age in an agent population and its evolution in a heatmap.](../resources/images/definingGUIExperiment/charts_heatmap.png)
+![Distribution of the age in an agent population and its evolution in a heatmap.](/resources/images/definingGUIExperiment/charts_heatmap.png)
 
 
 ### `scatter`
@@ -277,7 +275,7 @@ experiment my_experiment type: gui {
 }
 ```  
 
-![Display of the age distribution using a scatter chart.](../resources/images/definingGUIExperiment/charts_scatter.png)
+![Display of the age distribution using a scatter chart.](/resources/images/definingGUIExperiment/charts_scatter.png)
 
 
 ### `box_whisker`
@@ -307,7 +305,7 @@ experiment my_experiment type: gui {
 }
 ```
 
- ![Display of the mean of the age distribution with vertical min and max values.](../resources/images/definingGUIExperiment/charts_error.png)
+ ![Display of the mean of the age distribution with vertical min and max values.](/resources/images/definingGUIExperiment/charts_error.png)
 
 
 [//]: # (endConcept|defining_charts)

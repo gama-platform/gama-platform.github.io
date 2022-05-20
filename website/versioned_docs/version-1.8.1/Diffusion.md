@@ -1,7 +1,5 @@
 ---
-title: Implementing diffusion
-id: version-1.8.1-Diffusion
-original_id: Diffusion
+title:  Implementing diffusion
 ---
 
 [//]: # (startConcept|diffusion)
@@ -102,7 +100,7 @@ A first way of specifying the behavior of your diffusion is using diffusion matr
 Example of matrix:
 
 ```
-matrix<float> mat_diff <- matrix([
+matrix&lt;float> mat_diff <- matrix([
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9]]);
@@ -120,41 +118,41 @@ Using the facet `propagation`, you can specify if you want the value to be propa
 
 A _diffusion_ (the default value of the facet `propagation`) will spread the values to the neighbors' cells according to the diffusion matrix, and all those values will be added together, as it is the case in the following example:
 
-![Illustration of the computation under a diffusion propagation.](../resources/images/recipes/diffusion_computation.png)
+![Illustration of the computation under a diffusion propagation.](/resources/images/recipes/diffusion_computation.png)
 
 Note that the sum of all the values diffused at the next step is equal to the sum of the values that will be diffused multiply by the sum of the values of the diffusion matrix. That means that if the sum of the values of your diffusion matrix is larger than 1, the values will increase exponentially at each step. The sum of the value of a diffusion matrix is usually equal to 1.
 
 Here are some matrix examples you can use, played with the template model:
 
-![Examples of uniform diffusions with one and several sources.](../resources/images/recipes/uniform_diffusion.png)
+![Examples of uniform diffusions with one and several sources.](/resources/images/recipes/uniform_diffusion.png)
 
-![Examples of anisotropic diffusions (with and with torus environment).](../resources/images/recipes/anisotropic_diffusion.png)
+![Examples of anisotropic diffusions (with and with torus environment).](/resources/images/recipes/anisotropic_diffusion.png)
 
 ### Gradient matrix
 
 A `gradient` (use facet : `propagation:gradient`) is another type of propagation. This time, only the larger value diffused will be chosen as the new one.
 
-![Illustration of the computation under a gradient propagation.](../resources/images/recipes/gradient_computation.png)
+![Illustration of the computation under a gradient propagation.](/resources/images/recipes/gradient_computation.png)
 
 Note that unlike the _diffusion_ propagation, the sum of your matrix can be greater than 1 (and it is the case, most often !).
 
 Here are some matrix examples with gradient propagation:
 
-![Examples of gradient diffusions with one and several sources.](../resources/images/recipes/uniform_gradient.png)
+![Examples of gradient diffusions with one and several sources.](/resources/images/recipes/uniform_gradient.png)
 
-![Examples of irregular gradient diffusions.](../resources/images/recipes/irregular_gradient.png)
+![Examples of irregular gradient diffusions.](/resources/images/recipes/irregular_gradient.png)
 
 
 ### Compute multiple propagations at the same step
 
 You can compute several times the propagation you want by using the facet `cycle_length`. GAMA will compute for you the corresponding new matrix and will apply it.
 
-![Example of computation with a cycle length of 2.](../resources/images/recipes/cycle_length.png)
+![Example of computation with a cycle length of 2.](/resources/images/recipes/cycle_length.png)
 
 Writing those two things are exactly equivalent (for diffusion):
 
 ```
-matrix<float> mat_diff <- matrix([
+matrix&lt;float> mat_diff <- matrix([
 		[1/81,2/81,3/81,2/81,1/81],
 		[2/81,4/81,6/81,4/81,2/81],
 		[3/81,6/81,1/9,6/81,3/81],
@@ -165,7 +163,7 @@ reflex diff {
 ```
 and
 ```
-matrix<float> mat_diff <- matrix([
+matrix&lt;float> mat_diff <- matrix([
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9]]);
@@ -179,7 +177,7 @@ If you execute several times the statement `diffuse` with different matrix on th
 
 Thus, the following 3 matrices will be combined to create one unique matrix:
 
-![Example of matrix combinations.](../resources/images/recipes/addition_matrix.png)
+![Example of matrix combinations.](/resources/images/recipes/addition_matrix.png)
 
 ## Diffusion with parameters
 
@@ -207,7 +205,7 @@ The value of each cell will be equal to **P/POW(N,DistanceFromCenter)-DistanceFr
 
 Ex with R=2, other parameters default values (R=2, P=1, V=0, N=8):
 
-![resources/images/recipes/gradient_computation_from_parameters.png](../resources/images/recipes/gradient_computation_from_parameters.png)
+![resources/images/recipes/gradient_computation_from_parameters.png](/resources/images/recipes/gradient_computation_from_parameters.png)
 
 Note that if you declared a diffusion matrix, you cannot use those 3 facets (it will raise a warning). Note also that if you use parameters, you will only have a uniform matrix.
 
@@ -219,7 +217,7 @@ You can compute the output matrix using two computation methods by using the fac
 
 `convolution` is the default computation method for diffusion. For every output cells, we will multiply the input values and the flipped kernel together, as shown in the following image :
 
-![Illustration of convolution product computation.](../resources/images/recipes/convolution.png)
+![Illustration of convolution product computation.](/resources/images/recipes/convolution.png)
 
 Pseudo-code (`k` the kernel, `x` the input matrix, `y` the output matrix) :
 
@@ -236,7 +234,7 @@ for (i = 0 ; i < y.nbRows ; i++)
 
 `dot_product` method will compute the matrix using a simple dot product between the matrix. For every input cells, we multiply the cell by the kernel matrix, as shown in the following image :
 
-![Illustration of dat product computation.](../resources/images/recipes/dot_product.png)
+![Illustration of dat product computation.](/resources/images/recipes/dot_product.png)
 
 Pseudo-code (`k` the kernel, `x` the input matrix, `y` the output matrix) :
 
@@ -258,11 +256,11 @@ You can pass a matrix to the facet `mask`. All the values smaller than `-1` will
 
 A simple way to use mask is by loading an image :
 
-![Use of a mask to constrain the diffusion.](../resources/images/recipes/simple_mask.png)
+![Use of a mask to constrain the diffusion.](/resources/images/recipes/simple_mask.png)
 
 Note that when you use the `on` facet for the `diffuse` statement, you can choose only some cells, and not every cell. In fact, when you restrain the values to be diffuse, it is exactly the same process as if you were defining a mask.
 
-![Constraint on the diffusion using filtering on cells.](../resources/images/recipes/mask_with_on_facet.png)
+![Constraint on the diffusion using filtering on cells.](/resources/images/recipes/mask_with_on_facet.png)
 
 When your diffusion is combined with a mask, the default behavior is that the non-masked cells will diffuse their values in **all** existing cells (that means, even the masked cells !). To change this behavior, you can use the facet `avoid_mask`. In that case, the value which was supposed to be affected to the masked cell will be redistributed to the neighboring non-masked cells.
 
@@ -275,12 +273,12 @@ Masks can be used to simulate a lot of environments. Here are some ideas for you
 If you want to simulate a wall blocking a uniform diffusion, you can declare a second diffusion matrix that will be applied only on the cells where your wall will be. This diffusion matrix will "push" the values outside from himself, but conserving the values (the sum of the values of the diffusion still have to be equal to 1) :
 
 ```
-matrix<float> mat_diff <- matrix([
+matrix&lt;float> mat_diff <- matrix([
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9]]);
 								
-matrix<float> mat_diff_left_wall <- matrix([
+matrix&lt;float> mat_diff_left_wall <- matrix([
 			[0.0,0.0,2/9],
 			[0.0,0.0,4/9],
 			[0.0,0.0,2/9]]);
@@ -291,7 +289,7 @@ reflex diff {
 }
 ```
 
-![Diffusion limited by a wall, using a mask.](../resources/images/recipes/wall_simulation.png)
+![Diffusion limited by a wall, using a mask.](/resources/images/recipes/wall_simulation.png)
 
 Note that almost the same result can be obtained by using the facet `avoid_mask`: the value of all masked cells will remain at 0, and the value which was supposed to be affected to the masked cell will be distributed to the neighboring cells. Notice that the results can be slightly different if you are using the `convolution` or the `dot_product` method: the algorithm of redistribution of the value to the neighboring cells is a bit different. We advise you to use the `dot_product` with the `avoid_mask` facet, the results are more accurate.
 
@@ -300,17 +298,17 @@ Note that almost the same result can be obtained by using the facet `avoid_mask`
 Let's simulate a uniform diffusion that is pushed by a wind from "north" everywhere in the grid. A wind from "west" as blowing at the top side of the grid. We will here have to build 2 matrices: one for the uniform diffusion, one for the "north" wind and one for the "west" wind. The sum of the values for the 2 matrices meant to simulate the wind will be equal to 0 (as it will be added to the diffusion matrix).
 
 ```
-matrix<float> mat_diff <- matrix([
+matrix&lt;float> mat_diff <- matrix([
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9]]);
 								
-matrix<float> mat_wind_from_west <- matrix([
+matrix&lt;float> mat_wind_from_west <- matrix([
 		[-1/9,0.0,1/9],
 		[-1/9,0.0,1/9],
 		[-1/9,0.0,1/9]]);
 								
-matrix<float> mat_wind_from_north <- matrix([
+matrix&lt;float> mat_wind_from_north <- matrix([
 		[-1/9,-1/9,-1/9],
 		[0.0,0.0,0.0],
 		[1/9,1/9,1/9]]);
@@ -322,25 +320,25 @@ reflex diff {
 }
 ```
 
-![Diffusion impacted with a wind.](../resources/images/recipes/diffusion_with_wind.png)
+![Diffusion impacted with a wind.](/resources/images/recipes/diffusion_with_wind.png)
 
 #### Endless world
 
 Note that when your world is not a torus, it has the same effect as a _mask_, since all the values outside from the world cannot diffuse some values back :
 
-![Comparison of diffusion with and without torus environment.](../resources/images/recipes/uniform_diffusion_near_edge.png)
+![Comparison of diffusion with and without torus environment.](/resources/images/recipes/uniform_diffusion_near_edge.png)
 
 You can "fake" the fact that your world is endless by adding a different diffusion for the cells with `grid_x=0` to have almost the same result :
 
-![Attempt to fake torus environment with different matrices.](../resources/images/recipes/uniform_diffusion_near_edge_with_mask.png)
+![Attempt to fake torus environment with different matrices.](/resources/images/recipes/uniform_diffusion_near_edge_with_mask.png)
 
 ```
-matrix<float> mat_diff <- matrix([
+matrix&lt;float> mat_diff <- matrix([
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9]]);
 								
-matrix<float> mat_diff_upper_edge <- matrix([
+matrix&lt;float> mat_diff_upper_edge <- matrix([
 			[0.0,0.0,0.0],
 			[1/9+7/81,2/9+1/81,1/9+7/81],
 			[1/9,1/9,1/9]]);

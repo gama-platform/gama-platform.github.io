@@ -1,7 +1,5 @@
 ---
-title: Built-in Species
-id: version-1.8.1-BuiltInSpecies
-original_id: BuiltInSpecies
+title:  Built-in Species
 ---
 
 

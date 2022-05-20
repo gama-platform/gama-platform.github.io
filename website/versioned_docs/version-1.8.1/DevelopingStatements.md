@@ -1,7 +1,5 @@
 ---
-title: Developing Statements
-id: version-1.8.1-DevelopingStatements
-original_id: DevelopingStatements
+title:  Developing Statements
 ---
 
 

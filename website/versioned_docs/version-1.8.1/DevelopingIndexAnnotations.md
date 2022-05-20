@@ -1,7 +1,5 @@
 ---
-title: Index of annotations
-id: version-1.8.1-DevelopingIndexAnnotations
-original_id: DevelopingIndexAnnotations
+title:  Index of annotations
 ---
 
 

@@ -1,7 +1,5 @@
 ---
-title: 4. Inspectors and Monitors
-id: version-1.8.1-PredatorPrey_step4
-original_id: PredatorPrey_step4
+title:  4. Inspectors and Monitors
 ---
 
 
@@ -50,11 +48,11 @@ Inspectors allow to obtain information about a species or an agent. There are tw
 
 * **Species browser**: provides information about all the agents of a species. Available in the Agents menu.
 
-![images/browser_table.png](../resources/images/tutorials/predator_prey_browser.png)
+![images/browser_table.png](/resources/images/tutorials/predator_prey_browser.png)
 
 * **Agent inspector**: provides information about one specific agent. Also allows to change the values of its variables during the simulation. Available from the Agents menu, by right\_clicking on a display, in the species inspector or when inspecting another agent. It provides also the possibility to «highlight» the inspected agent.
 
-![images/inspector.png](../resources/images/tutorials/predator_prey_inspector.png)
+![images/inspector.png](/resources/images/tutorials/predator_prey_inspector.png)
 
 
 
@@ -112,7 +110,7 @@ grid vegetation_cell width: 50 height: 50 neighbors: 4 {
     float food_prod <- rnd(0.01) ;
     float food <- rnd(1.0) max: max_food update: food + food_prod ;
     rgb color <- rgb(int(255 * (1 - food)), 255, int(255 * (1 - food))) update: rgb(int(255 * (1 - food)), 255, int(255 *(1 - food))) ;
-    list<vegetation_cell> neighbors2  <- (self neighbors_at 2);
+    list&lt;vegetation_cell> neighbors2  <- (self neighbors_at 2);
 }
 
 experiment prey_predator type: gui {

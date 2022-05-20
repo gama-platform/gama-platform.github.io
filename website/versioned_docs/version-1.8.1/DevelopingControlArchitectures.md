@@ -1,7 +1,5 @@
 ---
-title: Developing architecture
-id: version-1.8.1-DevelopingControlArchitectures
-original_id: DevelopingControlArchitectures
+title:  Developing architecture
 ---
 
 

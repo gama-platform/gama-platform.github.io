@@ -1,7 +1,5 @@
 ---
-title: 6. Exploration of the model
-id: version-1.8.1-LuneraysFlu_step6
-original_id: LuneraysFlu_step6
+title:  6. Exploration of the model
 ---
 
 This final step illustrates how to explore the model through the introduction of batch experiments.
@@ -30,7 +28,7 @@ To this purpose we need to define a new experiment with the following facet valu
 ```
 experiment test_robustness type: batch until: time > 2#h repeat: 10 {
     reflex information {
-	list<float> vals <- simulations collect each.infected_rate;
+	list&lt;float> vals <- simulations collect each.infected_rate;
 	write "mean: " + mean(vals) + " standard deviation: " + standard_deviation(vals);	
     }
 }
@@ -204,7 +202,7 @@ experiment main type: gui {
 
 experiment test_robustness type: batch until: time > 2#h repeat: 10 {
     reflex information {
-        list<float> vals <- simulations collect each.infected_rate;
+        list&lt;float> vals <- simulations collect each.infected_rate;
         write "mean: " + mean(vals) + " standard deviation: " + standard_deviation(vals);    
     }
 }

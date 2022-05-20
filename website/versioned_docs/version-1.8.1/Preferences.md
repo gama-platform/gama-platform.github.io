@@ -1,7 +1,5 @@
 ---
-title: Preferences
-id: version-1.8.1-Preferences
-original_id: Preferences
+title:  Preferences
 ---
 
 
@@ -26,14 +24,14 @@ Please note that the preferences specific to GAMA will be shared, on the same ma
 ## Opening Preferences
 To open the preferences dialog of GAMA, either click on the small "form" button on the top-left corner of the window or select "Preferences..." from the Gama, "Help" or "Views" menu depending on your OS.
 
-![Open the Preferences from the "Help" menu of the interface.](../resources/images/preferences/pref_open_mac.png)
+![Open the Preferences from the "Help" menu of the interface.](/resources/images/preferences/pref_open_mac.png)
 
 
 ## Interface
 
 The Interface pane gathers all the preferences related to the appearance and behavior of the elements of the Graphical User Interface of GAMA.
 
-![Interface pane in Preferences.](../resources/images/preferences/pref_interface.png)
+![Interface pane in Preferences.](/resources/images/preferences/pref_interface.png)
 
 * **Startup**
   * **Display welcome page**: if true, and if no editors are opened, the [welcome page](Launching#Welcome_Page) is displayed when opening GAMA.
@@ -64,7 +62,7 @@ The Interface pane gathers all the preferences related to the appearance and beh
 
 Most of the settings and preferences regarding editors can also be found in the [advanced preferences](#advanced-preferences).
 
-![Editors pane in Preferences.](../resources/images/preferences/pref_editors.png)
+![Editors pane in Preferences.](/resources/images/preferences/pref_editors.png)
 
 
 * **Options**
@@ -91,7 +89,7 @@ Most of the settings and preferences regarding editors can also be found in the 
 
 This pane gathers all the preferences related to the execution of experiments, memory management, the errors management, and the parallelism.
 
-![Execution pane in Preferences.](../resources/images/preferences/pref_execution.png)
+![Execution pane in Preferences.](/resources/images/preferences/pref_execution.png)
 
 * **Experiments**: various settings regarding the execution of experiments.
   * **Auto-run experiments when they are launched**: see [this page](LaunchingExperiments#Running_Experiments_Automatically).
@@ -128,7 +126,7 @@ This pane gathers all the preferences related to the execution of experiments, m
 
 ## Displays
 
-![Displays pane in Preferences.](../resources/images/preferences/pref_displays.png)
+![Displays pane in Preferences.](/resources/images/preferences/pref_displays.png)
 
 * **Presentation and Behavior of Graphical Display Views**
   * **Default layout of display views**: among [None, stacked, Split, Horizontal, Vertical]. When an experiment defines several displays, they are by default (layout None) opened in the same View. This preference can set automatically this layout. A `layout` statement can also be used in `experiment` to redefine programmatically the layout of display views.
@@ -169,7 +167,7 @@ This pane gathers all the preferences related to the execution of experiments, m
 
 These preferences pertain to the use of external libraries or data with GAMA.
 
-![The Data and Operators pane in Preferences.](../resources/images/preferences/pref_data_and_operators.png)
+![The Data and Operators pane in Preferences.](/resources/images/preferences/pref_data_and_operators.png)
 
 * **Http connections**
   * **Connection timeout (in ms)**: set the connection timeout when the model tries to access a resource on the web. This value is used to decide when to give up the connection try to an HTTP server in case of response absence.
@@ -210,7 +208,7 @@ These preferences pertain to the use of external libraries or data with GAMA.
 
 All these preferences can be accessed (set or read) directly in a GAML model. To share your preferences with others (e.g. when you [report an issue](Troubleshooting#submitting-an-issue)), you can simply export your preferences in a GAML model. Importing preferences will set your preferences from an external GAML file.
 
-![Import or export the preferences from/in a GAML model.](../resources/images/preferences/pref_other_options.png)
+![Import or export the preferences from/in a GAML model.](/resources/images/preferences/pref_other_options.png)
 
 When you export your preferences, the GAML file will look like the following code. It contains 2 experiments: one to display all the preferences in the console and the other one to set your preferences will the values written in the model.
 
@@ -249,9 +247,9 @@ The set of preferences described above are specific to GAMA. But there are other
 
 These "advanced" preferences are accessible by clicking on the "Advanced..." button in the Preferences view.
 
-![Open the advanced preferences.](../resources/images/preferences/pref_open_advanced.png)
+![Open the advanced preferences.](/resources/images/preferences/pref_open_advanced.png)
 
 
 Depending on what is installed, the second view that appears will contain a tree of options on the left and preference pages on the right. **Contrary to the first set of preferences, please note that these preferences will be saved in the current workspace**, which means that changing workspace will revert them to their default values. It is, however, possible to import them in the new workspace using of the wizards provided in the standard "Import..." command (see [here](ImportingModels)).
 
-![The advanced preferences available from the Preferences window.](../resources/images/preferences/pref_advanced.png)
+![The advanced preferences available from the Preferences window.](/resources/images/preferences/pref_advanced.png)

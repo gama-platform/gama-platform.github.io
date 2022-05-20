@@ -1,7 +1,5 @@
 ---
-title: Get into the GAMA Java API
-id: version-1.8.1-developingGAMA
-original_id: developingGAMA
+title:  Get into the GAMA Java API
 ---
 
 

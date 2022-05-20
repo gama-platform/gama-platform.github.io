@@ -1,7 +1,5 @@
 ---
-title: 2. People Agents
-id: version-1.8.1-RoadTrafficModel_step2
-original_id: RoadTrafficModel_step2
+title:  2. People Agents
 ---
 
 
@@ -68,7 +66,7 @@ global {
 	}
 	create road from: shape_file_roads ;
 		
-	list<building> residential_buildings <- building where (each.type="Residential");
+	list&lt;building> residential_buildings <- building where (each.type="Residential");
 	create people number: nb_people {
 	    location <- any_location_in (one_of (residential_buildings));
 	}

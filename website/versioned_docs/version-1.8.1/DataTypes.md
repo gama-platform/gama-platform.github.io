@@ -1,7 +1,5 @@
 ---
-title: Types
-id: version-1.8.1-DataTypes
-original_id: DataTypes
+title:  Types
 ---
 
 
@@ -15,7 +13,7 @@ There are 4 categories of types:
 
 The hierarchy of types in GAML (only primitive and complex types are displayed here, of course, as the other ones are model-dependent) is the following:
 
-![images/types_hierarchy.png](../resources/images/gamlReferences/types_hierarchy.png)
+![images/types_hierarchy.png](/resources/images/gamlReferences/types_hierarchy.png)
 
 
 
@@ -90,7 +88,7 @@ int (234.5) -> 234.
 * **Comments:** this datatype is internally backed up by the Java String class. However, contrary to Java, strings are considered as a primitive type, which means they do not contain character objects. This can be seen when casting a string to a list using the list operator: the result is a list of one-character strings, not a list of characters.
 * **Litteral declaration:** a sequence of characters enclosed in quotes, like 'this is a string' . If one wants to literally declare strings that contain quotes, one has to double these quotes in the declaration. Strings accept escape characters like `\n` (newline), `\r` (carriage return), `\t` (tabulation), as well as any Unicode character (`\uXXXX`).
 * **Other declarations:** see string
-* **Example:** see [string operators](Operators#strings-related-operators).
+* **Example:** see [string operators](OperatorsSZ#strings-related-operators).
 
 [Top of the page](#table-of-contents)
 
@@ -124,7 +122,7 @@ bool fileTextReadable <- fileText.readable;
 ### container
 * **Definition:** a generic datatype that represents a collection of data.
 * **Comments:**  a container variable can be a list, a matrix, a map... Conversely, each list, matrix, and map is a kind of container. In consequence, every container can be used in container-related operators.
-* **See also:** [Container operators](Operators#containers-related-operators)
+* **See also:** [Container operators](OperatorsBC#containers-related-operators)
 * **Declaration:**
 
 ```
@@ -155,7 +153,7 @@ container c  <- list species1;
   * properties files: files with the extension .properties. The `content` is by default a map of string::string.
   * folders. The `content` is by default a list of string.
 * **Remark:** Files are also a particular kind of container and can thus be read, written or iterated using the container operators and commands.
-* **See also:** [File operators](Operators#files-related-operators)
+* **See also:** [File operators](OperatorsDH#files-related-operators)
 * **Declaration:** a file can be created using the generic `file` (that opens a file in read only mode and tries to determine its contents), `folder` or the `new_folder` (to open an existing folder or create a new one) unary operators. But things can be specialized with the combination of the `read`/`write` and `image`/`text`/`shapefile`/`properties` unary operators.
 
 ```
@@ -189,7 +187,7 @@ write(properties(a_string)) // returns a property file which is available for wr
   * If this Geometry is the empty geometry, it is an empty point.
   * If the Geometry is a point, it is a non-empty point.
   * Otherwise, it is a Polygon whose points are (minx, miny), (maxx, miny), (maxx, maxy), (minx, maxy), (minx, miny).
-* **See also:** [Spatial operators](Operators#spatial-operators)
+* **See also:** [Spatial operators](OperatorsSZ#spatial-operators)
 * **Declaration:** geometries can be built from a point, a list of points or by using specific operators (circle, square, triangle...).
 
 ```
@@ -211,9 +209,9 @@ geometry polygonGeom <- polygon([{3,5}, {5,6},{1,4}]);
   * connected(type = bool): test whether the graph is connected
 * **Remark:**
   * graphs are also a particular kind of container and can thus be manipulated using the container operators and commands.
-  * This algorithm used to compute the circuit requires that the graph be complete and the triangle inequality exists (if x,y,z are vertices then d(x,y)+d(y,z)<d(x,z) for all x,y,z) then this algorithm will guarantee a hamiltonian cycle such that the total weight of the cycle is less than or equal to double the total weight of the optimal hamiltonian cycle.
+  * This algorithm used to compute the circuit requires that the graph be complete and the triangle inequality exists (if x,y,z are vertices then d(x,y)+d(y,z)&lt;d(x,z) for all x,y,z) then this algorithm will guarantee a hamiltonian cycle such that the total weight of the cycle is less than or equal to double the total weight of the optimal hamiltonian cycle.
   * The computation of the spanning tree uses an implementation of the Kruskal's minimum spanning tree algorithm. If the given graph is connected it computes the minimum spanning tree, otherwise it computes the minimum spanning forest.
-* **See also:** [Graph operators](Operators#graph-related-operators)
+* **See also:** [Graph operators](OperatorsDH#graph-related-operators)
 * **Declaration:** graphs can be built from a list of vertices (agents or geometries) or from a list of edges (agents or geometries) by using specific operators. They are often used to deal with a road network and are built from a shapefile.
 
 ```
@@ -242,7 +240,7 @@ graph(node1)    --: null
 list (1) -> [1]
 ```
 ```
-list<int> myList <- [1,2,3,4]; 
+list&lt;int> myList <- [1,2,3,4]; 
 myList[2] => 3
 ```
 [Top of the page](#table-of-contents)

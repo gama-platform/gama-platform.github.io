@@ -34,12 +34,6 @@ if [ -d $( dirname "${BASH_SOURCE[0]}" )/../website/static/resources ];then
 fi
 mv $( dirname "${BASH_SOURCE[0]}" )/../gama.wiki/resources $( dirname "${BASH_SOURCE[0]}" )/../website/static/
 
-# Update database.json in the static folder in _website/_
-if [ -f $( dirname "${BASH_SOURCE[0]}" )/../website/database/index.json ];then
-	rm $( dirname "${BASH_SOURCE[0]}" )/../website/database/index.json
-fi
-mv $( dirname "${BASH_SOURCE[0]}" )/../gama.wiki/WikiOnly/database.json $( dirname "${BASH_SOURCE[0]}" )/../website/static/database/index.json
-
 # Update sidebar
 if [ -f $( dirname "${BASH_SOURCE[0]}" )/../website/sidebars.json ];then
 	rm $( dirname "${BASH_SOURCE[0]}" )/../website/sidebars.json

@@ -1,7 +1,5 @@
 ---
-title: Using BEN (simple_bdi)
-id: version-1.8.1-Using-BEN-simple-bdi
-original_id: Using-BEN-simple-bdi
+title:  Using BEN (simple_bdi)
 ---
 
 [//]: # (keyword|concept_bdi)
@@ -18,13 +16,13 @@ This page features all the descriptions for the running of the BEN architecture.
 
 The BEN Architecture used by agents to make a decision at each time step is represented by the image right below: 
 
-![Architecture of the BEN architecture.](../resources/images/recipes/BEN2019Angl.png)
+![Architecture of the BEN architecture.](/resources/images/recipes/BEN2019Angl.png)
 
 Each social agent has its own instance of the BEN architecture to make a decision. The architecture is composed of 4 main parts connected to the agent's knowledge bases, seated on the agent's personnality. Each part is made up of processes that are automatically computed (in blue) or which need to be manually defined by the modeler (in pink). Some of these processes are mandatory (in solid line) and some others are optional (in dotted line). This modularity enables each modeler to only use components that seem pertinent to the studied situation without creating heavy and useless computations.
 
 The Activity diagram bellow shows the order in which each module and each process is activated. The rest of this page explains in details how each process from each module works and what is the difference between the theoretical architecture and its implementation.
 
-![Activity diagram illustrating the activation order of the BEN architecture.](../resources/images/recipes/BENactivity2019.png)
+![Activity diagram illustrating the activation order of the BEN architecture.](/resources/images/recipes/BENactivity2019.png)
 
 ## Predicates, knowledge and personality
 
@@ -167,8 +165,8 @@ With BEN, the agent has variables related to some of the social features. The id
 
 With the cognition, the agent has two parameters representing the probability to randomly remove the current plan or the current intention in order to check whether there could be a better plan or a better intention in the current context. These two values are connected to the consciousness components of the OCEAN model as it describes the tendency of the agent to prepare its actions (with a high value) or act impulsively (with a low value).
 
-* Probability Keeping Plans = C<sup>1/2<sup>
-* Probability Keeping Intentions = C<sup>1/2<sup>
+* Probability Keeping Plans = C<sup>1/2</sup>
+* Probability Keeping Intentions = C<sup>1/2</sup>
 
 For the emotional contagion, the process (presented later) requires charisma (Ch) and emotional receptivity (R) to be defined for each agent. In BEN, charisma is related to the capacity of expression, which is related to the extroversion of the OCEAN model, while the emotional receptivity is related to the capacity to control the emotions, which is expressed with the neurotism value of OCEAN.
 
@@ -376,8 +374,8 @@ Their initial intensity is computed according to the following equation with A t
 
 Emotions about other agents with a negative liking value are close to the previous definitions, however, they are related to the emotions of other agents which are in the social relation base with a negative liking value. These emotions are resentment and gloating and have the following definition:
 
-* **Resentment<sub>i</sub>(P,j)** = L[R<sub>i,j</sub>]<0 \& Joy<sub>j</sub>(P)
-* **Gloating<sub>i</sub>(P,j)** = L[R<sub>i,j</sub>]<0 \& Sadness<sub>j</sub>(P)
+* **Resentment<sub>i</sub>(P,j)** = L[R<sub>i,j</sub>]&lt;0 \& Joy<sub>j</sub>(P)
+* **Gloating<sub>i</sub>(P,j)** = L[R<sub>i,j</sub>]&lt;0 \& Sadness<sub>j</sub>(P)
 
 Their initial intensity is computed according to the following equation. This equation can be seen as the inverse of Equation \eqref{eqIntensEmo4}, and means that the intensity of resentment or gloating is greater if the agent has a low level of agreeableness contrary to the intensity of "happy for" and "sorry for".
 
@@ -386,9 +384,9 @@ Their initial intensity is computed according to the following equation. This eq
 Emotions about ideals are related to the agent's ideal base which contains, at the start of the simulation, all the actions about which the agent has a praiseworthiness value to give. These ideals can be praiseworthy (their praiseworthiness value is positive) or blameworthy (their praiseworthiness value is negative). The emotions coming from these ideals are pride, shame, admiration and reproach and have the following definition:
 
 * **Pride<sub>i</sub>(P<sub>i</sub>,i)** = Belief<sub>i</sub>(P<sub>i</sub>) \& Ideal<sub>i</sub>(P<sub>i</sub>) \& V[Ideal<sub>i</sub>(P<sub>i</sub>)]>0
-* **Shame<sub>i</sub>(P<sub>i</sub>,i)** = Belief<sub>i</sub>(P<sub>i</sub>) \& Ideal<sub>i</sub>(P<sub>i</sub>) \& V[Ideal<sub>i</sub>(P<sub>i</sub>)]<0
+* **Shame<sub>i</sub>(P<sub>i</sub>,i)** = Belief<sub>i</sub>(P<sub>i</sub>) \& Ideal<sub>i</sub>(P<sub>i</sub>) \& V[Ideal<sub>i</sub>(P<sub>i</sub>)]&lt;0
 * **Admiration<sub>i</sub>(P<sub>j</sub>,j)** = Belief<sub>i</sub>(P<sub>j</sub>) \& Ideal<sub>i</sub>(P<sub>j</sub>) \& V[Ideal<sub>i</sub>(P<sub>j</sub>)]>0
-* **Reproach<sub>i</sub>(P<sub>j</sub>,j)** = Belief<sub>i</sub>(P<sub>j</sub>) \& Ideal<sub>i</sub>(P<sub>j</sub>) \& V[Ideal<sub>i</sub>(P<sub>j</sub>)]<0
+* **Reproach<sub>i</sub>(P<sub>j</sub>,j)** = Belief<sub>i</sub>(P<sub>j</sub>) \& Ideal<sub>i</sub>(P<sub>j</sub>) \& V[Ideal<sub>i</sub>(P<sub>j</sub>)]&lt;0
 
 Their initial intensity is computed according to the following equation with O the openness value from the OCEAN model:
 
@@ -474,7 +472,7 @@ species miner control: simple_bdi {
 
 The third part of the architecture is the only one mandatory as it is where the agent makes a decision. A cognitive engine can be coupled with a normative engine to chose an intention and a plan to execute. The complete engine is summed up in  the figure below:
 
-![Diagram activity of cognitive engine (decision-making process) of the BEN architecture.](../resources/images/recipes/BENcognitiveengine.png)
+![Diagram activity of cognitive engine (decision-making process) of the BEN architecture.](/resources/images/recipes/BENcognitiveengine.png)
 
 The decision-making process can be divided into seven steps: 
 
@@ -589,7 +587,7 @@ species miner control: simple_bdi {
 
 //this norm may be seen as a "social norm" as it answers an intention not coming from an obligation but may be disobeyed
     norm share_information intention:share_information threshold:thresholdNorm instantaneous: true{
-	list<miner> my_friends <- list<miner>((social_link_base where (each.liking > 0)) collect each.agent);
+	list&lt;miner> my_friends <- list&lt;miner>((social_link_base where (each.liking > 0)) collect each.agent);
 	loop known_goldmine over: get_beliefs_with_name(mine_at_location) {
 	    ask my_friends {
 		do add_belief(known_goldmine);

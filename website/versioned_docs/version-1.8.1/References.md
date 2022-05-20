@@ -1,7 +1,5 @@
 ---
-title: References
-id: version-1.8.1-References
-original_id: References
+title:  References
 ---
 
 
@@ -27,7 +25,7 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 * [Taillandier, P., Drogoul, A., Vo, D.A. and Amouroux, E. (2012) GAMA: a simulation platform that integrates geographical information data, agent-based modeling and multi-scale control, in 'The 13th International Conference on Principles and Practices in Multi-Agent Systems (PRIMA)', India, Volume 7057/2012, pp 242-258.](http://www.springerlink.com/content/j7135j8722742j82/)
 * [Taillandier, P., Drogoul, A. (2011) From Grid Environment to Geographic Vector Agents, Modeling with the GAMA simulation platform. In ‘25th Conference of the International Cartographic Association’, Paris, France.](https://icaci.org/files/documents/ICC_proceedings/ICC2011/Oral%20Presentations%20PDF/C4-Simulation,%20spatio-temporal%20modelling,%20visualisation/CO-288.pdf)
 * [Taillandier, P., Drogoul A., Vo D.A., Amouroux, E. (2010) GAMA : bringing GIS and multi-level capabilities to multi-agent simulation, in 'the 8th European Workshop on Multi-Agent Systems', Paris, France.](http://www.documentation.ird.fr/hor/fdi:010055255)
-* [Amouroux, E., Taillandier, P. &  Drogoul, A. (2010) Complex environment representation in epidemiology ABM: application on `H5N1` propagation. In ‘the 3rd International Conference on Theories and Applications of Computer Science’ (ICTACS'10).](vjs.ac.vn/index.php/jst/article/download/1154/1464)
+* [Amouroux, E., Taillandier, P. &  Drogoul, A. (2010) Complex environment representation in epidemiology ABM: application on `H5N1` propagation. In ‘the 3rd International Conference on Theories and Applications of Computer Science’ (ICTACS'10).](https://vjs.ac.vn/index.php/jst/article/download/1154/1464)
 * [Amouroux, E., Chu, T.Q., Boucher, A. and Drogoul, A. (2007) GAMA: an environment for implementing and running spatially explicit multi-agent simulations. In ‘Pacific Rim International Workshop on Multi-Agents', Bangkok, Thailand, pp. 359--371.](http://www.springerlink.com/content/88006131542n1204/)
 
 ## HDR theses
@@ -57,7 +55,7 @@ As stated in [the first page](Overview), if you need to cite GAMA in a paper, we
 * **Johan Arcile**, ["Conception, modélisation et vérification formelle d’un système temps-réel d’agents coopératifs Application aux véhicules autonomes communicants"](https://www.biblio.univ-evry.fr/theses/2019/2019SACLE029.pdf), Université Paris-Saclay, defended December 13th, 2019.
 * **Allan Lao**, ["Agent-Based Mesoscopic Pedestrian Modeling and Simulation"](https://www.researchgate.net/publication/337889032_Agent_Based_Mesoscopic_Pedestrian_Modeling_and_Simulation?fbclid=IwAR0TpRdp_NjSmOGggOjnJmVpsmFx2gh8bwRSXzgUpHHYdPBBdvCYal9cO7k), University of the Cordilleras, defended in February, 2019.
 * **Myriam Grillot**, ["Modélisation multi-agents et pluri-niveaux de la réorganisation du cycle de l’azote dans des systèmes agro-sylvo-pastoraux en transition : Le cas du bassin arachidier au Sénégal"](http://agritrop.cirad.fr/593105/1/ID593105.pdf), IRD, defended March 16th, 2018.
-* **Justin Emery**, [La ville sous électrodes : de la mesure à l'évaluation de la pollution atmosphérique automobile. : vers une simulation multi-agents du trafic routier en milieu urbain](), Université de Bourgogne-Franche-Comté, defended December 16th, 2016.
+* **Justin Emery**, [La ville sous électrodes : de la mesure à l'évaluation de la pollution atmosphérique automobile. : vers une simulation multi-agents du trafic routier en milieu urbain](https://tel.archives-ouvertes.fr/tel-01436123/), Université de Bourgogne-Franche-Comté, defended December 16th, 2016.
 * **Hugo Thierry**, ["Élaboration d'un modèle spatialisé pour favoriser le contrôle biologique de ravageurs de cultures par gestion du paysage agricole"](https://oatao.univ-toulouse.fr/14665/1/thierry.pdf), INPT, defended November 11th, 2015. 
 * **Inès Hassoumi**, [Approche multi-agents de couplage de modèles pour la modélisation des systèmes complexes spatiaux. Application à l'aménagement urbain de la ville de Métouia](https://tel.archives-ouvertes.fr/tel-01212713/document), Université Pierre et Marie Curie – Paris VI et université de Tunis, defended December, 2014.
 

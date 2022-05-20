@@ -1,7 +1,5 @@
 ---
-title: FAQ (Frequently Asked Questions)
-id: version-1.8.1-FAQ
-original_id: FAQ
+title:  FAQ (Frequently Asked Questions)
 ---
 
 

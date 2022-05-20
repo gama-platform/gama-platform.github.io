@@ -1,7 +1,5 @@
 ---
-title: Installing the GIT version
-id: version-1.8.1-InstallingGitVersion
-original_id: InstallingGitVersion
+title:  Installing the GIT version
 ---
 
 
@@ -20,24 +18,24 @@ The source is to be downloaded from GitHub in two steps: by creating a local clo
 1. Open the Git perspective:
   * Windows > Perspective > Open Perspective > Other...
   * Choose `Git`
-![Open GIT perspective](../resources/images/developpingExtension/GIT_open_perspective.png)
+![Open GIT perspective](/resources/images/developpingExtension/GIT_open_perspective.png)
 2. Click on "Clone a Git repository"
-![Clone Repository](../resources/images/developpingExtension/GIT_Clone_Repository.png)
+![Clone Repository](/resources/images/developpingExtension/GIT_Clone_Repository.png)
   * In **Source Git repository** window: 
     * Fill in the URI label with: `https://github.com/gama-platform/gama.git`
     * Other fields will be automatically filled in.
-![Source GIT repository](../resources/images/developpingExtension/GIT_source_git_repository.png)    
+![Source GIT repository](/resources/images/developpingExtension/GIT_source_git_repository.png)    
   * In **Branch Selection** windows, 
     * check the master branch 
     * Next
 
-![Git branch selection](../resources/images/developpingExtension/GIT_branch_selection.png)
+![Git branch selection](/resources/images/developpingExtension/GIT_branch_selection.png)
   * In **Local Destination** windows,
     * Choose a Directory (where the source files will be downloaded).
     * Everything else should be unchecked 
     * Finish
 
-![Local destination](../resources/images/developpingExtension/GIT_local_destination.png)
+![Local destination](/resources/images/developpingExtension/GIT_local_destination.png)
 
 This can take a while...
 
@@ -50,13 +48,13 @@ _**Note:** contrarily to previous Eclipse versions, import project from the Git 
 1. In the **Java perspective**, choose:
   * `File` / `Import...`,
 
-![Context Working tree](../resources/images/developpingExtension/dialog_install_EOxy_ImportProjects.png)
+![Context Working tree](/resources/images/developpingExtension/dialog_install_EOxy_ImportProjects.png)
 
   * In the install window, select `Git` / `Projects from Git`,
   * Click on Next,
   * In the `Project from Git` window, select `Existing local repository.`,
 
-![Context Local Repository](../resources/images/developpingExtension/dialog_install_EOxy_ImportRespositorySource.png)
+![Context Local Repository](/resources/images/developpingExtension/dialog_install_EOxy_ImportRespositorySource.png)
 
   * Click on Next,
   * In the new window, select your Git repository,
@@ -65,13 +63,13 @@ _**Note:** contrarily to previous Eclipse versions, import project from the Git 
     * Import existing Eclipse projects is selected
     * Working Tree is selected
 
-![GIT Import projects](../resources/images/developpingExtension/dialog_install_EOxy_ImportWizard.png)    
+![GIT Import projects](/resources/images/developpingExtension/dialog_install_EOxy_ImportWizard.png)    
 
   * Click on Next,
   * In the **Import project** window,
     * **Uncheck Search for nested projects**
     * Select all the projects
-![Choose Projects to import](../resources/images/developpingExtension/GIT_ChooseProjectToImport.png)
+![Choose Projects to import](/resources/images/developpingExtension/GIT_ChooseProjectToImport.png)
 
   * Finish
 3. Clean project (Project menu > Clean ...)

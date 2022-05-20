@@ -1,7 +1,5 @@
 ---
-title: 3. Social relation
-id: version-1.8.1-BDIAgents_step3
-original_id: BDIAgents_step3
+title:  3. Social relation
 ---
 
 This third step consists in adding social relation between agents and the possibility to share information about the known gold mines.
@@ -14,7 +12,7 @@ This third step consists in adding social relation between agents and the possib
 
 ## Social relationships
 
-The BDI architecture of GAMA allows the modeler to define explicit social relations between agents. Based on the work of [(Svennevig, 2000)](http://www.jbe-platform.com/content/books/9789027299055), a social link with another agent is defined as a tuple <agent, liking, dominance, solidarity, familiarity, trust> with the following elements:
+The BDI architecture of GAMA allows the modeler to define explicit social relations between agents. Based on the work of [(Svennevig, 2000)](http://www.jbe-platform.com/content/books/9789027299055), a social link with another agent is defined as a tuple &lt;agent, liking, dominance, solidarity, familiarity, trust> with the following elements:
 
 * Agent: the agent concerned by the link, identified by its name.
 * Liking: a real value between -1 and 1 representing the degree of liking with the agent concerned by the link. A value of -1 indicates that the concerned agent is hated, a value of 1 indicates that the concerned agent is liked.
@@ -23,7 +21,7 @@ The BDI architecture of GAMA allows the modeler to define explicit social relati
 * Familiarity: a real value between 0 and 1 representing the degree of familiarity with the agent concerned by the link. A value of 0 indicates no familiarity with the concerned agent, a value of 1 indicates a complete familiarity with the concerned agent. 
 * Trust: a real value between -1 and +1 representing the degree of trust with the agent concerned by th link. A value of -1 indicates a doubt about the agent concerned, a value of 1 indicates a complete trust with the concerned agent.
 
-With this definition, a social relation is not necessarily symmetric. For example, let's take two agents, Alice and Bob, with a social link towards each other. The agent Bob may have a social link <Alice,1,-0.5,0.6,0.8,-0.2> (Bob likes Alice with a value of 1, he thinks he is dominated by Alice, he is solidary with Alice with a value of 0.6, he is familiar with Alice with a value of 0.8 and he doubts about her with a value 0.2) and Alice may have a social link <Bob,-0.2,0.2,0.4,0.5,0.8> (Alice dislikes Bob with a value of 0.2, she thinks she is dominating Bob, she is solidary with Bob with a value of 0.4, she is familiar with Bob with a value of 0.5 and she trusts Bob with a value of 0.5).
+With this definition, a social relation is not necessarily symmetric. For example, let's take two agents, Alice and Bob, with a social link towards each other. The agent Bob may have a social link &lt;Alice,1,-0.5,0.6,0.8,-0.2> (Bob likes Alice with a value of 1, he thinks he is dominated by Alice, he is solidary with Alice with a value of 0.6, he is familiar with Alice with a value of 0.8 and he doubts about her with a value 0.2) and Alice may have a social link &lt;Bob,-0.2,0.2,0.4,0.5,0.8> (Alice dislikes Bob with a value of 0.2, she thinks she is dominating Bob, she is solidary with Bob with a value of 0.4, she is familiar with Bob with a value of 0.5 and she trusts Bob with a value of 0.5).
 
 ## Model Definition
 
@@ -73,7 +71,7 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 species miner skills: [moving] control: simple_bdi {
     ...
     plan share_information_to_friends intention: share_information instantaneous: true{
-	list<miner> my_friends <- list<miner>((social_link_base where (each.liking > 0)) collect each.agent);
+	list&lt;miner> my_friends <- list&lt;miner>((social_link_base where (each.liking > 0)) collect each.agent);
 	loop known_gold_mine over: get_beliefs_with_name(mine_at_location) {
 	    ask my_friends {
 		do add_diectly_belief(known_gold_mine);
@@ -279,8 +277,8 @@ species miner skills: [moving] control:simple_bdi {
     }
     
     plan choose_closest_gold_mine intention: choose_gold_mine instantaneous: true {
-        list<point> possible_mines <- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
-        list<point> empty_mines <- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+        list&lt;point> possible_mines <- get_beliefs_with_name(mine_at_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
+        list&lt;point> empty_mines <- get_beliefs_with_name(empty_mine_location) collect (point(get_predicate(mental_state (each)).values["location_value"]));
         possible_mines <- possible_mines - empty_mines;
         if (empty(possible_mines)) {
             do remove_intention(has_gold, true); 
@@ -300,7 +298,7 @@ species miner skills: [moving] control:simple_bdi {
     }
     
     plan share_information_to_friends intention: share_information instantaneous: true {
-        list<miner> my_friends <- list<miner>((social_link_base where (each.liking > 0)) collect each.agent);
+        list&lt;miner> my_friends <- list&lt;miner>((social_link_base where (each.liking > 0)) collect each.agent);
         loop known_gold_mine over: get_beliefs_with_name(mine_at_location) {
             ask my_friends {
                 do add_belief(known_gold_mine);

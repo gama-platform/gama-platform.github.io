@@ -1,7 +1,5 @@
 ---
-title: Operators (I to M)
-id: version-1.8.1-OperatorsIM
-original_id: OperatorsIM
+title:  Operators (I to M)
 ---
 
  	
@@ -330,7 +328,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ### `IDW`
 
 #### Possible use: 
-  *  **`IDW`** (`container<unknown,geometry>`, `map`, `int`) --->  `map<geometry,float>` 
+  *  **`IDW`** (`container&lt;unknown,geometry>`, `map`, `int`) --->  `map&lt;geometry,float>` 
 
 #### Result: 
 Inverse Distance Weighting (IDW) is a type of deterministic method for multivariate interpolation with a known scattered set of points. The assigned values to each geometry are calculated with a weighted average of the values available at the known points. See: http://en.wikipedia.org/wiki/Inverse_distance_weighting Usage: IDW (list of geometries, map of points (key: point, value: value), power parameter)
@@ -338,7 +336,7 @@ Inverse Distance Weighting (IDW) is a type of deterministic method for multivari
 #### Examples: 
 ```
  
-map<geometry,float> var0 <- IDW([ag1, ag2, ag3, ag4, ag5],[{10,10}::25.0, {10,80}::10.0, {100,10}::15.0], 2); // var0 equals for example, can return [ag1::12.0, ag2::23.0,ag3::12.0,ag4::14.0,ag5::17.0]
+map&lt;geometry,float> var0 <- IDW([ag1, ag2, ag3, ag4, ag5],[{10,10}::25.0, {10,80}::10.0, {100,10}::15.0], 2); // var0 equals for example, can return [ag1::12.0, ag2::23.0,ag3::12.0,ag4::14.0,ag5::17.0]
 
 ```
   
@@ -353,8 +351,8 @@ map<geometry,float> var0 <- IDW([ag1, ag2, ag3, ag4, ag5],[{10,10}::25.0, {10,80
 
 #### Possible use: 
   *  **`image_file`** (`string`) --->  `file`
-  * `string` **`image_file`** `matrix<int>` --->  `file`
-  *  **`image_file`** (`string` , `matrix<int>`) --->  `file` 
+  * `string` **`image_file`** `matrix&lt;int>` --->  `file`
+  *  **`image_file`** (`string` , `matrix&lt;int>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type image. Allowed extensions are limited to tiff, jpg, jpeg, png, pict, bmp
@@ -368,7 +366,7 @@ file f <-image_file("file.png");
 ``` 
 
     
-  * image_file(string,matrix<int>): This file constructor allows to store a matrix in a image file (it does not save it - just store it in memory) 
+  * image_file(string,matrix&lt;int>): This file constructor allows to store a matrix in a image file (it does not save it - just store it in memory) 
   
 ```
  
@@ -391,10 +389,10 @@ file f <-image_file("file.png");
 ### `in`
 
 #### Possible use: 
-  * `string` **`in`** `string` --->  `bool`
-  *  **`in`** (`string` , `string`) --->  `bool`
   * `unknown` **`in`** `container` --->  `bool`
-  *  **`in`** (`unknown` , `container`) --->  `bool` 
+  *  **`in`** (`unknown` , `container`) --->  `bool`
+  * `string` **`in`** `string` --->  `bool`
+  *  **`in`** (`string` , `string`) --->  `bool` 
 
 #### Result: 
 true if the right operand contains the left operand, false otherwise  
@@ -403,17 +401,17 @@ true if the right operand contains the left operand, false otherwise
 the definition of in depends on the container
 
 #### Special cases:     
-  * if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;    
-  * if the right operand is nil or empty, in returns false
+  * if the right operand is nil or empty, in returns false    
+  * if both operands are strings, returns true if the left-hand operand patterns is included in to the right-hand string;
 
 #### Examples: 
 ```
  
-bool var0 <-  'bc' in 'abcded'; // var0 equals true 
-bool var1 <- 2 in [1,2,3,4,5,6]; // var1 equals true 
-bool var2 <- 7 in [1,2,3,4,5,6]; // var2 equals false 
-bool var3 <- 3 in [1::2, 3::4, 5::6]; // var3 equals false 
-bool var4 <- 6 in [1::2, 3::4, 5::6]; // var4 equals true
+bool var0 <- 2 in [1,2,3,4,5,6]; // var0 equals true 
+bool var1 <- 7 in [1,2,3,4,5,6]; // var1 equals false 
+bool var2 <- 3 in [1::2, 3::4, 5::6]; // var2 equals false 
+bool var3 <- 6 in [1::2, 3::4, 5::6]; // var3 equals true 
+bool var4 <-  'bc' in 'abcded'; // var4 equals true
 
 ```
       
@@ -608,16 +606,16 @@ map var0 <- [1,2,3,4,5,6,7,8] index_by (each - 1); // var0 equals [0::1, 1::2, 2
 ### `index_of`
 
 #### Possible use: 
+  * `list` **`index_of`** `unknown` --->  `int`
+  *  **`index_of`** (`list` , `unknown`) --->  `int`
   * `matrix` **`index_of`** `unknown` --->  `point`
   *  **`index_of`** (`matrix` , `unknown`) --->  `point`
-  * `map<unknown,unknown>` **`index_of`** `unknown` --->  `unknown`
-  *  **`index_of`** (`map<unknown,unknown>` , `unknown`) --->  `unknown`
-  * `string` **`index_of`** `string` --->  `int`
-  *  **`index_of`** (`string` , `string`) --->  `int`
+  * `map&lt;unknown,unknown>` **`index_of`** `unknown` --->  `unknown`
+  *  **`index_of`** (`map&lt;unknown,unknown>` , `unknown`) --->  `unknown`
   * `species` **`index_of`** `unknown` --->  `int`
   *  **`index_of`** (`species` , `unknown`) --->  `int`
-  * `list` **`index_of`** `unknown` --->  `int`
-  *  **`index_of`** (`list` , `unknown`) --->  `int` 
+  * `string` **`index_of`** `string` --->  `int`
+  *  **`index_of`** (`string` , `string`) --->  `int` 
 
 #### Result: 
 the index of the first occurence of the right operand in the left operand container  
@@ -628,11 +626,20 @@ The definition of index_of and the type of the index depend on the container
 #### Special cases:     
   * if the left operand is a map, index_of returns the index of a value or nil if the value is not mapped    
   * if the left operator is a species, returns the index of an agent in a species. If the argument is not an agent of this species, returns -1. Use int(agent) instead    
+  * if the left operand is a list, index_of returns the index as an integer 
+  
+```
+ 
+int var1 <- [1,2,3,4,5,6] index_of 4; // var1 equals 3 
+int var2 <- [4,2,3,4,5,4] index_of 4; // var2 equals 0
+``` 
+
+    
   * if the left operand is a matrix, index_of returns the index as a point 
   
 ```
  
-point var1 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var1 equals {1.0,0.0}
+point var3 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var3 equals {1.0,0.0}
 ``` 
 
     
@@ -640,16 +647,7 @@ point var1 <- matrix([[1,2,3],[4,5,6]]) index_of 4; // var1 equals {1.0,0.0}
   
 ```
  
-int var2 <-  "abcabcabc" index_of "ca"; // var2 equals 2
-``` 
-
-    
-  * if the left operand is a list, index_of returns the index as an integer 
-  
-```
- 
-int var3 <- [1,2,3,4,5,6] index_of 4; // var3 equals 3 
-int var4 <- [4,2,3,4,5,4] index_of 4; // var4 equals 0
+int var4 <-  "abcabcabc" index_of "ca"; // var4 equals 2
 ``` 
 
 
@@ -676,8 +674,8 @@ unknown var0 <- [1::2, 3::4, 5::6] index_of 4; // var0 equals 3
 ### `inside`
 
 #### Possible use: 
-  * `container<unknown,geometry>` **`inside`** `geometry` --->  `list<geometry>`
-  *  **`inside`** (`container<unknown,geometry>` , `geometry`) --->  `list<geometry>` 
+  * `container&lt;unknown,geometry>` **`inside`** `geometry` --->  `list&lt;geometry>`
+  *  **`inside`** (`container&lt;unknown,geometry>` , `geometry`) --->  `list&lt;geometry>` 
 
 #### Result: 
 A list of agents or geometries among the left-operand list, species or meta-population (addition of species), covered by the operand (casted as a geometry).
@@ -685,8 +683,8 @@ A list of agents or geometries among the left-operand list, species or meta-popu
 #### Examples: 
 ```
  
-list<geometry> var0 <- [ag1, ag2, ag3] inside(self); // var0 equals the agents among ag1, ag2 and ag3 that are covered by the shape of the right-hand argument. 
-list<geometry> var1 <- (species1 + species2) inside (self); // var1 equals the agents among species species1 and species2 that are covered by the shape of the right-hand argument.
+list&lt;geometry> var0 <- [ag1, ag2, ag3] inside(self); // var0 equals the agents among ag1, ag2 and ag3 that are covered by the shape of the right-hand argument. 
+list&lt;geometry> var1 <- (species1 + species2) inside (self); // var1 equals the agents among species species1 and species2 that are covered by the shape of the right-hand argument.
 
 ```
       
@@ -716,27 +714,27 @@ list<geometry> var1 <- (species1 + species2) inside (self); // var1 equals the a
 ### `inter`
 
 #### Possible use: 
-  * `geometry` **`inter`** `geometry` --->  `geometry`
-  *  **`inter`** (`geometry` , `geometry`) --->  `geometry`
   * `container` **`inter`** `container` --->  `list`
-  *  **`inter`** (`container` , `container`) --->  `list` 
+  *  **`inter`** (`container` , `container`) --->  `list`
+  * `geometry` **`inter`** `geometry` --->  `geometry`
+  *  **`inter`** (`geometry` , `geometry`) --->  `geometry` 
 
 #### Result: 
-A geometry resulting from the intersection between the two geometries
-the intersection of the two operands  
+the intersection of the two operands
+A geometry resulting from the intersection between the two geometries  
 
 #### Comment: 
 both containers are transformed into sets (so without duplicated element, cf. remove_deplicates operator) before the set intersection is computed.
 
 #### Special cases:     
-  * returns nil if one of the operands is nil    
   * if an operand is a graph, it will be transformed into the set of its nodes    
+  * returns nil if one of the operands is nil    
   * if an operand is a map, it will be transformed into the set of its values 
   
 ```
  
-list var3 <- [1::2, 3::4, 5::6] inter [2,4]; // var3 equals [2,4] 
-list var4 <- [1::2, 3::4, 5::6] inter [1,3]; // var4 equals []
+list var0 <- [1::2, 3::4, 5::6] inter [2,4]; // var0 equals [2,4] 
+list var1 <- [1::2, 3::4, 5::6] inter [1,3]; // var1 equals []
 ``` 
 
     
@@ -744,7 +742,7 @@ list var4 <- [1::2, 3::4, 5::6] inter [1,3]; // var4 equals []
   
 ```
  
-list var5 <- matrix([[3,2,1],[4,5,4]]) inter [3,4]; // var5 equals [3,4]
+list var2 <- matrix([[3,2,1],[4,5,4]]) inter [3,4]; // var2 equals [3,4]
 ``` 
 
 
@@ -752,9 +750,9 @@ list var5 <- matrix([[3,2,1],[4,5,4]]) inter [3,4]; // var5 equals [3,4]
 #### Examples: 
 ```
  
-geometry var0 <- square(10) inter circle(5); // var0 equals circle(5) 
-list var1 <- [1,2,3,4,5,6] inter [2,4]; // var1 equals [2,4] 
-list var2 <- [1,2,3,4,5,6] inter [0,8]; // var2 equals []
+list var3 <- [1,2,3,4,5,6] inter [2,4]; // var3 equals [2,4] 
+list var4 <- [1,2,3,4,5,6] inter [0,8]; // var4 equals [] 
+geometry var5 <- square(10) inter circle(5); // var5 equals circle(5)
 
 ```
       
@@ -762,7 +760,7 @@ list var2 <- [1,2,3,4,5,6] inter [0,8]; // var2 equals []
 
 #### See also: 
 
-[union](OperatorsSZ#union), [+](OperatorsAA#+), [-](OperatorsAA#-), [remove_duplicates](OperatorsNR#remove_duplicates), 
+[remove_duplicates](OperatorsNR#remove_duplicates), [union](OperatorsSZ#union), [+](OperatorsAA#+), [-](OperatorsAA#-), 
     	
 ----
 
@@ -799,17 +797,17 @@ list var1 <- interleave([['e11','e12','e13'],['e21','e22','e23'],['e31','e32','e
 ### `internal_at`
 
 #### Possible use: 
+  * `geometry` **`internal_at`** `list` --->  `unknown`
+  *  **`internal_at`** (`geometry` , `list`) --->  `unknown`
   * `container` **`internal_at`** `list` --->  `unknown`
   *  **`internal_at`** (`container` , `list`) --->  `unknown`
   * `agent` **`internal_at`** `list` --->  `unknown`
-  *  **`internal_at`** (`agent` , `list`) --->  `unknown`
-  * `geometry` **`internal_at`** `list` --->  `unknown`
-  *  **`internal_at`** (`geometry` , `list`) --->  `unknown` 
+  *  **`internal_at`** (`agent` , `list`) --->  `unknown` 
 
 #### Result: 
+For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]
 For internal use only. Corresponds to the implementation of the access to containers with [index]
-For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]
-For internal use only. Corresponds to the implementation, for geometries, of the access to containers with [index]    
+For internal use only. Corresponds to the implementation, for agents, of the access to containers with [index]    
 
 
 #### See also: 
@@ -880,7 +878,7 @@ bool var0 <- square(5) intersects {10,10}; // var0 equals false
 ### `inverse`
 
 #### Possible use: 
-  *  **`inverse`** (`matrix<unknown>`) --->  `matrix<float>` 
+  *  **`inverse`** (`matrix&lt;unknown>`) --->  `matrix&lt;float>` 
 
 #### Result: 
 The inverse matrix of the given matrix. If no inverse exists, returns a matrix that has properties that resemble that of an inverse.
@@ -888,7 +886,7 @@ The inverse matrix of the given matrix. If no inverse exists, returns a matrix t
 #### Examples: 
 ```
  
-matrix<float> var0 <- inverse(matrix([[4,3],[3,2]])); // var0 equals matrix([[-2.0,3.0],[3.0,-4.0]])
+matrix&lt;float> var0 <- inverse(matrix([[4,3],[3,2]])); // var0 equals matrix([[-2.0,3.0],[3.0,-4.0]])
 
 ```
   
@@ -911,7 +909,7 @@ matrix<float> var0 <- inverse(matrix([[4,3],[3,2]])); // var0 equals matrix([[-2
 ### `inverse_rotation`
 
 #### Possible use: 
-  *  **`inverse_rotation`** (`pair<float,point>`) --->  `pair<float,point>` 
+  *  **`inverse_rotation`** (`pair&lt;float,point>`) --->  `pair&lt;float,point>` 
 
 #### Result: 
 The inverse rotation. It is a rotation around the same axis with the opposite angle.
@@ -919,7 +917,7 @@ The inverse rotation. It is a rotation around the same axis with the opposite an
 #### Examples: 
 ```
  
-pair<float,point> var0 <- inverse_rotation(38.0::{1,1,1}); // var0 equals -38.0::{1,1,1}
+pair&lt;float,point> var0 <- inverse_rotation(38.0::{1,1,1}); // var0 equals -38.0::{1,1,1}
 
 ```
       
@@ -1452,8 +1450,8 @@ Tests whether the operand is a xml file.
 
 #### Possible use: 
   *  **`json_file`** (`string`) --->  `file`
-  * `string` **`json_file`** `map<string,unknown>` --->  `file`
-  *  **`json_file`** (`string` , `map<string,unknown>`) --->  `file` 
+  * `string` **`json_file`** `map&lt;string,unknown>` --->  `file`
+  *  **`json_file`** (`string` , `map&lt;string,unknown>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type json. Allowed extensions are limited to json
@@ -1467,7 +1465,7 @@ file f <-json_file("file.json");
 ``` 
 
     
-  * json_file(string,map<string,unknown>): This constructor allows to  store a map in a json file (it does not save it). The file can then be saved later using the `save` statement 
+  * json_file(string,map&lt;string,unknown>): This constructor allows to  store a map in a json file (it does not save it). The file can then be saved later using the `save` statement 
   
 ```
  
@@ -1490,8 +1488,8 @@ file f <-json_file("file.json", map(["var1"::1.0, "var2"::3.0]));
 ### `kappa`
 
 #### Possible use: 
-  *  **`kappa`** (`list<unknown>`, `list<unknown>`, `list<unknown>`) --->  `float`
-  *  **`kappa`** (`list<unknown>`, `list<unknown>`, `list<unknown>`, `list<unknown>`) --->  `float` 
+  *  **`kappa`** (`list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`) --->  `float`
+  *  **`kappa`** (`list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`) --->  `float` 
 
 #### Result: 
 kappa indicator for 2 map comparisons: kappa(list_vals1,list_vals2,categories, weights). Reference: Cohen, J. A coefficient of agreement for nominal scales. Educ. Psychol. Meas. 1960, 20. 
@@ -1517,18 +1515,18 @@ float var3 <- kappa([1,1,1,1,5],[1,1,1,1,5],[1,3,5]); // var3 equals 1.0
 ### `kappa_sim`
 
 #### Possible use: 
-  *  **`kappa_sim`** (`list<unknown>`, `list<unknown>`, `list<unknown>`, `list<unknown>`) --->  `float`
-  *  **`kappa_sim`** (`list<unknown>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<unknown>`) --->  `float` 
+  *  **`kappa_sim`** (`list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`) --->  `float`
+  *  **`kappa_sim`** (`list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`) --->  `float` 
 
 #### Result: 
-kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
 kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories, weights). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8)
+kappa simulation indicator for 2 map comparisons: kappa(list_valsInits,list_valsObs,list_valsSim, categories). Reference: van Vliet, J., Bregt, A.K. & Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracy assessment of land-use change models, Ecological Modelling 222(8).
 
 #### Examples: 
 ```
  
-float var0 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"]); // var0 equals 0.3333333333333335 
-float var1 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"], [1.0, 2.0, 3.0, 1.0, 5.0]); // var1 equals 0.2702702702702703
+float var0 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"], [1.0, 2.0, 3.0, 1.0, 5.0]); // var0 equals 0.2702702702702703 
+float var1 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat2","cat1","cat3"],["cat1","cat3","cat2","cat3","cat1"],["cat1","cat2","cat3"]); // var1 equals 0.3333333333333335
 
 ```
   
@@ -1542,9 +1540,9 @@ float var1 <- kappa_sim(["cat1","cat1","cat2","cat2","cat2"],["cat1","cat3","cat
 ### `kmeans`
 
 #### Possible use: 
-  * `list` **`kmeans`** `int` --->  `list<list>`
-  *  **`kmeans`** (`list` , `int`) --->  `list<list>`
-  *  **`kmeans`** (`list`, `int`, `int`) --->  `list<list>` 
+  * `list` **`kmeans`** `int` --->  `list&lt;list>`
+  *  **`kmeans`** (`list` , `int`) --->  `list&lt;list>`
+  *  **`kmeans`** (`list`, `int`, `int`) --->  `list&lt;list>` 
 
 #### Result: 
 returns the list of clusters (list of instance indices) computed with the kmeans++ algorithm from the first operand data according to the number of clusters to split the data into (k) and the maximum number of iterations to run the algorithm for (If negative, no maximum will be used) (maxIt). Usage: kmeans(data,k,maxit)
@@ -1557,8 +1555,8 @@ returns the list of clusters (list of instance indices) computed with the kmeans
 #### Examples: 
 ```
  
-list<list> var0 <- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10); // var0 equals [[0,2,3],[1]] 
-list<list> var1 <- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2); // var1 equals [[0,2,3],[1]]
+list&lt;list> var0 <- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2,10); // var0 equals [[0,2,3],[1]] 
+list&lt;list> var1 <- kmeans ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],2); // var1 equals [[0,2,3],[1]]
 
 ```
   
@@ -1619,8 +1617,8 @@ Returns the kurtosis (aka excess) of a data sequence
 #### Examples: 
 ```
  
-float var0 <- kurtosis([13,2,1,4,1,2]) with_precision(4); // var0 equals 4.8083 
-float var1 <- kurtosis(3,12) with_precision(4); // var1 equals -2.9999
+float var0 <- kurtosis(3,12) with_precision(4); // var0 equals -2.9999 
+float var1 <- kurtosis([13,2,1,4,1,2]) with_precision(4); // var1 equals 4.8083
 
 ```
   
@@ -1634,7 +1632,7 @@ float var1 <- kurtosis(3,12) with_precision(4); // var1 equals -2.9999
 ### `last`
 
 #### Possible use: 
-  *  **`last`** (`container<KeyType,ValueType>`) --->  `ValueType`
+  *  **`last`** (`container&lt;KeyType,ValueType>`) --->  `ValueType`
   *  **`last`** (`string`) --->  `string`
   * `int` **`last`** `container` --->  `list`
   *  **`last`** (`int` , `container`) --->  `list` 
@@ -1686,14 +1684,14 @@ string var1 <- last ('abce'); // var1 equals 'e'
 #### Possible use: 
   * `string` **`last_index_of`** `string` --->  `int`
   *  **`last_index_of`** (`string` , `string`) --->  `int`
+  * `species` **`last_index_of`** `unknown` --->  `int`
+  *  **`last_index_of`** (`species` , `unknown`) --->  `int`
   * `list` **`last_index_of`** `unknown` --->  `int`
   *  **`last_index_of`** (`list` , `unknown`) --->  `int`
+  * `map&lt;unknown,unknown>` **`last_index_of`** `unknown` --->  `unknown`
+  *  **`last_index_of`** (`map&lt;unknown,unknown>` , `unknown`) --->  `unknown`
   * `matrix` **`last_index_of`** `unknown` --->  `point`
-  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point`
-  * `map<unknown,unknown>` **`last_index_of`** `unknown` --->  `unknown`
-  *  **`last_index_of`** (`map<unknown,unknown>` , `unknown`) --->  `unknown`
-  * `species` **`last_index_of`** `unknown` --->  `int`
-  *  **`last_index_of`** (`species` , `unknown`) --->  `int` 
+  *  **`last_index_of`** (`matrix` , `unknown`) --->  `point` 
 
 #### Result: 
 the index of the last occurence of the right operand in the left operand container  
@@ -1720,19 +1718,19 @@ int var2 <- [4,2,3,4,5,4] last_index_of 4; // var2 equals 5
 ``` 
 
     
-  * if the left operand is a matrix, last_index_of returns the index as a point 
-  
-```
- 
-point var3 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var3 equals {1.0,2.0}
-``` 
-
-    
   * if the left operand is a map, last_index_of returns the index as an int (the key of the pair) 
   
 ```
  
-unknown var4 <- [1::2, 3::4, 5::4] last_index_of 4; // var4 equals 5
+unknown var3 <- [1::2, 3::4, 5::4] last_index_of 4; // var3 equals 5
+``` 
+
+    
+  * if the left operand is a matrix, last_index_of returns the index as a point 
+  
+```
+ 
+point var4 <- matrix([[1,2,3],[4,5,4]]) last_index_of 4; // var4 equals {1.0,2.0}
 ``` 
 
     
@@ -1740,7 +1738,7 @@ unknown var4 <- [1::2, 3::4, 5::4] last_index_of 4; // var4 equals 5
 
 #### See also: 
 
-[at](OperatorsAA#at), [last_index_of](OperatorsIM#last_index_of), [index_of](OperatorsIM#index_of), 
+[at](OperatorsAA#at), [index_of](OperatorsIM#index_of), [last_index_of](OperatorsIM#last_index_of), 
     	
 ----
 
@@ -1868,7 +1866,7 @@ layout_grid(graph, world.shape);
 ### `length`
 
 #### Possible use: 
-  *  **`length`** (`container<KeyType,ValueType>`) --->  `int`
+  *  **`length`** (`container&lt;KeyType,ValueType>`) --->  `int`
   *  **`length`** (`string`) --->  `int` 
 
 #### Result: 
@@ -1924,13 +1922,13 @@ int var3 <- length ('I am an agent'); // var3 equals 13
 ### `line`
 
 #### Possible use: 
-  *  **`line`** (`container<unknown,geometry>`) --->  `geometry`
-  * `container<unknown,geometry>` **`line`** `float` --->  `geometry`
-  *  **`line`** (`container<unknown,geometry>` , `float`) --->  `geometry` 
+  *  **`line`** (`container&lt;unknown,geometry>`) --->  `geometry`
+  * `container&lt;unknown,geometry>` **`line`** `float` --->  `geometry`
+  *  **`line`** (`container&lt;unknown,geometry>` , `float`) --->  `geometry` 
 
 #### Result: 
-A polyline geometry from the given list of points represented as a cylinder of radius r.
 A polyline geometry from the given list of points.
+A polyline geometry from the given list of points represented as a cylinder of radius r.
 
 #### Special cases:     
   * if the operand is nil, returns the point geometry {0,0}    
@@ -1941,7 +1939,7 @@ A polyline geometry from the given list of points.
   
 ```
  
-geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var0 equals a polyline geometry composed of the 4 points.
+geometry var3 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var3 equals a polyline geometry composed of the 4 points.
 ``` 
 
 
@@ -1949,9 +1947,9 @@ geometry var0 <- polyline([{0,0}, {0,10}, {10,10}, {10,0}],0.2); // var0 equals 
 #### Examples: 
 ```
  
-geometry var1 <- polyline([{0,0}, {0,10}, {10,10}]); // var1 equals a polyline geometry composed of the 3 points. 
-geometry var2 <- line([{10,10}, {10,0}]); // var2 equals a line from 2 points. 
-string var3 <- string(polyline([{0,0}, {0,10}, {10,10}])+line([{10,10}, {10,0}])); // var3 equals "MULTILINESTRING ((0 0, 0 10, 10 10), (10 10, 10 0))"
+geometry var0 <- polyline([{0,0}, {0,10}, {10,10}]); // var0 equals a polyline geometry composed of the 3 points. 
+geometry var1 <- line([{10,10}, {10,0}]); // var1 equals a line from 2 points. 
+string var2 <- string(polyline([{0,0}, {0,10}, {10,10}])+line([{10,10}, {10,0}])); // var2 equals "MULTILINESTRING ((0 0, 0 10, 10 10), (10 10, 10 0))"
 
 ```
       
@@ -2079,13 +2077,13 @@ float var1 <- ln(1); // var1 equals 0.0
 
 #### Possible use: 
   *  **`load_graph_from_file`** (`string`) --->  `graph`
-  * `string` **`load_graph_from_file`** `file` --->  `graph`
-  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   * `string` **`load_graph_from_file`** `string` --->  `graph`
   *  **`load_graph_from_file`** (`string` , `string`) --->  `graph`
+  * `string` **`load_graph_from_file`** `file` --->  `graph`
+  *  **`load_graph_from_file`** (`string` , `file`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `species`, `species`) --->  `graph`
-  *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`) --->  `graph`
+  *  **`load_graph_from_file`** (`string`, `file`, `species`, `species`) --->  `graph`
   *  **`load_graph_from_file`** (`string`, `string`, `species`, `species`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -2104,37 +2102,13 @@ Available formats: "pajek": Pajek (Slovene word for Spider) is a program, for Wi
   * "filename": the filename of the file containing the network    
   * "edges_species": the species of edges    
   * "vertices_specy": the species of vertices    
-  * "file": the file containing the network 
+  * "format": the format of the file, "filename": the filename of the file containing the network 
   
 ```
  
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
 			"pajek", 
 			"example_of_Pajek_file");
-``` 
-
-    
-  * "filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
-  
-```
- 
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
-			"pajek", 
-			"./example_of_Pajek_file", 
-			myVertexSpecy, 
-			myEdgeSpecy );
-``` 
-
-    
-  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
-  
-```
- 
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
-			"pajek", 
-			"example_of_Pajek_file", 
-			myVertexSpecy, 
-			myEdgeSpecy );
 ``` 
 
     
@@ -2142,17 +2116,41 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
   
 ```
  
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
 			"pajek", 
 			"example_of_Pajek_file");
 ``` 
 
     
-  * "format": the format of the file, "filename": the filename of the file containing the network 
+  * "format": the format of the file, "file": the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
   
 ```
  
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
+			"pajek", 
+			"example_of_Pajek_file", 
+			myVertexSpecy, 
+			myEdgeSpecy );
+``` 
+
+    
+  * "filename": the filename of the file containing the network, "edges_species": the species of edges, "vertices_specy": the species of vertices 
+  
+```
+ 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
+			"pajek", 
+			"./example_of_Pajek_file", 
+			myVertexSpecy, 
+			myEdgeSpecy );
+``` 
+
+    
+  * "file": the file containing the network 
+  
+```
+ 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
 			"pajek", 
 			"example_of_Pajek_file");
 ``` 
@@ -2162,12 +2160,12 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file(
 #### Examples: 
 ```
  
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
 			"pajek", 
 			"./example_of_Pajek_file", 
 			myVertexSpecy, 
 			myEdgeSpecy); 
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- load_graph_from_file( 
 			"pajek", 
 			"./example_of_Pajek_file", 
 			myVertexSpecy, 
@@ -2226,8 +2224,8 @@ loaded submodel
 ### `log`
 
 #### Possible use: 
-  *  **`log`** (`float`) --->  `float`
-  *  **`log`** (`int`) --->  `float` 
+  *  **`log`** (`int`) --->  `float`
+  *  **`log`** (`float`) --->  `float` 
 
 #### Result: 
 Returns the logarithm (base 10) of the operand.
@@ -2238,8 +2236,8 @@ Returns the logarithm (base 10) of the operand.
 #### Examples: 
 ```
  
-float var0 <- log(10); // var0 equals 1.0 
-float var1 <- log(1); // var1 equals 0.0
+float var0 <- log(1); // var0 equals 0.0 
+float var1 <- log(10); // var1 equals 1.0
 
 ```
       
@@ -2438,9 +2436,9 @@ graph var0 <- main_connected_component(my_graph); // var0 equals the sub-graph c
 ### `masked_by`
 
 #### Possible use: 
-  * `geometry` **`masked_by`** `container<unknown,geometry>` --->  `geometry`
-  *  **`masked_by`** (`geometry` , `container<unknown,geometry>`) --->  `geometry`
-  *  **`masked_by`** (`geometry`, `container<unknown,geometry>`, `int`) --->  `geometry`
+  * `geometry` **`masked_by`** `container&lt;unknown,geometry>` --->  `geometry`
+  *  **`masked_by`** (`geometry` , `container&lt;unknown,geometry>`) --->  `geometry`
+  *  **`masked_by`** (`geometry`, `container&lt;unknown,geometry>`, `int`) --->  `geometry`
 
 #### Examples: 
 ```
@@ -2580,10 +2578,10 @@ unknown var1 <- max([{1.0,3.0},{3.0,5.0},{9.0,1.0},{7.0,8.0}]); // var1 equals {
 ### `max_flow_between`
 
 #### Possible use: 
-  *  **`max_flow_between`** (`graph`, `unknown`, `unknown`) --->  `map<unknown,float>` 
+  *  **`max_flow_between`** (`graph`, `unknown`, `unknown`) --->  `map&lt;unknown,float>` 
 
 #### Result: 
-The max flow (map<edge,flow> in a graph between the source and the sink using Edmonds-Karp algorithm
+The max flow (map&lt;edge,flow> in a graph between the source and the sink using Edmonds-Karp algorithm
 
 #### Examples: 
 ```
@@ -2647,7 +2645,7 @@ unknown var3 <- (list(node) max_of (round(node(each).location.x)); // var3 equal
 ### `maximal_cliques_of`
 
 #### Possible use: 
-  *  **`maximal_cliques_of`** (`graph`) --->  `list<list>` 
+  *  **`maximal_cliques_of`** (`graph`) --->  `list&lt;list>` 
 
 #### Result: 
 returns the maximal cliques of a graph using the Bron-Kerbosch clique detection algorithm: A clique is maximal if it is impossible to enlarge it by adding another vertex from the graph. Note that a maximal clique is not necessarily the biggest clique in the graph.
@@ -2656,7 +2654,7 @@ returns the maximal cliques of a graph using the Bron-Kerbosch clique detection 
 ```
  
 graph my_graph <- graph([]); 
-list<list> var1 <- maximal_cliques_of (my_graph); // var1 equals the list of all the maximal cliques as list
+list&lt;list> var1 <- maximal_cliques_of (my_graph); // var1 equals the list of all the maximal cliques as list
 
 ```
       
@@ -2711,7 +2709,7 @@ unknown var0 <- mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 5.125
   *  **`mean_deviation`** (`container`) --->  `float` 
 
 #### Result: 
-the deviation from the mean of all the elements of the operand. See <A href= "http://en.wikipedia.org/wiki/Absolute_deviation" >Mean_deviation</A> for more details.  
+the deviation from the mean of all the elements of the operand. See <a href= "http://en.wikipedia.org/wiki/Absolute_deviation" >Mean_deviation</a> for more details.  
 
 #### Comment: 
 The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
@@ -2787,7 +2785,7 @@ returns the mean value of given vector (right-hand operand) in given variable  (
 #### Examples: 
 ```
  
-list<int> X <- [2, 3, 1]; 
+list&lt;int> X <- [2, 3, 1]; 
 int var1 <- meanR(X); // var1 equals 2 
 unknown var2 <- meanR([2, 3, 1]); // var2 equals 2
 
@@ -3219,8 +3217,8 @@ int var0 <- months_between(date('2000-01-01'), date('2000-02-01')); // var0 equa
 ### `moran`
 
 #### Possible use: 
-  * `list<float>` **`moran`** `matrix<float>` --->  `float`
-  *  **`moran`** (`list<float>` , `matrix<float>`) --->  `float`
+  * `list&lt;float>` **`moran`** `matrix&lt;float>` --->  `float`
+  *  **`moran`** (`list&lt;float>` , `matrix&lt;float>`) --->  `float`
 
 #### Special cases:     
   * return the Moran Index of the given list of interest points (list of floats) and the weight matrix (matrix of float) 

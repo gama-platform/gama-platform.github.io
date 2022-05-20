@@ -1,7 +1,5 @@
 ---
-title: Using FIPA ACL
-id: version-1.8.1-UsingFIPAACL
-original_id: UsingFIPAACL
+title:  Using FIPA ACL
 ---
 
 [//]: # (keyword|concept_fipa)

@@ -1,7 +1,5 @@
 ---
-title: Installation and Launching
-id: version-1.8.1-InstallationAndLaunching
-original_id: InstallationAndLaunching
+title:  Installation and Launching
 ---
 
 

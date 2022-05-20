@@ -1,7 +1,5 @@
 ---
-title: Operators (D to H)
-id: version-1.8.1-OperatorsDH
-original_id: OperatorsDH
+title:  Operators (D to H)
 ---
 
  	
@@ -335,14 +333,14 @@ Note that due to the fact that actions are written by modelers, the general func
   *  **`date`** (`string`, `string`, `string`) --->  `date` 
 
 #### Result: 
-converts a string to a date following a custom pattern and a specific locale (e.g. 'fr', 'en'...). The pattern can use "%Y %M %N %D %E %h %m %s %z" for parsing years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences 
-converts a string to a date following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
+converts a string to a date following a custom pattern. The pattern can use "%Y %M %N %D %E %h %m %s %z" for outputting years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences 
+converts a string to a date following a custom pattern and a specific locale (e.g. 'fr', 'en'...). The pattern can use "%Y %M %N %D %E %h %m %s %z" for parsing years, months, name of month, days, name of days, hours, minutes, seconds and the time-zone. A null or empty pattern will parse the date using one of the ISO date & time formats (similar to date('...') in that case). The pattern can also follow the pattern definition found here, which gives much more control over what will be parsed: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#patterns. Different patterns are available by default as constant: #iso_local, #iso_simple, #iso_offset, #iso_zoned and #custom, which can be changed in the preferences
 
 #### Examples: 
 ```
  
-date d <- date("1999-january-30", 'yyyy-MMMM-dd', 'en'); 
-date den <- date("1999-12-30", 'yyyy-MM-dd');
+date den <- date("1999-12-30", 'yyyy-MM-dd'); 
+date d <- date("1999-january-30", 'yyyy-MMMM-dd', 'en');
 
 ```
   
@@ -356,7 +354,7 @@ date den <- date("1999-12-30", 'yyyy-MM-dd');
 ### `dbscan`
 
 #### Possible use: 
-  *  **`dbscan`** (`list`, `float`, `int`) --->  `list<list>` 
+  *  **`dbscan`** (`list`, `float`, `int`) --->  `list&lt;list>` 
 
 #### Result: 
 returns the list of clusters (list of instance indices) computed with the dbscan (density-based spatial clustering of applications with noise) algorithm from the first operand data according to the maximum radius of the neighborhood to be considered (eps) and the minimum number of points needed for a cluster (minPts). Usage: dbscan(data,eps,minPoints)
@@ -367,7 +365,7 @@ returns the list of clusters (list of instance indices) computed with the dbscan
 #### Examples: 
 ```
  
-list<list> var0 <- dbscan ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],10,2); // var0 equals [[0,1,2,3]]
+list&lt;list> var0 <- dbscan ([[2,4,5], [3,8,2], [1,1,3], [4,3,4]],10,2); // var0 equals [[0,1,2,3]]
 
 ```
   
@@ -446,8 +444,8 @@ A polygon that is equivalent to the surface of the texture
  
 geometry var0 <- dem(dem,texture); // var0 equals a geometry as a rectangle of weight and height equal to the texture. 
 geometry var1 <- dem(dem,texture,z_factor); // var1 equals a geometry as a rectangle of width and height equal to the texture. 
-geometry var2 <- dem(dem); // var2 equals returns a geometry as a rectangle of width and height equal to the texture. 
-geometry var3 <- dem(dem,z_factor); // var3 equals a geometry as a rectangle of weight and height equal to the texture.
+geometry var2 <- dem(dem,z_factor); // var2 equals a geometry as a rectangle of weight and height equal to the texture. 
+geometry var3 <- dem(dem); // var3 equals returns a geometry as a rectangle of width and height equal to the texture.
 
 ```
   
@@ -470,7 +468,7 @@ geometry var3 <- dem(dem,z_factor); // var3 equals a geometry as a rectangle of 
 ### `determinant`
 
 #### Possible use: 
-  *  **`determinant`** (`matrix<unknown>`) --->  `float` 
+  *  **`determinant`** (`matrix&lt;unknown>`) --->  `float` 
 
 #### Result: 
 The determinant of the given matrix
@@ -544,8 +542,8 @@ WARNING / side effect: this operator modifies the operand and does not create a 
 ### `direction_between`
 
 #### Possible use: 
-  * `topology` **`direction_between`** `container<unknown,geometry>` --->  `float`
-  *  **`direction_between`** (`topology` , `container<unknown,geometry>`) --->  `float` 
+  * `topology` **`direction_between`** `container&lt;unknown,geometry>` --->  `float`
+  *  **`direction_between`** (`topology` , `container&lt;unknown,geometry>`) --->  `float` 
 
 #### Result: 
 A direction (in degree) between a list of two geometries (geometries, agents, points) considering a topology.
@@ -617,8 +615,8 @@ bool var4 <- polygon([{10,10},{10,20},{20,20},{20,10}]) disjoint_from polygon([{
 ### `distance_between`
 
 #### Possible use: 
-  * `topology` **`distance_between`** `container<unknown,geometry>` --->  `float`
-  *  **`distance_between`** (`topology` , `container<unknown,geometry>`) --->  `float` 
+  * `topology` **`distance_between`** `container&lt;unknown,geometry>` --->  `float`
+  *  **`distance_between`** (`topology` , `container&lt;unknown,geometry>`) --->  `float` 
 
 #### Result: 
 A distance between a list of geometries (geometries, agents, points) considering a topology.
@@ -645,10 +643,10 @@ float var0 <- my_topology distance_between [ag1, ag2, ag3]; // var0 equals the d
 ### `distance_to`
 
 #### Possible use: 
-  * `point` **`distance_to`** `point` --->  `float`
-  *  **`distance_to`** (`point` , `point`) --->  `float`
   * `geometry` **`distance_to`** `geometry` --->  `float`
-  *  **`distance_to`** (`geometry` , `geometry`) --->  `float` 
+  *  **`distance_to`** (`geometry` , `geometry`) --->  `float`
+  * `point` **`distance_to`** `point` --->  `float`
+  *  **`distance_to`** (`point` , `point`) --->  `float` 
 
 #### Result: 
 A distance between two geometries (geometries, agents or points) considering the topology of the agent applying the operator.
@@ -735,9 +733,9 @@ Discretize a list of values into n bins (computes the bins from a numerical vari
 #### Examples: 
 ```
  
-map var0 <- distribution_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 <- distribution_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var1 <- distribution_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var2 <- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
       
@@ -767,9 +765,9 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 #### Examples: 
 ```
  
-map var0 <- distribution2d_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 <- distribution2d_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var1 <- distribution2d_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var2 <- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var2 <- distribution2d_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 
 ```
       
@@ -788,14 +786,14 @@ map var2 <- distribution2d_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,
 ### `div`
 
 #### Possible use: 
-  * `float` **`div`** `int` --->  `int`
-  *  **`div`** (`float` , `int`) --->  `int`
+  * `int` **`div`** `float` --->  `int`
+  *  **`div`** (`int` , `float`) --->  `int`
   * `float` **`div`** `float` --->  `int`
   *  **`div`** (`float` , `float`) --->  `int`
   * `int` **`div`** `int` --->  `int`
   *  **`div`** (`int` , `int`) --->  `int`
-  * `int` **`div`** `float` --->  `int`
-  *  **`div`** (`int` , `float`) --->  `int` 
+  * `float` **`div`** `int` --->  `int`
+  *  **`div`** (`float` , `int`) --->  `int` 
 
 #### Result: 
 Returns the truncation of the division of the left-hand operand by the right-hand operand.
@@ -808,10 +806,10 @@ Returns the truncation of the division of the left-hand operand by the right-han
 #### Examples: 
 ```
  
-int var0 <- 40.5 div 3; // var0 equals 13 
+int var0 <- 40 div 4.1; // var0 equals 9 
 int var1 <- 40.1 div 4.5; // var1 equals 8 
 int var2 <- 40 div 3; // var2 equals 13 
-int var3 <- 40 div 4.1; // var3 equals 9
+int var3 <- 40.5 div 3; // var3 equals 13
 
 ```
       
@@ -844,14 +842,14 @@ int var3 <- 40 div 4.1; // var3 equals 9
   *  **`dtw`** (`list`, `list`, `int`) --->  `float` 
 
 #### Result: 
-returns the dynamic time warping between the two series of values (step pattern used: symetric1) with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
 returns the dynamic time warping between the two series of values (step pattern used: symetric1)
+returns the dynamic time warping between the two series of values (step pattern used: symetric1) with Sakoe-Chiba band (radius: the window width of Sakoe-Chiba band)
 
 #### Examples: 
 ```
  
-float var0 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var0 equals 11.0 
-float var1 <- dtw([32.0,5.0,1.0,3.0],[1.0,10.0,5.0,1.0]); // var1 equals 38.0
+float var0 <- dtw([32.0,5.0,1.0,3.0],[1.0,10.0,5.0,1.0]); // var0 equals 38.0 
+float var1 <- dtw([10.0,5.0,1.0, 3.0],[1.0,10.0,5.0,1.0], 2); // var1 equals 11.0
 
 ```
   
@@ -926,23 +924,23 @@ file f <- dxf_file("file.dxf",#m);
 ### `edge`
 
 #### Possible use: 
-  *  **`edge`** (`unknown`) --->  `unknown`
   *  **`edge`** (`pair`) --->  `unknown`
-  * `unknown` **`edge`** `unknown` --->  `unknown`
-  *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
-  * `unknown` **`edge`** `float` --->  `unknown`
-  *  **`edge`** (`unknown` , `float`) --->  `unknown`
-  * `pair` **`edge`** `int` --->  `unknown`
-  *  **`edge`** (`pair` , `int`) --->  `unknown`
+  *  **`edge`** (`unknown`) --->  `unknown`
   * `pair` **`edge`** `float` --->  `unknown`
   *  **`edge`** (`pair` , `float`) --->  `unknown`
+  * `unknown` **`edge`** `float` --->  `unknown`
+  *  **`edge`** (`unknown` , `float`) --->  `unknown`
+  * `unknown` **`edge`** `unknown` --->  `unknown`
+  *  **`edge`** (`unknown` , `unknown`) --->  `unknown`
   * `unknown` **`edge`** `int` --->  `unknown`
   *  **`edge`** (`unknown` , `int`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
-  *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
+  * `pair` **`edge`** `int` --->  `unknown`
+  *  **`edge`** (`pair` , `int`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `int`) --->  `unknown`
-  *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`pair`, `unknown`, `int`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
+  *  **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
+  *  **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`, `float`) --->  `unknown`
   *  **`edge`** (`unknown`, `unknown`, `unknown`, `int`) --->  `unknown`
     	
@@ -1017,7 +1015,7 @@ map var1 <- edge_betweenness(graphEpidemio); // var1 equals the edge betweenness
 ### `eigenvalues`
 
 #### Possible use: 
-  *  **`eigenvalues`** (`matrix<unknown>`) --->  `list<float>` 
+  *  **`eigenvalues`** (`matrix&lt;unknown>`) --->  `list&lt;float>` 
 
 #### Result: 
 The eigen values (matrix) of the given matrix
@@ -1025,7 +1023,7 @@ The eigen values (matrix) of the given matrix
 #### Examples: 
 ```
  
-list<float> var0 <- eigenvalues(matrix([[5,-3],[6,-4]])); // var0 equals [2.0000000000000004,-0.9999999999999998]
+list&lt;float> var0 <- eigenvalues(matrix([[5,-3],[6,-4]])); // var0 equals [2.0000000000000004,-0.9999999999999998]
 
 ```
   
@@ -1039,7 +1037,7 @@ list<float> var0 <- eigenvalues(matrix([[5,-3],[6,-4]])); // var0 equals [2.0000
 ### `electre_DM`
 
 #### Possible use: 
-  *  **`electre_DM`** (`list<list>`, `list<map<string,unknown>>`, `float`) --->  `int` 
+  *  **`electre_DM`** (`list&lt;list>`, `list&lt;map&lt;string,unknown>>`, `float`) --->  `int` 
 
 #### Result: 
 The index of the best candidate according to a method based on the ELECTRE methods. The principle of the ELECTRE methods is to compare the possible candidates by pair. These methods analyses the possible outranking relation existing between two candidates. An candidate outranks another if this one is at least as good as the other one. The ELECTRE methods are based on two concepts: the concordance and the discordance. The concordance characterizes the fact that, for an outranking relation to be validated, a sufficient majority of criteria should be in favor of this assertion. The discordance characterizes the fact that, for an outranking relation to be validated, none of the criteria in the minority should oppose too strongly this assertion. These two conditions must be true for validating the outranking assertion. More information about the ELECTRE methods can be found in [http://www.springerlink.com/content/g367r44322876223/	Figueira,  J., Mousseau, V., Roy, B.: ELECTRE Methods. In: Figueira, J., Greco, S., and Ehrgott, M., (Eds.), Multiple Criteria Decision Analysis: State of the Art Surveys, Springer, New York, 133--162 (2005)]. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains fives elements: a name, a weight, a preference value (p), an indifference value (q) and a veto value (v). The preference value represents the threshold from which the difference between two criterion values allows to prefer one vector of values over another. The indifference value represents the threshold from which the difference between two criterion values is considered significant. The veto value represents the threshold from which the difference between two criterion values disqualifies the candidate that obtained the smaller value; the last operand is the fuzzy cut.
@@ -1144,8 +1142,8 @@ geometry var0 <- elliptical_arc({0,0},{10,10},5.0, 20); // var0 equals a geometr
 ### `empty`
 
 #### Possible use: 
-  *  **`empty`** (`string`) --->  `bool`
-  *  **`empty`** (`container<KeyType,ValueType>`) --->  `bool` 
+  *  **`empty`** (`container&lt;KeyType,ValueType>`) --->  `bool`
+  *  **`empty`** (`string`) --->  `bool` 
 
 #### Result: 
 true if the operand is empty, false otherwise.  
@@ -1160,19 +1158,19 @@ the empty operator behavior depends on the nature of the operand
   * if it is a graph, empty returns true if it contains no vertex and no edge, and false otherwise    
   * if it is a matrix of int, float or object, it will return true if all elements are respectively 0, 0.0 or null, and false otherwise    
   * if it is a matrix of geometry, it will return true if the matrix contains no cell, and false otherwise    
-  * if it is a string, empty returns true if the string does not contain any character, and false otherwise 
-  
-```
- 
-bool var0 <- empty ('abced'); // var0 equals false
-``` 
-
-    
   * if it is a list, empty returns true if there is no element in the list, and false otherwise 
   
 ```
  
-bool var1 <- empty([]); // var1 equals true
+bool var0 <- empty([]); // var0 equals true
+``` 
+
+    
+  * if it is a string, empty returns true if the string does not contain any character, and false otherwise 
+  
+```
+ 
+bool var1 <- empty ('abced'); // var1 equals false
 ``` 
 
 
@@ -1195,35 +1193,35 @@ bool var1 <- empty([]); // var1 equals true
 ### `enter`
 
 #### Possible use: 
-  * `string` **`enter`** `int` --->  `msi.gama.kernel.experiment.IParameter`
-  *  **`enter`** (`string` , `int`) --->  `msi.gama.kernel.experiment.IParameter`
-  * `string` **`enter`** `unknown` --->  `msi.gama.kernel.experiment.IParameter`
-  *  **`enter`** (`string` , `unknown`) --->  `msi.gama.kernel.experiment.IParameter`
-  * `string` **`enter`** `float` --->  `msi.gama.kernel.experiment.IParameter`
-  *  **`enter`** (`string` , `float`) --->  `msi.gama.kernel.experiment.IParameter`
-  * `string` **`enter`** `string` --->  `msi.gama.kernel.experiment.IParameter`
-  *  **`enter`** (`string` , `string`) --->  `msi.gama.kernel.experiment.IParameter`
   * `string` **`enter`** `bool` --->  `msi.gama.kernel.experiment.IParameter`
   *  **`enter`** (`string` , `bool`) --->  `msi.gama.kernel.experiment.IParameter`
+  * `string` **`enter`** `float` --->  `msi.gama.kernel.experiment.IParameter`
+  *  **`enter`** (`string` , `float`) --->  `msi.gama.kernel.experiment.IParameter`
+  * `string` **`enter`** `int` --->  `msi.gama.kernel.experiment.IParameter`
+  *  **`enter`** (`string` , `int`) --->  `msi.gama.kernel.experiment.IParameter`
+  * `string` **`enter`** `string` --->  `msi.gama.kernel.experiment.IParameter`
+  *  **`enter`** (`string` , `string`) --->  `msi.gama.kernel.experiment.IParameter`
+  * `string` **`enter`** `unknown` --->  `msi.gama.kernel.experiment.IParameter`
+  *  **`enter`** (`string` , `unknown`) --->  `msi.gama.kernel.experiment.IParameter`
   * `string` **`enter`** `any GAML type` --->  `msi.gama.kernel.experiment.IParameter`
   *  **`enter`** (`string` , `any GAML type`) --->  `msi.gama.kernel.experiment.IParameter`
   *  **`enter`** (`string`, `any GAML type`, `unknown`) --->  `msi.gama.kernel.experiment.IParameter`
   *  **`enter`** (`string`, `float`, `float`, `float`) --->  `msi.gama.kernel.experiment.IParameter`
   *  **`enter`** (`string`, `int`, `int`, `int`) --->  `msi.gama.kernel.experiment.IParameter`
-  *  **`enter`** (`string`, `float`, `float`, `float`, `float`) --->  `msi.gama.kernel.experiment.IParameter`
-  *  **`enter`** (`string`, `int`, `int`, `int`, `int`) --->  `msi.gama.kernel.experiment.IParameter` 
+  *  **`enter`** (`string`, `int`, `int`, `int`, `int`) --->  `msi.gama.kernel.experiment.IParameter`
+  *  **`enter`** (`string`, `float`, `float`, `float`, `float`) --->  `msi.gama.kernel.experiment.IParameter` 
 
 #### Result: 
-Allows the user to enter a float by specifying a title, an initial value, a min, a max and a step value
-Allows the user to enter an int by specifying a title and an initial value
+Allows the user to enter a boolean value by specifying a title and an initial value
 Allows the user to enter an int by specifying a title, an initial value, a min, a max and a step value
+Allows the user to enter a float by specifying a title, an initial value, a min, a max and a step value
+Allows the user to enter a float by specifying a title and an initial value
+Allows the user to enter an int by specifying a title, an initial value, a min and a max value
+Allows the user to enter an int by specifying a title and an initial value
+Allows the user to enter a string by specifying a title and an initial value
+Allows the user to enter a value by specifying a title and an initial value. The type will be deduced from the value
 Allows the user to enter a value by specifying a title, a type, and an initial value
 Allows the user to enter an int by specifying a title, an initial value, a min and a max value
-Allows the user to enter an int by specifying a title, an initial value, a min and a max value
-Allows the user to enter a value by specifying a title and an initial value. The type will be deduced from the value
-Allows the user to enter a float by specifying a title and an initial value
-Allows the user to enter a string by specifying a title and an initial value
-Allows the user to enter a boolean value by specifying a title and an initial value
 Allows the user to enter a value by specifying a title and a type
     	
 ----
@@ -1357,8 +1355,8 @@ bool var1 <- even(-12); // var1 equals true
   *  **`every`** (`int`) --->  `bool`
   * `list` **`every`** `int` --->  `list`
   *  **`every`** (`list` , `int`) --->  `list`
-  * `list` **`every`** `any expression` --->  `list<date>`
-  *  **`every`** (`list` , `any expression`) --->  `list<date>` 
+  * `list` **`every`** `any expression` --->  `list&lt;date>`
+  *  **`every`** (`list` , `any expression`) --->  `list&lt;date>` 
 
 #### Result: 
 Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero
@@ -1404,9 +1402,9 @@ if every(2#cycle) {write "the cycle number is even";}
 ### `evidence_theory_DM`
 
 #### Possible use: 
-  * `list<list>` **`evidence_theory_DM`** `list<map<string,unknown>>` --->  `int`
-  *  **`evidence_theory_DM`** (`list<list>` , `list<map<string,unknown>>`) --->  `int`
-  *  **`evidence_theory_DM`** (`list<list>`, `list<map<string,unknown>>`, `bool`) --->  `int` 
+  * `list&lt;list>` **`evidence_theory_DM`** `list&lt;map&lt;string,unknown>>` --->  `int`
+  *  **`evidence_theory_DM`** (`list&lt;list>` , `list&lt;map&lt;string,unknown>>`) --->  `int`
+  *  **`evidence_theory_DM`** (`list&lt;list>`, `list&lt;map&lt;string,unknown>>`, `bool`) --->  `int` 
 
 #### Result: 
 The index of the best candidate according to a method based on the Evidence theory. This theory, which was proposed by Shafer ([http://www.glennshafer.com/books/amte.html Shafer G (1976) A mathematical theory of evidence, Princeton University Press]), is based on the work of Dempster ([http://projecteuclid.org/DPubS?service=UI&version=1.0&verb=Display&handle=euclid.aoms/1177698950 Dempster A (1967) Upper and lower probabilities induced by multivalued mapping. Annals of Mathematical Statistics, vol.  38, pp. 325--339]) on lower and upper probability distributions. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains seven elements: a name, a first threshold s1, a second threshold s2, a value for the assertion "this candidate is the best" at threshold s1 (v1p), a value for the assertion "this candidate is the best" at threshold s2 (v2p), a value for the assertion "this candidate is not the best" at threshold s1 (v1c), a value for the assertion "this candidate is not the best" at threshold s2 (v2c). v1p, v2p, v1c and v2c have to been defined in order that: v1p + v1c <= 1.0; v2p + v2c <= 1.0.; the last operand allows to use a simple version of this multi-criteria decision making method (simple if true)
@@ -1438,8 +1436,8 @@ int var1 <- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"uti
 ### `exp`
 
 #### Possible use: 
-  *  **`exp`** (`int`) --->  `float`
-  *  **`exp`** (`float`) --->  `float` 
+  *  **`exp`** (`float`) --->  `float`
+  *  **`exp`** (`int`) --->  `float` 
 
 #### Result: 
 Returns Euler's number e raised to the power of the operand.
@@ -1523,8 +1521,8 @@ point var0 <- geom farthest_point_to(pt); // var0 equals the farthest point of g
 ### `farthest_to`
 
 #### Possible use: 
-  * `container<unknown,geometry>` **`farthest_to`** `geometry` --->  `geometry`
-  *  **`farthest_to`** (`container<unknown,geometry>` , `geometry`) --->  `geometry` 
+  * `container&lt;unknown,geometry>` **`farthest_to`** `geometry` --->  `geometry`
+  *  **`farthest_to`** (`container&lt;unknown,geometry>` , `geometry`) --->  `geometry` 
 
 #### Result: 
 An agent or a geometry among the left-operand list of agents, species or meta-population (addition of species), the farthest to the operand (casted as a geometry).  
@@ -1591,7 +1589,7 @@ string file_name <-"../includes/buildings.shp";
 ### `first`
 
 #### Possible use: 
-  *  **`first`** (`container<KeyType,ValueType>`) --->  `ValueType`
+  *  **`first`** (`container&lt;KeyType,ValueType>`) --->  `ValueType`
   *  **`first`** (`string`) --->  `string`
   * `int` **`first`** `container` --->  `list`
   *  **`first`** (`int` , `container`) --->  `list` 
@@ -1827,8 +1825,8 @@ string file_name <-"../includes/";
   *  **`font`** (`string`, `int`, `int`) --->  `font` 
 
 #### Result: 
-Creates a new font, by specifying its name (either a font face name like 'Lucida Grande Bold' or 'Helvetica', or a logical name like 'Dialog', 'SansSerif', 'Serif', etc.) and a size in points. No style is attached to this font
 Creates a new font, by specifying its name (either a font face name like 'Lucida Grande Bold' or 'Helvetica', or a logical name like 'Dialog', 'SansSerif', 'Serif', etc.), a size in points and a style, either #bold, #italic or #plain or a combination (addition) of them.
+Creates a new font, by specifying its name (either a font face name like 'Lucida Grande Bold' or 'Helvetica', or a logical name like 'Dialog', 'SansSerif', 'Serif', etc.) and a size in points. No style is attached to this font
 
 #### Examples: 
 ```
@@ -1879,7 +1877,7 @@ map var0 <- [1, 2, 3, 3, 4, 4, 5, 3, 3, 4] frequency_of each; // var0 equals map
 ### `fuzzy_choquet_DM`
 
 #### Possible use: 
-  *  **`fuzzy_choquet_DM`** (`list<list>`, `list<string>`, `map`) --->  `int` 
+  *  **`fuzzy_choquet_DM`** (`list&lt;list>`, `list&lt;string>`, `map`) --->  `int` 
 
 #### Result: 
 The index of the candidate that maximizes the Fuzzy Choquet Integral value. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion (list of string); the third operand the weights of each sub-set of criteria (map with list for key and float for value)
@@ -1909,18 +1907,18 @@ int var0 <- fuzzy_choquet_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], ["utility", "pri
 ### `fuzzy_kappa`
 
 #### Possible use: 
-  *  **`fuzzy_kappa`** (`list<agent>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`) --->  `float`
-  *  **`fuzzy_kappa`** (`list<agent>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`, `list<unknown>`) --->  `float` 
+  *  **`fuzzy_kappa`** (`list&lt;agent>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;float>`, `list&lt;unknown>`, `matrix&lt;float>`, `float`) --->  `float`
+  *  **`fuzzy_kappa`** (`list&lt;agent>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;float>`, `list&lt;unknown>`, `matrix&lt;float>`, `float`, `list&lt;unknown>`) --->  `float` 
 
 #### Result: 
-fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
 fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
+fuzzy kappa indicator for 2 map comparisons: fuzzy_kappa(agents_list,list_vals1,list_vals2, output_similarity_per_agents,categories,fuzzy_categories_matrix, fuzzy_distance, weights). Reference: Visser, H., and T. de Nijs, 2006. The map comparison kit, Environmental Modelling & Software, 21
 
 #### Examples: 
 ```
  
-fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0]) 
-fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2)
+fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2) 
+fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0],[0,1,0],[0,0,1]], 2, [1.0,3.0,2.0,2.0,4.0])
 
 ```
   
@@ -1934,8 +1932,8 @@ fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2
 ### `fuzzy_kappa_sim`
 
 #### Possible use: 
-  *  **`fuzzy_kappa_sim`** (`list<agent>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`) --->  `float`
-  *  **`fuzzy_kappa_sim`** (`list<agent>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`, `list<unknown>`) --->  `float` 
+  *  **`fuzzy_kappa_sim`** (`list&lt;agent>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;float>`, `list&lt;unknown>`, `matrix&lt;float>`, `float`) --->  `float`
+  *  **`fuzzy_kappa_sim`** (`list&lt;agent>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;unknown>`, `list&lt;float>`, `list&lt;unknown>`, `matrix&lt;float>`, `float`, `list&lt;unknown>`) --->  `float` 
 
 #### Result: 
 fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
@@ -2160,26 +2158,26 @@ float var0 <- gamma_rnd(9,0.5); // var0 equals 0.731
 ### `gamma_trunc_rnd`
 
 #### Possible use: 
-  *  **`gamma_trunc_rnd`** (`float`, `float`, `float`, `float`) --->  `float`
-  *  **`gamma_trunc_rnd`** (`float`, `float`, `float`, `bool`) --->  `float` 
+  *  **`gamma_trunc_rnd`** (`float`, `float`, `float`, `bool`) --->  `float`
+  *  **`gamma_trunc_rnd`** (`float`, `float`, `float`, `float`) --->  `float` 
 
 #### Result: 
 returns a random value from a truncated gamma distribution (in a range or given only one boundary) with specified values of the shape and scale parameters.
 
 #### Special cases:     
-  * when 2 float operands are specified, they are taken as mininimum and maximum values for the result 
-  
-```
- 
-gamma_trunc_rnd(2,3,0,5)
-``` 
-
-    
   * when 1 float and a boolean (isMax) operands are specified, the float value represents the single boundary (max if the boolean is true, min otherwise), 
   
 ```
  
 gamma_trunc_rnd(2,3,5,true)
+``` 
+
+    
+  * when 2 float operands are specified, they are taken as mininimum and maximum values for the result 
+  
+```
+ 
+gamma_trunc_rnd(2,3,0,5)
 ``` 
 
     
@@ -2242,7 +2240,7 @@ float var1 <- gauss({0,0.3}); // var1 equals 0.22354
 ### `generate_barabasi_albert`
 
 #### Possible use: 
-  *  **`generate_barabasi_albert`** (`container<unknown,agent>`, `species`, `int`, `bool`) --->  `graph`
+  *  **`generate_barabasi_albert`** (`container&lt;unknown,agent>`, `species`, `int`, `bool`) --->  `graph`
   *  **`generate_barabasi_albert`** (`species`, `species`, `int`, `int`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -2253,12 +2251,12 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).
 The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
-  * "vertices_specy": the species of vertices    
+  * "agents": list of existing node agents    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
+  * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain (size + 1) nodes    
   * "m": the number of edges added per novel node    
@@ -2267,14 +2265,14 @@ The Barabasi-Albert (BA) model is an algorithm for generating random scale-free 
 #### Examples: 
 ```
  
-graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 
-		yourNodeSpecy, 
+graph&lt;yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 
+		yourListOfNodes, 
 		yourEdgeSpecy, 
 		3, 
 		5, 
 		true); 
-graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 
-		yourListOfNodes, 
+graph&lt;yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert( 
+		yourNodeSpecy, 
 		yourEdgeSpecy, 
 		3, 
 		5, 
@@ -2297,9 +2295,9 @@ graph<yourNodeSpecy,yourEdgeSpecy> graphEpidemio <- generate_barabasi_albert(
 ### `generate_complete_graph`
 
 #### Possible use: 
-  *  **`generate_complete_graph`** (`container<unknown,agent>`, `species`, `bool`) --->  `graph`
-  *  **`generate_complete_graph`** (`container<unknown,agent>`, `species`, `float`, `bool`) --->  `graph`
+  *  **`generate_complete_graph`** (`container&lt;unknown,agent>`, `species`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `bool`) --->  `graph`
+  *  **`generate_complete_graph`** (`container&lt;unknown,agent>`, `species`, `float`, `bool`) --->  `graph`
   *  **`generate_complete_graph`** (`species`, `species`, `int`, `float`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -2315,11 +2313,6 @@ Arguments should include following elements:Arguments should include following e
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
-  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
-  * "synchronized": is the graph and the species of vertices and edges synchronized?    
-  * "agents": list of existing node agents    
-  * "edges_species": the species of edges    
-  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?    
   * "agents": list of existing node agents    
   * "edges_species": the species of edges    
@@ -2327,29 +2320,34 @@ Arguments should include following elements:Arguments should include following e
   * "vertices_specy": the species of vertices    
   * "edges_species": the species of edges    
   * "size": the graph will contain size nodes.    
+  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
+  * "synchronized": is the graph and the species of vertices and edges synchronized?    
+  * "agents": list of existing node agents    
+  * "edges_species": the species of edges    
+  * "layoutRadius": nodes of the graph will be located on a circle with radius layoutRadius and centered in the environment.    
   * "synchronized": is the graph and the species of vertices and edges synchronized?
 
 #### Examples: 
 ```
  
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
+			myVertexSpecy, 
+			myEdgeSpecy, 
+			10, 
+		true); 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
+			myListOfNodes, 
+			myEdgeSpecy, 
+		true); 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
 			myVertexSpecy, 
 			myEdgeSpecy, 
 			10, 25, 
 		true); 
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
 			myListOfNodes, 
 			myEdgeSpecy, 
 			25, 
-		true); 
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
-			myListOfNodes, 
-			myEdgeSpecy, 
-		true); 
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
-			myVertexSpecy, 
-			myEdgeSpecy, 
-			10, 
 		true);
 
 ```
@@ -2369,7 +2367,7 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
 ### `generate_watts_strogatz`
 
 #### Possible use: 
-  *  **`generate_watts_strogatz`** (`container<unknown,agent>`, `species`, `float`, `int`, `bool`) --->  `graph`
+  *  **`generate_watts_strogatz`** (`container&lt;unknown,agent>`, `species`, `float`, `int`, `bool`) --->  `graph`
   *  **`generate_watts_strogatz`** (`species`, `species`, `int`, `float`, `int`, `bool`) --->  `graph` 
 
 #### Result: 
@@ -2395,14 +2393,14 @@ The Watts-Strogatz model is a random graph generation model that produces graphs
 #### Examples: 
 ```
  
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 
 			myVertexSpecy, 
 			myEdgeSpecy, 
 			2, 
 			0.3, 
 			2, 
 		true); 
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 
+graph&lt;myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 
 			myListOfNodes, 
 			myEdgeSpecy, 
 			0.3, 
@@ -2506,7 +2504,7 @@ file f <- geojson_file("file.json", "EPSG:32648",true);
   *  **`geometric_mean`** (`container`) --->  `float` 
 
 #### Result: 
-the geometric mean of the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Geometric_mean">Geometric_mean</A> for more details.  
+the geometric mean of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Geometric_mean">Geometric_mean</a> for more details.  
 
 #### Comment: 
 The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
@@ -2544,7 +2542,7 @@ float var0 <- geometric_mean ([4.5, 3.5, 5.5, 7.0]); // var0 equals 4.9623263434
 ### `geometry_collection`
 
 #### Possible use: 
-  *  **`geometry_collection`** (`container<unknown,geometry>`) --->  `geometry` 
+  *  **`geometry_collection`** (`container&lt;unknown,geometry>`) --->  `geometry` 
 
 #### Result: 
 A geometry collection (multi-geometry) composed of the given list of geometries.
@@ -2573,32 +2571,31 @@ geometry var0 <- geometry_collection([{0,0}, {0,10}, {10,10}, {10,0}]); // var0 
 
 
 ### `get`
-   Same signification as [read](OperatorsNR#read)
 
 #### Possible use: 
-  * `agent` **`get`** `string` --->  `unknown`
-  *  **`get`** (`agent` , `string`) --->  `unknown`
   * `geometry` **`get`** `string` --->  `unknown`
-  *  **`get`** (`geometry` , `string`) --->  `unknown` 
+  *  **`get`** (`geometry` , `string`) --->  `unknown`
+  * `agent` **`get`** `string` --->  `unknown`
+  *  **`get`** (`agent` , `string`) --->  `unknown` 
 
 #### Result: 
-Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
 Reads an attribute of the specified geometry (left operand). The attribute name is specified by the right operand.
+Reads an attribute of the specified agent (left operand). The attribute name is specified by the right operand.
 
 #### Special cases:     
-  * Reading the attribute of another agent 
-  
-```
- 
-string agent_name <- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable
-``` 
-
-    
   * Reading the attribute of a geometry 
   
 ```
  
 string geom_area <- a_geometry get('area');     // reads then 'area' attribute of 'a_geometry' variable then assigns the returned value to the geom_area variable
+``` 
+
+    
+  * Reading the attribute of another agent 
+  
+```
+ 
+string agent_name <- an_agent get('name');     // reads then 'name' attribute of an_agent then assigns the returned value to the agent_name variable
 ``` 
 
 
@@ -2656,18 +2653,18 @@ get_agent(social_link1)
 ### `get_agent_cause`
 
 #### Possible use: 
-  *  **`get_agent_cause`** (`emotion`) --->  `agent`
-  *  **`get_agent_cause`** (`predicate`) --->  `agent` 
+  *  **`get_agent_cause`** (`predicate`) --->  `agent`
+  *  **`get_agent_cause`** (`emotion`) --->  `agent` 
 
 #### Result: 
-get the agent cause value of the given emotion
 evaluate the agent_cause value of a predicate
+get the agent cause value of the given emotion
 
 #### Examples: 
 ```
  
-get_agent_cause(emotion) 
-get_agent_cause(pred1)
+get_agent_cause(pred1) 
+get_agent_cause(emotion)
 
 ```
   
@@ -2727,8 +2724,8 @@ mental_state var0 <- get_belief_with_name_op(self,"has_water"); // var0 equals n
 ### `get_beliefs_op`
 
 #### Possible use: 
-  * `agent` **`get_beliefs_op`** `predicate` --->  `list<mental_state>`
-  *  **`get_beliefs_op`** (`agent` , `predicate`) --->  `list<mental_state>` 
+  * `agent` **`get_beliefs_op`** `predicate` --->  `list&lt;mental_state>`
+  *  **`get_beliefs_op`** (`agent` , `predicate`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the beliefs in the belief base with the given predicate.
@@ -2750,8 +2747,8 @@ get_beliefs_op(self,predicate("has_water"))
 ### `get_beliefs_with_name_op`
 
 #### Possible use: 
-  * `agent` **`get_beliefs_with_name_op`** `string` --->  `list<mental_state>`
-  *  **`get_beliefs_with_name_op`** (`agent` , `string`) --->  `list<mental_state>` 
+  * `agent` **`get_beliefs_with_name_op`** `string` --->  `list&lt;mental_state>`
+  *  **`get_beliefs_with_name_op`** (`agent` , `string`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the list of beliefs in the belief base which predicate has the given name.
@@ -2863,8 +2860,8 @@ mental_state var0 <- get_desire_with_name_op(self,"has_water"); // var0 equals n
 ### `get_desires_op`
 
 #### Possible use: 
-  * `agent` **`get_desires_op`** `predicate` --->  `list<mental_state>`
-  *  **`get_desires_op`** (`agent` , `predicate`) --->  `list<mental_state>` 
+  * `agent` **`get_desires_op`** `predicate` --->  `list&lt;mental_state>`
+  *  **`get_desires_op`** (`agent` , `predicate`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the desires in the desire base with the given predicate.
@@ -2886,8 +2883,8 @@ get_desires_op(self,predicate("has_water"))
 ### `get_desires_with_name_op`
 
 #### Possible use: 
-  * `agent` **`get_desires_with_name_op`** `string` --->  `list<mental_state>`
-  *  **`get_desires_with_name_op`** (`agent` , `string`) --->  `list<mental_state>` 
+  * `agent` **`get_desires_with_name_op`** `string` --->  `list&lt;mental_state>`
+  *  **`get_desires_with_name_op`** (`agent` , `string`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the list of desires in the desire base which predicate has the given name.
@@ -2999,8 +2996,8 @@ mental_state var0 <- get_ideal_with_name_op(self,"has_water"); // var0 equals ni
 ### `get_ideals_op`
 
 #### Possible use: 
-  * `agent` **`get_ideals_op`** `predicate` --->  `list<mental_state>`
-  *  **`get_ideals_op`** (`agent` , `predicate`) --->  `list<mental_state>` 
+  * `agent` **`get_ideals_op`** `predicate` --->  `list&lt;mental_state>`
+  *  **`get_ideals_op`** (`agent` , `predicate`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the ideal in the ideal base with the given name.
@@ -3022,8 +3019,8 @@ get_ideals_op(self,predicate("has_water"))
 ### `get_ideals_with_name_op`
 
 #### Possible use: 
-  * `agent` **`get_ideals_with_name_op`** `string` --->  `list<mental_state>`
-  *  **`get_ideals_with_name_op`** (`agent` , `string`) --->  `list<mental_state>` 
+  * `agent` **`get_ideals_with_name_op`** `string` --->  `list&lt;mental_state>`
+  *  **`get_ideals_with_name_op`** (`agent` , `string`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the list of ideals in the ideal base which predicate has the given name.
@@ -3113,8 +3110,8 @@ get_intention_with_name_op(self,"has_water")
 ### `get_intentions_op`
 
 #### Possible use: 
-  * `agent` **`get_intentions_op`** `predicate` --->  `list<mental_state>`
-  *  **`get_intentions_op`** (`agent` , `predicate`) --->  `list<mental_state>` 
+  * `agent` **`get_intentions_op`** `predicate` --->  `list&lt;mental_state>`
+  *  **`get_intentions_op`** (`agent` , `predicate`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the intentions in the intention base with the given predicate.
@@ -3136,8 +3133,8 @@ get_intentions_op(self,predicate("has_water"))
 ### `get_intentions_with_name_op`
 
 #### Possible use: 
-  * `agent` **`get_intentions_with_name_op`** `string` --->  `list<mental_state>`
-  *  **`get_intentions_with_name_op`** (`agent` , `string`) --->  `list<mental_state>` 
+  * `agent` **`get_intentions_with_name_op`** `string` --->  `list&lt;mental_state>`
+  *  **`get_intentions_with_name_op`** (`agent` , `string`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the list of intentions in the intention base which predicate has the given name.
@@ -3271,8 +3268,8 @@ mental_state var0 <- get_obligation_with_name_op(self,"has_water"); // var0 equa
 ### `get_obligations_op`
 
 #### Possible use: 
-  * `agent` **`get_obligations_op`** `predicate` --->  `list<mental_state>`
-  *  **`get_obligations_op`** (`agent` , `predicate`) --->  `list<mental_state>` 
+  * `agent` **`get_obligations_op`** `predicate` --->  `list&lt;mental_state>`
+  *  **`get_obligations_op`** (`agent` , `predicate`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the obligations in the obligation base with the given predicate.
@@ -3294,8 +3291,8 @@ get_obligations_op(self,predicate("has_water"))
 ### `get_obligations_with_name_op`
 
 #### Possible use: 
-  * `agent` **`get_obligations_with_name_op`** `string` --->  `list<mental_state>`
-  *  **`get_obligations_with_name_op`** (`agent` , `string`) --->  `list<mental_state>` 
+  * `agent` **`get_obligations_with_name_op`** `string` --->  `list&lt;mental_state>`
+  *  **`get_obligations_with_name_op`** (`agent` , `string`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the list of obligations in the obligation base which predicate has the given name.
@@ -3471,8 +3468,8 @@ get_truth(pred1)
 ### `get_uncertainties_op`
 
 #### Possible use: 
-  * `agent` **`get_uncertainties_op`** `predicate` --->  `list<mental_state>`
-  *  **`get_uncertainties_op`** (`agent` , `predicate`) --->  `list<mental_state>` 
+  * `agent` **`get_uncertainties_op`** `predicate` --->  `list&lt;mental_state>`
+  *  **`get_uncertainties_op`** (`agent` , `predicate`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the uncertainties in the uncertainty base with the given predicate.
@@ -3494,8 +3491,8 @@ get_uncertainties_op(self,predicate("has_water"))
 ### `get_uncertainties_with_name_op`
 
 #### Possible use: 
-  * `agent` **`get_uncertainties_with_name_op`** `string` --->  `list<mental_state>`
-  *  **`get_uncertainties_with_name_op`** (`agent` , `string`) --->  `list<mental_state>` 
+  * `agent` **`get_uncertainties_with_name_op`** `string` --->  `list&lt;mental_state>`
+  *  **`get_uncertainties_with_name_op`** (`agent` , `string`) --->  `list&lt;mental_state>` 
 
 #### Result: 
 get the list of uncertainties in the uncertainty base which predicate has the given name.
@@ -3563,7 +3560,7 @@ mental_state var0 <- get_uncertainty_with_name_op(self,"has_water"); // var0 equ
 ### `get_values`
 
 #### Possible use: 
-  *  **`get_values`** (`predicate`) --->  `map<string,unknown>` 
+  *  **`get_values`** (`predicate`) --->  `map&lt;string,unknown>` 
 
 #### Result: 
 return the map values of a predicate
@@ -3586,8 +3583,8 @@ get_values(pred1)
 
 #### Possible use: 
   *  **`gif_file`** (`string`) --->  `file`
-  * `string` **`gif_file`** `matrix<int>` --->  `file`
-  *  **`gif_file`** (`string` , `matrix<int>`) --->  `file` 
+  * `string` **`gif_file`** `matrix&lt;int>` --->  `file`
+  *  **`gif_file`** (`string` , `matrix&lt;int>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type gif. Allowed extensions are limited to gif
@@ -3601,7 +3598,7 @@ gif_file f <- gif_file("file.gif");
 ``` 
 
     
-  * gif_file(string,matrix<int>): This file constructor allows to store a matrix in a gif file (it does not save it - just store it in memory) 
+  * gif_file(string,matrix&lt;int>): This file constructor allows to store a matrix in a gif file (it does not save it - just store it in memory) 
   
 ```
  
@@ -3624,7 +3621,7 @@ gif_file f <- gif_file("file.gif",matrix([10,10],[10,10]));
 ### `gini`
 
 #### Possible use: 
-  *  **`gini`** (`list<float>`) --->  `float`
+  *  **`gini`** (`list&lt;float>`) --->  `float`
 
 #### Special cases:     
   * return the Gini Index of the given list of values (list of floats) 
@@ -3888,7 +3885,7 @@ in the right-hand operand, the keyword each can be used to represent, in turn, e
 map var0 <- [1,2,3,4,5,6,7,8] group_by (each > 3); // var0 equals [false::[1, 2, 3], true::[4, 5, 6, 7, 8]] 
 map var1 <- g2 group_by (length(g2 out_edges_of each) ); // var1 equals [ 0::[node9, node7, node10, node8, node11], 1::[node6], 2::[node5], 3::[node4]] 
 map var2 <- (list(node) group_by (round(node(each).location.x)); // var2 equals [32::[node5], 21::[node1], 4::[node0], 66::[node2], 96::[node3]] 
-map<bool,list> var3 <- [1::2, 3::4, 5::6] group_by (each > 4); // var3 equals [false::[2, 4], true::[6]]
+map&lt;bool,list> var3 <- [1::2, 3::4, 5::6] group_by (each > 4); // var3 equals [false::[2, 4], true::[6]]
 
 ```
       
@@ -3910,7 +3907,7 @@ map<bool,list> var3 <- [1::2, 3::4, 5::6] group_by (each > 4); // var3 equals [f
   *  **`harmonic_mean`** (`container`) --->  `float` 
 
 #### Result: 
-the harmonic mean of the elements of the operand. See <A href="http://en.wikipedia.org/wiki/Harmonic_mean">Harmonic_mean</A> for more details.  
+the harmonic mean of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Harmonic_mean">Harmonic_mean</a> for more details.  
 
 #### Comment: 
 The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
@@ -4213,8 +4210,8 @@ bool var0 <- has_uncertainty_with_name_op(self,"has_water"); // var0 equals fals
 ### `hexagon`
 
 #### Possible use: 
-  *  **`hexagon`** (`point`) --->  `geometry`
   *  **`hexagon`** (`float`) --->  `geometry`
+  *  **`hexagon`** (`point`) --->  `geometry`
   * `float` **`hexagon`** `float` --->  `geometry`
   *  **`hexagon`** (`float` , `float`) --->  `geometry` 
 
@@ -4232,9 +4229,9 @@ the center of the hexagon is by default the location of the current agent in whi
 #### Examples: 
 ```
  
-geometry var0 <- hexagon({10,5}); // var0 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var1 <- hexagon(10,5); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
-geometry var2 <- hexagon(10); // var2 equals a geometry as a hexagon of width of 10 and height of 10.
+geometry var0 <- hexagon(10); // var0 equals a geometry as a hexagon of width of 10 and height of 10. 
+geometry var1 <- hexagon({10,5}); // var1 equals a geometry as a hexagon of width of 10 and height of 5. 
+geometry var2 <- hexagon(10,5); // var2 equals a geometry as a hexagon of width of 10 and height of 5.
 
 ```
       
@@ -4253,8 +4250,8 @@ geometry var2 <- hexagon(10); // var2 equals a geometry as a hexagon of width of
 ### `hierarchical_clustering`
 
 #### Possible use: 
-  * `container<unknown,agent>` **`hierarchical_clustering`** `float` --->  `list`
-  *  **`hierarchical_clustering`** (`container<unknown,agent>` , `float`) --->  `list` 
+  * `container&lt;unknown,agent>` **`hierarchical_clustering`** `float` --->  `list`
+  *  **`hierarchical_clustering`** (`container&lt;unknown,agent>` , `float`) --->  `list` 
 
 #### Result: 
 A tree (list of list) contained groups of agents clustered by distance considering a distance min between two groups.  
@@ -4284,7 +4281,7 @@ list var0 <- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equ
 ### `horizontal`
 
 #### Possible use: 
-  *  **`horizontal`** (`map<unknown,int>`) --->  `unknown<string>`
+  *  **`horizontal`** (`map&lt;unknown,int>`) --->  `unknown&lt;string>`
     	
 ----
 
@@ -4296,8 +4293,8 @@ list var0 <- [ag1, ag2, ag3, ag4, ag5] hierarchical_clustering 20.0; // var0 equ
 
 #### Possible use: 
   *  **`hsb`** (`float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb`
-  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb` 
+  *  **`hsb`** (`float`, `float`, `float`, `int`) --->  `rgb`
+  *  **`hsb`** (`float`, `float`, `float`, `float`) --->  `rgb` 
 
 #### Result: 
 Converts hsb (h=hue, s=saturation, b=brightness) value to Gama color  
@@ -4308,8 +4305,8 @@ h,s and b components should be floating-point values between 0.0 and 1.0 and whe
 #### Examples: 
 ```
  
-rgb var0 <- hsb (0.0,1.0,1.0); // var0 equals rgb("red") 
-rgb var1 <- hsb (0.5,1.0,1.0,0.0); // var1 equals rgb("cyan",0)
+rgb var0 <- hsb (0.5,1.0,1.0,0.0); // var0 equals rgb("cyan",0) 
+rgb var1 <- hsb (0.0,1.0,1.0); // var1 equals rgb("red")
 
 ```
       

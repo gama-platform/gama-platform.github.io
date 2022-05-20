@@ -1,7 +1,5 @@
 ---
-title: Pseudo-variables
-id: version-1.8.1-PseudoVariables
-original_id: PseudoVariables
+title:  Pseudo-variables
 ---
 
 [//]: # (keyword|concept_pseudo_variable)
@@ -84,11 +82,11 @@ create species (self) number: 10 {
 
 
 ## each
-`each` is available only in the right-hand argument of [iterators](Operators#Iterator-operators).  It is a pseudo-variable that represents, in turn, each of the elements of the left-hand container. It can then take any type depending on the context.
+`each` is available only in the right-hand argument of [iterators](OperatorsIM#iterator-operators).  It is a pseudo-variable that represents, in turn, each of the elements of the left-hand container. It can then take any type depending on the context.
 
   * Example:
 
 ```
-    list<string> names <- my_species collect each.name;  // each is of type my_species
+    list&lt;string> names <- my_species collect each.name;  // each is of type my_species
     int max <- max(['aa', 'bbb', 'cccc'] collect length(each)); // each is of type string
 ```

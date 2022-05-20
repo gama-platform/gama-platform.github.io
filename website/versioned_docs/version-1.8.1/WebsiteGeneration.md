@@ -1,7 +1,5 @@
 ---
-title: How to write the Website Content
-id: version-1.8.1-WebsiteGeneration
-original_id: WebsiteGeneration
+title:  How to write the Website Content
 ---
 
 
@@ -85,7 +83,7 @@ All the images resources are included in the _resources/images_ folder. They are
 If a _section_/_sub-section_ contains one of several sub-division, then those sub-divisions will be stored in a folder with the name of the corresponding _section_/_sub-section_, and this _section_/_sub-section_ folder will be associated with a markdown file with the same name (indeed, a _section_/_sub-section_ has its own page).
 If a _section_/_sub-section_ has no sub-division, then this _section_/_sub-section_ is simply defined with a markdown file containing the content wanted.
 
-![resources/images/developpingExtension/tree_structure.png](../resources/images/developpingExtension/tree_structure.png) 
+![resources/images/developpingExtension/tree_structure.png](/resources/images/developpingExtension/tree_structure.png) 
 
 Notice that there is some content which is present only in the wiki (the "WikiOnly" content), some content present only in the website (the model library, most of the community content...). In fact, the wiki tree structure is determined by the file _Sidebar, while the website tree structure is determined by the file _WebsiteTreeStructure_.
 
@@ -136,7 +134,7 @@ Please read the part concerning the database to learn more about it.
 
 _This part is not implemented yet, it is under construction._
 
-![resources/images/developpingExtension/website_generation_workflow.png](../resources/images/developpingExtension/website_generation_workflow.png)
+![resources/images/developpingExtension/website_generation_workflow.png](/resources/images/developpingExtension/website_generation_workflow.png)
 
 ### The gama.documentation plugin
 
@@ -188,7 +186,7 @@ This repository contains:
 
 ### Website database
 
-![resources/images/developpingExtension/global_database.png](../resources/images/developpingExtension/global_database.png)
+![resources/images/developpingExtension/global_database.png](/resources/images/developpingExtension/global_database.png)
 
 #### Keyword
 
@@ -211,7 +209,7 @@ A cagegory is composed of:
 * **id** (unique id)
 * **name** (the name of the category)
 
-![resources/images/developpingExtension/keyword_table.png](../resources/images/developpingExtension/keyword_table.png)
+![resources/images/developpingExtension/keyword_table.png](/resources/images/developpingExtension/keyword_table.png)
 
 #### Alias
 
@@ -225,7 +223,7 @@ An alias is composed of:
 
 Note that an alias does not know the id of the keyword, but only the name of the attached keyword(s). Indeed, the alias "integer" will give the keyword name "int", but several keywords correspond to the keyword name "int" (it can be the type "int", or the cast operator "int")
 
-![resources/images/developpingExtension/alias_table.png](../resources/images/developpingExtension/alias_table.png)
+![resources/images/developpingExtension/alias_table.png](/resources/images/developpingExtension/alias_table.png)
 
 #### Webpage
 
@@ -239,7 +237,7 @@ A webpage is composed of:
 
 The tables **webpage** and **keyword** are linked through an association table. This association table contains also an anchor (an anchor has a unique value) to the wanted page.
 
-![resources/images/developpingExtension/webpage_table.png](../resources/images/developpingExtension/webpage_table.png)
+![resources/images/developpingExtension/webpage_table.png](/resources/images/developpingExtension/webpage_table.png)
 
 Note that only the keywords which have the category _concept_, _species_, _type_, _operator_, _skill_ and _constant_ can be attached to a webpage. 
 
@@ -260,7 +258,7 @@ A LearningConcept is linked to a webpage through an association table. This tabl
 
 A LearningConcept can be associated to other LearningConcepts through an association table, used to spefify the "prerequisite concepts".
 
-![resources/images/developpingExtension/learningConcept_table.png](../resources/images/developpingExtension/learningConcept_table.png)
+![resources/images/developpingExtension/learningConcept_table.png](/resources/images/developpingExtension/learningConcept_table.png)
 
 ### Loading the Database
 
@@ -281,7 +279,7 @@ The file **keyword.xml** is an xml file that contains all the possible keywords 
 
 Format of the file:
 ```
-<keyword id:keywordname_keywordcategory>
+&lt;keyword id:keywordname_keywordcategory>
   <name>keywordname</name>
   <category>keywordcategory</category>
   <associatedKeywordList>
@@ -314,7 +312,7 @@ The **learningConcept.xml** file is used to list the learning concepts, and to c
 
 Format of the file :
 ```
-<learningConcept id:learningConceptName>
+&lt;learningConcept id:learningConceptName>
   <name>learningConceptName</name>
   <prerequisiteList>
     <prerequisite>learningConcept1</prerequisite>
@@ -387,7 +385,7 @@ ___________________________________________________________
 
 _The following text has been automatically generated from "mainCheckConcepts"_
 
-______________ _last update : 2020/06/18 14:24:47_
+______________ _last update : 2020/06/19 14:26:08_
 
 **List of concepts to use for model library (except Syntax):**
 

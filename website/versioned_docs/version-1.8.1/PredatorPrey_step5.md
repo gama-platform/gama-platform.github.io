@@ -1,7 +1,5 @@
 ---
-title: 5. Predator Agent
-id: version-1.8.1-PredatorPrey_step5
-original_id: PredatorPrey_step5
+title:  5. Predator Agent
 ---
 
 
@@ -53,7 +51,7 @@ A species can have a parent species: it automatically gets all the variables, sk
 
 We define a species called **`generic_species`** that is the parent of the species `prey` and `predator`:
 
-![Relationship between `generic_species`, `prey` and `predator` species.](../resources/images/tutorials/parent_species.png)
+![Relationship between `generic_species`, `prey` and `predator` species.](/resources/images/tutorials/parent_species.png)
 
 This species integrates all of the common feature between the `prey` and `predator` species:
   
@@ -174,7 +172,7 @@ species predator parent: generic_species {
     float energy_consum <- predator_energy_consum ;
 
     float energy_from_eat {
-	list<prey> reachable_preys <- prey inside (my_cell);	
+	list&lt;prey> reachable_preys <- prey inside (my_cell);	
 	if(! empty(reachable_preys)) {
 	    ask one_of (reachable_preys) {
 		do die;
@@ -320,7 +318,7 @@ species predator parent: generic_species {
     float energy_consum <- predator_energy_consum;
 		
     float energy_from_eat {
-	list<prey> reachable_preys <- prey inside (my_cell);	
+	list&lt;prey> reachable_preys <- prey inside (my_cell);	
 	if(! empty(reachable_preys)) {
 	    ask one_of (reachable_preys) {
 		do die;
@@ -336,7 +334,7 @@ grid vegetation_cell width: 50 height: 50 neighbors: 4 {
     float food_prod <- rnd(0.01);
     float food <- rnd(1.0) max: max_food update: food + food_prod;
     rgb color <- rgb(int(255 * (1 - food)), 255, int(255 * (1 - food))) update: rgb(int(255 * (1 - food)), 255, int(255 *(1 - food)));
-    list<vegetation_cell> neighbors2  <- (self neighbors_at 2); 
+    list&lt;vegetation_cell> neighbors2  <- (self neighbors_at 2); 
 }
 
 experiment prey_predator type: gui {

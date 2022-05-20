@@ -1,7 +1,5 @@
 ---
-title: Some pedagogical materials
-id: version-1.8.1-Pedagogical-Materials
-original_id: Pedagogical-Materials
+title:  Some pedagogical materials
 ---
 
 

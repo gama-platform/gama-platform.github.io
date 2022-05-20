@@ -1,7 +1,5 @@
 ---
-title: Defining Parameters
-id: version-1.8.1-DefiningParameters
-original_id: DefiningParameters
+title:  Defining Parameters
 ---
 
 [//]: # (startConcept|define_parameters)
@@ -27,7 +25,7 @@ global {
 
 When launching your experiment, the parameter will appear in your "Parameters" panel, with the name you chose for the `parameter` facet.
 
-![The Parameter View with a single parameter.](../resources/images/definingGUIExperiment/parameters_1.png)
+![The Parameter View with a single parameter.](/resources/images/definingGUIExperiment/parameters_1.png)
 
 You can also define your parameter inside the experiment (**recommended**), using the statement `parameter`. You have to specify first the name of your parameter, then the name of the global variable through the facet `var`.
 
@@ -71,7 +69,7 @@ experiment MyExperiment type: gui {
 }
 ```
 
-![The Parameter view with several categories.](../resources/images/definingGUIExperiment/parameters_3_category.png)
+![The Parameter view with several categories.](/resources/images/definingGUIExperiment/parameters_3_category.png)
 
 You also can add some facets such as `min`, `max`, `step` or `among` to improve the declaration of the parameter (and define the possible values the parameter can take). 
 
@@ -94,6 +92,6 @@ We can notice that the parameters will not appear graphically in the same way if
 
 The definition of the initial value and of the possible values can be set in the `global` or in the `experiment` depending on the aim of this limitation: for example if a variable has a maximum value set to 1 in the global, this limitation can be used in the model in order that the variable value does not exceed this value. If the maximum boundary is set in the experiment, some executions of the model can be done without it...
 
-![Parameter View with parameters defined with possible values.](../resources/images/definingGUIExperiment/parameters_possible_values.png)
+![Parameter View with parameters defined with possible values.](/resources/images/definingGUIExperiment/parameters_possible_values.png)
 
 [//]: # (endConcept|define_parameters)

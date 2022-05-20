@@ -1,7 +1,5 @@
 ---
-title: Defining GUI Experiment
-id: version-1.8.1-DefiningGUIExperiment
-original_id: DefiningGUIExperiment
+title:  Defining GUI Experiment
 ---
 
 [//]: # (startConcept|gui_experiments)

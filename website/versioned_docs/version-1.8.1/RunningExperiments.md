@@ -1,7 +1,5 @@
 ---
-title: Running Experiments
-id: version-1.8.1-RunningExperiments
-original_id: RunningExperiments
+title:  Running Experiments
 ---
 
 

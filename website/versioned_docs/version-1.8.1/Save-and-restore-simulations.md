@@ -1,7 +1,5 @@
 ---
-title: Save and Restore simulations
-id: version-1.8.1-Save-and-restore-simulations
-original_id: Save-and-restore-simulations
+title:  Save and Restore simulations
 ---
 
 [//]: # (startConcept|use_saveSimulation)

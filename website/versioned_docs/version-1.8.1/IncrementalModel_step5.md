@@ -1,7 +1,5 @@
 ---
-title: 5. Visualizing in 3D
-id: version-1.8.1-IncrementalModel_step5
-original_id: IncrementalModel_step5
+title:  5. Visualizing in 3D
 ---
 
 This step Illustrates how to define a 3D display.
@@ -15,7 +13,7 @@ This step Illustrates how to define a 3D display.
 * Define a new aspect (sphere3D) for people to display them as sphere.
 * Modify the display to use this new aspect.
 
-![Incremental model 5: add a 3D display to the model.](../resources/images/tutorials/Incremental_model5.jpg)
+![Incremental model 5: add a 3D display to the model.](/resources/images/tutorials/Incremental_model5.jpg)
 
 
 

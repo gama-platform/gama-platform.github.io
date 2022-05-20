@@ -1,7 +1,5 @@
 ---
-title: Batch Specific UI
-id: version-1.8.1-BatchSpecific
-original_id: BatchSpecific
+title:  Batch Specific UI
 ---
 
 
@@ -22,7 +20,7 @@ In batch mode, the top information bar displays 3 distinct information (instead 
 * The **simulation** number: the number of replications done (and the number of replications specified with the `repeat` facet);
 * The number of **thread**: the number of threads used for the simulation.
 
-![images/batch_Information_bar.png](../resources/images/runningExperiments/batch_Information_bar.png)
+![images/batch_Information_bar.png](/resources/images/runningExperiments/batch_Information_bar.png)
 
 
 ## Batch UI
@@ -44,7 +42,7 @@ experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = f
 }
 ```
 
-![The batch UI for an exhaustive exploration method.](../resources/images/runningExperiments/batch_Parameters_pane_exhaustive.png)
+![The batch UI for an exhaustive exploration method.](/resources/images/runningExperiments/batch_Parameters_pane_exhaustive.png)
 
 
 The interface summarises all model parameters and the parameters given to the exploration method:
@@ -62,5 +60,5 @@ experiment Batch type: batch repeat: 2 keep_seed: true until: (food_gathered = f
 }
 ```
 
-![The batch UI for a genetic exploration method.](../resources/images/runningExperiments/batch_Parameters_pane_genetic.png)
+![The batch UI for a genetic exploration method.](/resources/images/runningExperiments/batch_Parameters_pane_genetic.png)
 

@@ -1,7 +1,5 @@
 ---
-title: Attaching Skills
-id: version-1.8.1-AttachingSkills
-original_id: AttachingSkills
+title:  Attaching Skills
 ---
 
 [//]: # (startConcept|attaching_skills)
@@ -89,7 +87,7 @@ Moves the agent towards a random location (3D point) at the maximum distance (wi
 
 ### Other skills
 
-A lot of other skills are available. Some of them can be [built in skills](BuiltInSkills), integrated by default in GAMA, other are linked to [additional plugins](Extension).
+A lot of other skills are available. Some of them can be [built in skills](BuiltInSkills), integrated by default in GAMA, other are linked to [additional plugins](Extensions).
 
 This is the list of skills:
 `Advanced_driving`, `communication`, `driving`, `GAMASQL`, `graphic`, `grid`, `MDXSKILL`, `moving`, `moving3D`, `physical3D`, `skill_road`, `skill_road`, `skill_road_node`, `SQLSKILL`
@@ -100,7 +98,7 @@ We can now build a model using the skill moving. Let's design 2 species, one is 
 Species_green agents are moving randomly with a certain speed and a certain heading.
 Species_red agents wait for a species_green agent to be in a certain range of distance. Once it is the case, the agent move toward the species_green agent. A line link the red_species agent and its target.
 
-![images/green_and_red_species.png](../resources/images/manipulateBasicSpecies/green_and_red_species.png) 
+![images/green_and_red_species.png](/resources/images/manipulateBasicSpecies/green_and_red_species.png) 
 
 Here is an example of implementation:
 

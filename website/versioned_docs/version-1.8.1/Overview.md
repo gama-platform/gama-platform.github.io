@@ -1,16 +1,14 @@
 ---
-title: Introduction
-id: version-1.8.1-Overview
-original_id: Overview
+title:  Introduction
 ---
 
 
 
-[![Demonstration of some of the features of the GAMA Platform](../resources/images/introduction/youtubeVideo1.jpg)](http://www.youtube.com/watch?v=6m_-UY8UBuk)
+[![Demonstration of some of the features of the GAMA Platform](/resources/images/introduction/youtubeVideo1.jpg)](http://www.youtube.com/watch?v=6m_-UY8UBuk)
 
 **GAMA** is a simulation platform, which aims at providing field experts, modellers, and computer scientists with a complete modelling and simulation development environment for building spatially explicit multi-agent simulations. It has been first developed by the Vietnamese-French research team MSI (located at IFI, Hanoi, and part of the IRD/SU International Research Unit UMMISCO) from 2007 to 2010, and is now developed by a consortium of academic and industrial partners led by UMMISCO, among which the University of Rouen, France, the University of Toulouse 1, France, the University of Orsay, France, the University of Can Tho, Vietnam, the National University of Hanoi, EDF R&D, France, and CEA LISC, France.
 
-[![Gama 1.6 Trailer. Agent-based simulation platform](../resources/images/introduction/youtubeVideo2.jpg)](http://www.youtube.com/watch?v=ycbeYxV2B7M)
+[![Gama 1.6 Trailer. Agent-based simulation platform](/resources/images/introduction/youtubeVideo2.jpg)](http://www.youtube.com/watch?v=ycbeYxV2B7M)
 
 Some of the features of GAMA are illustrated in the videos above (more can be found [in our Youtube channel](http://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ)).
 
@@ -25,7 +23,7 @@ Beyond these features, GAMA also offers:
 
 
 ## Documentation
-The documentation of GAMA is available online on the wiki of the project. It is organized around a few central activities ([installing GAMA](Installation), [writing models](WritingModels), [running experiments](LaunchingExperiments), [developing new extensions to the platform](DevelopingExtensions)) and provides complete references on both the [GAML language](GamlLanguage), the platform itself, and the scientific aspects of our work (with a complete [bibliography](References)). Several [tutorials](Tutorials) are also provided in the documentation in order to minimize the learning curve, allowing users to build, step by step, the models corresponding to these tutorials, which are of course shipped with the platform.
+The documentation of GAMA is available online on the wiki of the project. It is organized around a few central activities ([installing GAMA](Installation), [writing models](EditingModels), [running experiments](LaunchingExperiments), [developing new extensions to the platform](DevelopingExtensions)) and provides complete references on both the [GAML language](GamlReference), the platform itself, and the scientific aspects of our work (with a complete [bibliography](References)). Several [tutorials](Tutorials) are also provided in the documentation in order to minimize the learning curve, allowing users to build, step by step, the models corresponding to these tutorials, which are of course shipped with the platform.
 
 The documentation can be accessed from the sidebar of this page. A good starting point for new users is [the installation page](Installation).
 
@@ -33,7 +31,7 @@ A standalone version of the documentation, in PDF format, can be directly downlo
 
 
 ## Source Code
-GAMA can be [downloaded](Download) as a regular application or [built from source](https://github.com/gama-platform/gama), which is necessary if you want to contribute to the platform.
+GAMA can be [downloaded](https://gama-platform.org/download) as a regular application or [built from source](https://github.com/gama-platform/gama), which is necessary if you want to contribute to the platform.
 The source code is available from this GITHub repository:
 
 ```
@@ -86,4 +84,4 @@ To get in touch with the GAMA developers team, please sign in for the [gama-plat
 
 Finally, to report bugs in GAMA or ask for a new feature, please refer to  [these instructions](Troubleshooting#Submitting_an_Issue) to do so.
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

@@ -1,7 +1,5 @@
 ---
-title: 7. Agent Aspect
-id: version-1.8.1-PredatorPrey_step7
-original_id: PredatorPrey_step7
+title:  7. Agent Aspect
 ---
 
 In this seventh step, we will focus on the display and more specifically the aspects of the agents: how they are represented. It can be a simple shape (circle, square, etc.), an icon, a polygon (see later GIS support).
@@ -55,7 +53,7 @@ species prey parent: generic_species {
 }
 ```
 
-The image file is here: [![Icon for the prey agents.](../resources/images/tutorials/predator_prey_sheep.png)](../resources/images/tutorials/predator_prey_sheep.png).
+The image file is here: [![Icon for the prey agents.](/resources/images/tutorials/predator_prey_sheep.png)](/resources/images/tutorials/predator_prey_sheep.png).
 
 You have to copy it in your project folder: `includes/data/`.
 
@@ -72,7 +70,7 @@ species predator parent: generic_species {
 }
 ```
 
-The image file is here: [![Icon for the predator species.](../resources/images/tutorials/predator_prey_wolf.png)](../resources/images/tutorials/predator_prey_wolf.png).
+The image file is here: [![Icon for the predator species.](/resources/images/tutorials/predator_prey_wolf.png)](/resources/images/tutorials/predator_prey_wolf.png).
 
 You have to copy it in your project folder: `includes/data/`.
 
@@ -221,7 +219,7 @@ species predator parent: generic_species {
     image_file my_icon <- image_file("../includes/data/wolf.png");
 
     float energy_from_eat {
-        list<prey> reachable_preys <- prey inside (my_cell);
+        list&lt;prey> reachable_preys <- prey inside (my_cell);
         if(! empty(reachable_preys)) {
             ask one_of (reachable_preys) {
                 do die;
@@ -237,7 +235,7 @@ grid vegetation_cell width: 50 height: 50 neighbors: 4 {
     float food_prod <- rnd(0.01);
     float food <- rnd(1.0) max: max_food update: food + food_prod;
     rgb color <- rgb(int(255 * (1 - food)), 255, int(255 * (1 - food))) update: rgb(int(255 * (1 - food)), 255, int(255 * (1 - food)));
-    list<vegetation_cell> neighbors2 <- (self neighbors_at 2);
+    list&lt;vegetation_cell> neighbors2 <- (self neighbors_at 2);
 }
 
 experiment prey_predator type: gui {

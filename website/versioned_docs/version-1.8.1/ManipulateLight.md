@@ -1,7 +1,5 @@
 ---
-title: Implementing light
-id: version-1.8.1-ManipulateLight
-original_id: ManipulateLight
+title:  Implementing light
 ---
 
 [//]: # (startConcept|light)
@@ -58,7 +56,7 @@ Ambient light has then no position or direction. It is equally distributed to al
 
 Here is an example of our GAML scene using only ambient light (color red) (see below [how to define ambient light in GAML](ManipulateLight#ambient-light-1)): 
 
-![Example of a scene with a red ambient light.](../resources/images/lightRecipes/ambient_light.png)
+![Example of a scene with a red ambient light.](/resources/images/lightRecipes/ambient_light.png)
 
 ### Diffuse light
 
@@ -77,7 +75,7 @@ Points lights can be seen as a candle in your world, diffusing the light equally
 
 Here is an example of our GAML scene using only diffuse light, with a point light (color red, the light source is displayed as a red sphere) : 
 
-![Scene with only a red point light.](../resources/images/lightRecipes/point_light.png)
+![Scene with only a red point light.](/resources/images/lightRecipes/point_light.png)
 
 * **Spot lights**
 
@@ -85,7 +83,7 @@ Spot lights can be seen as a torch light in your world. It needs a position, and
 
 Here is an example of our GAML scene using only diffusion light, with a spot light (color red, the light source is displayed as a red cone) : 
 
-![Scene with only a red spot light.](../resources/images/lightRecipes/spot_light.png)
+![Scene with only a red spot light.](/resources/images/lightRecipes/spot_light.png)
 
 Positional lights, as they have a position, can also have an attenuation according to the distance between the light source and the object. The value of positional lights are computed with the following formula:
 ```
@@ -96,7 +94,7 @@ By changing those 3 values (constante_attenuation, linear_attenuation and quadra
 
 Here is an example of our GAML scene using only diffusion light, with a point light with linear attenuation (color red, the light source is displayed as a red sphere): 
 
-![Scene with only diffusion light and red point light with linear attenuation.](../resources/images/lightRecipes/point_light_with_attenuation.png)
+![Scene with only diffusion light and red point light with linear attenuation.](/resources/images/lightRecipes/point_light_with_attenuation.png)
 
 #### Directional lights
 
@@ -105,7 +103,7 @@ Since there is no position for directional lights, there is no attenuation eithe
 
 Here is an example of our GAML scene using only diffusion light, with a directional light (color red) : 
 
-![Scene with a red directional light.](../resources/images/lightRecipes/direction_light.png)
+![Scene with a red directional light.](/resources/images/lightRecipes/direction_light.png)
 
 ### Specular light
 
@@ -125,7 +123,7 @@ Those values have been chosen in order to have the same visual effect in both Op
 
 Here is an example of our GAML scene using the default light: 
 
-![Scene with the default light.](../resources/images/lightRecipes/default_light.png)
+![Scene with the default light.](/resources/images/lightRecipes/default_light.png)
 
 ## Custom lights
 
@@ -218,7 +216,7 @@ Note that when you are working with lights, you can display your lights through 
 * The **spot** light is represented by a cone with the color of the diffuse light you specified, in the position of your light source, the orientation of your light source. The size of the base of the cone will depend on the angle you specified.
 * The **direction** light, as it has no real position, is represented with arrows a bit above the world, with the direction of your direction light, and the color of the diffuse light you specified.
 
-![Scene with direction, spot and point lights.](../resources/images/lightRecipes/draw_light.png)
+![Scene with direction, spot and point lights.](/resources/images/lightRecipes/draw_light.png)
 
 _Note for developers_: Note that, since the GL_LIGHT0 is already reserved for the ambient light (only !), all the other lights (from 1 to 7) are the lights from GL_LIGHT1 to GL_LIGHT7.
 

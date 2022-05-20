@@ -1,7 +1,5 @@
 ---
-title: Exploration Methods
-id: version-1.8.1-ExplorationMethods
-original_id: ExplorationMethods
+title:  Exploration Methods
 ---
 
 [//]: # (startConcept|exploration_methods)

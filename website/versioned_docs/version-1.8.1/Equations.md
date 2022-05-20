@@ -1,7 +1,5 @@
 ---
-title: Using Equations
-id: version-1.8.1-Equations
-original_id: Equations
+title:  Using Equations
 ---
 
 [//]: # (startConcept|equation)
@@ -23,11 +21,11 @@ This approach makes a lot of strong hypotheses. The model does not take into acc
 
 In the SIR model, the population is split into 3 compartments: S (Susceptible), I (Infected), R (Recovered). This can be represented by the following Forrester diagram: boxes represent stocks (i.e. compartments) and arrows are flows. Arrows hold the rate of a compartment population flowing to another compartment.
 
-![SIR compartment representation.](../resources/images/multiParadigmModeling/SIR-compartment.png)
+![SIR compartment representation.](/resources/images/multiParadigmModeling/SIR-compartment.png)
 
 The corresponding ODE system contains one equation per stock. For example, the I compartment evolution is influenced by an inner (so positive) flow from the S compartment and an outer (so negative) flow to the R compartment.
 
-![SIR equation system.](../resources/images/multiParadigmModeling/SIR-equations.png)
+![SIR equation system.](/resources/images/multiParadigmModeling/SIR-equations.png)
 
 Integrating this system using the Runge-Kutta 4 method provides the evolution of S, I and R over time. The initial values are:
 
@@ -38,7 +36,7 @@ Integrating this system using the Runge-Kutta 4 method provides the evolution of
 * gamma = 0.1 
 * h = 0.1
 
-![Plot of SIR system integration.](../resources/images/multiParadigmModeling/SIR-result.png)
+![Plot of SIR system integration.](/resources/images/multiParadigmModeling/SIR-result.png)
 
 
 ## Why and when can we use ODE in agent-based models?
@@ -160,7 +158,7 @@ The results are computed using the RK4 (Runge-Kutta 4) method with:
 * gbeta = 0.3 
 * hKR4 = 0.1 
 
-![SI-split-results.png](../resources/images/multiParadigmModeling/SI-split-results.png)
+![SI-split-results.png](/resources/images/multiParadigmModeling/SI-split-results.png)
 
 
 ## `solve` an equation
@@ -287,7 +285,7 @@ reflex solving {
     solve eqSIR method: #rk4 step_size: 0.01 ;
 }
 ```
-![Impact of the `step` of the simulation on an ODE integration.](../resources/images/multiParadigmModeling/SIR-results-step-influence.png)
+![Impact of the `step` of the simulation on an ODE integration.](/resources/images/multiParadigmModeling/SIR-results-step-influence.png)
 
 
 ### List of built-in ODE systems
@@ -307,9 +305,9 @@ equation eqSI {
 }
 ```	
 
-![SI compartiment representation.](../resources/images/multiParadigmModeling/SI-compartment.png)
+![SI compartiment representation.](/resources/images/multiParadigmModeling/SI-compartment.png)
 
-![SI equations system.](../resources/images/multiParadigmModeling/SI-equations.png)
+![SI equations system.](/resources/images/multiParadigmModeling/SI-equations.png)
 
 The results are provided using the Runge-Kutta 4 method using following initial values:
 
@@ -318,7 +316,7 @@ The results are provided using the Runge-Kutta 4 method using following initial 
 * beta = 0.4
 * h = 0.1
 
-![Result of the integration of the SI system.](../resources/images/multiParadigmModeling/SI-result.png)
+![Result of the integration of the SI system.](/resources/images/multiParadigmModeling/SI-result.png)
 
 
 #### SIS
@@ -334,9 +332,9 @@ equation eqSIS {
     diff(I,t) = beta * S * I / N - gamma * I;
 }
 ```
-![SIS compartment representation.](../resources/images/multiParadigmModeling//SIS-compartment.png)
+![SIS compartment representation.](/resources/images/multiParadigmModeling//SIS-compartment.png)
 
-![SIS equations system.](../resources/images/multiParadigmModeling/SIS-equations.png)
+![SIS equations system.](/resources/images/multiParadigmModeling/SIS-equations.png)
 
 The results are provided using the Runge-Kutta 4 method using following initial values:
 
@@ -346,7 +344,7 @@ The results are provided using the Runge-Kutta 4 method using following initial 
 * gamma = 0.1 
 * h = 0.1
 
-![Result of the integration of the SIS system.](../resources/images/multiParadigmModeling/SIS-result.png)
+![Result of the integration of the SIS system.](/resources/images/multiParadigmModeling/SIS-result.png)
 
 #### SIR
 
@@ -363,9 +361,9 @@ equation eqSIR {
 }
 ```
 
-![SIR compartment representation.](../resources/images/multiParadigmModeling/SIR-compartment.png)
+![SIR compartment representation.](/resources/images/multiParadigmModeling/SIR-compartment.png)
 
-![SIR equations system.](../resources/images/multiParadigmModeling/SIR-equations.png)
+![SIR equations system.](/resources/images/multiParadigmModeling/SIR-equations.png)
 
 The results are provided using the Runge-Kutta 4 method using following initial values:
 
@@ -376,7 +374,7 @@ The results are provided using the Runge-Kutta 4 method using following initial 
 * gamma = 0.1 
 * h = 0.1
 
-![Result of the integration of the SIR system.](../resources/images/multiParadigmModeling/SIR-result.png)
+![Result of the integration of the SIR system.](/resources/images/multiParadigmModeling/SIR-result.png)
 
 
 #### SIRS
@@ -394,9 +392,9 @@ equation eqSIRS {
 }
 ```
 
-![SIRS compartment representation.](../resources/images/multiParadigmModeling/SIRS-compartment.png)
+![SIRS compartment representation.](/resources/images/multiParadigmModeling/SIRS-compartment.png)
 
-![SIRS equations system.](../resources/images/multiParadigmModeling/SIRS-equations.png)
+![SIRS equations system.](/resources/images/multiParadigmModeling/SIRS-equations.png)
 
 The results are provided using the Runge-Kutta 4 method using following initial values:
 
@@ -409,7 +407,7 @@ The results are provided using the Runge-Kutta 4 method using following initial 
 * mu = 0.01 
 * h = 0.1
 
-![Result of the integration of the SIRD system.](../resources/images/multiParadigmModeling/SIRS-result.png)
+![Result of the integration of the SIRD system.](/resources/images/multiParadigmModeling/SIRS-result.png)
 
 
 #### SEIR
@@ -428,9 +426,9 @@ equation eqSEIR {
 }
 ```
 
-![SEIR compartment representation.](../resources/images/multiParadigmModeling/SEIR-compartment.png)
+![SEIR compartment representation.](/resources/images/multiParadigmModeling/SEIR-compartment.png)
 
-![SEIR equations system.](../resources/images/multiParadigmModeling/SEIR-equations.png)
+![SEIR equations system.](/resources/images/multiParadigmModeling/SEIR-equations.png)
 
 The results are provided using the Runge-Kutta 4 method using following initial values:
 
@@ -444,7 +442,7 @@ The results are provided using the Runge-Kutta 4 method using following initial 
 * mu = 0.01 
 * h = 0.1
 
-![Result of the integration of the SEIR system.](../resources/images/multiParadigmModeling/SEIR-result.png)
+![Result of the integration of the SEIR system.](/resources/images/multiParadigmModeling/SEIR-result.png)
 
 
 #### LV
@@ -461,7 +459,7 @@ equation eqLV {
 }	
 ```
 
-![LV equations system.](../resources/images/multiParadigmModeling/LV-equations.png)
+![LV equations system.](/resources/images/multiParadigmModeling/LV-equations.png)
 
 The results are provided using the Runge-Kutta 4 method using following initial values:
 
@@ -473,6 +471,6 @@ The results are provided using the Runge-Kutta 4 method using following initial 
 * delta = 0.85
 * h = 0.1
 
-![Result of the integration of the LV system.](../resources/images/multiParadigmModeling/LV-result.png)
+![Result of the integration of the LV system.](/resources/images/multiParadigmModeling/LV-result.png)
 
 [//]: # (endConcept|equation)

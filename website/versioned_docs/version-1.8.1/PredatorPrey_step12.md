@@ -1,7 +1,5 @@
 ---
-title: 12. Image loading
-id: version-1.8.1-PredatorPrey_step12
-original_id: PredatorPrey_step12
+title:  12. Image loading
 ---
 
 
@@ -22,7 +20,7 @@ We add a new global variable to store the image data:
 file map_init <- image_file("../includes/data/raster_map.png");
 ```
 
-The image file is here: [![Image to initialize the Prey Predator tutorial model.](../resources/images/tutorials/predator_prey_raster_map.png)](../resources/images/tutorials/predator_prey_raster_map.png)
+The image file is here: [![Image to initialize the Prey Predator tutorial model.](/resources/images/tutorials/predator_prey_raster_map.png)](/resources/images/tutorials/predator_prey_raster_map.png)
 
 You have to copy it in your project folder: `includes/data/`.
 
@@ -197,7 +195,7 @@ species predator parent: generic_species {
     image_file my_icon <- image_file("../includes/data/wolf.png");
 
     float energy_from_eat {
-        list<prey> reachable_preys <- prey inside (my_cell);
+        list&lt;prey> reachable_preys <- prey inside (my_cell);
         if(! empty(reachable_preys)) {
             ask one_of (reachable_preys) {
                 do die;
@@ -222,7 +220,7 @@ grid vegetation_cell width: 50 height: 50 neighbors: 4 {
     float food_prod <- rnd(0.01);
     float food <- rnd(1.0) max: max_food update: food + food_prod;
     rgb color <- rgb(int(255 * (1 - food)), 255, int(255 * (1 - food))) update: rgb(int(255 * (1 - food)), 255, int(255 * (1 - food)));
-    list<vegetation_cell> neighbors2 <- (self neighbors_at 2);
+    list&lt;vegetation_cell> neighbors2 <- (self neighbors_at 2);
 }
 
 experiment prey_predator type: gui {

@@ -1,7 +1,5 @@
 ---
-title: Contribute
-id: version-1.8.1-Contribute
-original_id: Contribute
+title:  Contribute
 ---
 
 GAMA is a free opensource software and we take pride in sharing the source code with anyone who wants to contribute to the platform. Note that GAMA is easy to extend by developing additional plugins.

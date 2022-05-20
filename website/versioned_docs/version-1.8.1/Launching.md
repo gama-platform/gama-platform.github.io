@@ -1,7 +1,5 @@
 ---
-title: Launching GAMA
-id: version-1.8.1-Launching
-original_id: Launching
+title:  Launching GAMA
 ---
 
 
@@ -31,19 +29,19 @@ On Mac OS X, there is a verification that is done by the system to check if the 
 
 1. When GAMA is launched for the first time, the following pop-up appears as GAMA does not come from developers identified by Apple.
 
-![At the first launch on Mac OS X, Gama.app cannot be opened as it comes from an unidentified developer.](../resources/images/installationAndLaunching/Launch.on.Mac.security.png)
+![At the first launch on Mac OS X, Gama.app cannot be opened as it comes from an unidentified developer.](/resources/images/installationAndLaunching/Launch.on.Mac.security.png)
 
 2. To allow your system to launch GAMA, you need to open the `System Preferences` window and click on `Security & Privacy`.
 
-![In System Preferences, open the Security & Privacy pane.](../resources/images/installationAndLaunching/Launch.on.Mac.SecurityAndPrivacy.png)
+![In System Preferences, open the Security & Privacy pane.](/resources/images/installationAndLaunching/Launch.on.Mac.SecurityAndPrivacy.png)
 
 3. Click on `Open Anyway` to allow the system to launch GAMA.
 
-![Click on Open Anyway to allow the system to launch GAMA](../resources/images/installationAndLaunching/Launch.on.Mac.OpenAnyway.png)
+![Click on Open Anyway to allow the system to launch GAMA](/resources/images/installationAndLaunching/Launch.on.Mac.OpenAnyway.png)
 
 4. You need to confirm one more time that you want to confirm to launch GAMA.
   
-![Confirm the launch of GAMA](../resources/images/installationAndLaunching/Launch.on.Mac.Confirm.png)
+![Confirm the launch of GAMA](/resources/images/installationAndLaunching/Launch.on.Mac.Confirm.png)
 
 
 ## Launching the Application from the command line
@@ -61,18 +59,18 @@ Note that GAMA can also be launched in two different other ways:
 ## Choosing a Workspace
 Past the splash screen, GAMA will ask you to choose a workspace in which to store your models and their associated data and settings. The workspace can be any folder in your filesystem on which you have read/write privileges. If you want GAMA to remember your choice next time you run it (it can be handy if you run Gama from the command line), simply check the corresponding option. If this dialog does not show up when launching GAMA, it probably means that you inherit from an older workspace used with a previous GAMA version (and still "remembered"). In that case, a warning will be produced to indicate that the model library is out of date, offering you the possibility to create a new workspace.
 
-![Window to choose the workspace.](../resources/images/installationAndLaunching/1.workspace_choice.png)
+![Window to choose the workspace.](/resources/images/installationAndLaunching/1.workspace_choice.png)
 
 You can enter its address or browse your filesystem using the appropriate button. If the folder already exists, it will be reused (after a warning if it is not already a workspace). If not, it will be created. It is always a good idea, when you launch a new version of GAMA for the first time, to create a new workspace. You will then, later, be able to [import your existing models](ImportingModels) into it. Failing to do so might lead to odd errors in the various validation processes.
 
 When you try to choose a workspace used with a previous of GAMA, the following pop-up will appear.
 
-![Pop-up that appears when the user chooses a folder used as a workspace in a previous version of GAMA.](../resources/images/installationAndLaunching/2.workspace_choice3.png)
+![Pop-up that appears when the user chooses a folder used as a workspace in a previous version of GAMA.](/resources/images/installationAndLaunching/2.workspace_choice3.png)
 
 
 The following pop-up appears when the user wants to create a new workspace in a folder that does not exist. Click on OK to create the folder and set this new folder as the GAMA workspace.
 
-![Pop-up that appears when the user wants to create a new workspace. Click on OK.](../resources/images/installationAndLaunching/2.workspace_choice2.png)
+![Pop-up that appears when the user wants to create a new workspace. Click on OK.](/resources/images/installationAndLaunching/2.workspace_choice2.png)
 
 
 
@@ -81,10 +79,10 @@ As soon as the workspace is created, GAMA will open and you will be presented wi
 
 The default perspective in which GAMA opens is _Modeling_. It is composed of a central area where [GAML editors](GamlEditorGeneralities) are displayed, which is surrounded by a [Navigator view](NavigatingWorkspace) on the left-hand side of the window, an Outline view (linked with the open editor), the Problems view, which indicates errors and warnings present in the models stored in the workspace and an interactive console, which allows the modeler to try some expressions and get an immediate result.
 
-![GAMA after the first launch.](../resources/images/installationAndLaunching/3.workbench_window.png)
+![GAMA after the first launch.](/resources/images/installationAndLaunching/3.workbench_window.png)
 
 In the absence of previously open models, GAMA will display a _Welcome page_ (actually a web page), from which you can find links to the website, current documentation, tutorials, etc. This page can be kept open (for instance if you want to display the documentation when editing models) but it can also be safely closed (and reopened later from the "Views" menu).
 
-![Menu to open new views.](../resources/images/installationAndLaunching/5.welcome_page.png)
+![Menu to open new views.](/resources/images/installationAndLaunching/5.welcome_page.png)
 
 From this point, you are now able to [edit a new model](EditingModels), [navigate in the model library](NavigatingWorkspace), or [import an existing model](ImportingModels).

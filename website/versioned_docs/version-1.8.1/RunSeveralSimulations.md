@@ -1,7 +1,5 @@
 ---
-title: Run Several Simulations
-id: version-1.8.1-RunSeveralSimulations
-original_id: RunSeveralSimulations
+title:  Run Several Simulations
 ---
 
 [//]: # (startConcept|run_simulations_as_agents)
@@ -102,7 +100,7 @@ experiment my_experiment type:gui  {
 
 You may ask, what is the purpose of such a thing ? Well, with such a short model, it is not very interesting, for sure. But you can imagine running a simulation, and if the simulation reaches a certain state, it can be closed, and another simulation can be run instead with different parameters (a simulation can be closed by doing a "do die" on itself). You can also imagine to run two simulations, and to communicate from one to an other through the experiment, as it is shown in this easy model, where agents can move from one simulation to another :
 
-![resources/images/exploringModel/change_world.png](../resources/images/exploringModel/change_world.png)
+![resources/images/exploringModel/change_world.png](/resources/images/exploringModel/change_world.png)
 
 ```
 model smallWorld
@@ -147,7 +145,7 @@ species people {
 		 	}
 		 	do die;
 		} else {
-			list<cell> free_cells <- list<cell> (my_cell.neighbors) where empty(people inside each);
+			list&lt;cell> free_cells <- list&lt;cell> (my_cell.neighbors) where empty(people inside each);
 			if not empty(free_cells) {
 				my_cell <- one_of(free_cells);
 				location <- my_cell.location;
@@ -178,7 +176,7 @@ experiment fromWorldToWorld type: gui {
 
 Here is an other example of application of application, available in the model library. Here we run 4 times the Ant Foraging model, with different parameters.
 
-![resources/images/exploringModel/multi_foraging.jpg](../resources/images/exploringModel/multi_foraging.jpg)
+![resources/images/exploringModel/multi_foraging.jpg](/resources/images/exploringModel/multi_foraging.jpg)
 
 [//]: # (endConcept|run_simulations_as_agents)
 [//]: # (startConcept|control_randomness)
@@ -214,7 +212,7 @@ The experiment agent also have a built-in attribute `seed`. The value of this se
 
 The following sequence diagram can explain you better how the affectation of the seed attribute works :
 
-![resources/images/exploringModel/sequence_diagram_seed_affectation.png](../resources/images/exploringModel/sequence_diagram_seed_affectation.png)
+![resources/images/exploringModel/sequence_diagram_seed_affectation.png](/resources/images/exploringModel/sequence_diagram_seed_affectation.png)
 
 The affectation of an attribute is always done in this order :
 (1) the attribute is affected with a specific value in the species scope. If no attribute value is specified, the value is a default value.
@@ -260,7 +258,7 @@ experiment my_experiment type:gui  {
 
 When you run this simulation, their execution is exactly similar.
 
-![resources/images/exploringModel/same_simulation_one_agent.png](../resources/images/exploringModel/same_simulation_one_agent.png)
+![resources/images/exploringModel/same_simulation_one_agent.png](/resources/images/exploringModel/same_simulation_one_agent.png)
 
 Let's try now to add a new species in this model, and to add a parameter to the simulation for the number of agents created for this species.
 
@@ -310,7 +308,7 @@ experiment my_experiment type:gui  {
 
 Then you run the experiment, you may find something strange...
 
-![resources/images/exploringModel/same_simulation_2_species.png](../resources/images/exploringModel/same_simulation_2_species.png)
+![resources/images/exploringModel/same_simulation_2_species.png](/resources/images/exploringModel/same_simulation_2_species.png)
 
 Even if the first step seems ok (the greed agent and one of the two red agent is initialized with the same location), the simulation differs completly. You should have expected to have the same behavior for the greed agent in both of the simulation, but it is not the case. The explaination of this behavior is that a random number generator has generated more random numbers in the second simulation than in the first one.
 

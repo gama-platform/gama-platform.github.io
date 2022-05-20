@@ -1,7 +1,5 @@
 ---
-title: Defining export files
-id: version-1.8.1-DefiningExportFiles
-original_id: DefiningExportFiles
+title:  Defining export files
 ---
 
 [//]: # (startConcept|export_files)

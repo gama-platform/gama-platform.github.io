@@ -1,7 +1,5 @@
 ---
-title: Built-in Skills
-id: version-1.8.1-BuiltInSkills
-original_id: BuiltInSkills
+title:  Built-in Skills
 ---
 
 
@@ -416,7 +414,7 @@ This skill allows agents to be provided with actions and attributes in order to 
 	
 	
 	
-* returns: list<unknown> 			
+* returns: list&lt;unknown> 			
 * **`params`** (map): Connection parameters 			
 * **`onColumns`** (string): select string with question marks 			
 * **`onRows`** (list): List of values that are used to replace question marks 			

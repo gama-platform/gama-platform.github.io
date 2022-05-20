@@ -1,7 +1,5 @@
 ---
-title: 4. Movement on Graph
-id: version-1.8.1-IncrementalModel_step4
-original_id: IncrementalModel_step4
+title:  4. Movement on Graph
 ---
 
 This step illustrates how to load a graph and use it for the displacement of our agents.
@@ -15,7 +13,7 @@ This step illustrates how to load a graph and use it for the displacement of our
 * Definition of a new reflex for people agents: **`stay`**.
 * Modification of the `move` reflex of the people agents.
 
-![Incremental tutorial 4: make people move on the roads.](../resources/images/tutorials/Incremental_model4.png)
+![Incremental tutorial 4: make people move on the roads.](/resources/images/tutorials/Incremental_model4.png)
 
 
 

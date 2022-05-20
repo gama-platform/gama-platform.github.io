@@ -1,7 +1,5 @@
 ---
-title: Advanced Driving Skill
-id: version-1.8.1-UsingDrivingSkill
-original_id: UsingDrivingSkill
+title:  Advanced Driving Skill
 ---
 
 [//]: # (keyword|concept_transport)
@@ -30,12 +28,12 @@ The use of the advanced driving skill requires to use 3 skills:
 The advanced driving skill is versatile enough to be usable with most of classic road GIS data, in particular, OSM data. We use a classic format for the roads and nodes. Each road is a polyline composed of road sections (segments). Each road has a target node and a source node. Each node knows all its input and output roads. A road is considered as directed. For bidirectional roads, 2 roads have to be defined corresponding to both directions. Each road will be the **`linked_road`** of the other. Note that for some GIS data, only one road is defined for bidirectional roads, and the nodes are not explicitly defined. In this case, it is very easy, using the GAML language, to create the reverse roads and the corresponding nodes (it only requires a few lines of GAML).
 
 
-![Road structure in the Driving Skill](../resources/images/recipes/roads_structure.PNG) 
+![Road structure in the Driving Skill](/resources/images/recipes/roads_structure.PNG) 
 
 A lane can be composed of several lanes and the vehicles will be able to change at any time its lane. Another property of the road that will be taken into account is the maximal authorized speed on it. Note that even if the user of the plug-in has no information about these values for some of the roads (the OSM data are often incomplete), it is very easy using the GAML language to fill the missing value by a default value. It is also possible to change these values dynamically during the simulation (for example, to take into account that after an accident, a lane of a road is closed or that the speed of a road is decreased by the authorities).
 
 
-![Roads representation in the driving skill.](../resources/images/recipes/roads.PNG) 
+![Roads representation in the driving skill.](/resources/images/recipes/roads.PNG) 
 
 The **road skill** (`skill_road`) provides the road agents with several variables that will define the road properties:
 
@@ -113,24 +111,24 @@ speed_driver = Min(max_speed_driver, Min(real_speed_driver + max_acceleration_dr
 Then, the agent moves toward the current target and compute the remaining time. During the movement, the agents can change lanes (see below). If the agent reaches its final target, it stops; if it reaches its current target (that is not the final target), it tests if it can cross the intersection to reach the next road of the current path. If it is possible, it defines its new target (target node of the next road) and continues to move.
 
 
-![Activity diagram describing the driver behavior.](../resources/images/recipes/drive_action.png) 
+![Activity diagram describing the driver behavior.](/resources/images/recipes/drive_action.png) 
 
 The function that defines if the agent crosses or not the intersection to continue to move works as follow: first, it tests if the road is blocked by a driver at the intersection (if the road is blocked, the agent does not cross the intersection). Then, if there is at least one stop signal at the intersection (traffic signal, stop sign...), for each of these signals, the agent tests its probability to respect or not the signal (note that the agent has a specific probability to respect each type of signals). If there is no stopping signal or if the agent does not respect it, the agent checks if there is at least one vehicle coming from a right (or left if the agent drives on the left side) road at a distance lower than its security distance. If there is one, it tests its probability to respect this priority. If there is no vehicle from the right roads or if it chooses to do not respect the right priority, it tests if it is possible to cross the intersection to its target road without blocking the intersection (i.e. if there is enough space in the target road). If it can cross the intersection, it crosses it; otherwise, it tests its probability to block the node: if the agent decides nevertheless to cross the intersection, then the perpendicular roads will be blocked at the intersection level (these roads will be unblocked when the agent is going to move).
 
 
 
-![Activity diagram of driver behavior when stopped at an intersection.](../resources/images/recipes/stop_at_intersection.png) 
+![Activity diagram of driver behavior when stopped at an intersection.](/resources/images/recipes/stop_at_intersection.png) 
 
 
 Concerning the movement of the driver agents on the current road, the agent moves from a section of the road (i.e. segment composing the polyline) to another section according to the maximal distance that the agent can moves (that will depend on the remaining time). For each road section, the agent first computes the maximal distance it can travel according to the remaining time and its speed. Then, the agent computes its security distance according to its speed and its `security_distance_coeff`. While its remaining distance is not null, the agent computes the maximal distance it can travel (and the corresponding lane), then it moves according to this distance (and update its current lane if necessary). If the agent is not blocked by another vehicle and can reach the end of the road section, it updates its current road section and continues to move.
 
 
-![Activity diagram of the following action of the advanced driving skill.](../resources/images/recipes/follow_driving.png) 
+![Activity diagram of the following action of the advanced driving skill.](/resources/images/recipes/follow_driving.png) 
 
 The computation of the maximal distance an agent can move on a road section consists of computing for each possible lane the maximal distance the agent can move. First, if there is a lower lane, the agent tests the probability to change its lane to a lower one. If it decides to test the lower lane, the agent computes the distance to the next vehicle on this lane and memorizes it. If this distance corresponds to the maximal distance it can travel, it chooses this lane; otherwise, it computes the distance to the next vehicle on its current lane and memorizes it if it is higher than the current memorized maximal distance. Then if the memorized distance is lower than the maximal distance the agent can travel and if there is an upper lane, the agents test the probability to change its lane to an upper one. If it decides to test the upper lane, the agent computes the distance to the next vehicle on this lane and memorizes it if it is higher than the current memorized maximal distance. At last, if the memorized distance is still lower than the maximal distance it can travel if the agent is on the highest lane and if there is a reverse road, the agent tests the probability to use the reverse road (linked road). If it decides to use the reverse road, the agent computes the distance to the next vehicle on the lane 0 of this road and memorizes the distance if it is higher than the current memorized maximal distance.
 
 
-![Activity diagram of the driver behavior to define its maximum distance to others.](../resources/images/recipes/define_max_dist.png) 
+![Activity diagram of the driver behavior to define its maximum distance to others.](/resources/images/recipes/define_max_dist.png) 
 
 ## Application example
 
@@ -139,7 +137,7 @@ We propose a simple model to illustrate the driving skill. We define a driver sp
 
 
 
-![Simple example of the driving skill.](../resources/images/recipes/sim_snapshot.png) 
+![Simple example of the driving skill.](/resources/images/recipes/sim_snapshot.png) 
 
 The following code shows the definition of species to represent the road infrastructure:
 ```
@@ -250,4 +248,4 @@ In this code, we create the node agents from the node shapefile (while reading t
 * their probability to respect light signal is randomly drawn between 0.998 and 1;
 * their probability to block a node is randomly drawn between 0 and 0.003;  
 
-[The complete code of the model with the data can be found here](../resources/images/recipes/Rouentrafffic.zip).
+[The complete code of the model with the data can be found here](/resources/images/recipes/Rouentrafffic.zip).

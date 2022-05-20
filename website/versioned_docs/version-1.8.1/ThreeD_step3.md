@@ -1,7 +1,5 @@
 ---
-title: 3. Connections
-id: version-1.8.1-ThreeD_step3
-original_id: ThreeD_step3
+title:  3. Connections
 ---
 
 
@@ -10,7 +8,7 @@ original_id: ThreeD_step3
 
 * Mapping the network of connection
 
-[![3D tutorial: creation of a 3D distance graph amon cells.](../resources/images/tutorials/3D_model_3.png)](http://www.youtube.com/watch?feature=player_embedded&v=6ZlBU6xTcfw)
+[![3D tutorial: creation of a 3D distance graph amon cells.](/resources/images/tutorials/3D_model_3.png)](http://www.youtube.com/watch?feature=player_embedded&v=6ZlBU6xTcfw)
 
 
 
@@ -62,7 +60,7 @@ global {
 
 species cell skills: [moving3D] {
     rgb color;
-    list<cell> neighbors;
+    list&lt;cell> neighbors;
     int offset;
 
     reflex move {

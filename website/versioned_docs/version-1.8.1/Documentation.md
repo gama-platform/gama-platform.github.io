@@ -1,7 +1,5 @@
 ---
-title: Documentation
-id: version-1.8.1-Documentation
-original_id: Documentation
+title:  Documentation
 ---
 
 ## Table of contents 
@@ -166,7 +164,7 @@ The documentation is generate from the Java code thanks to the Java additional p
 
 Most of the annotations can contain a [`@doc`](DevelopingIndexAnnotations#doc) annotation, that can contain the main part of the documentation.
 
-For example, the `inter` ([inter](Operators#inter)) operator is commented using: 
+For example, the `inter` ([inter](OperatorsIM#inter)) operator is commented using: 
 ```java
 @doc(
   value = "the intersection of the two operands",
@@ -270,4 +268,4 @@ Here are the several steps you have to do:
 
 
 This following diagram explains roughly the workflow for the generation of the different files: 
-![resources/images/developpingExtension/generationFilesWorkflow.png](../resources/images/developpingExtension/generationFilesWorkflow.png)
+![resources/images/developpingExtension/generationFilesWorkflow.png](/resources/images/developpingExtension/generationFilesWorkflow.png)

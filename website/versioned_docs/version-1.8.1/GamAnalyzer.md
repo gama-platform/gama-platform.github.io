@@ -1,7 +1,5 @@
 ---
-title: Using GAMAnalyzer
-id: version-1.8.1-GamAnalyzer
-original_id: GamAnalyzer
+title:  Using GAMAnalyzer
 ---
 
 [//]: # (startConcept|run_several_models_using_gamanalyzer)

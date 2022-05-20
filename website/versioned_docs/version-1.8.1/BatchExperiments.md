@@ -1,7 +1,5 @@
 ---
-title: Defining Batch Experiments
-id: version-1.8.1-BatchExperiments
-original_id: BatchExperiments
+title:  Defining Batch Experiments
 ---
 
 

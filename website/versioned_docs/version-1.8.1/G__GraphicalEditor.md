@@ -1,14 +1,12 @@
 ---
-title: The Graphical Editor
-id: version-1.8.1-G__GraphicalEditor
-original_id: G__GraphicalEditor
+title:  The Graphical Editor
 ---
 
 
-The graphical editor that allows defining a GAMA model through a graphical interface (`gadl` files). It is based on the Graphiti Eclipse plugin. It allows as well to produce a graphical model (diagram) from a `gaml` model. A tutorial is available [here](G__GraphicalEditorTutorial).
+The graphical editor that allows defining a GAMA model through a graphical interface (`gadl` files). It is based on the Graphiti Eclipse plugin. It allows as well to produce a graphical model (diagram) from a `gaml` model.
 
 
-![images/graphical_editor/gm_predator_prey.png](../resources/images/graphicalEditor/gm_predator_prey.png)
+![images/graphical_editor/gm_predator_prey.png](/resources/images/graphicalEditor/gm_predator_prey.png)
 
 ## Table of contents 
 
@@ -49,7 +47,7 @@ Using the graphical editor requires to install the graphical modeling plug-in. S
 The graphical editor plug-in is called **Graphical\_modeling** and is directly available from the GAMA update site **http://updates.gama-platform.org/graphical_modeling**
 
 
-![install](../resources/images/graphicalEditor/installing_graphical_editor.JPG)
+![install](/resources/images/graphicalEditor/installing_graphical_editor.JPG)
 
 
 Note that the graphical editor is still under development. Updates of the plug-in will be added to the GAMA website. After installing the plug-in (and periodically), check for updates for this plug-in: in the "Help" menu, choose "Check for Updates" and install the proposed updates for the graphical modeling plug-in.
@@ -62,11 +60,11 @@ Note that the graphical editor is still under development. Updates of the plug-i
 A new diagram can be created in a new GAMA project. First, right-click on a project, then select "New" on the contextual menu.
 In the New Wizard, select "GAMA -> Model Diagram", then "Next>"
 
-![images/graphical_editor/newDiagram.png](../resources/images/graphicalEditor/newDiagram.png)
+![images/graphical_editor/newDiagram.png](/resources/images/graphicalEditor/newDiagram.png)
 
 In the next Wizard dialog, select the type of diagram (Empty, Skeleton or Example) then the name of the file and the author.
 
-![images/graphical_editor/modeldiagramNew.png](../resources/images/graphicalEditor/modeldiagramNew.png) 
+![images/graphical_editor/modeldiagramNew.png](/resources/images/graphicalEditor/modeldiagramNew.png) 
 
 Skeleton and Example diagram types allow to add to the diagram some basic features.
 
@@ -89,7 +87,7 @@ Experiment buttons are updated in real-time to reflect what's in your code. If m
 
 The following figure presents the editing framework:
 
-![images/graphical_editor/framework.png](../resources/images/graphicalEditor/framework.png)
+![images/graphical_editor/framework.png](/resources/images/graphicalEditor/framework.png)
 
 
 
@@ -100,26 +98,26 @@ The following figure presents the editing framework:
 ### agents
 #### species
 
-![images/graphical_editor/species.png](../resources/images/graphicalEditor/species.png)
+![images/graphical_editor/species.png](/resources/images/graphicalEditor/species.png)
 
 The species feature allows the modeler to define a species with a continuous topology. A species is always a micro-species of another species. The top-level (macro-species of all species) is the world species.
 
   * **source**: a species (macro-species)
   * **target**: -
 
-![images/graphical_editor/Frame_Speciesdef1.png](../resources/images/graphicalEditor/Frame_Speciesdef1.png)
+![images/graphical_editor/Frame_Speciesdef1.png](/resources/images/graphicalEditor/Frame_Speciesdef1.png)
 
 
 #### grid
 
-![images/graphical_editor/grid.png](../resources/images/graphicalEditor/grid.png)
+![images/graphical_editor/grid.png](/resources/images/graphicalEditor/grid.png)
 
 The grid feature allows the modeler to define a [species](ManipulateBasicSpecies) with a [grid topology](GridSpecies). A grid is always a micro-species of another species.
 
   * **source**: a species (macro-species)
   * **target**: -
 
-![images/graphical_editor/Frame_grid.png](../resources/images/graphicalEditor/Frame_grid.png)
+![images/graphical_editor/Frame_grid.png](/resources/images/graphicalEditor/Frame_grid.png)
 
 #### Inheriting link
 The inheriting link feature allows the modeler to define an inheriting link between two species.
@@ -127,94 +125,92 @@ The inheriting link feature allows the modeler to define an inheriting link betw
   * **source**: a species (parent)
   * **target**: a species (child)
 
-![images/graphical_editor/inhereting_link.png](../resources/images/graphicalEditor/inhereting_link.png)
+![images/graphical_editor/inhereting_link.png](/resources/images/graphicalEditor/inhereting_link.png)
 
 
 #### world
 
-![images/graphical_editor/world.png](../resources/images/graphicalEditor/world.png)
+![images/graphical_editor/world.png](/resources/images/graphicalEditor/world.png)
 
 When a model is created, a world species is always defined. It represents the global part of the model. The world species, which is unique, is the top-level species. All other species are micro-species of the world species.
 
-![images/graphical_editor/Frame_world.png](../resources/images/graphicalEditor/Frame_world.png)
+![images/graphical_editor/Frame_world.png](/resources/images/graphicalEditor/Frame_world.png)
 
 ### agent features
 
 #### action
 
-![images/graphical_editor/action.png](../resources/images/graphicalEditor/action.png)
+![images/graphical_editor/action.png](/resources/images/graphicalEditor/action.png)
 
 The action feature allows the modeler to define an action for a species.
 
   * **source**: a species (owner of the action)
   * **target**: -
 
-![images/graphical_editor/Frame_action.png](../resources/images/graphicalEditor/Frame_action.png)
+![images/graphical_editor/Frame_action.png](/resources/images/graphicalEditor/Frame_action.png)
 
 #### reflex
 
-![images/graphical_editor/reflex.png](../resources/images/graphicalEditor/reflex.png)
+![images/graphical_editor/reflex.png](/resources/images/graphicalEditor/reflex.png)
 
 The reflex feature allows the modeler to define a reflex for a species.
 
   * **source**: a species (owner of the reflex)
   * **target**: -
 
-![images/graphical_editor/Frame_reflex.png](../resources/images/graphicalEditor/Frame_reflex.png)
+![images/graphical_editor/Frame_reflex.png](/resources/images/graphicalEditor/Frame_reflex.png)
 
 #### aspect
 
-![images/graphical_editor/aspect.png](../resources/images/graphicalEditor/aspect.png)
+![images/graphical_editor/aspect.png](/resources/images/graphicalEditor/aspect.png)
 
 The aspect feature allows the modeler to define an aspect for a species.
 
   * **source**: a species (owner of the aspect)
   * **target**: -
 
-![images/graphical_editor/Frame_aspect.png](../resources/images/graphicalEditor/Frame_aspect.png)
+![images/graphical_editor/Frame_aspect.png](/resources/images/graphicalEditor/Frame_aspect.png)
 
 
-![images/graphical_editor/Frame_Aspect_layer.png](../resources/images/graphicalEditor/Frame_Aspect_layer.png)
+![images/graphical_editor/Frame_Aspect_layer.png](/resources/images/graphicalEditor/Frame_Aspect_layer.png)
 
 #### equation
-![images/graphical_editor/equation.png](../resources/images/graphicalEditor/equation.png)
+![images/graphical_editor/equation.png](/resources/images/graphicalEditor/equation.png)
 
 The equation feature allows the modeler to define an equation for a species.
 
   * **source**: a species (owner of the equation)
   * **target**: -
 
-![images/graphical_editor/Frame_Equation.png](../resources/images/graphicalEditor/Frame_Equation.png)
-
 ### experiment
 #### GUI experiment
 
-![images/graphical_editor/guiXP.png](../resources/images/graphicalEditor/guiXP.png)
+![images/graphical_editor/guiXP.png](/resources/images/graphicalEditor/guiXP.png)
 
 The GUI Experiment feature allows the modeler to define a GUI experiment.
 
   * **source**: world species
   * **target**: -
 
-![images/graphical_editor/Frame_Experiment.png](../resources/images/graphicalEditor/Frame_Experiment.png)
+![images/graphical_editor/Frame_Experiment.png](/resources/images/graphicalEditor/Frame_Experiment.png)
 
 #### display
 
-![images/graphical_editor/display.png](../resources/images/graphicalEditor/display.png)
+![images/graphical_editor/display.png](/resources/images/graphicalEditor/display.png)
 
 The display feature allows the modeler to define a display.
 
   * **source**: GUI experiment
   * **target**: -
 
-![images/graphical_editor/Frame_display.png](../resources/images/graphicalEditor/Frame_display.png)
+![images/graphical_editor/Frame_display.png](/resources/images/graphicalEditor/Frame_display.png)
 
 
-![images/graphical_editor/Frame_layer_display.png](../resources/images/graphicalEditor/Frame_layer_display.png)
+![images/graphical_editor/Frame_layer_display.png](/resources/images/graphicalEditor/Frame_layer_display.png)
 
 #### batch experiment
 
-![images/graphical_editor/batchxp.png](../resources/images/graphicalEditor/batchxp.png)
+![images/graphical_editor/batchxp.png](/resources/images/graphicalEditor/batchxp.png)
 
 The Batch Experiment feature allows the modeler to define a Batch experiment.
 
@@ -227,7 +223,7 @@ The Batch Experiment feature allows the modeler to define a Batch experiment.
 ### BDI Architecture
 #### Plan
 
-![images/graphical_editor/plan.png](../resources/images/graphicalEditor/plan.png)
+![images/graphical_editor/plan.png](/resources/images/graphicalEditor/plan.png)
 
 The Plan feature allows the modeler to define a plan for a BDI species, i.e. a sequence of statements that will be executed in order to fulfill a particular intention.
 
@@ -236,7 +232,7 @@ The Plan feature allows the modeler to define a plan for a BDI species, i.e. a s
 
 #### Rule
 
-![images/graphical_editor/rule.png](../resources/images/graphicalEditor/rule.png)
+![images/graphical_editor/rule.png](/resources/images/graphicalEditor/rule.png)
 
 The Rule feature allows the modeler to define a rule for a BDI species, i.e. a function executed at each iteration to infer new desires or beliefs from the agent’s current beliefs and desires.
 
@@ -245,7 +241,7 @@ The Rule feature allows the modeler to define a rule for a BDI species, i.e. a f
 
 #### Perception
 
-![images/graphical_editor/perception.png](../resources/images/graphicalEditor/perception.png)
+![images/graphical_editor/perception.png](/resources/images/graphicalEditor/perception.png)
 
 The Perception feature allows the modeler to define a perception for a BDI species, i.e. a function executed at each iteration that updates the agent’s Belief base according to the agent perception.
 
@@ -255,7 +251,7 @@ The Perception feature allows the modeler to define a perception for a BDI speci
 ### Finite State Machine Architecture
 #### State
 
-![images/graphical_editor/state.png](../resources/images/graphicalEditor/state.png)
+![images/graphical_editor/state.png](/resources/images/graphicalEditor/state.png)
 
 The State feature allows the modeler to define a state for a FSM species, i.e. sequence of statements that will be executed if the agent is in this state (an agent has a unique state at a time).
 
@@ -266,7 +262,7 @@ The State feature allows the modeler to define a state for a FSM species, i.e. s
 ### Task-based Architecture
 #### Task
 
-![images/graphical_editor/task.png](../resources/images/graphicalEditor/task.png)
+![images/graphical_editor/task.png](/resources/images/graphicalEditor/task.png)
 
 The Task feature allows the modeler to define a task for a Tasked-based species, i.e. sequence of statements that can be executed, at each time step, by the agent. If an agent owns several tasks, the scheduler chooses a task to execute based on its current priority weight value.
 

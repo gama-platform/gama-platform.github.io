@@ -1,7 +1,5 @@
 ---
-title: The 'agent' built-in species (Under Construction)
-id: version-1.8.1-AgentBuiltIn
-original_id: AgentBuiltIn
+title:  The 'agent' built-in species (Under Construction)
 ---
 
 

@@ -1,7 +1,5 @@
 ---
-title: Defining actions and behaviors
-id: version-1.8.1-DefiningActionsAndBehaviors
-original_id: DefiningActionsAndBehaviors
+title:  Defining actions and behaviors
 ---
 
 [//]: # (startConcept|actions_and_behaviors)
@@ -114,7 +112,7 @@ NB: Init is a special reflex, that occurs only when the agent is created.
 
 To practice a bit with those notions, we will build an easy example. Let's build a model with a species balloon that has 2 attributes: balloon_size (float) and balloon_color (rgb). Each balloon has a random position and color, his aspect is a sphere. Each step, a balloon has a probability to spawn in the environment. Once a balloon is created, its size is 10cm, and each step, the size increases by 1cm. Once the balloon size reaches 50cm, the balloon has a probability to burst. Once 10 balloons are destroyed, the simulation stops. The volume of each balloon is displayed in the balloon position.
 
-![images/burst_the_baloon.png](../resources/images/manipulateBasicSpecies/burst_the_baloon.png) 
+![images/burst_the_baloon.png](/resources/images/manipulateBasicSpecies/burst_the_baloon.png) 
 
 Here is one of the multiple possible implementations:
 

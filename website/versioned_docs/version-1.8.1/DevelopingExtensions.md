@@ -1,7 +1,5 @@
 ---
-title: Developing Extensions
-id: version-1.8.1-DevelopingExtensions
-original_id: DevelopingExtensions
+title:  Developing Extensions
 ---
 
 

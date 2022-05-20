@@ -1,7 +1,5 @@
 ---
-title: Developing Plugins
-id: version-1.8.1-DevelopingPlugins
-original_id: DevelopingPlugins
+title:  Developing Plugins
 ---
 
 

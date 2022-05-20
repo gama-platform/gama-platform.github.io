@@ -1,7 +1,5 @@
 ---
-title: Using Database Access
-id: version-1.8.1-UsingDatabase
-original_id: UsingDatabase
+title:  Using Database Access
 ---
 
 [//]: # (startConcept|use_database)
@@ -92,7 +90,7 @@ In the actions defined in the SQLSkill, a parameter containing the connection pa
 
 ```
 // POSTGRES connection parameter
-map <string, string>  POSTGRES <- [
+map &lt;string, string>  POSTGRES <- [
      'host'::'localhost',
      'dbtype'::'postgres',
      'database'::'BPH',
@@ -101,12 +99,12 @@ map <string, string>  POSTGRES <- [
      'passwd'::'abc'];
 
 //SQLite
-map <string, string>  SQLITE <- [
+map &lt;string, string>  SQLITE <- [
     'dbtype'::'sqlite',
     'database'::'../includes/meteo.db'];
 
 // SQLSERVER connection parameter
-map <string, string> SQLSERVER <- [
+map &lt;string, string> SQLSERVER <- [
     'host'::'localhost',
     'dbtype'::'sqlserver',
     'database'::'BPH',
@@ -115,7 +113,7 @@ map <string, string> SQLSERVER <- [
     'passwd'::'abc'];
 
 // MySQL connection parameter
-map <string, string>  MySQL <- [
+map &lt;string, string>  MySQL <- [
     'host'::'localhost',
     'dbtype'::'MySQL',
     'database'::'', // it may be a null string
@@ -165,16 +163,16 @@ The action creates a connection to a DBMS and executes the select statement. If 
 **Example**: select data from table points
 
 ```
-map <string, string>   PARAMS <- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
-list<list> t <- list<list> (self select(params:PARAMS, 
+map &lt;string, string>   PARAMS <- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
+list&lt;list> t <- list&lt;list> (self select(params:PARAMS, 
 		                 select:"SELECT * FROM points ;"));
 ```
 
 **Example**: select data from table point with question marks from table points
 
 ```
-map <string, string>   PARAMS <- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
-list<list> t <- list<list> (self select(params: PARAMS, 
+map &lt;string, string>   PARAMS <- ['dbtype'::'sqlite', 'database'::'../includes/meteo.db'];
+list&lt;list> t <- list&lt;list> (self select(params: PARAMS, 
                                            select: "SELECT temp_min FROM points where (day>? and day<?);"
                                            values: [10,20] ));
 ```
@@ -198,7 +196,7 @@ list<list> t <- list<list> (self select(params: PARAMS,
 **Example**: Insert data into table registration
 
 ```
-map<string, string> PARAMS <- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
+map&lt;string, string> PARAMS <- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
 
 do insert (params: PARAMS, 
                into: "registration", 
@@ -232,7 +230,7 @@ The action executeUpdate executes an update command (create/insert/delete/drop) 
 **Examples**: Using action executeUpdate do sql commands (create, insert, update, delete and drop).
 
 ```
-map<string, string> PARAMS <- ['dbtype'::'sqlite',  'database'::'../../includes/Student.db'];
+map&lt;string, string> PARAMS <- ['dbtype'::'sqlite',  'database'::'../../includes/Student.db'];
 // Create table
 do executeUpdate (params: PARAMS, 
                               updateComm: "CREATE TABLE registration" 
@@ -303,7 +301,7 @@ In the actions defined in the SQLSkill, a parameter containing the connection pa
 
 ```
 //Connect SQL Server Analysis Services via XMLA
-	map<string,string> SSAS <- [
+	map&lt;string,string> SSAS <- [
 				'olaptype'::'SSAS/XMLA',
 				'dbtype'::'sqlserver',
 				'host'::'172.17.88.166',
@@ -313,7 +311,7 @@ In the actions defined in the SQLSkill, a parameter containing the connection pa
 				'passwd'::'abc'];
 
 //Connect Mondriam server via XMLA
-	map<string,string>  MONDRIANXMLA <- [
+	map&lt;string,string>  MONDRIANXMLA <- [
 				'olaptype'::"MONDRIAN/XMLA",
 				'dbtype'::'postgres',
 				'host'::'localhost',
@@ -324,7 +322,7 @@ In the actions defined in the SQLSkill, a parameter containing the connection pa
 				'passwd'::'abc'];
 
 //Connect a ROLAP server using Mondriam API	
-	map<string,string>  MONDRIAN <- [
+	map&lt;string,string>  MONDRIAN <- [
 				'olaptype'::'MONDRIAN',
 				'dbtype'::'postgres',
 				'host'::'localhost',
@@ -401,7 +399,7 @@ if (self testConnection[ params::SSAS]){
 
 ```
 if (self testConnection(params:MONDRIANXMLA)){
-	list<list> l2  <- list<list> (self select(params: MONDRIANXMLA, 
+	list&lt;list> l2  <- list&lt;list> (self select(params: MONDRIANXMLA, 
 	onColumns:" {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} ",
 	onRows:"  Hierarchize(Union(Union(Union({([Promotion Media].[All Media],"
  	+" [Product].[All Products])}, "
@@ -452,7 +450,7 @@ This action makes a connection to DBMS. If a connection is established then it w
 
 ```
 // POSTGRES connection parameter
-map <string, string>  POSTGRES <- [
+map &lt;string, string>  POSTGRES <- [
                                         'host'::'localhost',
                                         'dbtype'::'postgres',
                                         'database'::'BPH',
@@ -556,7 +554,7 @@ Because of the connection to database of AgentDB is kept alive then AgentDB can 
 **Examples**:
 
 ```
-map<string, string> PARAMS <- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
+map&lt;string, string> PARAMS <- ['dbtype'::'sqlite', 'database'::'../../includes/Student.db'];
 ask agentDB {
    do connect (params: PARAMS);
    // Create table
@@ -574,7 +572,7 @@ ask agentDB {
    do executeUpdate (updateComm: "INSERT INTO registration VALUES(?, ?, ?, ?);",  
 	 values: [101, 'Mr', 'Mme', 45]);
    //select
-    list<list> t <- list<list> (self select( 
+    list&lt;list> t <- list&lt;list> (self select( 
 	 select:"SELECT * FROM registration;"));
     //update 
     int n <-  executeUpdate (updateComm: "UPDATE registration SET age = 30 WHERE id IN (100, 101)");
@@ -609,7 +607,7 @@ In Gama, we can use results of select action of SQLSKILL or AgentDB to create sp
 **Example**:
 
 ```
-map<string,string> BOUNDS <- [	
+map&lt;string,string> BOUNDS <- [	
 	//'srid'::'32648',
 	'host'::'localhost',								
         'dbtype'::'postgres',
@@ -644,7 +642,7 @@ species toto skills: SQLSKILL {
 
 ```
 global {
-	map<string,string>  PARAMS <- ['dbtype'::'sqlite','database'::'../includes/bph.sqlite'];
+	map&lt;string,string>  PARAMS <- ['dbtype'::'sqlite','database'::'../includes/bph.sqlite'];
 	string location <- 'select ID_4, Name_4, ST_AsBinary(geometry) as geom from vnm_adm4 
                                       where id_2=38253 or id_2=38254;';
 	...
@@ -679,7 +677,7 @@ species toto skills: SQLSKILL {
 
 ```
 global {
-	map<string,string> PARAMS <-  ['host'::'localhost', 'dbtype'::'Postgres', 'database'::'', 
+	map&lt;string,string> PARAMS <-  ['host'::'localhost', 'dbtype'::'Postgres', 'database'::'', 
                                                             'port'::'5433', 'user'::'postgres', 'passwd'::'tmt'];
 
 	init {

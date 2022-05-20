@@ -1,7 +1,5 @@
 ---
-title: Built-in Architectures
-id: version-1.8.1-BuiltInArchitectures
-original_id: BuiltInArchitectures
+title:  Built-in Architectures
 ---
 
  	
@@ -467,21 +465,21 @@ get the predicates is in the belief base (if several, returns the first one).
 
 get the list of predicates in the belief base
 
-* returns: list<mental_state> 			
+* returns: list&lt;mental_state> 			
 * **`predicate`** (predicate): predicate to check  
 	 
 #### **`get_beliefs_metal_state`**
 
 get the list of bliefs in the belief base containing the mental state
 
-* returns: list<mental_state> 			
+* returns: list&lt;mental_state> 			
 * **`mental_state`** (mental_state): mental state to check  
 	 
 #### **`get_beliefs_with_name`**
 
 get the list of predicates is in the belief base with the given name.
 
-* returns: list<mental_state> 			
+* returns: list&lt;mental_state> 			
 * **`name`** (string): name of the predicates to check  
 	 
 #### **`get_current_intention`**
@@ -521,21 +519,21 @@ get the predicates is in the belief base (if several, returns the first one).
 
 get the list of predicates is in the desire base
 
-* returns: list<mental_state> 			
+* returns: list&lt;mental_state> 			
 * **`predicate`** (predicate): name of the predicates to check  
 	 
 #### **`get_desires_mental_state`**
 
 get the list of mental states is in the desire base
 
-* returns: list<mental_state> 			
+* returns: list&lt;mental_state> 			
 * **`mental_state`** (mental_state): name of the mental states to check  
 	 
 #### **`get_desires_with_name`**
 
 get the list of predicates is in the belief base with the given name.
 
-* returns: list<mental_state> 			
+* returns: list&lt;mental_state> 			
 * **`name`** (string): name of the predicates to check  
 	 
 #### **`get_emotion`**
@@ -591,21 +589,21 @@ get the predicates is in the belief base (if several, returns the first one).
 
 get the list of predicates is in the intention base
 
-* returns: list<mental_state> 			
+* returns: list&lt;mental_state> 			
 * **`predicate`** (predicate): name of the predicates to check  
 	 
 #### **`get_intentions_mental_state`**
 
 get the list of mental state is in the intention base
 
-* returns: list<mental_state> 			
+* returns: list&lt;mental_state> 			
 * **`mental_state`** (mental_state): mental state to check  
 	 
 #### **`get_intentions_with_name`**
 
 get the list of predicates is in the belief base with the given name.
 
-* returns: list<mental_state> 			
+* returns: list&lt;mental_state> 			
 * **`name`** (string): name of the predicates to check  
 	 
 #### **`get_obligation`**
@@ -626,7 +624,7 @@ get the first plan with the given name
 
 get the list of plans.
 
-* returns: list<BDIPlan>  
+* returns: list&lt;BDIPlan>  
 	 
 #### **`get_social_link`**
 

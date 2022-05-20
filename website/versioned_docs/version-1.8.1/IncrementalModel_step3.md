@@ -1,7 +1,5 @@
 ---
-title: 3. Integration of GIS Data
-id: version-1.8.1-IncrementalModel_step3
-original_id: IncrementalModel_step3
+title:  3. Integration of GIS Data
 ---
 
 
@@ -13,7 +11,7 @@ This step illustrates how to load and agentry GIS data.
 * Load, agentify and display two layers of GIS data (building and road).
 * Modify the initialization of the people agents to put them inside buildings.
 
-![Incremental model 3: integration of shapefile data inside the model.](../resources/images/tutorials/Incremental_model3.png)
+![Incremental model 3: integration of shapefile data inside the model.](/resources/images/tutorials/Incremental_model3.png)
 
 
 

@@ -1,13 +1,11 @@
 ---
-title: Developing Species
-id: version-1.8.1-DevelopingSpecies
-original_id: DevelopingSpecies
+title:  Developing Species
 ---
 
 
 
 
-Additional [built-in species](BuiltInSpecies) can be defined in Java in order to be used in GAML models. Additional attributes and actions can be defined. It could be very useful in order to define its behavior thanks to external libraries (e.g. [mulit-criteria decision-making](OtherBuiltInSpecies), [database connection](OtherBuiltInSpecies)...).
+Additional [built-in species](BuiltInSpecies) can be defined in Java in order to be used in GAML models. Additional attributes and actions can be defined. It could be very useful in order to define its behavior thanks to external libraries (e.g. [multi-criteria decision-making](MultiParadigmModeling), [database connection](UsingDatabase#connect-to-database)...).
 
 A new built-in species extends the `GamlAgent` class, which defines the basic GAML agents. As a consequence, new built-in species have all the attributes (`name`, `shape`, ...) and actions (`die`...) of [regular species](AgentBuiltIn).
 

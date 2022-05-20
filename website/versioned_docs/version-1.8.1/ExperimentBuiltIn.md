@@ -1,7 +1,5 @@
 ---
-title: The 'experiment' built-in species (Under Construction)
-id: version-1.8.1-ExperimentBuiltIn
-original_id: ExperimentBuiltIn
+title:  The 'experiment' built-in species (Under Construction)
 ---
 
 

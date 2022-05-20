@@ -1,7 +1,5 @@
 ---
-title: Defining displays (Generalities)
-id: version-1.8.1-DefiningDisplaysGeneralities
-original_id: DefiningDisplaysGeneralities
+title:  Defining displays (Generalities)
 ---
 
 [//]: # (startConcept|2d_displays)
@@ -102,7 +100,7 @@ experiment expe type: gui {
 
 Will have this output:
 
-![Example of 3 layers in a display showing that the last one can hide the lower ones.](../resources/images/definingGUIExperiment/layers_order.png)
+![Example of 3 layers in a display showing that the last one can hide the lower ones.](/resources/images/definingGUIExperiment/layers_order.png)
 
 Most of the layers have the `transparency` facet in order to see the layers which are under.
 
@@ -121,7 +119,7 @@ experiment expe type:gui {
 }
 ```
 
-![Example of use of the transparency in a layer.](../resources/images/definingGUIExperiment/layers_transparency.png)
+![Example of use of the transparency in a layer.](/resources/images/definingGUIExperiment/layers_transparency.png)
 
 To specify a position and a size for your layer, you can use the `position` and the `size` facets.
 The `position` facet is used with a point type, between `{0,0}` and `{1,1}`, which corresponds to the position of the upper left corner of your layer in percentage. Then, if you choose the point `{0.5,0.5}`, the upper left corner of your layer will be in the center of your display. By default, this value is `{0,0}`.
@@ -145,7 +143,7 @@ experiment expe type:gui {
 }
 ```
 
-![Illustration of the use of the size and position facet of a layer.](../resources/images/definingGUIExperiment/layers_size_position.png)
+![Illustration of the use of the size and position facet of a layer.](/resources/images/definingGUIExperiment/layers_size_position.png)
 
 NB: `displays` can have a `background`, while `graphics` can't. If you want to put a background for your `graphics`, a solution can be to draw the `shape` of the world (which is, by default, a square 100m*100m).
 
