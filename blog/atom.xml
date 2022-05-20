@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://gama-platform.org/blog</id>
+    <title>GAMA Platform Blog</title>
+    <updated>2022-05-10T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://gama-platform.org/blog"/>
+    <subtitle>GAMA Platform Blog</subtitle>
+    <icon>https://gama-platform.org/img/gama-logo.png</icon>
+    <entry>
+        <title type="html"><![CDATA[GAMA Coding camp 2022]]></title>
+        <id>/2022/05/10/coding-camp</id>
+        <link href="https://gama-platform.org/blog/2022/05/10/coding-camp"/>
+        <updated>2022-05-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[CodingCamp]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" alt="CodingCamp" src="/assets/images/coding_camp_2022-14e869a813eb757941211cc2389294ab.jpeg" width="1280" height="958" class="img_E7b_"></p><p>From the 4th to the 9th of May 2022 the Gama team held a Coding camp gathering Gama enthusiasts in Tam Cốc at <a href="https://lejournaldeloan.com" target="_blank" rel="noopener noreferrer">Chez Loan</a> to work on the next Gama release and on future models.</p><p>The main focus was on getting a last round of development to finish Gama 1.8.2, that will be released in the coming days, together with a brand new website and a clean documentation. More than that, we already started important discussions about the architecture of Gama 2.0 and its development cycle.
+We also had workshops around a future model supporting a serious game about the waste management system in Bắc Hưng Hải irrigation system. The model provides visual support to spatialize the players actions.</p><p>For those interested, you can already try the Release Candidate of Gama 1.8.2 <a href="https://github.com/gama-platform/gama/releases/tag/1.8.2-RC1" target="_blank" rel="noopener noreferrer">here</a></p><p>Thanks to all the participants for your hard work and good spirits.</p>]]></content>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+        <category label="event" term="event"/>
+        <category label="coding camp" term="coding camp"/>
+        <category label="vietnam" term="vietnam"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GAMA Days 2021]]></title>
+        <id>/2021/03/26/gama-days-2021</id>
+        <link href="https://gama-platform.org/blog/2021/03/26/gama-days-2021"/>
+        <updated>2021-03-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[City]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" alt="City" src="/assets/images/cities_gama-71a9449a5dc30e8e81dd29a232ee4fa2.png" width="709" height="530" class="img_E7b_"></p><p>GAMA days 2021 is the 1st Conference where users, modelers and developers of the GAMA modeling and simulation platform will have an opportunity to meet, present their work, expose their difficulties, propose enhancements and, more generally, exchange and collaborate on exciting topics related to GAMA!
+Besides models themselves, which will constitute the main focus of the conference, we also seek original contributions on three transversal themes, from the point of view of users:</p><ul><li>GAMA and training: how to teach modeling and simulation using GAMA? How to teach using GAMA itself? What kind of pedagogical material should be available? How to share this material? Share training experiences? </li><li>GAMA Missing features: what are the most important features missing in GAMA? Extensions that should be developed urgently? Capabilities overlooked for too many years? Integrations with other tools missing? </li><li>Next generation GAMA: how should a platform like GAMA evolve in the next 10 years? Which roadmaps should we define? Which technological advances, necessary for users, should be embraced? </li></ul><p>Co-organized by MIAT (INRAE), IRIT (CNRS, INPT, Toulouse universities) and UMMISCO (IRD) laboratories, the event will be held from June 23 to 25, 2021. Due to the covid-19 pandemics and in order to allow the participation of as many people as possible, the GAMA days will take place online and registration will be free.</p><p><strong>Official Website:</strong> <a href="https://www.irit.fr/GamaDays2021/" target="_blank" rel="noopener noreferrer">https://www.irit.fr/GamaDays2021/</a></p><p><strong>Steering committee:</strong></p><ul><li>Frédéric Amblard - <em>UT1, UMR IRIT</em></li><li>Kevin Chapuis - <em>IRD, UMI UMMISCO</em></li><li>Alexis Drogoul - <em>IRD, UMI UMMISCO</em></li><li>Benoit Gaudou - <em>UT1/IRD, UMR IRIT/UMI UMMISCO</em></li><li>Dominique Longin - <em>CNRS, UMR IRIT</em></li><li>Nicolas Verstaevel - <em>UT1, UMR IRIT</em></li></ul><p><strong>Organizer:</strong> </p><ul><li>Patrick Taillandier - <em>INRAE, MIAT</em></li></ul><p><strong>Program committee:</strong></p><ul><li>Carole Adam - <em>UGA, LIG Laboratory</em></li><li>Diana F. Adamatti - <em>Universidade Federal do Rio Grande, FURG</em></li><li>Conceição de Maria A Alves - <em>Department of Civil and Environmental Engineering, University of Brasilia</em></li><li>Arnaud Banos - <em>CNRS, IDEES Laboratory</em></li><li>Johan Barthélémy - <em>University of Wollongong, SMART Infrastructure</em></li><li>Srirama Bhamidipati - <em>University of Delft</em></li><li>Eric Daudé - <em>CNRS, IDEES Laboratory</em></li><li>Julie Dugdale - <em>UGA, LIG Laboratory</em></li><li>Arnaud Grignard - <em>MIT, MediaLab</em></li><li>Myriam Grillot - <em>INRAE, AGIR Laboratory</em></li><li>Quang Nghi Huynh - <em>University of Can Tho, DREAM laboratory</em></li><li>Simone Z Leao - <em>City Futures Research Centre, Faculty of Built Environment, University of New South Wales, Sydney</em></li><li>Nicolas Marilleau - <em>IRD, UMMISCO Laboratory</em></li><li>Sébastien Rey-Coyrehourcq - <em>University of Rouen, IDEES Laboratory</em></li><li>Franck Taillandier - <em>INRAE, RECOVER Laboratory</em></li><li>Youcef Sklab - <em>IRD, UMMISCO Laboratory</em></li><li>Olivier Therond - <em>INRAE, LAE Laboratory</em></li><li>Rallou Thomopoulos - <em>INRAE, IATE Laboratory</em></li><li>Jean Villerd - <em>INRAE, LAE Laboratory</em></li><li>Gudrun Walletin - <em>Universität Salzburg, ZGIS Team</em></li></ul>]]></content>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+        <category label="even" term="even"/>
+        <category label="gama days" term="gama days"/>
+        <category label="toulouse" term="toulouse"/>
+        <category label="france" term="france"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[COMOKIT 1.0.1 is out]]></title>
+        <id>/2020/07/01/comokit101</id>
+        <link href="https://gama-platform.org/blog/2020/07/01/comokit101"/>
+        <updated>2020-07-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We are thrilled  to announce the release of version 1.0.1 of COMOKIT, as well as its official archiving on the COMSES website.]]></summary>
+        <content type="html"><![CDATA[<p>We are thrilled  to announce the release of version 1.0.1 of <a href="https://comokit.org" target="_blank" rel="noopener noreferrer">COMOKIT</a>, as well as its official archiving on the <a href="https://www.comses.net/codebases/7d686bf0-ff0a-46c0-b4a6-d341ef9e13c2/releases/1.0.1/" target="_blank" rel="noopener noreferrer">COMSES website</a>.</p><p>COMOKIT, the COVID-19 modeling kit built on GAMA, is a computer model that allows in silico exploration of intervention policies before their implementation phase. It can take into account important dimensions of policy actions, such as the heterogeneity of individual responses or the spatial aspect of containment strategies. </p><p>COMOKIT 1.0.1 is a bugfix version that makes it easier to create case studiees. It comes pre-bundled with sample datasets, which you can adapt to your case studies. Others are also available on <a href="https://github.com/COMOKIT/COMOKIT-Datasets" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>]]></content>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+        <category label="comokit" term="comokit"/>
+        <category label="covid19" term="covid19"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release of GAMA 1.8.1]]></title>
+        <id>/2020/06/22/release181</id>
+        <link href="https://gama-platform.org/blog/2020/06/22/release181"/>
+        <updated>2020-06-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[GAMA Logo]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" src="https://avatars0.githubusercontent.com/u/1560449?s=200&amp;v=4" alt="GAMA Logo" class="img_E7b_"></p><p>We are pleased to release version 1.8.1 of the GAMA modelling and simulation platform. It is mainly a bug fix release, with a few minor enhancements. See the <a href="https://gama-platform.github.io/release" target="_blank" rel="noopener noreferrer">changelog here</a> (or on <a href="https://github.com/gama-platform/gama/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer">GitHub here</a>). </p><p>All the models running on 1.8 should work without changes on 1.8.1. As usual, make a backup of your files before upgrading and report any issues here.</p>]]></content>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+        <category label="release" term="release"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GAMA Platform is now on Docker]]></title>
+        <id>/2020/02/20/gama-docker</id>
+        <link href="https://gama-platform.org/blog/2020/02/20/gama-docker"/>
+        <updated>2020-02-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Containers]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" src="https://images.unsplash.com/photo-1493946740644-2d8a1f1a6aff" alt="Containers" class="img_E7b_"></p><p>We are excited to share the details of a new development - a packaging and deployment methodology for the GAMA Platform headless application using Docker.</p><p>Docker tooling helps simplify and streamline the complexities associated with full build-configure-and-push strategies. Our aim is to keep the Dockerfile content as simple as possible in order to help the widest possible audience to understand and use this.</p><h2 class="anchor anchorWithStickyNavbar_mojV" id="why-docker">Why Docker?<a class="hash-link" href="#why-docker" title="Direct link to heading">​</a></h2><ul><li>Docker provides a robust platform for Continuous Delivery, Continuous Integration and Continuous Deployment, facilitating delivery of innovation faster.</li><li>Facilitates customers packaging their configured systems into images and containers</li><li>Facilitates easy portability to virtual machines or bare metal servers, on-premise or in the cloud (IaaS)</li><li>Docker provides a transparent mechanism that facilitates collaboration with the open-source community, facilitating rapid convergence on best practices for DevOps (build, functional/PSR test, demo, deploy).</li></ul><h2 class="anchor anchorWithStickyNavbar_mojV" id="what-for">What for<a class="hash-link" href="#what-for" title="Direct link to heading">​</a></h2><p>This container aim to help the usage of the GAMA headless to everyone. Thanks to that container, you'll be able to easily deploy a container on  </p><p><a href="https://github.com/gama-platform/gama.docker" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://i.imgur.com/bCXNqmJ.png" alt="Github gama.docker" class="img_E7b_"></a></p><h2 class="anchor anchorWithStickyNavbar_mojV" id="roadmap">Roadmap<a class="hash-link" href="#roadmap" title="Direct link to heading">​</a></h2><p>Even if the container is already usable, this image Docker is still under an heavy developpement and you should use it wisely. Our goal in a near future are :</p><ul><li>To reduce it's size. The container packed the whole GAMA software, but the headless do not use it all, so we have to cut every useless part for the headless</li><li>Have a fully working CI based on the <a href="https://travis-ci.org/gama-platform/" target="_blank" rel="noopener noreferrer">Travis-CI</a> releases</li><li>Improve the usability of the container. For now a lot of mistakes have been made about the input/output of the container</li></ul><h2 class="anchor anchorWithStickyNavbar_mojV" id="try-it">Try it!<a class="hash-link" href="#try-it" title="Direct link to heading">​</a></h2><p>Even if it's not perfectly finished, we already published our Dockerfiles on <a href="https://github.com/gama-platform/gama.docker" target="_blank" rel="noopener noreferrer">Github</a> and the <a href="https://hub.docker.com/r/gamaplatform/gama" target="_blank" rel="noopener noreferrer">Docker Hub</a>. Go take a look if you're interested.</p><p>We would love to hear about your experiences with the GAMA Platform on Docker so we can continue to improve it.</p><p>Enjoy!</p>]]></content>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+        <category label="docker" term="docker"/>
+        <category label="headless" term="headless"/>
+        <category label="release" term="release"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GAMA Days 2020]]></title>
+        <id>/2019/11/15/gama-days-2020</id>
+        <link href="https://gama-platform.org/blog/2019/11/15/gama-days-2020"/>
+        <updated>2019-11-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[City]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" alt="City" src="/assets/images/cities_gama-71a9449a5dc30e8e81dd29a232ee4fa2.png" width="709" height="530" class="img_E7b_"></p><p>Agent-based modeling is nowadays becoming increasingly popular for the study of complex systems. Nevertheless, its use requires significant computer programming work because it requires describing all agents and their behavior in the form of algorithms. The GAMA open-source platform aims to help modelers do this work. <!-- --> This generic platform, which has been developed since 2007 by a consortium of research teams allows the content of a model to be built using a modeling language that is easy to access and simulated. GAMA has experienced significant growth in recent years thanks to its ability to build and simulate large-scale models, including hundreds of thousands of agents and detailed geographic data. It also has advanced 3D visualization tools as well as tools dedicated to the construction of serious games. This platform is now used in many research projects dealing with issues as varied as epidemiology, land-use change, natural or technological risks, natural resource management, and urban mobility.</p><p>However, while many training courses on this platform are organized around the world every year, no event has ever had the ambition to bring users and developers together in the same place. This is precisely the objective of the GAMA days, which will be held <strong>from 10 to 12 June in Toulouse (France)</strong>. The challenge is to encourage exchanges between participants: to allow platform (or plug-in) developers to present their latest creations and to allow users to show how they use the platform. These exchanges will be an important step towards a better structuring of the GAMA community. </p><p>In practical terms, these days will be composed of 3 types of sessions: </p><ul><li>presentation of new functionalities and exchanges with users on existing functionalities </li><li>presentation of new models or projects that are based on, or include, GAMA,</li><li>tutorials on specific features, extensions or applications of GAMA </li></ul><p><strong>Official Website:</strong> <a href="https://www.irit.fr/GamaDays2020/" target="_blank" rel="noopener noreferrer">https://www.irit.fr/GamaDays2020/</a></p><p><strong>Steering committee:</strong></p><ul><li>Frédéric Amblard - <em>UT1, UMR IRIT</em></li><li>Kevin Chapuis - <em>IRD, UMI UMMISCO</em></li><li>Alexis Drogoul - <em>IRD, UMI UMMISCO</em></li><li>Benoit Gaudou - <em>UT1/IRD, UMR IRIT/UMI UMMISCO</em></li><li>Dominique Longin - <em>CNRS, UMR IRIT</em></li><li>Nicolas Verstaevel - <em>UT1, UMR IRIT</em></li></ul><p><strong>Organizer:</strong> </p><ul><li>Patrick Taillandier - <em>INRA, MIAT</em></li></ul><p><strong>Program committee:</strong></p><ul><li>Carole Adam - <em>UGA, LIG Laboratory</em></li><li>Diana F. Adamatti - <em>Universidade Federal do Rio Grande, FURG</em></li><li>Conceição de Maria A Alves - <em>Department of Civil and Environmental Engineering, University of Brasilia</em></li><li>Arnaud Banos - <em>CNRS, IDEES Laboratory</em></li><li>Johan Barthélémy - <em>University of Wollongong, SMART Infrastructure</em></li><li>Srirama Bhamidipati - <em>University of Delft</em></li><li>Eric Daudé - <em>CNRS, IDEES Laboratory</em></li><li>Julie Dugdale - <em>UGA, LIG Laboratory</em></li><li>Arnaud Grignard - <em>MIT, MediaLab</em></li><li>Myriam Grillot - <em>INRA, AGIR Laboratory</em></li><li>Quang Nghi Huynh - <em>University of Can Tho, DREAM laboratory</em></li><li>Simone Z Leao - <em>City Futures Research Centre, Faculty of Built Environment, University of New South Wales, Sydney</em></li><li>Nicolas Marilleau - <em>IRD, UMMISCO Laboratory</em></li><li>Sébastien Rey-Coyrehourcq - <em>University of Rouen, IDEES Laboratory</em></li><li>Franck Taillandier - <em>IRSTEA, RECOVER Laboratory</em></li><li>Youcef Sklab - <em>IRD, UMMISCO Laboratory</em></li><li>Olivier Therond - <em>INRA, LAE Laboratory</em></li><li>Rallou Thomopoulos - <em>INRA, IATE Laboratory</em></li><li>Jean Villerd - <em>INRA, LAE Laboratory</em></li><li>Gudrun Walletin - <em>Universität Salzburg, ZGIS Team</em></li></ul>]]></content>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+        <category label="even" term="even"/>
+        <category label="gama days" term="gama days"/>
+        <category label="toulouse" term="toulouse"/>
+        <category label="france" term="france"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Introducing GAMA Blog]]></title>
+        <id>/2019/10/30/gama-blog</id>
+        <link href="https://gama-platform.org/blog/2019/10/30/gama-blog"/>
+        <updated>2019-10-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[BLOG]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" src="https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1274&amp;q=80" alt="BLOG" class="img_E7b_"></p><p>We are very happy to introduce <strong>GAMA Blog</strong> !</p><p>We created the GAMA Blog for the following reasons:</p><ul><li>To have a known place for you to be updated about GAMA news</li><li>To have a place where we can communicate with all of you about :<ul><li>Future release</li><li>Future project</li><li>Future GAMA events</li></ul></li><li>To simplify (for us) how we update you about everything : <ul><li>We will make a blog post here</li><li>The blog's RSS Feed is automatically updated</li><li>The article is share automatically on our <a href="https://www.facebook.com/GamaPlatform" target="_blank" rel="noopener noreferrer">Facebook Page</a></li><li>The article is share automatically on our <a href="https://www.twitter.com/gamaplatform" target="_blank" rel="noopener noreferrer">Twitter account</a></li><li>You'll find the information on one of these way ! 😃</li></ul></li><li>And, finally, to start some conversation under every blog post (with the Facebook chat).</li></ul><p>We sincerely hope that you'll all loved this Blog. We will do our best to keep it up-to-date with everything and a big thanks to all of you to support the GAMA project by using our software.</p><h2 class="anchor anchorWithStickyNavbar_mojV" id="community">Community<a class="hash-link" href="#community" title="Direct link to heading">​</a></h2><p><img loading="lazy" alt="GAMA Logo" src="/assets/images/gama-logo-21a6d46a272515687efdec6049c4f109.png" width="460" height="460" class="img_E7b_"></p><p>We welcome your <a href="https://github.com/gama-platform/gama/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">contributions</a> to GAMA, whether you want to use it for your own project, you want to <a href="https://github.com/gama-platform/gama/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">contribute</a> to the GAMA core or just have questions. Follow us on <a href="https://github.com/gama-platform" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://twitter.com/gamaplatform" target="_blank" rel="noopener noreferrer">Twitter</a>.</p><h2 class="anchor anchorWithStickyNavbar_mojV" id="resources">Resources<a class="hash-link" href="#resources" title="Direct link to heading">​</a></h2><ul><li><a href="https://gama-platform.github.io/wiki/Home" target="_blank" rel="noopener noreferrer">Read our documentation</a></li><li><a href="https://twitter.com/gamaplatform" target="_blank" rel="noopener noreferrer">Follow our Twitter feed</a></li><li><a href="https://www.facebook.com/GamaPlatform" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a></li><li><a href="https://github.com/gama-platform" target="_blank" rel="noopener noreferrer">Follow us on Github</a></li></ul>]]></content>
+        <author>
+            <name>GAMA Team</name>
+            <uri>https://github.com/gama-platform</uri>
+        </author>
+        <category label="template" term="template"/>
+        <category label="learning" term="learning"/>
+    </entry>
+</feed>

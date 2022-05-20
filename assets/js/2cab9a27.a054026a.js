@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[31902],{1474:a=>{a.exports=JSON.parse('{"label":"comokit","permalink":"/blog/tags/comokit","allTagsPath":"/blog/tags","count":1}')}}]);
