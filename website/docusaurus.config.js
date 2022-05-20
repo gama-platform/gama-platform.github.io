@@ -216,10 +216,13 @@ module.exports={
       {
         redirects: [
           {
+            from: '/wiki/next', to: '/wiki/next/Home',
+          },
+          {
             from: '/wiki', to: '/wiki/Home',
           },
           {
-            from: '/wiki/next', to: '/wiki/next/Home',
+            from: '/wiki/1.8.1', to: '/wiki/1.8.1/Home',
           },
         ]
       }
@@ -229,6 +232,7 @@ module.exports={
       {
         excludeRoutes: [
           'wiki/next/*', // exclude changelogs from indexing
+          'wiki/1.8.1/*', // exclude changelogs from indexing
           'blog/*'
         ]
       }
