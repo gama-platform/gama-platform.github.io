@@ -13,6 +13,8 @@ module.exports={
   "onBrokenLinks": "log",
   "onBrokenMarkdownLinks": "log",
   "deploymentBranch": "master",
+  // Needed to have an algolia crawler compatible website
+  "trailingSlash": false,
 
   // Adding in header
   "scripts": [
