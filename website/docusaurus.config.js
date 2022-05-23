@@ -84,6 +84,12 @@ module.exports={
       additionalLanguages: ['java'],
       defaultLanguage: 'java',
     },
+    algolia: {
+      appId: 'MWUOLTL2EG',
+      apiKey: '1521937a1a954de39ac48917e384bfd6',
+      indexName: 'gama-platform',
+      contextualSearch: true,
+    },
     "docs": {
       "sidebar": {
         "autoCollapseCategories": true,
@@ -224,16 +230,6 @@ module.exports={
           // Debug
           { from: '/wiki/next/Operators', to: '/wiki/next/Exhaustive-list-of-GAMA-Keywords', },
           { from: '/wiki/next/Headless', to: '/wiki/next/RunningHeadless', },
-        ]
-      }
-    ],
-    [
-      require.resolve('docusaurus-lunr-search'), 
-      {
-        excludeRoutes: [
-          'wiki/next/*', // exclude changelogs from indexing
-          'wiki/1.8.1/*', // exclude changelogs from indexing
-          'blog/*'
         ]
       }
     ]
