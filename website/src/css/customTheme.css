@@ -39,3 +39,7 @@ nav a {
 .algolia-autocomplete .algolia-docsearch-suggestion--text{
   color: var(--ifm-navbar-link-color) !important;
 }
+
+a.pagination-nav__link {
+  padding-bottom: 53.5px;
+}
