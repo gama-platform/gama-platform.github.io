@@ -44,7 +44,7 @@ function useDocsSearchVersionsHelpers() {
     Object.entries(allDocsData).reduce(
       (acc, [pluginId, pluginData]) => ({
         ...acc,
-        [pluginId]: pluginData.versions[0].name,
+        [pluginId]: pluginData.versions[1].name,
       }),
       {},
     ),
