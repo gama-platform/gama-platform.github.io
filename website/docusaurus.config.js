@@ -91,7 +91,6 @@ module.exports={
       apiKey: '1521937a1a954de39ac48917e384bfd6',
       indexName: 'gama-platform',
       contextualSearch: true,
-      searchPagePath: false,
     },
     "docs": {
       "sidebar": {
