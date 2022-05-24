@@ -27,7 +27,7 @@ function ResultsFooter({state, onClose}) {
 }
 function mergeFacetFilters(f1, f2) {
   const normalize = (f) => (typeof f === 'string' ? [f] : f);
-  return [...normalize(f1), ...normalize(f2)];
+  return [...normalize([f1[0], "version: "+f1[1][1].split("default-")[1]]), ...normalize(f2)];
 }
 function DocSearch({contextualSearch, externalUrlRegex, ...props}) {
   const {siteMetadata} = useDocusaurusContext();
