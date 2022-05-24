@@ -1,3 +1,5 @@
+const latestVersion="1.8.2-RC1"
+
 module.exports={
   // Main website options
   "title": "GAMA Platform",
@@ -31,8 +33,8 @@ module.exports={
   "customFields": {
     footerIcon: 'img/gama-logo.png',
     "docsUrl": "wiki",
-    "zipName": "GAMA_1.8.2-RC1",
-    "downloadVersion": "1.8.2-RC1",
+    "zipName": "GAMA_"+latestVersion,
+    "downloadVersion": latestVersion,
     "facebookAppId": 524881055001796,
     "frontPagePresentation": "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
     "frontPageImgLink": "release"
@@ -90,7 +92,7 @@ module.exports={
       indexName: 'gama-platform',
       contextualSearch: false,
       searchParameters: {
-        facetFilters: ['language:en', 'version: 1.8.2-RC1'],
+        facetFilters: ['language:en', 'version: '+latestVersion],
       },
       searchPagePath: false,
     },
