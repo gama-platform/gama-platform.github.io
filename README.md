@@ -1,11 +1,5 @@
 [![Language](https://img.shields.io/badge/language-NodeJS-green.svg)](https://nodejs.org/)
 [![GitHub license](https://img.shields.io/github/license/gama-platform/gama-platform.github.io)](https://github.com/gama-platform/gama-platform.github.io/blob/sources/LICENSE)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=ncloc)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
-
-[![Travis (.org)](https://img.shields.io/travis/gama-platform/gama-platform.github.io)](https://travis-ci.org/gama-platform/gama-platform.github.io)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=bugs)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=security_rating)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=gama-platform_gama-platform.github.io&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=gama-platform_gama-platform.github.io)
 
 # gama-platform.github.io - `sources` branch
 
@@ -103,10 +97,8 @@ Travis CI will regenerate automatically the website every 24 hours or at every c
 ## Built With
 
 * [React](https://reactjs.org/) - A NodeJS library for building user interfaces
-* [Docusaurus 1.9.0](https://docusaurus.io/en/) - The React framework used
-* [Fuse.js](https://fusejs.io) - JavaScript lightweight fuzzy-search library.
-* [highlight.js](https://highlightjs.org/) - Syntax highlighting for the Web
-* [Travis CI](https://travis-ci.org/) - Distributed continuous integration service hosted at GitHub.
+* [Docusaurus 2.0.0-beta-20](https://docusaurus.io/) - The React framework used
+* [Algolia DocSearch](https://docsearch.algolia.com/) - Search engine (Open-Source Program)
 * [GAMA Wiki](https://github.com/gama-platform/gama/wiki) - Sources for the whole wiki part of the website 
 
 ## Contributing
