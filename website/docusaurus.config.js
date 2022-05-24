@@ -90,10 +90,7 @@ module.exports={
       appId: 'MWUOLTL2EG',
       apiKey: '1521937a1a954de39ac48917e384bfd6',
       indexName: 'gama-platform',
-      contextualSearch: false,
-      searchParameters: {
-        facetFilters: ['language:en', 'version: '+latestVersion],
-      },
+      contextualSearch: true,
       searchPagePath: false,
     },
     "docs": {
