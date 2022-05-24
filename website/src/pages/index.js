@@ -38,7 +38,7 @@ function HomeSplash() { //} extends React.Component {
         </FlexItem>
         <FlexItem className="" size="--12 col">
           <div style={{paddingTop: "4em", textAlign: "center"}} >
-            <h1 class="hero__title">{siteConfig.tagline}-Platform</h1>
+            <h1 class="hero__title">{siteConfig.title}</h1>
             <p class="hero__subtitle" >GAMA is a modeling and simulation development environment<br/>for building spatially explicit agent-based simulations.</p>
           </div>
         </FlexItem>

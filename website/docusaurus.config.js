@@ -1,3 +1,5 @@
+const latestVersion="1.8.2-RC1"
+
 module.exports={
   // Main website options
   "title": "GAMA Platform",
@@ -31,8 +33,8 @@ module.exports={
   "customFields": {
     footerIcon: 'img/gama-logo.png',
     "docsUrl": "wiki",
-    "zipName": "GAMA_1.8.2-RC1",
-    "downloadVersion": "1.8.2-RC1",
+    "zipName": "GAMA_"+latestVersion,
+    "downloadVersion": latestVersion,
     "facebookAppId": 524881055001796,
     "frontPagePresentation": "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
     "frontPageImgLink": "release"
@@ -83,6 +85,16 @@ module.exports={
     "prism": {
       additionalLanguages: ['java'],
       defaultLanguage: 'java',
+    },
+    algolia: {
+      appId: 'MWUOLTL2EG',
+      apiKey: '1521937a1a954de39ac48917e384bfd6',
+      indexName: 'gama-platform',
+      contextualSearch: false,
+      searchParameters: {
+        facetFilters: ['language:en', 'version: '+latestVersion],
+      },
+      searchPagePath: false,
     },
     "docs": {
       "sidebar": {
@@ -224,16 +236,6 @@ module.exports={
           // Debug
           { from: '/wiki/next/Operators', to: '/wiki/next/Exhaustive-list-of-GAMA-Keywords', },
           { from: '/wiki/next/Headless', to: '/wiki/next/RunningHeadless', },
-        ]
-      }
-    ],
-    [
-      require.resolve('docusaurus-lunr-search'), 
-      {
-        excludeRoutes: [
-          'wiki/next/*', // exclude changelogs from indexing
-          'wiki/1.8.1/*', // exclude changelogs from indexing
-          'blog/*'
         ]
       }
     ]
