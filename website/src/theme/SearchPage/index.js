@@ -163,7 +163,7 @@ function SearchPageContent() {
   const algoliaHelper = algoliaSearchHelper(algoliaClient, indexName, {
     hitsPerPage: 15,
     advancedSyntax: true,
-    disjunctiveFacets: ['language', 'docusaurus_tag'],
+    disjunctiveFacets: ['language', 'version'],
   });
   algoliaHelper.on(
     'result',
@@ -249,13 +249,12 @@ function SearchPageContent() {
           description: 'The search page title for empty query',
         });
   const makeSearch = useDynamicCallback((page = 0) => {
-    algoliaHelper.addDisjunctiveFacetRefinement('docusaurus_tag', 'default');
     algoliaHelper.addDisjunctiveFacetRefinement('language', currentLocale);
     Object.entries(docsSearchVersionsHelpers.searchVersions).forEach(
       ([pluginId, searchVersion]) => {
         algoliaHelper.addDisjunctiveFacetRefinement(
-          'docusaurus_tag',
-          `docs-${pluginId}-${searchVersion}`,
+          'version',
+          `${searchVersion}`,
         );
       },
     );
