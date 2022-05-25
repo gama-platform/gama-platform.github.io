@@ -35,7 +35,7 @@ We define a new reflex that updates the graph at each simulation step. For that,
 global {
     ...
     reflex update_graph{
-        map&lt;road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
+        map<road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
         the_graph <- the_graph with_weights weights_map;
      }
 }
@@ -49,7 +49,7 @@ species people skills: [moving]{
     ...
     reflex move when: the_target != nil {
 	path path_followed <- goto(target: the_target, on:the_graph, return_path: true);
-	list&lt;geometry> segments <- path_followed.segments;
+	list<geometry> segments <- path_followed.segments;
 	loop line over: segments {
 	    float dist <- line.perimeter;
 	    ask road(path_followed agent_from_geometry line) { 

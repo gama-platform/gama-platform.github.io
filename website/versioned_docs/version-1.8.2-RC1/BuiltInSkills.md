@@ -1124,7 +1124,7 @@ if(is_time_to_go())...
 **action to check if a transport must depart**
 
 
-**Returned type:** `list&lt;int>`
+**Returned type:** `list<int>`
 
 
 ##### Examples: 

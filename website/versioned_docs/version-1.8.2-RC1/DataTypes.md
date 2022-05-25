@@ -298,7 +298,7 @@ graph(node1)    --: null
 list (1) -> [1]
 ```
 ```
-list&lt;int> myList <- [1,2,3,4]; 
+list<int> myList <- [1,2,3,4]; 
 myList[2] => 3
 ```
 [Top of the page](#table-of-contents)

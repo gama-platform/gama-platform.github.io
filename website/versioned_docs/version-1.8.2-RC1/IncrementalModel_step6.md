@@ -87,7 +87,7 @@ In order to take into account the people that are inside the buildings for the c
 ```
 global  {
     ...
-    list&lt;people_in_building> list_people_in_buildings update: (building accumulate each.people_in_building);
+    list<people_in_building> list_people_in_buildings update: (building accumulate each.people_in_building);
     int nb_people_infected <- nb_infected_init update: (people + list_people_in_buildings) count (each.is_infected);
     ...
 }

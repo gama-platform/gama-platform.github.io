@@ -28,7 +28,7 @@ The `AbstractArchitecture` extends the `ISkill` and `IStatement` interfaces and 
 
 The three main methods to implement are thus:
 
-  * `public void setChildren(final List&lt;? extends ISymbol> children)`: this method will be called at the compilation of the model. It allows to manage all the embeded statements (in `children`) and for example separate the statements that should be executed at the initialization only from the ones that should be executed at each simulation step. Following example allows to test the name of the all the embedded statements:
+  * `public void setChildren(final List<? extends ISymbol> children)`: this method will be called at the compilation of the model. It allows to manage all the embeded statements (in `children`) and for example separate the statements that should be executed at the initialization only from the ones that should be executed at each simulation step. Following example allows to test the name of the all the embedded statements:
 ```
 for ( final ISymbol c : children ) {
    if( IKeyword.INIT.equals(c.getFacet(IKeyword.KEYWORD).literalValue()) ) {

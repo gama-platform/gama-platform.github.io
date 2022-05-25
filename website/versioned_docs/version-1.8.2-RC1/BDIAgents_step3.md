@@ -71,7 +71,7 @@ In this plan, the miner agent first defines its list of friends, i.e. the miners
 species miner skills: [moving] control: simple_bdi {
     ...
     plan share_information_to_friends intention: share_information instantaneous: true{
-	list&lt;miner> my_friends <- list&lt;miner>((social_link_base where (each.liking > 0)) collect each.agent);
+	list<miner> my_friends <- list<miner>((social_link_base where (each.liking > 0)) collect each.agent);
 	loop known_gold_mine over: get_beliefs_with_name(mine_at_location) {
 		ask my_friends {
 			do add_directly_belief(known_gold_mine);

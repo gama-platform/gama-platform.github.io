@@ -145,7 +145,7 @@ species people {
 		 	}
 		 	do die;
 		} else {
-			list&lt;cell> free_cells <- list&lt;cell> (my_cell.neighbors) where empty(people inside each);
+			list<cell> free_cells <- list<cell> (my_cell.neighbors) where empty(people inside each);
 			if not empty(free_cells) {
 				my_cell <- one_of(free_cells);
 				location <- my_cell.location;

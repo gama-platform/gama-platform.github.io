@@ -36,7 +36,7 @@ In GAMA, adding a weight for a graph is very simple, we use the **`with_weights`
     init {
         ...
         create road from: shape_file_roads ;
-        map&lt;road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
+        map<road,float> weights_map <- road as_map (each:: (each.destruction_coeff * each.shape.perimeter));
         the_graph <- as_edge_graph(road) with_weights weights_map;
         ...
     }

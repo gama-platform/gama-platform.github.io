@@ -44,7 +44,7 @@ We add a new variable for the `vegetation_cell` grid called `neighbors2`, that c
 ```
 grid vegetation_cell width: 50 height: 50 neighbors: 4 {
     ...
-    list&lt;vegetation_cell> neighbors2 <- self neighbors_at 2;
+    list<vegetation_cell> neighbors2 <- self neighbors_at 2;
 }
 ```
 

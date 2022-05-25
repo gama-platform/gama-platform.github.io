@@ -383,8 +383,8 @@ list var0 <- (self neighbors_at (10)); // var0 equals all the agents located at 
   * **`neighbors_of`** (`topology` , `agent`) --->  `list`
   * `graph` **`neighbors_of`** `unknown` --->  `list`
   * **`neighbors_of`** (`graph` , `unknown`) --->  `list`
-  * `field` **`neighbors_of`** `point` --->  `list&lt;point>`
-  * **`neighbors_of`** (`field` , `point`) --->  `list&lt;point>`
+  * `field` **`neighbors_of`** `point` --->  `list<point>`
+  * **`neighbors_of`** (`field` , `point`) --->  `list<point>`
   * **`neighbors_of`** (`topology`, `geometry`, `float`) --->  `list` 
 
 #### Result: 
@@ -821,14 +821,14 @@ float var0 <- normal_inverse(0.98,0,1) with_precision(2); // var0 equals 2.05
 ### `normalized_rotation`
 
 #### Possible uses: 
-  * **`normalized_rotation`** (`pair`) --->  `pair&lt;float,point>` 
+  * **`normalized_rotation`** (`pair`) --->  `pair<float,point>` 
 
 #### Result: 
 The rotation normalized according to Euler formalism with a positive angle, such that each rotation has a unique set of parameters (positive angle, normalize axis rotation).
 
 #### Examples: 
 ``` 
-pair&lt;float,point> var0 <- normalized_rotation(-38.0::{1,1,1}); // var0 equals 38.0::{-0.5773502691896258,-0.5773502691896258,-0.5773502691896258}
+pair<float,point> var0 <- normalized_rotation(-38.0::{1,1,1}); // var0 equals 38.0::{-0.5773502691896258,-0.5773502691896258,-0.5773502691896258}
 ```
       
 
@@ -874,11 +874,11 @@ not predicate1
 
 #### Possible uses: 
   * **`obj_file`** (`string`) --->  `file`
-  * `string` **`obj_file`** `pair&lt;float,point>` --->  `file`
-  * **`obj_file`** (`string` , `pair&lt;float,point>`) --->  `file`
+  * `string` **`obj_file`** `pair<float,point>` --->  `file`
+  * **`obj_file`** (`string` , `pair<float,point>`) --->  `file`
   * `string` **`obj_file`** `string` --->  `file`
   * **`obj_file`** (`string` , `string`) --->  `file`
-  * **`obj_file`** (`string`, `string`, `pair&lt;float,point>`) --->  `file` 
+  * **`obj_file`** (`string`, `string`, `pair<float,point>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type obj. Allowed extensions are limited to obj, OBJ
@@ -1022,7 +1022,7 @@ bool var1 <- [1::2, 3::4, 5::6] one_matches (each > 4); // var1 equals true
 ### `one_of`
 
 #### Possible uses: 
-  * **`one_of`** (`container&lt;KeyType,ValueType>`) --->  `ValueType` 
+  * **`one_of`** (`container<KeyType,ValueType>`) --->  `ValueType` 
 
 #### Result: 
 one of the values stored in this container  at a random key  
@@ -1130,8 +1130,8 @@ predicate1 or predicate2
 
 #### Possible uses: 
   * **`osm_file`** (`string`) --->  `file`
-  * `string` **`osm_file`** `map&lt;string,list>` --->  `file`
-  * **`osm_file`** (`string` , `map&lt;string,list>`) --->  `file` 
+  * `string` **`osm_file`** `map<string,list>` --->  `file`
+  * **`osm_file`** (`string` , `map<string,list>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type osm. Allowed extensions are limited to osm, pbf, bz2, gz
@@ -1212,15 +1212,15 @@ list var1 <- graphFromMap out_edges_of (node(3)); // var1 equals 3
 ### `overlapping`
 
 #### Possible uses: 
-  * `container&lt;unknown,geometry>` **`overlapping`** `geometry` --->  `list&lt;geometry>`
-  * **`overlapping`** (`container&lt;unknown,geometry>` , `geometry`) --->  `list&lt;geometry>` 
+  * `container<unknown,geometry>` **`overlapping`** `geometry` --->  `list<geometry>`
+  * **`overlapping`** (`container<unknown,geometry>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
 A list of agents or geometries among the left-operand list, species or meta-population (addition of species), overlapping the operand (casted as a geometry).
 
 #### Examples: 
 ``` 
-list&lt;geometry> var0 <- [ag1, ag2, ag3] overlapping(self); // var0 equals return the agents among ag1, ag2 and ag3 that overlap the shape of the agent applying the operator. 
+list<geometry> var0 <- [ag1, ag2, ag3] overlapping(self); // var0 equals return the agents among ag1, ag2 and ag3 that overlap the shape of the agent applying the operator. 
 (species1 + species2) overlapping self
 ```
       
@@ -1282,9 +1282,9 @@ casts the operand in a pair object.
 ### `palette`
 
 #### Possible uses: 
-  * **`palette`** (`list&lt;rgb>`) --->  `list&lt;rgb>`
-  * `map&lt;rgb,float>` **`palette`** `int` --->  `list&lt;rgb>`
-  * **`palette`** (`map&lt;rgb,float>` , `int`) --->  `list&lt;rgb>` 
+  * **`palette`** (`list<rgb>`) --->  `list<rgb>`
+  * `map<rgb,float>` **`palette`** `int` --->  `list<rgb>`
+  * **`palette`** (`map<rgb,float>` , `int`) --->  `list<rgb>` 
 
 #### Result: 
 transforms a list of n colors into a palette (necessary for some layers)
@@ -1299,16 +1299,16 @@ returns a list of n colors chosen in the gradient provided. Colors are chosen by
 ### `partially_overlapping`
 
 #### Possible uses: 
-  * `container&lt;unknown,geometry>` **`partially_overlapping`** `geometry` --->  `list&lt;geometry>`
-  * **`partially_overlapping`** (`container&lt;unknown,geometry>` , `geometry`) --->  `list&lt;geometry>` 
+  * `container<unknown,geometry>` **`partially_overlapping`** `geometry` --->  `list<geometry>`
+  * **`partially_overlapping`** (`container<unknown,geometry>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
 A list of agents or geometries among the left-operand list, species or meta-population (addition of species), partially_overlapping the operand (casted as a geometry).
 
 #### Examples: 
 ``` 
-list&lt;geometry> var0 <- [ag1, ag2, ag3] partially_overlapping(self); // var0 equals the agents among ag1, ag2 and ag3 that partially_overlap the shape of the right-hand argument. 
-list&lt;geometry> var1 <- (species1 + species2) partially_overlapping (self); // var1 equals the agents among species species1 and species2 that partially_overlap the shape of the right-hand argument.
+list<geometry> var0 <- [ag1, ag2, ag3] partially_overlapping(self); // var0 equals the agents among ag1, ag2 and ag3 that partially_overlap the shape of the right-hand argument. 
+list<geometry> var1 <- (species1 + species2) partially_overlapping (self); // var1 equals the agents among species species1 and species2 that partially_overlap the shape of the right-hand argument.
 ```
       
 
@@ -1382,15 +1382,15 @@ path p <- path([{12,12},{30,30},{50,50}]);
 ### `path_between`
 
 #### Possible uses: 
-  * `map&lt;agent,unknown>` **`path_between`** `container&lt;unknown,geometry>` --->  `path`
-  * **`path_between`** (`map&lt;agent,unknown>` , `container&lt;unknown,geometry>`) --->  `path`
-  * `topology` **`path_between`** `container&lt;unknown,geometry>` --->  `path`
-  * **`path_between`** (`topology` , `container&lt;unknown,geometry>`) --->  `path`
-  * `list&lt;agent>` **`path_between`** `container&lt;unknown,geometry>` --->  `path`
-  * **`path_between`** (`list&lt;agent>` , `container&lt;unknown,geometry>`) --->  `path`
-  * **`path_between`** (`list&lt;agent>`, `geometry`, `geometry`) --->  `path`
+  * `map<agent,unknown>` **`path_between`** `container<unknown,geometry>` --->  `path`
+  * **`path_between`** (`map<agent,unknown>` , `container<unknown,geometry>`) --->  `path`
+  * `topology` **`path_between`** `container<unknown,geometry>` --->  `path`
+  * **`path_between`** (`topology` , `container<unknown,geometry>`) --->  `path`
+  * `list<agent>` **`path_between`** `container<unknown,geometry>` --->  `path`
+  * **`path_between`** (`list<agent>` , `container<unknown,geometry>`) --->  `path`
+  * **`path_between`** (`list<agent>`, `geometry`, `geometry`) --->  `path`
   * **`path_between`** (`graph`, `geometry`, `geometry`) --->  `path`
-  * **`path_between`** (`map&lt;agent,unknown>`, `geometry`, `geometry`) --->  `path`
+  * **`path_between`** (`map<agent,unknown>`, `geometry`, `geometry`) --->  `path`
   * **`path_between`** (`topology`, `geometry`, `geometry`) --->  `path` 
 
 #### Result: 
@@ -1450,14 +1450,14 @@ path var0 <- ag1 path_to ag2; // var0 equals the path between ag1 and ag2 consid
 ### `paths_between`
 
 #### Possible uses: 
-  * **`paths_between`** (`graph`, `pair`, `int`) --->  `list&lt;path>` 
+  * **`paths_between`** (`graph`, `pair`, `int`) --->  `list<path>` 
 
 #### Result: 
 The K shortest paths between a list of two objects in a graph
 
 #### Examples: 
 ``` 
-list&lt;path> var0 <- paths_between(my_graph, ag1:: ag2, 2); // var0 equals the 2 shortest paths (ordered by length) between ag1 and ag2
+list<path> var0 <- paths_between(my_graph, ag1:: ag2, 2); // var0 equals the 2 shortest paths (ordered by length) between ag1 and ag2
 ```
   
     	
@@ -1488,8 +1488,8 @@ list&lt;path> var0 <- paths_between(my_graph, ag1:: ag2, 2); // var0 equals the 
 ### `percent_absolute_deviation`
 
 #### Possible uses: 
-  * `list&lt;float>` **`percent_absolute_deviation`** `list&lt;float>` --->  `float`
-  * **`percent_absolute_deviation`** (`list&lt;float>` , `list&lt;float>`) --->  `float` 
+  * `list<float>` **`percent_absolute_deviation`** `list<float>` --->  `float`
+  * **`percent_absolute_deviation`** (`list<float>` , `list<float>`) --->  `float` 
 
 #### Result: 
 percent absolute deviation indicator for 2 series of values: percent_absolute_deviation(list_vals_observe,list_vals_sim)
@@ -1553,8 +1553,8 @@ file f <-pgm_file("file.pgm");
 ### `plan`
 
 #### Possible uses: 
-  * `container&lt;unknown,geometry>` **`plan`** `float` --->  `geometry`
-  * **`plan`** (`container&lt;unknown,geometry>` , `float`) --->  `geometry` 
+  * `container<unknown,geometry>` **`plan`** `float` --->  `geometry`
+  * **`plan`** (`container<unknown,geometry>` , `float`) --->  `geometry` 
 
 #### Result: 
 A polyline geometry from the given list of points.
@@ -1763,8 +1763,8 @@ casts the operand in a point object.
 ### `points_along`
 
 #### Possible uses: 
-  * `geometry` **`points_along`** `list&lt;float>` --->  `list`
-  * **`points_along`** (`geometry` , `list&lt;float>`) --->  `list` 
+  * `geometry` **`points_along`** `list<float>` --->  `list`
+  * **`points_along`** (`geometry` , `list<float>`) --->  `list` 
 
 #### Result: 
 A list of points along the operand-geometry given its location in terms of rate of distance from the starting points of the geometry.
@@ -1787,15 +1787,15 @@ list var0 <-  line([{10,10},{80,80}]) points_along ([0.3, 0.5, 0.9]); // var0 eq
 ### `points_at`
 
 #### Possible uses: 
-  * `int` **`points_at`** `float` --->  `list&lt;point>`
-  * **`points_at`** (`int` , `float`) --->  `list&lt;point>` 
+  * `int` **`points_at`** `float` --->  `list<point>`
+  * **`points_at`** (`int` , `float`) --->  `list<point>` 
 
 #### Result: 
 A list of left-operand number of points located at a the right-operand distance to the agent location.
 
 #### Examples: 
 ``` 
-list&lt;point> var0 <- 3 points_at(20.0); // var0 equals returns [pt1, pt2, pt3] with pt1, pt2 and pt3 located at a distance of 20.0 to the agent location
+list<point> var0 <- 3 points_at(20.0); // var0 equals returns [pt1, pt2, pt3] with pt1, pt2 and pt3 located at a distance of 20.0 to the agent location
 ```
       
 
@@ -1811,8 +1811,8 @@ list&lt;point> var0 <- 3 points_at(20.0); // var0 equals returns [pt1, pt2, pt3]
 ### `points_in`
 
 #### Possible uses: 
-  * `field` **`points_in`** `geometry` --->  `list&lt;point>`
-  * **`points_in`** (`field` , `geometry`) --->  `list&lt;point>`
+  * `field` **`points_in`** `geometry` --->  `list<point>`
+  * **`points_in`** (`field` , `geometry`) --->  `list<point>`
     	
 ----
 
@@ -1873,7 +1873,7 @@ int var0 <- poisson(3.5); // var0 equals a random positive integer
 ### `polygon`
 
 #### Possible uses: 
-  * **`polygon`** (`container&lt;unknown,geometry>`) --->  `geometry` 
+  * **`polygon`** (`container<unknown,geometry>`) --->  `geometry` 
 
 #### Result: 
 A polygon geometry from the given list of points.
@@ -1903,8 +1903,8 @@ point var2 <- polygon([{0,0}, {0,10}, {10,10}, {10,0}]).location; // var2 equals
 ### `polyhedron`
 
 #### Possible uses: 
-  * `container&lt;unknown,geometry>` **`polyhedron`** `float` --->  `geometry`
-  * **`polyhedron`** (`container&lt;unknown,geometry>` , `float`) --->  `geometry` 
+  * `container<unknown,geometry>` **`polyhedron`** `float` --->  `geometry`
+  * **`polyhedron`** (`container<unknown,geometry>` , `float`) --->  `geometry` 
 
 #### Result: 
 A polyhedron geometry from the given list of points.
@@ -2055,8 +2055,8 @@ unknown var0 <- [1,2] product_of (each * 10 ); // var0 equals 200
 ### `promethee_DM`
 
 #### Possible uses: 
-  * `list&lt;list>` **`promethee_DM`** `list&lt;map&lt;string,unknown>>` --->  `int`
-  * **`promethee_DM`** (`list&lt;list>` , `list&lt;map&lt;string,unknown>>`) --->  `int` 
+  * `list<list>` **`promethee_DM`** `list<map<string,unknown>>` --->  `int`
+  * **`promethee_DM`** (`list<list>` , `list<map<string,unknown>>`) --->  `int` 
 
 #### Result: 
 The index of the best candidate according to the Promethee II method. This method is based on a comparison per pair of possible candidates along each criterion: all candidates are compared to each other by pair and ranked. More information about this method can be found in [http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B6VCT-4VF56TV-1&_user=10&_coverDate=01%2F01%2F2010&_rdoc=1&_fmt=high&_orig=search&_sort=d&_docanchor=&view=c&_searchStrId=1389284642&_rerunOrigin=google&_acct=C000050221&_version=1&_urlVersion=0&_userid=10&md5=d334de2a4e0d6281199a39857648cd36 Behzadian, M., Kazemzadeh, R., Albadvi, A., M., A.: PROMETHEE: A comprehensive literature review on methodologies and applications. European Journal of Operational Research(2009)]. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains fours elements: a name, a weight, a preference value (p) and an indifference value (q). The preference value represents the threshold from which the difference between two criterion values allows to prefer one vector of values over another. The indifference value represents the threshold from which the difference between two criterion values is considered significant.
@@ -2083,8 +2083,8 @@ int var0 <- promethee_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility",
 
 #### Possible uses: 
   * **`property_file`** (`string`) --->  `file`
-  * `string` **`property_file`** `map&lt;string,string>` --->  `file`
-  * **`property_file`** (`string` , `map&lt;string,string>`) --->  `file` 
+  * `string` **`property_file`** `map<string,string>` --->  `file`
+  * **`property_file`** (`string` , `map<string,string>`) --->  `file` 
 
 #### Result: 
 Constructs a file of type property. Allowed extensions are limited to properties
@@ -2348,15 +2348,15 @@ geometry var2 <- rectangle(10, 5); // var2 equals a geometry as a rectangle with
 ### `regex_matches`
 
 #### Possible uses: 
-  * `string` **`regex_matches`** `string` --->  `list&lt;string>`
-  * **`regex_matches`** (`string` , `string`) --->  `list&lt;string>` 
+  * `string` **`regex_matches`** `string` --->  `list<string>`
+  * **`regex_matches`** (`string` , `string`) --->  `list<string>` 
 
 #### Result: 
 Returns the list of sub-strings of the first operand that match the regular expression provided in the second operand
 
 #### Examples: 
 ``` 
-list&lt;string> var0 <- regex_matches("colour, color", "colou?r"); // var0 equals ['colour','color']
+list<string> var0 <- regex_matches("colour, color", "colou?r"); // var0 equals ['colour','color']
 ```
       
 
@@ -2561,8 +2561,8 @@ This operator should be used in a reflex of an experiment and it will remove the
 ### `reverse`
 
 #### Possible uses: 
-  * **`reverse`** (`map&lt;K,V>`) --->  `map`
-  * **`reverse`** (`container&lt;KeyType,ValueType>`) --->  `container&lt;unknown,unknown>`
+  * **`reverse`** (`map<K,V>`) --->  `map`
+  * **`reverse`** (`container<KeyType,ValueType>`) --->  `container<unknown,unknown>`
   * **`reverse`** (`string`) --->  `string` 
 
 #### Result: 
@@ -2578,21 +2578,21 @@ the reverse operator behavior depends on the nature of the operand
   * if it is a list, reverse returns a copy of the operand list with elements in the reversed order 
   
 ``` 
-list&lt;int> var2 <- reverse ([10,12,14]); // var2 equals [14, 12, 10]
+list<int> var2 <- reverse ([10,12,14]); // var2 equals [14, 12, 10]
 ``` 
 
     
   * if it is a map, reverse returns a copy of the operand map with each pair in the reversed order (i.e. all keys become values and values become keys) 
   
 ``` 
-map&lt;int,string> var3 <- reverse (['k1'::44, 'k2'::32, 'k3'::12]); // var3 equals [44::'k1', 32::'k2', 12::'k3']
+map<int,string> var3 <- reverse (['k1'::44, 'k2'::32, 'k3'::12]); // var3 equals [44::'k1', 32::'k2', 12::'k3']
 ``` 
 
     
   * if it is a matrix, reverse returns a new matrix containing the transpose of the operand. 
   
 ``` 
-matrix&lt;string> var4 <- reverse(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var4 equals matrix([["c11","c21"],["c12","c22"],["c13","c23"]])
+matrix<string> var4 <- reverse(matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var4 equals matrix([["c11","c21"],["c12","c22"],["c13","c23"]])
 ``` 
 
     
@@ -2606,7 +2606,7 @@ string var5 <- reverse ('abcd'); // var5 equals 'dcba'
 
 #### Examples: 
 ``` 
-map&lt;int,int> m <- [1::111,2::222, 3::333, 4::444]; 
+map<int,int> m <- [1::111,2::222, 3::333, 4::444]; 
 map var1 <- reverse(m); // var1 equals map([111::1,222::2,333::3,444::4])
 ```
   
@@ -2710,8 +2710,8 @@ Returns the RMS (Root-Mean-Square) of a data sequence. The RMS of data sequence 
 
 #### Examples: 
 ``` 
- list&lt;float> data_sequence <- [6.0, 7.0, 8.0, 9.0];  
- list&lt;float> squares <- data_sequence collect (each*each);  
+ list<float> data_sequence <- [6.0, 7.0, 8.0, 9.0];  
+ list<float> squares <- data_sequence collect (each*each);  
 float var2 <-  rms(length(data_sequence),sum(squares)) with_precision(4) ; // var2 equals 7.5829
 ```
   
@@ -2774,7 +2774,7 @@ point var8 <- rnd ({2.5,3, 0.0}); // var8 equals {x,y} with x in [0.0,2.0], y in
 ### `rnd_choice`
 
 #### Possible uses: 
-  * **`rnd_choice`** (`map&lt;unknown,unknown>`) --->  `unknown`
+  * **`rnd_choice`** (`map<unknown,unknown>`) --->  `unknown`
   * **`rnd_choice`** (`list`) --->  `int` 
 
 #### Result: 
@@ -2868,14 +2868,14 @@ geometry var2 <- rotated_by(pyramid(10),45.0, {1,0,0}); // var2 equals the geome
 ### `rotation_composition`
 
 #### Possible uses: 
-  * **`rotation_composition`** (`list&lt;pair>`) --->  `pair&lt;float,point>` 
+  * **`rotation_composition`** (`list<pair>`) --->  `pair<float,point>` 
 
 #### Result: 
 The rotation resulting from the composition of the rotations in the list, from left to right. Angles are in degrees.
 
 #### Examples: 
 ``` 
-pair&lt;float,point> var0 <- rotation_composition([38.0::{1,1,1},90.0::{1,0,0}]); // var0 equals 115.22128507898108::{0.9491582126366207,0.31479943993669307,-0.0}
+pair<float,point> var0 <- rotation_composition([38.0::{1,1,1},90.0::{1,0,0}]); // var0 equals 115.22128507898108::{0.9491582126366207,0.31479943993669307,-0.0}
 ```
       
 
@@ -2922,15 +2922,15 @@ point var3 <- {12345.78943,  12345.78943, 12345.78943} with_precision 2; // var3
 ### `row_at`
 
 #### Possible uses: 
-  * `matrix&lt;unknown>` **`row_at`** `int` --->  `list&lt;unknown>`
-  * **`row_at`** (`matrix&lt;unknown>` , `int`) --->  `list&lt;unknown>` 
+  * `matrix<unknown>` **`row_at`** `int` --->  `list<unknown>`
+  * **`row_at`** (`matrix<unknown>` , `int`) --->  `list<unknown>` 
 
 #### Result: 
 returns the row at a num_line (right-hand operand)
 
 #### Examples: 
 ``` 
-list&lt;unknown> var0 <- matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]) row_at 2; // var0 equals ["el13","el23","el33"]
+list<unknown> var0 <- matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]) row_at 2; // var0 equals ["el13","el23","el33"]
 ```
       
 
@@ -2946,14 +2946,14 @@ list&lt;unknown> var0 <- matrix([["el11","el12","el13"],["el21","el22","el23"],[
 ### `rows_list`
 
 #### Possible uses: 
-  * **`rows_list`** (`matrix&lt;unknown>`) --->  `list&lt;list&lt;unknown>>` 
+  * **`rows_list`** (`matrix<unknown>`) --->  `list<list<unknown>>` 
 
 #### Result: 
 returns a list of the rows of the matrix, with each row as a list of elements
 
 #### Examples: 
 ``` 
-list&lt;list&lt;unknown>> var0 <- rows_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]])); // var0 equals [["el11","el21","el31"],["el12","el22","el32"],["el13","el23","el33"]]
+list<list<unknown>> var0 <- rows_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]])); // var0 equals [["el11","el21","el31"],["el12","el22","el32"],["el13","el23","el33"]]
 ```
       
 

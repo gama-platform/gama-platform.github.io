@@ -72,7 +72,7 @@ The second norm is a social norm to communicate the list of known mines to one's
 species miner skills: [moving] control: simple_bdi {
     ...
     norm share_information intention: share_information threshold: threshold_norm instantaneous: true {
-	list&lt;miner> my_friends <- list&lt;miner>((social_link_base where (each.liking > 0)) collect each.agent);
+	list<miner> my_friends <- list<miner>((social_link_base where (each.liking > 0)) collect each.agent);
 	loop known_gold_mine over: get_beliefs_with_name(mine_at_location) {
 	    ask my_friends {
 		do add_belief(known_gold_mine);

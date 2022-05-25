@@ -477,7 +477,7 @@ map var1 <- betweenness_centrality(graphEpidemio); // var1 equals the betweennes
 ### `biggest_cliques_of`
 
 #### Possible uses: 
-  * **`biggest_cliques_of`** (`graph`) --->  `list&lt;list>` 
+  * **`biggest_cliques_of`** (`graph`) --->  `list<list>` 
 
 #### Result: 
 returns the biggest cliques of a graph using the Bron-Kerbosch clique detection algorithm
@@ -485,7 +485,7 @@ returns the biggest cliques of a graph using the Bron-Kerbosch clique detection 
 #### Examples: 
 ``` 
 graph my_graph <- graph([]); 
-list&lt;list> var1 <- biggest_cliques_of (my_graph); // var1 equals the list of the biggest cliques as list
+list<list> var1 <- biggest_cliques_of (my_graph); // var1 equals the list of the biggest cliques as list
 ```
       
 
@@ -670,9 +670,9 @@ float var2 <-  (box({10, 10 , 5}) at_location point(50,50,0)).location.y; // var
 ### `brewer_colors`
 
 #### Possible uses: 
-  * **`brewer_colors`** (`string`) --->  `list&lt;rgb>`
-  * `string` **`brewer_colors`** `int` --->  `list&lt;rgb>`
-  * **`brewer_colors`** (`string` , `int`) --->  `list&lt;rgb>` 
+  * **`brewer_colors`** (`string`) --->  `list<rgb>`
+  * `string` **`brewer_colors`** `int` --->  `list<rgb>`
+  * **`brewer_colors`** (`string` , `int`) --->  `list<rgb>` 
 
 #### Result: 
 Build a list of colors of a given type (see website http://colorbrewer2.org/). The list of palettes can be obtained by calling brewer_palettes. This list can be safely modified afterwards (adding or removing colors)
@@ -680,8 +680,8 @@ Build a list of colors of a given type (see website http://colorbrewer2.org/) wi
 
 #### Examples: 
 ``` 
-list&lt;rgb> var0 <- list&lt;rgb> colors <- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
-list&lt;rgb> var1 <- list&lt;rgb> colors <- brewer_colors("Pastel1", 5);; // var1 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes
+list<rgb> var0 <- list<rgb> colors <- brewer_colors("OrRd");; // var0 equals a list of 6 blue colors 
+list<rgb> var1 <- list<rgb> colors <- brewer_colors("Pastel1", 5);; // var1 equals a list of 5 sequential colors in the palette named 'Pastel1'. The list of palettes can be obtained by calling brewer_palettes
 ```
       
 
@@ -697,9 +697,9 @@ list&lt;rgb> var1 <- list&lt;rgb> colors <- brewer_colors("Pastel1", 5);; // var
 ### `brewer_palettes`
 
 #### Possible uses: 
-  * **`brewer_palettes`** (`int`) --->  `list&lt;string>`
-  * `int` **`brewer_palettes`** `int` --->  `list&lt;string>`
-  * **`brewer_palettes`** (`int` , `int`) --->  `list&lt;string>` 
+  * **`brewer_palettes`** (`int`) --->  `list<string>`
+  * `int` **`brewer_palettes`** `int` --->  `list<string>`
+  * **`brewer_palettes`** (`int` , `int`) --->  `list<string>` 
 
 #### Result: 
 returns the list a palette with a given min number of classes)
@@ -707,8 +707,8 @@ returns the list a palette with a given min number of classes and max number of 
 
 #### Examples: 
 ``` 
-list&lt;string> var0 <- list&lt;string> palettes <- brewer_palettes(3);; // var0 equals a list of palettes that are composed of a min of 3 colors 
-list&lt;string> var1 <- list&lt;string> palettes <- brewer_palettes(5,10);; // var1 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors
+list<string> var0 <- list<string> palettes <- brewer_palettes(3);; // var0 equals a list of palettes that are composed of a min of 3 colors 
+list<string> var1 <- list<string> palettes <- brewer_palettes(5,10);; // var1 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors
 ```
       
 
@@ -802,8 +802,8 @@ float var2 <- ceil(-4.7); // var2 equals -4.0
 ### `cells_in`
 
 #### Possible uses: 
-  * `field` **`cells_in`** `geometry` --->  `list&lt;geometry>`
-  * **`cells_in`** (`field` , `geometry`) --->  `list&lt;geometry>`
+  * `field` **`cells_in`** `geometry` --->  `list<geometry>`
+  * **`cells_in`** (`field` , `geometry`) --->  `list<geometry>`
     	
 ----
 
@@ -814,8 +814,8 @@ float var2 <- ceil(-4.7); // var2 equals -4.0
 ### `cells_overlapping`
 
 #### Possible uses: 
-  * `field` **`cells_overlapping`** `geometry` --->  `list&lt;geometry>`
-  * **`cells_overlapping`** (`field` , `geometry`) --->  `list&lt;geometry>`
+  * `field` **`cells_overlapping`** `geometry` --->  `list<geometry>`
+  * **`cells_overlapping`** (`field` , `geometry`) --->  `list<geometry>`
     	
 ----
 
@@ -986,7 +986,7 @@ geometry var0 <- clean(self); // var0 equals returns the geometry resulting from
 ### `clean_network`
 
 #### Possible uses: 
-  * **`clean_network`** (`list&lt;geometry>`, `float`, `bool`, `bool`) --->  `list&lt;geometry>` 
+  * **`clean_network`** (`list<geometry>`, `float`, `bool`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
 A list of polylines corresponding to the cleaning of the first operand (list of polyline geometry or agents), considering the tolerance distance given by the second operand; the third operator is used to define if the operator should as well split the lines at their intersections(true to split the lines); the last operandis used to specify if the operator should as well keep only the main connected component of the network. Usage: clean_network(lines:list of geometries or agents, tolerance: float, split_lines: bool, keepMainConnectedComponent: bool)  
@@ -996,8 +996,8 @@ The cleaned set of polylines
 
 #### Examples: 
 ``` 
-list&lt;geometry> var0 <- clean_network(my_road_shapefile.contents, 1.0, true, false); // var0 equals returns the list of polulines resulting from the cleaning of the geometry of the agent applying the operator with a tolerance of 1m, and splitting the lines at their intersections. 
-list&lt;geometry> var1 <- clean_network([line({10,10}, {20,20}), line({10,20},{20,10})],3.0,true,false); // var1 equals [line({10.0,20.0,0.0},{15.0,15.0,0.0}),line({15.0,15.0,0.0},{20.0,10.0,0.0}), line({10.0,10.0,0.0},{15.0,15.0,0.0}), line({15.0,15.0,0.0},{20.0,20.0,0.0})]
+list<geometry> var0 <- clean_network(my_road_shapefile.contents, 1.0, true, false); // var0 equals returns the list of polulines resulting from the cleaning of the geometry of the agent applying the operator with a tolerance of 1m, and splitting the lines at their intersections. 
+list<geometry> var1 <- clean_network([line({10,10}, {20,20}), line({10,20},{20,10})],3.0,true,false); // var1 equals [line({10.0,20.0,0.0},{15.0,15.0,0.0}),line({15.0,15.0,0.0},{20.0,10.0,0.0}), line({10.0,10.0,0.0},{15.0,15.0,0.0}), line({15.0,15.0,0.0},{20.0,20.0,0.0})]
 ```
   
     	
@@ -1010,15 +1010,15 @@ list&lt;geometry> var1 <- clean_network([line({10,10}, {20,20}), line({10,20},{2
 ### `closest_points_with`
 
 #### Possible uses: 
-  * `geometry` **`closest_points_with`** `geometry` --->  `list&lt;point>`
-  * **`closest_points_with`** (`geometry` , `geometry`) --->  `list&lt;point>` 
+  * `geometry` **`closest_points_with`** `geometry` --->  `list<point>`
+  * **`closest_points_with`** (`geometry` , `geometry`) --->  `list<point>` 
 
 #### Result: 
 A list of two closest points between the two geometries.
 
 #### Examples: 
 ``` 
-list&lt;point> var0 <- geom1 closest_points_with(geom2); // var0 equals [pt1, pt2] with pt1 the closest point of geom1 to geom2 and pt1 the closest point of geom2 to geom1
+list<point> var0 <- geom1 closest_points_with(geom2); // var0 equals [pt1, pt2] with pt1 the closest point of geom1 to geom2 and pt1 the closest point of geom2 to geom1
 ```
       
 
@@ -1034,9 +1034,9 @@ list&lt;point> var0 <- geom1 closest_points_with(geom2); // var0 equals [pt1, pt
 ### `closest_to`
 
 #### Possible uses: 
-  * `container&lt;unknown,geometry>` **`closest_to`** `geometry` --->  `geometry`
-  * **`closest_to`** (`container&lt;unknown,geometry>` , `geometry`) --->  `geometry`
-  * **`closest_to`** (`container&lt;unknown,geometry>`, `geometry`, `int`) --->  `list&lt;geometry>` 
+  * `container<unknown,geometry>` **`closest_to`** `geometry` --->  `geometry`
+  * **`closest_to`** (`container<unknown,geometry>` , `geometry`) --->  `geometry`
+  * **`closest_to`** (`container<unknown,geometry>`, `geometry`, `int`) --->  `list<geometry>` 
 
 #### Result: 
 The N agents or geometries among the left-operand list of agents, species or meta-population (addition of species), that are the closest to the operand (casted as a geometry).
@@ -1047,7 +1047,7 @@ the distance is computed in the topology of the calling agent (the agent in whic
 
 #### Examples: 
 ``` 
-list&lt;geometry> var0 <- [ag1, ag2, ag3] closest_to(self, 2); // var0 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator. 
+list<geometry> var0 <- [ag1, ag2, ag3] closest_to(self, 2); // var0 equals return the 2 closest agents among ag1, ag2 and ag3 to the agent applying the operator. 
 (species1 + species2) closest_to (self, 5) 
 geometry var2 <- [ag1, ag2, ag3] closest_to(self); // var2 equals return the closest agent among ag1, ag2 and ag3 to the agent applying the operator. 
 (species1 + species2) closest_to self
@@ -1066,8 +1066,8 @@ geometry var2 <- [ag1, ag2, ag3] closest_to(self); // var2 equals return the clo
 ### `closest_tob`
 
 #### Possible uses: 
-  * `container&lt;unknown,geometry>` **`closest_tob`** `geometry` --->  `geometry`
-  * **`closest_tob`** (`container&lt;unknown,geometry>` , `geometry`) --->  `geometry` 
+  * `container<unknown,geometry>` **`closest_tob`** `geometry` --->  `geometry`
+  * **`closest_tob`** (`container<unknown,geometry>` , `geometry`) --->  `geometry` 
 
 #### Result: 
 Return the closest agent from a point !!
@@ -1123,15 +1123,15 @@ list var3 <- (list(node) collect (node(each).location.x * 2); // var3 equals the
 ### `column_at`
 
 #### Possible uses: 
-  * `matrix&lt;unknown>` **`column_at`** `int` --->  `list&lt;unknown>`
-  * **`column_at`** (`matrix&lt;unknown>` , `int`) --->  `list&lt;unknown>` 
+  * `matrix<unknown>` **`column_at`** `int` --->  `list<unknown>`
+  * **`column_at`** (`matrix<unknown>` , `int`) --->  `list<unknown>` 
 
 #### Result: 
 returns the column at a num_col (right-hand operand)
 
 #### Examples: 
 ``` 
-list&lt;unknown> var0 <- matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]) column_at 2; // var0 equals ["el31","el32","el33"]
+list<unknown> var0 <- matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]) column_at 2; // var0 equals ["el31","el32","el33"]
 ```
       
 
@@ -1147,14 +1147,14 @@ list&lt;unknown> var0 <- matrix([["el11","el12","el13"],["el21","el22","el23"],[
 ### `columns_list`
 
 #### Possible uses: 
-  * **`columns_list`** (`matrix&lt;unknown>`) --->  `list&lt;list&lt;unknown>>` 
+  * **`columns_list`** (`matrix<unknown>`) --->  `list<list<unknown>>` 
 
 #### Result: 
 returns a list of the columns of the matrix, with each column as a list of elements
 
 #### Examples: 
 ``` 
-list&lt;list&lt;unknown>> var0 <- columns_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]])); // var0 equals [["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]
+list<list<unknown>> var0 <- columns_list(matrix([["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]])); // var0 equals [["el11","el12","el13"],["el21","el22","el23"],["el31","el32","el33"]]
 ```
       
 
@@ -1173,7 +1173,7 @@ list&lt;list&lt;unknown>> var0 <- columns_list(matrix([["el11","el12","el13"],["
   * **`command`** (`string`) --->  `string`
   * `string` **`command`** `string` --->  `string`
   * **`command`** (`string` , `string`) --->  `string`
-  * **`command`** (`string`, `string`, `map&lt;string,string>`) --->  `string` 
+  * **`command`** (`string`, `string`, `map<string,string>`) --->  `string` 
 
 #### Result: 
 command allows GAMA to issue a system command using the system terminal or shell and to receive a string containing the outcome of the command or script executed. By default, commands are blocking the agent calling them, unless the sequence ' &' is used at the end. In this case, the result of the operator is an empty string. The basic form with only one string in argument uses the directory of the model and does not set any environment variables. Two other forms (with a directory and a map&lt;string, string> of environment variables) are available.
@@ -1249,9 +1249,9 @@ geometry var0 <- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a ba
 ### `connected_components_of`
 
 #### Possible uses: 
-  * **`connected_components_of`** (`graph`) --->  `list&lt;list>`
-  * `graph` **`connected_components_of`** `bool` --->  `list&lt;list>`
-  * **`connected_components_of`** (`graph` , `bool`) --->  `list&lt;list>` 
+  * **`connected_components_of`** (`graph`) --->  `list<list>`
+  * `graph` **`connected_components_of`** `bool` --->  `list<list>`
+  * **`connected_components_of`** (`graph` , `bool`) --->  `list<list>` 
 
 #### Result: 
 returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex. 
@@ -1260,9 +1260,9 @@ returns the connected components of a graph, i.e. the list of all edges (if the 
 #### Examples: 
 ``` 
 graph my_graph <- graph([]); 
-list&lt;list> var1 <- connected_components_of (my_graph); // var1 equals the list of all the components as list 
+list<list> var1 <- connected_components_of (my_graph); // var1 equals the list of all the components as list 
 graph my_graph2 <- graph([]); 
-list&lt;list> var3 <- connected_components_of (my_graph2, true); // var3 equals the list of all the components as list
+list<list> var3 <- connected_components_of (my_graph2, true); // var3 equals the list of all the components as list
 ```
       
 
@@ -1318,8 +1318,8 @@ casts the operand in a container object.
 #### Possible uses: 
   * `string` **`contains`** `string` --->  `bool`
   * **`contains`** (`string` , `string`) --->  `bool`
-  * `container&lt;KeyType,ValueType>` **`contains`** `unknown` --->  `bool`
-  * **`contains`** (`container&lt;KeyType,ValueType>` , `unknown`) --->  `bool` 
+  * `container<KeyType,ValueType>` **`contains`** `unknown` --->  `bool`
+  * **`contains`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool` 
 
 #### Result: 
 true, if the container contains the right operand, false otherwise. 'contains' can also be written 'contains_value'. On graphs, it is equivalent to calling 'contains_edge'  
@@ -1476,8 +1476,8 @@ bool var1 <- graphFromMap contains_edge link({1,5},{12,45}); // var1 equals true
 ### `contains_key`
 
 #### Possible uses: 
-  * `container&lt;KeyType,ValueType>` **`contains_key`** `unknown` --->  `bool`
-  * **`contains_key`** (`container&lt;KeyType,ValueType>` , `unknown`) --->  `bool` 
+  * `container<KeyType,ValueType>` **`contains_key`** `unknown` --->  `bool`
+  * **`contains_key`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool` 
 
 #### Result: 
 true, if the left-hand operand -- the container -- contains a key -- or an index -- equal to the right-hand operand, false otherwise. On graphs, 'contains_key' is equivalent to calling 'contains_vertex'  
@@ -1812,16 +1812,16 @@ float var0 <- covariance([13,2,1,4,1,2], [1,2,1,3,1,2]) with_precision(2); // va
 ### `covering`
 
 #### Possible uses: 
-  * `container&lt;unknown,geometry>` **`covering`** `geometry` --->  `list&lt;geometry>`
-  * **`covering`** (`container&lt;unknown,geometry>` , `geometry`) --->  `list&lt;geometry>` 
+  * `container<unknown,geometry>` **`covering`** `geometry` --->  `list<geometry>`
+  * **`covering`** (`container<unknown,geometry>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
 A list of agents or geometries among the left-operand list, species or meta-population (addition of species), covering the operand (casted as a geometry).
 
 #### Examples: 
 ``` 
-list&lt;geometry> var0 <- [ag1, ag2, ag3] covering(self); // var0 equals the agents among ag1, ag2 and ag3 that cover the shape of the right-hand argument. 
-list&lt;geometry> var1 <- (species1 + species2) covering (self); // var1 equals the agents among species species1 and species2 that covers the shape of the right-hand argument.
+list<geometry> var0 <- [ag1, ag2, ag3] covering(self); // var0 equals the agents among ag1, ag2 and ag3 that cover the shape of the right-hand argument. 
+list<geometry> var1 <- (species1 + species2) covering (self); // var1 equals the agents among species species1 and species2 that covers the shape of the right-hand argument.
 ```
       
 
@@ -1876,9 +1876,9 @@ returns a new map using the left operand as keys for the right operand
 
 #### Examples: 
 ``` 
-map&lt;int,string> var0 <- create_map([0,1,2],['a','b','c']); // var0 equals [0::'a',1::'b',2::'c'] 
-map&lt;int,float> var1 <- create_map([0,1],[0.1,0.2,0.3]); // var1 equals [0::0.1,1::0.2] 
-map&lt;string,float> var2 <- create_map(['a','b','c','d'],[1.0,2.0,3.0]); // var2 equals ['a'::1.0,'b'::2.0,'c'::3.0]
+map<int,string> var0 <- create_map([0,1,2],['a','b','c']); // var0 equals [0::'a',1::'b',2::'c'] 
+map<int,float> var1 <- create_map([0,1],[0.1,0.2,0.3]); // var1 equals [0::0.1,1::0.2] 
+map<string,float> var2 <- create_map(['a','b','c','d'],[1.0,2.0,3.0]); // var2 equals ['a'::1.0,'b'::2.0,'c'::3.0]
 ```
   
     	
@@ -1947,16 +1947,16 @@ bool var2 <- polyline([{0,0},{25,25}]) crosses polygon([{10,10},{10,20},{20,20},
 ### `crossing`
 
 #### Possible uses: 
-  * `container&lt;unknown,geometry>` **`crossing`** `geometry` --->  `list&lt;geometry>`
-  * **`crossing`** (`container&lt;unknown,geometry>` , `geometry`) --->  `list&lt;geometry>` 
+  * `container<unknown,geometry>` **`crossing`** `geometry` --->  `list<geometry>`
+  * **`crossing`** (`container<unknown,geometry>` , `geometry`) --->  `list<geometry>` 
 
 #### Result: 
 A list of agents or geometries among the left-operand list, species or meta-population (addition of species), crossing the operand (casted as a geometry).
 
 #### Examples: 
 ``` 
-list&lt;geometry> var0 <- [ag1, ag2, ag3] crossing(self); // var0 equals the agents among ag1, ag2 and ag3 that cross the shape of the right-hand argument. 
-list&lt;geometry> var1 <- (species1 + species2) crossing (self); // var1 equals the agents among species species1 and species2 that cross the shape of the right-hand argument.
+list<geometry> var0 <- [ag1, ag2, ag3] crossing(self); // var0 equals the agents among ag1, ag2 and ag3 that cross the shape of the right-hand argument. 
+list<geometry> var1 <- (species1 + species2) crossing (self); // var1 equals the agents among species species1 and species2 that cross the shape of the right-hand argument.
 ```
       
 
@@ -2034,8 +2034,8 @@ geometry var2 <- shape CRS_transform("EPSG:4326"); // var2 equals a geometry cor
   * **`csv_file`** (`string` , `bool`) --->  `file`
   * `string` **`csv_file`** `string` --->  `file`
   * **`csv_file`** (`string` , `string`) --->  `file`
-  * `string` **`csv_file`** `matrix&lt;unknown>` --->  `file`
-  * **`csv_file`** (`string` , `matrix&lt;unknown>`) --->  `file`
+  * `string` **`csv_file`** `matrix<unknown>` --->  `file`
+  * **`csv_file`** (`string` , `matrix<unknown>`) --->  `file`
   * **`csv_file`** (`string`, `string`, `bool`) --->  `file`
   * **`csv_file`** (`string`, `string`, `any GAML type`) --->  `file`
   * **`csv_file`** (`string`, `string`, `string`, `bool`) --->  `file`
