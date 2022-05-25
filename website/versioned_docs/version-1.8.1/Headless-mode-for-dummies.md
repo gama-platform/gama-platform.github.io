@@ -81,21 +81,23 @@ The script looks like this :
 ** N.B. this version of the script, given as an example, is deprecated**
 
 
-	&lt;?xml version="1.0" encoding="UTF-8"?>
-	&lt;Experiment_plan>
-	&lt;Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" experiment="predPrey">
-		<Parameters>
-			<Parameter name="nb_predator_init" type="INT" value="53" />
-			<Parameter name="nb_preys_init" type="INT" value="621" />
-		</Parameters>
-		<Outputs>
-			<Output id="1" name="main_display" framerate="10" />
-			<Output id="2" name="number_of_preys" framerate="1" />
-			<Output id="3" name="number_of_predators" framerate="1" />
-			<Output id="4" name="duration" framerate="1" />
-		</Outputs>
-	</Simulation>
-	</Experiment_plan>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Experiment_plan>
+<Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" experiment="predPrey">
+	<Parameters>
+		<Parameter name="nb_predator_init" type="INT" value="53" />
+		<Parameter name="nb_preys_init" type="INT" value="621" />
+	</Parameters>
+	<Outputs>
+		<Output id="1" name="main_display" framerate="10" />
+		<Output id="2" name="number_of_preys" framerate="1" />
+		<Output id="3" name="number_of_predators" framerate="1" />
+		<Output id="4" name="duration" framerate="1" />
+	</Outputs>
+</Simulation>
+</Experiment_plan>
+```
 
 
 As you can see, you need to define 3 things in this minimal example:
@@ -213,9 +215,10 @@ We also save a **display ** output, that is an image of the simulation graphical
 
 Our new version of the experiment file is ready : 
 
-&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;Experiment_plan>
-	&lt;Simulation id="2" sourcePath="/absolute/path/to/your/model/file/Model 04.gaml" finalStep="1000" experiment="prey_predator">
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Experiment_plan>
+	<Simulation id="2" sourcePath="/absolute/path/to/your/model/file/Model 04.gaml" finalStep="1000" experiment="prey_predator">
 		<Parameters>
 			<Parameter name="Initial number of preys: " type="INT" value="621" />
 			<Parameter name="Prey max energy: " type="FLOAT" value="1.0" />
@@ -226,9 +229,7 @@ Our new version of the experiment file is ready :
 		</Outputs>
 	</Simulation>
 </Experiment_plan>
-
-
-
+```
 
 ### Execution 
 

@@ -279,7 +279,7 @@ The file **keyword.xml** is an xml file that contains all the possible keywords 
 
 Format of the file:
 ```
-&lt;keyword id:keywordname_keywordcategory>
+<keyword id:keywordname_keywordcategory>
   <name>keywordname</name>
   <category>keywordcategory</category>
   <associatedKeywordList>
@@ -312,7 +312,7 @@ The **learningConcept.xml** file is used to list the learning concepts, and to c
 
 Format of the file :
 ```
-&lt;learningConcept id:learningConceptName>
+<learningConcept id:learningConceptName>
   <name>learningConceptName</name>
   <prerequisiteList>
     <prerequisite>learningConcept1</prerequisite>

@@ -60,7 +60,7 @@ global {
 
 species cell skills: [moving3D] {
     rgb color;
-    list&lt;cell> neighbors;
+    list<cell> neighbors;
     int offset;
 
     reflex move {

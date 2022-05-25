@@ -142,7 +142,7 @@ global
     reflex update {
         write length(get_all_instances(mother)); // will write 3 (1+2)
     }
-    list&lt;agent> get_all_instances(species&lt;agent> spec) {
+    list<agent> get_all_instances(species<agent> spec) {
         return spec.population +  spec.subspecies accumulate (get_all_instances(each));
     }
 }

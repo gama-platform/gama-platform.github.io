@@ -130,8 +130,8 @@ We randomly assign one working place and one house to each `people` agent. To si
 ```
     init {
         ...
-        list&lt;building> residential_buildings <- building where (each.type="Residential");
-        list&lt;building>  industrial_buildings <- building  where (each.type="Industrial") ;
+        list<building> residential_buildings <- building where (each.type="Residential");
+        list<building>  industrial_buildings <- building  where (each.type="Industrial") ;
         create people number: nb_people {
 	    speed <- rnd(min_speed, max_speed);
 	    start_work <- rnd (min_work_start, max_work_start);
@@ -179,8 +179,8 @@ global {
 	create road from: shape_file_roads ;
 	the_graph <- as_edge_graph(road);
 		
-	list&lt;building> residential_buildings <- building where (each.type="Residential");
-	list&lt;building> industrial_buildings <- building  where (each.type="Industrial") ;
+	list<building> residential_buildings <- building where (each.type="Residential");
+	list<building> industrial_buildings <- building  where (each.type="Industrial") ;
 	create people number: nb_people {
 	    speed <- rnd(min_speed, max_speed);
 	    start_work <- rnd (min_work_start, max_work_start);

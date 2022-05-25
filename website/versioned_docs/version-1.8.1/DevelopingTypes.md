@@ -49,7 +49,7 @@ The class representing the data structure is a Java class annotated by:
 		name = IKeyword.DARKER,
 		type = IType.COLOR,
 		doc = { @doc ("Returns a darker color (with decreased luminance)") }) })
-public class GamaColor extends Color implements IValue, Comparable&lt;Color> {
+public class GamaColor extends Color implements IValue, Comparable<Color> {
 ```
 
 It can contain setter and/or getter for each of its attributes. Setters and getters are methods annotated by the [@getter](DevelopingIndexAnnotations#@getter) or [@setter](DevelopingIndexAnnotations#@setter) annotations.
@@ -71,7 +71,7 @@ public abstract String stringValue(IScope scope) throws GamaRuntimeException;
 The class representing the type is a Java class such that:
 
   * the class should be annotated by the [@type](DevelopingIndexAnnotations#@type) annotation,
-  * the class should extend the class `GamaType&lt;DataStructureFile>` (and thus implement its 3 methods),
+  * the class should extend the class `GamaType<DataStructureFile>` (and thus implement its 3 methods),
 
 
 Example (from [GamaFloatType.java](https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/GamaFloatType.java)):
@@ -83,14 +83,14 @@ Example (from [GamaFloatType.java](https://github.com/gama-platform/gama/tree/ma
 	doc = {
 		@doc("Represents floating point numbers (equivalent to Double in Java)") }, 
 	concept = { IConcept.TYPE })
-public class GamaFloatType extends GamaType&lt;Double> {
+public class GamaFloatType extends GamaType<Double> {
 ```
 
-### Inheritance from the `GamaType&lt;T>` class
+### Inheritance from the `GamaType<T>` class
 Each java class aiming at implementing a type should inherit from the GamaType abstract class.
 Example (from [GamaColorType.java](https://github.com/gama-platform/gama/tree/master/msi.gama.core/src/msi/gaml/types/GamaColorType.java)):
 ```
-public class GamaColorType extends GamaType&lt;GamaColor>
+public class GamaColorType extends GamaType<GamaColor>
 ```
 
 This class imposes to implement the three following methods (with the example of the GamaColorType):

@@ -100,7 +100,7 @@ A first way of specifying the behavior of your diffusion is using diffusion matr
 Example of matrix:
 
 ```
-matrix&lt;float> mat_diff <- matrix([
+matrix<float> mat_diff <- matrix([
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9]]);
@@ -152,7 +152,7 @@ You can compute several times the propagation you want by using the facet `cycle
 Writing those two things are exactly equivalent (for diffusion):
 
 ```
-matrix&lt;float> mat_diff <- matrix([
+matrix<float> mat_diff <- matrix([
 		[1/81,2/81,3/81,2/81,1/81],
 		[2/81,4/81,6/81,4/81,2/81],
 		[3/81,6/81,1/9,6/81,3/81],
@@ -163,7 +163,7 @@ reflex diff {
 ```
 and
 ```
-matrix&lt;float> mat_diff <- matrix([
+matrix<float> mat_diff <- matrix([
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9]]);
@@ -273,12 +273,12 @@ Masks can be used to simulate a lot of environments. Here are some ideas for you
 If you want to simulate a wall blocking a uniform diffusion, you can declare a second diffusion matrix that will be applied only on the cells where your wall will be. This diffusion matrix will "push" the values outside from himself, but conserving the values (the sum of the values of the diffusion still have to be equal to 1) :
 
 ```
-matrix&lt;float> mat_diff <- matrix([
+matrix<float> mat_diff <- matrix([
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9]]);
 								
-matrix&lt;float> mat_diff_left_wall <- matrix([
+matrix<float> mat_diff_left_wall <- matrix([
 			[0.0,0.0,2/9],
 			[0.0,0.0,4/9],
 			[0.0,0.0,2/9]]);
@@ -298,17 +298,17 @@ Note that almost the same result can be obtained by using the facet `avoid_mask`
 Let's simulate a uniform diffusion that is pushed by a wind from "north" everywhere in the grid. A wind from "west" as blowing at the top side of the grid. We will here have to build 2 matrices: one for the uniform diffusion, one for the "north" wind and one for the "west" wind. The sum of the values for the 2 matrices meant to simulate the wind will be equal to 0 (as it will be added to the diffusion matrix).
 
 ```
-matrix&lt;float> mat_diff <- matrix([
+matrix<float> mat_diff <- matrix([
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9],
 		[1/9,1/9,1/9]]);
 								
-matrix&lt;float> mat_wind_from_west <- matrix([
+matrix<float> mat_wind_from_west <- matrix([
 		[-1/9,0.0,1/9],
 		[-1/9,0.0,1/9],
 		[-1/9,0.0,1/9]]);
 								
-matrix&lt;float> mat_wind_from_north <- matrix([
+matrix<float> mat_wind_from_north <- matrix([
 		[-1/9,-1/9,-1/9],
 		[0.0,0.0,0.0],
 		[1/9,1/9,1/9]]);
@@ -333,12 +333,12 @@ You can "fake" the fact that your world is endless by adding a different diffusi
 ![Attempt to fake torus environment with different matrices.](/resources/images/recipes/uniform_diffusion_near_edge_with_mask.png)
 
 ```
-matrix&lt;float> mat_diff <- matrix([
+matrix<float> mat_diff <- matrix([
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9],
 			[1/9,1/9,1/9]]);
 								
-matrix&lt;float> mat_diff_upper_edge <- matrix([
+matrix<float> mat_diff_upper_edge <- matrix([
 			[0.0,0.0,0.0],
 			[1/9+7/81,2/9+1/81,1/9+7/81],
 			[1/9,1/9,1/9]]);

@@ -59,7 +59,7 @@ step of agent agent_a
         }
 
         ask each micro-population mp of agent_a to step {
-            list&lt;agent> sub-agents <- mp.compute_agents_to_schedule
+            list<agent> sub-agents <- mp.compute_agents_to_schedule
             ask each agent_b of sub-agents to step //... recursive call...
         }
     }

@@ -271,7 +271,7 @@ FirstOperand Operator SecondOperand --> ex: 2[6,4,5] contains(5);
 You can write conditionals with [if/else](Statements#if) in GAML:
 
 ```
-if (integerVariable&lt;0) {
+if (integerVariable<0) {
     write "my value is negative !! The exact value is " + integerVariable;
 }
 else if (integerVariable>0) {
@@ -356,7 +356,7 @@ We saw in the previous parts "simple" types of variable. You also have multiple 
 To declare a list, you can either or not specify the type of the data of its elements:
 
 ```
-list&lt;int> listOfInt <- [5,4,9,8];
+list<int> listOfInt <- [5,4,9,8];
 list listWithoutType <- [2,4.6,"oij",["hoh",0.0]];
 ```
 
@@ -419,7 +419,7 @@ bool result <- [{1,2}, {3,4}, {5,6}] contains {3,4};  // result equals true
 For those operation, you can use dedicated statements. The statements `add` and `put` are used to insert/modify an element, while the statement `remove` is used to remove an element. Here are some examples of how to use those 3 statements with the most common facets:
 
 ```
-list&lt;int> list_int <- [1,5,7,6,7];
+list<int> list_int <- [1,5,7,6,7];
 
 remove from:list_int index:1; // remove the 2nd element of the list
 write list_int; // the output is : [1,7,6,7]
@@ -439,7 +439,7 @@ write list_int; // the output is : [3,6,2,7,0]
 
 Note that the `+` and `-` operators can be used to add an element at the end of a list and to remove the last element of a list:
 ```
-list&lt;int> list_int <- [1,5,7,6,7];
+list<int> list_int <- [1,5,7,6,7];
 
 list_int <- list_int + 8;
 write list_int;  // the output is : [1,5,7,6,7,8]
@@ -452,9 +452,9 @@ write list_int;  // the output is : [1,5,7,6,8]
 You can add 2 lists by creating a third one and browsing the 2 first one, but you can do it much easily by using the operator `+` : 
 
 ```
-list&lt;int> list_int1 <- [1,5,7,6,7];
-list&lt;int> list_int2 <- [6,9];
-list&lt;int> list_int_result <- list_int1 + list_int2;
+list<int> list_int1 <- [1,5,7,6,7];
+list<int> list_int2 <- [6,9];
+list<int> list_int_result <- list_int1 + list_int2;
 ```
 
 
@@ -463,7 +463,7 @@ list&lt;int> list_int_result <- list_int1 + list_int2;
 You can use the facet `over` of a loop:
 
 ```
-list&lt;int> exampleOfList <- [4,2,3,4,5,4];
+list<int> exampleOfList <- [4,2,3,4,5,4];
 loop i over: exampleOfList {
 	write i;
 }
@@ -476,7 +476,7 @@ loop i over: exampleOfList {
 If you want to get all the elements of a list that fulfill a particular condition, you need the operator where. In the condition, you can design all the elements of a particular list by using the pseudo-variable **`each`** as followed:
 
 ```
-list&lt;int> exampleOfList <- [4,2,3,4,5,4] where (each <= 3); 
+list<int> exampleOfList <- [4,2,3,4,5,4] where (each <= 3); 
 // the list is now [2,3]
 ```
 

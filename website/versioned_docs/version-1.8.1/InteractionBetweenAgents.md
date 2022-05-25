@@ -36,7 +36,7 @@ species my_species {
 
 ```
 species my_species {
-    list&lt;agent> targets;
+    list<agent> targets;
 
     reflex update {
 	ask targets {
@@ -50,7 +50,7 @@ species my_species {
 
 ```
 species my_species {
-    list&lt;agent> targets;
+    list<agent> targets;
 
     reflex update {
 	ask targets as:my_species {
@@ -163,7 +163,7 @@ The operator `at_distance` can be used to know the list of agents that are in a 
 ```
 species my_species {
     reflex update {
-	list&lt;agent> neighbors <- agents at_distance(5);
+	list<agent> neighbors <- agents at_distance(5);
 	// neighbors contains the list of all the agents located at a distance <= 5 from the caller agent.
     }
 }

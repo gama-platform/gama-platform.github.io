@@ -31,7 +31,7 @@ The GAML language has evolved by extending the import section. The old importati
 
 Defining a micro-model of comodel is to import an existing model with an alias name. The syntax is: 
 ``` 
-import &lt;path to the GAML model> as &lt;identifier>
+import <path to the GAML model> as <identifier>
 ```
 The identifier is then become the new name of the micro-model.
 
@@ -44,9 +44,9 @@ import "Prey Predator Adapter.gaml" as Organism
 
 After the importation and giving an identifier, micro-model must be explicitly instantiated. It could be done by the `create` statement. 
 ```
-create &lt;micro-model identifier> . &lt;experiment name> [optional parameter];
+create <micro-model identifier> . <experiment name> [optional parameter];
 ```
-The `&lt;exeperiment name>` is an experiment inside micro-model. This syntax will generate some experiment agents and attach an implicit simulation. 
+The `<exeperiment name>` is an experiment inside micro-model. This syntax will generate some experiment agents and attach an implicit simulation. 
 
 Note: The creation of several instances is not multi-simulation, but multi-experiment. Modelers could create an experiment with multi-simulation by explicitly do the init inside the experiment scope.
 
@@ -65,7 +65,7 @@ global {
 A micro-model can be controlled as any normal agent by asking the corresponding identifier, and also be destroyed by the `do die;` statement. And it can be recreated any time we need.
 
 ```
-ask (&lt;micro-model identifier> . &lt;experiment name>  at &lt;number> ) . simulation {
+ask (<micro-model identifier> . <experiment name>  at <number> ) . simulation {
     ...
 }
 ```
@@ -86,7 +86,7 @@ reflex simulate_micro_models {
 The micro-model species could display in comodel with the support of agent layer
 
 ```
-agents "name of layer" value: (&lt;micro-model> . &lt;experiment name> at &lt;number>).&lt;get List of agents>;
+agents "name of layer" value: (<micro-model> . <experiment name> at <number>).<get List of agents>;
 ```
 
 As an example:

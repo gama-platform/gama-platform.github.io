@@ -79,8 +79,8 @@ The XML input file contains for example:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-&lt;Experiment_plan>
- &lt;Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" until="length(predator) = 1"  
+<Experiment_plan>
+ <Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" until="length(predator) = 1"  
  experiment="predPrey">
   <Parameters>
     <Parameter name="nb_predator_init" type="INT" value="53" />
@@ -100,7 +100,7 @@ Note that several simulations could be determined in one experiment plan. These 
 ### Heading
 
 ```
-&lt;Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" until="length(predator) = 1"  
+<Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" until="length(predator) = 1"  
  experiment="predPrey">
 ```
 
@@ -162,38 +162,38 @@ Outputed-directory-path/
 
 Is it possible to change the output directory for the images by adding the attribute "output_path" in the xml : 
 
-If we write `&lt;Output id="1" name="my_display" file:"/F:/path/imageName" framerate="10" />`, then the display "my_display" will have the name "imageName-stepNb.png" and will be written in the folder "/F:/path/"
+If we write `<Output id="1" name="my_display" file:"/F:/path/imageName" framerate="10" />`, then the display "my_display" will have the name "imageName-stepNb.png" and will be written in the folder "/F:/path/"
 
 ## Simulation Output
 A file named `simulation-output.xml` is created with the following contents when the experiment runs.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-&lt;Simulation id="2" >
-	&lt;Step id='0' >
+<Simulation id="2" >
+	<Step id='0' >
 		<Variable name='main_display' value='main_display2-0.png'/>
 		<Variable name='number_of_preys' value='613'/>
 		<Variable name='number_of_predators' value='51'/>
                 <Variable name='duration' value='6' />
 	</Step>
-	&lt;Step id='1' >
+	<Step id='1' >
 		<Variable name='main_display' value='main_display2-0.png'/>
 		<Variable name='number_of_preys' value='624'/>
 		<Variable name='number_of_predators' value='51'/>
                 <Variable name='duration' value='5' />
 	</Step>
-        &lt;Step id='2'>
+        <Step id='2'>
 
 ...
 ```
 
 * With:
-  * `&lt;Simulation id="2" >`: block containing results of the simulation 2 (this Id is identified in the Input Experiment File)
-  * `&lt;Step id='1' > ... </Step>`: one block per step done. The id corresponds to the step number
+  * `<Simulation id="2" >`: block containing results of the simulation 2 (this Id is identified in the Input Experiment File)
+  * `<Step id='1' > ... </Step>`: one block per step done. The id corresponds to the step number
 
 ### Step
 ```
-	&lt;Step id='1' >
+	<Step id='1' >
 		<Variable name='main_display' value='main_display2-0.png'/>
 		<Variable name='number_of_preys' value='624'/>
 		<Variable name='number_of_predators' value='51'/>
