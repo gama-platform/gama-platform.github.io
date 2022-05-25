@@ -167,7 +167,7 @@ public String getTrace(final IScope scope) {
 	return "";
 } 
 ```
-  * the `setChildren(final List&lt;? extends ISymbol> commands)` is used to define which are the statement children to the sequence statement. By default, all the embedded statements are taken as children
+  * the `setChildren(final List<? extends ISymbol> commands)` is used to define which are the statement children to the sequence statement. By default, all the embedded statements are taken as children
 
 
 

@@ -274,14 +274,14 @@ add expr at: expr to: expr_container;   // Add at position expr
 * Case of a list, the expression in the facet at: should be an integer.
 
 ``` 
-list&lt;int> workingList <- [];add 0 at: 0 to: workingList ;//workingList equals [0]add 10 at: 0 to: workingList ;//workingList equals [10,0]add 20 at: 2 to: workingList ;//workingList equals [10,0,20]add 50 to: workingList;//workingList equals [10,0,20,50]add [60,70] all: true to: workingList;//workingList equals [10,0,20,50,60,70]
+list<int> workingList <- [];add 0 at: 0 to: workingList ;//workingList equals [0]add 10 at: 0 to: workingList ;//workingList equals [10,0]add 20 at: 2 to: workingList ;//workingList equals [10,0,20]add 50 to: workingList;//workingList equals [10,0,20,50]add [60,70] all: true to: workingList;//workingList equals [10,0,20,50,60,70]
 ```
 
 
 * Case of a map: As a map is basically a list of pairs key::value, we can also use the add statement on it. It is important to note that the behavior of the statement is slightly different, in particular in the use of the at facet, which denotes the key of the pair.
 
 ``` 
-map&lt;string,string> workingMap <- [];add "val1" at: "x" to: workingMap;//workingMap equals ["x"::"val1"]
+map<string,string> workingMap <- [];add "val1" at: "x" to: workingMap;//workingMap equals ["x"::"val1"]
 ```
 
 
@@ -483,7 +483,7 @@ ask ${receiver_agents} of_species ${species_name} {
 species animal { 
     float energy <- rnd (1000) min: 0.0; 
     reflex when: energy > 500 { // executed when the energy is above the given threshold 
-         list&lt;animal> others <- (animal at_distance 5); // find all the neighboring animals in a radius of 5 meters 
+         list<animal> others <- (animal at_distance 5); // find all the neighboring animals in a radius of 5 meters 
          float shared_energy  <- (energy - 500) / length (others); // compute the amount of energy to share with each of them 
          ask others { // no need to cast, since others has already been filtered to only include animals 
               if (energy < 500) { // refers to the energy of each animal in others 
@@ -1145,7 +1145,7 @@ This statements allows a value to diffuse among a species on agents (generally o
 * A basic example of diffusion of the variable phero defined in the species cells, given a diffusion matrix math_diff is:
 
 ``` 
-matrix&lt;float> math_diff <- matrix([[1/9,1/9,1/9],[1/9,1/9,1/9],[1/9,1/9,1/9]]); 
+matrix<float> math_diff <- matrix([[1/9,1/9,1/9],[1/9,1/9,1/9],[1/9,1/9,1/9]]); 
 diffuse var: phero on: cells matrix: math_diff;
 ```
 
@@ -1750,7 +1750,7 @@ global {
    // ...  
    action myAction () { 
       point loc <- #user_location; // contains the location of the mouse in the world 
-      list&lt;agent> selected_agents <- agents inside (10#m around loc); // contains agents clicked by the event 
+      list<agent> selected_agents <- agents inside (10#m around loc); // contains agents clicked by the event 
        
       // code written by modelers 
    } 
@@ -2350,7 +2350,7 @@ display my_display {
 #### Facets 
   
 * **`name`** (any type), (omissible) : the identifier of the inspector
-* `attributes` (list): the list of attributes to inspect. A list that can contain strings or pair&lt;string,type>, or a mix of them. These can be variables of the species, but also attributes present in the attributes table of the agent. The type is necessary in that case
+* `attributes` (list): the list of attributes to inspect. A list that can contain strings or pair<string,type>, or a mix of them. These can be variables of the species, but also attributes present in the attributes table of the agent. The type is necessary in that case
 * `refresh` (boolean): Indicates the condition under which this output should be refreshed (default is true)
 * `type` (an identifier), takes values in: {agent, table}: the way to inspect agents: in a table, or a set of inspectors
 * `value` (any type): the set of agents to inspect, could be a species, a list of agents or an agent 
@@ -3161,21 +3161,21 @@ put all: expr in: expr_container;
 
 * In the case of a list, the position should an integer in the bound of the list. The facet all: is used to replace all the elements of the list by the given value.
 
-```list&lt;int> 
+```list<int> 
 putList <- [1,2,3,4,5]; //putList equals [1,2,3,4,5]put -10 at: 1 in: putList;//putList equals [1,-10,3,4,5]put 10 all: true in: putList;//putList equals [10,10,10,10,10]
 ```
 
 
 * In the case of a matrix, the position should be a point in the bound of the matrix. The facet all: is used to replace all the elements of the matrix by the given value.
 
-```matrix&lt;int> 
+```matrix<int> 
 putMatrix <- matrix([[0,1],[2,3]]); //putMatrix equals matrix([[0,1],[2,3]])put -10 at: {1,1} in: putMatrix;//putMatrix equals matrix([[0,1],[2,-10]])put 10 all: true in: putMatrix;//putMatrix equals matrix([[10,10],[10,10]])
 ```
 
 
 * In the case of a map, the position should be one of the key values of the map. Notice that if the given key value does not exist in the map, the given pair key::value will be added to the map. The facet all is used to replace the value of all the pairs of the map.
 
-```map&lt;string,int> 
+```map<string,int> 
 putMap <- ["x"::4,"y"::7]; //putMap equals ["x"::4,"y"::7]put -10 key: "y" in: putMap;//putMap equals ["x"::4,"y"::-10]put -20 key: "z" in: putMap;//putMap equals ["x"::4,"y"::-10, "z"::-20]put -30 all: true in: putMap;//putMap equals ["x"::-30,"y"::-30, "z"::-30]
 ```
 
@@ -3361,21 +3361,21 @@ remove all: expr from: expr_container;
 * In the case of list, the facet `item:` is used to remove the first occurence of a given expression, whereas `all` is used to remove all the occurrences of the given expression.
 
 ``` 
-list&lt;int> removeList <- [3,2,1,2,3];remove 2 from: removeList;//removeList equals [3,1,2,3]remove 3 all: true from: removeList;//removeList equals [1,2]remove index: 1 from: removeList;//removeList equals [1]
+list<int> removeList <- [3,2,1,2,3];remove 2 from: removeList;//removeList equals [3,1,2,3]remove 3 all: true from: removeList;//removeList equals [1,2]remove index: 1 from: removeList;//removeList equals [1]
 ```
 
 
 * In the case of map, the facet `key:` is used to remove the pair identified by the given key.
 
 ``` 
-map&lt;string,int> removeMap <- ["x"::5, "y"::7, "z"::7];remove key: "x" from: removeMap;//removeMap equals ["y"::7, "z"::7]remove 7 all: true from: removeMap;//removeMap equals map([])
+map<string,int> removeMap <- ["x"::5, "y"::7, "z"::7];remove key: "x" from: removeMap;//removeMap equals ["y"::7, "z"::7]remove 7 all: true from: removeMap;//removeMap equals map([])
 ```
 
 
 * In addition, a map a be managed as a list with pair key as index. Given that, facets item:, all: and index: can be used in the same way:
 
 ``` 
-map&lt;string,int> removeMapList <- ["x"::5, "y"::7, "z"::7, "t"::5];remove 7 from: removeMapList;//removeMapList equals ["x"::5, "z"::7, "t"::5]remove [5,7] all: true from: removeMapList;//removeMapList equals ["t"::5]remove index: "t" from: removeMapList;//removeMapList equals map([])
+map<string,int> removeMapList <- ["x"::5, "y"::7, "z"::7, "t"::5];remove 7 from: removeMapList;//removeMapList equals ["x"::5, "z"::7, "t"::5]remove [5,7] all: true from: removeMapList;//removeMapList equals ["t"::5]remove index: "t" from: removeMapList;//removeMapList equals map([])
 ```
 
 

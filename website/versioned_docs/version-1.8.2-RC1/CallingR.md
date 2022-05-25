@@ -58,9 +58,9 @@ The R language is a powerful tool for statistical computing and graphics, and it
     * **On macOS**, you need to create (or update) the file `environment.plist` in the folder: `~/Library/LaunchAgents/` (for the current user, note that this folder is a hidden folder) or in `/Library/LaunchAgents/` (for all users)
 It should look like:
 ```
-&lt;?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-&lt;plist version="1.0">
+<plist version="1.0">
   <dict>
     <key>Label</key>
     <string>my.startup</string>
@@ -188,7 +188,7 @@ global skills:[RSkill] {
 		do startR();
 		
 		string s2 <- "s2";
-		list&lt;int> numlist <- [1,2,3,4]; 
+		list<int> numlist <- [1,2,3,4]; 
   		write R_eval("numlist = " + to_R_data(numlist));
 	}
 }

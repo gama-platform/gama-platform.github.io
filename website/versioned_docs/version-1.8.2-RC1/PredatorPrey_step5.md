@@ -172,7 +172,7 @@ species predator parent: generic_species {
     float energy_consum <- predator_energy_consum ;
 
     float energy_from_eat {
-	list&lt;prey> reachable_preys <- prey inside (my_cell);	
+	list<prey> reachable_preys <- prey inside (my_cell);	
 	if(! empty(reachable_preys)) {
 	    ask one_of (reachable_preys) {
 		do die;

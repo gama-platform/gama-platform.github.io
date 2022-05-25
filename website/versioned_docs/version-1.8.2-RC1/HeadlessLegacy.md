@@ -50,9 +50,9 @@ You can see result output folder in [the Simulation Output part](#simulation-out
 The XML input file contains for example (you can find it next to the file `gama-headless.sh` at the path `samples/predatorPrey.xml`:
 
 ```
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?>
-&lt;Experiment_plan>
-	&lt;Simulation experiment="prey_predatorExp" finalStep="1000" id="0" seed="1.0" sourcePath="./samples/predatorPrey/predatorPrey.gaml">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Experiment_plan>
+	<Simulation experiment="prey_predatorExp" finalStep="1000" id="0" seed="1.0" sourcePath="./samples/predatorPrey/predatorPrey.gaml">
 		<Parameters>
 			<Parameter name="Nb Preys: " type="INT" value="200" var="nb_preys_init"/>
 			<Parameter name="Prey max energy: " type="FLOAT" value="1.0" var="prey_max_energy"/>
@@ -77,7 +77,7 @@ The XML input file contains for example (you can find it next to the file `gama-
 ### Heading
 
 ```
-&lt;Simulation experiment="prey_predatorExp" finalStep="1000" id="0" seed="1.0" sourcePath="./samples/predatorPrey/predatorPrey.gaml">
+<Simulation experiment="prey_predatorExp" finalStep="1000" id="0" seed="1.0" sourcePath="./samples/predatorPrey/predatorPrey.gaml">
 ```
 
 * with:
@@ -144,36 +144,36 @@ out
 ```
 
 * with:
-  * `console-outputs-&lt;simulationId>.xml`: containing every message written in GAMA's console
-  * `simulation-outputs&lt;simulationId>.xml`: containing variables' results in a XML format
+  * `console-outputs-<simulationId>.xml`: containing every message written in GAMA's console
+  * `simulation-outputs<simulationId>.xml`: containing variables' results in a XML format
   * `snapshot`: containing the snapshots (i.e. screenshots of gui displays) produced during the simulation
 
 ## Simulation Output
 A file named `simulation-output.xml` is created with the following contents when the experiment runs.
 
 ```
-&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;Simulation id="0" >
-	&lt;Step id='0' >
+<?xml version="1.0" encoding="UTF-8"?>
+<Simulation id="0" >
+	<Step id='0' >
 		<Variable name='main_display' value='main_display2-0.png'/>
 		<Variable name='number_of_preys' value='613'/>
 		<Variable name='number_of_predators' value='51'/>
                 <Variable name='duration' value='6' />
 	</Step>
-	&lt;Step id='1' >
+	<Step id='1' >
 		<Variable name='main_display' value='main_display2-0.png'/>
 		<Variable name='number_of_preys' value='624'/>
 		<Variable name='number_of_predators' value='51'/>
                 <Variable name='duration' value='5' />
 	</Step>
-        &lt;Step id='2'>
+        <Step id='2'>
 
 ...
 ```
 
 * With:
-  * `&lt;Simulation id="0" >`: tag containing results of the simulation. The `id` is set one set in the input file, in the [heading part](#heading)
-  * `&lt;Step id='0' >`: one block per step done containing the value of outputs variables. The `id` corresponds to the step number
+  * `<Simulation id="0" >`: tag containing results of the simulation. The `id` is set one set in the input file, in the [heading part](#heading)
+  * `<Step id='0' >`: one block per step done containing the value of outputs variables. The `id` corresponds to the step number
     * `<Variable />` with:
       * `name`: name of the output
       * `value`: the current value of the model variable at the given step.

@@ -375,7 +375,7 @@ file my_file <- osm_file("../includes/data.gz", "EPSG:32601");
 map filtering <- map(["highway"::["primary", "secondary", "tertiary", "motorway", "living_street","residential", "unclassified"], "building"::["yes"]]);
 
 //OSM file to load
-file&lt;geometry> osmfile <-  file&lt;geometry (osm_file("../includes/rouen.gz", filtering))  ;
+file<geometry> osmfile <-  file<geometry (osm_file("../includes/rouen.gz", filtering))  ;
 ```
   * **osm\_file(string path, map filter, string code)**: load a file (with an authorized extension) as a osm file with the given projection (GAMA will automatically decode the code. For a list of the possible projections see: http://spatialreference.org/ref/). In this case, only the elements with the defined values are loaded from the file.
   * **osm\_file(string path, map filter, int EPSG\_ID)**: load a file (with an authorized extension) as a osm file with the given projection (GAMA will automatically decode the epsg code. For a list of the possible projections see: http://spatialreference.org/ref/). In this case, only the elements with the defined values are loaded from the file.
