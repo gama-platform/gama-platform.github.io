@@ -339,8 +339,8 @@ Note that due to the fact that actions are written by modelers, the general func
   *  **`-`** (`date` , `int`) --->  `date`
   * `point` **`-`** `float` --->  `point`
   *  **`-`** (`point` , `float`) --->  `point`
-  * `geometry` **`-`** `container&lt;unknown,geometry>` --->  `geometry`
-  *  **`-`** (`geometry` , `container&lt;unknown,geometry>`) --->  `geometry`
+  * `geometry` **`-`** `container<unknown,geometry>` --->  `geometry`
+  *  **`-`** (`geometry` , `container<unknown,geometry>`) --->  `geometry`
   * `int` **`-`** `int` --->  `int`
   *  **`-`** (`int` , `int`) --->  `int`
   * `geometry` **`-`** `geometry` --->  `geometry`
@@ -351,8 +351,8 @@ Note that due to the fact that actions are written by modelers, the general func
   *  **`-`** (`int` , `matrix`) --->  `matrix`
   * `float` **`-`** `int` --->  `float`
   *  **`-`** (`float` , `int`) --->  `float`
-  * `matrix&lt;unknown>` **`-`** `int` --->  `matrix`
-  *  **`-`** (`matrix&lt;unknown>` , `int`) --->  `matrix`
+  * `matrix<unknown>` **`-`** `int` --->  `matrix`
+  *  **`-`** (`matrix<unknown>` , `int`) --->  `matrix`
   * `date` **`-`** `date` --->  `float`
   *  **`-`** (`date` , `date`) --->  `float`
   * `map` **`-`** `pair` --->  `map`
@@ -361,8 +361,8 @@ Note that due to the fact that actions are written by modelers, the general func
   *  **`-`** (`date` , `float`) --->  `date`
   * `rgb` **`-`** `int` --->  `rgb`
   *  **`-`** (`rgb` , `int`) --->  `rgb`
-  * `matrix&lt;unknown>` **`-`** `matrix` --->  `matrix`
-  *  **`-`** (`matrix&lt;unknown>` , `matrix`) --->  `matrix`
+  * `matrix<unknown>` **`-`** `matrix` --->  `matrix`
+  *  **`-`** (`matrix<unknown>` , `matrix`) --->  `matrix`
   * `geometry` **`-`** `float` --->  `geometry`
   *  **`-`** (`geometry` , `float`) --->  `geometry`
   * `int` **`-`** `float` --->  `float`
@@ -379,8 +379,8 @@ Note that due to the fact that actions are written by modelers, the general func
   *  **`-`** (`map` , `map`) --->  `map`
   * `rgb` **`-`** `rgb` --->  `rgb`
   *  **`-`** (`rgb` , `rgb`) --->  `rgb`
-  * `matrix&lt;unknown>` **`-`** `float` --->  `matrix`
-  *  **`-`** (`matrix&lt;unknown>` , `float`) --->  `matrix` 
+  * `matrix<unknown>` **`-`** `float` --->  `matrix`
+  *  **`-`** (`matrix<unknown>` , `float`) --->  `matrix` 
 
 #### Result: 
 Returns the difference of the two operands.
@@ -437,8 +437,8 @@ geometry var23 <- geom1 - geom2; // var23 equals a geometry corresponding to dif
   
 ```
  
-list&lt;int> var24 <- [1,2,3,4,5,6,2] - 2; // var24 equals [1,3,4,5,6,2] 
-list&lt;int> var25 <- [1,2,3,4,5,6] - 0; // var25 equals [1,2,3,4,5,6]
+list<int> var24 <- [1,2,3,4,5,6,2] - 2; // var24 equals [1,3,4,5,6,2] 
+list<int> var25 <- [1,2,3,4,5,6] - 0; // var25 equals [1,2,3,4,5,6]
 ``` 
 
     
@@ -486,8 +486,8 @@ point var30 <- {1, 2} - {4, 5}; // var30 equals {-3.0, -3.0}
   
 ```
  
-list&lt;int> var31 <- [1,2,3,4,5,6] - [2,4,9]; // var31 equals [1,3,5,6] 
-list&lt;int> var32 <- [1,2,3,4,5,6] - [0,8]; // var32 equals [1,2,3,4,5,6]
+list<int> var31 <- [1,2,3,4,5,6] - [2,4,9]; // var31 equals [1,3,5,6] 
+list<int> var32 <- [1,2,3,4,5,6] - [0,8]; // var32 equals [1,2,3,4,5,6]
 ``` 
 
     
@@ -548,7 +548,7 @@ It is used in combination with the ? operator. If the left-hand of ? operand eva
 #### Examples: 
 ```
  
-list&lt;string> var0 <- [10, 19, 43, 12, 7, 22] collect ((each > 20) ? 'above' : 'below'); // var0 equals ['below', 'below', 'above', 'below', 'below', 'above']
+list<string> var0 <- [10, 19, 43, 12, 7, 22] collect ((each > 20) ? 'above' : 'below'); // var0 equals ['below', 'below', 'above', 'below', 'below', 'above']
 
 ```
       
@@ -671,7 +671,7 @@ These functional tests can be combined together.
 #### Examples: 
 ```
  
-list&lt;string> var0 <- [10, 19, 43, 12, 7, 22] collect ((each > 20) ? 'above' : 'below'); // var0 equals ['below', 'below', 'above', 'below', 'below', 'above'] 
+list<string> var0 <- [10, 19, 43, 12, 7, 22] collect ((each > 20) ? 'above' : 'below'); // var0 equals ['below', 'below', 'above', 'below', 'below', 'above'] 
 rgb col <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
 
 ```
@@ -695,22 +695,22 @@ rgb col <- (flip(0.3) ? #red : (flip(0.9) ? #blue : #green));
   *  **`/`** (`float` , `int`) --->  `float`
   * `rgb` **`/`** `int` --->  `rgb`
   *  **`/`** (`rgb` , `int`) --->  `rgb`
-  * `matrix&lt;unknown>` **`/`** `matrix` --->  `matrix`
-  *  **`/`** (`matrix&lt;unknown>` , `matrix`) --->  `matrix`
+  * `matrix<unknown>` **`/`** `matrix` --->  `matrix`
+  *  **`/`** (`matrix<unknown>` , `matrix`) --->  `matrix`
   * `int` **`/`** `int` --->  `float`
   *  **`/`** (`int` , `int`) --->  `float`
   * `float` **`/`** `float` --->  `float`
   *  **`/`** (`float` , `float`) --->  `float`
-  * `matrix&lt;unknown>` **`/`** `int` --->  `matrix`
-  *  **`/`** (`matrix&lt;unknown>` , `int`) --->  `matrix`
+  * `matrix<unknown>` **`/`** `int` --->  `matrix`
+  *  **`/`** (`matrix<unknown>` , `int`) --->  `matrix`
   * `point` **`/`** `float` --->  `point`
   *  **`/`** (`point` , `float`) --->  `point`
   * `rgb` **`/`** `float` --->  `rgb`
   *  **`/`** (`rgb` , `float`) --->  `rgb`
   * `point` **`/`** `int` --->  `point`
   *  **`/`** (`point` , `int`) --->  `point`
-  * `matrix&lt;unknown>` **`/`** `float` --->  `matrix`
-  *  **`/`** (`matrix&lt;unknown>` , `float`) --->  `matrix`
+  * `matrix<unknown>` **`/`** `float` --->  `matrix`
+  *  **`/`** (`matrix<unknown>` , `float`) --->  `matrix`
   * `int` **`/`** `float` --->  `float`
   *  **`/`** (`int` , `float`) --->  `float` 
 
@@ -767,8 +767,8 @@ rgb var4 <- rgb([255, 128, 32]) / 2.5; // var4 equals rgb([102,51,13])
 ### `.`
 
 #### Possible use: 
-  * `matrix&lt;unknown>` **`.`** `matrix` --->  `matrix`
-  *  **`.`** (`matrix&lt;unknown>` , `matrix`) --->  `matrix`
+  * `matrix<unknown>` **`.`** `matrix` --->  `matrix`
+  *  **`.`** (`matrix<unknown>` , `matrix`) --->  `matrix`
   * `agent` **`.`** `any expression` --->  `unknown`
   *  **`.`** (`agent` , `any expression`) --->  `unknown` 
 
@@ -872,18 +872,18 @@ float var1 <- 4.84 ^ 0.5; // var1 equals 2.2
   *  **`*`** (`geometry` , `point`) --->  `geometry`
   * `point` **`*`** `int` --->  `point`
   *  **`*`** (`point` , `int`) --->  `point`
-  * `matrix&lt;unknown>` **`*`** `int` --->  `matrix`
-  *  **`*`** (`matrix&lt;unknown>` , `int`) --->  `matrix`
+  * `matrix<unknown>` **`*`** `int` --->  `matrix`
+  *  **`*`** (`matrix<unknown>` , `int`) --->  `matrix`
   * `point` **`*`** `float` --->  `point`
   *  **`*`** (`point` , `float`) --->  `point`
-  * `matrix&lt;unknown>` **`*`** `float` --->  `matrix`
-  *  **`*`** (`matrix&lt;unknown>` , `float`) --->  `matrix`
+  * `matrix<unknown>` **`*`** `float` --->  `matrix`
+  *  **`*`** (`matrix<unknown>` , `float`) --->  `matrix`
   * `geometry` **`*`** `float` --->  `geometry`
   *  **`*`** (`geometry` , `float`) --->  `geometry`
   * `int` **`*`** `float` --->  `float`
   *  **`*`** (`int` , `float`) --->  `float`
-  * `matrix&lt;unknown>` **`*`** `matrix` --->  `matrix`
-  *  **`*`** (`matrix&lt;unknown>` , `matrix`) --->  `matrix`
+  * `matrix<unknown>` **`*`** `matrix` --->  `matrix`
+  *  **`*`** (`matrix<unknown>` , `matrix`) --->  `matrix`
   * `float` **`*`** `float` --->  `float`
   *  **`*`** (`float` , `float`) --->  `float`
   * `point` **`*`** `point` --->  `float`
@@ -983,10 +983,10 @@ float var0 <- 2.5 * 2; // var0 equals 5.0
   *  **`+`** (`float` , `matrix`) --->  `matrix`
   * `date` **`+`** `string` --->  `string`
   *  **`+`** (`date` , `string`) --->  `string`
-  * `matrix&lt;unknown>` **`+`** `float` --->  `matrix`
-  *  **`+`** (`matrix&lt;unknown>` , `float`) --->  `matrix`
-  * `matrix&lt;unknown>` **`+`** `int` --->  `matrix`
-  *  **`+`** (`matrix&lt;unknown>` , `int`) --->  `matrix`
+  * `matrix<unknown>` **`+`** `float` --->  `matrix`
+  *  **`+`** (`matrix<unknown>` , `float`) --->  `matrix`
+  * `matrix<unknown>` **`+`** `int` --->  `matrix`
+  *  **`+`** (`matrix<unknown>` , `int`) --->  `matrix`
   * `container` **`+`** `container` --->  `container`
   *  **`+`** (`container` , `container`) --->  `container`
   * `geometry` **`+`** `float` --->  `geometry`
@@ -1001,8 +1001,8 @@ float var0 <- 2.5 * 2; // var0 equals 5.0
   *  **`+`** (`float` , `float`) --->  `float`
   * `point` **`+`** `int` --->  `point`
   *  **`+`** (`point` , `int`) --->  `point`
-  * `matrix&lt;unknown>` **`+`** `matrix` --->  `matrix`
-  *  **`+`** (`matrix&lt;unknown>` , `matrix`) --->  `matrix`
+  * `matrix<unknown>` **`+`** `matrix` --->  `matrix`
+  *  **`+`** (`matrix<unknown>` , `matrix`) --->  `matrix`
   * `int` **`+`** `int` --->  `int`
   *  **`+`** (`int` , `int`) --->  `int`
   * `rgb` **`+`** `int` --->  `rgb`
@@ -1070,8 +1070,8 @@ geometry var12 <- circle(5) + (5,32); // var12 equals circle(10)
   
 ```
  
-list&lt;int> var13 <- [1,2,3,4,5,6] + [2,4,9]; // var13 equals [1,2,3,4,5,6,2,4,9] 
-list&lt;int> var14 <- [1,2,3,4,5,6] + [0,8]; // var14 equals [1,2,3,4,5,6,0,8]
+list<int> var13 <- [1,2,3,4,5,6] + [2,4,9]; // var13 equals [1,2,3,4,5,6,2,4,9] 
+list<int> var14 <- [1,2,3,4,5,6] + [0,8]; // var14 equals [1,2,3,4,5,6,0,8]
 ``` 
 
     
@@ -1135,8 +1135,8 @@ point var21 <- {1, 2} + 4.5; // var21 equals {5.5, 6.5,4.5}
   
 ```
  
-list&lt;int> var22 <- [1,2,3,4,5,6] + 2; // var22 equals [1,2,3,4,5,6,2] 
-list&lt;int> var23 <- [1,2,3,4,5,6] + 0; // var23 equals [1,2,3,4,5,6,0]
+list<int> var22 <- [1,2,3,4,5,6] + 2; // var22 equals [1,2,3,4,5,6,2] 
+list<int> var23 <- [1,2,3,4,5,6] + 0; // var23 equals [1,2,3,4,5,6,0]
 ``` 
 
     
@@ -1536,8 +1536,8 @@ accumulate is dedicated to the application of a same computation on each element
 ```
  
 list var0 <- [a1,a2,a3] accumulate (each neighbors_at 10); // var0 equals a flat list of all the neighbors of these three agents 
-list&lt;int> var1 <- [1,2,4] accumulate ([2,4]); // var1 equals [2,4,2,4,2,4] 
-list&lt;int> var2 <- [1,2,4] accumulate (each * 2); // var2 equals [2,4,8]
+list<int> var1 <- [1,2,4] accumulate ([2,4]); // var1 equals [2,4,2,4,2,4] 
+list<int> var2 <- [1,2,4] accumulate (each * 2); // var2 equals [2,4,8]
 
 ```
       
@@ -1847,7 +1847,7 @@ predicate add_values ["time"::10]
 ### `adjacency`
 
 #### Possible use: 
-  *  **`adjacency`** (`graph`) --->  `matrix&lt;float>` 
+  *  **`adjacency`** (`graph`) --->  `matrix<float>` 
 
 #### Result: 
 adjacency matrix of the given graph.
@@ -2017,7 +2017,7 @@ list var0 <- agents_at_distance(20); // var0 equals all the agents (excluding th
 ### `agents_inside`
 
 #### Possible use: 
-  *  **`agents_inside`** (`unknown`) --->  `list&lt;agent>` 
+  *  **`agents_inside`** (`unknown`) --->  `list<agent>` 
 
 #### Result: 
 A list of agents covered by the operand (casted as a geometry).
@@ -2025,7 +2025,7 @@ A list of agents covered by the operand (casted as a geometry).
 #### Examples: 
 ```
  
-list&lt;agent> var0 <- agents_inside(self); // var0 equals the agents that are covered by the shape of the agent applying the operator.
+list<agent> var0 <- agents_inside(self); // var0 equals the agents that are covered by the shape of the agent applying the operator.
 
 ```
       
@@ -2044,7 +2044,7 @@ list&lt;agent> var0 <- agents_inside(self); // var0 equals the agents that are c
 ### `agents_overlapping`
 
 #### Possible use: 
-  *  **`agents_overlapping`** (`unknown`) --->  `list&lt;agent>` 
+  *  **`agents_overlapping`** (`unknown`) --->  `list<agent>` 
 
 #### Result: 
 A list of agents overlapping the operand (casted as a geometry).
@@ -2052,7 +2052,7 @@ A list of agents overlapping the operand (casted as a geometry).
 #### Examples: 
 ```
  
-list&lt;agent> var0 <- agents_overlapping(self); // var0 equals the agents that overlap the shape of the agent applying the operator.
+list<agent> var0 <- agents_overlapping(self); // var0 equals the agents that overlap the shape of the agent applying the operator.
 
 ```
       
@@ -2140,7 +2140,7 @@ bool var1 <- [1::2, 3::4, 5::6] all_match (each > 4); // var1 equals false
 ### `all_pairs_shortest_path`
 
 #### Possible use: 
-  *  **`all_pairs_shortest_path`** (`graph`) --->  `matrix&lt;int>` 
+  *  **`all_pairs_shortest_path`** (`graph`) --->  `matrix<int>` 
 
 #### Result: 
 returns the successor matrix of shortest paths between all node pairs (rows: source, columns: target): a cell (i,j) will thus contains the next node in the shortest path between i and j.
@@ -2148,7 +2148,7 @@ returns the successor matrix of shortest paths between all node pairs (rows: sou
 #### Examples: 
 ```
  
-matrix&lt;int> var0 <- all_pairs_shortest_paths(my_graph); // var0 equals shortest_paths_matrix will contain all pairs of shortest paths
+matrix<int> var0 <- all_pairs_shortest_paths(my_graph); // var0 equals shortest_paths_matrix will contain all pairs of shortest paths
 
 ```
   
@@ -2211,10 +2211,10 @@ Returns a list of length the value of the left-hand operand, containing random e
 #### Examples: 
 ```
  
-list&lt;int> var0 <- 3 among [1,2,4,3,5,7,6,8]; // var0 equals [1,2,8] (for example) 
+list<int> var0 <- 3 among [1,2,4,3,5,7,6,8]; // var0 equals [1,2,8] (for example) 
 list var1 <- 3 among g2; // var1 equals [node6,node11,node7] 
 list var2 <- 3 among list(node); // var2 equals [node1,node11,node4] 
-list&lt;int> var3 <- 1 among [1::2,3::4]; // var3 equals 2 or 4
+list<int> var3 <- 1 among [1::2,3::4]; // var3 equals 2 or 4
 
 ```
   
@@ -2354,10 +2354,10 @@ point var0 <- any_location_in(square(5)); // var0 equals a point in the square, 
 ### `append_horizontally`
 
 #### Possible use: 
-  * `matrix&lt;unknown>` **`append_horizontally`** `matrix` --->  `matrix`
-  *  **`append_horizontally`** (`matrix&lt;unknown>` , `matrix`) --->  `matrix`
-  * `matrix&lt;unknown>` **`append_horizontally`** `matrix` --->  `matrix`
-  *  **`append_horizontally`** (`matrix&lt;unknown>` , `matrix`) --->  `matrix` 
+  * `matrix<unknown>` **`append_horizontally`** `matrix` --->  `matrix`
+  *  **`append_horizontally`** (`matrix<unknown>` , `matrix`) --->  `matrix`
+  * `matrix<unknown>` **`append_horizontally`** `matrix` --->  `matrix`
+  *  **`append_horizontally`** (`matrix<unknown>` , `matrix`) --->  `matrix` 
 
 #### Result: 
 A matrix resulting from the concatenation of the rows of the two given matrices. If not both numerical or both object matrices, returns the first matrix.
@@ -2381,10 +2381,10 @@ matrix var1 <- matrix([[1.0,2.0],[3.0,4.0]]) append_horizontally matrix([[1,2],[
 ### `append_vertically`
 
 #### Possible use: 
-  * `matrix&lt;unknown>` **`append_vertically`** `matrix` --->  `matrix`
-  *  **`append_vertically`** (`matrix&lt;unknown>` , `matrix`) --->  `matrix`
-  * `matrix&lt;unknown>` **`append_vertically`** `matrix` --->  `matrix`
-  *  **`append_vertically`** (`matrix&lt;unknown>` , `matrix`) --->  `matrix` 
+  * `matrix<unknown>` **`append_vertically`** `matrix` --->  `matrix`
+  *  **`append_vertically`** (`matrix<unknown>` , `matrix`) --->  `matrix`
+  * `matrix<unknown>` **`append_vertically`** `matrix` --->  `matrix`
+  *  **`append_vertically`** (`matrix<unknown>` , `matrix`) --->  `matrix` 
 
 #### Result: 
 A matrix resulting from the concatenation of the columns  of the two given matrices. 
@@ -2670,8 +2670,8 @@ matrix var0 <- self as_grid {10, 5}; // var0 equals a matrix of square geometrie
 ### `as_hexagonal_grid`
 
 #### Possible use: 
-  * `geometry` **`as_hexagonal_grid`** `point` --->  `list&lt;geometry>`
-  *  **`as_hexagonal_grid`** (`geometry` , `point`) --->  `list&lt;geometry>` 
+  * `geometry` **`as_hexagonal_grid`** `point` --->  `list<geometry>`
+  *  **`as_hexagonal_grid`** (`geometry` , `point`) --->  `list<geometry>` 
 
 #### Result: 
 A list of geometries (hexagonal) corresponding to the hexagonal tesselation of the first operand geometry
@@ -2679,7 +2679,7 @@ A list of geometries (hexagonal) corresponding to the hexagonal tesselation of t
 #### Examples: 
 ```
  
-list&lt;geometry> var0 <- self as_hexagonal_grid {10, 5}; // var0 equals list of geometries (hexagonal) corresponding to the hexagonal tesselation of the first operand geometry
+list<geometry> var0 <- self as_hexagonal_grid {10, 5}; // var0 equals list of geometries (hexagonal) corresponding to the hexagonal tesselation of the first operand geometry
 
 ```
       
@@ -2782,8 +2782,8 @@ the right-hand operand should be a pair
 #### Examples: 
 ```
  
-map&lt;int,int> var0 <- [1,2,3,4,5,6,7,8] as_map (each::(each * 2)); // var0 equals [1::2, 2::4, 3::6, 4::8, 5::10, 6::12, 7::14, 8::16] 
-map&lt;int,int> var1 <- [1::2,3::4,5::6] as_map (each::(each * 2)); // var1 equals [2::4, 4::8, 6::12] 
+map<int,int> var0 <- [1,2,3,4,5,6,7,8] as_map (each::(each * 2)); // var0 equals [1::2, 2::4, 3::6, 4::8, 5::10, 6::12, 7::14, 8::16] 
+map<int,int> var1 <- [1::2,3::4,5::6] as_map (each::(each * 2)); // var1 equals [2::4, 4::8, 6::12] 
 
 ```
   
@@ -2823,8 +2823,8 @@ This operator is very useful to cast a file containing raster data into a matrix
 ### `as_path`
 
 #### Possible use: 
-  * `list&lt;geometry>` **`as_path`** `graph` --->  `path`
-  *  **`as_path`** (`list&lt;geometry>` , `graph`) --->  `path` 
+  * `list<geometry>` **`as_path`** `graph` --->  `path`
+  *  **`as_path`** (`list<geometry>` , `graph`) --->  `path` 
 
 #### Result: 
 create a graph path from the list of shape
@@ -2933,8 +2933,8 @@ string var0 <- 'abcdef' at 0; // var0 equals 'a'
 ### `at_distance`
 
 #### Possible use: 
-  * `container&lt;unknown,geometry>` **`at_distance`** `float` --->  `list&lt;geometry>`
-  *  **`at_distance`** (`container&lt;unknown,geometry>` , `float`) --->  `list&lt;geometry>` 
+  * `container<unknown,geometry>` **`at_distance`** `float` --->  `list<geometry>`
+  *  **`at_distance`** (`container<unknown,geometry>` , `float`) --->  `list<geometry>` 
 
 #### Result: 
 A list of agents or geometries among the left-operand list that are located at a distance <= the right operand from the caller agent (in its topology)
@@ -2942,7 +2942,7 @@ A list of agents or geometries among the left-operand list that are located at a
 #### Examples: 
 ```
  
-list&lt;geometry> var0 <- [ag1, ag2, ag3] at_distance 20; // var0 equals the agents of the list located at a distance <= 20 from the caller agent (in the same order).
+list<geometry> var0 <- [ag1, ag2, ag3] at_distance 20; // var0 equals the agents of the list located at a distance <= 20 from the caller agent (in the same order).
 
 ```
       

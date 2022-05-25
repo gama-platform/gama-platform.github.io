@@ -87,6 +87,6 @@ create species (self) number: 10 {
   * Example:
 
 ```
-    list&lt;string> names <- my_species collect each.name;  // each is of type my_species
+    list<string> names <- my_species collect each.name;  // each is of type my_species
     int max <- max(['aa', 'bbb', 'cccc'] collect length(each)); // each is of type string
 ```

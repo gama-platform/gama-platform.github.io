@@ -117,7 +117,7 @@ global {
     float staying_coeff update: 10.0 ^ (1 + min([abs(current_date.hour - 9), abs(current_date.hour - 12), abs(current_date.hour - 18)]));
     float beta <- 0.01;
     float h <- 0.1;
-    list&lt;people_in_building> list_people_in_buildings update: (building accumulate each.people_in_building);
+    list<people_in_building> list_people_in_buildings update: (building accumulate each.people_in_building);
     int nb_people_infected <- nb_infected_init update: (people + list_people_in_buildings) count (each.is_infected);
     int nb_people_not_infected <- nb_people - nb_infected_init update: nb_people - nb_people_infected;
     bool is_night <- true update: current_date.hour < 7 or current_date.hour > 20;

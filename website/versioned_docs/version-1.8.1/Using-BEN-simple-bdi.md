@@ -587,7 +587,7 @@ species miner control: simple_bdi {
 
 //this norm may be seen as a "social norm" as it answers an intention not coming from an obligation but may be disobeyed
     norm share_information intention:share_information threshold:thresholdNorm instantaneous: true{
-	list&lt;miner> my_friends <- list&lt;miner>((social_link_base where (each.liking > 0)) collect each.agent);
+	list<miner> my_friends <- list<miner>((social_link_base where (each.liking > 0)) collect each.agent);
 	loop known_goldmine over: get_beliefs_with_name(mine_at_location) {
 	    ask my_friends {
 		do add_belief(known_goldmine);

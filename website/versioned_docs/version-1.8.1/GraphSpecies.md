@@ -142,7 +142,7 @@ experiment main_experiment type:gui{
 Another way to create a graph is building it manually nodes by nodes, and then edges by edges, without using agent structures. Use the `add_node` operator and the `add_edge` operator to do so. Here is an example of how to do:
 
 ```
-list&lt;point> nodes <- [];
+list<point> nodes <- [];
 graph my_graph <- graph([]);
 
 add point(0.0,0.0) to:nodes;
@@ -211,7 +211,7 @@ To get the list of neighbors of a node, you should use the neighbors_of operator
 ```
 species graph_agent parent: graph_node edge_species: edge_agent
 {
-  list&lt;graph_agent> list_neighbors <- list&lt;graph_agent>(my_graph neighbors_of (self));
+  list<graph_agent> list_neighbors <- list<graph_agent>(my_graph neighbors_of (self));
 }
 ```
 
@@ -239,7 +239,7 @@ global {
 
 species my_node parent: graph_node edge_species: edge_agent {
     int status <- 0;
-    list&lt;int> list_connected_index;
+    list<int> list_connected_index;
 	
     init {
 	int i <- 0;
@@ -259,7 +259,7 @@ species my_node parent: graph_node edge_species: edge_agent {
     }
 	
     action update_neighbors {
-	list&lt;my_node> list_neighbors <- my_graph neighbors_of (self);
+	list<my_node> list_neighbors <- my_graph neighbors_of (self);
 
 	loop neighb over: list_neighbors {
 	    neighb.status <- 1;
@@ -354,7 +354,7 @@ global {
 }
 
 species my_node parent: graph_node edge_species: edge_agent {
-    list&lt;int> list_connected_index;
+    list<int> list_connected_index;
 
     init {
 	int i <- 0;
@@ -424,7 +424,7 @@ model shortest_path_with_weight
 global {
     graph my_graph<-spatial_graph([]);
     path shortest_path;
-    list&lt;point> nodes;
+    list<point> nodes;
 		
     init {
 	add point(10.0,10.0) to:nodes;

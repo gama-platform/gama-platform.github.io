@@ -112,7 +112,7 @@ This information is not stored in the agent, but can be computed using the `insi
 
 ```
  grid cell width: 10 height: 10 neighbors: 4 { 
-        list&lt;bug> bugs_inside -> {bug inside self};
+        list<bug> bugs_inside -> {bug inside self};
    }
 ```
 

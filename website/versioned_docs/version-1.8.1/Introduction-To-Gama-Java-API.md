@@ -37,16 +37,16 @@ Warning: the `create` method is used to create the container, with elements of a
 
 As an example:
 ```
-IList&lt;Double> distribution = GamaListFactory.create(Types.FLOAT);
+IList<Double> distribution = GamaListFactory.create(Types.FLOAT);
 ```
 
 To create `List` object without specifying the type, use `Types.NO_TYPE`:
 ```
-IList&lt;Object> result = GamaListFactory.create(Types.NO_TYPE);
+IList<Object> result = GamaListFactory.create(Types.NO_TYPE);
 ```
 or only:
 ```
-IList&lt;Object> result = GamaListFactory.create();
+IList<Object> result = GamaListFactory.create();
 ```
 
 
@@ -54,16 +54,16 @@ IList&lt;Object> result = GamaListFactory.create();
 
 As an example:
 ```
-final IMap&lt;String, IList<?>> ncdata = GamaMapFactory.create(Types.STRING, Types.LIST);
+final IMap<String, IList<?>> ncdata = GamaMapFactory.create(Types.STRING, Types.LIST);
 ```
 
 To create `Map` object without specifying the type, use `Types.NO_TYPE`:
 ```
-IMap&lt;Object, Object> result = GamaMapFactory.create(Types.NO_TYPE, Types.NO_TYPE);
+IMap<Object, Object> result = GamaMapFactory.create(Types.NO_TYPE, Types.NO_TYPE);
 ```
 or only:
 ```
-IMap&lt;Object, Object> result = GamaMapFactory.create();
+IMap<Object, Object> result = GamaMapFactory.create();
 ```
 
 If you want to use map or set, try to the best to rely on collection that ensure order, so to avoid unconsistency in container access. Try the most to avoid returning high order hash based collection, e.g. Set or Map; in this case, rely on standard definition in Gama:  

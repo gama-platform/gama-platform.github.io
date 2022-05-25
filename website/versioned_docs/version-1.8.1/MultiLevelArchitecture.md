@@ -179,13 +179,13 @@ global {
     }
     reflex capture_micro_species when:(remaining_capture_time>0 and flip(0.1)) {
 	ask macro_species {
-	    list&lt;micro_species> micro_species_in_range <- micro_species at_distance 1;
+	    list<micro_species> micro_species_in_range <- micro_species at_distance 1;
 	    if (micro_species_in_range != []) {
 		do capture_micro_species(micro_species_in_range);
 	    }
 	}
 	ask micro_species {
-	    list&lt;micro_species> micro_species_list_to_be_captured <- micro_species at_distance 1;
+	    list<micro_species> micro_species_list_to_be_captured <- micro_species at_distance 1;
 	    if(micro_species_list_to_be_captured != []) {
 		create macro_species {
 		    location <- myself.location;
@@ -214,7 +214,7 @@ species macro_species {
 	
     species micro_species_in_group parent:micro_species { }
 
-    action capture_micro_species(list&lt;micro_species> micro_list) {
+    action capture_micro_species(list<micro_species> micro_list) {
 	loop mic_sp over:micro_list {
 	    capture mic_sp as:micro_species_in_group;
 	}

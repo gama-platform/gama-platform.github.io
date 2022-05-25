@@ -28,7 +28,7 @@ To this purpose we need to define a new experiment with the following facet valu
 ```
 experiment test_robustness type: batch until: time > 2#h repeat: 10 {
     reflex information {
-	list&lt;float> vals <- simulations collect each.infected_rate;
+	list<float> vals <- simulations collect each.infected_rate;
 	write "mean: " + mean(vals) + " standard deviation: " + standard_deviation(vals);	
     }
 }
@@ -202,7 +202,7 @@ experiment main type: gui {
 
 experiment test_robustness type: batch until: time > 2#h repeat: 10 {
     reflex information {
-        list&lt;float> vals <- simulations collect each.infected_rate;
+        list<float> vals <- simulations collect each.infected_rate;
         write "mean: " + mean(vals) + " standard deviation: " + standard_deviation(vals);    
     }
 }

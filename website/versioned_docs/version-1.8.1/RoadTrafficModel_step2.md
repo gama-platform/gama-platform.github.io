@@ -66,7 +66,7 @@ global {
 	}
 	create road from: shape_file_roads ;
 		
-	list&lt;building> residential_buildings <- building where (each.type="Residential");
+	list<building> residential_buildings <- building where (each.type="Residential");
 	create people number: nb_people {
 	    location <- any_location_in (one_of (residential_buildings));
 	}
