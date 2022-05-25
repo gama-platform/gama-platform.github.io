@@ -83,9 +83,13 @@ if __name__ == '__main__':
     tagStack: List[Tag] = []
     unclosedTags : List[Tag] = []
     ite = 0
+
+    #counters used to remember if the text is in a code bloc
+    in_simple_quote     = False
+    in_triple_quotes    = False
     while ite < len(chars) - 1:
         currentChar = chars[ite]
-        if currentChar.val == "<" and re.match("[\?a-zA-Z\d]", chars[ite+1].val):
+        if not in_simple_quote and not in_triple_quotes and currentChar.val == "<" and re.match("[\?a-zA-Z\d]", chars[ite+1].val):
             #we found a new tag
             tag = [currentChar]
             ite += 1
@@ -127,6 +131,14 @@ if __name__ == '__main__':
                 unclosedTags += [currentTag]
                 ite = currentTag.finalPos
                 tagStack = tagStack[:-1]
+        elif currentChar.val == '`':
+            #if we encountered a triple quote
+            if ite < len(chars) - 2 and chars[ite+1].val == '`' and chars[ite+2].val == '`':
+                in_triple_quotes = not in_triple_quotes
+                ite += 2 # To not have to process the 2 next simple quotes in the loop
+            #if not, it's only a simple quote
+            else:
+                in_simple_quote = not in_simple_quote
 
         ite += 1
 
