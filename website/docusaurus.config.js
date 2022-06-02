@@ -79,6 +79,14 @@ module.exports={
     ]
   ],
   "themeConfig": {
+    announcementBar: {
+      // Change the ID for new announcement
+      id: 'gamaDays2022',
+      content: '📢 <a target="_blank" rel="noopener noreferrer" href="https://gama-platform.org/Gama-Days-2022/">Join the <b>GAMA Days 2022</b> on <b>June 22, 23 & 24</b></a> 📢',
+      backgroundColor: '#34709f',
+      textColor: '#e3e3e3',
+      isCloseable: true,
+    },
     "colorMode": {
       respectPrefersColorScheme: true,
     },
