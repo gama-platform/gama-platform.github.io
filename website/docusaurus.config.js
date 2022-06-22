@@ -184,7 +184,7 @@ module.exports={
               html: '<a class="footer__link-item" href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Youtube <i class="fa fa-arrow-up-right-from-square"></i></a>'
             },
             {
-              html: '<a class="footer__link-item" href="https://gama-platform.org/blog/feed" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss"></i> Blog RSS <i class="fa fa-arrow-up-right-from-square"></i></a>'
+              html: '<a class="footer__link-item" href="https://gama-platform.org/blog/rss.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss"></i> Blog RSS <i class="fa fa-arrow-up-right-from-square"></i></a>'
             }
           ],
         },
