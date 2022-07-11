@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[97920],{54687:(e,n,r)=>{r.r(n),r.d(n,{default:()=>a});var t=r(67294),s=r(39172),c=r(10412);function a(e){return c.Z.canUseIntersectionObserver=!1,t.createElement(t.Fragment,null,t.createElement(s.Z,e))}c.Z.canUseIntersectionObserver=!1}}]);
