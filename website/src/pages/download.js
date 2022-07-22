@@ -90,7 +90,10 @@ export default function Download() {
             <header className="postHeader">
               <h1>Download stable version <span style={{fontSize: "medium"}}>(currently <a href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} target="_blank">version {siteConfig.customFields.downloadVersion}</a>)</span></h1>
             </header>
-            <p>The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the latest alpha (unstable) release.</p>
+            <p>
+             The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the latest alpha (unstable) release.
+             If you have any trouble installing gama, you can go on the <a href={`https://gama-platform.org/wiki/Installation`}>installation page</a> of the website to check the detailed installation procedures.
+            </p>
           </div>
         </div>
 
