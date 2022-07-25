@@ -1,4 +1,4 @@
-const latestVersion="1.8.2-RC1"
+const latestVersion="1.8.2-RC2"
 
 module.exports={
   // Main website options
