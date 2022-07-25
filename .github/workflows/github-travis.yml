@@ -85,19 +85,3 @@ jobs:
         working-directory: ./website
         env:
           GIT_USER: ${{ secrets.BOT_GH_NAME}}
-
-      # We don't know when the site will be deployed, we just wait a few seconds
-      # Better solutions can be found
-      # https://github.com/algolia/algoliasearch-crawler-github-actions/blob/main/examples/github_pages.yml#L15-L18
-      # -> Current average 7-8m
-      - name: Sleep for 10m
-        run: sleep 600
-      - name: Algolia crawler creation and crawl
-        uses: algolia/algoliasearch-crawler-github-actions@v1.1.5
-        id: algolia_crawler
-        with: # mandatory parameters
-          crawler-user-id: ${{ secrets.CRAWLER_USER_ID }}
-          crawler-api-key: ${{ secrets.CRAWLER_API_KEY }}
-          algolia-app-id: ${{ secrets.ALGOLIA_APP_ID }}
-          algolia-api-key: ${{ secrets.ALGOLIA_API_KEY }}
-          site-url: 'https://gama-platform.org'
