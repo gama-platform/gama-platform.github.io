@@ -43,3 +43,7 @@ nav a {
 a.pagination-nav__link {
   padding-bottom: 53.5px;
 }
+
+.footer__logo {
+  max-height: 10em;
+}
