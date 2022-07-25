@@ -93,7 +93,7 @@ jobs:
       - name: Sleep for 10m
         run: sleep 600
       - name: Algolia crawler creation and crawl
-        uses: algolia/algoliasearch-crawler-github-actions@v1.1.15
+        uses: algolia/algoliasearch-crawler-github-actions@v1.1.5
         id: algolia_crawler
         with: # mandatory parameters
           crawler-user-id: ${{ secrets.CRAWLER_USER_ID }}
