@@ -57,8 +57,8 @@ module.exports={
           editCurrentVersion: true,
 
           // Version dropdown options
-          /*lastVersion: '1.8.1',
-          versions: {
+          lastVersion: latestVersion,
+          /*versions: {
             "1.8.1": {
               label: '1.8.1',
               path: '',
