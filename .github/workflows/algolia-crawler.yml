@@ -1,7 +1,10 @@
 name: Algolia Crawler
 
 on:
-  deployment:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types:
+      - completed
   workflow_dispatch:  # For manual trigger
 
 
