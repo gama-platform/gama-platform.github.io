@@ -91,7 +91,7 @@ module.exports={
       respectPrefersColorScheme: true,
     },
     "prism": {
-      additionalLanguages: ['java','js','python','xml'],
+      additionalLanguages: ['java','javascript','python'],
       defaultLanguage: 'java',
     },
     algolia: {
