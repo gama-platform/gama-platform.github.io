@@ -92,7 +92,7 @@ module.exports={
     },
     "prism": {
       additionalLanguages: ['java','javascript','python'],
-      defaultLanguage: 'java',
+      defaultLanguage: 'gaml',
     },
     algolia: {
       appId: 'MWUOLTL2EG',
