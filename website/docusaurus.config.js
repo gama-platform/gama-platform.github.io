@@ -93,6 +93,10 @@ module.exports={
     "prism": {
       additionalLanguages: ['java','javascript','python'],
       defaultLanguage: 'gaml',
+
+      theme: require('prism-gaml/themes/light'),
+      darkTheme: require('prism-gaml/themes/dark'),
+
     },
     algolia: {
       appId: 'MWUOLTL2EG',
