@@ -38,8 +38,8 @@ function HomeSplash() { //} extends React.Component {
         </FlexItem>
         <FlexItem className="" size="--12 col">
           <div style={{paddingTop: "4em", textAlign: "center"}} >
-            <h1 class="hero__title">{siteConfig.title}</h1>
-            <p class="hero__subtitle" >GAMA is a modeling and simulation development environment<br/>for building spatially explicit agent-based simulations.</p>
+            <h1 className="hero__title">{siteConfig.title}</h1>
+            <p className="hero__subtitle" >GAMA is a modeling and simulation development environment<br/>for building spatially explicit agent-based simulations.</p>
           </div>
         </FlexItem>
 
@@ -95,17 +95,12 @@ export default function Hello() {
     `}} />
   );
 
-  const Script = props => (
-    <script type="text/javascript" src="./js/index.js"></script>
-  );
-
   return (
     <Layout>
       <Design/>
-      <Script/>
 
       <div id="background" className="container">
-        <img class="bgGif" src="/img/GAMA_1.8.2_transparent.gif" alt="" />
+        <img className="bgGif" src="/img/GAMA_1.8.2_transparent.gif" alt="" />
         <div className="row">
           <HomeSplash />
         </div>
