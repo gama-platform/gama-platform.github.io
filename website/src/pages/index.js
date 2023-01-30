@@ -43,7 +43,7 @@ function HomeSplash() { //} extends React.Component {
           </div>
         </FlexItem>
 
-          <div className="col col--12" style={{"textAlign": "center", marginTop: "3em"}} >
+          <div className="col col--12" style={{"textAlign": "center", margin: "3em auto"}} >
             <Button href={`${useBaseUrl("download")}`}  className="button button--warning">Download</Button>
             <Button href={docUrl('Home')} className="button button--outline button--danger">Documentation</Button>
               <Button href={docUrl('Tutorials')} className="button button--outline button--primary">Tutorials</Button>
