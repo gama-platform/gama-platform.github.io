@@ -68,6 +68,11 @@ module.exports={
               path: 'next',
             },
           },*/
+          "versions": {
+            "current": {
+              "label": '🚧 1.9.0 🚧',
+            },
+          },
         },
         "blog": {
           "path": "blog"
