@@ -22,7 +22,7 @@ module.exports={
   "scripts": [
     {
       "src": "/js/blogFacebook-iFrame.js",
-      "async": false
+      "async": true
     },
   ],
   "stylesheets": [
@@ -226,7 +226,7 @@ module.exports={
           ],
         }
       ],
-      "copyright": "Copyright (C) - 2022 GAMA Platform.",
+      "copyright": `Copyright (C) - ${new Date().getFullYear()} GAMA Platform.`,
       "logo": {
         "src": "img/gama-logo.png"
       }
