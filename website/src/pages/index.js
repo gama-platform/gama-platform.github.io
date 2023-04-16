@@ -68,9 +68,8 @@ function Home() {
             <div className="row">
               <div className="col col--8 col--offset-2">
                 <div className="margin-vert--lg text--center">
-                  <h2 className={styles.sectionDarkTitle}>
-                    Take a look at the latest <a href="https://www.youtube.com/watch?v=jpWxk1hcTTk&list=PLIf4h7zpeBeHrK7GY7HeWojXniBU_6nN-" target="_blank">international GAMA Days 2022 replay</a>
-                  </h2>
+                  <h2 className={styles.sectionDarkTitle}>GAMA Platform 1.9 is out</h2>
+                  <h3 style={{color: "white"}}><a href="/download" style={{color: "white", textDecoration: "underline"}}>Download it now</a> and check <a href="/wiki/Changelog" style={{color: "white", textDecoration: "underline"}}>the changelog</a>!!</h3>
                 </div>
               </div>
             </div>
