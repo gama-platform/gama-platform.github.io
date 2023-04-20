@@ -29,36 +29,16 @@ function Home() {
           />
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations</p>
-          <div className={styles.buttons}>
-            <Link
-              style={{margin: "0 auto"}}
-              className={clsx(
-                'button button--warning button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('download')}>
-              Download
-            </Link>
-            
-            <Link
-              style={{margin: "0 auto"}}
-              className={clsx(
-                'button button--outline button--danger button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('wiki/Home')}>
-              Documentation
-            </Link>
-            
-            <Link
-              style={{margin: "0 auto"}}
-              className={clsx(
-                'button button--outline button--primary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('wiki/Tutorials')}>
-              Tutorials
-            </Link>
+          <div className="row buttons_src-pages-index-module">
+            <div className="col col--4" style={{margin: "1em auto"}}>
+              <a sytle={{margin: "0 auto"}} className="button button--warning button--lg" href="/download">Download</a>
+            </div>
+            <div className="col col--4" style={{margin: "1em auto"}}>
+              <a sytle={{margin: "0 auto"}} className="button button--outline button--danger button--lg" href="wiki/Home">Documentation</a>
+            </div>
+            <div className="col col--4" style={{margin: "1em auto"}}>
+              <a sytle={{margin: "0 auto"}} className="button button--outline button--primary button--lg" href="wiki/Tutorials">Tutorials</a>
+            </div>
           </div>
         </div>
       </header>
