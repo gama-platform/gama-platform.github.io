@@ -70,7 +70,7 @@ module.exports={
           },*/
           "versions": {
             "current": {
-              "label": '🚧 1.9.2 🚧',
+              "label": '🚧 1.9.1 🚧',
             },
           },
         },
