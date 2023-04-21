@@ -83,16 +83,16 @@ export default function Download() {
         <div className="row">
           <div className="col col--12">
             <header className="postHeader">
-              <h1>Download GAMA <a href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} target="_blank">version {siteConfig.customFields.downloadVersion}</a></h1>
+              <h1>Download GAMA <a href={`https://github.com/gama-platform/gama/releases/tag/1.9.1`} target="_blank">version 1.9.1</a></h1>
             </header>
           </div>
         </div>
 
         <div id="release" className="row">
-          <OsBlock src="/img/windows-logo.svg" os="Windows" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Windows' zipExtension='exe' zipSize='310' />
-          <OsBlock src="/img/apple-logo.svg" os="MacOS (Intel)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS_Intel' zipExtension='dmg' zipSize='360' />
-          <OsBlock src="/img/apple-M1-logo.svg" os="MacOS (Apple Silicon)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS_Apple_Silicon' zipExtension='dmg' zipSize='350' />
-          <OsBlock src="/img/linux-logo.svg" os="Linux" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Linux' zipExtension='deb' zipSize='384' />
+          <OsBlock src="/img/windows-logo.svg" os="Windows" version="1.9.1" zipName="GAMA_1.9.1" zipOS='Windows' zipExtension='exe' zipSize='310' />
+          <OsBlock src="/img/apple-logo.svg" os="MacOS (Intel)" version="1.9.1" zipName="GAMA_1.9.1" zipOS='MacOS_Intel' zipExtension='dmg' zipSize='360' />
+          <OsBlock src="/img/apple-M1-logo.svg" os="MacOS (Apple Silicon)" version="1.9.1" zipName="GAMA_1.9.1" zipOS='MacOS_Apple_Silicon' zipExtension='dmg' zipSize='350' />
+          <OsBlock src="/img/linux-logo.svg" os="Linux" version="1.9.1" zipName="GAMA_1.9.1" zipOS='Linux' zipExtension='deb' zipSize='384' />
 
       </div>
       <div style={{ marginBottom: "3em", marginTop: "3em"}}>
@@ -115,7 +115,7 @@ export default function Download() {
       <div className="row" style={{textAlign: "center"}}>
 
           <Button href={`https://gama-platform.org/wiki/Installation`} col="4" buttonColor="warning">What's new?</Button>
-          <Button href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} col="4" buttonColor="danger">Other versions</Button>
+          <Button href={`https://github.com/gama-platform/gama/releases/tag/1.9.1`} col="4" buttonColor="danger">Other versions</Button>
           <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv191.pdf`} col="4" buttonColor="primary">PDF Documentation</Button>
       </div>
 
