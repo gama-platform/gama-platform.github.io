@@ -75,10 +75,10 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 'current'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
         working-directory: ./website
 
       - name: Build website
