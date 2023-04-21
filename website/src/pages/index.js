@@ -29,36 +29,16 @@ function Home() {
           />
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations</p>
-          <div className={styles.buttons}>
-            <Link
-              style={{margin: "0 auto"}}
-              className={clsx(
-                'button button--warning button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('download')}>
-              Download
-            </Link>
-            
-            <Link
-              style={{margin: "0 auto"}}
-              className={clsx(
-                'button button--outline button--danger button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('wiki/Home')}>
-              Documentation
-            </Link>
-            
-            <Link
-              style={{margin: "0 auto"}}
-              className={clsx(
-                'button button--outline button--primary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('wiki/Tutorials')}>
-              Tutorials
-            </Link>
+          <div className="row buttons_src-pages-index-module">
+            <div className="col col--4" style={{margin: "1em auto"}}>
+              <a sytle={{margin: "0 auto"}} className="button button--warning button--lg" href="/download">Download</a>
+            </div>
+            <div className="col col--4" style={{margin: "1em auto"}}>
+              <a sytle={{margin: "0 auto"}} className="button button--outline button--danger button--lg" href="wiki/Home">Documentation</a>
+            </div>
+            <div className="col col--4" style={{margin: "1em auto"}}>
+              <a sytle={{margin: "0 auto"}} className="button button--outline button--primary button--lg" href="wiki/Tutorials">Tutorials</a>
+            </div>
           </div>
         </div>
       </header>
@@ -68,9 +48,8 @@ function Home() {
             <div className="row">
               <div className="col col--8 col--offset-2">
                 <div className="margin-vert--lg text--center">
-                  <h2 className={styles.sectionDarkTitle}>
-                    Take a look at the latest <a href="https://www.youtube.com/watch?v=jpWxk1hcTTk&list=PLIf4h7zpeBeHrK7GY7HeWojXniBU_6nN-" target="_blank">international GAMA Days 2022 replay</a>
-                  </h2>
+                  <h2 className={styles.sectionDarkTitle}>GAMA Platform 1.9 is out</h2>
+                  <h3 style={{color: "white"}}><a href="/download" style={{color: "white", textDecoration: "underline"}}>Download it now</a> and check <a href="/wiki/Changelog" style={{color: "white", textDecoration: "underline"}}>the changelog</a>!!</h3>
                 </div>
               </div>
             </div>

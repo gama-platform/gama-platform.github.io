@@ -12,6 +12,7 @@ rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/G__BlankPage.md"
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/Operators.md"
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/OperatorsSplitted.md"
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/Index.md"
+rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/Event"*
 # https://github.com/gama-platform/gama-platform.github.io/issues/118
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/UnitsAndConstantsPDF.md"
 
