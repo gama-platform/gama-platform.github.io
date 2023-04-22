@@ -48,8 +48,7 @@ function Home() {
             <div className="row">
               <div className="col col--8 col--offset-2">
                 <div className="margin-vert--lg text--center">
-                  <h2 className={styles.sectionDarkTitle}>GAMA Platform 1.9 is out</h2>
-                  <h3 style={{color: "white"}}><a href="/download" style={{color: "white", textDecoration: "underline"}}>Download it now</a> and check <a href="/wiki/Changelog" style={{color: "white", textDecoration: "underline"}}>the changelog</a>!!</h3>
+                  <h2 className={styles.sectionDarkTitle}><a href="/download">Version 1.9.1 of GAMA has been released</a></h2>
                 </div>
               </div>
             </div>
