@@ -85,6 +85,12 @@ jobs:
         run: yarn build
         working-directory: ./website
 
+      # Remove unwanted version dropdown
+      - name: Clean sidebar for static pages
+        run: |
+          python $GITHUB_WORKSPACE/script/postCompilationClean.py
+        working-directory: $GITHUB_WORKSPACE
+
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: Deploy to GitHub Pages
