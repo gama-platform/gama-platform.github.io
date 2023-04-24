@@ -37,7 +37,7 @@ jobs:
           python-version: '3.10'
           architecture: x64
 
-      - run: pip install typing
+      - run: pip install -r script/requirements.txt
 
       #
       # PRE-COMPILE
