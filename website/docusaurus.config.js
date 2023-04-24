@@ -23,7 +23,7 @@ module.exports={
     {
       "src": "/js/blogFacebook-iFrame.js",
       "async": true
-    },
+    }
   ],
   "stylesheets": [
     "https://use.fontawesome.com/releases/v6.1.1/css/all.css",
@@ -135,24 +135,19 @@ module.exports={
           "position": "left"
         },
         {
+          type: 'doc',
+          "docId": "developingGAMA",
+          "label": "Community",
+          "position": "left"
+        },
+        {
           "to": "/download",
           "label": "Download",
           "position": "left"
         },
         {
-          type: 'doc',
-          "docId": "Contribute",
-          "label": "Contribute",
-          "position": "left"
-        },
-        {
           "to": "/blog",
           "label": "Blog",
-          "position": "left"
-        },
-        {
-          "to": "/faq",
-          "label": "FAQ",
           "position": "left"
         },
 
