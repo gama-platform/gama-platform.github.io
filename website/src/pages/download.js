@@ -20,29 +20,6 @@ export default function Download() {
     </div>
   );
 
-  const OsBlock = props => (
-    <div className="blockElement imageAlignTop col col--3" style={{marginTop:"3em", textAlign: "center"}}>
-    <a href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.${props.zipExtension}`} target="_blank">
-      <div className="blockImage">
-        <img src={props.src} alt={props.os} ></img>
-      </div>
-      <style dangerouslySetInnerHTML={{__html: `
-        [data-theme="light"] :where(.button-dyn-color) {
-          --ifm-button-border-color: var(--ifm-color-primary);
-        }
-
-        [data-theme="dark"] :where(.button-dyn-color) {
-          --ifm-button-border-color: var(--ifm-color-warning) !important;
-        }
-
-      `}} />
-      <div className="blockContent">
-            <Button href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.${props.zipExtension}`} buttonColor="outline button-dyn-color" col="12">{props.os}</Button>
-      </div>
-      </a>
-    </div>
-  );
-
   return (
     <Layout>
 
@@ -76,6 +53,13 @@ export default function Download() {
         #release > .col {
           margin-top: 3em;
         }
+
+        [data-theme="light"] :where(.button-dyn-color) {
+        --ifm-button-border-color: var(--ifm-color-primary);
+        }
+
+        [data-theme="dark"] :where(.button-dyn-color) {
+        --ifm-button-border-color: var(--ifm-color-warning) !important;
       `}} />
 
       <div className="container">
@@ -89,10 +73,36 @@ export default function Download() {
         </div>
 
         <div id="release" className="row">
-          <OsBlock src="/img/windows-logo.svg" os="Windows" version="1.9.1" zipName="GAMA_1.9.1" zipOS='Windows' zipExtension='exe' zipSize='310' />
-          <OsBlock src="/img/apple-logo.svg" os="macOS (Intel)" version="1.9.1" zipName="GAMA_1.9.1" zipOS='MacOS_Intel' zipExtension='dmg' zipSize='360' />
-          <OsBlock src="/img/apple-M1-logo.svg" os="macOS (Apple Silicon)" version="1.9.1" zipName="GAMA_1.9.1" zipOS='MacOS_Apple_Silicon' zipExtension='dmg' zipSize='350' />
-          <OsBlock src="/img/linux-logo.svg" os="Linux" version="1.9.1" zipName="GAMA_1.9.1" zipOS='Linux' zipExtension='deb' zipSize='384' />
+        
+          <div className="blockElement imageAlignTop col col--4" style={{marginTop:"3em", textAlign: "center"}}>
+            <a href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_Windows_with_JDK.exe`} target="_blank">
+              <div className="blockImage">
+                <img src="/img/windows-logo.svg" alt="Windows" ></img>
+                </div>
+                <div className="blockContent">
+                <Button href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_Windows_with_JDK.exe`} buttonColor="outline button-dyn-color" col="12">Windows</Button>
+              </div>
+            </a>
+          </div>
+          <div className="blockElement imageAlignTop col col--4" style={{marginTop:"3em", textAlign: "center"}}>
+            <div className="blockImage">
+              <img src="/img/apple-logo.svg" alt="Apple" ></img>
+              </div>
+              <div className="blockContent">
+              <Button href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_MacOS_Intel_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Intel)</Button>
+              <Button href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_MacOS_Apple_Silicon_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Apple Silicon)</Button>
+            </div>
+          </div>
+          <div className="blockElement imageAlignTop col col--4" style={{marginTop:"3em", textAlign: "center"}}>
+            <a href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_Linux_with_JDK.deb`} target="_blank">
+              <div className="blockImage">
+                <img src="/img/linux-logo.svg" alt="Linux" ></img>
+                </div>
+                <div className="blockContent">
+                <Button href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_Linux_with_JDK.deb`} buttonColor="outline button-dyn-color" col="12">Linux</Button>
+              </div>
+            </a>
+          </div>
 
       </div>
       <div style={{ marginBottom: "3em", marginTop: "3em"}}>
