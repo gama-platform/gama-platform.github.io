@@ -25,6 +25,13 @@ class Category:
 	def __json__(self):
 		return json.dumps(self.cat) 
 
+class CategoryEmpty(Category):	
+	def __init__(self, label: str, items: list[str] = []):
+		self.cat["type"]       = "category"
+		self.cat["label"]      = label
+		self.cat["collapsed"]  = "true"
+		self.cat["items"]      = items
+
 class CategoryTutorial(Category):
 	def __init__(self, label: str, mdName: str, items: list[str] = []):
 		self = Category(label, mdName, self.getTutoPages(mdName))
@@ -48,33 +55,25 @@ def generateTutorial(tutorialList: list[str] = []):
 		tutoSplit = tuto.split(")")[0].split("[")[1].split("](")
 		tutoCat.append(CategoryTutorial( tutoSplit[0], tutoSplit[1]).toDict())
 
-	#print("{\"tuto\": "+json.dumps(tutoCat, indent=4)+",")
 	return tutoCat
 
 def splitMdSidebar():
 	isTuto = False
 	endTuto = False
-	tutorialList = {"main": [], "tuto": []}
+	tutorialList = {"main": [], "tuto": [], "extra": []}
 
 	index = "main"
 	for line in getSidebarContent():
 		# Clean menu
-		if not isTuto :
-			if "Tutorials" in line:
-				isTuto = True
+		if line == "---":
+			if index == "main":
 				index = "tuto"
-				tutorialList[index].append(line)
-			else:
-				tutorialList[index].append(line)
-		elif not endTuto and isTuto :
-			if "#" in line:
-				endTuto = True
-				index = "main"
-				tutorialList[index].append(line)
-			else:
-				tutorialList[index].append(line)
-		else:
-			tutorialList[index].append(line)
+			elif index == "tuto":
+				index = "extra"
+
+			continue
+
+		tutorialList[index].append(line)
 
 	return tutorialList
 
@@ -120,8 +119,14 @@ def makeSubCat(subList: list[str]):
 		# Manual loop process
 		entry += 1
 
-	titleSplit = subList[0].split(")")[0].split("[")[1].split("](")
-	return Category(titleSplit[0], titleSplit[1], items).toDict()
+	#Category newCategory 
+	if len(subList[0].split(")")) == 2:
+		titleSplit = subList[0].split(")")[0].split("[")[1].split("](")
+		newCategory = Category(titleSplit[0], titleSplit[1], items).toDict()
+	else:
+		titleSplit = subList[0].split("#")[-1][1:]
+		newCategory = CategoryEmpty(titleSplit, items).toDict()
+	return newCategory
 
 def generateMain(mdList: list[str] = []):
 	indexTitleCat = []
@@ -153,12 +158,19 @@ def generateMain(mdList: list[str] = []):
 #	Main
 # ========
 
-docPath="./docs/"
+docPath="./gama.wiki.bak/"
 sideMdPath = docPath+"/_Sidebar.md"
 	
 splittedSidebar = splitMdSidebar()
 
-print( json.dumps({"main": generateMain(splittedSidebar["main"]), "tuto": generateTutorial(splittedSidebar["tuto"])}) )
+print( 
+	json.dumps(
+		{"main": generateMain(splittedSidebar["main"]), 
+		"tuto": generateTutorial(splittedSidebar["tuto"]), 
+		"extra": generateMain(splittedSidebar["extra"])
+		}
+	)
+)
 
 #print(finalJson)
 
