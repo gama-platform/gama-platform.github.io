@@ -51,6 +51,9 @@ function Home() {
                   <h2 className={styles.sectionDarkTitle}><a href="/download">Version 1.9.1 of GAMA has been released</a></h2>
                 </div>
               </div>
+              <div className="col col--12 text--center">
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZGSfAuhDbsU" style={{backgroundColor: "black"}} title="GAMA trailer 1.9.1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
         </div>
