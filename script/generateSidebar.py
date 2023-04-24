@@ -54,9 +54,9 @@ def generateTutorial(tutorialList: list[str] = []):
 def splitMdSidebar():
 	isTuto = False
 	endTuto = False
-	tutorialList = {"tuto": [], "side": []}
+	tutorialList = {"main": [], "tuto": []}
 
-	index = "side"
+	index = "main"
 	for line in getSidebarContent():
 		# Clean menu
 		if not isTuto :
@@ -69,7 +69,7 @@ def splitMdSidebar():
 		elif not endTuto and isTuto :
 			if "#" in line:
 				endTuto = True
-				index = "side"
+				index = "main"
 				tutorialList[index].append(line)
 			else:
 				tutorialList[index].append(line)
@@ -158,7 +158,7 @@ sideMdPath = docPath+"/_Sidebar.md"
 	
 splittedSidebar = splitMdSidebar()
 
-print( json.dumps({"tuto": generateTutorial(splittedSidebar["tuto"]),"side": generateMain(splittedSidebar["side"])}) )
+print( json.dumps({"main": generateMain(splittedSidebar["main"]), "tuto": generateTutorial(splittedSidebar["tuto"])}) )
 
 #print(finalJson)
 

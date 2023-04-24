@@ -1,115 +1,5 @@
 {
-  "tuto": [
-    "Tutorials",
-    {
-      "type": "category",
-      "label": "Predator Prey",
-      "link": {
-        "type": "doc",
-        "id": "PredatorPrey"
-      },
-      "collapsed": "true",
-      "items": [
-        "PredatorPrey_step1",
-        "PredatorPrey_step2",
-        "PredatorPrey_step3",
-        "PredatorPrey_step4",
-        "PredatorPrey_step5",
-        "PredatorPrey_step6",
-        "PredatorPrey_step7",
-        "PredatorPrey_step8",
-        "PredatorPrey_step9",
-        "PredatorPrey_step10",
-        "PredatorPrey_step11",
-        "PredatorPrey_step12",
-        "PredatorPrey_step13"
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Road Traffic",
-      "link": {
-        "type": "doc",
-        "id": "RoadTrafficModel"
-      },
-      "collapsed": "true",
-      "items": [
-        "RoadTrafficModel_step1",
-        "RoadTrafficModel_step2",
-        "RoadTrafficModel_step3",
-        "RoadTrafficModel_step4",
-        "RoadTrafficModel_step5",
-        "RoadTrafficModel_step6",
-        "RoadTrafficModel_step7"
-      ]
-    },
-    {
-      "type": "category",
-      "label": "3D Tutorial",
-      "link": {
-        "type": "doc",
-        "id": "ThreeD"
-      },
-      "collapsed": "true",
-      "items": [
-        "ThreeD_step1",
-        "ThreeD_step2",
-        "ThreeD_step3"
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Incremental Model",
-      "link": {
-        "type": "doc",
-        "id": "IncrementalModel"
-      },
-      "collapsed": "true",
-      "items": [
-        "IncrementalModel_step1",
-        "IncrementalModel_step2",
-        "IncrementalModel_step3",
-        "IncrementalModel_step4",
-        "IncrementalModel_step5",
-        "IncrementalModel_step6",
-        "IncrementalModel_step7"
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Luneray's flu",
-      "link": {
-        "type": "doc",
-        "id": "LuneraysFlu"
-      },
-      "collapsed": "true",
-      "items": [
-        "LuneraysFlu_step1",
-        "LuneraysFlu_step2",
-        "LuneraysFlu_step3",
-        "LuneraysFlu_step4",
-        "LuneraysFlu_step5",
-        "LuneraysFlu_step6"
-      ]
-    },
-    {
-      "type": "category",
-      "label": "BDI Agents",
-      "link": {
-        "type": "doc",
-        "id": "BDIAgents"
-      },
-      "collapsed": "true",
-      "items": [
-        "BDIAgents_step1",
-        "BDIAgents_step2",
-        "BDIAgents_step3",
-        "BDIAgents_step4",
-        "BDIAgents_step5"
-      ]
-    }
-  ],
-  "side": [
+  "main": [
     "Home",
     "Overview",
     "New-Version-Changes",
@@ -311,5 +201,115 @@
       ]
     },
     "Events"
+  ],
+  "tuto": [
+    "Tutorials",
+    {
+      "type": "category",
+      "label": "Predator Prey",
+      "link": {
+        "type": "doc",
+        "id": "PredatorPrey"
+      },
+      "collapsed": "true",
+      "items": [
+        "PredatorPrey_step1",
+        "PredatorPrey_step2",
+        "PredatorPrey_step3",
+        "PredatorPrey_step4",
+        "PredatorPrey_step5",
+        "PredatorPrey_step6",
+        "PredatorPrey_step7",
+        "PredatorPrey_step8",
+        "PredatorPrey_step9",
+        "PredatorPrey_step10",
+        "PredatorPrey_step11",
+        "PredatorPrey_step12",
+        "PredatorPrey_step13"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Road Traffic",
+      "link": {
+        "type": "doc",
+        "id": "RoadTrafficModel"
+      },
+      "collapsed": "true",
+      "items": [
+        "RoadTrafficModel_step1",
+        "RoadTrafficModel_step2",
+        "RoadTrafficModel_step3",
+        "RoadTrafficModel_step4",
+        "RoadTrafficModel_step5",
+        "RoadTrafficModel_step6",
+        "RoadTrafficModel_step7"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "3D Tutorial",
+      "link": {
+        "type": "doc",
+        "id": "ThreeD"
+      },
+      "collapsed": "true",
+      "items": [
+        "ThreeD_step1",
+        "ThreeD_step2",
+        "ThreeD_step3"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Incremental Model",
+      "link": {
+        "type": "doc",
+        "id": "IncrementalModel"
+      },
+      "collapsed": "true",
+      "items": [
+        "IncrementalModel_step1",
+        "IncrementalModel_step2",
+        "IncrementalModel_step3",
+        "IncrementalModel_step4",
+        "IncrementalModel_step5",
+        "IncrementalModel_step6",
+        "IncrementalModel_step7"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Luneray's flu",
+      "link": {
+        "type": "doc",
+        "id": "LuneraysFlu"
+      },
+      "collapsed": "true",
+      "items": [
+        "LuneraysFlu_step1",
+        "LuneraysFlu_step2",
+        "LuneraysFlu_step3",
+        "LuneraysFlu_step4",
+        "LuneraysFlu_step5",
+        "LuneraysFlu_step6"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "BDI Agents",
+      "link": {
+        "type": "doc",
+        "id": "BDIAgents"
+      },
+      "collapsed": "true",
+      "items": [
+        "BDIAgents_step1",
+        "BDIAgents_step2",
+        "BDIAgents_step3",
+        "BDIAgents_step4",
+        "BDIAgents_step5"
+      ]
+    }
   ]
 }
