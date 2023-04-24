@@ -107,14 +107,13 @@ export default function Download() {
         <li><strong>A focus on urban mobility applications</strong>, with the <code>advanced_driving</code> and <code>pedestrian</code>, which make it much easier to produce realistic large-scale mobility models.</li>
         <li><strong>The possibility to simulate physical interactions between agents</strong> thanks to the addition of the native <code>bullet</code> library.</li>
         <li><strong>New and faster display capabilities</strong>, making it easier than ever to build interactive simulations, serious games or advanced scientific visualisations.</li>
-        <li><strong>See the <a href="https://gama-platform.org/wiki/Changelog">full changelog here</a>.</strong></li>
         </ul>
 
       </div>
 
       <div className="row" style={{textAlign: "center"}}>
 
-          <Button href={`https://gama-platform.org/wiki/Installation`} col="4" buttonColor="warning">What's new?</Button>
+          <Button href={`https://gama-platform.org/wiki/Changelog`} col="4" buttonColor="warning">What's new?</Button>
           <Button href={`https://github.com/gama-platform/gama/releases/tag/1.9.1`} col="4" buttonColor="danger">Other versions</Button>
           <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv191.pdf`} col="4" buttonColor="primary">PDF Documentation</Button>
       </div>
