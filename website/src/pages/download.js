@@ -90,8 +90,8 @@ export default function Download() {
 
         <div id="release" className="row">
           <OsBlock src="/img/windows-logo.svg" os="Windows" version="1.9.1" zipName="GAMA_1.9.1" zipOS='Windows' zipExtension='exe' zipSize='310' />
-          <OsBlock src="/img/apple-logo.svg" os="MacOS (Intel)" version="1.9.1" zipName="GAMA_1.9.1" zipOS='MacOS_Intel' zipExtension='dmg' zipSize='360' />
-          <OsBlock src="/img/apple-M1-logo.svg" os="MacOS (Apple Silicon)" version="1.9.1" zipName="GAMA_1.9.1" zipOS='MacOS_Apple_Silicon' zipExtension='dmg' zipSize='350' />
+          <OsBlock src="/img/apple-logo.svg" os="macOS (Intel)" version="1.9.1" zipName="GAMA_1.9.1" zipOS='MacOS_Intel' zipExtension='dmg' zipSize='360' />
+          <OsBlock src="/img/apple-M1-logo.svg" os="macOS (Apple Silicon)" version="1.9.1" zipName="GAMA_1.9.1" zipOS='MacOS_Apple_Silicon' zipExtension='dmg' zipSize='350' />
           <OsBlock src="/img/linux-logo.svg" os="Linux" version="1.9.1" zipName="GAMA_1.9.1" zipOS='Linux' zipExtension='deb' zipSize='384' />
 
       </div>
