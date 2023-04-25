@@ -29,7 +29,7 @@ class CategoryEmpty(Category):
 	def __init__(self, label: str, items: list[str] = []):
 		self.cat["type"]       = "category"
 		self.cat["label"]      = label
-		self.cat["link"]       = {}
+		self.cat["link"]       = {"type": "generated-index"}
 		self.cat["collapsed"]  = "true"
 		self.cat["items"]      = items
 
