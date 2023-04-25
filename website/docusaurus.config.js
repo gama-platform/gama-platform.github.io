@@ -136,7 +136,7 @@ module.exports={
         },
         {
           type: 'doc',
-          "docId": "developingGAMA",
+          "docId": "Projects",
           "label": "Community",
           "position": "left"
         },
