@@ -171,12 +171,3 @@ print(
 		}
 	)
 )
-
-#print(finalJson)
-
-"""
-for x in sideMd:
-	x = x.replace('\n', '')
-	if x.replace(" ", "") != "":
-		print("-"+x+"~")
-	pass"""
