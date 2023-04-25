@@ -158,7 +158,7 @@ def generateMain(mdList: list[str] = []):
 #	Main
 # ========
 
-docPath="./gama.wiki.bak/"
+docPath="./docs/"
 sideMdPath = docPath+"/_Sidebar.md"
 	
 splittedSidebar = splitMdSidebar()
