@@ -136,7 +136,7 @@ module.exports={
         },
         {
           type: 'doc',
-          "to": "/faq",
+          "docId": "WhatsNext",
           "label": "Community",
           "position": "left"
         },
