@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[56777],{15989:e=>{e.exports=JSON.parse('{"title":"Resources","slug":"/category/resources","permalink":"/wiki/next/category/resources","navigation":{"previous":{"title":"Training Session","permalink":"/wiki/next/TrainingSession"},"next":{"title":"Videos","permalink":"/wiki/next/Resources_TrainingVideos"}}}')}}]);
