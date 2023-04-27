@@ -73,7 +73,7 @@ Notice the final command of the script `rm -rf $passWork`. It is intended to rem
 ### Setting the experiment file
 
 
-Headless mode uses a XML file to describe the execution plan of a model. An example is given in the [headless mode documentation page](Headless).
+Headless mode uses a XML file to describe the execution plan of a model. An example is given in the [headless mode documentation page](RunningHeadless).
 
 The script looks like this :
 ** N.B. this version of the script, given as an example, is deprecated**
