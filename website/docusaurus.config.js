@@ -152,12 +152,13 @@ module.exports={
         },
 
         // Right Side
+        /* Waiting for https://github.com/gama-platform/gama-platform.github.io/issues/160
         {
           type: 'docsVersionDropdown',
           position: 'right',
           //dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
           dropdownActiveClassDisabled: false,
-        },
+        },*/
         {
           href: 'https://github.com/gama-platform/gama',
           html: '<i class="fab fa-github" style="font-size: 24px;"></i>',
