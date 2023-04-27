@@ -67,7 +67,7 @@ export default function Download() {
         <div className="row">
           <div className="col col--12">
             <header className="postHeader">
-              <h1>Download GAMA <a href={`https://github.com/gama-platform/gama/releases/tag/1.9.1`} target="_blank">version 1.9.1</a></h1>
+              <h1>Download GAMA <a href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} target="_blank">version {siteConfig.customFields.downloadVersion}</a></h1>
             </header>
           </div>
         </div>
@@ -75,12 +75,12 @@ export default function Download() {
         <div id="release" className="row">
         
           <div className="blockElement imageAlignTop col col--4" style={{marginTop:"3em", textAlign: "center"}}>
-            <a href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_Windows_with_JDK.exe`} target="_blank">
+            <a href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Windows_with_JDK.exe`} target="_blank">
               <div className="blockImage">
                 <img src="/img/windows-logo.svg" alt="Windows" ></img>
                 </div>
                 <div className="blockContent">
-                <Button href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_Windows_with_JDK.exe`} buttonColor="outline button-dyn-color" col="12">Windows</Button>
+                <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Windows_with_JDK.exe`} buttonColor="outline button-dyn-color" col="12">Windows</Button>
               </div>
             </a>
           </div>
@@ -89,17 +89,17 @@ export default function Download() {
               <img src="/img/apple-logo.svg" alt="Apple" ></img>
               </div>
               <div className="blockContent">
-              <Button href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_MacOS_Intel_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Intel)</Button>
-              <Button href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_MacOS_Apple_Silicon_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Apple Silicon)</Button>
+              <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_MacOS_Intel_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Intel)</Button>
+              <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_MacOS_Apple_Silicon_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Apple Silicon)</Button>
             </div>
           </div>
           <div className="blockElement imageAlignTop col col--4" style={{marginTop:"3em", textAlign: "center"}}>
-            <a href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_Linux_with_JDK.deb`} target="_blank">
+            <a href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Linux_with_JDK.deb`} target="_blank">
               <div className="blockImage">
                 <img src="/img/linux-logo.svg" alt="Linux" ></img>
                 </div>
                 <div className="blockContent">
-                <Button href={`https://github.com/gama-platform/gama/releases/download/1.9.1/GAMA_1.9.1_Linux_with_JDK.deb`} buttonColor="outline button-dyn-color" col="12">Linux</Button>
+                <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Linux_with_JDK.deb`} buttonColor="outline button-dyn-color" col="12">Linux</Button>
               </div>
             </a>
           </div>
@@ -123,8 +123,8 @@ export default function Download() {
 
       <div className="row" style={{textAlign: "center"}}>
 
-          <Button href={`https://gama-platform.org/wiki/Changelog`} col="4" buttonColor="warning">What's new?</Button>
-          <Button href={`https://github.com/gama-platform/gama/releases/tag/1.9.1`} col="4" buttonColor="danger">Other versions</Button>
+          <Button href={`/wiki/Changelog`} col="4" buttonColor="warning">What's new?</Button>
+          <Button href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} col="4" buttonColor="danger">Other installation versions</Button>
           <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv191.pdf`} col="4" buttonColor="primary">PDF Documentation</Button>
       </div>
 
