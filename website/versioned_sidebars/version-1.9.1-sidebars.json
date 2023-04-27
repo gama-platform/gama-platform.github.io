@@ -9,8 +9,7 @@
       },
       "collapsed": "true",
       "items": [
-        "Changelog",
-        "Changelog192"
+        "Changelog"
       ]
     },
     {
@@ -459,7 +458,7 @@
       "label": "Community",
       "link": {
         "type": "doc",
-        "id": "WhatsNext"
+        "id": "Community"
       },
       "collapsed": "true",
       "items": [
@@ -469,7 +468,6 @@
         "TrainingSession"
       ]
     },
-    "OlderVersions",
     {
       "type": "category",
       "label": "Resources",
@@ -483,6 +481,7 @@
         "CodeExamples",
         "Pedagogical-Materials"
       ]
-    }
+    },
+    "OlderVersions"
   ]
 }
