@@ -1,4 +1,4 @@
-const latestVersion="1.9.0"
+const latestVersion="1.9.1"
 
 module.exports={
   // Main website options
@@ -70,7 +70,7 @@ module.exports={
           },*/
           "versions": {
             "current": {
-              "label": '🚧 1.9.1 🚧',
+              "label": '🚧 1.9.2 🚧',
             },
           },
         },
