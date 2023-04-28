@@ -56,8 +56,8 @@ nav .dropdown--hoverable {
   display: none;
 }
 
-aside .sidebar_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-styles-module {
-  padding-top: 0;
+aside div div:has(nav.menu) {
+  padding-top: 0 !important;
 }
 aside .custom-sidebarVersion {
   margin-top: var(--ifm-navbar-height);
