@@ -56,6 +56,9 @@ nav .dropdown--hoverable {
   display: none;
 }
 
+#sidebarCssSelector > div {
+  padding-top: 0 !important;
+}
 aside div div:has(nav.menu) {
   padding-top: 0 !important;
 }
