@@ -8,7 +8,7 @@ export default function DocSidebarWrapper(props) {
       <div className="custom-sidebarVersion">
         <p><u style={{ "paddingTop": "4px", "display": "inline-block" }}><b>Version:</b></u> <DocsVersionDropdownNavbarItem dropdownItemsBefore={[]} dropdownItemsAfter={[]} /></p>
       </div>
-      <hr />
+      <hr style={{ "margin": "0" }} />
       <div id="sidebarCssSelector">
 
         <DocSidebar {...props} />
