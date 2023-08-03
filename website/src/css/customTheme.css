@@ -56,6 +56,11 @@ nav .dropdown--hoverable {
   display: none;
 }
 
+#sidebarCssSelector {
+  display: flex;
+  flex-direction: column;
+}
+
 #sidebarCssSelector > div {
   padding-top: 0 !important;
 }
