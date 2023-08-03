@@ -5,11 +5,11 @@ import DocsVersionDropdownNavbarItem from '@theme-original/NavbarItem/DocsVersio
 export default function DocSidebarWrapper(props) {
   return (
     <>
-      <div className="custom-sidebarVersion">
-        <p><u style={{ "paddingTop": "4px", "display": "inline-block" }}><b>Version:</b></u> <DocsVersionDropdownNavbarItem dropdownItemsBefore={[]} dropdownItemsAfter={[]} /></p>
-      </div>
-      <hr style={{ "margin": "0" }} />
       <div id="sidebarCssSelector">
+        <div className="custom-sidebarVersion">
+          <p><u style={{ "paddingTop": "4px", "display": "inline-block" }}><b>Version:</b></u> <DocsVersionDropdownNavbarItem dropdownItemsBefore={[]} dropdownItemsAfter={[]} /></p>
+        </div>
+        <hr style={{ "margin": "0" }} />
 
         <DocSidebar {...props} />
       
