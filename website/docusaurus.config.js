@@ -246,7 +246,7 @@ module.exports={
           { from: '/wiki/next/Operators', to: '/wiki/next/Exhaustive-list-of-GAMA-Keywords', },
           { from: '/wiki/next/Headless', to: '/wiki/next/RunningHeadless', },
           // External
-          { from: '/Gama-Days-2022', to: '/gama.resources/conferences/Gama-Days-2022', },
+          //{ from: '/Gama-Days-2022', to: '/gama.resources/conferences/Gama-Days-2022', },
         ]
       }
     ]
