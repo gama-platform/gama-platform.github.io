@@ -19,6 +19,7 @@
     "@docusaurus/preset-classic": "^2.4.1",
     "@docusaurus/theme-classic": "^2.4.1",
     "@docusaurus/theme-search-algolia": "^2.4.1",
+    "@giscus/react": "^2.3.0",
     "@saucelabs/theme-github-codeblock": "^0.2",
     "clsx": "^1.2.1",
     "prism-gaml": "^0.1.3",
