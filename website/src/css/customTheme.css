@@ -63,6 +63,7 @@ nav .dropdown--hoverable {
 
 #sidebarCssSelector > div {
   padding-top: 0 !important;
+  max-height: calc(100vh - var(--ifm-navbar-height) - 3rem);
 }
 aside div div:has(nav.menu) {
   padding-top: 0 !important;
