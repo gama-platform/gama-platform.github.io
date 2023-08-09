@@ -10,7 +10,7 @@ export default function GiscusComponent() {
       id="comments"
       repo="gama-platform/gama-platform.github.io"
       repoId="MDEwOlJlcG9zaXRvcnk4MzEwMzQ0MA=="
-      category="Comments"
+      category="General"
       categoryId="DIC_kwDOBPQO0M4CYb4-"
       mapping="pathname"
       reactionsEnabled="1"
