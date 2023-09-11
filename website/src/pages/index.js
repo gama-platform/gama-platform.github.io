@@ -47,7 +47,7 @@ function Home() {
             <div className="row">
               <div className="col col--8 col--offset-2">
                 <div className="margin-vert--lg text--center">
-                  <h2 className={styles.sectionDarkTitle}><a style={{color: "white"}} href="/download">Version 1.9.1 of GAMA has been released</a></h2>
+                  <h2 className={styles.sectionDarkTitle}><a style={{color: "white"}} href="/download">Version 1.9.2 of GAMA has been released</a></h2>
                 </div>
               </div>
               <div className="col col--12 text--center">
