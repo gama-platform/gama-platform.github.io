@@ -209,7 +209,8 @@ First, at the end of your Gama.ini file, add the following lines:
 --add-opens=java.base/java.lang.ref=ALL-UNNAMED
 --add-opens=java.sql/java.sql=ALL-UNNAMED-Djava.awt.headless=true
 ```
-Then you will need to replace your script to run gama-headless.
+
+Then you will have to replace the script you use run gama-headless by another one that.
 
 ### For macOS
 
