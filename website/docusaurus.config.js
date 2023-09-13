@@ -1,4 +1,4 @@
-const latestVersion="1.9.1"
+const latestVersion="1.9.2"
 
 module.exports={
   // Main website options
@@ -70,7 +70,7 @@ module.exports={
           },*/
           "versions": {
             "current": {
-              "label": '🚧 1.9.2 🚧',
+              "label": '🚧 1.9.3 🚧',
             },
           },
         },
@@ -84,14 +84,14 @@ module.exports={
     ]
   ],
   "themeConfig": {
-    /*announcementBar: {
+    announcementBar: {
       // Change the ID for new announcement
-      id: 'releaseGama190',
-      content: '🎉 <strong>GAMA Platform 1.9 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
+      id: 'releaseGama192',
+      content: '🎉 <strong>GAMA Platform 1.9.3 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
       backgroundColor: '#34709f',
       textColor: '#e3e3e3',
       isCloseable: true,
-    },*/
+    },
     "colorMode": {
       respectPrefersColorScheme: true,
     },
