@@ -87,7 +87,7 @@ module.exports={
     announcementBar: {
       // Change the ID for new announcement
       id: 'releaseGama192',
-      content: '🎉 <strong>GAMA Platform 1.9.3 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
+      content: '🎉 <strong>GAMA Platform 1.9.2 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
       backgroundColor: '#34709f',
       textColor: '#e3e3e3',
       isCloseable: true,
