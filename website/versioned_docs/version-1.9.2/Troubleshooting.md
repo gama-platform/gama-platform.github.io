@@ -2,6 +2,8 @@
 title:  Troubleshooting
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 This page exposes some of the most common problems a user may encounter when running GAMA — and offers advices and workarounds for them. It will be regularly enriched with new contents. Note also that the [Issues section](https://github.com/gama-platform/gama/issues) of the website might contain precious information on crashes and bugs encountered by other users. If neither the workarounds described here nor the solutions provided by other users allow to solve your particular problem, please submit a new issue report to the developers.
 
@@ -212,12 +214,187 @@ First, at the end of your Gama.ini file, add the following lines:
 
 Then you will have to replace the script you use run to gama-headless by another one described in the following parts.
 
+
+
 <details>
-        <summary>For macOS</summary>
-        
+        <summary>See fixed script per OS</summary>   
+
+<Tabs>
+  <TabItem value="Windows" label="Windows" default>
+
+replace the `gama-headless.bat` script by this one:
+
+```bat
+echo off
+cls
+setLocal EnableDelayedExpansion
+set inputFile=""
+set outputFile="" 
+
+REM memory is defined in the ../Gama.ini file
+set "memory=-1m"
+
+set workDir=.work%RANDOM%
+SETLOCAL enabledelayedexpansion
+
+
+:TOP
+
+IF (%1) == () GOTO NEXT_CODE
+        if %1 EQU -m ( 
+                set  comm=%1
+                set  next=%2
+                set memory=!next!
+                SHIFT
+                GOTO DECALE
+        )
+
+        set param=%param% %1
+        GOTO DECALE
+:DECALE
+SHIFT
+GOTO TOP
+
+:NEXT_CODE
+echo ******************************************************************
+echo * GAMA version 1.9.2                                             *
+echo * http://gama-platform.org                                       *
+echo * (c) 2007-2023 UMI 209 UMMISCO IRD/SU and Partners              *
+echo ******************************************************************
+
+set FILENAME="..\plugins\"
+FOR /F %%e in ('dir /b %FILENAME%') do ( 
+        SET result=%%e
+        if "!result:~0,29!" == "org.eclipse.equinox.launcher_" (  
+                goto END
+        )
+)
+:END
+@echo !result!
+
+set "result=..\plugins\%result%"
+
+echo %result%
+echo %JAVA_HOME%
+
+REM We don't want to use the options before the `-server` options in the GAMA.ini file
+REM because they are not compatible with the headless mode
+
+set "ini_arguments="
+set "skip_until_line=-server"
+set "skipping=true"
+
+for /f "usebackq delims=" %%a in (..\GAMA.ini) do (
+        set "line=%%a"
+
+        if !skipping!==true (
+                if !skip_until_line!==%%a (
+                        set "skipping=false"
+                        set "ini_arguments=!ini_arguments!!line! "
+                )
+        ) else (
+                if "!line:~0,4!"=="-Xmx" ( 
+                        if "!memory!"=="-1m" ( set "memory=!line:~4!" )
+                ) else ( 
+                        set "ini_arguments=!ini_arguments!!line! " 
+                )
+        )
+)
+
+@echo Will run with these options:
+@echo %ini_arguments%
+
+@echo workDir = %workDir% 
+@echo memory = %memory% 
+
+if exist ..\jdk\ (
+        echo "JDK"
+        call ..\jdk\bin\java -cp !result! -Xms512m -Xmx%memory% !ini_arguments! -Djava.awt.headless=true org.eclipse.core.launcher.Main -configuration ./configuration -application msi.gama.headless.product -data "%workDir%" !param! 
+) else (
+        echo "JAVA_HOME"
+        call "%JAVA_HOME%\bin\java.exe" -cp !result! -Xms512m -Xmx%memory% !ini_arguments! -Djava.awt.headless=true org.eclipse.core.launcher.Main -configuration ./configuration -application msi.gama.headless.product -data "%workDir%" !param! 
+)
+```
+
+  </TabItem>
+  <TabItem value="MacOS" label="MacOS">
+
 replace the `gama-headless.sh` script by this one:
 
-```sh
+```bash
+#!/bin/bash
+
+memory="0"
+
+for arg do
+  shift
+  case $arg in
+    -m) 
+    memory="${1}" 
+    shift 
+    ;;
+    *) 
+    set -- "$@" "$arg" 
+    ;;
+  esac
+done
+
+if [ $memory == "0" ]; then
+  memory=$(grep Xmx "$( dirname "${BASH_SOURCE[0]}" )"/../Eclipse/Gama.ini || echo "-Xmx4096m")
+else
+  memory=-Xmx$memory
+fi
+
+workspaceCreate=0
+case "$@" in 
+  *-help*|*-version*|*-validate*|*-test*|*-xml*|*-batch*|*-write-xmi*)
+    workspaceCreate=1
+    ;;
+esac
+
+function read_from_ini {
+  start_line=$(grep -n -- '-server' "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Eclipse/Gama.ini | cut -d ':' -f 1)
+  tail -n +$start_line "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Eclipse/Gama.ini | tr '\n' ' '
+}
+
+echo "******************************************************************"
+echo "* GAMA version 1.9.3                                             *"
+echo "* http://gama-platform.org                                       *"
+echo "* (c) 2007-2023 UMI 209 UMMISCO IRD/SU & Partners                *"
+echo "******************************************************************"
+passWork=.workspace
+# w/ output folder
+if [ $workspaceCreate -eq 0 ]; then
+  # create output folder if not existing
+  if [ ! -d "${@: -1}" ]; then
+      mkdir ${@: -1}
+  fi
+  # create workspace in output folder
+  # `expr` use is to remove whitespace from MacOS's result
+  passWork=${@: -1}/.workspace$(find ${@: -1} -name ".workspace*" | expr $(wc -l))
+  mkdir -p $passWork
+
+# w/o output folder
+else
+  # create workspace in current folder
+  passWork=.workspace$(find ./ -maxdepth 1 -name ".workspace*" | expr $(wc -l))
+fi
+
+ini_arguments=$(read_from_ini)
+
+if ! "$( dirname "${BASH_SOURCE[0]}" )"/../jdk/Contents/Home/bin/java -cp "$( dirname "${BASH_SOURCE[0]}" )"/../Eclipse/plugins/org.eclipse.equinox.launcher*.jar -Xms512m $memory ${ini_arguments[@]} -Djava.awt.headless=true org.eclipse.core.launcher.Main -configuration "$( dirname "${BASH_SOURCE[0]}" )"/configuration -application msi.gama.headless.product -data $passWork "$@"; then
+    echo "Error in you command, here's the log :"
+    cat $passWork/.metadata/.log
+    exit 1
+fi
+```
+
+  </TabItem>
+  <TabItem value="MacOS-noJDK" label="MacOS (no JDK)">
+
+replace the `gama-headless.sh` script by this one:
+
+```bash
 #!/bin/bash
 
 javaVersion=$(java -version 2>&1 | head -n 1 | cut -d "\"" -f 2)
@@ -257,13 +434,12 @@ case "$@" in
 esac
 
 function read_from_ini {
-  start_line=$(grep -n -- '-server' "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Gama.ini | cut -d ':' -f 1)
-  tail -n +12 "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Gama.ini | tr '\n' ' '
-  #       👆 with the + you basically tell tail to start from the 12th line starting from the top of the file, not the end
+  start_line=$(grep -n -- '-server' "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Eclipse/Gama.ini | cut -d ':' -f 1)
+  tail -n +$start_line "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Eclipse/Gama.ini | tr '\n' ' '
 }
 
 echo "******************************************************************"
-echo "* GAMA version 1.9.3                                             *"
+echo "* GAMA version 1.9.2                                             *"
 echo "* http://gama-platform.org                                       *"
 echo "* (c) 2007-2023 UMI 209 UMMISCO IRD/SU & Partners                *"
 echo "******************************************************************"
@@ -294,16 +470,85 @@ if ! java -cp "$( dirname "${BASH_SOURCE[0]}" )"/../Eclipse/plugins/org.eclipse.
 fi
 ```
 
-
-</details>
-
-
-<details>
-        <summary>For Linux</summary>
+  </TabItem>
+  <TabItem value="Linux" label="Linux">
 
 replace the `gama-headless.sh` script by this one:
 
-```sh
+```bash
+#!/bin/bash
+
+memory="0"
+
+for arg do
+  shift
+  case $arg in
+    -m) 
+    memory="${1}" 
+    shift 
+    ;;
+    *) 
+    set -- "$@" "$arg" 
+    ;;
+  esac
+done
+
+if [ $memory == "0" ]; then
+  memory=$(grep Xmx "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Gama.ini || echo "-Xmx4096m")
+else
+  memory=-Xmx$memory
+fi
+
+workspaceCreate=0
+case "$@" in 
+  *-help*|*-version*|*-validate*|*-test*|*-xml*|*-batch*|*-write-xmi*)
+    workspaceCreate=1
+    ;;
+esac
+
+function read_from_ini {
+  start_line=$(grep -n -- '-server' "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Gama.ini | cut -d ':' -f 1)
+  tail -n +$start_line "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Gama.ini | tr '\n' ' '
+}
+
+echo "******************************************************************"
+echo "* GAMA version 1.9.3                                             *"
+echo "* http://gama-platform.org                                       *"
+echo "* (c) 2007-2023 UMI 209 UMMISCO IRD/SU & Partners                *"
+echo "******************************************************************"
+passWork=.workspace
+# w/ output folder
+if [ $workspaceCreate -eq 0 ]; then
+  # create output folder if not existing
+  if [ ! -d "${@: -1}" ]; then
+      mkdir ${@: -1}
+  fi
+  # create workspace in output folder
+  passWork=${@: -1}/.workspace$(find ${@: -1} -name ".workspace*" | wc -l)
+  mkdir -p $passWork
+
+# w/o output folder
+else
+  # create workspace in current folder
+  passWork=.workspace$(find ./ -maxdepth 1 -name ".workspace*" | wc -l)
+fi
+
+ini_arguments=$(read_from_ini)
+
+if ! "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../jdk/bin/java -cp "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../plugins/org.eclipse.equinox.launcher*.jar -Xms512m $memory ${ini_arguments[@]} -Djava.awt.headless=true org.eclipse.core.launcher.Main -configuration "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/configuration -application msi.gama.headless.product -data $passWork "$@"; then
+    echo "Error in you command, here's the log :"
+    cat $passWork/.metadata/.log
+    exit 1
+fi
+```
+
+  </TabItem>
+  <TabItem value="Linux-noJDK" label="Linux (no JDK)">
+
+replace the `gama-headless.sh` script by this one:
+
+
+```bash
 #!/bin/bash
 
 javaVersion=$(java -version 2>&1 | head -n 1 | cut -d "\"" -f 2)
@@ -345,8 +590,7 @@ esac
 
 function read_from_ini {
   start_line=$(grep -n -- '-server' "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Gama.ini | cut -d ':' -f 1)
-  tail -n +12 "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Gama.ini | tr '\n' ' '
-  #       👆 with the + you basically tell tail to start from the 12th line starting from the top of the file, not the end
+  tail -n +$start_line "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../Gama.ini | tr '\n' ' '
 }
 
 echo "******************************************************************"
@@ -380,104 +624,8 @@ if ! java -cp "$( dirname $( realpath "${BASH_SOURCE[0]}" ) )"/../plugins/org.ec
 fi
 ```
 
-</details> 
-
-
-<details>
-        <summary>For Windows</summary>   
-
-replace the `gama-headless.bat` script by this one:
-```bash
-echo off
-cls
-setLocal EnableDelayedExpansion
-set inputFile=""
-set outputFile="" 
-
-REM memory is defined in the ../Gama.ini file
-set "memory=-1m"
-
-set workDir=.work%RANDOM%
-SETLOCAL enabledelayedexpansion
-
-
-:TOP
-
-IF (%1) == () GOTO NEXT_CODE
-	if %1 EQU -m ( 
-		set  comm=%1
-		set  next=%2
-		set memory=!next!
-		SHIFT
-		GOTO DECALE
-	)
-
-	set param=%param% %1
-	GOTO DECALE
-:DECALE
-SHIFT
-GOTO TOP
-
-:NEXT_CODE
-echo ******************************************************************
-echo * GAMA version 1.9.3                                             *
-echo * http://gama-platform.org                                       *
-echo * (c) 2007-2023 UMI 209 UMMISCO IRD/SU and Partners              *
-echo ******************************************************************
-
-set FILENAME="..\plugins\"
-FOR /F %%e in ('dir /b %FILENAME%') do ( 
- 	SET result=%%e
-	if "!result:~0,29!" == "org.eclipse.equinox.launcher_" (  
-		goto END
-	)
-)
-:END
-@echo !result!
-
-set "result=..\plugins\%result%"
-
-echo %result%
-echo %JAVA_HOME%
-
-REM We don't want to use the options before the `-server` options in the GAMA.ini file
-REM because they are not compatible with the headless mode
-
-set "ini_arguments="
-set "skip_until_line=-server"
-set "skipping=true"
-
-for /f "usebackq delims=" %%a in (..\GAMA.ini) do (
-	set "line=%%a"
-
-	if !skipping!==true (
-		if !skip_until_line!==%%a (
-			set "skipping=false"
-			set "ini_arguments=!ini_arguments!!line! "
-		)
-	) else (
-		if "!line:~0,4!"=="-Xmx" ( 
-			if "!memory!"=="-1m" ( set "memory=!line:~4!" )
-		) else ( 
-			set "ini_arguments=!ini_arguments!!line! " 
-		)
-	)
-)
-
-@echo Will run with these options:
-@echo %ini_arguments%
-
-@echo workDir = %workDir% 
-@echo memory = %memory% 
-
-if exist ..\jdk\ (
-	echo "JDK"
-	call ..\jdk\bin\java -cp !result! -Xms512m -Xmx%memory% !ini_arguments! -Djava.awt.headless=true org.eclipse.core.launcher.Main -configuration ./configuration -application msi.gama.headless.product -data "%workDir%" !param! 
-) else (
-	echo "JAVA_HOME"
-  	call "%JAVA_HOME%\bin\java.exe" -cp !result! -Xms512m -Xmx%memory% !ini_arguments! -Djava.awt.headless=true org.eclipse.core.launcher.Main -configuration ./configuration -application msi.gama.headless.product -data "%workDir%" !param! 
-)
-```
+  </TabItem>
+</Tabs>
         
 </details>
 
