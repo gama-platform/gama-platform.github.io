@@ -2,8 +2,6 @@
 title:  Using BEN (simple_bdi)
 ---
 
-[//]: # (keyword|concept_bdi)
-
 ## Introduction to BEN
 
 BEN (Behavior with Emotions and Norms) is an agent architecture providing social agents with cognition, emotions, emotional contagion, personality, social relations, and norms. This work has been done during the Ph.D. of Mathieu Bourgais, funded by the ANR ACTEUR.
@@ -114,7 +112,7 @@ As people create social relations when living with other people and change their
 * **F**: a real value between 0 and 1 representing the degree of familiarity with the agent concerned by the link. A value of 0 indicates that there is no familiarity with agent _j_, a value of 1 indicates a complete familiarity with agent _j_.
 * **T**: a real value between -1 and 1 representing the degree of trust with the agent _j_. A value of -1 indicates doubts about agent _j_ while a value of 1 indicates complete trust with agent _j_. The trust value does not evolve automatically in accordance with emotions.
 
-With this definition, a social relation is not necessarily symmetric, which means R<sub>i,j</sub>(L,D,S,F,T) is not equal by definition to R<sub>i,j</sub>(L,D,S,F,T). **L[R<sub>i,j</sub>]** stands for the liking value of the social relation between agent _i_ and agent _j_, **D[<sub>i,j</sub>]** stands for its dominance value, **S[R<sub>i,j</sub>]** for its solidarity value, **F[R<sub>i,j</sub>]** represents its familiarity value and **T[R<sub>i,j</sub>]** its trust value.
+With this definition, a social relation is not necessarily symmetric, which means R<sub>i,j</sub>(L,D,S,F,T) is not equal by definition to R<sub>j,i</sub>(L,D,S,F,T). **L[R<sub>i,j</sub>]** stands for the liking value of the social relation between agent _i_ and agent _j_, **D[<sub>i,j</sub>]** stands for its dominance value, **S[R<sub>i,j</sub>]** for its solidarity value, **F[R<sub>i,j</sub>]** represents its familiarity value and **T[R<sub>i,j</sub>]** its trust value.
 
 In GAML, social relations are manipulated with add_social_link, remove_social_link and get_social_link actions. Each feature of a social link is accessible with set and gt operators (set_agent, get_agent, set_liking, get_liking, set_dominance, etc.)
 
