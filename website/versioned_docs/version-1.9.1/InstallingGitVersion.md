@@ -4,7 +4,7 @@ title:  Installing the GIT version
 
 
 **Important note:** the current Git version contains 1 main branche:
-  * `GAMA_1.9.2`: that contains the code of the GAMA alpha(GAMA 1.9.2) (it works with **JDK 17 LTS** and **Eclipse 2022-12**).
+  * `GAMA_1.9.1`: that contains the code of the GAMA alpha(GAMA 1.9.1) (it works with **JDK 17 LTS** and **Eclipse 2022-12**).
 
 **Changes made to other branches won't be added to the next gama release**
 
