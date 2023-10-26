@@ -73,11 +73,11 @@ Example use: python escapingTags.py -i <badly_formatted_file> -o <path_to_the_br
 if __name__ == '__main__':
     """
         The principle of the algorithm is to first parse through the text to transform it into a list of Char objects, 
-        each containing the char value as well as it's location in the original text (character number, line and column).
-        Then, we do a second pass to find where are located all the tags (in the html definition of tags) that are not 
-        closed as well as "<" char followed by anything but a space char and all the "{" characters not in code blocks 
-        and build a list out of it. Then we rebuild a new text where we replace the first char of all detected elements
-        by an escaped version.
+        each containing the character value as well as its location in the original text (index, line and column).
+        Then, on that list we do a second pass to find where are located all the tags (in the html definition of tags) 
+        that are not closed as well as "<" char followed by anything but a space char that are not tags ("<-" for example)
+        and all the "{" characters not in code blocks and build a list out of it. Then we rebuild a new text where we 
+        replace the first char of all detected elements by an escaped version.
     """
     input_file = ''
     output_file = ''
@@ -116,7 +116,6 @@ if __name__ == '__main__':
 
     tagStack: List[Tag] = []
     ElementsToEscape: List[TextElement] = []
-    #unclosedTags: List[Tag] = []
     ite = 0
 
     # Counters used to remember if the text is in a code bloc
@@ -126,7 +125,7 @@ if __name__ == '__main__':
         currentChar = chars[ite]
 
         # If we encounter a "<" and are not in quoted text
-        if not in_simple_quote and not in_triple_quotes and currentChar.val == "<" :
+        if not in_simple_quote and not in_triple_quotes and currentChar.val == "<":
             # We check if it looks like a tag
             if re.match("[\?a-zA-Z\d]", chars[ite+1].val):
                 # We found a new tag, first we are going to parse to get its name
@@ -182,13 +181,16 @@ if __name__ == '__main__':
             ElementsToEscape += [currentChar]
 
         # If we encounter a quote
-        elif currentChar.val == '`':
+        if currentChar.val == '`':
             # If we encountered a triple quote
             if ite < len(chars) - 2 and chars[ite+1].val == '`' and chars[ite+2].val == '`':
                 in_triple_quotes = not in_triple_quotes
-                ite += 2 # To not have to process the 2 next simple quotes in the loop
-            # If not, it's only a simple quote, we ignore if we are already in triple quotes
-            elif not in_triple_quotes:
+                ite += 2 # In order to not have to process the 2 next simple quotes in the loop
+                # If we are getting out of triple quotes, we are out of simple quotes no matter what
+                if not in_triple_quotes:
+                    in_simple_quote = False
+            # If not, it's only a simple quote
+            else:
                 in_simple_quote = not in_simple_quote
 
         ite += 1
