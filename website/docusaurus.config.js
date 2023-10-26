@@ -1,4 +1,4 @@
-const latestVersion="1.8.2-RC2"
+const latestVersion="1.9.2"
 
 module.exports={
   // Main website options
@@ -23,7 +23,7 @@ module.exports={
     {
       "src": "/js/blogFacebook-iFrame.js",
       "async": true
-    },
+    }
   ],
   "stylesheets": [
     "https://use.fontawesome.com/releases/v6.1.1/css/all.css",
@@ -70,7 +70,7 @@ module.exports={
           },*/
           "versions": {
             "current": {
-              "label": '🚧 1.9.0 🚧',
+              "label": '🚧 1.9.3 🚧',
             },
           },
         },
@@ -84,14 +84,14 @@ module.exports={
     ]
   ],
   "themeConfig": {
-    /*announcementBar: {
+    announcementBar: {
       // Change the ID for new announcement
-      id: 'gamaDays2022',
-      content: '📢 <a target="_blank" rel="noopener noreferrer" href="https://gama-platform.org/Gama-Days-2022/">Join the <b>GAMA Days 2022</b> on <b>June 22, 23 & 24</b></a> 📢',
+      id: 'releaseGama192',
+      content: '🎉 <strong>GAMA Platform 1.9.2 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
       backgroundColor: '#34709f',
       textColor: '#e3e3e3',
       isCloseable: true,
-    },*/
+    },
     "colorMode": {
       respectPrefersColorScheme: true,
     },
@@ -135,14 +135,14 @@ module.exports={
           "position": "left"
         },
         {
-          "to": "/download",
-          "label": "Download",
+          type: 'doc',
+          "docId": "Community",
+          "label": "Community",
           "position": "left"
         },
         {
-          type: 'doc',
-          "docId": "Contribute",
-          "label": "Contribute",
+          "to": "/download",
+          "label": "Download",
           "position": "left"
         },
         {
@@ -150,19 +150,15 @@ module.exports={
           "label": "Blog",
           "position": "left"
         },
-        {
-          "to": "/faq",
-          "label": "FAQ",
-          "position": "left"
-        },
 
         // Right Side
+        /* Waiting for https://github.com/gama-platform/gama-platform.github.io/issues/160
         {
           type: 'docsVersionDropdown',
           position: 'right',
           //dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
           dropdownActiveClassDisabled: false,
-        },
+        },*/
         {
           href: 'https://github.com/gama-platform/gama',
           html: '<i class="fab fa-github" style="font-size: 24px;"></i>',
@@ -249,6 +245,8 @@ module.exports={
           // Debug
           { from: '/wiki/next/Operators', to: '/wiki/next/Exhaustive-list-of-GAMA-Keywords', },
           { from: '/wiki/next/Headless', to: '/wiki/next/RunningHeadless', },
+          // External
+          //{ from: '/Gama-Days-2022', to: '/gama.resources/conferences/Gama-Days-2022', },
         ]
       }
     ]
