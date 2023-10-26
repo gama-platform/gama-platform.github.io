@@ -140,8 +140,10 @@ if __name__ == '__main__':
                 tagStack += [Tag(tag)]
                 currentChar = chars[ite]
 
+                # TODO: ignore symbols in quotes inside the arguments of the tag
+                # TODO: example: the href data should be ignored here: <a href="fadfa<>" />
                 # Now either we have a "/>" closing the tag or ">" followed by some content and a closing tag
-                while currentChar.val != ">" and ite < len(chars) - 1 and currentChar.val != "/" and chars[ite+1].val != ">":
+                while not currentChar.val == ">" and not (ite < len(chars) - 1 and currentChar.val == "/" and chars[ite+1].val == ">"):
                     ite += 1
                     currentChar = chars[ite]
 
