@@ -1,0 +1,487 @@
+{
+  "main": [
+    {
+      "type": "category",
+      "label": "Home",
+      "link": {
+        "type": "doc",
+        "id": "Home"
+      },
+      "collapsed": "true",
+      "items": [
+        "Changelog"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Platform",
+      "link": {
+        "type": "doc",
+        "id": "PlatformDocumentation"
+      },
+      "collapsed": "true",
+      "items": [
+        {
+          "type": "category",
+          "label": "Installation and Launching",
+          "link": {
+            "type": "doc",
+            "id": "InstallationAndLaunching"
+          },
+          "collapsed": "true",
+          "items": [
+            "Installation",
+            "Launching",
+            "Updating",
+            "InstallingPlugins"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Workspace, Projects and Models",
+          "link": {
+            "type": "doc",
+            "id": "WorkspaceProjectsAndModels"
+          },
+          "collapsed": "true",
+          "items": [
+            "NavigatingWorkspace",
+            "ChangingWorkspace",
+            "ImportingModels"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Editing Models",
+          "link": {
+            "type": "doc",
+            "id": "EditingModels"
+          },
+          "collapsed": "true",
+          "items": [
+            "GamlEditorGeneralities",
+            "GamlEditorToolbar",
+            "ValidationOfModels"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Running Experiments",
+          "link": {
+            "type": "doc",
+            "id": "RunningExperiments"
+          },
+          "collapsed": "true",
+          "items": [
+            "LaunchingExperiments",
+            "ExperimentsUserInterface",
+            "MenusAndCommands",
+            "ParametersView",
+            "InspectorsAndMonitors",
+            "Displays",
+            "BatchSpecific",
+            "ErrorsView"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Running Headless",
+          "link": {
+            "type": "doc",
+            "id": "RunningHeadless"
+          },
+          "collapsed": "true",
+          "items": [
+            "HeadlessBatch",
+            "HeadlessServer",
+            "HeadlessLegacy"
+          ]
+        },
+        "Preferences",
+        "Troubleshooting"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Learn GAML step by step",
+      "link": {
+        "type": "doc",
+        "id": "LearnGAMLStepByStep"
+      },
+      "collapsed": "true",
+      "items": [
+        {
+          "type": "category",
+          "label": "Introduction",
+          "link": {
+            "type": "doc",
+            "id": "Introduction"
+          },
+          "collapsed": "true",
+          "items": [
+            "StartWithGAML",
+            "ModelOrganization",
+            "BasicProgrammingConceptsInGAML"
+          ]
+        },
+        "ManipulateBasicSpecies",
+        {
+          "type": "category",
+          "label": "Global Species",
+          "link": {
+            "type": "doc",
+            "id": "GlobalSpecies"
+          },
+          "collapsed": "true",
+          "items": [
+            "RegularSpecies",
+            "DefiningActionsAndBehaviors",
+            "InteractionBetweenAgents",
+            "AttachingSkills",
+            "Inheritance"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Defining Advanced Species",
+          "link": {
+            "type": "doc",
+            "id": "DefiningAdvancedSpecies"
+          },
+          "collapsed": "true",
+          "items": [
+            "GridSpecies",
+            "GraphSpecies",
+            "MirrorSpecies",
+            "MultiLevelArchitecture"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Defining GUI Experiment",
+          "link": {
+            "type": "doc",
+            "id": "DefiningGUIExperiment"
+          },
+          "collapsed": "true",
+          "items": [
+            "DefiningParameters",
+            "DefiningDisplaysGeneralities",
+            "Defining3DDisplays",
+            "DefiningCharts",
+            "DefiningMonitorsAndInspectors",
+            "DefiningExportFiles",
+            "DefiningUserInteraction"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Exploring Models",
+          "link": {
+            "type": "doc",
+            "id": "ExploringModels"
+          },
+          "collapsed": "true",
+          "items": [
+            "RunSeveralSimulations",
+            "BatchExperiments",
+            "ExplorationMethods"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Optimizing Model Section",
+          "link": {
+            "type": "doc",
+            "id": "OptimizingModelsSection"
+          },
+          "collapsed": "true",
+          "items": [
+            "RuntimeConcepts",
+            "OptimizingModels"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Multi-Paradigm Modeling",
+          "link": {
+            "type": "doc",
+            "id": "MultiParadigmModeling"
+          },
+          "collapsed": "true",
+          "items": [
+            "ControlArchitecture",
+            "DifferentialEquations"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Recipes",
+      "link": {
+        "type": "doc",
+        "id": "Recipes"
+      },
+      "collapsed": "true",
+      "items": [
+        "ManipulateOSMDatas",
+        "Diffusion",
+        "UsingDatabase",
+        "UsingFIPAACL",
+        "Using-BEN-simple-bdi",
+        "UsingDrivingSkill",
+        "ManipulateDates",
+        "ManipulateLight",
+        "Comodel",
+        "Save-and-restore-simulations",
+        "UsingNetwork",
+        "Headless-mode-for-dummies",
+        "HeadlessTutorial",
+        "Writing_Tests",
+        "Ensure-model-reproducibility",
+        {
+          "type": "category",
+          "label": "Going further with extensions",
+          "link": {
+            "type": "doc",
+            "id": "Using-extensions"
+          },
+          "collapsed": "true",
+          "items": [
+            "CallingR",
+            "G__GraphicalEditor",
+            "Using_Git"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "GAML References",
+      "link": {
+        "type": "doc",
+        "id": "GamlReference"
+      },
+      "collapsed": "true",
+      "items": [
+        "BuiltInSpecies",
+        "BuiltInSkills",
+        "BuiltInArchitectures",
+        "Statements",
+        "DataTypes",
+        "FileTypes",
+        {
+          "type": "category",
+          "label": "Expressions",
+          "link": {
+            "type": "doc",
+            "id": "Expressions"
+          },
+          "collapsed": "true",
+          "items": [
+            "Literals",
+            "UnitsAndConstants",
+            "PseudoVariables",
+            "VariablesAndAttributes",
+            "OperatorsAA",
+            "OperatorsBC",
+            "OperatorsDH",
+            "OperatorsIM",
+            "OperatorsNR",
+            "OperatorsSZ"
+          ]
+        },
+        "Exhaustive-list-of-GAMA-Keywords"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Developing GAMA",
+      "link": {
+        "type": "doc",
+        "id": "developingGAMA"
+      },
+      "collapsed": "true",
+      "items": [
+        "InstallingGitVersion",
+        {
+          "type": "category",
+          "label": "Developing Extensions",
+          "link": {
+            "type": "doc",
+            "id": "DevelopingExtensions"
+          },
+          "collapsed": "true",
+          "items": [
+            "DevelopingPlugins",
+            "DevelopingSkills",
+            "DevelopingStatements",
+            "DevelopingOperators",
+            "DevelopingTypes",
+            "DevelopingSpecies",
+            "DevelopingControlArchitectures",
+            "DevelopingIndexAnnotations"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Introduction to GAMA Java API",
+          "link": {
+            "type": "doc",
+            "id": "Introduction-To-Gama-Java-API"
+          },
+          "collapsed": "true",
+          "items": [
+            "GamaArchitecture",
+            "DevelopingIScope"
+          ]
+        },
+        "CreatingAReleaseOfGama",
+        "Documentation"
+      ]
+    }
+  ],
+  "tuto": [
+    "Tutorials",
+    {
+      "type": "category",
+      "label": "Predator Prey",
+      "link": {
+        "type": "doc",
+        "id": "PredatorPrey"
+      },
+      "collapsed": "true",
+      "items": [
+        "PredatorPrey_step1",
+        "PredatorPrey_step2",
+        "PredatorPrey_step3",
+        "PredatorPrey_step4",
+        "PredatorPrey_step5",
+        "PredatorPrey_step6",
+        "PredatorPrey_step7",
+        "PredatorPrey_step8",
+        "PredatorPrey_step9",
+        "PredatorPrey_step10",
+        "PredatorPrey_step11",
+        "PredatorPrey_step12",
+        "PredatorPrey_step13"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Road Traffic",
+      "link": {
+        "type": "doc",
+        "id": "RoadTrafficModel"
+      },
+      "collapsed": "true",
+      "items": [
+        "RoadTrafficModel_step1",
+        "RoadTrafficModel_step2",
+        "RoadTrafficModel_step3",
+        "RoadTrafficModel_step4",
+        "RoadTrafficModel_step5",
+        "RoadTrafficModel_step6",
+        "RoadTrafficModel_step7"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "3D Tutorial",
+      "link": {
+        "type": "doc",
+        "id": "ThreeD"
+      },
+      "collapsed": "true",
+      "items": [
+        "ThreeD_step1",
+        "ThreeD_step2",
+        "ThreeD_step3"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Incremental Model",
+      "link": {
+        "type": "doc",
+        "id": "IncrementalModel"
+      },
+      "collapsed": "true",
+      "items": [
+        "IncrementalModel_step1",
+        "IncrementalModel_step2",
+        "IncrementalModel_step3",
+        "IncrementalModel_step4",
+        "IncrementalModel_step5",
+        "IncrementalModel_step6",
+        "IncrementalModel_step7"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Luneray's flu",
+      "link": {
+        "type": "doc",
+        "id": "LuneraysFlu"
+      },
+      "collapsed": "true",
+      "items": [
+        "LuneraysFlu_step1",
+        "LuneraysFlu_step2",
+        "LuneraysFlu_step3",
+        "LuneraysFlu_step4",
+        "LuneraysFlu_step5",
+        "LuneraysFlu_step6"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "BDI Agents",
+      "link": {
+        "type": "doc",
+        "id": "BDIAgents"
+      },
+      "collapsed": "true",
+      "items": [
+        "BDIAgents_step1",
+        "BDIAgents_step2",
+        "BDIAgents_step3",
+        "BDIAgents_step4",
+        "BDIAgents_step5"
+      ]
+    }
+  ],
+  "extra": [
+    {
+      "type": "category",
+      "label": "Community",
+      "link": {
+        "type": "doc",
+        "id": "Community"
+      },
+      "collapsed": "true",
+      "items": [
+        "Team",
+        "Projects",
+        "References",
+        "TrainingSession"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Resources",
+      "link": {
+        "type": "generated-index"
+      },
+      "collapsed": "true",
+      "items": [
+        "Resources_TrainingVideos",
+        "PreviousConferences",
+        "CodeExamples",
+        "Pedagogical-Materials"
+      ]
+    },
+    "OlderVersions"
+  ]
+}

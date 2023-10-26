@@ -28,37 +28,16 @@ function Home() {
             src={useBaseUrl('/img/gama-logo.png')}
           />
           <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations</p>
-          <div className={styles.buttons}>
-            <Link
-              style={{margin: "0 auto"}}
-              className={clsx(
-                'button button--warning button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('download')}>
-              Download
-            </Link>
-            
-            <Link
-              style={{margin: "0 auto"}}
-              className={clsx(
-                'button button--outline button--danger button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('wiki/Home')}>
-              Documentation
-            </Link>
-            
-            <Link
-              style={{margin: "0 auto"}}
-              className={clsx(
-                'button button--outline button--primary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('wiki/Tutorials')}>
-              Tutorials
-            </Link>
+          <div className="row buttons_src-pages-index-module" style={{marginTop: "3em"}}>
+            <div className="col col--4" style={{margin: "1em auto"}}>
+              <a sytle={{margin: "0 auto"}} className="button button--warning button--lg" href="/download">Download</a>
+            </div>
+            <div className="col col--4" style={{margin: "1em auto"}}>
+              <a sytle={{margin: "0 auto"}} className="button button--outline button--danger button--lg" href="wiki/Home">Documentation</a>
+            </div>
+            <div className="col col--4" style={{margin: "1em auto"}}>
+              <a sytle={{margin: "0 auto"}} className="button button--outline button--primary button--lg" href="wiki/Tutorials">Tutorials</a>
+            </div>
           </div>
         </div>
       </header>
@@ -68,55 +47,16 @@ function Home() {
             <div className="row">
               <div className="col col--8 col--offset-2">
                 <div className="margin-vert--lg text--center">
-                  <h2 className={styles.sectionDarkTitle}>
-                    Take a look at the latest <a href="https://www.youtube.com/watch?v=jpWxk1hcTTk&list=PLIf4h7zpeBeHrK7GY7HeWojXniBU_6nN-" target="_blank">international GAMA Days 2022 replay</a>
-                  </h2>
+                  <h2 className={styles.sectionDarkTitle}><a style={{color: "white"}} href="/download">Version 1.9.2 of GAMA has been released</a></h2>
                 </div>
+              </div>
+              <div className="col col--12 text--center">
+                <iframe src="https://www.youtube-nocookie.com/embed/LvmNtsB1ytY" style={{backgroundColor: "black", maxWidth: "560px", height: "315px", width: "100%"}} title="GAMA trailer 1.9.1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
             </div>
           </div>
         </div>
-        <p className="padding-vert--xl">
-          <p className="container">
-            <p className="row">
-              <p className="col col--10 col--offset-1">
-                <h2 className="text--center margin-bottom--xl">Why the GAMA platform?</h2>
-                <div className="row margin-vert--lg">
-                  <div className="col">
-                    <h3><i class="fa-brands fa-osi"></i> Open Source</h3>
-                    <p>We are entirely dedicated to Free and Open Source Software. All of our utilities are licensed under the GNU General Public License (v3).</p>
-                  </div>
-                  <div className="col">
-                    <h3><i class="fa-solid fa-flask"></i> Scientific Tools</h3>
-                    <p>GAMA is used by multiple scientific projects and cited in hundreds of scientific articles.</p>
-                  </div>
-                  <div className="col">
-                    <h3><i class="fa-solid fa-map"></i> GIS support</h3>
-                    <p>
-                      GAMA have a native GIS support to easily apply your model on real life geographic data.
-                    </p>
-                  </div>
-                </div>
-                <div className="row margin-vert--lg">
-                  <div className="col">
-                    <h3><i class="fa-solid fa-rocket"></i> Simply powerful</h3>
-                    <p>GAMA uses an intuitive programming language (GAML)  developed to be used by non-computer scientists.<br/><a href="https://www.youtube.com/watch?v=YGHw1LSzd-E" target="_blank">Discover it in 10 minutes!</a></p>
-                  </div>
-                  <div className="col">
-                    <h3><i class="fa-solid fa-download"></i> Cross Platform</h3>
-                    <p>GAMA can be <a href="download">installed on all operating systems</a> that support Java, i.e, Windows, Linux and Mac OSX.<br/>Write Once, Run Anywhere.</p>
-                  </div>
-                </div>
-              </p>
-            </p>
-          </p>
-        </p>
       </main>
-      <style dangerouslySetInnerHTML={{__html: `
-        footer.footer {
-          display: none;
-        }
-      `}} />
     </Layout>
   );
 }

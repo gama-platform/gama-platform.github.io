@@ -47,3 +47,34 @@ a.pagination-nav__link {
 .footer__logo {
   max-height: 10em;
 }
+
+
+/*
+ *  Styling Sidebar's Version dropdown
+ */
+nav .dropdown--hoverable {
+  display: none;
+}
+
+#sidebarCssSelector {
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebarCssSelector > div {
+  padding-top: 0 !important;
+  max-height: calc(100vh - var(--ifm-navbar-height) - 3rem);
+}
+aside div div:has(nav.menu) {
+  padding-top: 0 !important;
+}
+aside .custom-sidebarVersion {
+  margin-top: var(--ifm-navbar-height);
+  padding: 0.5rem 0 0 0.5rem;
+}
+
+aside .custom-sidebarVersion p {
+  margin-bottom: 0;
+  font-size: var(--fbc-font-size: 13px;);
+  padding: var(--ifm-menu-link-padding-vertical) var(--ifm-menu-link-padding-horizontal);
+}

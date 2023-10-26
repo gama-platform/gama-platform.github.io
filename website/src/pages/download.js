@@ -14,37 +14,9 @@ export default function Download() {
   const {siteConfig} = useDocusaurusContext();
   const docUrl = doc => `${useBaseUrl(siteConfig.routeBasePath)}/${doc}`;
 
-  const ButtonHover = props => (
-    <div class="dropdown dropdown--hoverable col col--12">
-      <a href={props.href} className={`button button--outline button--${props.buttonColor}`} target="_blank">{props.buttonTxt}</a>
-      <ul class="dropdown__menu">
-        <li>
-          <span className="dropdown__link">
-            {props.children}</span>
-        </li>
-      </ul>
-    </div>
-  );
-
   const Button = props => (
-    <button className={`button button--outline button--${props.buttonColor}`}>
-      <a href={`${props.href}`} target="_blank">{props.children}</a></button>
-  );
-
-  const OsBlock = props => (
-    <div className="blockElement imageAlignTop col col--6" style={{marginTop:"3em", textAlign: "center"}}>
-      <div className="blockImage">
-        <img src={props.src} alt={props.os} ></img>
-      </div>
-      <div className="blockContent">
-        <h2>{props.os}</h2>
-            <ButtonHover href={`https://github.com/gama-platform/gama/releases/download/${props.version}/${props.zipName}_${props.zipOS}_with_JDK.${props.zipExtension}`} buttonTxt={`Default installer (${props.zipSize} MB)`} buttonColor="warning">This is the easiest version to run. Run installer and start GAMA.
-            </ButtonHover>
-            <ButtonHover href={`https://github.com/gama-platform/gama/releases/tag/${props.version}`} buttonColor="danger" buttonTxt="More installer" target="_blank">GAMA is distibuted in various format, feel free to check then.<br/><b>Use this only if you know what you do.</b>
-            </ButtonHover>
-            <ButtonHover href="https://github.com/gama-platform/gama/releases" buttonColor="primary" buttonTxt="Alpha Version">This is the <b>in-development version</b> of GAMA. It can be broken or have some issues.<br/>Install this version if you feel adventurous.
-            </ButtonHover>
-      </div>
+    <div className={`col col--${props.col}`}>
+      <a className={`button button button--${props.buttonColor}`} style={{width: "85%"}} href={`${props.href}`} target="_blank">{props.children}</a>
     </div>
   );
 
@@ -81,6 +53,13 @@ export default function Download() {
         #release > .col {
           margin-top: 3em;
         }
+
+        [data-theme="light"] :where(.button-dyn-color) {
+        --ifm-button-border-color: var(--ifm-color-primary);
+        }
+
+        [data-theme="dark"] :where(.button-dyn-color) {
+        --ifm-button-border-color: var(--ifm-color-warning) !important;
       `}} />
 
       <div className="container">
@@ -88,67 +67,66 @@ export default function Download() {
         <div className="row">
           <div className="col col--12">
             <header className="postHeader">
-              <h1>Download stable version <span style={{fontSize: "medium"}}>(currently <a href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} target="_blank">version {siteConfig.customFields.downloadVersion}</a>)</span></h1>
+              <h1>Download GAMA <a href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} target="_blank">version {siteConfig.customFields.downloadVersion}</a></h1>
             </header>
-            <p>
-             The latest stable version of GAMA can be downloaded with or without an embedded JDK. If you feel adventurous, you can also try the latest alpha (unstable) release.
-             If you have any trouble installing gama, you can go on the <a href={`https://gama-platform.org/wiki/Installation`}>installation page</a> of the website to check the detailed installation procedures.
-            </p>
           </div>
         </div>
 
         <div id="release" className="row">
-          <OsBlock src="/img/windows-logo.svg" os="Windows" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Windows' zipExtension='exe' zipSize='310' />
-          <OsBlock src="/img/linux-logo.svg" os="Linux" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='Linux' zipExtension='deb' zipSize='384' />
-          <OsBlock src="/img/apple-logo.svg" os="MacOS (Intel)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS' zipExtension='dmg' zipSize='360' />
-          <OsBlock src="/img/apple-M1-logo.svg" os="MacOS (Apple Silicon)" version={siteConfig.customFields.downloadVersion} zipName={siteConfig.customFields.zipName} zipOS='MacOS_M1' zipExtension='dmg' zipSize='350' />
-
-          <div className="blockElement imageAlignTop col col--6" style={{marginBottom:"3em", textAlign: "center"}}>
-            <div className="blockContent">
-              <h2>Documentation</h2>
-              <ButtonHover href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv1.8.2.pdf`} buttonTxt={`GAMA ${siteConfig.customFields.downloadVersion} PDF (20 MB)`} buttonColor="warning">This is the <b>offline GAMA {siteConfig.downloadVersion} documentation</b> ready to be download in a PDF file.
-              </ButtonHover>
+        
+          <div className="blockElement imageAlignTop col col--4" style={{marginTop:"3em", textAlign: "center"}}>
+            <a href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Windows_with_JDK.exe`} target="_blank">
+              <div className="blockImage">
+                <img src="/img/windows-logo.svg" alt="Windows" ></img>
+                </div>
+                <div className="blockContent">
+                <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Windows_with_JDK.exe`} buttonColor="outline button-dyn-color" col="12">Windows</Button>
+              </div>
+            </a>
+          </div>
+          <div className="blockElement imageAlignTop col col--4" style={{marginTop:"3em", textAlign: "center"}}>
+            <div className="blockImage">
+              <img src="/img/apple-logo.svg" alt="Apple" ></img>
+              </div>
+              <div className="blockContent">
+              <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_MacOS_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Intel)</Button>
+              <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_MacOS_M1_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Apple Silicon)</Button>
             </div>
           </div>
-        </div>
-
-        <div className="row">
-          <div className="col col--12">
-            <header className="postHeader">
-              <h2>Older documentation</h2>
-            </header>
-            <p>Below is the list to the <strong>PDF documentations</strong> of the <strong>previous versions of GAMA</strong>.</p>
-          </div>
-        </div>
-
-        <div className="row" style={{textAlign: "center"}}>
-          <div className="col">
-              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv181.pdf`} buttonColor="warning">GAMA 1.8.1 (~ 22 MB)
-              </Button>
-              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv1.8.0.pdf`} buttonColor="danger">GAMA 1.8.0 (~ 34 MB)
-              </Button>
-              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv17.pdf`} buttonColor="primary">GAMA 1.7 (~ 17 MB)
-              </Button>
+          <div className="blockElement imageAlignTop col col--4" style={{marginTop:"3em", textAlign: "center"}}>
+            <a href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Linux_with_JDK.deb`} target="_blank">
+              <div className="blockImage">
+                <img src="/img/linux-logo.svg" alt="Linux" ></img>
+                </div>
+                <div className="blockContent">
+                <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Linux_with_JDK.deb`} buttonColor="outline button-dyn-color" col="12">Linux</Button>
+              </div>
+            </a>
           </div>
 
-          <div className="col">
-              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv161.pdf`} buttonColor="warning">GAMA 1.6.1 (~ 13 MB)
-              </Button>
-              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv16.pdf`} buttonColor="danger">GAMA 1.6 (~ 13 MB)
-              </Button>
-              <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv151.pdf`} buttonColor="primary">GAMA 1.5.1 (~ 2 MB)
-              </Button>
-          </div>
+      </div>
+      <div style={{ marginBottom: "3em", marginTop: "3em"}}>
+        <h2>This major release of GAMA contains many new features and fixes, including:</h2>
 
-          <div className="col">
-                <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv14.pdf`} buttonColor="warning">GAMA 1.4 (> 1 MB)
-                </Button>
-                <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv13.pdf`} buttonColor="danger">GAMA 1.3 (~ 2 MB)
-                </Button>
-                <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/GAMAv11.pdf`} buttonColor="primary">GAMA 1.1 (~ 1 MB)
-                </Button>
-          </div>
-        </div>
+        <ul>
+        <li><strong>A much more fluid and powerful IDE</strong></li>
+        <li><strong>A new server mode of GAMA</strong>, which revolutionizes the way to interact with the platform from R, Python or web clients.</li>
+        <li><strong>Increased model exploration possibilities</strong>.</li>
+        <li><strong>The addition of the two new data types <code>field</code> and <code>image</code></strong>, to better manage raster data</li>
+        <li><strong>A more powerful graph manipulation</strong></li>
+        <li><strong>A focus on urban mobility applications</strong>, with the <code>advanced_driving</code> and <code>pedestrian</code>, which make it much easier to produce realistic large-scale mobility models.</li>
+        <li><strong>The possibility to simulate physical interactions between agents</strong> thanks to the addition of the native <code>bullet</code> library.</li>
+        <li><strong>New and faster display capabilities</strong>, making it easier than ever to build interactive simulations, serious games or advanced scientific visualisations.</li>
+        </ul>
+
+      </div>
+
+      <div className="row" style={{textAlign: "center"}}>
+
+          <Button href={`/wiki/Changelog`} col="4" buttonColor="warning">What's new?</Button>
+          <Button href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} col="4" buttonColor="danger">Other installation versions</Button>
+          <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv192.pdf`} col="4" buttonColor="primary">PDF Documentation</Button>
+      </div>
 
       </div>
 
