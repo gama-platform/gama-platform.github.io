@@ -94,7 +94,7 @@ Allows to resume the sound output
 #### Facets 
   
 * **`source`** (string): The path to music file. This path is relative to the path of the model.
-* `mode` (an identifier), takes values in: {overwrite, ignore}: Mode of 
+* `mode` (an identifier), takes values in: &#123;overwrite, ignore}: Mode of 
 * `repeat` (boolean):  
  	
 #### Definition

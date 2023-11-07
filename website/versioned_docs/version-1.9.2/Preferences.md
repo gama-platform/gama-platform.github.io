@@ -95,7 +95,7 @@ Most of the settings and preferences regarding editors can also be found in the 
 * **Edition**
   * **Automatically close single quotes '..'**
   * **Automatically close double quotes ".."**
-  * **Automatically close curly brackets {..}**
+  * **Automatically close curly brackets &#123;..}**
   * **Automatically close square brackets [..]**
   * **Automatically close parentheses (..)**
   * **Turn on colorization of code sections**: if true, it activates the colorization of code blocks in order to improve the visual understanding of the code structure.

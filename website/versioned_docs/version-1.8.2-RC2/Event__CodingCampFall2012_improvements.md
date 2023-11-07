@@ -27,7 +27,7 @@ create people from: "data_file.csv" with: [speed::read("SPEED"), age:: read("AGE
 ```
 
 New features:
-  * Possibility to define 3D points with the **{x,y,z}** syntax:
+  * Possibility to define 3D points with the **&#123;x,y,z}** syntax:
 ```
 let pt type: point <- {2, 5, 3};
 ```
@@ -74,13 +74,13 @@ Plugin-needed: msi.gaml.extensions.fipa
 The communicating skill now re-works on GAMA 1.5. Sample toy models are found in "models/fipa".
 
 
-It is now possible to create a hexagon of with the given width and height (point) thanks to the operator **hexagon({width, height})**
+It is now possible to create a hexagon of with the given width and height (point) thanks to the operator **hexagon(&#123;width, height})**
 
 ```
 hexagon({3,4})
 ```
 
-In the same way, an operator has been defined in order to decomposed a geometry into a set of hexagons of a given a number of columns and rows. This operator returns a set of hexagons: geometry as\_hexagonal\_grid({nb\_cols, nb\_rows})
+In the same way, an operator has been defined in order to decomposed a geometry into a set of hexagons of a given a number of columns and rows. This operator returns a set of hexagons: geometry as\_hexagonal\_grid(&#123;nb\_cols, nb\_rows})
 
 ```
 shape as_hexagonal_grid({50, 40})

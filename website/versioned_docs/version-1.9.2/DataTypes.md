@@ -425,7 +425,7 @@ path_between (a_graph, a_source, a_target) // idem with a the given graph as top
   * y (type = float): coordinate of the point on the y-axis
 * **Comments:** point coordinates should be positive, if a negative value is used in its declaration, the point is built with the absolute value.
 * **Remark:** points are particular cases of geometries and containers. Thus they have also all the built-in attributes of both the geometry and the container datatypes and can be used with every kind of operator or command admitting geometry and container.
-* **Litteral declaration:** two numbers, separated by a comma, enclosed in braces, like {12.3, 14.5}
+* **Litteral declaration:** two numbers, separated by a comma, enclosed in braces, like &#123;12.3, 14.5}
 * **Other declarations:** points can be built literally from a list, or from an integer or float value by using the point casting operator.
 
 ```
@@ -448,7 +448,7 @@ point (2) -> {2.0, 2.0}
   * a string. The allowed color names are the constants defined in the Color Java class, i.e.: black, blue, cyan, darkGray, lightGray, gray, green, magenta, orange, pink, red, white, yellow.
   * a list. The integer value associated to the three first elements of the list are used to define the three red (element 0 of the list), green (element 1 of the list) and blue (element 2 of the list) components of the color.
   * a map. The red, green, blue components take the value associated to the keys "r", "g", "b" in the map.
-  * an integer <- the decimal integer is translated into a hexadecimal <- OxRRGGBB. The red (resp. green, blue) component of the color takes the value RR (resp. GG, BB) translated in decimal.
+  * an integer &lt;- the decimal integer is translated into a hexadecimal &lt;- OxRRGGBB. The red (resp. green, blue) component of the color takes the value RR (resp. GG, BB) translated in decimal.
   * Since GAMA 1.6.1, colors can be directly obtained like units, by using the ° or # symbol followed by the name in lowercase of one of the 147 CSS colors (see http://www.cssportal.com/css3-color-names/).
 * **Declaration:**
 

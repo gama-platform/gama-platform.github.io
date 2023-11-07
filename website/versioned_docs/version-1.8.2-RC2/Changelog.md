@@ -584,7 +584,7 @@ You can find here a detailed list of all the commits since 1.8.1 that are neithe
 
 * [ac354799b](https://github.com/gama-platform/gama/commit/ac354799b) - Add a new batch algorithm (PSO)
 
-* [048d899af](https://github.com/gama-platform/gama/commit/048d899af) - Fixes [#3154](https://github.com/gama-platform/gama/issues/3154). '<' and '<=' shared the same algorithm.
+* [048d899af](https://github.com/gama-platform/gama/commit/048d899af) - Fixes [#3154](https://github.com/gama-platform/gama/issues/3154). '&lt;' and '&lt;=' shared the same algorithm.
 
 * [11ed4cbc5](https://github.com/gama-platform/gama/commit/11ed4cbc5) - Prevents a possible NPE in RandomUtils
 
@@ -1566,7 +1566,7 @@ You can find here a detailed list of all the commits since 1.8.1 that are neithe
 
 * [97d23da34](https://github.com/gama-platform/gama/commit/97d23da34) - [JDK] Start revert 993db9eb52 Still missing aarch64 build
 
-* [14897659c](https://github.com/gama-platform/gama/commit/14897659c) - [GHA DEB] Change permission for postinst script was bad permissions 644 (must be >=0555 and <=0775) -> Is now 0775 ci release
+* [14897659c](https://github.com/gama-platform/gama/commit/14897659c) - [GHA DEB] Change permission for postinst script was bad permissions 644 (must be >=0555 and &lt;=0775) -> Is now 0775 ci release
 
 * [8deb4c4b6](https://github.com/gama-platform/gama/commit/8deb4c4b6) - [GHA DEB] Fix unzip path ci release
 

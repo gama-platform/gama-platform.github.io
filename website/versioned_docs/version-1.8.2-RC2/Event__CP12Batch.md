@@ -55,7 +55,7 @@ o   =>Define code in the experiment (loop over agents)
 
 ·         Put rules for variable exploration
 
-o   Ex: explore b={1,2,3}. if a=2 explore b={2,3} only
+o   Ex: explore b=&#123;1,2,3}. if a=2 explore b=&#123;2,3} only
 
 o   How? Put code in the exploring loop => put real GAML code in the agent
 

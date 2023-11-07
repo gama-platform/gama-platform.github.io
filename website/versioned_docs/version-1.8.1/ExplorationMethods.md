@@ -245,16 +245,16 @@ This is a simple implementation of Genetic Algorithms (GA). [See the Wikipedia a
 
 Representation of the solutions:
 
-* Individual solution: {Param1 = val1; Param2 = val2; ...}
+* Individual solution: &#123;Param1 = val1; Param2 = val2; ...}
 * Gene: Parami = vali
 
 Initial population building: the system builds nb\_prelim\_gen random initial populations composed of pop\_dim individual solutions. Then, the best pop\_dim solutions are selected to be part of the initial population.
 
 Selection operator: roulette-wheel selection: the probability to choose a solution is equal to fitness(solution)/ Sum of the population fitness. A solution can be selected several times. Ex: population composed of 3 solutions with fitness (that we want to maximize) 1, 4 and 5. Their probability to be chosen is equal to 0.1, 0.4 and 0.5.
 
-Mutation operator: The value of one parameter is modified. Ex: The solution {Param1 = 3; Param2 = 2} can mute to {Param1 = 3; Param2 = 4}
+Mutation operator: The value of one parameter is modified. Ex: The solution &#123;Param1 = 3; Param2 = 2} can mute to &#123;Param1 = 3; Param2 = 4}
 
-Crossover operator: A cut point is randomly selected and two new solutions are built by taking the half of each parent solution. Ex: let {Param1 = 4; Param2 = 1} and {Param1 = 2; Param2 = 3} be two solutions. The crossover operator builds two new solutions: {Param1 = 2; Param2 = 1} and {Param1 = 4; Param2 = 3}.
+Crossover operator: A cut point is randomly selected and two new solutions are built by taking the half of each parent solution. Ex: let &#123;Param1 = 4; Param2 = 1} and &#123;Param1 = 2; Param2 = 3} be two solutions. The crossover operator builds two new solutions: &#123;Param1 = 2; Param2 = 1} and &#123;Param1 = 4; Param2 = 3}.
 
 ### Method facets (i.e. parameters):
 
