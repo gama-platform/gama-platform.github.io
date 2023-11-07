@@ -1,0 +1,66 @@
+name: Testing PR
+
+on: 
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+          
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+          architecture: x64
+
+      - run: pip install -r script/requirements.txt
+
+      #
+      # PRE-COMPILE
+      #
+      - name: Get latest wiki
+        run: git clone --depth 1 https://github.com/gama-platform/gama.wiki.git
+
+      - name: Reorganise folders to be more Docusaurus-friendly
+        shell: bash
+        run: $GITHUB_WORKSPACE/script/unstructurize.sh
+
+      - name: Enforce wiki MDX compliance
+        shell: sh
+        run: |
+          $GITHUB_WORKSPACE/script/link_fixer.sh
+          # Turn wiki MDX compliante
+          find ./docs -name "*md" -exec python $GITHUB_WORKSPACE/script/escapingTags.py -i {} -o {} \;
+
+      - name: Generate Sidebar 
+        run: |
+          python $GITHUB_WORKSPACE/script/generateSidebar.py > $GITHUB_WORKSPACE/website/sidebars.json
+          cat $GITHUB_WORKSPACE/website/sidebars.json
+
+      - name: Auto header
+        shell: sh
+        run: $GITHUB_WORKSPACE/script/autoHeader.sh
+
+      - name: Finish cleaning docs folder
+        shell: bash
+        run: $GITHUB_WORKSPACE/script/finalClean.sh
+
+      #
+      # COMPILATION
+      #
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'current'
+
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./website
+
+      - name: Build website
+        run: yarn build
+        working-directory: ./website
