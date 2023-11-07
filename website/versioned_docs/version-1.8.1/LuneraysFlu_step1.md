@@ -61,7 +61,7 @@ species people skills: [moving]{
 #### Internal state
 An [attribute](RegularSpecies#declaration) is defined as follows: type of the attribute and name. Numerous types of attributes are available: _int (integer), float (floating-point number), string, bool (boolean, true or false), point (coordinates), list, pair, map, file, matrix, agents species, rgb (color), graph, path..._
 
-* Optional facets: <- (initial value), update (value recomputed at each step of the simulation), function:{..} (value computed each time the variable is used), min, max
+* Optional facets: &lt;- (initial value), update (value recomputed at each step of the simulation), function:&#123;..} (value computed each time the variable is used), min, max
 
 In addition to the attributes the modeler explicitly defines, species "inherits" other attributes called "built-in" variables:
 
@@ -203,7 +203,7 @@ A [parameter](DefiningParameters) is defined as follows:
 * **title** : string to display
 * **var** : reference to a global variable (defined in the global section)
 * **category** : string used to «store» the operators on the UI - optional
-* **<-** : init value - optional
+* **&lt;-** : init value - optional
 * **min** : min value - optional
 * **max** : min value - optional
 
