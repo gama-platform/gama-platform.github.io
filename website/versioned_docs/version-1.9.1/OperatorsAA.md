@@ -117,7 +117,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Comparison operators
-[!=](OperatorsAA#!=), [<](OperatorsAA#<), [<=](OperatorsAA#<=), [=](OperatorsAA#=), [>](OperatorsAA#>), [>=](OperatorsAA#>=), [between](OperatorsBC#between), 
+[!=](OperatorsAA#!=), [&lt;](OperatorsAA#&lt;), [&lt;=](OperatorsAA#&lt;=), [=](OperatorsAA#=), [>](OperatorsAA#>), [>=](OperatorsAA#>=), [between](OperatorsBC#between), 
 
 ----
 
@@ -127,7 +127,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Date-related operators
-[-](OperatorsAA#-), [!=](OperatorsAA#!=), [+](OperatorsAA#+), [<](OperatorsAA#<), [<=](OperatorsAA#<=), [=](OperatorsAA#=), [>](OperatorsAA#>), [>=](OperatorsAA#>=), [after](OperatorsAA#after), [before](OperatorsBC#before), [between](OperatorsBC#between), [every](OperatorsDH#every), [milliseconds_between](OperatorsIM#milliseconds_between), [minus_days](OperatorsIM#minus_days), [minus_hours](OperatorsIM#minus_hours), [minus_minutes](OperatorsIM#minus_minutes), [minus_months](OperatorsIM#minus_months), [minus_ms](OperatorsIM#minus_ms), [minus_weeks](OperatorsIM#minus_weeks), [minus_years](OperatorsIM#minus_years), [months_between](OperatorsIM#months_between), [plus_days](OperatorsNR#plus_days), [plus_hours](OperatorsNR#plus_hours), [plus_minutes](OperatorsNR#plus_minutes), [plus_months](OperatorsNR#plus_months), [plus_ms](OperatorsNR#plus_ms), [plus_weeks](OperatorsNR#plus_weeks), [plus_years](OperatorsNR#plus_years), [since](OperatorsSZ#since), [to](OperatorsSZ#to), [until](OperatorsSZ#until), [years_between](OperatorsSZ#years_between), 
+[-](OperatorsAA#-), [!=](OperatorsAA#!=), [+](OperatorsAA#+), [&lt;](OperatorsAA#&lt;), [&lt;=](OperatorsAA#&lt;=), [=](OperatorsAA#=), [>](OperatorsAA#>), [>=](OperatorsAA#>=), [after](OperatorsAA#after), [before](OperatorsBC#before), [between](OperatorsBC#between), [every](OperatorsDH#every), [milliseconds_between](OperatorsIM#milliseconds_between), [minus_days](OperatorsIM#minus_days), [minus_hours](OperatorsIM#minus_hours), [minus_minutes](OperatorsIM#minus_minutes), [minus_months](OperatorsIM#minus_months), [minus_ms](OperatorsIM#minus_ms), [minus_weeks](OperatorsIM#minus_weeks), [minus_years](OperatorsIM#minus_years), [months_between](OperatorsIM#months_between), [plus_days](OperatorsNR#plus_days), [plus_hours](OperatorsNR#plus_hours), [plus_minutes](OperatorsNR#plus_minutes), [plus_months](OperatorsNR#plus_months), [plus_ms](OperatorsNR#plus_ms), [plus_weeks](OperatorsNR#plus_weeks), [plus_years](OperatorsNR#plus_years), [since](OperatorsSZ#since), [to](OperatorsSZ#to), [until](OperatorsSZ#until), [years_between](OperatorsSZ#years_between), 
 
 ----
 
@@ -227,7 +227,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Points-related operators
-[-](OperatorsAA#-), [/](OperatorsAA#/), [*](OperatorsAA#*), [+](OperatorsAA#+), [<](OperatorsAA#<), [<=](OperatorsAA#<=), [>](OperatorsAA#>), [>=](OperatorsAA#>=), [add_point](OperatorsAA#add_point), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [centroid](OperatorsBC#centroid), [closest_points_with](OperatorsBC#closest_points_with), [farthest_point_to](OperatorsDH#farthest_point_to), [grid_at](OperatorsDH#grid_at), [norm](OperatorsNR#norm), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), 
+[-](OperatorsAA#-), [/](OperatorsAA#/), [*](OperatorsAA#*), [+](OperatorsAA#+), [&lt;](OperatorsAA#&lt;), [&lt;=](OperatorsAA#&lt;=), [>](OperatorsAA#>), [>=](OperatorsAA#>=), [add_point](OperatorsAA#add_point), [angle_between](OperatorsAA#angle_between), [any_location_in](OperatorsAA#any_location_in), [centroid](OperatorsBC#centroid), [closest_points_with](OperatorsBC#closest_points_with), [farthest_point_to](OperatorsDH#farthest_point_to), [grid_at](OperatorsDH#grid_at), [norm](OperatorsNR#norm), [points_along](OperatorsNR#points_along), [points_at](OperatorsNR#points_at), [points_on](OperatorsNR#points_on), 
 
 ----
 
@@ -287,7 +287,7 @@ Note that due to the fact that actions are written by modelers, the general func
 ----
 
 ### Strings-related operators
-[+](OperatorsAA#+), [<](OperatorsAA#<), [<=](OperatorsAA#<=), [>](OperatorsAA#>), [>=](OperatorsAA#>=), [at](OperatorsAA#at), [capitalize](OperatorsBC#capitalize), [char](OperatorsBC#char), [contains](OperatorsBC#contains), [contains_all](OperatorsBC#contains_all), [contains_any](OperatorsBC#contains_any), [copy_between](OperatorsBC#copy_between), [date](OperatorsDH#date), [empty](OperatorsDH#empty), [first](OperatorsDH#first), [in](OperatorsIM#in), [indented_by](OperatorsIM#indented_by), [index_of](OperatorsIM#index_of), [is_number](OperatorsIM#is_number), [last](OperatorsIM#last), [last_index_of](OperatorsIM#last_index_of), [length](OperatorsIM#length), [lower_case](OperatorsIM#lower_case), [regex_matches](OperatorsNR#regex_matches), [replace](OperatorsNR#replace), [replace_regex](OperatorsNR#replace_regex), [reverse](OperatorsNR#reverse), [sample](OperatorsSZ#sample), [shuffle](OperatorsSZ#shuffle), [split_with](OperatorsSZ#split_with), [string](OperatorsSZ#string), [upper_case](OperatorsSZ#upper_case), 
+[+](OperatorsAA#+), [&lt;](OperatorsAA#&lt;), [&lt;=](OperatorsAA#&lt;=), [>](OperatorsAA#>), [>=](OperatorsAA#>=), [at](OperatorsAA#at), [capitalize](OperatorsBC#capitalize), [char](OperatorsBC#char), [contains](OperatorsBC#contains), [contains_all](OperatorsBC#contains_all), [contains_any](OperatorsBC#contains_any), [copy_between](OperatorsBC#copy_between), [date](OperatorsDH#date), [empty](OperatorsDH#empty), [first](OperatorsDH#first), [in](OperatorsIM#in), [indented_by](OperatorsIM#indented_by), [index_of](OperatorsIM#index_of), [is_number](OperatorsIM#is_number), [last](OperatorsIM#last), [last_index_of](OperatorsIM#last_index_of), [length](OperatorsIM#length), [lower_case](OperatorsIM#lower_case), [regex_matches](OperatorsNR#regex_matches), [replace](OperatorsNR#replace), [replace_regex](OperatorsNR#replace_regex), [reverse](OperatorsNR#reverse), [sample](OperatorsSZ#sample), [shuffle](OperatorsSZ#shuffle), [split_with](OperatorsSZ#split_with), [string](OperatorsSZ#string), [upper_case](OperatorsSZ#upper_case), 
 
 ----
 
@@ -625,7 +625,7 @@ bool var8 <- #now != #now minus_hours 1; // var8 equals true
       
 
 
-**See also:** [=](OperatorsAA#=), [>](OperatorsAA#>), [<](OperatorsAA#<), [>=](OperatorsAA#>=), [<=](OperatorsAA#<=), 
+**See also:** [=](OperatorsAA#=), [>](OperatorsAA#>), [&lt;](OperatorsAA#&lt;), [>=](OperatorsAA#>=), [&lt;=](OperatorsAA#&lt;=), 
     	
 ----
 
@@ -1230,7 +1230,7 @@ bool var7 <- #now < #now minus_hours 1; // var7 equals false
       
 
 
-**See also:** [>](OperatorsAA#>), [>=](OperatorsAA#>=), [<=](OperatorsAA#<=), [=](OperatorsAA#=), [!=](OperatorsAA#!=), 
+**See also:** [>](OperatorsAA#>), [>=](OperatorsAA#>=), [&lt;=](OperatorsAA#&lt;=), [=](OperatorsAA#=), [!=](OperatorsAA#!=), 
     	
 ----
 
@@ -1288,7 +1288,7 @@ bool var7 <- 3 <= 7; // var7 equals true
       
 
 
-**See also:** [>](OperatorsAA#>), [<](OperatorsAA#<), [>=](OperatorsAA#>=), [=](OperatorsAA#=), [!=](OperatorsAA#!=), 
+**See also:** [>](OperatorsAA#>), [&lt;](OperatorsAA#&lt;), [>=](OperatorsAA#>=), [=](OperatorsAA#=), [!=](OperatorsAA#!=), 
     	
 ----
 
@@ -1337,7 +1337,7 @@ bool var5 <- 4.5 = 4.7; // var5 equals false
       
 
 
-**See also:** [!=](OperatorsAA#!=), [>](OperatorsAA#>), [<](OperatorsAA#<), [>=](OperatorsAA#>=), [<=](OperatorsAA#<=), 
+**See also:** [!=](OperatorsAA#!=), [>](OperatorsAA#>), [&lt;](OperatorsAA#&lt;), [>=](OperatorsAA#>=), [&lt;=](OperatorsAA#&lt;=), 
     	
 ----
 
@@ -1395,7 +1395,7 @@ bool var7 <- 3.5 > 7.6; // var7 equals false
       
 
 
-**See also:** [<](OperatorsAA#<), [>=](OperatorsAA#>=), [<=](OperatorsAA#<=), [=](OperatorsAA#=), [!=](OperatorsAA#!=), 
+**See also:** [&lt;](OperatorsAA#&lt;), [>=](OperatorsAA#>=), [&lt;=](OperatorsAA#&lt;=), [=](OperatorsAA#=), [!=](OperatorsAA#!=), 
     	
 ----
 
@@ -1454,7 +1454,7 @@ bool var4 <- 3 >= 7; // var4 equals false
       
 
 
-**See also:** [>](OperatorsAA#>), [<](OperatorsAA#<), [<=](OperatorsAA#<=), [=](OperatorsAA#=), [!=](OperatorsAA#!=), 
+**See also:** [>](OperatorsAA#>), [&lt;](OperatorsAA#&lt;), [&lt;=](OperatorsAA#&lt;=), [=](OperatorsAA#=), [!=](OperatorsAA#!=), 
     	
 ----
 
@@ -2591,7 +2591,7 @@ int var0 <- 3.5 as int; // var0 equals int(3.5)
   * **`as_4_grid`** (`geometry` , `point`) --->  `matrix` 
 
 #### Result: 
-A matrix of square geometries (grid with 4-neighborhood) with dimension given by the right-hand operand ({nb_cols, nb_lines}) corresponding to the square tessellation of the left-hand operand geometry (geometry, agent)
+A matrix of square geometries (grid with 4-neighborhood) with dimension given by the right-hand operand (&#123;nb_cols, nb_lines}) corresponding to the square tessellation of the left-hand operand geometry (geometry, agent)
 
 #### Examples: 
 ``` 
@@ -2712,7 +2712,7 @@ graph var2 <- as_edge_graph([{1,5}::{12,45},{12,45}::{34,56}]); // var2 equals a
   * **`as_grid`** (`geometry` , `point`) --->  `matrix` 
 
 #### Result: 
-A matrix of square geometries (grid with 8-neighborhood) with dimension given by the right-hand operand ({nb_cols, nb_lines}) corresponding to the square tessellation of the left-hand operand geometry (geometry, agent)
+A matrix of square geometries (grid with 8-neighborhood) with dimension given by the right-hand operand (&#123;nb_cols, nb_lines}) corresponding to the square tessellation of the left-hand operand geometry (geometry, agent)
 
 #### Examples: 
 ``` 
@@ -3016,7 +3016,7 @@ string var0 <- 'abcdef' at 0; // var0 equals 'a'
   * **`at_distance`** (`container<unknown,geometry>` , `float`) --->  `list<geometry>` 
 
 #### Result: 
-A list of agents or geometries among the left-operand list that are located at a distance <= the right operand from the caller agent (in its topology)
+A list of agents or geometries among the left-operand list that are located at a distance &lt;= the right operand from the caller agent (in its topology)
 
 #### Examples: 
 ``` 

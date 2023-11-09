@@ -212,7 +212,7 @@ The first process in this perception consists of **adding beliefs** about the wo
 * it removes _Desire<sub>A</sub>(X)_ if _Intention<sub>A</sub>(X)_ has just been removed.
 * it removes _Uncertainty<sub>A</sub>(X)_ or _Uncertainty<sub>A</sub>(not X)_.
 * it removes _Obligation<sub>A</sub>(X)_.
-\end{itemize}
+\end&#123;itemize}
 
 In GAML, the _focus_ statement eases the use of this process. Below is an example that adds a belief and an uncertainty with the focus statement during a perception: 
 
@@ -375,7 +375,7 @@ Emotions about other agents with a negative liking value are close to the previo
 * **Resentment<sub>i</sub>(P,j)** = L[R<sub>i,j</sub>]&lt;0 \& Joy<sub>j</sub>(P)
 * **Gloating<sub>i</sub>(P,j)** = L[R<sub>i,j</sub>]&lt;0 \& Sadness<sub>j</sub>(P)
 
-Their initial intensity is computed according to the following equation. This equation can be seen as the inverse of Equation \eqref{eqIntensEmo4}, and means that the intensity of resentment or gloating is greater if the agent has a low level of agreeableness contrary to the intensity of "happy for" and "sorry for".
+Their initial intensity is computed according to the following equation. This equation can be seen as the inverse of Equation \eqref&#123;eqIntensEmo4}, and means that the intensity of resentment or gloating is greater if the agent has a low level of agreeableness contrary to the intensity of "happy for" and "sorry for".
 
 * I[Em<sub>i</sub>(P)] = I[Em<sub>j</sub>(P)] x |L[R<sub>i,j</sub>]| x (1+(0,5-A))
 
@@ -423,7 +423,7 @@ When an agent already known is perceived (i.e. there is already a social link wi
 
 * **Liking**: according to (Ortony, 1991), the degree of liking between two agents depends on the valence (positive or negative) of the emotions induced by the corresponding agent. In the emotional model of the architecture, _joy_ and _hope_ are considered as positive emotions (_satisfaction_ and _relief_ automatically raise _joy_ with the emotional engine) while _sadness_ and _fear_ are considered as negative emotions (_fear confirmed_ and _disappointment_ automatically raise _sadness_ with the emotional engine). So, if an agent _i_ has a positive (resp. negative) emotion caused by an agent _j_, this will increase (resp. decrease) the value of appreciation in the social link from _i_ concerning _j_. 
 
-Moreover, research has shown that the degree of liking is influenced by the solidarity value \cite{smith2014social}. This may be explained by the fact that people tend to appreciate people similar to them. 
+Moreover, research has shown that the degree of liking is influenced by the solidarity value \cite&#123;smith2014social}. This may be explained by the fact that people tend to appreciate people similar to them. 
 
 The computation formula is described with the following equation with mPos the mean value of all positive emotions caused by agent _j_, mNeg the mean value of all negative emotions caused by agent _j_ and _a<sub>L</sub>_ a coefficient depending of the agent's personality, indicating the importance of emotions in the process, and which is described below.
 

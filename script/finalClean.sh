@@ -16,6 +16,9 @@ rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/Event"*
 # https://github.com/gama-platform/gama-platform.github.io/issues/118
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/UnitsAndConstantsPDF.md"
 
+# Docusaurus v3
+rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/LICENSE"*
+
 # Verify every MD have a FM title, otherwise set one by default
 for f in $( dirname "${BASH_SOURCE[0]}" )/../docs/*.md ; do
 	newTitle=$((basename $f) | cut -d "." -f 1 | sed "s/[-_]/ /g")

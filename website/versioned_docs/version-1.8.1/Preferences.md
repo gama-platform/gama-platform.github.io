@@ -75,7 +75,7 @@ Most of the settings and preferences regarding editors can also be found in the 
   * **Drag files and resources as references in GAML files**: a GAML model file is dropped in another file as an import and other resources as the definition of a variable accessing to this resource. 
   * **Ask before saving each file**
 * **Edition**
-  * **Close curly brackets ({)**
+  * **Close curly brackets (&#123;)**
   * **Close square brackets (])**
   * **Close parentheses**
   * **Turn on colorization of code sections**: if true, it activates the colorization of code blocks in order to improve the visual understanding of the code structure.

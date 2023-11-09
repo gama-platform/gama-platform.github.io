@@ -37,36 +37,37 @@ The `gama-headless.sh` script can be found under the `headless` directory, in GA
 
 The original script looks like this : 
 
-	#! /bin/bash
-	memory=2048m
-	declare -i i	
+```
+#! /bin/bash
+memory=2048m
+declare -i i	
 
-	i=0
-	echo ${!i}	
+i=0
+echo ${!i}	
 
-	for ((i=1;i<=$#;i=$i+1))
-	do
-	if test ${!i} = "-m"
-	then
-	    i=$i+1
-	    memory=${!i}
-	else
-	    PARAM=$PARAM\ ${!i}
-	    i=$i+1
-	    PARAM=$PARAM\ ${!i}
-	fi
-	done	
+for ((i=1;i<=$#;i=$i+1))
+do
+if test ${!i} = "-m"
+then
+    i=$i+1
+    memory=${!i}
+else
+    PARAM=$PARAM\ ${!i}
+    i=$i+1
+    PARAM=$PARAM\ ${!i}
+fi
+done	
 
-	echo "******************************************************************"
-	echo "* GAMA version 1.7.0 V7                                          *"
-	echo "* http://gama-platform.org                                       *"
-	echo "* (c) 2007-2016 UMI 209 UMMISCO IRD/UPMC & Partners              *"
-	echo "******************************************************************"
-	passWork=.work$RANDOM	
+echo "******************************************************************"
+echo "* GAMA version 1.7.0 V7                                          *"
+echo "* http://gama-platform.org                                       *"
+echo "* (c) 2007-2016 UMI 209 UMMISCO IRD/UPMC & Partners              *"
+echo "******************************************************************"
+passWork=.work$RANDOM	
 
-	java -cp ../plugins/org.eclipse.equinox.launcher*.jar -Xms512m -Xmx$memory  -Djava.awt.headless=true org.eclipse.core.launcher.Main  -application msi.gama.headless.id4 -data $passWork $PARAM $mfull $outputFile
-	rm -rf $passWork
-
+java -cp ../plugins/org.eclipse.equinox.launcher*.jar -Xms512m -Xmx$memory  -Djava.awt.headless=true org.eclipse.core.launcher.Main  -application msi.gama.headless.id4 -data $passWork $PARAM $mfull $outputFile
+rm -rf $passWork
+```
 
 Notice the final command of the script `rm -rf $passWork`. It is intended to remove the temporary file used during the execution of the script. For now, we should comment this commmand, in order to check the logs if an error appears: `#rm -rf $passWork`
 
@@ -78,23 +79,23 @@ Headless mode uses a XML file to describe the execution plan of a model. An exam
 The script looks like this :
 ** N.B. this version of the script, given as an example, is deprecated**
 
-
-	&lt;?xml version="1.0" encoding="UTF-8"?>
-	&lt;Experiment_plan>
-	&lt;Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" experiment="predPrey">
-		<Parameters>
-			<Parameter name="nb_predator_init" type="INT" value="53" />
-			<Parameter name="nb_preys_init" type="INT" value="621" />
-		</Parameters>
-		<Outputs>
-			<Output id="1" name="main_display" framerate="10" />
-			<Output id="2" name="number_of_preys" framerate="1" />
-			<Output id="3" name="number_of_predators" framerate="1" />
-			<Output id="4" name="duration" framerate="1" />
-		</Outputs>
-	</Simulation>
-	</Experiment_plan>
-
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Experiment_plan>
+<Simulation id="2" sourcePath="./predatorPrey/predatorPrey.gaml" finalStep="1000" experiment="predPrey">
+	<Parameters>
+		<Parameter name="nb_predator_init" type="INT" value="53" />
+		<Parameter name="nb_preys_init" type="INT" value="621" />
+	</Parameters>
+	<Outputs>
+		<Output id="1" name="main_display" framerate="10" />
+		<Output id="2" name="number_of_preys" framerate="1" />
+		<Output id="3" name="number_of_predators" framerate="1" />
+		<Output id="4" name="duration" framerate="1" />
+	</Outputs>
+</Simulation>
+</Experiment_plan>
+```
 
 As you can see, you need to define 3 things in this minimal example:
 
@@ -135,25 +136,27 @@ This is the name of (one of) the experiment statement at the end of the model co
 
 In our case there is only one, called `prey_predator` and  it looks like this :
 
-```
-	experiment prey_predator type: gui {
-		parameter "Initial number of preys: " var: nb_preys_init min: 1 max: 1000 category: "Prey" ;
-		parameter "Prey max energy: " var: prey_max_energy category: "Prey" ;
-		parameter "Prey max transfert: " var: prey_max_transfert  category: "Prey" ;
-		parameter "Prey energy consumption: " var: prey_energy_consum  category: "Prey" ;
-		output {
-			display main_display {
-				grid vegetation_cell lines: #black ;
-				species prey aspect: base ;
-			}
-			monitor "Number of preys" value: nb_preys ;
+```gaml
+experiment prey_predator type: gui {
+	parameter "Initial number of preys: " var: nb_preys_init min: 1 max: 1000 category: "Prey" ;
+	parameter "Prey max energy: " var: prey_max_energy category: "Prey" ;
+	parameter "Prey max transfert: " var: prey_max_transfert  category: "Prey" ;
+	parameter "Prey energy consumption: " var: prey_energy_consum  category: "Prey" ;
+	output {
+		display main_display {
+			grid vegetation_cell lines: #black ;
+			species prey aspect: base ;
 		}
-	}  
+		monitor "Number of preys" value: nb_preys ;
+	}
+}  
 ```
 
 So we are now able to constitute the entire Simulation tag: 
 
-`&lt;Simulation id="2" sourcePath="~/GAMA/plugins/msi.gama.models_1.7.0.201702260518/models/Tutorials/Predator Prey/models/Model 01.gaml" finalStep="1000" experiment="prey_predator">`
+```xml
+<Simulation id="2" sourcePath="~/GAMA/plugins/msi.gama.models_1.7.0.201702260518/models/Tutorials/Predator Prey/models/Model 01.gaml" finalStep="1000" experiment="prey_predator">
+```
 	
 
 N.B. the numbers after `msi.gama.models` (the number of your GAMA release actually) have to be adapted to your own release of GAMA number.
@@ -172,11 +175,12 @@ The title of a parameter is the name that comes right after the `parameter` stat
 
 The parameters section of the file would look like :
 
-	<Parameters>
-		<Parameter name="Initial number of preys: " type="INT" value="621" />
-		<Parameter name="Prey max energy: " type="FLOAT" value="1.0" />
-	</Parameters>
-
+```xml
+<Parameters>
+	<Parameter name="Initial number of preys: " type="INT" value="621" />
+	<Parameter name="Prey max energy: " type="FLOAT" value="1.0" />
+</Parameters>
+```
 
 Any declared parameter can be set this way, yet you don't have to set all of them, provided they are initialized with a default value in the model (see the global statement part of the model code).
 
@@ -191,10 +195,12 @@ We can log some of the declared outputs  : `main_display` and `number_of_preys`.
 
 The outputs section would look like the following:
 
-	<Outputs>
-		<Output id="1" name="main_display" framerate="10" />
-		<Output id="2" name="Number of preys" framerate="1" />
-	</Outputs>
+```xml
+<Outputs>
+	<Output id="1" name="main_display" framerate="10" />
+	<Output id="2" name="Number of preys" framerate="1" />
+</Outputs>
+```
 
 Outputs must have an id, a name, and a framerate.
 
@@ -205,15 +211,14 @@ Outputs must have an id, a name, and a framerate.
 We also save a **display ** output, that is an image of the simulation graphical display named `main_display` in the code of the model. Theses images is what you would have seen if you had run the model in the traditional GUI mode.
 
 
-
-
 ## Execution and results
 
 Our new version of the experiment file is ready : 
 
-&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;Experiment_plan>
-	&lt;Simulation id="2" sourcePath="/absolute/path/to/your/model/file/Model 04.gaml" finalStep="1000" experiment="prey_predator">
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Experiment_plan>
+	<Simulation id="2" sourcePath="/absolute/path/to/your/model/file/Model 04.gaml" finalStep="1000" experiment="prey_predator">
 		<Parameters>
 			<Parameter name="Initial number of preys: " type="INT" value="621" />
 			<Parameter name="Prey max energy: " type="FLOAT" value="1.0" />
@@ -224,9 +229,7 @@ Our new version of the experiment file is ready :
 		</Outputs>
 	</Simulation>
 </Experiment_plan>
-
-
-
+```
 
 ### Execution 
 
@@ -240,45 +243,43 @@ We have to launch the `gama-headless.sh` script and provide two arguments : the 
 In a terminal, position yourself in the headless directory : `~/GAMA/headless/'.
 
 Then type the following command :  
-	
-	bash gama-headless.sh -v ~/a/path/to/MyExperimentFile.xml  /path/to/the/desired/output/directory  
+
+```
+bash gama-headless.sh -v ~/a/path/to/MyExperimentFile.xml  /path/to/the/desired/output/directory  
+```
 
 And replace paths by the location of your ExperimentFile and output directory
 
 You should obtain the following output in the terminal : 
 
+```
+******************************************************************
+* GAMA version 1.7.0 V7                                          *
+* http://gama-platform.org                                       *
+* (c) 2007-2016 UMI 209 UMMISCO IRD/UPMC & Partners              *
+******************************************************************
+>GAMA plugin loaded in 2927 ms: 	msi.gama.core
+>GAMA plugin loaded in 67 ms: 	ummisco.gama.network
+>GAMA plugin loaded in 56 ms: 	simtools.gaml.extensions.traffic
+>GAMA plugin loaded in 75 ms: 	simtools.gaml.extensions.physics
+>GAMA plugin loaded in 1 ms: 	irit.gaml.extensions.test
+>GAMA plugin loaded in 75 ms: 	ummisco.gaml.extensions.maths
+>GAMA plugin loaded in 47 ms: 	msi.gaml.extensions.fipa
+>GAMA plugin loaded in 92 ms: 	ummisco.gama.serialize
+>GAMA plugin loaded in 49 ms: 	irit.gaml.extensions.database
+>GAMA plugin loaded in 2 ms: 	msi.gama.lang.gaml
+>GAMA plugin loaded in 1 ms: 	msi.gama.headless
+>GAMA plugin loaded in 103 ms: 	ummisco.gama.java2d
+>GAMA plugin loaded in 189 ms: 	msi.gaml.architecture.simplebdi
+>GAMA plugin loaded in 129 ms: 	ummisco.gama.opengl
+>GAMA building GAML artefacts>GAMA total load time 4502 ms.
+ in 714 ms
+cpus :8
+Simulation is running...
+....................................................................................................
+Simulation duration: 7089ms
 
-	******************************************************************
-	* GAMA version 1.7.0 V7                                          *
-	* http://gama-platform.org                                       *
-	* (c) 2007-2016 UMI 209 UMMISCO IRD/UPMC & Partners              *
-	******************************************************************
-	>GAMA plugin loaded in 2927 ms: 	msi.gama.core
-	>GAMA plugin loaded in 67 ms: 	ummisco.gama.network
-	>GAMA plugin loaded in 56 ms: 	simtools.gaml.extensions.traffic
-	>GAMA plugin loaded in 75 ms: 	simtools.gaml.extensions.physics
-	>GAMA plugin loaded in 1 ms: 	irit.gaml.extensions.test
-	>GAMA plugin loaded in 75 ms: 	ummisco.gaml.extensions.maths
-	>GAMA plugin loaded in 47 ms: 	msi.gaml.extensions.fipa
-	>GAMA plugin loaded in 92 ms: 	ummisco.gama.serialize
-	>GAMA plugin loaded in 49 ms: 	irit.gaml.extensions.database
-	>GAMA plugin loaded in 2 ms: 	msi.gama.lang.gaml
-	>GAMA plugin loaded in 1 ms: 	msi.gama.headless
-	>GAMA plugin loaded in 103 ms: 	ummisco.gama.java2d
-	>GAMA plugin loaded in 189 ms: 	msi.gaml.architecture.simplebdi
-	>GAMA plugin loaded in 129 ms: 	ummisco.gama.opengl
-	>GAMA building GAML artefacts>GAMA total load time 4502 ms.
-	 in 714 ms
-	cpus :8
-	Simulation is running...
-	....................................................................................................
-	Simulation duration: 7089ms
-
-
-	
-
-
-
+```
 
 ### Results 
 
@@ -293,10 +294,6 @@ The results are stored in the output directory you provided as the second argume
 The values of the monitor "Number of preys" are stored in the xml file `simulation-outputXX.xml`
 
 
-
-
-
-
 ## Common error messages 
 
 
@@ -304,10 +301,10 @@ The values of the monitor "Number of preys" are stored in the xml file `simulati
 Probably a typo in the name or the title of a parameter. check spaces, capital letters, symbols and so on.
 
 
-java.io.IOException: Model file does not exist: /home/ubuntu/dev/tutoGamaHeadless/../plugins/msi.gama.models_1
+`java.io.IOException: Model file does not exist: /home/ubuntu/dev/tutoGamaHeadless/../plugins/msi.gama.models_1`
 This may be a relative path mistake; try with absolute path.
 
-java.lang.NumberFormatException: For input string: "1.0"
+`java.lang.NumberFormatException: For input string: "1.0"`
 This may be a problem of type declaration in the parameter section. 
 
 

@@ -337,7 +337,7 @@ list var <- g.edges; // var equals [polyline({1.0,5.0}::{12.0,45.0}),polyline({1
 * `name` (a label), (omissible) : Human readable title of the layer
 * `aspect` (an identifier): the name of the aspect that should be used to display the species
 * `fading` (boolean): Used in conjunction with 'trace:', allows to apply a fading effect to the previous traces. Default is false
-* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
+* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. &#123;0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point &#123;0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
 * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, useful in case of agents that do not move)
 * `rotate` (float): Defines the angle of rotation of this layer, in degrees, around the z-axis.
 * `selectable` (boolean): Indicates whether the agents present on this layer are selectable by the user. Default is true
@@ -387,7 +387,7 @@ display Segregation {
 #### Facets 
   
 * **`name`** (an identifier), (omissible) : The name of the method. For internal use only
-* `aggregation` (a label), takes values in: {min, max}: the agregation method
+* `aggregation` (a label), takes values in: &#123;min, max}: the agregation method
 * `init_solution` (map): init solution: key: name of the variable, value: value of the variable
 * `maximize` (float): the value the algorithm tries to maximize
 * `minimize` (float): the value the algorithm tries to minimize
@@ -756,17 +756,17 @@ This statement cannot be used alone
 * `label_text_color` (rgb): Color of the label text (for Pie chart)
 * `legend_font` (any type in [string, font]): Legend font face. Either the name of a font face or a font
 * `memorize` (boolean): Whether or not to keep the values in memory (in order to produce a csv file, for instance). The default value, true, can also be changed in the preferences
-* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
+* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. &#123;0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point &#123;0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
 * `reverse_axes` (boolean): reverse X and Y axis (for example to get horizental bar charts
-* `series_label_position` (an identifier), takes values in: {default, none, legend, onchart, yaxis, xaxis}: Position of the Series names: default (best guess), none, legend, onchart, xaxis (for category plots) or yaxis (uses the first serie name).
-* `size` (point): the layer resize factor: {1,1} refers to the original size whereas {0.5,0.5} divides by 2 the height and the width of the layer. In case of a 3D layer, a 3D point can be used (note that {1,1} is equivalent to {1,1,0}, so a resize of a layer containing 3D objects with a 2D points will remove the elevation)
-* `style` (an identifier), takes values in: {line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded, default}: The sub-style style, also default style for the series.
+* `series_label_position` (an identifier), takes values in: &#123;default, none, legend, onchart, yaxis, xaxis}: Position of the Series names: default (best guess), none, legend, onchart, xaxis (for category plots) or yaxis (uses the first serie name).
+* `size` (point): the layer resize factor: &#123;1,1} refers to the original size whereas &#123;0.5,0.5} divides by 2 the height and the width of the layer. In case of a 3D layer, a 3D point can be used (note that &#123;1,1} is equivalent to &#123;1,1,0}, so a resize of a layer containing 3D objects with a 2D points will remove the elevation)
+* `style` (an identifier), takes values in: &#123;line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded, default}: The sub-style style, also default style for the series.
 * `tick_font` (any type in [string, font]): Tick font face. Either the name of a font face or a font. When used for a series chart, it will set the font of values on the axes, but When used with a pie, it will modify the font of messages associated to each pie section.
 * `tick_line_color` (rgb): the tick lines color
 * `title_font` (any type in [string, font]): Title font face. Either the name of a font face or a font
 * `title_visible` (boolean): chart title visible
 * `transparency` (float): the transparency level of the layer (between 0 -- opaque -- and 1 -- fully transparent)
-* `type` (an identifier), takes values in: {xy, scatter, histogram, series, pie, radar, heatmap, box_whisker}: the type of chart. It could be histogram, series, xy, pie, radar, heatmap or box whisker. The difference between series and xy is that the former adds an implicit x-axis that refers to the numbers of cycles, while the latter considers the first declaration of data to be its x-axis.
+* `type` (an identifier), takes values in: &#123;xy, scatter, histogram, series, pie, radar, heatmap, box_whisker}: the type of chart. It could be histogram, series, xy, pie, radar, heatmap or box whisker. The difference between series and xy is that the former adds an implicit x-axis that refers to the numbers of cycles, while the latter considers the first declaration of data to be its x-axis.
 * `visible` (boolean): Defines whether this layer is visible or not
 * `x_label` (string): the title for the X axis
 * `x_log_scale` (boolean): use Log Scale for X axis
@@ -1034,9 +1034,9 @@ create species: a_species number: an_int;
 * `fill` (boolean): Marker filled (true) or not (false)
 * `line_visible` (boolean): Whether lines are visible or not
 * `marker` (boolean): marker visible or not
-* `marker_shape` (an identifier), takes values in: {marker_empty, marker_square, marker_circle, marker_up_triangle, marker_diamond, marker_hor_rectangle, marker_down_triangle, marker_hor_ellipse, marker_right_triangle, marker_vert_rectangle, marker_left_triangle}: Shape of the marker
+* `marker_shape` (an identifier), takes values in: &#123;marker_empty, marker_square, marker_circle, marker_up_triangle, marker_diamond, marker_hor_rectangle, marker_down_triangle, marker_hor_ellipse, marker_right_triangle, marker_vert_rectangle, marker_left_triangle}: Shape of the marker
 * `marker_size` (float): Size in pixels of the marker
-* `style` (an identifier), takes values in: {line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded}: Style for the serie (if not the default one sepecified on chart statement)
+* `style` (an identifier), takes values in: &#123;line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded}: Style for the serie (if not the default one sepecified on chart statement)
 * `thickness` (float): The thickness of the lines to draw
 * `use_second_y_axis` (boolean): Use second y axis for this serie
 * `x_err_values` (any type in [float, list]): the X Error bar values to display. Has to be a List. Each element can be a number or a list with two values (low and high value)
@@ -1071,9 +1071,9 @@ This statement allows to describe the values that will be displayed on the chart
 * `fill` (boolean): Marker filled (true) or not (false), same for all series.
 * `line_visible` (boolean): Line visible or not (same for all series)
 * `marker` (boolean): marker visible or not
-* `marker_shape` (an identifier), takes values in: {marker_empty, marker_square, marker_circle, marker_up_triangle, marker_diamond, marker_hor_rectangle, marker_down_triangle, marker_hor_ellipse, marker_right_triangle, marker_vert_rectangle, marker_left_triangle}: Shape of the marker. Same one for all series.
+* `marker_shape` (an identifier), takes values in: &#123;marker_empty, marker_square, marker_circle, marker_up_triangle, marker_diamond, marker_hor_rectangle, marker_down_triangle, marker_hor_ellipse, marker_right_triangle, marker_vert_rectangle, marker_left_triangle}: Shape of the marker. Same one for all series.
 * `marker_size` (list): the marker sizes to display. Can be a list of numbers (same size for each marker of the series) or a list of list (different sizes by point)
-* `style` (an identifier), takes values in: {line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded}: Style for the serie (if not the default one sepecified on chart statement)
+* `style` (an identifier), takes values in: &#123;line, whisker, area, bar, dot, step, spline, stack, 3d, ring, exploded}: Style for the serie (if not the default one sepecified on chart statement)
 * `thickness` (float): The thickness of the lines to draw
 * `use_second_y_axis` (boolean): Use second y axis for this serie
 * `x_err_values` (list): the X Error bar values to display. Has to be a List. Each element can be a number or a list with two values (low and high value)
@@ -1131,9 +1131,9 @@ Used in a switch match structure, the block prefixed by default is executed only
 * `cycle_length` (int): the number of diffusion operation applied in one simulation step
 * `mask` (matrix): a matrix that masks the diffusion ( created from an image for instance). The cells corresponding to the values smaller than "-1" in the mask matrix will not diffuse, and the other will diffuse.
 * `matrix` (matrix): the diffusion matrix ("kernel" or "filter" in image processing). Can have any size, as long as dimensions are odd values.
-* `method` (an identifier), takes values in: {convolution, dot_product}: the diffusion method. One of 'convolution' or 'dot_product'
+* `method` (an identifier), takes values in: &#123;convolution, dot_product}: the diffusion method. One of 'convolution' or 'dot_product'
 * `min` (float): if a value is smaller than this value, it will not be diffused. By default, this value is equal to 0.0. This value cannot be smaller than 0.
-* `propagation` (a label), takes values in: {diffusion, gradient}: represents both the way the signal is propagated and the way to treat multiple propagation of the same signal occurring at once from different places. If propagation equals 'diffusion', the intensity of a signal is shared between its neighbors with respect to 'proportion', 'variation' and the number of neighbors of the environment places (4, 6 or 8). I.e., for a given signal S propagated from place P, the value transmitted to its N neighbors is : S' = (S / N / proportion) - variation. The intensity of S is then diminished by S `*` proportion on P. In a diffusion, the different signals of the same name see their intensities added to each other on each place. If propagation equals 'gradient', the original intensity is not modified, and each neighbors receives the intensity : S / proportion - variation. If multiple propagation occur at once, only the maximum intensity is kept on each place. If 'propagation' is not defined, it is assumed that it is equal to 'diffusion'.
+* `propagation` (a label), takes values in: &#123;diffusion, gradient}: represents both the way the signal is propagated and the way to treat multiple propagation of the same signal occurring at once from different places. If propagation equals 'diffusion', the intensity of a signal is shared between its neighbors with respect to 'proportion', 'variation' and the number of neighbors of the environment places (4, 6 or 8). I.e., for a given signal S propagated from place P, the value transmitted to its N neighbors is : S' = (S / N / proportion) - variation. The intensity of S is then diminished by S `*` proportion on P. In a diffusion, the different signals of the same name see their intensities added to each other on each place. If propagation equals 'gradient', the original intensity is not modified, and each neighbors receives the intensity : S / proportion - variation. If multiple propagation occur at once, only the maximum intensity is kept on each place. If 'propagation' is not defined, it is assumed that it is equal to 'diffusion'.
 * `proportion` (float): a diffusion rate
 * `radius` (int): a diffusion radius (in number of cells from the center)
 * `variation` (float): an absolute value to decrease at each neighbors 
@@ -1188,7 +1188,7 @@ diffuse var: phero on: cells proportion: 1/9 radius: 1;
 * `background` (rgb): Allows to fill the background of the display with a specific color
 * `camera` (string): Allows to define the name of the camera to use. Default value is 'default'. Accepted values are (1) the name of one of the cameras defined using the 'camera' statement or (2) one of the preset cameras, accessible using constants: #from_above, #from_left, #from_right, #from_up_left, #from_up_right, #from_front, #from_up_front, #isometric
 * `fullscreen` (any type in [boolean, int]): Indicates, when using a boolean value, whether or not the display should cover the whole screen (default is false). If an integer is passed, specifies also the screen to use: 0 for the primary monitor, 1 for the secondary one, and so on and so forth. If the monitor is not available, the first one is used
-* `keystone` (container): Set the position of the 4 corners of your screen ([topLeft,topRight,botLeft,botRight]), in (x,y) coordinate ( the (0,0) position is the top left corner, while the (1,1) position is the bottom right corner). The default value is : [{0,0},{1,0},{0,1},{1,1}]
+* `keystone` (container): Set the position of the 4 corners of your screen ([topLeft,topRight,botLeft,botRight]), in (x,y) coordinate ( the (0,0) position is the top left corner, while the (1,1) position is the bottom right corner). The default value is : [&#123;0,0},&#123;1,0},&#123;0,1},&#123;1,1}]
 * `light` (boolean): Allows to enable/disable the light at once. Default is true
 * `orthographic_projection` (boolean): Allows to enable/disable the orthographic projection. Default can be configured in Preferences
 * `parent` (an identifier): Declares that this display inherits its layers and attributes from the parent display named as the argument. Expects the identifier of the parent display or a string if the name of the parent contains spaces
@@ -1243,7 +1243,7 @@ display gridWithElevationTriangulated type: opengl ambient_light: 100 {
 * `elevation` (any type in [matrix, float, int, boolean]): Allows to specify the elevation of each cell, if any. Can be a matrix of float (provided it has the same size than the grid), an int or float variable of the grid species, or simply true (in which case, the variable called 'grid_value' is used to compute the elevation of each cell)
 * `grayscale` (boolean): if true, givse a grey value to each polygon depending on its elevation (false by default)
 * `hexagonal` (boolean): 
-* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
+* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. &#123;0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point &#123;0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
 * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, usefull in case of agents that do not move)
 * `rotate` (float): Defines the angle of rotation of this layer, in degrees, around the z-axis.
 * `selectable` (boolean): Indicates whether the agents present on this layer are selectable by the user. Default is true
@@ -1299,7 +1299,7 @@ display my_display {
 * **`species`** (species), (omissible) : the species to be displayed
 * `aspect` (an identifier): the name of the aspect that should be used to display the species
 * `fading` (boolean): Used in conjunction with 'trace:', allows to apply a fading effect to the previous traces. Default is false
-* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
+* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. &#123;0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point &#123;0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
 * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, usefull in case of agents that do not move)
 * `rotate` (float): Defines the angle of rotation of this layer, in degrees, around the z-axis.
 * `selectable` (boolean): Indicates whether the agents present on this layer are selectable by the user. Default is true
@@ -1334,7 +1334,7 @@ display my_display {
 ```
 
 
-* Each species layer can be placed at a different z value using the opengl display. position:{0,0,0} means the layer will be placed on the ground and position:{0,0,1} means it will be placed at an height equal to the maximum size of the environment.
+* Each species layer can be placed at a different z value using the opengl display. position:&#123;0,0,0} means the layer will be placed on the ground and position:&#123;0,0,1} means it will be placed at an height equal to the maximum size of the environment.
 
 ``` 
 display my_display type: opengl{ 
@@ -1442,7 +1442,7 @@ do name_of_action_or_primitive {
 #### Facets 
 
 * `geometry` (any type), (omissible) : any type of data (it can be geometry, image, text)
-* `anchor` (point): Only used when perspective: true in OpenGL. The anchor point of the location with respect to the envelope of the text to draw, can take one of the following values: #center, #top_left, #left_center, #bottom_left, #bottom_center, #bottom_right, #right_center, #top_right, #top_center; or any point between {0,0} (#bottom_left) and {1,1} (#top_right)
+* `anchor` (point): Only used when perspective: true in OpenGL. The anchor point of the location with respect to the envelope of the text to draw, can take one of the following values: #center, #top_left, #left_center, #bottom_left, #bottom_center, #bottom_right, #right_center, #top_right, #top_center; or any point between &#123;0,0} (#bottom_left) and &#123;1,1} (#top_right)
 * `at` (point): location where the shape/text/icon is drawn
 * `begin_arrow` (any type in [int, float]): the size of the arrow, located at the beginning of the drawn geometry
 * `border` (any type in [rgb, boolean]): if used with a color, represents the color of the geometry border. If set to false, expresses that no border should be drawn. If not set, the borders will be drawn using the color of the geometry.
@@ -1454,7 +1454,7 @@ do name_of_action_or_primitive {
 * `material` (material): Set a particular material to the object (only if you use it in an "opengl2" display).
 * `perspective` (boolean): Whether to render the text in perspective or facing the user. Default is true.
 * `precision` (float): (only if the display type is opengl and only for text drawing) controls the accuracy with which curves are rendered in glyphs. Between 0 and 1, the default is 0.1. Smaller values will output much more faithful curves but can be considerably slower, so it is better if they concern text that does not change and can be drawn inside layers marked as 'refresh: false'
-* `rotate` (any type in [float, int, pair]): orientation of the shape/text/icon; can be either an int/float (angle) or a pair float::point (angle::rotation axis). The rotation axis, when expressed as an angle, is by defaut {0,0,1}
+* `rotate` (any type in [float, int, pair]): orientation of the shape/text/icon; can be either an int/float (angle) or a pair float::point (angle::rotation axis). The rotation axis, when expressed as an angle, is by defaut &#123;0,0,1}
 * `size` (any type in [float, point]): Size of the shape/icon/image to draw, expressed as a bounding box (width, height, depth; if expressed as a float, represents the box as a cube). Does not apply to texts: use a font with the required size instead
 * `texture` (any type in [string, list, file]): the texture(s) that should be applied to the geometry. Either a path to a file or a list of paths
 * `width` (float): The line width to use for drawing this object
@@ -1729,7 +1729,7 @@ error 'This is an error raised by ' + self;
 * **`name`** (an identifier), (omissible) : the type of event captured: can be  "mouse_up", "mouse_down", "mouse_move", "mouse_exit", "mouse_enter", "mouse_menu" or a character
 * `action` (action): The identifier of the action to be executed in the context of the simulation. This action needs to be defined in 'global' or in the current experiment, without any arguments. The location of the mouse in the world can be retrieved in this action with the pseudo-constant #user_location
 * `type` (string): Type of peripheric used to generate events. Defaults to 'default', which encompasses keyboard and mouse
-* `unused` (an identifier), takes values in: {mouse_up, mouse_down, mouse_move, mouse_enter, mouse_exit, mouse_menu}: an unused facet that serves only for the purpose of declaring the string values 
+* `unused` (an identifier), takes values in: &#123;mouse_up, mouse_down, mouse_move, mouse_enter, mouse_exit, mouse_menu}: an unused facet that serves only for the purpose of declaring the string values 
  	
 #### Definition
 
@@ -1858,7 +1858,7 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
   
 * **`name`** (a label), (omissible) : identifier of the experiment  
 * **`title`** (a label):   
-* **`type`** (a label), takes values in: {batch, memorize, gui, test, headless}: the type of the experiment (either 'gui' or 'batch'
+* **`type`** (a label), takes values in: &#123;batch, memorize, gui, test, headless}: the type of the experiment (either 'gui' or 'batch'
 * `autorun` (boolean): whether this experiment should be run automatically when launched (false by default)
 * `benchmark` (boolean): If true, make GAMA record the number of invocations and running time of the statements and operators of the simulations launched in this experiment. The results are automatically saved in a csv file in a folder called 'benchmarks' when the experiment is closed
 * `control` (an identifier): 
@@ -1868,7 +1868,7 @@ In an FSM architecture, `exit` introduces a sequence of statements to execute ri
 * `parallel` (any type in [boolean, int]): When set to true, use multiple threads to run its simulations. Setting it to n will set the numbers of threads to use
 * `parent` (an identifier): the parent experiment (in case of inheritance between experiments)
 * `repeat` (int): In the case of a batch experiment, expresses hom many times the simulations must be repeated
-* `schedules` (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. For instance, 'species a schedules: (10 among a)' will result in a population that schedules only 10 of its own agents every cycle. 'species b schedules: []' will prevent the agents of 'b' to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining 'global schedules: [] {...} species b schedules: []; species c schedules: b + world; ' allows to simulate a model where the agents of b are scheduled first, followed by the world, without even having to create an instance of c.
+* `schedules` (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. For instance, 'species a schedules: (10 among a)' will result in a population that schedules only 10 of its own agents every cycle. 'species b schedules: []' will prevent the agents of 'b' to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining 'global schedules: [] &#123;...} species b schedules: []; species c schedules: b + world; ' allows to simulate a model where the agents of b are scheduled first, followed by the world, without even having to create an instance of c.
 * `skills` (list): 
 * `until` (boolean): In the case of a batch experiment, an expression that will be evaluated to know when a simulation should be terminated
 * `virtual` (boolean): whether the experiment is virtual (cannot be instantiated, but only used as a parent, false by default) 
@@ -2043,7 +2043,7 @@ synthesis my_species from: my_matrix number: 5 returns: list5Agents;
 #### Facets 
   
 * **`name`** (an identifier), (omissible) : The name of this method. For internal use only
-* `aggregation` (a label), takes values in: {min, max, avr}: the agregation method
+* `aggregation` (a label), takes values in: &#123;min, max, avr}: the agregation method
 * `crossover_prob` (float): crossover probability between two individual solutions
 * `improve_sol` (boolean): if true, use a hill climbing algorithm to improve the solutions at each generation
 * `max_gen` (int): number of generations
@@ -2093,7 +2093,7 @@ method genetic maximize: food_gathered pop_dim: 5 crossover_prob: 0.7 mutation_p
 * `background` (rgb): the background color of the layer. Default is none
 * `border` (rgb): Color to apply to the border of the rectangular shape of the layer. Default is none
 * `fading` (boolean): Used in conjunction with 'trace:', allows to apply a fading effect to the previous traces. Default is false
-* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
+* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. &#123;0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point &#123;0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
 * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, usefull in case of agents that do not move)
 * `rotate` (float): Defines the angle of rotation of this layer, in degrees, around the z-axis.
 * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
@@ -2167,7 +2167,7 @@ highlight my_species(0) color: #blue;
 #### Facets 
   
 * **`name`** (an identifier), (omissible) : The name of the method. For internal use only
-* `aggregation` (a label), takes values in: {min, max, avr}: the agregation method
+* `aggregation` (a label), takes values in: &#123;min, max, avr}: the agregation method
 * `init_solution` (map): init solution: key: name of the variable, value: value of the variable
 * `iter_max` (int): number of iterations
 * `maximize` (float): the value the algorithm tries to maximize
@@ -2285,7 +2285,7 @@ else {
 * `color` (rgb): in the case of a shapefile, this the color used to fill in geometries of the shapefile. In the case of an image, it is used to tint the image
 * `file` (any type in [string, file]): the name/path of the image (in the case of a raster image)
 * `gis` (any type in [file, string]): the name/path of the shape file (to display a shapefile as background, without creating agents from it)
-* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
+* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. &#123;0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point &#123;0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
 * `refresh` (boolean): (openGL only) specify whether the image display is refreshed or not. (false by default, true should be used in cases of images that are modified over the simulation)
 * `rotate` (float): Defines the angle of rotation of this layer, in degrees, around the z-axis.
 * `size` (point): extent of the layer in the screen from its position. Coordinates in [0,1[ are treated as percentages of the total surface, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Like in 'position', an elevation can be provided with the z coordinate, allowing to scale the layer in the 3 directions
@@ -2353,9 +2353,9 @@ display my_display {
 #### Facets 
   
 * **`name`** (any type), (omissible) : the identifier of the inspector
-* `attributes` (list): the list of attributes to inspect. A list that can contain strings or pair<string,type>, or a mix of them. These can be variables of the species, but also attributes present in the attributes table of the agent. The type is necessary in that case
+* `attributes` (list): the list of attributes to inspect. A list that can contain strings or pair&lt;string,type>, or a mix of them. These can be variables of the species, but also attributes present in the attributes table of the agent. The type is necessary in that case
 * `refresh` (boolean): Indicates the condition under which this output should be refreshed (default is true)
-* `type` (an identifier), takes values in: {agent, table}: the way to inspect agents: in a table, or a set of inspectors
+* `type` (an identifier), takes values in: &#123;agent, table}: the way to inspect agents: in a table, or a set of inspectors
 * `value` (any type): the set of agents to inspect, could be a species, a list of agents or an agent 
  	
 #### Definition
@@ -2494,18 +2494,18 @@ Allows to declare a temporary variable of the specified type and to initialize i
 * **`name`** (string), (omissible) : The name of the light source, must be unique (otherwise the last definition prevails). Will be used to populate a menu where light sources can be easily turned on and off. Special names can be used:Using the special constant #ambient will allow to redefine or control the ambient light intensity and presenceUsing the special constant #default will replace the default directional light of the surrounding display
 * `active` (boolean): a boolean expression telling if the light is on or off. (default value if not specified : true)
 * `angle` (float): the angle of the spot light in degree (only for spot light). (default value : 45)
-* `direction` (point): the direction of the light (only for direction and spot light). (default value : {0.5,0.5,-1})
+* `direction` (point): the direction of the light (only for direction and spot light). (default value : &#123;0.5,0.5,-1})
 * `dynamic` (boolean): specify if the parameters of the light need to be updated every cycle or treated as constants. (default value : true).
 * `intensity` (any type in [int, rgb]): an int / rgb / rgba value to specify either the color+intensity of the light or simply its intensity. (default value if not specified can be set in the Preferences. If not, it is equal to: (160,160,160,255) ).
 * `linear_attenuation` (float): the linear attenuation of the positionnal light. (default value : 0)
-* `location` (point): the location of the light (only for point and spot light) in model coordinates. Default is {0,0,20}
+* `location` (point): the location of the light (only for point and spot light) in model coordinates. Default is &#123;0,0,20}
 * `quadratic_attenuation` (float): the quadratic attenuation of the positionnal light. (default value : 0)
 * `show` (boolean): If true, draws the light source. (default value if not specified : false).
-* `type` (string): the type of light to create. A value among {#point, #direction, #spot} 
+* `type` (string): the type of light to create. A value among &#123;#point, #direction, #spot} 
  	
 #### Definition
 
-`light` allows to define diffusion lights in your 3D display. They must be given a name, which will help track them in the UI. Two names have however special meanings: #ambient, which designates the ambient luminosity and color of the scene (with a default intensity of (160,160,160,255) or the value set in the Preferences) and #default, which designates the default directional light applied to a scene (with a default medium intensity of (160,160,160,255) or the value set in the Preferences in the direction given by (0.5,0.5,1)). Redefining a light named #ambient or #regular will then modify these default lights (for example changing their color or deactivating them). To be more precise, and given all the default values of the facets, the existence of these two lights is effectively equivalent to redefining:light #ambient intensity: gama.pref_display_light_intensity; light #default type: #direction intensity: gama.pref_display_light_intensity direction: {0.5,0.5,-1};
+`light` allows to define diffusion lights in your 3D display. They must be given a name, which will help track them in the UI. Two names have however special meanings: #ambient, which designates the ambient luminosity and color of the scene (with a default intensity of (160,160,160,255) or the value set in the Preferences) and #default, which designates the default directional light applied to a scene (with a default medium intensity of (160,160,160,255) or the value set in the Preferences in the direction given by (0.5,0.5,1)). Redefining a light named #ambient or #regular will then modify these default lights (for example changing their color or deactivating them). To be more precise, and given all the default values of the facets, the existence of these two lights is effectively equivalent to redefining:light #ambient intensity: gama.pref_display_light_intensity; light #default type: #direction intensity: gama.pref_display_light_intensity direction: &#123;0.5,0.5,-1};
 
 #### Usages
 
@@ -2689,7 +2689,7 @@ switch 3 {
 * `color` (any type in [rgb, list, map]): if true, and if neither 'grayscale' or 'texture' are specified, displays the field using the given color or colors. List of colors, palettes (with interpolation), gradients and scales are supported
 * `grayscale` (boolean): if true, gives a grey color to each polygon depending on its elevation (false by default). Supersedes 'color' if it is defined.
 * `no_data` (float): Can be used to specify a 'no_data' value, forcing the renderer to not render the cells with this value. If not specified, that value will be searched in the field to display
-* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
+* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. &#123;0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point &#123;0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer.
 * `refresh` (boolean): (openGL only) specify whether the display of the species is refreshed. (true by default, but should be deactivated if the field is static)
 * `rotate` (float): Defines the angle of rotation of this layer, in degrees, around the z-axis.
 * `scale` (float): Represents the z-scaling factor, which allows to scale all values of the field.
@@ -2873,7 +2873,7 @@ experiment exp_name type: gui {
 * `header` (string): Define a header for your export file
 * `refresh` (boolean): Indicates the condition under which this file should be saved (default is true)
 * `rewrite` (boolean): Rewrite or not the existing file
-* `type` (an identifier), takes values in: {csv, text, xml}: The type of your output data 
+* `type` (an identifier), takes values in: &#123;csv, text, xml}: The type of your output data 
  	
 #### Definition
 
@@ -2901,7 +2901,7 @@ Represents an output that writes the result of expressions into a file
 * `center` (any type): an expression that will be evaluated and displayed in the center section of the bottom overlay
 * `color` (any type in [list, rgb]): the color(s) used to display the expressions given in the 'left', 'center' and 'right' facets
 * `left` (any type): an expression that will be evaluated and displayed in the left section of the bottom overlay
-* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
+* `position` (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. &#123;0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point &#123;0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.
 * `right` (any type): an expression that will be evaluated and displayed in the right section of the bottom overlay
 * `rounded` (boolean): Whether or not the rectangular shape of the overlay should be rounded. True by default
 * `size` (point): extent of the layer in the view from its position. Coordinates in [0,1[ are treated as percentages of the total surface of the view, while coordinates > 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Unlike  'position', no elevation can be provided with the z coordinate
@@ -3102,7 +3102,7 @@ define an action plan performed by an agent using the BDI engine
   
 * **`name`** (an identifier), (omissible) : The name of the method. For internal use only  
 * **`iter_max`** (int): number of iterations
-* `aggregation` (a label), takes values in: {min, max, avr}: the agregation method
+* `aggregation` (a label), takes values in: &#123;min, max, avr}: the agregation method
 * `maximize` (float): the value the algorithm tries to maximize
 * `minimize` (float): the value the algorithm tries to minimize
 * `num_particles` (int): number of particles
@@ -3202,7 +3202,7 @@ putMap <- ["x"::4,"y"::7]; //putMap equals ["x"::4,"y"::7]put -10 key: "y" in: p
 #### Facets 
   
 * **`name`** (an identifier), (omissible) : 
-* `aggregation` (a label), takes values in: {min, max, avr}: the agregation method
+* `aggregation` (a label), takes values in: &#123;min, max, avr}: the agregation method
 * `cycle_size_max` (int): minimal size of the considered cycles
 * `cycle_size_min` (int): maximal size of the considered cycles
 * `init_solution` (map): init solution: key: name of the variable, value: value of the variable
@@ -3486,9 +3486,9 @@ reflex writing {
 #### Facets 
   
 * **`angle`** (any type in [float, int]), (omissible) : Defines the angle of rotation around the axis. No default defined.
-* `axis` (point): The axis of rotation, defined by a vector. Default is {0,0,1} (rotation around the z axis)This facet can be complemented by 'distance:' and/or 'location:' to specify from where the target is looked at. If 'target:' is not defined, the default target is the centroid of the world shape.
+* `axis` (point): The axis of rotation, defined by a vector. Default is &#123;0,0,1} (rotation around the z axis)This facet can be complemented by 'distance:' and/or 'location:' to specify from where the target is looked at. If 'target:' is not defined, the default target is the centroid of the world shape.
 * `dynamic` (boolean): If true, the rotation is applied every step. Default is false.
-* `location` (point): Allows to define the center of the rotation. Defaut value is not specified is the center of mass of the world (i.e. {width/2, height/2, max(width, height) / 2}) 
+* `location` (point): Allows to define the center of the rotation. Defaut value is not specified is the center of mass of the world (i.e. &#123;width/2, height/2, max(width, height) / 2}) 
  	
 #### Definition
 
@@ -3652,7 +3652,7 @@ declare the actions an agent execute when enforcing norms of others during a per
 * `header` (boolean): an expression that evaluates to a boolean, specifying whether the save will write a header if the file does not exist
 * `rewrite` (boolean): a boolean expression specifying whether to erase the file if it exists or append data at the end of it. Only applicable to "text" or "csv" files. Default is true
 * `to` (string): an expression that evaluates to an string, the path to the file, or directly to a file
-* `type` (an identifier), takes values in: {shp, text, csv, asc, geotiff, image, kml, kmz, json, dimacs, dot, gexf, graphml, gml, graph6}: an expression that evaluates to an string, the type of the output file (it can be only "shp", "asc", "geotiff", "image", "text" or "csv") 
+* `type` (an identifier), takes values in: &#123;shp, text, csv, asc, geotiff, image, kml, kmz, json, dimacs, dot, gexf, graphml, gml, graph6}: an expression that evaluates to an string, the type of the output file (it can be only "shp", "asc", "geotiff", "image", "text" or "csv") 
  	
 #### Definition
 
@@ -3959,7 +3959,7 @@ solve SIR method: #rk4 step:0.001;
 * `optimizer` (string): (grid only),("A*" by default). Allows to specify the algorithm for the shortest path computation ("BF", "Dijkstra", "A*" or "JPS*"
 * `parallel` (any type in [boolean, int]): (experimental) setting this facet to 'true' will allow this species to use concurrency when scheduling its agents; setting it to an integer will set the threshold under which they will be run sequentially (the default is initially 20, but can be fixed in the preferences). This facet has a default set in the preferences (Under Performances > Concurrency)
 * `parent` (species): the parent class (inheritance)
-* `schedules` (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. Note that the world (or the simulation) is *always* scheduled first, so there is no need to explicitly mention it. Doing so would result in a runtime error. For instance, 'species a schedules: (10 among a)' will result in a population that schedules only 10 of its own agents every cycle. 'species b schedules: []' will prevent the agents of 'b' to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining 'global schedules: [] {...} species b schedules: []; species c schedules: b; ' allows to simulate a model where only the world and the agents of b are scheduled, without even having to create an instance of c.
+* `schedules` (container): A container of agents (a species, a dynamic list, or a combination of species and containers) , which represents which agents will be actually scheduled when the population is scheduled for execution. Note that the world (or the simulation) is *always* scheduled first, so there is no need to explicitly mention it. Doing so would result in a runtime error. For instance, 'species a schedules: (10 among a)' will result in a population that schedules only 10 of its own agents every cycle. 'species b schedules: []' will prevent the agents of 'b' to be scheduled. Note that the scope of agents covered here can be larger than the population, which allows to build complex scheduling controls; for instance, defining 'global schedules: [] &#123;...} species b schedules: []; species c schedules: b; ' allows to simulate a model where only the world and the agents of b are scheduled, without even having to create an instance of c.
 * `skills` (list): The list of skills that will be made available to the instances of this species. Each new skill provides attributes and actions that will be added to the ones defined in this species
 * `topology` (topology): The topology of the population of agents defined by this species. In case of nested species, it can for example be the shape of the macro-agent. In case of grid or graph species, the topology is automatically computed and cannot be redefined
 * `torus` (boolean): is the topology toric (defaut: false). Needs to be defined on the global species.
@@ -4174,7 +4174,7 @@ switch 3 {
 #### Facets 
   
 * **`name`** (an identifier), (omissible) : The name of the method. For internal use only
-* `aggregation` (a label), takes values in: {min, max, avr}: the agregation method
+* `aggregation` (a label), takes values in: &#123;min, max, avr}: the agregation method
 * `init_solution` (map): init solution: key: name of the variable, value: value of the variable
 * `iter_max` (int): number of iterations
 * `maximize` (float): the value the algorithm tries to maximize

@@ -59,7 +59,7 @@ global {
 In GAMA, the agentification of GIS data is very straightforward: it only requires to use the `create` command with the `from` facet to pass the shapefile. Each object of the shapefile will be directly used to instantiate an agent of the specified species. The reading of an attribute in a shapefile is also very simple. It only requires to use the `with` facet: the argument of this facet is a dictionary of which the keys are the names of the agent attributes and the value the `read` command followed by the name of the shapefile attribute.
 
 In our model, we modify the init section in order to first create the `road` agents from the road shapefile, and the `building` agents from the building shapefile. Then, when creating people agents, we choose for them a random location inside a random building.
-Note that it is possible to execute a sequence of statements at the creation of agents by using a block ({...}) rather than a simple line (;) when using the `create` statement. 
+Note that it is possible to execute a sequence of statements at the creation of agents by using a block (&#123;...}) rather than a simple line (;) when using the `create` statement. 
 
 ```
 global {
