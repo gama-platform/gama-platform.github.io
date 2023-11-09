@@ -17,7 +17,7 @@ rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/Event"*
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/UnitsAndConstantsPDF.md"
 
 # Docusaurus v3
-rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/LICENSE.*"
+rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/LICENSE"*
 
 # Verify every MD have a FM title, otherwise set one by default
 for f in $( dirname "${BASH_SOURCE[0]}" )/../docs/*.md ; do
