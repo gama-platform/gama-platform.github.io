@@ -39,7 +39,7 @@ typeName myVariableName;
 [//]: # (keyword|type_float)
 [//]: # (keyword|type_string)
 [//]: # (keyword|type_bool)
-[//]: # (keyword|operator_<-)
+[//]: # (keyword|operator_&lt;-)
 All the "basic" types are present in GAML:`int`, `float`, `string`, `bool` (see [the data type page](DataTypes) for information about all the available datatype).
 The operator for the affectation in GAML is `<-` (the operator `=` is used to test the equality).
 
@@ -222,7 +222,7 @@ Logical operators such as `and`(and), `or`(inclusive or) are used the same way a
 ```
 
 [//]: # (keyword|operator_!=)
-[//]: # (keyword|operator_<)
+[//]: # (keyword|operator_&lt;)
 [//]: # (keyword|operator_>)
 [//]: # (keyword|operator_=)
 ### Comparison operators

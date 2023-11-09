@@ -38,7 +38,7 @@ A species definition requires the definition of three different elements :
 #### Internal state
 An [attribute](RegularSpecies#declaration) is defined as follows: the type of the attribute and name. Numerous types of attributes are available: `int` (integer), `float` (floating-point number), `string`, `bool` (boolean, `true` or `false`), `point` (coordinates), `list`, `pair`, `map`, `file`, `matrix`, species of agents, `rgb` (color), `graph`, `path`...
 
-* Optional facets: `<-` (initial value), `update` (value recomputed at each step of the simulation), `function:{..}` (value computed each time the variable is used), `min`, `max`
+* Optional facets: `&lt;-` (initial value), `update` (value recomputed at each step of the simulation), `function:&#123;..}` (value computed each time the variable is used), `min`, `max`
 
 In addition to the attributes the modeler explicitly defines, species "inherits" other attributes called "built-in" variables:
 

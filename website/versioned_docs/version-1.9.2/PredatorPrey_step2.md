@@ -38,7 +38,7 @@ In order for each grid agents (or cell of the grid) to represent the vegetation,
 
 * `max_food`: maximum food that a cell can contain -> type: `float` ; init value: `1.0`.
 * `food_prod`: food produced at each simulation step -> type: `float` ; init value: random number between 0 and 0.01.
-* `food`: current quantity of food -> type: `float` ; init value: random number between 0 and 1.0; at each simulation step: food <- food + food_prod.
+* `food`: current quantity of food -> type: `float` ; init value: random number between 0 and 1.0; at each simulation step: food &lt;- food + food_prod.
 * `color`: color of the cell -> type: `rgb` ; init value: color computed according to the food value: more the food value is close to 1.0, greener the color is, more the food value is close to 0,  whiter the color is; update: computation of the new color depending on the current level of food (at each simulation step).
 
 The `update` facet allows to give a behavior to the agents. Indeed, at each simulation step, each agent is activated (by default, in its creation order) and first applies for each dynamic variable (in their definition order) its update expression. In the present case, it allows us to link the displayed color of the cell to its food level.

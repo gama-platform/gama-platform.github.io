@@ -43,20 +43,20 @@ data data_legend value: data_value
 We add a new display called **`Population_information`** that refreshes every 5 simulation steps.
 Inside this display, we define 3 charts: one of type `series` (i.e. time series chart), two of type `histogram`:
 
-* "Species evolution"; background: white; size: {1, 0.5}; position: {0, 0}
+* "Species evolution"; background: white; size: &#123;1, 0.5}; position: &#123;0, 0}
   * data1: `nb_preys`; color : blue
   * data2: `nb_predators`; color : red
 
-* "Prey Energy Distribution"; background: lightGray; size: {0.5, 0.5}; position: {0, 0.5}
-  * data "]0;0.25]": number of preys with (each.energy <= 0.25) ;
-  * data "]0.25;0.5]": number of preys with ((each.energy > 0.25) and (each.energy <= 0.5)) ;
-  * data "]0.5;0.75]": number of preys with ((each.energy > 0.5) and (each.energy <= 0.75)) ;
+* "Prey Energy Distribution"; background: lightGray; size: &#123;0.5, 0.5}; position: &#123;0, 0.5}
+  * data "]0;0.25]": number of preys with (each.energy &lt;= 0.25) ;
+  * data "]0.25;0.5]": number of preys with ((each.energy > 0.25) and (each.energy &lt;= 0.5)) ;
+  * data "]0.5;0.75]": number of preys with ((each.energy > 0.5) and (each.energy &lt;= 0.75)) ;
   * data "]0.75;1]": number of preys with  (each.energy > 0.75) ;
 
-* "Predator Energy Distribution"; background: lightGray; size: {0.5, 0.5}; position: {0.5, 0.5}
-  * data "]0;0.25]": number of predators with (each.energy <= 0.25) ;
-  * data "]0.25;0.5]": number of predators with ((each.energy > 0.25) and (each.energy <= 0.5)) ;
-  * data "]0.5;0.75]": number of predators with ((each.energy > 0.5) and (each.energy <= 0.75)) ;
+* "Predator Energy Distribution"; background: lightGray; size: &#123;0.5, 0.5}; position: &#123;0.5, 0.5}
+  * data "]0;0.25]": number of predators with (each.energy &lt;= 0.25) ;
+  * data "]0.25;0.5]": number of predators with ((each.energy > 0.25) and (each.energy &lt;= 0.5)) ;
+  * data "]0.5;0.75]": number of predators with ((each.energy > 0.5) and (each.energy &lt;= 0.75)) ;
   * data "]0.75;1]": number of predators with  (each.energy > 0.75) ;
 
 To evaluate the value of the data of the two histogram, we use the operator **`list count condition`** that returns the number of elements of `list` for which the condition is true.
