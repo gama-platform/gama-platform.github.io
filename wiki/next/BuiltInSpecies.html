@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 <script src="/js/blogFacebook-iFrame.js" async></script><link rel="stylesheet" href="/assets/css/styles.63a6a81a.css">
-<script src="/assets/js/runtime~main.a1becb6f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.aa4f3914.js" defer="defer"></script>
 <script src="/assets/js/main.4c34b1f3.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -31,6 +31,7 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables">Variables<a href="#variables" class="hash-link" aria-label="Direct link to Variables" title="Direct link to Variables">​</a></h3>
 <ul>
 <li><strong><code>host</code></strong> (<code>agent</code>): Returns the agent that hosts the population of the receiver agent</li>
+<li><strong><code>index</code></strong> (<code>int</code>): Returns the unique index of this agent in its population. Read-only attribute</li>
 <li><strong><code>location</code></strong> (<code>point</code>): Returns the location of the agent</li>
 <li><strong><code>name</code></strong> (<code>string</code>): Returns the name of the agent (not necessarily unique in its population)</li>
 <li><strong><code>peers</code></strong> (<code>list</code>): Returns the population of agents of the same species, in the same host, minus the receiver agent</li>
@@ -55,7 +56,7 @@
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="close"><strong><code>close</code></strong><a href="#close" class="hash-link" aria-label="Direct link to close" title="Direct link to close">​</a></h4>
 <p><strong>Close the established database connection.</strong></p>
 <p><strong>Returned type:</strong> <code>unknown</code>  : Returns null if the connection was successfully closed, otherwise, it returns an error.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="connect"><strong><code>connect</code></strong><a href="#connect" class="hash-link" aria-label="Direct link to connect" title="Direct link to connect"> ​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="connect"><strong><code>connect</code></strong><a href="#connect" class="hash-link" aria-label="Direct link to connect" title="Direct link to connect">​</a></h4>
 <p><strong>Establish a database connection.</strong></p>
 <p><strong>Returned type:</strong> <code>unknown</code>  : Returns null if connection to the server was successfully established, otherwise, it returns an error.</p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="additional-facets">Additional facets:<a href="#additional-facets" class="hash-link" aria-label="Direct link to Additional facets:" title="Direct link to Additional facets:">​</a></h5>
