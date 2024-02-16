@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[59555],{47667:a=>{a.exports=JSON.parse('{"label":"france","permalink":"/blog/tags/france","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);

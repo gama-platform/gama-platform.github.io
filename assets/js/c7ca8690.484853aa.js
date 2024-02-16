@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[96988],{99064:a=>{a.exports=JSON.parse('{"label":"coding camp","permalink":"/blog/tags/coding-camp","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);

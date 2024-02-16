@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[25782],{368:e=>{e.exports=JSON.parse('{"title":"Resources","slug":"/category/resources","permalink":"/wiki/category/resources","navigation":{"previous":{"title":"Versions of GAMA","permalink":"/wiki/OlderVersions"},"next":{"title":"Videos","permalink":"/wiki/Resources_TrainingVideos"}}}')}}]);
