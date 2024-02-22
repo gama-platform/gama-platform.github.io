@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 <script src="/js/blogFacebook-iFrame.js" async></script><link rel="stylesheet" href="/assets/css/styles.5ffe7255.css">
-<script src="/assets/js/runtime~main.aa5d03e4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.e291568b.js" defer="defer"></script>
 <script src="/assets/js/main.0dbb1129.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -79,6 +79,16 @@
 <li>The code coloration has been improved for some cases</li>
 <li>The JGraphT library has been bumped to 1.5.2</li>
 <li>A new command for gama-server is available: <code>validate</code> which can be used to check that a gaml expression is valid, either just syntactically or also semantically</li>
+<li>Faster runtime access to species</li>
+<li>Can now send step and stepBack commands with empty number of steps it will be considered as one step</li>
+<li>Fixes the getStopCondition exception that would arise in headless legacy mode sometimes</li>
+<li>Many runtime exception that were related to gama scope have been fixed, like the ones that could happen when inspecting an agent</li>
+<li>Compilation errors that were sometimes shown on perfectly fine code have been fixed</li>
+<li>The neighborhood of cells in hexagonal grids was sometimes wrong and has been fixed</li>
+<li>Serialization of agents in list was broken and is now fixed</li>
+<li>Deserialized agents are now added to the population of simulation</li>
+<li>Some exceptions were raised in certain cases when clicking on buttons in the parameter view, this is now fixed</li>
+<li>Using arithmetic operators on fields was causing side effects and has been fixed</li>
 </ul></div></div></details>
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="changes-that-can-impact-models">Changes that can impact models<a href="#changes-that-can-impact-models" class="hash-link" aria-label="Direct link to Changes that can impact models" title="Direct link to Changes that can impact models">​</a></h3>
@@ -91,9 +101,10 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferences">Preferences<a href="#preferences" class="hash-link" aria-label="Direct link to Preferences" title="Direct link to Preferences">​</a></h3>
 <p>Three new parameters have been introduced;</p>
 <ul>
-<li>The <code>enable server</code> parameter can be used to activate or deactive the gama-server mode in GUI</li>
+<li>The <code>enable server</code> parameter can be used to activate or disactivate the gama-server mode in GUI</li>
 <li>The <code>server port</code> parameter will on which port will gama-server listen when running in GUI</li>
 <li>The <code>server ping</code> will set the interval between two pings sent by gama-server to keep alive connections with its client</li>
+<li>The <code>increment factor</code> will set the value of a factor regulating the level of z-factor (for distance between layers in opengl displays)</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="added-models">Added models<a href="#added-models" class="hash-link" aria-label="Direct link to Added models" title="Direct link to Added models">​</a></h3>
 <p>The library of models has undergone some changes. Besides making sure all the models compile and run fine under the new version of GAMA, it also brings some new models, which are listed below:</p>

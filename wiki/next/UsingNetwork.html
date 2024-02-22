@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 <script src="/js/blogFacebook-iFrame.js" async></script><link rel="stylesheet" href="/assets/css/styles.5ffe7255.css">
-<script src="/assets/js/runtime~main.aa5d03e4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.e291568b.js" defer="defer"></script>
 <script src="/assets/js/main.0dbb1129.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -52,7 +52,7 @@ As a consequence, when TCP, Websocket or UDP protocols are used, a model creatin
 <ul>
 <li><strong><code>protocol</code></strong>: the 2 possibles keywords are <code>tcp_server</code> or <code>tcp_client</code>, depending on the wanted role of the agent in the communication.</li>
 <li><strong><code>port</code></strong>: traditionally the port <code>3001</code> is used.</li>
-<li><strong><code>raw</code></strong>: false by default, it is better to turn it to <code>true</code> when communicating with external applications as it will remove all the wrapper informations used for communication inside gama.</li>
+<li><strong><code>raw</code></strong>: false by default for compatibility purposes, however it is highly recommended to turn it to <code>true</code> when communicating with external applications as it will remove all the wrapper information used for communication inside gama and prevent some bugs when communicating inside gama.</li>
 </ul>
 </li>
 <li><strong>Websocket</strong>:<!-- -->
