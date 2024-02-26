@@ -47,11 +47,11 @@ function Home() {
             <div className="row">
               <div className="col col--8 col--offset-2">
                 <div className="margin-vert--lg text--center">
-                  <h2 className={styles.sectionDarkTitle}><a style={{color: "white"}} href="/download">Version 1.9.2 of GAMA has been released</a></h2>
+                  <h2 className={styles.sectionDarkTitle}><a style={{color: "white"}} href="/download">Version 1.9.3 of GAMA has been released</a></h2>
                 </div>
               </div>
               <div className="col col--12 text--center">
-                <iframe src="https://www.youtube-nocookie.com/embed/LvmNtsB1ytY" style={{backgroundColor: "black", maxWidth: "560px", height: "315px", width: "100%"}} title="GAMA trailer 1.9.1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/LvmNtsB1ytY" style={{backgroundColor: "black", maxWidth: "560px", height: "315px", width: "100%"}} title="GAMA trailer 1.9.3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
             </div>
           </div>

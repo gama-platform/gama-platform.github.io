@@ -665,10 +665,10 @@ float var0 <- my_topology distance_between [ag1, ag2, ag3]; // var0 equals the d
 ### `distance_to`
 
 #### Possible uses: 
-  * `geometry` **`distance_to`** `geometry` --->  `float`
-  * **`distance_to`** (`geometry` , `geometry`) --->  `float`
   * `point` **`distance_to`** `point` --->  `float`
-  * **`distance_to`** (`point` , `point`) --->  `float` 
+  * **`distance_to`** (`point` , `point`) --->  `float`
+  * `geometry` **`distance_to`** `geometry` --->  `float`
+  * **`distance_to`** (`geometry` , `geometry`) --->  `float` 
 
 #### Result: 
 A distance between two geometries (geometries, agents or points) considering the topology of the agent applying the operator.
@@ -711,8 +711,8 @@ Discretize a list of values into n bins (computes the bins from a numerical vari
 #### Examples: 
 ``` 
 map var0 <- distribution_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var2 <- distribution_of([1,1,2,12.5]); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
+map var1 <- distribution_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var2 <- distribution_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 ```
       
 
@@ -738,8 +738,8 @@ Discretize two lists of values into n bins (computes the bins from a numerical v
 
 #### Examples: 
 ``` 
-map var0 <- distribution2d_of([1,1,2,12.5],10); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
-map var1 <- distribution2d_of([1,1,2,12.5]); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var0 <- distribution2d_of([1,1,2,12.5]); // var0 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
+map var1 <- distribution2d_of([1,1,2,12.5],10); // var1 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]]) 
 map var2 <- distribution2d_of([1,1,2,12.5],10); // var2 equals map(['values'::[2,1,0,0,0,0,1,0,0,0],'legend'::['[0.0:2.0]','[2.0:4.0]','[4.0:6.0]','[6.0:8.0]','[8.0:10.0]','[10.0:12.0]','[12.0:14.0]','[14.0:16.0]','[16.0:18.0]','[18.0:20.0]'],'parlist'::[1,0]])
 ```
       
@@ -756,14 +756,14 @@ map var2 <- distribution2d_of([1,1,2,12.5],10); // var2 equals map(['values'::[2
 ### `div`
 
 #### Possible uses: 
+  * `float` **`div`** `float` --->  `int`
+  * **`div`** (`float` , `float`) --->  `int`
+  * `float` **`div`** `int` --->  `int`
+  * **`div`** (`float` , `int`) --->  `int`
   * `int` **`div`** `int` --->  `int`
   * **`div`** (`int` , `int`) --->  `int`
   * `int` **`div`** `float` --->  `int`
-  * **`div`** (`int` , `float`) --->  `int`
-  * `float` **`div`** `int` --->  `int`
-  * **`div`** (`float` , `int`) --->  `int`
-  * `float` **`div`** `float` --->  `int`
-  * **`div`** (`float` , `float`) --->  `int` 
+  * **`div`** (`int` , `float`) --->  `int` 
 
 #### Result: 
 Returns the truncation of the division of the left-hand operand by the right-hand operand.
@@ -773,10 +773,10 @@ Returns the truncation of the division of the left-hand operand by the right-han
 
 #### Examples: 
 ``` 
-int var0 <- 40 div 3; // var0 equals 13 
-int var1 <- 40 div 4.1; // var1 equals 9 
-int var2 <- 40.5 div 3; // var2 equals 13 
-int var3 <- 40.1 div 4.5; // var3 equals 8
+int var0 <- 40.1 div 4.5; // var0 equals 8 
+int var1 <- 40.5 div 3; // var1 equals 13 
+int var2 <- 40 div 3; // var2 equals 13 
+int var3 <- 40 div 4.1; // var3 equals 9
 ```
       
 
@@ -882,23 +882,23 @@ file f <- dxf_file("file.dxf",#m);
 #### Possible uses: 
   * **`edge`** (`unknown`) --->  `unknown`
   * **`edge`** (`pair`) --->  `unknown`
-  * `unknown` **`edge`** `float` --->  `unknown`
-  * **`edge`** (`unknown` , `float`) --->  `unknown`
-  * `unknown` **`edge`** `int` --->  `unknown`
-  * **`edge`** (`unknown` , `int`) --->  `unknown`
   * `pair` **`edge`** `float` --->  `unknown`
   * **`edge`** (`pair` , `float`) --->  `unknown`
   * `unknown` **`edge`** `unknown` --->  `unknown`
   * **`edge`** (`unknown` , `unknown`) --->  `unknown`
+  * `unknown` **`edge`** `float` --->  `unknown`
+  * **`edge`** (`unknown` , `float`) --->  `unknown`
   * `pair` **`edge`** `int` --->  `unknown`
   * **`edge`** (`pair` , `int`) --->  `unknown`
-  * **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
-  * **`edge`** (`unknown`, `unknown`, `int`) --->  `unknown`
+  * `unknown` **`edge`** `int` --->  `unknown`
+  * **`edge`** (`unknown` , `int`) --->  `unknown`
   * **`edge`** (`pair`, `unknown`, `int`) --->  `unknown`
-  * **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
   * **`edge`** (`unknown`, `unknown`, `float`) --->  `unknown`
-  * **`edge`** (`unknown`, `unknown`, `unknown`, `float`) --->  `unknown`
-  * **`edge`** (`unknown`, `unknown`, `unknown`, `int`) --->  `unknown` 
+  * **`edge`** (`unknown`, `unknown`, `int`) --->  `unknown`
+  * **`edge`** (`unknown`, `unknown`, `unknown`) --->  `unknown`
+  * **`edge`** (`pair`, `unknown`, `float`) --->  `unknown`
+  * **`edge`** (`unknown`, `unknown`, `unknown`, `int`) --->  `unknown`
+  * **`edge`** (`unknown`, `unknown`, `unknown`, `float`) --->  `unknown` 
 
 #### Result: 
 Allows to create a wrapper (of type unknown) that wraps two objects and indicates they should be considered as the source and the target of a new edge of a graph. The third (omissible) parameter indicates which weight this edge should have in the graph  
@@ -1136,23 +1136,23 @@ bool var1 <- empty ('abced'); // var1 equals false
 ### `enter`
 
 #### Possible uses: 
-  * `string` **`enter`** `string` --->  `unknown`
-  * **`enter`** (`string` , `string`) --->  `unknown`
-  * `string` **`enter`** `any GAML type` --->  `unknown`
-  * **`enter`** (`string` , `any GAML type`) --->  `unknown`
-  * `string` **`enter`** `bool` --->  `unknown`
-  * **`enter`** (`string` , `bool`) --->  `unknown`
   * `string` **`enter`** `float` --->  `unknown`
   * **`enter`** (`string` , `float`) --->  `unknown`
+  * `string` **`enter`** `bool` --->  `unknown`
+  * **`enter`** (`string` , `bool`) --->  `unknown`
   * `string` **`enter`** `unknown` --->  `unknown`
   * **`enter`** (`string` , `unknown`) --->  `unknown`
+  * `string` **`enter`** `any GAML type` --->  `unknown`
+  * **`enter`** (`string` , `any GAML type`) --->  `unknown`
+  * `string` **`enter`** `string` --->  `unknown`
+  * **`enter`** (`string` , `string`) --->  `unknown`
   * `string` **`enter`** `int` --->  `unknown`
   * **`enter`** (`string` , `int`) --->  `unknown`
   * **`enter`** (`string`, `any GAML type`, `unknown`) --->  `unknown`
-  * **`enter`** (`string`, `int`, `int`, `int`) --->  `unknown`
   * **`enter`** (`string`, `float`, `float`, `float`) --->  `unknown`
-  * **`enter`** (`string`, `int`, `int`, `int`, `int`) --->  `unknown`
-  * **`enter`** (`string`, `float`, `float`, `float`, `float`) --->  `unknown` 
+  * **`enter`** (`string`, `int`, `int`, `int`) --->  `unknown`
+  * **`enter`** (`string`, `float`, `float`, `float`, `float`) --->  `unknown`
+  * **`enter`** (`string`, `int`, `int`, `int`, `int`) --->  `unknown` 
 
 #### Result: 
 Allows the user to enter a string by specifying a title and an initial value
@@ -1286,47 +1286,47 @@ bool var1 <- even(-12); // var1 equals true
 #### Possible uses: 
   * **`every`** (`any expression`) --->  `bool`
   * **`every`** (`int`) --->  `bool`
-  * `unknown` **`every`** `int` --->  `unknown`
-  * **`every`** (`unknown` , `int`) --->  `unknown`
-  * `float` **`every`** `int` --->  `float`
-  * **`every`** (`float` , `int`) --->  `float`
-  * `list` **`every`** `any expression` --->  `list<date>`
-  * **`every`** (`list` , `any expression`) --->  `list<date>`
-  * `int` **`every`** `int` --->  `int`
-  * **`every`** (`int` , `int`) --->  `int`
   * `bool` **`every`** `int` --->  `bool`
   * **`every`** (`bool` , `int`) --->  `bool`
+  * `int` **`every`** `int` --->  `int`
+  * **`every`** (`int` , `int`) --->  `int`
+  * `float` **`every`** `int` --->  `float`
+  * **`every`** (`float` , `int`) --->  `float`
+  * `unknown` **`every`** `int` --->  `unknown`
+  * **`every`** (`unknown` , `int`) --->  `unknown`
+  * `list` **`every`** `any expression` --->  `list<date>`
+  * **`every`** (`list` , `any expression`) --->  `list<date>`
   * `list` **`every`** `int` --->  `list`
   * **`every`** (`list` , `int`) --->  `list` 
 
 #### Result: 
-returns the first operand every 2nd operand * cycle, nil otherwise
-expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
-returns the first float operand every 2nd operand * cycle, 0.0 otherwise
-applies a step to an interval of dates defined by 'date1 to date2'. Beware that using every with #month or #year will produce odd results,as these pseudo-constants are not constant; only the first value will be used to compute the intervals, so, for instance, if current_date is set to February#month will only represent 28 or 29 days. 
-true every operand * cycle, false otherwise
-returns the first integer operand every 2nd operand * cycle, 0 otherwise
 returns the first bool operand every 2nd operand * cycle, false otherwise
+expects a frequency (expressed in seconds of simulated time) as argument. Will return true every time the current_date matches with this frequency
+returns the first integer operand every 2nd operand * cycle, 0 otherwise
+returns the first float operand every 2nd operand * cycle, 0.0 otherwise
+returns the first operand every 2nd operand * cycle, nil otherwise
+true every operand * cycle, false otherwise
+applies a step to an interval of dates defined by 'date1 to date2'. Beware that using every with #month or #year will produce odd results,as these pseudo-constants are not constant; only the first value will be used to compute the intervals, so, for instance, if current_date is set to February#month will only represent 28 or 29 days. 
 Retrieves elements from the first argument every `step` (second argument) elements. Raises an error if the step is negative or equal to zero  
 
 #### Comment: 
-the value of the every operator depends on the cycle. It can be used to return a value every x cycle. `object every(10#cycle)` is strictly equivalent to `every(10#cycle) ? object : nil`Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to return a value every x cycle. `1000.0 every(10#cycle)` is strictly equivalent to `every(10#cycle) ? 1000.0 : 0.0`the value of the every operator depends on the cycle. It can be used to do something every x cycle.the value of the every operator depends on the cycle. It can be used to return a value every x cycle. `1000 every(10#cycle)` is strictly equivalent to `every(10#cycle) ? 1000 : 0`the value of the every operator depends on the cycle. It can be used to return a value every x cycle. `object every(10#cycle)` is strictly equivalent to `every(10#cycle) ? object : false`
+the value of the every operator depends on the cycle. It can be used to return a value every x cycle. `object every(10#cycle)` is strictly equivalent to `every(10#cycle) ? object : false`Used to do something at regular intervals of time. Can be used in conjunction with 'since', 'after', 'before', 'until' or 'between', so that this computation only takes place in the temporal segment defined by these operators. In all cases, the starting_date of the model is used as a reference starting pointthe value of the every operator depends on the cycle. It can be used to return a value every x cycle. `1000 every(10#cycle)` is strictly equivalent to `every(10#cycle) ? 1000 : 0`the value of the every operator depends on the cycle. It can be used to return a value every x cycle. `1000.0 every(10#cycle)` is strictly equivalent to `every(10#cycle) ? 1000.0 : 0.0`the value of the every operator depends on the cycle. It can be used to return a value every x cycle. `object every(10#cycle)` is strictly equivalent to `every(10#cycle) ? object : nil`the value of the every operator depends on the cycle. It can be used to do something every x cycle.
 
 #### Examples: 
 ``` 
-if ({2000,2000} every(2#cycle) != nil) {write "this is a point";} 
-	     else {write "this is nil";} 
+if (true every(2#cycle) != false) {write "this is true";} 
+	     else {write "this is false";} 
 reflex when: every(2#days) since date('2000-01-01') { .. } 
 state a { transition to: b when: every(2#mn);} state b { transition to: a when: every(30#s);} // This oscillatory behavior will use the starting_date of the model as its starting point in time 
-if (1000.0 every(2#cycle) != 0) {write "this is a value";} 
-	     else {write "this is 0.0";} 
-(date('2000-01-01') to date('2010-01-01')) every (#day) // builds an interval between these two dates which contains all the days starting from the beginning of the interval 
-if every(2#cycle) {write "the cycle number is even";} 
-	     else {write "the cycle number is odd";} 
 if (1000 every(2#cycle) != 0) {write "this is a value";} 
 	     else {write "this is 0";} 
-if (true every(2#cycle) != false) {write "this is true";} 
-	     else {write "this is false";}
+if (1000.0 every(2#cycle) != 0) {write "this is a value";} 
+	     else {write "this is 0.0";} 
+if ({2000,2000} every(2#cycle) != nil) {write "this is a point";} 
+	     else {write "this is nil";} 
+if every(2#cycle) {write "the cycle number is even";} 
+	     else {write "the cycle number is odd";} 
+(date('2000-01-01') to date('2010-01-01')) every (#day) // builds an interval between these two dates which contains all the days starting from the beginning of the interval
 ```
       
 
@@ -1359,13 +1359,13 @@ if (true every(2#cycle) != false) {write "this is true";}
 The index of the best candidate according to a method based on the Evidence theory. This theory, which was proposed by Shafer ([Shafer G (1976) A mathematical theory of evidence, Princeton University Press](http://www.glennshafer.com/books/amte.html)), is based on the work of Dempster ([Dempster A (1967) Upper and lower probabilities induced by multivalued mapping. Annals of Mathematical Statistics, vol.  38, pp. 325--339](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-38/issue-2/Upper-and-Lower-Probabilities-Induced-by-a-Multivalued-Mapping/10.1214/aoms/1177698950.full)) on lower and upper probability distributions. The first operand is the list of candidates (a candidate is a list of criterion values); the second operand the list of criterion: A criterion is a map that contains seven elements: a name, a first threshold s1, a second threshold s2, a value for the assertion "this candidate is the best" at threshold s1 (v1p), a value for the assertion "this candidate is the best" at threshold s2 (v2p), a value for the assertion "this candidate is not the best" at threshold s1 (v1c), a value for the assertion "this candidate is not the best" at threshold s2 (v2c). v1p, v2p, v1c and v2c have to been defined in order that: v1p + v1c &lt;= 1.0; v2p + v2c &lt;= 1.0.; the last operand allows to use a simple version of this multi-criteria decision making method (simple if true)
 
 #### Special cases:     
-  * returns -1 is the list of candidates is nil or empty    
-  * if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true
+  * if the operator is used with only 2 operands (the candidates and the criteria), the last parameter (use simple method) is set to true    
+  * returns -1 is the list of candidates is nil or empty
 
 #### Examples: 
 ``` 
-int var0 <- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true],["name"::"price",  "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true]], false); // var0 equals 0 
-int var1 <- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true],["name"::"price",  "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true]]); // var1 equals 0
+int var0 <- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true],["name"::"price",  "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true]]); // var0 equals 0 
+int var1 <- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"utility", "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true],["name"::"price",  "s1" :: 0.0,"s2"::1.0, "v1p"::0.0, "v2p"::1.0, "v1c"::0.0, "v2c"::0.0, "maximize" :: true]], false); // var1 equals 0
 ```
       
 
@@ -1381,8 +1381,8 @@ int var1 <- evidence_theory_DM([[1.0, 7.0],[4.0,2.0],[3.0, 3.0]], [["name"::"uti
 ### `exp`
 
 #### Possible uses: 
-  * **`exp`** (`int`) --->  `float`
-  * **`exp`** (`float`) --->  `float` 
+  * **`exp`** (`float`) --->  `float`
+  * **`exp`** (`int`) --->  `float` 
 
 #### Result: 
 Returns Euler's number e raised to the power of the operand.
@@ -1530,10 +1530,10 @@ geometry var0 <- [ag1, ag2, ag3] closest_to(self); // var0 equals return the far
 ### `field`
 
 #### Possible uses: 
-  * `unknown` **`field`** `float` --->  `field`
-  * **`field`** (`unknown` , `float`) --->  `field`
   * `int` **`field`** `int` --->  `field`
   * **`field`** (`int` , `int`) --->  `field`
+  * `unknown` **`field`** `float` --->  `field`
+  * **`field`** (`unknown` , `float`) --->  `field`
   * **`field`** (`int`, `int`, `float`) --->  `field`
   * **`field`** (`int`, `int`, `float`, `float`) --->  `field`
     	
@@ -1979,13 +1979,13 @@ fuzzy_kappa([ag1, ag2, ag3, ag4, ag5],[cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2
   * **`fuzzy_kappa_sim`** (`list<agent>`, `list<unknown>`, `list<unknown>`, `list<unknown>`, `list<float>`, `list<unknown>`, `matrix<float>`, `float`, `list<unknown>`) --->  `float` 
 
 #### Result: 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
-fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800, 
+fuzzy kappa simulation indicator for 2 map comparisons: fuzzy_kappa_sim(agents_list,list_vals1,list_vals2, output_similarity_per_agents,fuzzy_transitions_matrix, fuzzy_distance, weights). Reference: Jasper van Vliet, Alex Hagen-Zanker, Jelle Hurkens, Hedwig van Delden, A fuzzy set approach to assess the predictive accuracy of land use simulations, Ecological Modelling, 24 July 2013, Pages 32-42, ISSN 0304-3800,
 
 #### Examples: 
 ``` 
-fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0]) 
-fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2)
+fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2) 
+fuzzy_kappa_sim([ag1, ag2, ag3, ag4, ag5], [cat1,cat1,cat2,cat3,cat2],[cat2,cat1,cat2,cat1,cat2], similarity_per_agents,[cat1,cat2,cat3],[[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1]], 2,[1.0,3.0,2.0,2.0,4.0])
 ```
   
     	
@@ -2258,6 +2258,19 @@ returns a random scale-free network (following Barabasi-Albert (BA) model).
 The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:The Barabasi-Albert (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism. A scale-free network is a network whose degree distribution follows a power law, at least asymptotically.Such networks are widely observed in natural and human-made systems, including the Internet, the world wide web, citation networks, and some social networks. [From Wikipedia article]The map operand should includes following elements:
 
 #### Special cases:     
+  * "nbInitNodes": number of initial nodes; "nbEdgesAdded": number of edges of each new node added during the network growth; "nbNodes": final number of nodes; "directed": is the graph directed or not; "node_species": the species of vertices; "edges_species": the species of edges 
+  
+``` 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 
+			60, 
+			1, 
+			100, 
+		true, 
+			myVertexSpecies, 
+			myEdgeSpecies);
+``` 
+
+    
   * "nbInitNodes": number of initial nodes; "nbEdgesAdded": number of edges of each new node added during the network growth; "nbNodes": final number of nodes; "directed": is the graph directed or not;  
   
 ``` 
@@ -2277,8 +2290,7 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz(
 			1, 
 			100, 
 		true, 
-			myVertexSpecies, 
-			myEdgeSpecies);
+			myVertexSpecies);
 ``` 
 
     
@@ -2286,18 +2298,6 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz(
   
 ``` 
 graph myGraph <- generate_watts_strogatz(people, 10,1,false);
-``` 
-
-    
-  * "nbInitNodes": number of initial nodes; "nbEdgesAdded": number of edges of each new node added during the network growth; "nbNodes": final number of nodes; "directed": is the graph directed or not; "node_species": the species of vertices; "edges_species": the species of edges 
-  
-``` 
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 
-			60, 
-			1, 
-			100, 
-		true, 
-			myVertexSpecies);
 ``` 
 
     
@@ -2326,23 +2326,12 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz(
 returns a fully connected graph.
 
 #### Special cases:     
-  * `nbNodes`: number of nodes to create;`directed`: is the graph directed or not;`node_species`: the species of nodes 
+  * `nbNodes`: number of nodes to create;`directed`: is the graph directed or not 
   
 ``` 
 graph myGraph <- generate_complete_graph( 
 			100, 
-			true, 
-			node_species);
-``` 
-
-    
-  * "directed": is the graph has to be directed or not;"nodes": the list of existing nodes; "edges_species": the species of edges  
-  
-``` 
-graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
-true, 
-nodes, 
-edge_species);
+			true);
 ``` 
 
     
@@ -2357,12 +2346,13 @@ edge_species);
 ``` 
 
     
-  * `nbNodes`: number of nodes to create;`directed`: is the graph directed or not 
+  * `nbNodes`: number of nodes to create;`directed`: is the graph directed or not;`node_species`: the species of nodes 
   
 ``` 
 graph myGraph <- generate_complete_graph( 
 			100, 
-			true);
+			true, 
+			node_species);
 ``` 
 
     
@@ -2372,6 +2362,16 @@ graph myGraph <- generate_complete_graph(
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
 			true, 
 			nodes);
+``` 
+
+    
+  * "directed": is the graph has to be directed or not;"nodes": the list of existing nodes; "edges_species": the species of edges  
+  
+``` 
+graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph( 
+true, 
+nodes, 
+edge_species);
 ``` 
 
     
@@ -2397,15 +2397,15 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_complete_graph(
 The method allows to build a network of corridors to be used by pedestrian while traveling around a space made of obstacles and other users. It makes it possible to avoide collision with other agents (e.g. buildings) including other pedestrians and in the same time managing a path to a destination in a complex environment (e.g. a city). The method  is highly customizable, with many parameters listed as below: <p> <ol>   <li> obstacles : a list containing the lists of geometries or agents that are obstacles for pedestrians (e.g. walls, cars). </li>   <li> bounds : a list of geometries that represent the spatial boundary of the network (i.e. the enclosing space of the network). </li>   <li> open : a boolean expression that will add nodes in the network within open areas. More precisely, new invisible points are added to improve triangulation in areas with very few obstacles.</li>   <li> randomDist : a boolean expression, related to the previous 'open' parameter, that allows to switch between a random (true) spatial distribution or a distribution (false) that build upon a equidistant repartition of points all around the area. </li>  <li> open area : a float in meters representing the minimum distance for an area to be considered as an open area (i.e. euclidian distance between centroid and farest obstacle) </li>  <li> density point : a float representing the density of points per meter within open areas.</li>  <li> clean network : a boolean expression that allows to enhance the network (true) or living as it is generated (false). Enhancement includes filling very small gaps between edges and nodes. </li>  <li> cliping : tolerance for the cliping in triangulation (float; distance) - see skeletonize operator </li>  <li> tolerance : tolerance for the triangulation (float) </li>  <li> min dist obstacle : minimal distance to obstacles to keep a path (float; if 0.0, no filtering) </li>  <li> simplification : simplification distance for the final geometries</li>  <li> square size : size of squares for decomposition (optimization) </li> </ol> </p>
 
 #### Special cases:     
-  * The method allows to build a network of corridors to be used by pedestrian while traveling around a space made of obstacles and other users. It makes it possible to avoide collision with other agents (e.g. buildings) including other pedestrians and in the same time managing a path to a destination in a complex environment (e.g. a city). The method  is highly customizable, with many parameters listed as below: <p> <ol>   <li> obstacles : a list containing the lists of geometries or agents that are obstacles for pedestrians (e.g. walls, cars). </li>   <li> bounds : a list of geometries that represent the spatial boundary of the network (i.e. the enclosing space of the network). </li>   <li> regular network : allows to combine the generated network with a simplified car user oriented network. More specifically, the network generated will combine enhance pedestrian oriented generated network with the given network: The property of the latter does not allows pedestrian to avoid collision (1D) when using its edges (while moving in 2D space and avoiding collision in the former).</li>  <li> open : a boolean expression that will add nodes in the network within open areas. More precisely, new invisible points are added to improve triangulation in areas with very few obstacles.</li>   <li> randomDist : a boolean expression, related to the previous 'open' parameter, that allows to switch between a random (true) spatial distribution or a distribution (false) that build upon a equidistant repartition of points all around the area. </li>  <li> open area : a float in meters representing the minimum distance for an area to be considered as an open area (i.e. euclidian distance between centroid and farest obstacle) </li>  <li> density point : a float representing the density of points per meter within open areas.</li>  <li> clean network : a boolean expression that allows to enhance the network (true) or living as it is generated (false). Enhancement includes filling very small gaps between edges and nodes. </li>  <li> cliping : tolerance for the cliping in triangulation (float; distance) - see skeletonize operator </li>  <li> tolerance : tolerance for the triangulation (float) </li>  <li> min dist obstacle : minimal distance to obstacles to keep a path (float; if 0.0, no filtering) </li>  <li> simplification : simplification distance for the final geometries</li> </ol> </p>    
   * The method allows to build a network of corridors to be used by pedestrian while traveling around a space made of obstacles and other users. It makes it possible to avoide collision with other agents (e.g. buildings) including other pedestrians and in the same time managing a path to a destination in a complex environment (e.g. a city). The method  is highly customizable, with many parameters listed as below: <p> <ol>   <li> obstacles : a list containing the lists of geometries or agents that are obstacles for pedestrians (e.g. walls, cars). </li>   <li> bounds : a list of geometries that represent the spatial boundary of the network (i.e. the enclosing space of the network). </li>   <li> open : a boolean expression that will add nodes in the network within open areas. More precisely, new invisible points are added to improve triangulation in areas with very few obstacles.</li>   <li> randomDist : a boolean expression, related to the previous 'open' parameter, that allows to switch between a random (true) spatial distribution or a distribution (false) that build upon a equidistant repartition of points all around the area. </li>  <li> open area : a float in meters representing the minimum distance for an area to be considered as an open area (i.e. euclidian distance between centroid and farest obstacle) </li>  <li> density point : a float representing the density of points per meter within open areas.</li>  <li> clean network : a boolean expression that allows to enhance the network (true) or living as it is generated (false). Enhancement includes filling very small gaps between edges and nodes. </li>  <li> cliping : tolerance for the cliping in triangulation (float; distance) - see skeletonize operator </li>  <li> tolerance : tolerance for the triangulation (float) </li>  <li> min dist obstacle : minimal distance to obstacles to keep a path (float; if 0.0, no filtering) </li>  <li> simplification : simplification distance for the final geometries</li> </ol> </p>    
+  * The method allows to build a network of corridors to be used by pedestrian while traveling around a space made of obstacles and other users. It makes it possible to avoide collision with other agents (e.g. buildings) including other pedestrians and in the same time managing a path to a destination in a complex environment (e.g. a city). The method  is highly customizable, with many parameters listed as below: <p> <ol>   <li> obstacles : a list containing the lists of geometries or agents that are obstacles for pedestrians (e.g. walls, cars). </li>   <li> bounds : a list of geometries that represent the spatial boundary of the network (i.e. the enclosing space of the network). </li>   <li> regular network : allows to combine the generated network with a simplified car user oriented network. More specifically, the network generated will combine enhance pedestrian oriented generated network with the given network: The property of the latter does not allows pedestrian to avoid collision (1D) when using its edges (while moving in 2D space and avoiding collision in the former).</li>  <li> open : a boolean expression that will add nodes in the network within open areas. More precisely, new invisible points are added to improve triangulation in areas with very few obstacles.</li>   <li> randomDist : a boolean expression, related to the previous 'open' parameter, that allows to switch between a random (true) spatial distribution or a distribution (false) that build upon a equidistant repartition of points all around the area. </li>  <li> open area : a float in meters representing the minimum distance for an area to be considered as an open area (i.e. euclidian distance between centroid and farest obstacle) </li>  <li> density point : a float representing the density of points per meter within open areas.</li>  <li> clean network : a boolean expression that allows to enhance the network (true) or living as it is generated (false). Enhancement includes filling very small gaps between edges and nodes. </li>  <li> cliping : tolerance for the cliping in triangulation (float; distance) - see skeletonize operator </li>  <li> tolerance : tolerance for the triangulation (float) </li>  <li> min dist obstacle : minimal distance to obstacles to keep a path (float; if 0.0, no filtering) </li>  <li> simplification : simplification distance for the final geometries</li> </ol> </p>    
   * The method allows to build a network of corridors to be used by pedestrian while traveling around a space made of obstacles and other users. It makes it possible to avoide collision with other agents (e.g. buildings) including other pedestrians and in the same time managing a path to a destination in a complex environment (e.g. a city). The method  is highly customizable, with many parameters listed as below: <p> <ol>   <li> obstacles : a list containing the lists of geometries or agents that are obstacles for pedestrians (e.g. walls, cars). </li>   <li> bounds : a list of geometries that represent the spatial boundary of the network (i.e. the enclosing space of the network). </li>   <li> regular network : allows to combine the generated network with a simplified car user oriented network. More specifically, the network generated will combine enhance pedestrian oriented generated network with the given network: The property of the latter does not allows pedestrian to avoid collision (1D) when using its edges (while moving in 2D space and avoiding collision in the former).</li>  <li> open : a boolean expression that will add nodes in the network within open areas. More precisely, new invisible points are added to improve triangulation in areas with very few obstacles.</li>   <li> randomDist : a boolean expression, related to the previous 'open' parameter, that allows to switch between a random (true) spatial distribution or a distribution (false) that build upon a equidistant repartition of points all around the area. </li>  <li> open area : a float in meters representing the minimum distance for an area to be considered as an open area (i.e. euclidian distance between centroid and farest obstacle) </li>  <li> density point : a float representing the density of points per meter within open areas.</li>  <li> clean network : a boolean expression that allows to enhance the network (true) or living as it is generated (false). Enhancement includes filling very small gaps between edges and nodes. </li>  <li> cliping : tolerance for the cliping in triangulation (float; distance) - see skeletonize operator </li>  <li> tolerance : tolerance for the triangulation (float) </li>  <li> min dist obstacle : minimal distance to obstacles to keep a path (float; if 0.0, no filtering) </li> </ol> </p>
 
 #### Examples: 
 ``` 
-list<geometry> var0 <- generate_pedestrian_network([wall], [world], [road], true,false,3.0,0.1, true,0.1,0.0,0.0,0.0,50.0); // var0 equals a list of polylines corresponding to the pedestrian paths 
-list<geometry> var1 <- generate_pedestrian_network([wall], [world],true,false,3.0,0.1, true,0.1,0.0,0.0,0.0,50.0); // var1 equals a list of polylines corresponding to the pedestrian paths 
-list<geometry> var2 <- generate_pedestrian_network([wall], [world],true,false,3.0,0.1, true,0.1,0.0,0.0,0.0,0.0); // var2 equals a list of polylines corresponding to the pedestrian paths 
+list<geometry> var0 <- generate_pedestrian_network([wall], [world],true,false,3.0,0.1, true,0.1,0.0,0.0,0.0,0.0); // var0 equals a list of polylines corresponding to the pedestrian paths 
+list<geometry> var1 <- generate_pedestrian_network([wall], [world], [road], true,false,3.0,0.1, true,0.1,0.0,0.0,0.0,50.0); // var1 equals a list of polylines corresponding to the pedestrian paths 
+list<geometry> var2 <- generate_pedestrian_network([wall], [world],true,false,3.0,0.1, true,0.1,0.0,0.0,0.0,50.0); // var2 equals a list of polylines corresponding to the pedestrian paths 
 list<geometry> var3 <- generate_pedestrian_network([wall], [world], [road], true,false,3.0,0.1, true,0.1,0.0,0.0,0.0); // var3 equals a list of polylines corresponding to the pedestrian paths
 ```
   
@@ -2427,16 +2427,6 @@ list<geometry> var3 <- generate_pedestrian_network([wall], [world], [road], true
 returns a random graph.
 
 #### Special cases:     
-  * `nbNodes`: number of nodes to create;`nbEdges`: number of edges to create;`directed`: is the graph directed or not 
-  
-``` 
-graph myGraph <- generate_random_graph( 
-50, 
-100, 
-true);
-``` 
-
-    
   * `nbNodes`: number of nodes to create;`nbEdges`: number of edges to create;`directed`: is the graph directed or not;`node_species`: the species of nodes 
   
 ``` 
@@ -2445,6 +2435,16 @@ graph myGraph <- generate_random_graph(
 100, 
 true, 
 node_species);
+``` 
+
+    
+  * `nbNodes`: number of nodes to create;`nbEdges`: number of edges to create;`directed`: is the graph directed or not 
+  
+``` 
+graph myGraph <- generate_random_graph( 
+50, 
+100, 
+true);
 ``` 
 
     
@@ -2510,16 +2510,14 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz(
 ``` 
 
     
-  * "nbNodes": the graph will contain (size + 1) nodes (size must be greater than k); "p": probability to "rewire" an edge (so it must be between 0 and 1, the parameter is often called beta in the literature); "k": the base degree of each node (k must be greater than 2 and even); "directed": is the graph directed or not; "node_species": the species of vertices; "edges_species": the species of edges 
+  * "nbNodes": the graph will contain (size + 1) nodes (size must be greater than k); "p": probability to "rewire" an edge (so it must be between 0 and 1, the parameter is often called beta in the literature); "k": the base degree of each node (k must be greater than 2 and even); "directed": is the graph directed or not 
   
 ``` 
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 
 			100, 
 			0.3, 
 			5, 
-		true, 
-			myVertexSpecies, 
-			myEdgeSpecies);
+		true);
 ``` 
 
     
@@ -2535,14 +2533,16 @@ graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz(
 ``` 
 
     
-  * "nbNodes": the graph will contain (size + 1) nodes (size must be greater than k); "p": probability to "rewire" an edge (so it must be between 0 and 1, the parameter is often called beta in the literature); "k": the base degree of each node (k must be greater than 2 and even); "directed": is the graph directed or not 
+  * "nbNodes": the graph will contain (size + 1) nodes (size must be greater than k); "p": probability to "rewire" an edge (so it must be between 0 and 1, the parameter is often called beta in the literature); "k": the base degree of each node (k must be greater than 2 and even); "directed": is the graph directed or not; "node_species": the species of vertices; "edges_species": the species of edges 
   
 ``` 
 graph<myVertexSpecy,myEdgeSpecy> myGraph <- generate_watts_strogatz( 
 			100, 
 			0.3, 
 			5, 
-		true);
+		true, 
+			myVertexSpecies, 
+			myEdgeSpecies);
 ``` 
 
     
@@ -2768,17 +2768,17 @@ get_agent(social_link1)
 ### `get_agent_cause`
 
 #### Possible uses: 
-  * **`get_agent_cause`** (`predicate`) --->  `agent`
-  * **`get_agent_cause`** (`emotion`) --->  `agent` 
+  * **`get_agent_cause`** (`emotion`) --->  `agent`
+  * **`get_agent_cause`** (`predicate`) --->  `agent` 
 
 #### Result: 
-evaluate the agent_cause value of a predicate
 get the agent cause value of the given emotion
+evaluate the agent_cause value of a predicate
 
 #### Examples: 
 ``` 
-get_agent_cause(pred1) 
-get_agent_cause(emotion)
+get_agent_cause(emotion) 
+get_agent_cause(pred1)
 ```
   
     	
@@ -3754,17 +3754,17 @@ file f <- gml_file("file.gml", "EPSG:32648",true);
 ### `gradient`
 
 #### Possible uses: 
-  * **`gradient`** (`list<rgb>`) --->  `map<rgb,float>`
   * **`gradient`** (`map<rgb,float>`) --->  `map<rgb,float>`
+  * **`gradient`** (`list<rgb>`) --->  `map<rgb,float>`
   * `rgb` **`gradient`** `rgb` --->  `map<rgb,float>`
   * **`gradient`** (`rgb` , `rgb`) --->  `map<rgb,float>`
   * **`gradient`** (`rgb`, `rgb`, `float`) --->  `map<rgb,float>` 
 
 #### Result: 
-returns the definition of a linear gradient between two colors, represented internally as a color map [start::0.0,stop::1.0]
-returns the definition of a linear gradient between two colors, with a ratio (between 0 and 1, otherwise clamped) represented internally as a color map [start::0.0,(start*r+stop*(1-r))::r, stop::1.0]
-returns the definition of a linear gradient between n colors, represented internally as a color map [c1::0,c2::1/n-1, ... cn::n-1/n-1]
 returns the definition of a linear gradient between n colors provided with their positions on a scale between 0 and 1. A similar color map is returned, in the same color order, with all the positions normalized (so that they are shifted and scaled to fit between 0 and 1). Throws an error if the number of colors is less than 2 or if the positions are not strictly ordered
+returns the definition of a linear gradient between n colors, represented internally as a color map [c1::0,c2::1/n-1, ... cn::n-1/n-1]
+returns the definition of a linear gradient between two colors, with a ratio (between 0 and 1, otherwise clamped) represented internally as a color map [start::0.0,(start*r+stop*(1-r))::r, stop::1.0]
+returns the definition of a linear gradient between two colors, represented internally as a color map [start::0.0,stop::1.0]
     	
 ----
 
@@ -4532,8 +4532,8 @@ h,s and b components should be floating-point values between 0.0 and 1.0 and whe
 
 #### Examples: 
 ``` 
-rgb var0 <- hsb (0.5,1.0,1.0,0.0); // var0 equals rgb("cyan",0) 
-rgb var1 <- hsb (0.0,1.0,1.0); // var1 equals rgb("red")
+rgb var0 <- hsb (0.0,1.0,1.0); // var0 equals rgb("red") 
+rgb var1 <- hsb (0.5,1.0,1.0,0.0); // var1 equals rgb("cyan",0)
 ```
       
 

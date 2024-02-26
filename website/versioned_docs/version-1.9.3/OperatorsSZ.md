@@ -330,13 +330,13 @@ Note that due to the fact that actions are written by modelers, the general func
   * **`sample`** (`list`, `int`, `bool`, `list`) --->  `list` 
 
 #### Result: 
-takes a sample of the specified size from the elements of x using either with or without replacement with given weights
 takes a sample of the specified size from the elements of x using either with or without replacement
+takes a sample of the specified size from the elements of x using either with or without replacement with given weights
 
 #### Examples: 
 ``` 
-list var0 <- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var0 equals [10,2] 
-list var1 <- sample([2,10,1],2,false); // var1 equals [10,1]
+list var0 <- sample([2,10,1],2,false); // var0 equals [10,1] 
+list var1 <- sample([2,10,1],2,false,[0.1,0.7,0.2]); // var1 equals [10,2]
 ```
   
     	
@@ -854,8 +854,8 @@ file f <- shape_file("file.shp", "EPSG:32648",true);
   * **`sharpened`** (`image` , `int`) --->  `image` 
 
 #### Result: 
-Application of a sharpening filter to the image passed in parameter. This operation is applied multiple times if the last argument is > 0. The original image is left untouched
 Application of a sharpening filter to the image passed in parameter. This operation can be applied multiple times. The original image is left untouched
+Application of a sharpening filter to the image passed in parameter. This operation is applied multiple times if the last argument is > 0. The original image is left untouched
     	
 ----
 
@@ -866,13 +866,13 @@ Application of a sharpening filter to the image passed in parameter. This operat
 ### `shuffle`
 
 #### Possible uses: 
-  * **`shuffle`** (`string`) --->  `string`
   * **`shuffle`** (`container`) --->  `list`
+  * **`shuffle`** (`string`) --->  `string`
   * **`shuffle`** (`matrix`) --->  `matrix` 
 
 #### Result: 
-Returns a new string with randomly shuffled letters
 Returns a new list containing the randomly shuffled elements of the container.
+Returns a new string with randomly shuffled letters
 Returns a new matrix of the same size as the operand, with randomly shuffled elements
 
 #### Special cases:     
@@ -880,8 +880,8 @@ Returns a new matrix of the same size as the operand, with randomly shuffled ele
 
 #### Examples: 
 ``` 
-string var0 <- shuffle ('abc'); // var0 equals 'bac' (for example) 
-list var1 <- shuffle ([12, 13, 14]); // var1 equals [14,12,13] (for example) 
+list var0 <- shuffle ([12, 13, 14]); // var0 equals [14,12,13] (for example) 
+string var1 <- shuffle ('abc'); // var1 equals 'bac' (for example) 
 matrix var2 <- shuffle (matrix([["c11","c12","c13"],["c21","c22","c23"]])); // var2 equals matrix([["c12","c21","c11"],["c13","c22","c23"]]) (for example)
 ```
       
@@ -1202,9 +1202,9 @@ geometry var0 <- smooth(square(10), 0.0); // var0 equals a 'rounded' square
   * **`snapshot`** (`agent`, `string`, `point`) --->  `image` 
 
 #### Result: 
+Takes a snapshot of the display whose name is passed in parameter and returns the image. The search for the display begins in the agent passed in parameter and, if not found, its experiment. The size of the snapshot will be that of the viewReturns nil if no display can be found or the snapshot cannot be taken.
 Takes a snapshot of the display whose name is passed in parameter and returns the image. The search for the display begins in the agent passed in parameter and, if not found, its experiment. A custom size (a point representing width x height) can be given Returns nil if no display can be found or the snapshot cannot be taken.
 Takes a snapshot of the display whose name is passed in parameter and returns the image. The search for the display begins in the current agent's simulation and, if not found, its experiment. Returns nil if no display can be found or the snapshot cannot be taken.
-Takes a snapshot of the display whose name is passed in parameter and returns the image. The search for the display begins in the agent passed in parameter and, if not found, its experiment. The size of the snapshot will be that of the viewReturns nil if no display can be found or the snapshot cannot be taken.
     	
 ----
 
@@ -1475,10 +1475,10 @@ list<geometry> var0 <- polyline([{1,2},{4,6}]) split_at {7,6}; // var0 equals [p
 ### `split_geometry`
 
 #### Possible uses: 
-  * `geometry` **`split_geometry`** `point` --->  `list<geometry>`
-  * **`split_geometry`** (`geometry` , `point`) --->  `list<geometry>`
   * `geometry` **`split_geometry`** `float` --->  `list<geometry>`
   * **`split_geometry`** (`geometry` , `float`) --->  `list<geometry>`
+  * `geometry` **`split_geometry`** `point` --->  `list<geometry>`
+  * **`split_geometry`** (`geometry` , `point`) --->  `list<geometry>`
   * **`split_geometry`** (`geometry`, `int`, `int`) --->  `list<geometry>` 
 
 #### Result: 
@@ -1486,9 +1486,9 @@ A list of geometries that result from the decomposition of the geometry by squar
 
 #### Examples: 
 ``` 
-list<geometry> var0 <- to_rectangles(self, {10.0, 15.0}); // var0 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 
-list<geometry> var1 <- to_rectangles(self, 10,20); // var1 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator 
-list<geometry> var2 <- to_squares(self, 10.0); // var2 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0
+list<geometry> var0 <- to_squares(self, 10.0); // var0 equals the list of the geometries corresponding to the decomposition of the geometry by squares of side size 10.0 
+list<geometry> var1 <- to_rectangles(self, {10.0, 15.0}); // var1 equals the list of the geometries corresponding to the decomposition of the geometry by rectangles of size 10.0, 15.0 
+list<geometry> var2 <- to_rectangles(self, 10,20); // var2 equals the list of the geometries corresponding to the decomposition of the geometry of the agent applying the operator
 ```
   
     	
@@ -1506,15 +1506,15 @@ list<geometry> var2 <- to_squares(self, 10.0); // var2 equals the list of the ge
   * **`split_in`** (`list<unknown>`, `int`, `bool`) --->  `list<list<unknown>>` 
 
 #### Result: 
-Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound)
 Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The boolean argument controls whether or not the splitting is  strict (if true, elements are in the ith bin if they are strictly smaller than the ith bound)
+Splits a list of numbers into n bins defined by n-1 bounds between the minimum and maximum values found in the first argument. The splitting is strict (i.e. elements are in the ith bin if they are strictly smaller than the ith bound)
 
 #### Examples: 
 ``` 
-list<float> li <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
-list<list<unknown>> var1 <- split_in(li,3); // var1 equals [[1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0],[19.9],[35.9,40.0]] 
 list<float> l <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
-list<list<unknown>> var3 <- split_in(l,3, true); // var3 equals [[1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0],[19.9],[35.9,40.0]]
+list<list<unknown>> var1 <- split_in(l,3, true); // var1 equals [[1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0],[19.9],[35.9,40.0]] 
+list<float> li <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
+list<list<unknown>> var3 <- split_in(li,3); // var3 equals [[1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0],[19.9],[35.9,40.0]]
 ```
       
 
@@ -1535,8 +1535,8 @@ list<list<unknown>> var3 <- split_in(l,3, true); // var3 equals [[1.0,3.1,5.2,6.
   * **`split_lines`** (`container<unknown,geometry>` , `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries resulting after cutting the lines at their intersections.
 A list of geometries resulting after cutting the lines at their intersections. if the last boolean operand is set to true, the split lines will import the attributes of the initial lines
+A list of geometries resulting after cutting the lines at their intersections.
 
 #### Examples: 
 ``` 
@@ -1563,10 +1563,10 @@ Splits a list of numbers into n+1 bins using a set of n bounds passed as the sec
 
 #### Examples: 
 ``` 
-list<float> li <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
-list<list<unknown>> var1 <- split_using(li,[1.0,3.0,4.2]); // var1 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]] 
 list<float> l <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
-list<list<unknown>> var3 <- split_using(l,[1.0,3.0,4.2], true); // var3 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]
+list<list<unknown>> var1 <- split_using(l,[1.0,3.0,4.2], true); // var1 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]] 
+list<float> li <- [1.0,3.1,5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]; 
+list<list<unknown>> var3 <- split_using(li,[1.0,3.0,4.2]); // var3 equals [[],[1.0],[3.1],[5.2,6.0,9.2,11.1,12.0,13.0,19.9,35.9,40.0]]
 ```
       
 
@@ -1597,9 +1597,9 @@ Delimiters themselves are excluded from the resulting list.
 
 #### Examples: 
 ``` 
-list var0 <- 'to be or not to be,that is the question' split_with ' ,'; // var0 equals ['to','be','or','not','to','be','that','is','the','question'] 
-list var1 <- 'aa::bb:cc' split_with ('::', true); // var1 equals ['aa','bb:cc'] 
-list var2 <- 'aa::bb:cc' split_with ('::', false); // var2 equals ['aa','bb','cc']
+list var0 <- 'aa::bb:cc' split_with ('::', true); // var0 equals ['aa','bb:cc'] 
+list var1 <- 'aa::bb:cc' split_with ('::', false); // var1 equals ['aa','bb','cc'] 
+list var2 <- 'to be or not to be,that is the question' split_with ' ,'; // var2 equals ['to','be','or','not','to','be','that','is','the','question']
 ```
   
     	
@@ -1612,8 +1612,8 @@ list var2 <- 'aa::bb:cc' split_with ('::', false); // var2 equals ['aa','bb','cc
 ### `sqrt`
 
 #### Possible uses: 
-  * **`sqrt`** (`int`) --->  `float`
-  * **`sqrt`** (`float`) --->  `float` 
+  * **`sqrt`** (`float`) --->  `float`
+  * **`sqrt`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the square root of the operand.
@@ -1779,8 +1779,8 @@ converts a date to astring following a custom pattern. The pattern can use "%Y %
 
 #### Examples: 
 ``` 
-string(#now, 'yyyy-MM-dd', 'en') 
-string(#now, 'yyyy-MM-dd')
+string(#now, 'yyyy-MM-dd') 
+string(#now, 'yyyy-MM-dd', 'en')
 ```
   
     	
@@ -1932,8 +1932,8 @@ list var2 <- graphEpidemio successors_of node({34,56}); // var2 equals []
 ### `sum`
 
 #### Possible uses: 
-  * **`sum`** (`graph`) --->  `float`
-  * **`sum`** (`container`) --->  `unknown` 
+  * **`sum`** (`container`) --->  `unknown`
+  * **`sum`** (`graph`) --->  `float` 
 
 #### Result: 
 the sum of all the elements of the operand  
@@ -2417,8 +2417,8 @@ list<float> var0 <- to_hsb (#cyan); // var0 equals [0.5,1.0,1.0]
   * **`to_json`** (`unknown` , `bool`) --->  `string` 
 
 #### Result: 
-Serializes any object/agent/simulation into a string, using the json format. A flag can be passed to enable/disable pretty printing (false by default).The format used by GAMA follows simple rules. int, float, bool, string values are outputted as they are. nil is outputted as 'null'. A list is outputted as a json array. Any other object or agent is outputted as a json object. If this object possesses the "gaml_type" attribute, it is an instance of the corresponding type, and the members that follow contain the attributes and the values necessary to reconstruct it. If it has the "agent_reference" attribute, its value represent the reference to an agent. If any reference to an agent is found, the json string returned will be an object with two attributes: "gama_object", the object containing the references, and "reference_table" a dictionary mapping the references to the json description of the agents (their species, name, index, and list of attributes). This choice allows to manage cross references between agents
-Serializes any object/agent/simulation into a string, using the json format and no pretty printing.The format used by GAMA follows simple rules. int, float, bool, string values are outputted as they are. nil is outputted as 'null'. A list is outputted as a json array. Any other object or agent is outputted as a json object. If this object possesses the "gaml_type" attribute, it is an instance of the corresponding type, and the members that follow contain the attributes and the values necessary to reconstruct it. If it has the "agent_reference" attribute, its value represent the reference to an agent. If any reference to an agent is found, the json string returned will be an object with two attributes: "gama_object", the object containing the references, and "reference_table" a dictionary mapping the references to the json description of the agents (their species, name, index, and list of attributes). This choice allows to manage cross references between agents    
+Serializes any object/agent/simulation into a string, using the json format and no pretty printing.The format used by GAMA follows simple rules. int, float, bool, string values are outputted as they are. nil is outputted as 'null'. A list is outputted as a json array. Any other object or agent is outputted as a json object. If this object possesses the "gaml_type" attribute, it is an instance of the corresponding type, and the members that follow contain the attributes and the values necessary to reconstruct it. If it has the "agent_reference" attribute, its value represent the reference to an agent. If any reference to an agent is found, the json string returned will be an object with two attributes: "gama_object", the object containing the references, and "reference_table" a dictionary mapping the references to the json description of the agents (their species, name, index, and list of attributes). This choice allows to manage cross references between agents
+Serializes any object/agent/simulation into a string, using the json format. A flag can be passed to enable/disable pretty printing (false by default).The format used by GAMA follows simple rules. int, float, bool, string values are outputted as they are. nil is outputted as 'null'. A list is outputted as a json array. Any other object or agent is outputted as a json object. If this object possesses the "gaml_type" attribute, it is an instance of the corresponding type, and the members that follow contain the attributes and the values necessary to reconstruct it. If it has the "agent_reference" attribute, its value represent the reference to an agent. If any reference to an agent is found, the json string returned will be an object with two attributes: "gama_object", the object containing the references, and "reference_table" a dictionary mapping the references to the json description of the agents (their species, name, index, and list of attributes). This choice allows to manage cross references between agents    
 
 
 **See also:** [serialize](OperatorsSZ#serialize), [to_gaml](OperatorsSZ#to_gaml), 
@@ -2489,22 +2489,23 @@ list<geometry> var0 <- to_segments(line([{10,10},{80,10},{80,80}])); // var0 equ
 
 
 ### `to_squares`
+   Same signification as [split_geometry](OperatorsSZ#split_geometry)
 
 #### Possible uses: 
-  * **`to_squares`** (`geometry`, `float`, `bool`) --->  `list<geometry>`
   * **`to_squares`** (`geometry`, `int`, `bool`) --->  `list<geometry>`
+  * **`to_squares`** (`geometry`, `float`, `bool`) --->  `list<geometry>`
   * **`to_squares`** (`geometry`, `int`, `bool`, `float`) --->  `list<geometry>` 
 
 #### Result: 
-A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
-A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps, precision_coefficient), if overlaps = true, add the squares that overlap the border of the geometry, coefficient_precision should be close to 1.0
+A list of a given number of squares from the decomposition of the geometry into squares (geometry, nb_square, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
+A list of squares of the size corresponding to the given size that result from the decomposition of the geometry into squares (geometry, size, overlaps), if overlaps = true, add the squares that overlap the border of the geometry
 
 #### Examples: 
 ``` 
-list<geometry> var0 <- to_squares(self, 10.0, true); // var0 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
+list<geometry> var0 <- to_squares(self, 10, true, 0.99); // var0 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
 list<geometry> var1 <- to_squares(self, 10, true); // var1 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept 
-list<geometry> var2 <- to_squares(self, 10, true, 0.99); // var2 equals the list of 10 squares corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
+list<geometry> var2 <- to_squares(self, 10.0, true); // var2 equals the list of squares of side size 10.0 corresponding to the discretization into squares of the geometry of the agent applying the operator. The squares overlapping the border of the geometry are kept
 ```
   
     	
@@ -2805,27 +2806,27 @@ geometry var1 <- triangle(5); // var1 equals a geometry as a triangle with side_
 ### `triangulate`
 
 #### Possible uses: 
-  * **`triangulate`** (`list<geometry>`) --->  `list<geometry>`
   * **`triangulate`** (`geometry`) --->  `list<geometry>`
+  * **`triangulate`** (`list<geometry>`) --->  `list<geometry>`
   * `geometry` **`triangulate`** `float` --->  `list<geometry>`
   * **`triangulate`** (`geometry` , `float`) --->  `list<geometry>`
   * **`triangulate`** (`geometry`, `float`, `float`) --->  `list<geometry>`
   * **`triangulate`** (`geometry`, `float`, `float`, `bool`) --->  `list<geometry>` 
 
 #### Result: 
-A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point, use_approx_clipping) with the given tolerance for the clipping and for the triangulation with using an approximate clipping is the last operand is true
-A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point)
 A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping
+A list of geometries (triangles) corresponding to the Delaunay triangulation computed from the list of polylines
+A list of geometries (triangles) corresponding to the Delaunay triangulation of the operand geometry (geometry, agent, point) with the given tolerance for the clipping and for the triangulation
 
 #### Examples: 
 ``` 
-list<geometry> var0 <- triangulate(self,0.1, 1.0); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var1 <- triangulate(self,0.1, 1.0, true); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var2 <- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var3 <- triangulate(self); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
-list<geometry> var4 <- triangulate(self, 0.1); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
+list<geometry> var0 <- triangulate(self,0.1, 1.0, true); // var0 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var1 <- triangulate(self); // var1 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var2 <- triangulate(self, 0.1); // var2 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var3 <- triangulate([line([{0,50},{100,50}]), line([{50,0},{50,100}])); // var3 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator. 
+list<geometry> var4 <- triangulate(self,0.1, 1.0); // var4 equals the list of geometries (triangles) corresponding to the Delaunay triangulation of the geometry of the agent applying the operator.
 ```
   
     	
@@ -3096,13 +3097,13 @@ Asks the user for some values and returns a map containing these values. Takes a
 ``` 
 map<string,unknown> values2 <- user_input_dialog('Enter number of agents and locations',[enter('Number',100), enter('Location',point, {10, 10})], font('Helvetica', 18), #blue, true); 
 create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
-map<string,unknown> values2 <- user_input_dialog('Enter number of agents and locations',[enter('Number',100), enter('Location',point, {10, 10})]); 
-create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
 map<string,unknown> values_no_title <- user_input_dialog([enter('Number',100), enter('Location',point, {10, 10})]); 
 create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
 map<string,unknown> values2 <- user_input_dialog('Enter number of agents and locations',[enter('Number',100), enter('Location',point, {10, 10})], font('Helvetica', 18)); 
 create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
 map<string,unknown> values2 <- user_input_dialog('Enter number of agents and locations',[enter('Number',100), enter('Location',point, {10, 10})], font('Helvetica', 18)); 
+create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))]; 
+map<string,unknown> values2 <- user_input_dialog('Enter number of agents and locations',[enter('Number',100), enter('Location',point, {10, 10})]); 
 create bug number: int(values2 at "Number") with: [location:: (point(values2 at "Location"))];
 ```
   
@@ -3157,17 +3158,17 @@ unknown var0 <- (agents closest_to self) using topology(world); // var0 equals t
   * **`variance`** (`int`, `float`, `float`) --->  `float` 
 
 #### Result: 
-Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
 the variance of the elements of the operand. See <a href="http://en.wikipedia.org/wiki/Variance">Variance</a> for more details.
+Returns the variance of a data sequence. That is (sumOfSquares - mean*sum) / size with mean = sum/size.
 Returns the variance from a standard deviation.  
 
 #### Comment: 
-In the example we consider variance of [1,3,5,7]. The size is 4, the sum is 1+3+5+7=16 and the sum of squares is 84.The variance is (84- 16^2/4)/4. CQFD.The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded.
+The operator casts all the numerical element of the list into float. The elements that are not numerical are discarded. In the example we consider variance of [1,3,5,7]. The size is 4, the sum is 1+3+5+7=16 and the sum of squares is 84.The variance is (84- 16^2/4)/4. CQFD.
 
 #### Examples: 
 ``` 
-int var0 <- int(variance(4,16,84)); // var0 equals 5 
-float var1 <- variance ([4.5, 3.5, 5.5, 7.0]); // var1 equals 1.671875 
+float var0 <- variance ([4.5, 3.5, 5.5, 7.0]); // var0 equals 1.671875 
+int var1 <- int(variance(4,16,84)); // var1 equals 5 
 int var2 <- int(variance([1,3,5,6,9,11,12,13])); // var2 equals 17
 ```
       
@@ -3248,8 +3249,8 @@ A list of geometries corresponding to the Voronoi diagram built from the list of
 
 #### Examples: 
 ``` 
-list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip. 
-list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points.
+list<geometry> var0 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}]); // var0 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points. 
+list<geometry> var1 <- voronoi([{10,10},{50,50},{90,90},{10,90},{90,10}], square(300)); // var1 equals the list of geometries corresponding to the Voronoi Diagram built from the list of points with a square of 300m side size as clip.
 ```
   
     	
@@ -3557,24 +3558,24 @@ unknown var4 <- [1::2, 3::4, 5::6] with_min_of (each); // var4 equals 2
 ### `with_precision`
 
 #### Possible uses: 
-  * `geometry` **`with_precision`** `int` --->  `geometry`
-  * **`with_precision`** (`geometry` , `int`) --->  `geometry`
   * `float` **`with_precision`** `int` --->  `float`
   * **`with_precision`** (`float` , `int`) --->  `float`
   * `point` **`with_precision`** `int` --->  `point`
-  * **`with_precision`** (`point` , `int`) --->  `point` 
+  * **`with_precision`** (`point` , `int`) --->  `point`
+  * `geometry` **`with_precision`** `int` --->  `geometry`
+  * **`with_precision`** (`geometry` , `int`) --->  `geometry` 
 
 #### Result: 
-A geometry corresponding to the rounding of points of the operand considering a given precison.
 Rounds off the value of left-hand operand to the precision given by the value of right-hand operand
 Rounds off the ordinates of the left-hand point to the precision given by the value of right-hand operand
+A geometry corresponding to the rounding of points of the operand considering a given precison.
 
 #### Examples: 
 ``` 
-geometry var0 <- self with_precision 2; // var0 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1. 
-float var1 <- 12345.78943 with_precision 2; // var1 equals 12345.79 
-float var2 <- 123 with_precision 2; // var2 equals 123.00 
-point var3 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var3 equals {12345.79, 12345.79, 12345.79}
+float var0 <- 12345.78943 with_precision 2; // var0 equals 12345.79 
+float var1 <- 123 with_precision 2; // var1 equals 123.00 
+point var2 <- {12345.78943, 12345.78943, 12345.78943} with_precision 2 ; // var2 equals {12345.79, 12345.79, 12345.79} 
+geometry var3 <- self with_precision 2; // var3 equals the geometry resulting from the rounding of points of the geometry with a precision of 0.1.
 ```
       
 
@@ -3762,13 +3763,13 @@ float var1 <- without_holes(polygon([{0,50}, {0,0}, {50,0}, {50,50}, {0,50}]) - 
   * **`wizard`** (`string`, `action`, `list<map<string,unknown>>`) --->  `map<string,map<string,unknown>>` 
 
 #### Result: 
-Build a wizard and return the values enter by the user as a map of map ["title page 1"::["var1"::1,"var2"::2]]. Takes a string, an action and a list of calls to the `wizard_page()` operator. The first string is used to specify the title. The action to describe when the wizard is supposed to be finished. A classic way of defining the action is bool eval_finish(map&lt;string,map> input_map) &#123;return input_map["page1"]["file"] != nil;}. The list is to specify the wizard pages.
 Build a wizard and return the values enter by the user as a map of map ["title page 1"::["var1"::1,"var2"::2]]. Takes a string, a list of calls to the `wizard_page()` operator. The first string is used to specify the title. The list is to specify the wizard pages.
+Build a wizard and return the values enter by the user as a map of map ["title page 1"::["var1"::1,"var2"::2]]. Takes a string, an action and a list of calls to the `wizard_page()` operator. The first string is used to specify the title. The action to describe when the wizard is supposed to be finished. A classic way of defining the action is bool eval_finish(map&lt;string,map> input_map) &#123;return input_map["page1"]["file"] != nil;}. The list is to specify the wizard pages.
 
 #### Examples: 
 ``` 
-map results <-  wizard("My wizard",eval_finish, [wizard_page("page1","enter info" ,[enter("var1",string)], font("Arial", 10))]); 
-map results <-  wizard("My wizard",[wizard_page("page1","enter info" ,[enter("var1",string)], font("Arial", 10))]);
+map results <-  wizard("My wizard",[wizard_page("page1","enter info" ,[enter("var1",string)], font("Arial", 10))]); 
+map results <-  wizard("My wizard",eval_finish, [wizard_page("page1","enter info" ,[enter("var1",string)], font("Arial", 10))]);
 ```
   
     	
