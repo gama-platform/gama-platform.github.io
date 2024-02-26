@@ -69,6 +69,16 @@ This is a maintenance release, aiming at fixing bugs observed in 1.9.2 and impro
 * The code coloration has been improved for some cases
 * The JGraphT library has been bumped to 1.5.2
 * A new command for gama-server is available: `validate` which can be used to check that a gaml expression is valid, either just syntactically or also semantically
+* Faster runtime access to species
+* Can now send step and stepBack commands with empty number of steps it will be considered as one step
+* Fixes the getStopCondition exception that would arise in headless legacy mode sometimes
+* Many runtime exception that were related to gama scope have been fixed, like the ones that could happen when inspecting an agent
+* Compilation errors that were sometimes shown on perfectly fine code have been fixed
+* The neighborhood of cells in hexagonal grids was sometimes wrong and has been fixed
+* Serialization of agents in list was broken and is now fixed
+* Deserialized agents are now added to the population of simulation
+* Some exceptions were raised in certain cases when clicking on buttons in the parameter view, this is now fixed
+* Using arithmetic operators on fields was causing side effects and has been fixed
  
 
 
@@ -96,9 +106,10 @@ This is a maintenance release, aiming at fixing bugs observed in 1.9.2 and impro
 ### Preferences
 
 Three new parameters have been introduced;
-* The `enable server` parameter can be used to activate or deactive the gama-server mode in GUI
+* The `enable server` parameter can be used to activate or disactivate the gama-server mode in GUI
 * The `server port` parameter will on which port will gama-server listen when running in GUI
 * The `server ping` will set the interval between two pings sent by gama-server to keep alive connections with its client
+* The `increment factor` will set the value of a factor regulating the level of z-factor (for distance between layers in opengl displays)
 
 
 ### Added models

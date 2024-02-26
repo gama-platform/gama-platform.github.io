@@ -58,7 +58,7 @@ Each protocol has its specificities regarding the connection:
 * **TCP**: 
   * **`protocol`**: the 2 possibles keywords are `tcp_server` or `tcp_client`, depending on the wanted role of the agent in the communication.
   * **`port`**: traditionally the port `3001` is used.
-  * **`raw`**: false by default, it is better to turn it to `true` when communicating with external applications as it will remove all the wrapper informations used for communication inside gama.
+  * **`raw`**: false by default for compatibility purposes, however it is highly recommended to turn it to `true` when communicating with external applications as it will remove all the wrapper information used for communication inside gama and prevent some bugs when communicating inside gama. 
 * **Websocket**: 
   * **`protocol`**: the 2 possibles keywords are `websocket_server` or `websocket_client`, depending on the wanted role of the agent in the communication.
   * **`port`**: traditionally the port `3001` is used.

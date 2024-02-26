@@ -409,36 +409,36 @@ float var1 <- beta_index(graphEpidemio); // var1 equals the beta index of the gr
 #### Possible uses: 
   * `date` **`between`** `date` --->  `bool`
   * **`between`** (`date` , `date`) --->  `bool`
-  * **`between`** (`date`, `date`, `date`) --->  `bool`
   * **`between`** (`any expression`, `date`, `date`) --->  `bool`
   * **`between`** (`int`, `int`, `int`) --->  `bool`
-  * **`between`** (`float`, `float`, `float`) --->  `bool` 
+  * **`between`** (`float`, `float`, `float`) --->  `bool`
+  * **`between`** (`date`, `date`, `date`) --->  `bool` 
 
 #### Result: 
 returns true the first operand is bigger than the second operand and smaller than the third operand
 
 #### Special cases:     
-  * With only 2 date operands, it returns true if the current_date is between the 2 date  operands. 
-  
-``` 
-bool var0 <- between(date('2000-01-01'), date('2020-02-02')); // var0 equals false
-``` 
-
-    
   * returns true if the first operand is between the two dates passed in arguments (both exclusive). Can be combined with 'every' to express a frequency between two dates 
   
 ``` 
-bool var1 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var1 equals true 
+bool var2 <- (date('2016-01-01') between(date('2000-01-01'), date('2020-02-02'))); // var2 equals true 
 // will return true every new day between these two dates, taking the first one as the starting point 
 every(#day between(date('2000-01-01'), date('2020-02-02'))) 
+``` 
+
+    
+  * With only 2 date operands, it returns true if the current_date is between the 2 date  operands. 
+  
+``` 
+bool var5 <- between(date('2000-01-01'), date('2020-02-02')); // var5 equals false
 ``` 
 
 
 
 #### Examples: 
 ``` 
-bool var4 <- between(5, 1, 10); // var4 equals true 
-bool var5 <- between(5.0, 1.0, 10.0); // var5 equals true
+bool var0 <- between(5, 1, 10); // var0 equals true 
+bool var1 <- between(5.0, 1.0, 10.0); // var1 equals true
 ```
   
     	
@@ -595,14 +595,14 @@ Blend two colors with an optional ratio (c1 `*` r + c2 `*` (1 - r)) between 0 an
   * If the ratio is omitted, an even blend is done 
   
 ``` 
-rgb var1 <- blend(#red, #blue); // var1 equals to a color very close to the purple
+rgb var0 <- blend(#red, #blue); // var0 equals to a color very close to the purple
 ``` 
 
 
 
 #### Examples: 
 ``` 
-rgb var0 <- blend(#red, #blue, 0.3); // var0 equals to a color between the purple and the blue
+rgb var1 <- blend(#red, #blue, 0.3); // var1 equals to a color between the purple and the blue
 ```
       
 
@@ -643,8 +643,8 @@ image var0 <- blend(img1, img2, 0.3); // var0 equals to a composed image with th
   * **`blurred`** (`image` , `int`) --->  `image` 
 
 #### Result: 
-Application of a blurrying filter to the image passed in parameter. This operation can be applied multiple times. The original image is left untouched
 Application of a blurrying filter to the image passed in parameter. This operation is applied multiple times if the last argument is > 0. The original image is left untouched
+Application of a blurrying filter to the image passed in parameter. This operation can be applied multiple times. The original image is left untouched
     	
 ----
 
@@ -734,13 +734,13 @@ list<rgb> var1 <- list<rgb> colors <- brewer_colors("Pastel1", 5); // var1 equal
   * **`brewer_palettes`** (`int` , `int`) --->  `list<string>` 
 
 #### Result: 
-Returns the list of palettes with a given min number of classes)
 Returns the list of palettes with a given min number of classes and max number of classes)
+Returns the list of palettes with a given min number of classes)
 
 #### Examples: 
 ``` 
-list<string> var0 <- list<string> palettes <- brewer_palettes(3); // var0 equals a list of palettes that are composed of a min of 3 colors 
-list<string> var1 <- list<string> palettes <- brewer_palettes(5,10); // var1 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors
+list<string> var0 <- list<string> palettes <- brewer_palettes(5,10); // var0 equals a list of palettes that are composed of a min of 5 colors and a max of 10 colors 
+list<string> var1 <- list<string> palettes <- brewer_palettes(3); // var1 equals a list of palettes that are composed of a min of 3 colors
 ```
       
 
@@ -1009,14 +1009,14 @@ the center of the circle is by default the location of the current agent in whic
   * When circle is used with 2 operands, the second one is the center of the created circle. 
   
 ``` 
-geometry var1 <- circle(10,{80,30}); // var1 equals a geometry as a circle of radius 10, the center will be in the location {80,30}.
+geometry var0 <- circle(10,{80,30}); // var0 equals a geometry as a circle of radius 10, the center will be in the location {80,30}.
 ``` 
 
 
 
 #### Examples: 
 ``` 
-geometry var0 <- circle(10); // var0 equals a geometry as a circle of radius 10.
+geometry var1 <- circle(10); // var1 equals a geometry as a circle of radius 10.
 ```
       
 
@@ -1278,8 +1278,8 @@ the center of the cone is by default the location of the current agent in which 
 
 #### Examples: 
 ``` 
-geometry var0 <- cone(0, 45); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
-geometry var1 <- cone({0, 45}); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
+geometry var0 <- cone({0, 45}); // var0 equals a geometry as a cone with min angle is 0 and max angle is 45. 
+geometry var1 <- cone(0, 45); // var1 equals a geometry as a cone with min angle is 0 and max angle is 45.
 ```
       
 
@@ -1330,15 +1330,15 @@ geometry var0 <- cone3D(10.0,5.0); // var0 equals a geometry as a cone with a ba
   * **`connected_components_of`** (`graph` , `bool`) --->  `list<list>` 
 
 #### Result: 
-returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components. 
-returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex.
+returns the connected components of a graph, i.e. the list of all vertices that are in the maximally connected component together with the specified vertex. 
+returns the connected components of a graph, i.e. the list of all edges (if the boolean is true) or vertices (if the boolean is false) that are in the connected components.
 
 #### Examples: 
 ``` 
-graph my_graph2 <- graph([]); 
-list<list> var1 <- connected_components_of (my_graph2, true); // var1 equals the list of all the components as list 
 graph my_graph <- graph([]); 
-list<list> var3 <- connected_components_of (my_graph); // var3 equals the list of all the components as list
+list<list> var1 <- connected_components_of (my_graph); // var1 equals the list of all the components as list 
+graph my_graph2 <- graph([]); 
+list<list> var3 <- connected_components_of (my_graph2, true); // var3 equals the list of all the components as list
 ```
       
 
@@ -1392,10 +1392,10 @@ casts the operand in a container object.
 ### `contains`
 
 #### Possible uses: 
-  * `string` **`contains`** `string` --->  `bool`
-  * **`contains`** (`string` , `string`) --->  `bool`
   * `container<KeyType,ValueType>` **`contains`** `unknown` --->  `bool`
-  * **`contains`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool` 
+  * **`contains`** (`container<KeyType,ValueType>` , `unknown`) --->  `bool`
+  * `string` **`contains`** `string` --->  `bool`
+  * **`contains`** (`string` , `string`) --->  `bool` 
 
 #### Result: 
 true, if the container contains the right operand, false otherwise. 'contains' can also be written 'contains_value'. On graphs, it is equivalent to calling 'contains_edge'  
@@ -1404,24 +1404,24 @@ true, if the container contains the right operand, false otherwise. 'contains' c
 the contains operator behavior depends on the nature of the operand
 
 #### Special cases:     
-  * if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;    
   * if it is a map, contains, which can also be written 'contains_value', returns true if the operand is a value of the map    
   * if it is a pair, contains_key returns true if the operand is equal to the value of the pair    
   * if it is a file, contains returns true it the operand is contained in the file content    
   * if it is a population, contains returns true if the operand is an agent of the population, false otherwise    
   * if it is a graph, contains can be written 'contains_edge' and  returns true if the operand is an edge of the graph, false otherwise (use 'contains_node' for testing the presence of a node)    
+  * if both operands are strings, returns true if the right-hand operand contains the right-hand pattern;    
   * if it is a list or a matrix, contains returns true if the list or matrix contains the right operand 
   
 ``` 
-bool var1 <- [1, 2, 3] contains 2; // var1 equals true 
-bool var2 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var2 equals true
+bool var0 <- [1, 2, 3] contains 2; // var0 equals true 
+bool var1 <- [{1,2}, {3,4}, {5,6}] contains {3,4}; // var1 equals true
 ``` 
 
 
 
 #### Examples: 
 ``` 
-bool var0 <- 'abcded' contains 'bc'; // var0 equals true
+bool var2 <- 'abcded' contains 'bc'; // var2 equals true
 ```
       
 
@@ -1479,10 +1479,10 @@ bool var4 <- [1::2, 3::4, 5::6] contains_all [2,4]; // var4 equals true
 ### `contains_any`
 
 #### Possible uses: 
-  * `container` **`contains_any`** `container` --->  `bool`
-  * **`contains_any`** (`container` , `container`) --->  `bool`
   * `string` **`contains_any`** `list` --->  `bool`
-  * **`contains_any`** (`string` , `list`) --->  `bool` 
+  * **`contains_any`** (`string` , `list`) --->  `bool`
+  * `container` **`contains_any`** `container` --->  `bool`
+  * **`contains_any`** (`container` , `container`) --->  `bool` 
 
 #### Result: 
 true if the left operand contains one of the elements of the right operand, false otherwise  
@@ -1495,11 +1495,11 @@ the definition of contains depends on the container
 
 #### Examples: 
 ``` 
-bool var0 <- [1,2,3,4,5,6] contains_any [2,4]; // var0 equals true  
-bool var1 <- [1,2,3,4,5,6] contains_any [2,8]; // var1 equals true 
-bool var2 <- [1::2, 3::4, 5::6] contains_any [1,3]; // var2 equals false 
-bool var3 <- [1::2, 3::4, 5::6] contains_any [2,4]; // var3 equals true 
-bool var4 <- "abcabcabc" contains_any ["ca","xy"]; // var4 equals true
+bool var0 <- "abcabcabc" contains_any ["ca","xy"]; // var0 equals true 
+bool var1 <- [1,2,3,4,5,6] contains_any [2,4]; // var1 equals true  
+bool var2 <- [1,2,3,4,5,6] contains_any [2,8]; // var2 equals true 
+bool var3 <- [1::2, 3::4, 5::6] contains_any [1,3]; // var3 equals false 
+bool var4 <- [1::2, 3::4, 5::6] contains_any [2,4]; // var4 equals true
 ```
       
 
@@ -1682,8 +1682,8 @@ returns a copy of the operand.
 ### `copy_between`
 
 #### Possible uses: 
-  * **`copy_between`** (`string`, `int`, `int`) --->  `string`
-  * **`copy_between`** (`list`, `int`, `int`) --->  `list` 
+  * **`copy_between`** (`list`, `int`, `int`) --->  `list`
+  * **`copy_between`** (`string`, `int`, `int`) --->  `string` 
 
 #### Result: 
 Returns a copy of the first operand between the indexes determined by the second (inclusive) and third operands (exclusive)
@@ -1695,8 +1695,8 @@ Returns a copy of the first operand between the indexes determined by the second
 
 #### Examples: 
 ``` 
-string var0 <- copy_between("abcabcabc", 2,6); // var0 equals "cabc" 
-list var1 <-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var1 equals [1, 6]
+list var0 <-  copy_between ([4, 1, 6, 9 ,7], 1, 3); // var0 equals [1, 6] 
+string var1 <- copy_between("abcabcabc", 2,6); // var1 equals "cabc"
 ```
   
     	
@@ -1815,8 +1815,8 @@ float var1 <- correlation([13,2,1,4,1,2], [1,2,1,3,1,2]) with_precision(2); // v
 ### `cos`
 
 #### Possible uses: 
-  * **`cos`** (`int`) --->  `float`
-  * **`cos`** (`float`) --->  `float` 
+  * **`cos`** (`float`) --->  `float`
+  * **`cos`** (`int`) --->  `float` 
 
 #### Result: 
 Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees).  The argument is casted to an int before being evaluated.
@@ -1826,12 +1826,12 @@ Returns the value (in [-1,1]) of the cosinus of the operand (in decimal degrees)
 
 #### Examples: 
 ``` 
-float var0 <- cos (0); // var0 equals 1.0 
-float var1 <- cos(360); // var1 equals 1.0 
-float var2 <- cos(-720); // var2 equals 1.0 
-float var3 <- cos (0.0); // var3 equals 1.0 
-float var4 <- cos(360.0); // var4 equals 1.0 
-float var5 <- cos(-720.0); // var5 equals 1.0
+float var0 <- cos (0.0); // var0 equals 1.0 
+float var1 <- cos(360.0); // var1 equals 1.0 
+float var2 <- cos(-720.0); // var2 equals 1.0 
+float var3 <- cos (0); // var3 equals 1.0 
+float var4 <- cos(360); // var4 equals 1.0 
+float var5 <- cos(-720); // var5 equals 1.0
 ```
       
 
@@ -2028,8 +2028,8 @@ A cross, which radius is equal to the first operand (and eventually the width of
 
 #### Examples: 
 ``` 
-geometry var0 <- cross(10,2); // var0 equals a geometry as a cross of radius 10, and with a width of 2 for the lines  
-geometry var1 <- cross(10); // var1 equals a geometry as a cross of radius 10
+geometry var0 <- cross(10); // var0 equals a geometry as a cross of radius 10 
+geometry var1 <- cross(10,2); // var1 equals a geometry as a cross of radius 10, and with a width of 2 for the lines 
 ```
       
 
@@ -2126,24 +2126,24 @@ string var0 <- crs(my_shapefile); // var0 equals the crs of the shapefile
   * **`CRS_transform`** (`geometry`, `string`, `string`) --->  `geometry`
 
 #### Special cases:     
+  * returns the geometry corresponding to the transformation of the given geometry from the first CRS to the second CRS (Coordinate Reference System) 
+  
+``` 
+geometry var0 <- {8.35,47.22} CRS_transform("EPSG:4326","EPSG:4326"); // var0 equals {929517.7481238344,5978057.894895313,0.0}
+``` 
+
+    
   * returns the geometry corresponding to the transformation of the given geometry by the current CRS (Coordinate Reference System), the one corresponding to the world's agent one 
   
 ``` 
-geometry var0 <- CRS_transform(shape); // var0 equals a geometry corresponding to the agent geometry transformed into the current CRS
+geometry var1 <- CRS_transform(shape); // var1 equals a geometry corresponding to the agent geometry transformed into the current CRS
 ``` 
 
     
   * returns the geometry corresponding to the transformation of the given geometry by the left operand CRS (Coordinate Reference System) 
   
 ``` 
-geometry var1 <- shape CRS_transform("EPSG:4326"); // var1 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
-``` 
-
-    
-  * returns the geometry corresponding to the transformation of the given geometry from the first CRS to the second CRS (Coordinate Reference System) 
-  
-``` 
-geometry var2 <- {8.35,47.22} CRS_transform("EPSG:4326","EPSG:4326"); // var2 equals {929517.7481238344,5978057.894895313,0.0}
+geometry var2 <- shape CRS_transform("EPSG:4326"); // var2 equals a geometry corresponding to the agent geometry transformed into the EPSG:4326 CRS
 ``` 
 
 
@@ -2287,41 +2287,41 @@ geometry var0 <- cube(10); // var0 equals a geometry as a square of side size 10
 ### `curve`
 
 #### Possible uses: 
-  * **`curve`** (`point`, `point`, `float`) --->  `geometry`
   * **`curve`** (`point`, `point`, `point`) --->  `geometry`
-  * **`curve`** (`point`, `point`, `float`, `float`) --->  `geometry`
-  * **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
+  * **`curve`** (`point`, `point`, `float`) --->  `geometry`
   * **`curve`** (`point`, `point`, `point`, `point`) --->  `geometry`
+  * **`curve`** (`point`, `point`, `float`, `float`) --->  `geometry`
   * **`curve`** (`point`, `point`, `point`, `int`) --->  `geometry`
-  * **`curve`** (`point`, `point`, `float`, `int`, `float`) --->  `geometry`
+  * **`curve`** (`point`, `point`, `float`, `bool`) --->  `geometry`
   * **`curve`** (`point`, `point`, `point`, `point`, `int`) --->  `geometry`
+  * **`curve`** (`point`, `point`, `float`, `int`, `float`) --->  `geometry`
   * **`curve`** (`point`, `point`, `float`, `bool`, `int`) --->  `geometry`
-  * **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry`
-  * **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry` 
+  * **`curve`** (`point`, `point`, `float`, `bool`, `int`, `float`) --->  `geometry`
+  * **`curve`** (`point`, `point`, `float`, `int`, `float`, `float`) --->  `geometry` 
 
 #### Result: 
 The operator computes a Bezier curve geometry between the given operators, with 10 or a given number of points, and from left to rigth or right to left.
 
 #### Special cases:     
   * if one  of the operand is nil, returns nil    
-  * When used with 2 points and a float coefficient, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points. 
+  * When used with 2 points, a float coefficient, a boolean, an integer number of points, and a float proportion, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5). 
   
 ``` 
-geometry var0 <- curve({0,0},{10,10}, 0.5); // var0 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1.
+geometry var0 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var0 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
 ``` 
 
     
-  * When used with 2 points, a float coefficient, and a float angle, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis). 
+  * When used with 4 points and an integer number of  points, it computes a cubic Bezier curve geometry built from the four given points composed of a given number of points. If the number of points is  lower than 2, it returns nil. 
   
 ``` 
-geometry var1 <- curve({0,0},{10,10}, 0.5, 90); // var1 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
+geometry var1 <- curve({0,0}, {0,10}, {10,10}); // var1 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.
 ``` 
 
     
-  * When used with 2 points, a float coefficient, a boolean, an integer number of points, and a float angle, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis). 
+  * When used with 4 points, it computes, it computes a cubic Bezier curve geometry built from the four given points and composed of 10 points.  
   
 ``` 
-geometry var2 <- curve({0,0},{10,10}, 0.5, 100, 90); // var2 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
+geometry var2 <- curve({0,0}, {0,10}, {10,10}); // var2 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.
 ``` 
 
     
@@ -2332,52 +2332,52 @@ geometry var3 <- curve({0,0},{10,10}, 0.5, 100, 0.8, 90); // var3 equals a cubic
 ``` 
 
     
-  * When used with 4 points and an integer number of  points, it computes a cubic Bezier curve geometry built from the four given points composed of a given number of points. If the number of points is  lower than 2, it returns nil. 
+  * When used with 3 points, it computes a quadratic Bezier curve geometry built from the three given points and composed of 10 points. 
   
 ``` 
-geometry var4 <- curve({0,0}, {0,10}, {10,10}); // var4 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.
+geometry var4 <- curve({0,0}, {0,10}, {10,10}); // var4 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2.
 ``` 
 
     
-  * When used with 2 points, a float coefficient and a boolean, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points. The last boolean is used to specified if it is the right side. 
+  * When used with 2 points and a float coefficient, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points. 
   
 ``` 
-geometry var5 <- curve({0,0},{10,10}, 0.5, false); // var5 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side.
+geometry var5 <- curve({0,0},{10,10}, 0.5); // var5 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1.
 ``` 
 
     
-  * When used with 2 points, a float coefficient, a boolean, an integer number of points, and a float proportion, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side and the last value to indicate where is the inflection point (between 0.0 and 1.0 - default 0.5). 
+  * When used with 2 points, a float coefficient, a boolean, an integer number of points, and a float angle, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points, considering the given rotation angle (90 = along the z axis). 
   
 ``` 
-geometry var6 <- curve({0,0},{10,10}, 0.5, false, 100, 0.8); // var6 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
-``` 
-
-    
-  * When used with 4 points, it computes, it computes a cubic Bezier curve geometry built from the four given points and composed of 10 points.  
-  
-``` 
-geometry var7 <- curve({0,0}, {0,10}, {10,10}); // var7 equals a cubic Bezier curve geometry composed of 10 points from p0 to p3.
+geometry var6 <- curve({0,0},{10,10}, 0.5, 100, 90); // var6 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
 ``` 
 
     
   * When used with 2 points, a float coefficient, a boolean, and an integer number of points, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of the given number of points - the boolean is used to specified if it is the right side. 
   
 ``` 
-geometry var8 <- curve({0,0},{10,10}, 0.5, false, 100); // var8 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
+geometry var7 <- curve({0,0},{10,10}, 0.5, false, 100); // var7 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
 ``` 
 
     
-  * When used with 3 points, it computes a quadratic Bezier curve geometry built from the three given points and composed of 10 points. 
+  * When used with 2 points, a float coefficient, and a float angle, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius considering the given rotation angle (90 = along the z axis). 
   
 ``` 
-geometry var9 <- curve({0,0}, {0,10}, {10,10}); // var9 equals a quadratic Bezier curve geometry composed of 10 points from p0 to p2.
+geometry var8 <- curve({0,0},{10,10}, 0.5, 90); // var8 equals a cubic Bezier curve geometry composed of 100 points from p0 to p1 at the right side.
 ``` 
 
     
   * When used with 3 points and an integer, it  computes a quadratic Bezier curve geometry built from the three given points. If the last operand (number of points) is inferior to 2, returns nil 
   
 ``` 
-geometry var10 <- curve({0,0}, {0,10}, {10,10}, 20); // var10 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2.
+geometry var9 <- curve({0,0}, {0,10}, {10,10}, 20); // var9 equals a quadratic Bezier curve geometry composed of 20 points from p0 to p2.
+``` 
+
+    
+  * When used with 2 points, a float coefficient and a boolean, it computes a cubic Bezier curve geometry built from the two given points with the given coefficient for the radius and composed of 10 points. The last boolean is used to specified if it is the right side. 
+  
+``` 
+geometry var10 <- curve({0,0},{10,10}, 0.5, false); // var10 equals a cubic Bezier curve geometry composed of 10 points from p0 to p1 at the left side.
 ``` 
 
     

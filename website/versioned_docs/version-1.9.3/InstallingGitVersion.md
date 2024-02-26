@@ -4,15 +4,15 @@ title:  Installing the GIT version
 
 
 **Important note:** the current Git version contains 1 main branch:
-  * `GAMA_1.9.2`: that contains the code of the GAMA alpha(GAMA 1.9.2) (it works with **JDK 17 LTS** and **Eclipse 2022-12**).
+  * `GAMA_1.9.3`: that contains the code of the GAMA alpha(GAMA 1.9.3) (it works with **JDK 17 LTS** and **Eclipse 2023-09**).
 
 **Changes made to other branches won't be added to the next gama release**
 
 The following tutorial describes the installation for this version.
 
-## Install Eclipse **2022-12**
+## Install Eclipse **2023-09**
 
-Download the ["Installer of 2022-12"](https://www.eclipse.org/downloads/packages/release/2022-12/r/eclipse-ide-java-and-dsl-developers) and choose to install the **Eclipse IDE for Java and DSL Developers** version. This is the latest version under which GAMA is certified to work. 
+Download the ["Installer of 2023-09"](https://www.eclipse.org/downloads/packages/release/2023-09/r/eclipse-ide-java-and-dsl-developers) and choose to install the **Eclipse IDE for Java and DSL Developers** version. This is the latest version under which GAMA is certified to work. 
 
 Note: Regarding Java, Eclipse embeds the [Adoptium (ex _Adopt-OpenJDK_) 17 LTS (HotSpot)](https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot), which is the recommanded version for GAMA, you may be able to use another one, but we won't fix any related issue. 
 
@@ -32,7 +32,7 @@ The source is to be downloaded from GitHub in two steps: by creating a local clo
     * Other fields will be automatically filled in.
 ![Source GIT repository](/resources/images/developpingExtension/GIT_source_git_repository.png)    
   * In **Branch Selection** windows, 
-    * check the `GAMA_1.9.2` branch
+    * check the `GAMA_1.9.3` branch
     * Next
 
 ![gama_import](https://user-images.githubusercontent.com/55246822/167071984-130df447-fa3b-490e-acdb-32831cf1f970.PNG)  

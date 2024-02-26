@@ -86,11 +86,17 @@ As stated in [the home page](Home), if you need to cite GAMA in a paper, we kind
 ## Research papers using GAMA as support
 
 ### 2024
+
+* [Dang, H. T., Gaudou, B., & Verstaevel, N. (2024). HyPedSim: A Multi-level Crowd Simulation Framework–Methodology, Calibration, and Validation.](https://www.preprints.org/manuscript/202402.0116/v1)
+* [Wilches-Mogollon, M. A., Sarmiento, O. L., Medaglia, A. L., Montes, F., Guzman, L. A., Sánchez-Silva, M., ... & Castañeda, N. R. (2024). Impact assessment of an active transport intervention via systems analytics. Transportation Research Part D: Transport and Environment, 128, 104112.](https://doi.org/10.1016/j.trd.2024.104112)
+* [Conrad, C., & Adam, C. (2024). Identifying and modelling cognitive biases in mobility choices. arXiv preprint arXiv:2402.09921.](https://arxiv.org/pdf/2402.09921.pdf)
 * [Zare, P., Leao, S., Gudes, O., & Pettit, C. (2024). A simple agent-based model for planning for bicycling: Simulation of bicyclists' movements in urban environments. Computers, Environment and Urban Systems, 108, 102059.](https://doi.org/10.1016/j.compenvurbsys.2023.102059)
 
 ### 2023 
 
 * [Taillandier, F., Moatty, A., Brueder, P., Beullac, B., Di Maiolo, P., & Curt, C. (2023). Réfléchir à la gestion du risque inondation par un jeu de rôle informatisé basé sur la simulation multi-agent. Academic Journal of Civil Engineering, 41(3), 156-166.](https://journal.augc.asso.fr/index.php/ajce/article/view/4343/3093)
+* [加藤新, & 服部宏充. (2023). 動的な密集回避を伴う移動者流の生成. 第 85 回全国大会講演論文集, 2023(1), 507-508.](https://scholar.google.com/scholar_url?url=https://ipsj.ixsq.nii.ac.jp/ej/%3Faction%3Drepository_action_common_download%26item_id%3D230047%26item_no%3D1%26attribute_id%3D1%26file_no%3D1&hl=en&sa=X&d=16381336901060671811&ei=CqHCZb6hOJDYyAT9hr-wBg&scisig=AFWwaeZuP1HCFcB_09_HsKivU0xh&oi=scholaralrt&hist=-hv1aHYAAAAJ:15864747255912998843:AFWwaebb1-Nnu06AbHm_pLl4MFnz&html=&pos=1&folt=cit&fols=)
+* [平野雄大, & 服部宏充. (2023). マルチエージェント交通シミュレーションのためのポテンシャルフィールド法に基づく交差点内走行モデルの実装. 第 85 回全国大会講演論文集, 2023(1), 167-168.](https://scholar.google.com/scholar_url?url=https://ipsj.ixsq.nii.ac.jp/ej/%3Faction%3Drepository_action_common_download%26item_id%3D229884%26item_no%3D1%26attribute_id%3D1%26file_no%3D1&hl=fr&sa=T&oi=gsb-gga&ct=res&cd=0&d=6923620018688164996&ei=kZXZZeO4KK-x6rQPiMGYgAI&scisig=AFWwaebniaPaaZSTvVDzDwK8iZuY)
 * [Truong, Q. C., Nguyen, T. H., Pham, V. T., & Nguyen, T. H. (2023). Land-Use Optimization and Allocation for Saltwater Intrusion Regions: A Case Study in Soc Trang Province, Vietnam.](https://www.preprints.org/manuscript/202311.1914/v1)
 * [Saint-Bois, A., Boix, M., Montastruc, L., & Therond, O. (2023). Simulating Renewable Energy Production Scenarios Under Water and Food Constraints. Chemical Engineering Transactions, 105, 457-462.](https://www.cetjournal.it/cet/23/105/077.pdf)
 * [Fotsing, E., Kakeu, S. V. T., Kameni, E. D., & Nkenlifack, M. J. A. (2023). An Actor-Oriented and Architecture-Driven Approach for Spatially Explicit Agent-Based Modeling. Complex Systems Informatics & Modeling Quarterly, (36).](https://web.s.ebscohost.com/abstract?direct=true&profile=ehost&scope=site&authtype=crawler&jrnl=22559922&AN=173381058&h=u3l4TnoIo4SRRVQtLC1ph7q%2fRITgM8bSyVsuQRvztXuXhizDvG9H8RmzSkKugEkOFEnRU%2f68roRTSE0HVY47jQ%3d%3d&crl=c&resultNs=AdminWebAuth&resultLocal=ErrCrlNotAuth&crlhashurl=login.aspx%3fdirect%3dtrue%26profile%3dehost%26scope%3dsite%26authtype%3dcrawler%26jrnl%3d22559922%26AN%3d173381058)
