@@ -89,8 +89,8 @@ export default function Download() {
               <img src="/img/apple-logo.svg" alt="Apple" ></img>
               </div>
               <div className="blockContent">
-              <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_MacOS_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Intel)</Button>
-              <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_MacOS_M1_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS (Apple Silicon)</Button>
+              <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_MacOS_M1_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS Apple Silicon</Button>
+              <Button href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_MacOS_with_JDK.dmg`} buttonColor="outline button-dyn-color" col="12">macOS Intel (Older)</Button>
             </div>
           </div>
           <div className="blockElement imageAlignTop col col--4" style={{marginTop:"3em", textAlign: "center"}}>
