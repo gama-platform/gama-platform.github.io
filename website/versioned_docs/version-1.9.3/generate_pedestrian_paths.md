@@ -7,5 +7,5 @@
 Path: Plugin models/Pedestrian Skill/models/Generate pedestrian paths.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Generate%20pedestrian%20paths.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Generate%20pedestrian%20paths.gaml
 ```

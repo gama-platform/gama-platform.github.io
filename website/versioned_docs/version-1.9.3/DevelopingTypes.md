@@ -123,8 +123,8 @@ This annotation contains:
   * **name** (String, "" by default): _a String representing the type name in GAML_.
   * **id** (int, 0 by default): _the unique identifier for this type. User-added types can be chosen between IType.AVAILABLE\_TYPE and IType.SPECIES\_TYPE (exclusive) (cf. [IType.java](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.2/msi.gama.core/src/msi/gaml/types/IType.java))_.
   * **wraps** (tab of Class, null by default): _the list of Java Classes this type is "wrapping" (i.e. representing). The first one is the one that will be used preferentially throughout GAMA. The other ones are to ensure compatibility, in operators, with compatible Java classes (for instance, List and GamaList)_.
-  * **kind** (int, ISymbolKind.Variable.REGULAR by default): _the kind of Variable used to store this type. See [ISymbolKind.Variable](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java)_.
+  * **kind** (int, ISymbolKind.Variable.REGULAR by default): _the kind of Variable used to store this type. See [ISymbolKind.Variable](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java)_.
   * **internal** (boolean, false by default): _whether this type is for internal use only_.
   * **doc** (set of @doc, empty by default): _the documentation associated to the facet_.
 
-All these annotations are defined in the file [GamlAnnotations.java](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/ummisco.gama.annotations/src/msi/gama/precompiler/GamlAnnotations.java).
+All these annotations are defined in the file [GamlAnnotations.java](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/ummisco.gama.annotations/src/msi/gama/precompiler/GamlAnnotations.java).

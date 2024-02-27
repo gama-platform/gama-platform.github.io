@@ -100,5 +100,5 @@ Note that the layers in a display work like layers in a GIS; the drawing order w
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Predator%20Prey/models/Model%2002.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gama.models/models/Tutorials/Predator%20Prey/models/Model%2002.gaml
 ```

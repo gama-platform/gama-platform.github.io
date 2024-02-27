@@ -7,6 +7,6 @@
 Path: Plugin models/Images/models/Image Manipulation.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/ummisco.gaml.extensions.image/models/Images/models/Image%20Manipulation.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/ummisco.gaml.extensions.image/models/Images/models/Image%20Manipulation.gaml
 ```
 

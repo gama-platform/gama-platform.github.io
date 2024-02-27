@@ -8,7 +8,7 @@ Path: Library models/Modeling/Spatial Topology/Agent movement/Goto Directed Grap
 
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Modeling/Spatial%20Topology/Agent%20movement/models/Goto%20Directed%20Graph.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gama.models/models/Modeling/Spatial%20Topology/Agent%20movement/models/Goto%20Directed%20Graph.gaml
 ```
 
 

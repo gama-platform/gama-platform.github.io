@@ -7,7 +7,7 @@
 Path: Library models/Toy Models/Epidemiology/models/SIR (ABM vs EBM).gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Toy%20Models/Epidemiology/models/SIR%20(ABM%20vs%20EBM).gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gama.models/models/Toy%20Models/Epidemiology/models/SIR%20(ABM%20vs%20EBM).gaml
 ```
 
 

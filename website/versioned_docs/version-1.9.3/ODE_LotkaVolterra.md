@@ -7,5 +7,5 @@
 Path: Library models/Toy Models/Predator Prey/Lotka-Volterra (Influence of Integration Step).gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Toy%20Models/Predator%20Prey/Lotka-Volterra%20(Influence%20of%20Integration%20Step).gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gama.models/models/Toy%20Models/Predator%20Prey/Lotka-Volterra%20(Influence%20of%20Integration%20Step).gaml
 ```
