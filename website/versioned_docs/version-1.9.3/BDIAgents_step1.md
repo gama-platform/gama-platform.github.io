@@ -81,5 +81,5 @@ output {
 
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gaml.architecture.simplebdi/models/BDI%20Architecture/models/Tutorial/BDI%20tutorial%201.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gaml.architecture.simplebdi/models/BDI%20Architecture/models/Tutorial/BDI%20tutorial%201.gaml
 ```

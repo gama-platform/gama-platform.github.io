@@ -7,5 +7,5 @@
 Path: Library models/Modeling/Spatial Topology/Agent movement/Continuous Field of Vision.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Modeling/Spatial%20Topology/Agent%20movement/models/Continuous%20Field%20of%20Vision.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gama.models/models/Modeling/Spatial%20Topology/Agent%20movement/models/Continuous%20Field%20of%20Vision.gaml
 ```

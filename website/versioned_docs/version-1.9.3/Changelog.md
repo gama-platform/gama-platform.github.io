@@ -142,7 +142,7 @@ The library of models has undergone some changes. Besides making sure all the mo
  <summary>This release of GAMA contains new features and fixes, including:</summary>
 
 * 2D displays can now also be locked (only from the user interface currently)
-* A new event has been introduced: `mouse_drag`, an example is available in the model library: [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Mouse Drag.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Mouse%20Drag.gaml)
+* A new event has been introduced: `mouse_drag`, an example is available in the model library: [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Mouse Drag.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Mouse%20Drag.gaml)
 * Fixes potential issues with `user_location` on touch screens
 * Fixes many issues on keyboard events (see issue [#3770](https://github.com/gama-platform/gama.old/issues/3770), and [this commit](https://github.com/gama-platform/gama/commit/48973746ba47191f0aac92fff1908a950ae07d3c))
 * Fixes control buttons not updating while in fullscreen ([#3769](https://github.com/gama-platform/gama.old/issues/3769))
@@ -238,7 +238,7 @@ The library of models has undergone some changes. Besides making sure all the mo
  <summary>View all new models list</summary>
 
 * A model to showcase the use of SVG files: [ummisco.gaml.extensions.image/models/Images/models/SVG Manipulation.gaml](https://github.com/gama-platform/gama/blob/cfda0e49894472cd1475b055f886715d056222f4/ummisco.gaml.extensions.image/models/Images/models/SVG%20Manipulation.gaml)
-* An example model to test the new `mouse_drag` event: [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Mouse Drag.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Mouse%20Drag.gaml)
+* An example model to test the new `mouse_drag` event: [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Mouse Drag.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Mouse%20Drag.gaml)
 * Pedestrian movement following Mehdi Moussaid's model: [msi.gama.models/models/Toy Models/Pedestrian/models/Moussaid model.gaml](https://github.com/gama-platform/gama/blob/3192728f30e9ee89245ca89b1cfad4bd5e75f8ce/msi.gama.models/models/Toy%20Models/Pedestrian/models/Moussaid%20model.gaml) 
 * A new example of data importation to get a mapbox image as a background of the simulation: [msi.gama.models/models/Data/Data Importation/models/MapBox Image Import As Background Image.gaml](https://github.com/gama-platform/gama/blob/cfda0e49894472cd1475b055f886715d056222f4/msi.gama.models/models/Data/Data%20Importation/models/MapBox%20Image%20Import%20As%20Background%20Image.gaml)
 

@@ -7,5 +7,5 @@
 Path: Library models/Visualisation and User Interaction/Visualisation/Charts/models/Series.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/Charts/models/Series.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/Charts/models/Series.gaml
 ```

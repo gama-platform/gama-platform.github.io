@@ -7,6 +7,6 @@
 Path: Plugin models/Pedestrian Skill/models/Simple environment - walk_to.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Simple%20environment%20-%20walk_to.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Simple%20environment%20-%20walk_to.gaml
 ```
 

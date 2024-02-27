@@ -7,5 +7,5 @@
 Path: Library models/Modeling/Spatial Topology/Graphs/Classic Graph Generation.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Modeling/Spatial%20Topology/Graphs/models/Classic%20Graph%20Generation.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/msi.gama.models/models/Modeling/Spatial%20Topology/Graphs/models/Classic%20Graph%20Generation.gaml
 ```
