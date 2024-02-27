@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 <script src="/js/blogFacebook-iFrame.js" async></script><link rel="stylesheet" href="/assets/css/styles.5ffe7255.css">
-<script src="/assets/js/runtime~main.4adcdf96.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.29bb362d.js" defer="defer"></script>
 <script src="/assets/js/main.dd866669.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -115,7 +115,7 @@ The method must have the following signature: <code>Object methodName(IScope) th
 <p>This annotation contains:</p>
 <ul>
 <li><strong>symbols</strong> (set of Strings, empty by default): <em>symbol names of the parents</em>.</li>
-<li><strong>kinds</strong> (set of int, empty by default): <em>generic symbol kinds of the parents (see <a href="https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java" target="_blank" rel="noopener noreferrer">ISymbolKind.java</a> for more details)</em>.</li>
+<li><strong>kinds</strong> (set of int, empty by default): <em>generic symbol kinds of the parents (see <a href="https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java" target="_blank" rel="noopener noreferrer">ISymbolKind.java</a> for more details)</em>.</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="operator">@operator<a href="#operator" class="hash-link" aria-label="Direct link to @operator" title="Direct link to @operator">​</a></h2>
 <p>This annotation represents an &quot;operator&quot; in GAML and is used to define its name(s) as well as some meta-data that will be used during the validation process.</p>
@@ -166,7 +166,7 @@ The method must have the following signature: <code>Object methodName(IScope) th
 <p>This annotation contains:</p>
 <ul>
 <li><strong>name</strong> (set of string, empty by default): <em>names of the statement</em>.</li>
-<li><strong>kind</strong> (int): <em>the kind of the annotated symbol (see <a href="https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java" target="_blank" rel="noopener noreferrer">ISymbolKind.java</a> for more details)</em>.</li>
+<li><strong>kind</strong> (int): <em>the kind of the annotated symbol (see <a href="https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java" target="_blank" rel="noopener noreferrer">ISymbolKind.java</a> for more details)</em>.</li>
 <li><strong>with_scope</strong> (boolean, true by default): <em>indicates if the statement (usually a sequence) defines its own scope. Otherwise, all the temporary variables defined in it are actually defined in the super-scope</em>.</li>
 <li><strong>with_sequence</strong> (boolean): <em>indicates whether or not a sequence can or should follow the symbol denoted by this class</em>.</li>
 <li><strong>with_args</strong> (boolean, false by default): <em>indicates whether or not the symbol denoted by this class will accept arguments</em>.</li>
@@ -183,7 +183,7 @@ The method must have the following signature: <code>Object methodName(IScope) th
 <li><strong>name</strong> (String, &quot;&quot; by default): <em>a String representing the type name in GAML</em>.</li>
 <li><strong>id</strong> (int, 0 by default): <em>the unique identifier for this type. User-added types can be chosen between IType.AVAILABLE_TYPES and IType.SPECIES_TYPES (exclusive) (cf. <a href="https://github.com/gama-platform/gama.old/tree/GAMA_1.9.2/msi.gama.core/src/msi/gaml/types/IType.java" target="_blank" rel="noopener noreferrer">IType.java</a>)</em>.</li>
 <li><strong>wraps</strong> (tab of Class, null by default): <em>the list of Java Classes this type is &quot;wrapping&quot; (i.e. representing). The first one is the one that will be used preferentially throughout GAMA. The other ones are to ensure compatibility, in operators, with compatible Java classes (for instance, List and GamaList)</em>.</li>
-<li><strong>kind</strong> (int, ISymbolKind.Variable.REGULAR by default): <em>the kind of Variable used to store this type. See <a href="https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java" target="_blank" rel="noopener noreferrer">ISymbolKind.Variable</a></em>.</li>
+<li><strong>kind</strong> (int, ISymbolKind.Variable.REGULAR by default): <em>the kind of Variable used to store this type. See <a href="https://github.com/gama-platform/gama.old/blob/GAMA_1.9.3/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java" target="_blank" rel="noopener noreferrer">ISymbolKind.Variable</a></em>.</li>
 <li><strong>internal</strong> (boolean, false by default): <em>whether this type is for internal use only</em>.</li>
 <li><strong>doc</strong> (set of <a href="#doc">@doc</a>, empty by default): <em>the documentation associated to the facet</em>.</li>
 </ul>
