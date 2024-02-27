@@ -81,5 +81,5 @@ experiment calibration_model type: batch until: time > 2#h repeat: 3 {
 
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model6.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model6.gaml
 ```

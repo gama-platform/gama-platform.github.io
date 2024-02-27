@@ -100,7 +100,7 @@ reflex move when: target != nil{
 
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model4.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model4.gaml
 ```
 
 [Next step: Definition of 3D displays](LuneraysFlu_step5)

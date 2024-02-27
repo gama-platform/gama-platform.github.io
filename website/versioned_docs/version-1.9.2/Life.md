@@ -7,7 +7,7 @@
 Path: Library models/Toy Models/Life/Life.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Toy%20Models/Life/Life.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Toy%20Models/Life/Life.gaml
 ```
 
 

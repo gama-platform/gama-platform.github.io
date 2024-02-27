@@ -144,7 +144,7 @@ boolean b = scope.interrupted();
 
 ## Exception
 
-[Exceptions](https://github.com/gama-platform/gama/tree/GAMA_1.9.0/msi.gama.core/src/msi/gama/runtime/exceptions) in GAMA
+[Exceptions](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.0/msi.gama.core/src/msi/gama/runtime/exceptions) in GAMA
 
 An exception that can appear in the GAMA platform can be run using the `GamaRuntimeException` class. This class allows throwing an error (using `error(String,IScope)` method) or a warning (using `warning(String,IScope)` method). 
 
@@ -160,7 +160,7 @@ try {
 
 ## Debug
 
-Main class for debug is in ummisco.gama.dev.utils : [DEBUG](https://github.com/gama-platform/gama/tree/GAMA_1.9.0/ummisco.gama.annotations/src/ummisco/gama/dev/utils) 
+Main class for debug is in ummisco.gama.dev.utils : [DEBUG](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.0/ummisco.gama.annotations/src/ummisco/gama/dev/utils) 
 
 - To turn GAMA Git version to debug mode change variable of the Debug class like: `GLOBAL_OFF = false`
 
@@ -205,7 +205,7 @@ The main plugin of the GAMA Platform that defines the core functionalities: most
 ### Util
 ***
 
-1. Randomness in Gama: [msi.gama.util.random](https://github.com/gama-platform/gama/tree/GAMA_1.9.0/msi.gama.core/src/msi/gama/util/random)
+1. Randomness in Gama: [msi.gama.util.random](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.0/msi.gama.core/src/msi/gama/util/random)
 
 GamaRND is the main class that implements Random java class. It has several implementations and is mainly used with RandomUtils that define all the Gaml random operators
 

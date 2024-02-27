@@ -7,6 +7,6 @@
 Path: Plugin models/BDI Architecture/models/CityEscape_BDI_Emotions.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gaml.architecture.simplebdi/models/BDI%20Architecture/models/CityEscape_BDI_Emotions.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gaml.architecture.simplebdi/models/BDI%20Architecture/models/CityEscape_BDI_Emotions.gaml
 ```
  

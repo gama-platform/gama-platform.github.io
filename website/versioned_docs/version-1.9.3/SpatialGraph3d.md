@@ -8,5 +8,5 @@ Path: Library models/Toy Models/Multi-level Data Analysis/models/Graph From Bug 
 
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Toy%20Models/Multi-level%20Data%20Analysis/models/Graph%20From%20Bug%20(Mirror%20Graph).gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Toy%20Models/Multi-level%20Data%20Analysis/models/Graph%20From%20Bug%20(Mirror%20Graph).gaml
 ```

@@ -7,5 +7,5 @@
 Path: Library models/Modeling/Spatial Topology/Graphs/3D Graph.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Graphs/models/3D%20Graph.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Graphs/models/3D%20Graph.gaml
 ```

@@ -7,6 +7,6 @@
 Path: Library models/Toy Models/Waterflow/models/Waterflow Field Elevation.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Toy%20Models/Waterflow/models/Waterflow%20Field%20Elevation.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Toy%20Models/Waterflow/models/Waterflow%20Field%20Elevation.gaml
 ```
 

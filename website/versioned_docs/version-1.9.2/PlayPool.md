@@ -7,6 +7,6 @@
 Path: Plugin models/Physics Engine/models/Play Pool.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Play%20Pool.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Play%20Pool.gaml
 ```
 

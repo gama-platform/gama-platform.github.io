@@ -7,5 +7,5 @@
 Path: Plugin models/Images/models/Casting Images.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Casting%20Images.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Casting%20Images.gaml
 ```

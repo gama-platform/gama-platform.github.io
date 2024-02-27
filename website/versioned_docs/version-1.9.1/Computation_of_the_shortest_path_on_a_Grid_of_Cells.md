@@ -7,7 +7,7 @@
 Path: Library models/Modeling/Spatial Topology/Grids/Weighted Shortest Path on Grid.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Grids/models/Weighted%20Shortest%20Path%20on%20Grid.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Grids/models/Weighted%20Shortest%20Path%20on%20Grid.gaml
 ```
 
 

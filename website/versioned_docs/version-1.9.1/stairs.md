@@ -8,5 +8,5 @@ Path: Plugin models/Physics Engine/models/Stairs.gaml
 
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Stairs.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Stairs.gaml
 ```

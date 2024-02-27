@@ -104,5 +104,5 @@ output {
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Incremental%20Model/models/Incremental%20Model%203.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Incremental%20Model/models/Incremental%20Model%203.gaml
 ```
