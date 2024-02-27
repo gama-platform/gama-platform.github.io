@@ -7,6 +7,6 @@
 Path: Plugin models/Driving Skill/models/Advanced Models/Simple Intersection.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Simple%20Intersection.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Simple%20Intersection.gaml
 ```
 

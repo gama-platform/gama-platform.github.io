@@ -7,6 +7,6 @@
 Path: Library models/Modeling/Spatial Topology/Agent movement/models/Follow Path.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Modeling/Spatial%20Topology/Agent%20movement/models/Follow%20Path.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Modeling/Spatial%20Topology/Agent%20movement/models/Follow%20Path.gaml
 ```
 

@@ -7,5 +7,5 @@
 Path: Library models/Modeling/Spatial Topology/Graphs/Strahler.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Modeling/Spatial%20Topology/Graphs/models/Strahler.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Modeling/Spatial%20Topology/Graphs/models/Strahler.gaml
 ```

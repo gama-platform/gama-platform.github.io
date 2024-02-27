@@ -99,5 +99,5 @@ experiment main_experiment type:gui{
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Incremental%20Model/models/Incremental%20Model%205.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Incremental%20Model/models/Incremental%20Model%205.gaml
 ```

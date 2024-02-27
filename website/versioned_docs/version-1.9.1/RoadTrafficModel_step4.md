@@ -47,5 +47,5 @@ In GAMA, adding a weight for a graph is very simple, we use the **`with_weights`
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2004.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2004.gaml
 ```

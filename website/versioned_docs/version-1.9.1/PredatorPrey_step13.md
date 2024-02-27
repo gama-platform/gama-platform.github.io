@@ -106,5 +106,5 @@ Congratulations, you have completed your first GAMA models! Now, you have enough
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Predator%20Prey/models/Model%2013.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Predator%20Prey/models/Model%2013.gaml
 ```

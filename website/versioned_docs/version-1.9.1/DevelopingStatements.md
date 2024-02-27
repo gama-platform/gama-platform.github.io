@@ -184,7 +184,7 @@ This annotation represents a "statement" in GAML, and is used to define its name
 This annotation contains:
 
   * **name** (set of string, empty by default): _names of the statement_.
-  * **kind** (int): _the kind of the annotated symbol (see [ISymbolKind.java](https://github.com/gama-platform/gama/blob/GAMA_1.9.0/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java) for more details)_.
+  * **kind** (int): _the kind of the annotated symbol (see [ISymbolKind.java](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.0/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java) for more details)_.
   * **with\_scope** (boolean, true by default): _indicates if the statement (usually a sequence) defines its own scope. Otherwise, all the temporary variables defined in it are actually defined in the super-scope_.
   * **with\_sequence** (boolean): _indicates wether or not a sequence can or should follow the symbol denoted by this class_.
   * **with\_args** (boolean, false by default): _indicates wether or not the symbol denoted by this class will accept arguments_.
@@ -197,7 +197,7 @@ This annotation is used in conjunction with symbol. Provides a way to tell where
 This annotation contains:
 
   * **symbols** (set of Strings, empty by default): _symbol names of the parents_.
-  * **kinds** (set of int, empty by default): _generic symbol kinds of the parents (see [ISymbolKind.java](https://github.com/gama-platform/gama/blob/GAMA_1.9.0/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java) for more details)_.
+  * **kinds** (set of int, empty by default): _generic symbol kinds of the parents (see [ISymbolKind.java](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.0/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java) for more details)_.
 
 ### @facets
 This annotation describes a list of facets used by a statement in GAML.

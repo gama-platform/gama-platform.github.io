@@ -118,7 +118,7 @@ experiment main_experiment type:gui{
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model2.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model2.gaml
 ```
 
 [Next step: Importation of GIS data](LuneraysFlu_step3)

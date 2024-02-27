@@ -51,5 +51,5 @@ global {
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2007.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2007.gaml
 ```

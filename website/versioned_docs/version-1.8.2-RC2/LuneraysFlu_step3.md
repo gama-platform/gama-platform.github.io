@@ -108,7 +108,7 @@ experiment main_experiment type: gui {
 
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model3.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model3.gaml
 ```
 
 [Next step: Use of a graph to constraint the movements of people](LuneraysFlu_step4)

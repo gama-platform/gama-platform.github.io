@@ -7,6 +7,6 @@
 Path: Library models/Data/Data Importation/models/Grid DEM.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Data/Data%20Importation/models/Grid%20DEM.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Data/Data%20Importation/models/Grid%20DEM.gaml
 ```
 

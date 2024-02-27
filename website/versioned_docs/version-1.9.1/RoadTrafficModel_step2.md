@@ -21,5 +21,5 @@ We define a new species of agents: the **people** agents. In this model, these a
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2002.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2002.gaml
 ```

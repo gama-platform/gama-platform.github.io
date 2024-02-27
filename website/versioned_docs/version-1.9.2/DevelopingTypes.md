@@ -81,7 +81,7 @@ The class representing the type is a Java class such that:
   * the class should extend the class `GamaType<DataStructureFile>` (and thus implement its 3 methods),
 
 
-Example (from [GamaFloatType.java](https://github.com/gama-platform/gama/tree/GAMA_1.9.2/msi.gama.core/src/msi/gaml/types/GamaFloatType.java)):
+Example (from [GamaFloatType.java](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.2/msi.gama.core/src/msi/gaml/types/GamaFloatType.java)):
 ```
 @type(
 	name = IKeyword.FLOAT, 
@@ -95,7 +95,7 @@ public class GamaFloatType extends GamaType<Double> {
 
 ### Inheritance from the `GamaType<T>` class
 Each java class aiming at implementing a type should inherit from the GamaType abstract class.
-Example (from [GamaColorType.java](https://github.com/gama-platform/gama/tree/GAMA_1.9.2/msi.gama.core/src/msi/gaml/types/GamaColorType.java)):
+Example (from [GamaColorType.java](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.2/msi.gama.core/src/msi/gaml/types/GamaColorType.java)):
 ```
 public class GamaColorType extends GamaType<GamaColor>
 ```
@@ -121,10 +121,10 @@ It provides information necessary to the processor to identify a type.
 This annotation contains:
 
   * **name** (String, "" by default): _a String representing the type name in GAML_.
-  * **id** (int, 0 by default): _the unique identifier for this type. User-added types can be chosen between IType.AVAILABLE\_TYPE and IType.SPECIES\_TYPE (exclusive) (cf. [IType.java](https://github.com/gama-platform/gama/tree/GAMA_1.9.2/msi.gama.core/src/msi/gaml/types/IType.java))_.
+  * **id** (int, 0 by default): _the unique identifier for this type. User-added types can be chosen between IType.AVAILABLE\_TYPE and IType.SPECIES\_TYPE (exclusive) (cf. [IType.java](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.2/msi.gama.core/src/msi/gaml/types/IType.java))_.
   * **wraps** (tab of Class, null by default): _the list of Java Classes this type is "wrapping" (i.e. representing). The first one is the one that will be used preferentially throughout GAMA. The other ones are to ensure compatibility, in operators, with compatible Java classes (for instance, List and GamaList)_.
-  * **kind** (int, ISymbolKind.Variable.REGULAR by default): _the kind of Variable used to store this type. See [ISymbolKind.Variable](https://github.com/gama-platform/gama/blob/GAMA_1.9.2/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java)_.
+  * **kind** (int, ISymbolKind.Variable.REGULAR by default): _the kind of Variable used to store this type. See [ISymbolKind.Variable](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/ummisco.gama.annotations/src/msi/gama/precompiler/ISymbolKind.java)_.
   * **internal** (boolean, false by default): _whether this type is for internal use only_.
   * **doc** (set of @doc, empty by default): _the documentation associated to the facet_.
 
-All these annotations are defined in the file [GamlAnnotations.java](https://github.com/gama-platform/gama/blob/GAMA_1.9.2/ummisco.gama.annotations/src/msi/gama/precompiler/GamlAnnotations.java).
+All these annotations are defined in the file [GamlAnnotations.java](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/ummisco.gama.annotations/src/msi/gama/precompiler/GamlAnnotations.java).

@@ -7,6 +7,6 @@
 Path: Library models/Visualisation and User Interaction/Visualisation/models/Moving 3D Object.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Moving%203D%20Object.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Moving%203D%20Object.gaml
 ```
 

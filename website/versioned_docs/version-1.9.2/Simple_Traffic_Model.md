@@ -8,5 +8,5 @@ Path: Plugin models/Driving Skill/models/Simple model/Simple Traffic Model.gaml
 
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Simple%20model/Simple%20Traffic%20Model.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Simple%20model/Simple%20Traffic%20Model.gaml
 ```

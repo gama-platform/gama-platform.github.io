@@ -100,5 +100,5 @@ if condition is true, then returns value1; otherwise, returns value2.
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Predator%20Prey/models/Model%2008.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Predator%20Prey/models/Model%2008.gaml
 ```

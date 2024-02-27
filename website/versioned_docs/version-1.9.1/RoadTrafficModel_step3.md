@@ -152,5 +152,5 @@ We randomly assign one working place and one house to each `people` agent. To si
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2003.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.0/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2003.gaml
 ```

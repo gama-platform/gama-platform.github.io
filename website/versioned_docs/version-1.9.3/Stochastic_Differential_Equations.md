@@ -7,6 +7,6 @@
 Path: Plugin models/Ordinary Differential Equations/models/Examples/Stochastic Differential Equations.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/ummisco.gaml.extensions.maths/models/Ordinary%20Differential%20Equations/models/Examples/Stochastic%20Differential%20Equation.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/ummisco.gaml.extensions.maths/models/Ordinary%20Differential%20Equations/models/Examples/Stochastic%20Differential%20Equation.gaml
 ```
 

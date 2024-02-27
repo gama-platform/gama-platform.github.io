@@ -7,5 +7,5 @@
 Path: Library models/Modeling/Spatial Topology/Fields/Accessing Fields.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Fields/Accessing%20Fields.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Fields/Accessing%20Fields.gaml
 ```

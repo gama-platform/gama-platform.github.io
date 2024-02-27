@@ -55,7 +55,7 @@ global {
 }
 ```
 
-All shapefiles are available in the model library (under Library models -> Tutorials -> Road Traffic) or you can download them by following this [GitHub link](https://github.com/gama-platform/gama/tree/GAMA_1.9.2/msi.gama.models/models/Tutorials/Road%20Traffic/includes).
+All shapefiles are available in the model library (under Library models -> Tutorials -> Road Traffic) or you can download them by following this [GitHub link](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.2/msi.gama.models/models/Tutorials/Road%20Traffic/includes).
 
 In the experiment section, we add three parameters to allow the user to change the shapefile used directly through the UI:
 
@@ -108,5 +108,5 @@ Building a GIS environment in GAMA requires nothing special, just to define the 
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2001.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Road%20Traffic/models/Model%2001.gaml
 ```

@@ -10,11 +10,11 @@ This page exposes some of the most common problems a user may encounter when run
 ## On Ubuntu (& Linux Systems)
 
 ### Workaround if OpenGL display crash GAMA
-In case GAMA crashes whenever trying to display an OpenGL display or a Java2D, and you are running Ubuntu 21.10 (or earlier), it probably means that you're using **Wayland** as Display backend. You can fix it by running in a terminal `export GDK_BACKEND=x11` and launch GAMA from this same terminal. This workaround is described [here](https://bugs.eclipse.org/bugs/show_bug.cgi?id=577515) and in [Issue 3373](https://github.com/gama-platform/gama/issues/3373).
+In case GAMA crashes whenever trying to display an OpenGL display or a Java2D, and you are running Ubuntu 21.10 (or earlier), it probably means that you're using **Wayland** as Display backend. You can fix it by running in a terminal `export GDK_BACKEND=x11` and launch GAMA from this same terminal. This workaround is described [here](https://bugs.eclipse.org/bugs/show_bug.cgi?id=577515) and in [Issue 3373](https://github.com/gama-platform/gama.old/issues/3373).
 
 ### Wrong dark theme
 
-GAMA have trouble managing custom GTK theme (specially dark ones, see [this issue](https://github.com/gama-platform/gama/issues/3137#issuecomment-881300323)). The simplest solution is to explicit change the theme to the default Adwaita as an override of the environment variable.
+GAMA have trouble managing custom GTK theme (specially dark ones, see [this issue](https://github.com/gama-platform/gama.old/issues/3137#issuecomment-881300323)). The simplest solution is to explicit change the theme to the default Adwaita as an override of the environment variable.
 
 #### Change desktop application
 
@@ -635,7 +635,7 @@ Once done you can just run that new script like you used to do, and everything s
 
 
 ## Submitting an Issue
-If you think you have found a new bug/issue in GAMA, it is time to create an issue report [here](https://github.com/gama-platform/gama/issues/new)! Alternatively, you can click the [Issues](https://github.com/gama-platform/gama/issues) tab on the project site, search if a similar problem has already been reported (and, maybe, solved) and, if not, enter a new issue with as much information as possible:
+If you think you have found a new bug/issue in GAMA, it is time to create an issue report [here](https://github.com/gama-platform/gama.old/issues/new)! Alternatively, you can click the [Issues](https://github.com/gama-platform/gama/issues) tab on the project site, search if a similar problem has already been reported (and, maybe, solved) and, if not, enter a new issue with as much information as possible:
 
 * A complete description of the problem and how it occurred.
 * The GAMA model or code you are having trouble with. If possible, attach a complete model.

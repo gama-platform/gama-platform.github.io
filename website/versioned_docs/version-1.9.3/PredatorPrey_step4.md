@@ -59,5 +59,5 @@ Inspectors allow to obtain information about a species or an agent. There are tw
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Predator%20Prey/models/Model%2004.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Predator%20Prey/models/Model%2004.gaml
 ```

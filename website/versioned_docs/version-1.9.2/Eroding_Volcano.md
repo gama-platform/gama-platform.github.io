@@ -7,5 +7,5 @@
 Path: Plugin models/Physics Engine/models/Eroding Volcano.gaml
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Eroding%20Vulcano.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Eroding%20Vulcano.gaml
 ```

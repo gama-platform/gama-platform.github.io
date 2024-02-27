@@ -118,5 +118,5 @@ experiment main_experiment type:gui{
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model2.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model2.gaml
 ```

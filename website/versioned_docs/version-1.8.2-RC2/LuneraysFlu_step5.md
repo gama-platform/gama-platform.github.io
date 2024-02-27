@@ -85,7 +85,7 @@ experiment main_experiment type: gui {
 
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model5.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.8.2/msi.gama.models/models/Tutorials/Luneray%20flu/models/model5.gaml
 ```
 
 [Next step: Exploration of the model](LuneraysFlu_step6)

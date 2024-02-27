@@ -142,28 +142,28 @@ The library of models has undergone some changes. Besides making sure all the mo
  <summary>This release of GAMA contains new features and fixes, including:</summary>
 
 * 2D displays can now also be locked (only from the user interface currently)
-* A new event has been introduced: `mouse_drag`, an example is available in the model library: [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Mouse Drag.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Mouse%20Drag.gaml)
+* A new event has been introduced: `mouse_drag`, an example is available in the model library: [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Mouse Drag.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Mouse%20Drag.gaml)
 * Fixes potential issues with `user_location` on touch screens
-* Fixes many issues on keyboard events (see issue [#3770](https://github.com/gama-platform/gama/issues/3770), and [this commit](https://github.com/gama-platform/gama/commit/48973746ba47191f0aac92fff1908a950ae07d3c))
-* Fixes control buttons not updating while in fullscreen ([#3769](https://github.com/gama-platform/gama/issues/3769))
+* Fixes many issues on keyboard events (see issue [#3770](https://github.com/gama-platform/gama.old/issues/3770), and [this commit](https://github.com/gama-platform/gama/commit/48973746ba47191f0aac92fff1908a950ae07d3c))
+* Fixes control buttons not updating while in fullscreen ([#3769](https://github.com/gama-platform/gama.old/issues/3769))
 * Fixes the saving of matrices using the `save` statement that was faulty for non-square matrices
 * Fixes the casting from `matrix` to `string` that was faulty for non-square matrices
 * Adds the operator `exp_rnd` to generate a random number following an exponential distribution (example in [msi.gama.models/models/Visualization and User Interaction/Visualization/Charts/models/Distribution.gaml](https://github.com/gama-platform/gama/blob/bc6dd960f608af2a61b358cfbb1eba0d89329d05/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/Charts/models/Distribution.gaml))
-* Various fixes and improvements for the reading/writing of `csv` files (see this [commit](https://github.com/gama-platform/gama/commit/ead1fd816bf55b1f6838127122750959fc33b999), [this one](https://github.com/gama-platform/gama/commit/fbe60ca9a72f5b2be322d5bfe1b7ac179079ffcd), [this one](https://github.com/gama-platform/gama/commit/c4eb5023019a8f360d29870c7c3b7d6f425f4a8f) and this [issue](https://github.com/gama-platform/gama/issues/3817))
+* Various fixes and improvements for the reading/writing of `csv` files (see this [commit](https://github.com/gama-platform/gama/commit/ead1fd816bf55b1f6838127122750959fc33b999), [this one](https://github.com/gama-platform/gama/commit/fbe60ca9a72f5b2be322d5bfe1b7ac179079ffcd), [this one](https://github.com/gama-platform/gama/commit/c4eb5023019a8f360d29870c7c3b7d6f425f4a8f) and this [issue](https://github.com/gama-platform/gama.old/issues/3817))
 * Fixes bugs in the gaml editor when a display didn't contain any code
-* Improves the display of fields/mesh ([#3796](https://github.com/gama-platform/gama/issues/3796))
-* Fixes runtime error happening in torus models in certain cases ([#3783](https://github.com/gama-platform/gama/issues/3783))
-* Improvement of the type inference system for matrices ([#3792](https://github.com/gama-platform/gama/issues/3792))
-* Fixes `hpc` flag being ignored in some cases in headless mode ([#3687](https://github.com/gama-platform/gama/issues/3687))
-* Fixes a bug in `save_simulation` where simulations with variables of type font couldn't be saved ([#3815](https://github.com/gama-platform/gama/issues/3815))
-* Fixes default camera in 3d displays not being applied unless explicitly written ([#3811](https://github.com/gama-platform/gama/issues/3811))
-* Enables steps in `loop` statement to be of float type instead of silently casting it to int ([#3810](https://github.com/gama-platform/gama/issues/3810))
-* Type casting has been made more consistent (see [#3809 for colors](https://github.com/gama-platform/gama/issues/3809), [#3803](https://github.com/gama-platform/gama/issues/3803) for lists and [#3806](https://github.com/gama-platform/gama/issues/3806) for pairs )
+* Improves the display of fields/mesh ([#3796](https://github.com/gama-platform/gama.old/issues/3796))
+* Fixes runtime error happening in torus models in certain cases ([#3783](https://github.com/gama-platform/gama.old/issues/3783))
+* Improvement of the type inference system for matrices ([#3792](https://github.com/gama-platform/gama.old/issues/3792))
+* Fixes `hpc` flag being ignored in some cases in headless mode ([#3687](https://github.com/gama-platform/gama.old/issues/3687))
+* Fixes a bug in `save_simulation` where simulations with variables of type font couldn't be saved ([#3815](https://github.com/gama-platform/gama.old/issues/3815))
+* Fixes default camera in 3d displays not being applied unless explicitly written ([#3811](https://github.com/gama-platform/gama.old/issues/3811))
+* Enables steps in `loop` statement to be of float type instead of silently casting it to int ([#3810](https://github.com/gama-platform/gama.old/issues/3810))
+* Type casting has been made more consistent (see [#3809 for colors](https://github.com/gama-platform/gama.old/issues/3809), [#3803](https://github.com/gama-platform/gama.old/issues/3803) for lists and [#3806](https://github.com/gama-platform/gama.old/issues/3806) for pairs )
 * Improves memory management when drawing images (see [this commit](https://github.com/gama-platform/gama/commit/7839e38a71694621fab9174b1f8a8e5e81f866ec))
-* Fixes rendering issues in documentation navigation within gama on windows ([#3804](https://github.com/gama-platform/gama/issues/3804))
+* Fixes rendering issues in documentation navigation within gama on windows ([#3804](https://github.com/gama-platform/gama.old/issues/3804))
 * Better handling of `HTTP` responses (see this [commit](https://github.com/gama-platform/gama/commit/9f95125c85a3d63fe69e7c6697c3f48c1aa8e841))
-* Fixes runtime errors happening in some models with dynamic cameras ([#3821](https://github.com/gama-platform/gama/issues/3821))
-* Fixes issues related to search dialog in the help menu for macOS ([#3829](https://github.com/gama-platform/gama/issues/3829) and [#3828](https://github.com/gama-platform/gama/issues/3828))
+* Fixes runtime errors happening in some models with dynamic cameras ([#3821](https://github.com/gama-platform/gama.old/issues/3821))
+* Fixes issues related to search dialog in the help menu for macOS ([#3829](https://github.com/gama-platform/gama.old/issues/3829) and [#3828](https://github.com/gama-platform/gama.old/issues/3828))
 * Fixes some issues leading Morris exploration not being run (see this [commit](https://github.com/gama-platform/gama/commit/faa37a417e54e45d9ee305a89ed618f4ee10dd09))
 * Makes gama-server able to execute multiple commands at the same time in parallel for each client (see this [commit](https://github.com/gama-platform/gama/commit/e7abe5c69bed37472bb631aada11b88c33ee0716))
 * Adds an optional keepalive function to gama-server (see this [commit](https://github.com/gama-platform/gama/commit/e7abe5c69bed37472bb631aada11b88c33ee0716))
@@ -173,9 +173,9 @@ The library of models has undergone some changes. Besides making sure all the mo
 * Renaming the `memorize` type into `record` 
 * Introducing `compress` facet to indicate if a `memorize`/`record` experiment should use compression (reduces memory usage but increase computation time)
 * Introducing different formats used internally for `memorize`/`record` experiments that can be: `xml`, the legacy one, or two new ones: `json` and `binary` (both faster and more memory efficient) and can be set with the `format` facet of the experiment.
-* Fixing issues in the script `gama-headless.sh` used in macOS ([#3766](https://github.com/gama-platform/gama/issues/3766) and this [commit](https://github.com/gama-platform/gama/commit/1f0436ea9f668283f4824aefba5d0f1b13274318))
-* Multiple fixes on the `moran` operator (see this [issue](https://github.com/gama-platform/gama/issues/3848), this [commit](https://github.com/gama-platform/gama/commit/a4f3aad5d4dc9dfa56d5b5e4a9a8dda671f249b5) and [this one](https://github.com/gama-platform/gama/commit/01fa686a905bb2e37314496ab14a2b4a24d8ea07))
-* Fixing the shortcut for code suggestion in macOS ([#3852](https://github.com/gama-platform/gama/issues/3852))
+* Fixing issues in the script `gama-headless.sh` used in macOS ([#3766](https://github.com/gama-platform/gama.old/issues/3766) and this [commit](https://github.com/gama-platform/gama/commit/1f0436ea9f668283f4824aefba5d0f1b13274318))
+* Multiple fixes on the `moran` operator (see this [issue](https://github.com/gama-platform/gama.old/issues/3848), this [commit](https://github.com/gama-platform/gama/commit/a4f3aad5d4dc9dfa56d5b5e4a9a8dda671f249b5) and [this one](https://github.com/gama-platform/gama/commit/01fa686a905bb2e37314496ab14a2b4a24d8ea07))
+* Fixing the shortcut for code suggestion in macOS ([#3852](https://github.com/gama-platform/gama.old/issues/3852))
 * ASC file using dx/dy format can now be read too
 * Big memory leaks have been fixed for operations on images
 * Miscellaneous internal/architecture improvements
@@ -238,7 +238,7 @@ The library of models has undergone some changes. Besides making sure all the mo
  <summary>View all new models list</summary>
 
 * A model to showcase the use of SVG files: [ummisco.gaml.extensions.image/models/Images/models/SVG Manipulation.gaml](https://github.com/gama-platform/gama/blob/cfda0e49894472cd1475b055f886715d056222f4/ummisco.gaml.extensions.image/models/Images/models/SVG%20Manipulation.gaml)
-* An example model to test the new `mouse_drag` event: [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Mouse Drag.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Mouse%20Drag.gaml)
+* An example model to test the new `mouse_drag` event: [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Mouse Drag.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.2/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Mouse%20Drag.gaml)
 * Pedestrian movement following Mehdi Moussaid's model: [msi.gama.models/models/Toy Models/Pedestrian/models/Moussaid model.gaml](https://github.com/gama-platform/gama/blob/3192728f30e9ee89245ca89b1cfad4bd5e75f8ce/msi.gama.models/models/Toy%20Models/Pedestrian/models/Moussaid%20model.gaml) 
 * A new example of data importation to get a mapbox image as a background of the simulation: [msi.gama.models/models/Data/Data Importation/models/MapBox Image Import As Background Image.gaml](https://github.com/gama-platform/gama/blob/cfda0e49894472cd1475b055f886715d056222f4/msi.gama.models/models/Data/Data%20Importation/models/MapBox%20Image%20Import%20As%20Background%20Image.gaml)
 
@@ -296,41 +296,41 @@ A new variable type (field) to support the management (import and use) of large 
 * simply access / modify values of spatial grids as simply as before, but with very high performance improvement
 
 Try out:
-* Basic syntax to create and visualize fields: [Fields.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Data%20Types%20And%20Structures/Fields.gaml)
-* Basic syntax to access/write values in fields: [Accessing Fields.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Fields/Accessing%20Fields.gaml)
-* Use of field to superpose information in a trafic simulation: [Traffic and Pollution.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Traffic/models/Traffic%20and%20Pollution.gaml)
-* Use of field to represent flows (water): [Waterflow Field Elevation.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Waterflow/models/Waterflow%20Field%20Elevation.gaml)
-* Use of field to support diffusion process: [Anisotropic Diffusion](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/ummisco.gaml.extensions.maths/models/Diffusion%20Statement/models/Anisotropic%20Diffusion%20(Simple%2C%20Field).gaml) & [Uniform Diffusion](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/ummisco.gaml.extensions.maths/models/Diffusion%20Statement/models/Uniform%20Diffusion%20(Field).gaml)
+* Basic syntax to create and visualize fields: [Fields.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Data%20Types%20And%20Structures/Fields.gaml)
+* Basic syntax to access/write values in fields: [Accessing Fields.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Fields/Accessing%20Fields.gaml)
+* Use of field to superpose information in a trafic simulation: [Traffic and Pollution.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Traffic/models/Traffic%20and%20Pollution.gaml)
+* Use of field to represent flows (water): [Waterflow Field Elevation.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Waterflow/models/Waterflow%20Field%20Elevation.gaml)
+* Use of field to support diffusion process: [Anisotropic Diffusion](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/ummisco.gaml.extensions.maths/models/Diffusion%20Statement/models/Anisotropic%20Diffusion%20(Simple%2C%20Field).gaml) & [Uniform Diffusion](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/ummisco.gaml.extensions.maths/models/Diffusion%20Statement/models/Uniform%20Diffusion%20(Field).gaml)
 
 #### `image` type
 * Easier to work with images 
 
 Try out:
-* Basic syntax to create an image: [Declaring Images.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Declaring%20Images.gaml)
-* Basic syntax to manipulate an image: [Image Manipulation.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Image%20Manipulation.gaml)
-* Save snapshot of a simulation displays: [Manual Snapshot.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Manual%20Snapshot.gaml)
+* Basic syntax to create an image: [Declaring Images.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Declaring%20Images.gaml)
+* Basic syntax to manipulate an image: [Image Manipulation.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Image%20Manipulation.gaml)
+* Save snapshot of a simulation displays: [Manual Snapshot.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Manual%20Snapshot.gaml)
 
 #### `pedestrian` skill
 A new plugin has been integrated in GAMA that allows to simulate pedestrian movement. This plugin uses Helbing's social force model as a basis to support pedestrian walk and offers tools to reconstruct paths from an open environment and obstacles. This two new features are identified by a skill (```pedestrian```) and an operator (```generate_pedestrian_network```) respectively. You can find examples in the models below. 
 
 Try out:
-* How to build the pedestrian network that agents use to manage the origin and destination of their trip in the open environment: [Generate pedestrian paths.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Generate%20pedestrian%20paths.gaml)
-* A comprehensive list of the parameters that makes it possible how agent avoid obstacles, in a simple ([Simple environment - walk_to.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Simple%20environment%20-%20walk_to.gaml)) and a complex ([Complex environment - walk.gaml](https://github.com/gama-platform/gama/blob/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Complex%20environment%20-%20walk.gaml)) environment
+* How to build the pedestrian network that agents use to manage the origin and destination of their trip in the open environment: [Generate pedestrian paths.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Generate%20pedestrian%20paths.gaml)
+* A comprehensive list of the parameters that makes it possible how agent avoid obstacles, in a simple ([Simple environment - walk_to.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Simple%20environment%20-%20walk_to.gaml)) and a complex ([Complex environment - walk.gaml](https://github.com/gama-platform/gama.old/blob/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Complex%20environment%20-%20walk.gaml)) environment
 
 #### `advanced_driving` skill
 The driving skill has been completely redesigned in order to offer a more realistic representation of driver behavior (by explicitly using the Intelligent Driver Model and Lane-change Model MOBIL) and by allowing to take into account multi-lane vehicles - this allows for example to simulate mixed traffic composed of motorcycles and cars. Besides, the behavior of drivers can be custom to represent non normative behavior, such as dangerous take-off, disrespect of signals, signs, speed limit or road direction and lanes.
 
 Try out:
-* An abstract representation of vehicles size (bus, car, motorcycle) and free use of road lanes and direction ([Drive Random.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Drive%20Random.gaml))
-* An abstract representation of vehicles managing cross section, with collision avoidance, priority, etc. ([Simple Intersection.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Simple%20Intersection.gaml))
-* A very small road system with stops to simulate congestion ([Following Paths.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Following%20Paths.gaml))
+* An abstract representation of vehicles size (bus, car, motorcycle) and free use of road lanes and direction ([Drive Random.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Drive%20Random.gaml))
+* An abstract representation of vehicles managing cross section, with collision avoidance, priority, etc. ([Simple Intersection.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Simple%20Intersection.gaml))
+* A very small road system with stops to simulate congestion ([Following Paths.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Following%20Paths.gaml))
 
 #### Physics extension improvement
 Physics plugin has been completely rewritten and allows to use native implementations of the bullet library in a redesigned framework (where physical agents can coexist with non-physical ones).
 
 Try out:
-* Interaction between static (skill ```static_body```) and dynamic (skill ```dynamic_body```) 3D objects ([Eroding Vulcano.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Eroding%20Vulcano.gaml))
-* Manage 3D objects movement based on a Digital Elevation Model ([Flow on Terrain.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Flow%20on%20Terrain.gaml))
+* Interaction between static (skill ```static_body```) and dynamic (skill ```dynamic_body```) 3D objects ([Eroding Vulcano.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Eroding%20Vulcano.gaml))
+* Manage 3D objects movement based on a Digital Elevation Model ([Flow on Terrain.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Flow%20on%20Terrain.gaml))
 
 ***
 
@@ -341,8 +341,8 @@ Try out:
 Batch experiments have been reworked to better distinguish simulation exploration and model calibration. On the first hand, modelers should engage in simulation exploration if they want to launch many simulations across the parameter space, better understand the contribution of stochasticity and evaluate the specific contribution of given parameters to output variability. On the other hand, modelers should use calibration methods if they want to find parameters values of the models, so the simulation outputs are as close as possible to desired ones. A detailed description is provided in this [wiki page](https://github.com/gama-platform/gama/wiki/ExplorationMethods).
 
 Try out:
-* A walkthrough of all provided methods to explore, method ``` exploration```, and analyse the sensitivity of your model, including a tool to decide  method ```stochanalyse``` or  method ```sobol``` ([Exploration.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Model%20Exploration/Batch%20Simulation/Exploration.gaml))
-* A walkthrough of minimal way to setup calibration, including the new `PSO` algorithm ([Calibration.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Model%20Exploration/Batch%20Simulation/Calibration.gaml))
+* A walkthrough of all provided methods to explore, method ``` exploration```, and analyse the sensitivity of your model, including a tool to decide  method ```stochanalyse``` or  method ```sobol``` ([Exploration.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Model%20Exploration/Batch%20Simulation/Exploration.gaml))
+* A walkthrough of minimal way to setup calibration, including the new `PSO` algorithm ([Calibration.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Model%20Exploration/Batch%20Simulation/Calibration.gaml))
 
 #### Headless batch
 
@@ -399,8 +399,8 @@ Great improvements have been done on the displays and specifically on opengl one
 * It is now possible to open wizards and dialogs from the GAML code thanks to the [user_confirm](OperatorsSZ#user_confirm), [user_input_dialog](OperatorsSZ#user_input_dialog), [wizard](OperatorsSZ#wizard) and [wizard_page](OperatorsSZ#wizard_page) operators.
 
 Try out:
-* How to define a new wizard ([Wizard.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Wizard.gaml))
-* detailed use of the new user_input ([User input.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/User%20input.gaml))
+* How to define a new wizard ([Wizard.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Wizard.gaml))
+* detailed use of the new user_input ([User input.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/User%20input.gaml))
 
 #### Addition of events
 
@@ -449,9 +449,9 @@ Integration of new algorithms for computing shortest paths in graphs.
 You can now load / save your graph into dedicated file format such as .gml, .dot or .gefx to build your graph.
 
 Try out:
-* Load agents from a graph file ([Graph Agents Importation.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Importation/models/Graph%20Agents%20Importation.gaml)) 
-* Load the entire graph from files ([Graph Importation.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Importation/models/Graph%20Importation.gaml)) 
-* Save graphs into dedicated files format ([Save Graphs.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Exportation/models/Save%20Graphs.gaml))
+* Load agents from a graph file ([Graph Agents Importation.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Importation/models/Graph%20Agents%20Importation.gaml)) 
+* Load the entire graph from files ([Graph Importation.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Importation/models/Graph%20Importation.gaml)) 
+* Save graphs into dedicated files format ([Save Graphs.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Exportation/models/Save%20Graphs.gaml))
 
 #### Layout
 
@@ -582,109 +582,109 @@ You can also check the complete list of the closed issues on the [github reposit
 The library of models has undergone some changes. Besides making sure all the models compile and run fine under the new version of GAMA, it also brings some new models, which are listed below:
 
 #### Usage of the `pedestrian` skill
-* [miat.gaml.extensions.pedestrian/models/Pedestrian Skill/models/Complex environment - walk.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Complex%20environment%20-%20walk.gaml)
-* [miat.gaml.extensions.pedestrian/models/Pedestrian Skill/models/Generate pedestrian paths.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Generate%20pedestrian%20paths.gaml)
-* [miat.gaml.extensions.pedestrian/models/Pedestrian Skill/models/Simple environment - walk_to.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Simple%20environment%20-%20walk_to.gaml)
+* [miat.gaml.extensions.pedestrian/models/Pedestrian Skill/models/Complex environment - walk.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Complex%20environment%20-%20walk.gaml)
+* [miat.gaml.extensions.pedestrian/models/Pedestrian Skill/models/Generate pedestrian paths.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Generate%20pedestrian%20paths.gaml)
+* [miat.gaml.extensions.pedestrian/models/Pedestrian Skill/models/Simple environment - walk_to.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/miat.gaml.extensions.pedestrian/models/Pedestrian%20Skill/models/Simple%20environment%20-%20walk_to.gaml)
 
 ***
 #### New `graph` capabilities
-* [msi.gama.models/models/Data/Data Exportation/models/Save Graphs.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Exportation/models/Save%20Graphs.gaml)
-* [msi.gama.models/models/Data/Data Importation/models/Graph Agents Importation.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Importation/models/Graph%20Agents%20Importation.gaml)
-* [msi.gama.models/models/Data/Data Importation/models/Graph Importation.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Importation/models/Graph%20Importation.gaml)
-* [msi.gama.models/models/Modeling/Spatial Topology/Graphs/models/Clustering.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Graphs/models/Clustering.gaml)
+* [msi.gama.models/models/Data/Data Exportation/models/Save Graphs.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Exportation/models/Save%20Graphs.gaml)
+* [msi.gama.models/models/Data/Data Importation/models/Graph Agents Importation.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Importation/models/Graph%20Agents%20Importation.gaml)
+* [msi.gama.models/models/Data/Data Importation/models/Graph Importation.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Data/Data%20Importation/models/Graph%20Importation.gaml)
+* [msi.gama.models/models/Modeling/Spatial Topology/Graphs/models/Clustering.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Graphs/models/Clustering.gaml)
 
 ***
 #### Utilities
-* [msi.gama.models/models/Data/Utils/models/FileUtils.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Data/Utils/models/FileUtils.gaml)
-* [msi.gama.models/models/Data/Utils/models/TestWebAddress.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Data/Utils/models/TestWebAddress.gaml)
-* [msi.gama.models/models/Data/Utils/models/ZipUnzip.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Data/Utils/models/ZipUnzip.gaml)
+* [msi.gama.models/models/Data/Utils/models/FileUtils.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Data/Utils/models/FileUtils.gaml)
+* [msi.gama.models/models/Data/Utils/models/TestWebAddress.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Data/Utils/models/TestWebAddress.gaml)
+* [msi.gama.models/models/Data/Utils/models/ZipUnzip.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Data/Utils/models/ZipUnzip.gaml)
 
 ***
 #### Elements of GAML syntax
-* [msi.gama.models/models/GAML Syntax/Abort statement/Abort.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Abort%20statement/Abort.gaml)
-* [msi.gama.models/models/GAML Syntax/Data Types And Structures/Fields.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Data%20Types%20And%20Structures/Fields.gaml)
-* [msi.gama.models/models/GAML Syntax/Loop And Iterations/Break and Continue.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Loop%20And%20Iterations/Break%20and%20Continue.gaml)
-* [msi.gama.models/models/GAML Syntax/System/Clipboard.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/System/Clipboard.gaml)
-* [msi.gama.models/models/GAML Syntax/System/Elements of Syntax.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/System/Elements%20of%20Syntax.gaml)
-* [msi.gama.models/models/GAML Syntax/System/RunThread.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/System/RunThread.gaml)
-* [msi.gama.models/models/GAML Syntax/Variables/Declaration of Parameters.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Variables/Declaration%20of%20Parameters.gaml)
-* [msi.gama.models/models/GAML Syntax/Variables/Notifying Variables.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Variables/Notifying%20Variables.gaml)
+* [msi.gama.models/models/GAML Syntax/Abort statement/Abort.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Abort%20statement/Abort.gaml)
+* [msi.gama.models/models/GAML Syntax/Data Types And Structures/Fields.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Data%20Types%20And%20Structures/Fields.gaml)
+* [msi.gama.models/models/GAML Syntax/Loop And Iterations/Break and Continue.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Loop%20And%20Iterations/Break%20and%20Continue.gaml)
+* [msi.gama.models/models/GAML Syntax/System/Clipboard.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/System/Clipboard.gaml)
+* [msi.gama.models/models/GAML Syntax/System/Elements of Syntax.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/System/Elements%20of%20Syntax.gaml)
+* [msi.gama.models/models/GAML Syntax/System/RunThread.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/System/RunThread.gaml)
+* [msi.gama.models/models/GAML Syntax/Variables/Declaration of Parameters.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Variables/Declaration%20of%20Parameters.gaml)
+* [msi.gama.models/models/GAML Syntax/Variables/Notifying Variables.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/GAML%20Syntax/Variables/Notifying%20Variables.gaml)
 
 ***
 #### New `batch` capabilities
-* [msi.gama.models/models/Model Exploration/Batch Simulation/Calibration.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Model%20Exploration/Batch%20Simulation/Calibration.gaml)
-* [msi.gama.models/models/Model Exploration/Batch Simulation/Exploration.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Model%20Exploration/Batch%20Simulation/Exploration.gaml)
+* [msi.gama.models/models/Model Exploration/Batch Simulation/Calibration.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Model%20Exploration/Batch%20Simulation/Calibration.gaml)
+* [msi.gama.models/models/Model Exploration/Batch Simulation/Exploration.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Model%20Exploration/Batch%20Simulation/Exploration.gaml)
 
 ***
 #### Toy models
-* [msi.gama.models/models/Toy Models/Art/Gama 1.9/models/GAMA 1.9.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Art/Gama%201.9/models/GAMA%201.9.gaml)
-* [msi.gama.models/models/Toy Models/Games/Snake.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Games/Snake.gaml)
-* [msi.gama.models/models/Toy Models/K Nearest Neighbours/models/knn.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/K%20Nearest%20Neighbours/models/knn.gaml)
+* [msi.gama.models/models/Toy Models/Art/Gama 1.9/models/GAMA 1.9.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Art/Gama%201.9/models/GAMA%201.9.gaml)
+* [msi.gama.models/models/Toy Models/Games/Snake.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Games/Snake.gaml)
+* [msi.gama.models/models/Toy Models/K Nearest Neighbours/models/knn.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/K%20Nearest%20Neighbours/models/knn.gaml)
 
 ***
 #### Declaration and usage of `field`
-* [msi.gama.models/models/Modeling/Spatial Topology/Fields/Accessing Fields.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Fields/Accessing%20Fields.gaml)
-* [msi.gama.models/models/Toy Models/Waterflow/models/Waterflow Field Elevation.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Waterflow/models/Waterflow%20Field%20Elevation.gaml)
-* [msi.gama.models/models/Toy Models/Traffic/models/Traffic and Pollution.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Traffic/models/Traffic%20and%20Pollution.gaml)
-* [ummisco.gaml.extensions.maths/models/Diffusion Statement/models/Anisotropic Diffusion (Simple, Field).gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/models/Diffusion%20Statement/models/Anisotropic%20Diffusion%20(Simple,%20Field).gaml)
-* [ummisco.gaml.extensions.maths/models/Diffusion Statement/models/Uniform Diffusion (Field).gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/models/Diffusion%20Statement/models/Uniform%20Diffusion%20(Field).gaml)
-* [msi.gama.models/models/Visualization and User Interaction/Visualization/Building Heatmap.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/Building%20Heatmap.gaml)
-* [msi.gama.models/models/Visualization and User Interaction/Visualization/DEM Generator.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/DEM%20Generator.gaml)
-* [msi.gama.models/models/Visualization and User Interaction/Visualization/Palettes and Gradients.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/Palettes%20and%20Gradients.gaml)
-* [msi.gama.models/models/Visualization and User Interaction/Visualization/Worm Heatmap.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/Worm%20Heatmap.gaml)
+* [msi.gama.models/models/Modeling/Spatial Topology/Fields/Accessing Fields.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Modeling/Spatial%20Topology/Fields/Accessing%20Fields.gaml)
+* [msi.gama.models/models/Toy Models/Waterflow/models/Waterflow Field Elevation.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Waterflow/models/Waterflow%20Field%20Elevation.gaml)
+* [msi.gama.models/models/Toy Models/Traffic/models/Traffic and Pollution.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Toy%20Models/Traffic/models/Traffic%20and%20Pollution.gaml)
+* [ummisco.gaml.extensions.maths/models/Diffusion Statement/models/Anisotropic Diffusion (Simple, Field).gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/models/Diffusion%20Statement/models/Anisotropic%20Diffusion%20(Simple,%20Field).gaml)
+* [ummisco.gaml.extensions.maths/models/Diffusion Statement/models/Uniform Diffusion (Field).gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/models/Diffusion%20Statement/models/Uniform%20Diffusion%20(Field).gaml)
+* [msi.gama.models/models/Visualization and User Interaction/Visualization/Building Heatmap.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/Building%20Heatmap.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/Visualization/DEM Generator.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/DEM%20Generator.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/Visualization/Palettes and Gradients.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/Palettes%20and%20Gradients.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/Visualization/Worm Heatmap.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/Worm%20Heatmap.gaml)
 
 ***
 #### New user interaction modalities
-* [msi.gama.models/models/Visualization and User Interaction/GUI Design/Parameters and Commands.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/GUI%20Design/Parameters%20and%20Commands.gaml)
-* [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Confirm Dialog.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Confirm%20Dialog.gaml)
-* [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/User input.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/User%20input.gaml)
-* [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Wizard.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Wizard.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/GUI Design/Parameters and Commands.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/GUI%20Design/Parameters%20and%20Commands.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Confirm Dialog.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Confirm%20Dialog.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/User input.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/User%20input.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/User Interaction/models/Wizard.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/User%20Interaction/models/Wizard.gaml)
 
 ***
 #### New `camera` and `light` definitions
-* [msi.gama.models/models/Visualization and User Interaction/Visualization/3D Visualization/models/Camera Definitions.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Camera%20Definitions.gaml)
-* [msi.gama.models/models/Visualization and User Interaction/Visualization/3D Visualization/models/Camera Shared Zoom.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Camera%20Shared%20Zoom.gaml)
-* [msi.gama.models/models/Visualization and User Interaction/Visualization/3D Visualization/models/Specular Effects.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Specular%20Effects.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/Visualization/3D Visualization/models/Camera Definitions.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Camera%20Definitions.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/Visualization/3D Visualization/models/Camera Shared Zoom.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Camera%20Shared%20Zoom.gaml)
+* [msi.gama.models/models/Visualization and User Interaction/Visualization/3D Visualization/models/Specular Effects.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/msi.gama.models/models/Visualization%20and%20User%20Interaction/Visualization/3D%20Visualization/models/Specular%20Effects.gaml)
 
 ***
 #### Physics engine demonstrations
-* [simtools.gaml.extensions.physics/models/Physics Engine/models/Eroding Vulcano.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Eroding%20Vulcano.gaml)
-* [simtools.gaml.extensions.physics/models/Physics Engine/models/Flow on Terrain.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Flow%20on%20Terrain.gaml)
-* [simtools.gaml.extensions.physics/models/Physics Engine/models/Perfect Gas Chamber.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Perfect%20Gas%20Chamber.gaml)
-* [simtools.gaml.extensions.physics/models/Physics Engine/models/Play Pool.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Play%20Pool.gaml)
-* [simtools.gaml.extensions.physics/models/Physics Engine/models/Stairs.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Stairs.gaml)
-* [simtools.gaml.extensions.physics/models/Physics Engine/models/Testing Restitution.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Testing%20Restitution.gaml)
-* [simtools.gaml.extensions.physics/models/Physics Engine/models/Testing Steps.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Testing%20Steps.gaml)
-* [simtools.gaml.extensions.physics/models/Physics Engine/models/Tricky Fountain.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Tricky%20Fountain.gaml)
+* [simtools.gaml.extensions.physics/models/Physics Engine/models/Eroding Vulcano.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Eroding%20Vulcano.gaml)
+* [simtools.gaml.extensions.physics/models/Physics Engine/models/Flow on Terrain.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Flow%20on%20Terrain.gaml)
+* [simtools.gaml.extensions.physics/models/Physics Engine/models/Perfect Gas Chamber.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Perfect%20Gas%20Chamber.gaml)
+* [simtools.gaml.extensions.physics/models/Physics Engine/models/Play Pool.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Play%20Pool.gaml)
+* [simtools.gaml.extensions.physics/models/Physics Engine/models/Stairs.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Stairs.gaml)
+* [simtools.gaml.extensions.physics/models/Physics Engine/models/Testing Restitution.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Testing%20Restitution.gaml)
+* [simtools.gaml.extensions.physics/models/Physics Engine/models/Testing Steps.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Testing%20Steps.gaml)
+* [simtools.gaml.extensions.physics/models/Physics Engine/models/Tricky Fountain.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.physics/models/Physics%20Engine/models/Tricky%20Fountain.gaml)
 
 ***
 #### New `driving` skill 
-* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Advanced models/Drive Random.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Drive%20Random.gaml)
-* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Advanced models/Following Paths.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Following%20Paths.gaml)
-* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Advanced models/Simple Intersection.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Simple%20Intersection.gaml)
-* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Advanced models/Traffic.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Traffic.gaml)
-* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Simple model/Simple Traffic Model.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Simple%20model/Simple%20Traffic%20Model.gaml)
+* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Advanced models/Drive Random.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Drive%20Random.gaml)
+* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Advanced models/Following Paths.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Following%20Paths.gaml)
+* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Advanced models/Simple Intersection.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Simple%20Intersection.gaml)
+* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Advanced models/Traffic.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Advanced%20models/Traffic.gaml)
+* [simtools.gaml.extensions.traffic/models/Driving Skill/models/Simple model/Simple Traffic Model.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/simtools.gaml.extensions.traffic/models/Driving%20Skill/models/Simple%20model/Simple%20Traffic%20Model.gaml)
 
 ***
 #### New network capabilities
-* [ummisco.gama.network/models/Network/2 Available protocols/HTTP Request/HTTP GET.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/HTTP%20Request/HTTP%20GET.gaml)
-* [ummisco.gama.network/models/Network/2 Available protocols/HTTP Request/HTTP POST.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/HTTP%20Request/HTTP%20POST.gaml)
-* [ummisco.gama.network/models/Network/2 Available protocols/TCP protocol/TCP Server And Client Example .gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/TCP%20protocol/TCP%20Server%20And%20Client%20Example%20.gaml)
-* [ummisco.gama.network/models/Network/2 Available protocols/TCP protocol/TCP Server Example.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/TCP%20protocol/TCP%20Server%20Example.gaml)
-* [ummisco.gama.network/models/Network/2 Available protocols/WebSocket protocol/WebSocket Server And Client Example .gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/WebSocket%20protocol/WebSocket%20Server%20And%20Client%20Example%20.gaml)
-* [ummisco.gama.network/models/Network/2 Available protocols/WebSocket protocol/WebSocket Server Example.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/WebSocket%20protocol/WebSocket%20Server%20Example.gaml)
+* [ummisco.gama.network/models/Network/2 Available protocols/HTTP Request/HTTP GET.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/HTTP%20Request/HTTP%20GET.gaml)
+* [ummisco.gama.network/models/Network/2 Available protocols/HTTP Request/HTTP POST.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/HTTP%20Request/HTTP%20POST.gaml)
+* [ummisco.gama.network/models/Network/2 Available protocols/TCP protocol/TCP Server And Client Example .gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/TCP%20protocol/TCP%20Server%20And%20Client%20Example%20.gaml)
+* [ummisco.gama.network/models/Network/2 Available protocols/TCP protocol/TCP Server Example.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/TCP%20protocol/TCP%20Server%20Example.gaml)
+* [ummisco.gama.network/models/Network/2 Available protocols/WebSocket protocol/WebSocket Server And Client Example .gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/WebSocket%20protocol/WebSocket%20Server%20And%20Client%20Example%20.gaml)
+* [ummisco.gama.network/models/Network/2 Available protocols/WebSocket protocol/WebSocket Server Example.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gama.network/models/Network/2%20Available%20protocols/WebSocket%20protocol/WebSocket%20Server%20Example.gaml)
 
 ***
 #### Usage of the `image` type
-* [ummisco.gaml.extensions.image/models/Images/models/Casting Images.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Casting%20Images.gaml)
-* [ummisco.gaml.extensions.image/models/Images/models/Declaring Images.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Declaring%20Images.gaml)
-* [ummisco.gaml.extensions.image/models/Images/models/Image Manipulation.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Image%20Manipulation.gaml)
-* [ummisco.gaml.extensions.image/models/Images/models/Manual Snapshot.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Manual%20Snapshot.gaml)
+* [ummisco.gaml.extensions.image/models/Images/models/Casting Images.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Casting%20Images.gaml)
+* [ummisco.gaml.extensions.image/models/Images/models/Declaring Images.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Declaring%20Images.gaml)
+* [ummisco.gaml.extensions.image/models/Images/models/Image Manipulation.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Image%20Manipulation.gaml)
+* [ummisco.gaml.extensions.image/models/Images/models/Manual Snapshot.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.image/models/Images/models/Manual%20Snapshot.gaml)
 
 ***
 #### New mathematical tests
-* [ummisco.gaml.extensions.maths/tests/ODE Tests/models/Consistency Test.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/tests/ODE%20Tests/models/Consistency%20Test.gaml)
-* [ummisco.gaml.extensions.maths/tests/ODE Tests/models/Events Test.gaml](https://github.com/gama-platform/gama/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/tests/ODE%20Tests/models/Events%20Test.gaml)
+* [ummisco.gaml.extensions.maths/tests/ODE Tests/models/Consistency Test.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/tests/ODE%20Tests/models/Consistency%20Test.gaml)
+* [ummisco.gaml.extensions.maths/tests/ODE Tests/models/Events Test.gaml](https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/tests/ODE%20Tests/models/Events%20Test.gaml)
 
 
 </details>

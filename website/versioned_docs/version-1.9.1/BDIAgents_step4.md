@@ -76,6 +76,6 @@ species miner skills: [moving] control: simple_bdi {
 ## Complete Model
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.9.0/msi.gaml.architecture.simplebdi/models/BDI%20Architecture/models/Tutorial/BDI%20tutorial%204.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.9.0/msi.gaml.architecture.simplebdi/models/BDI%20Architecture/models/Tutorial/BDI%20tutorial%204.gaml
 ```
 

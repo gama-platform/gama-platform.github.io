@@ -287,5 +287,5 @@ experiment GoldBdi type: gui {
 
 
 ```gaml reference
-https://github.com/gama-platform/gama/blob/GAMA_1.8.2/msi.gaml.architecture.simplebdi/models/BDI%20Architecture/models/Tutorial/BDI%20tutorial%202.gaml
+https://github.com/gama-platform/gama.old/blob/GAMA_1.8.2/msi.gaml.architecture.simplebdi/models/BDI%20Architecture/models/Tutorial/BDI%20tutorial%202.gaml
 ```
