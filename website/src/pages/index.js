@@ -20,7 +20,7 @@ function Home() {
   return (
     <Layout
       title={siteConfig.title}
-      description="A modern styling framework for content-driven websites">
+      description="GAMA is an easy-to-use open source modeling and simulation environment for creating spatially explicit agent-based simulations.">
       <header className={clsx('hero', styles.heroBanner)}>
         <div className="container">
           <img
