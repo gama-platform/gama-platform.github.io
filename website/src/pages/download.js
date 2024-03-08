@@ -21,7 +21,8 @@ export default function Download() {
   );
 
   return (
-    <Layout>
+    <Layout
+      description="GAMA is an easy-to-use open source modeling and simulation environment for creating spatially explicit agent-based simulations.">
 
       <style dangerouslySetInnerHTML={{__html: `
         .row {
