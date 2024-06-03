@@ -127,6 +127,7 @@ export default function Download() {
           <Button href={`/wiki/Changelog`} col="4" buttonColor="warning">What's new?</Button>
           <Button href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`} col="4" buttonColor="danger">Other installation versions</Button>
           <Button href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv193.pdf`} col="4" buttonColor="primary">PDF Documentation</Button>
+          <Button href={`https://docs.google.com/document/d/1n4-l6VmqSi6lFPyhdeCnowK9pG5gM773/edit?usp=sharing&ouid=101392264667256926559&rtpof=true&sd=true`} col="4" buttonColor="primary">Cheat Sheet GAML Documentation</Button>
       </div>
 
       </div>
