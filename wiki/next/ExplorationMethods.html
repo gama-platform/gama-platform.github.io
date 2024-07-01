@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 <script src="/js/blogFacebook-iFrame.js" async></script><link rel="stylesheet" href="/assets/css/styles.ee3c7e87.css">
-<script src="/assets/js/runtime~main.44d6ddf9.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.4ccb310f.js" defer="defer"></script>
 <script src="/assets/js/main.d44d5e69.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -139,7 +139,10 @@ When the <code>sample</code> facet is used, Gama scattered the parameters to obt
 <li>coefficient of variation (see this <a href="https://eracons.com/resources/mcs-post-processing" target="_blank" rel="noopener noreferrer">blog post</a> for neat concise explanation)</li>
 </ul>
 <p>Each measure is made <em>n</em> times, one for each simulation point, with <em>n</em> the value of facet <code>sample</code>, and <em>m</em> replicates for each point, with <em>m</em> the value of facet experiment <code>repeat</code>. It means that, we provide <em>n</em> statistical tests, for which we have <em>m</em> instances. The tests are conducted with 2 replicates, then 3, 4, etc. up to <em>m</em>; repeated <em>n</em> times. Tests gives you correlation and error indexes, for 2 to <em>m</em> replicates, with various build-in thresholds to decide if test is successful on not. Tests are repeated <em>n</em> times to ensure that they are not processed on a particular configuration of the simulation, that is a point in the parameter space that do not over or under estimate the contribution of stochastic processes.</p>
-<p>The third test is a power test based on <a href="https://doi.org/10.1007/978-3-319-66948-9_11" target="_blank" rel="noopener noreferrer">Seri and Secchi, 2017</a>. The statistical constraints are alpha=0.01 (aka p-value) and beta=0.05 (aka power test). According to the aforementioned publication, the results of such test is given according to a range of acceptable effect size (EF), which is a threshold of significant variation of the simulation output values.</p>
+<ul>
+<li>power test (see <a href="https://doi.org/10.1007/978-3-319-66948-9_11" target="_blank" rel="noopener noreferrer">Seri and Secchi, 2017</a>).</li>
+</ul>
+<p>This procedure estimates the number of replicates based on identification of false-positive (Type I error) and false-negative (Type II error) in a Neyman-Pearson test. The statistical constraints are alpha=0.01 (aka p-value) and beta=0.05 (aka power test). According to the aforementioned publication, the results of such test is given according to a range of acceptable effect size (EF), which is a threshold of significant variation of the simulation output values.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="useful-facets">Useful facets:<a class="hash-link" aria-label="Direct link to Useful facets:" title="Direct link to Useful facets:" href="/wiki/next/ExplorationMethods#useful-facets">​</a></h4>
 <ul>
 <li><code>sample</code>: the number of point of the parameter space to build. Optional, when omitted default value is 1.</li>
