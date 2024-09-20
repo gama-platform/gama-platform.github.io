@@ -21,9 +21,6 @@ authorImageURL: ""
 <!-- To be linked on twitter if someone share your link -->: ""
 <!-- @[authorTwitter] // ex: "@gamaplatform -->"
 authorTwitter: gamaplatform
-<!-- Tags/Categories will be used in the next version (v2) of the Docusaurus framework -->: ""
-<!-- but they can already be specified in your article header.-->: ""
-tags: [template, learning]
 ---
 All this will be part of the blog post summary.
 

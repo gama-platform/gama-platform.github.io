@@ -19,9 +19,6 @@ authorFBID: GamaPlatform
 <!-- To be linked on twitter if someone share your link -->: ""
 <!-- @[authorTwitter] // ex: "@gamaplatform -->"
 authorTwitter: gamaplatform
-<!-- Tags/Categories will be used in the next version (v2) of the Docusaurus framework -->: ""
-<!-- but they can already be specified in your article header.-->: ""
-tags: [docker, headless, release]
 ---
 
 ![Containers](https://images.unsplash.com/photo-1493946740644-2d8a1f1a6aff)
