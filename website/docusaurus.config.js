@@ -2,88 +2,88 @@ const latestVersion="1.9.3"
 
 module.exports={
   // Main website options
-  "title": "GAMA Platform",
-  "tagline": "GAMA",
-  "url": "https://gama-platform.org",
-  "baseUrl": "/",
-  "favicon": "img/gama-logo.png",
+  title: "GAMA Platform",
+  tagline: "GAMA",
+  url: "https://gama-platform.org",
+  baseUrl: "/",
+  favicon: "img/gama-logo.png",
   titleDelimiter: '|',
 
   // Compilation/deploy options
-  "organizationName": "gama-platform",
-  "projectName": "gama-platform.github.io",
-  "onBrokenLinks": "log",
-  "onBrokenMarkdownLinks": "log",
-  "deploymentBranch": "master",
+  organizationName: "gama-platform",
+  projectName: "gama-platform.github.io",
+  onBrokenLinks: "log",
+  onBrokenMarkdownLinks: "log",
+  deploymentBranch: "master",
   // Needed to have an algolia crawler compatible website
-  "trailingSlash": false,
+  trailingSlash: false,
 
   // Adding in header
-  "scripts": [
+  scripts: [
     {
-      "src": "/js/blogFacebook-iFrame.js",
-      "async": true
+      src: "/js/blogFacebook-iFrame.js",
+      async: true
     }
   ],
-  "stylesheets": [
+  stylesheets: [
     "https://use.fontawesome.com/releases/v6.1.1/css/all.css",
   ],
 
   // Custom variables in page
-  "customFields": {
+  customFields: {
     footerIcon: 'img/gama-logo.png',
-    "docsUrl": "wiki",
-    "zipName": "GAMA_"+latestVersion,
-    "downloadVersion": latestVersion,
-    "facebookAppId": 524881055001796,
-    "frontPagePresentation": "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
-    "frontPageImgLink": "release"
+    docsUrl: "wiki",
+    zipName: "GAMA_"+latestVersion,
+    downloadVersion: latestVersion,
+    facebookAppId: 524881055001796,
+    frontPagePresentation: "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
+    frontPageImgLink: "release"
   },
 
   /*
    *  DOCUSAURUS CONFIGURATION
    */
-  "presets": [
+  presets: [
     [
       "@docusaurus/preset-classic",
       {
-        "docs": {
-          "showLastUpdateAuthor": false,
-          "showLastUpdateTime": false,
-          "path": "../docs",
+        docs: {
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
+          path: "../docs",
           routeBasePath: 'wiki',
-          "sidebarPath": "../website/sidebars.json",
+          sidebarPath: "../website/sidebars.json",
           editUrl: ({docPath}) => `https://github.com/gama-platform/gama/wiki/${docPath.slice(0, -3)}/_edit`,
           editCurrentVersion: true,
 
           // Version dropdown options
           lastVersion: latestVersion,
           /*versions: {
-            "1.8.1": {
+            "1.81: {
               label: '1.8.1',
               path: '',
             },
-            "1.8.2": {
+            "1.82: {
               label: '1.8.2',
               path: 'next',
             },
           },*/
-          "versions": {
-            "current": {
-              "label": '🚧 2024-06 🚧',
+          versions: {
+            current: {
+              label: '🚧 2024-06 🚧',
             },
           },
         },
-        "blog": {
-          "path": "blog"
+        blog: {
+          path: "blog"
         },
-        "theme": {
-          "customCss": "./src/css/customTheme.css"
+        theme: {
+          customCss: "./src/css/customTheme.css"
         }
       }
     ]
   ],
-  "themeConfig": {
+  themeConfig: {
     announcementBar: {
       // Change the ID for new announcement
       id: 'releaseGama193',
@@ -92,10 +92,10 @@ module.exports={
       textColor: '#e3e3e3',
       isCloseable: true,
     },
-    "colorMode": {
+    colorMode: {
       respectPrefersColorScheme: true,
     },
-    "prism": {
+    prism: {
       additionalLanguages: ['java','javascript','python'],
       defaultLanguage: 'gaml',
 
@@ -109,46 +109,52 @@ module.exports={
       indexName: 'gama-platform',
       contextualSearch: true,
     },
-    "docs": {
-      "sidebar": {
-        "autoCollapseCategories": true,
+    codeblock: {
+      showGithubLink: true,
+      githubLinkLabel: 'View on GitHub',
+      showRunmeLink: false,
+      runmeLinkLabel: 'Checkout via Runme'
+    },
+    docs: {
+      sidebar: {
+        autoCollapseCategories: true,
       },
     },
-    "navbar": {
-      "title": "GAMA Platform",
-      "logo": {
-        "src": "img/gama-logo.png"
+    navbar: {
+      title: "GAMA Platform",
+      logo: {
+        src: "img/gama-logo.png"
       },
       // Navigator bar
-      "items": [
+      items: [
         // Left side
         {
           type: 'doc',
-          "docId": "Home",
-          "label": "Documentation",
-          "position": "left"
+          docId: "Home",
+          label: "Documentation",
+          position: "left"
         },
         {
           type: 'doc',
-          "docId": "Tutorials",
-          "label": "Tutorials",
-          "position": "left"
+          docId: "Tutorials",
+          label: "Tutorials",
+          position: "left"
         },
         {
           type: 'doc',
-          "docId": "Community",
-          "label": "Community",
-          "position": "left"
+          docId: "Community",
+          label: "Community",
+          position: "left"
         },
         {
-          "to": "/download",
-          "label": "Download",
-          "position": "left"
+          to: "/download",
+          label: "Download",
+          position: "left"
         },
         {
-          "to": "/blog",
-          "label": "Blog",
-          "position": "left"
+          to: "/blog",
+          label: "Blog",
+          position: "left"
         },
 
         // Right Side
@@ -167,8 +173,8 @@ module.exports={
         }
       ]
     },
-    "image": "/resources/images/general/GamaPlatform.png",
-    "footer": {
+    image: "/resources/images/general/GamaPlatform.png",
+    footer: {
       links: [
         {
           title: 'Community',
@@ -222,18 +228,17 @@ module.exports={
           ],
         }
       ],
-      "copyright": `Copyright (C) - ${new Date().getFullYear()} GAMA Platform.`,
-      "logo": {
-        "src": "img/gama-logo.png"
+      copyright: `Copyright (C) - ${new Date().getFullYear()} GAMA Platform.`,
+      logo: {
+        src: "img/gama-logo.png"
       }
     }
   },
-
+  themes: ['docusaurus-theme-github-codeblock'],
   /*
    *  PLUGINS
    */
-  "plugins": [
-    require.resolve('@saucelabs/theme-github-codeblock'),
+  plugins: [
     [
       '@docusaurus/plugin-client-redirects',
       {
