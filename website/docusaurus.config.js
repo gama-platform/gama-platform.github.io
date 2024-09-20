@@ -75,7 +75,9 @@ module.exports={
           },
         },
         blog: {
-          path: "blog"
+          path: "blog",
+          onInlineAuthors: "ignore",
+          onUntruncatedBlogPosts: "ignore"
         },
         theme: {
           customCss: "./src/css/customTheme.css"
