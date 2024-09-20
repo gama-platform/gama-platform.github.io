@@ -109,12 +109,12 @@ module.exports={
       indexName: 'gama-platform',
       contextualSearch: true,
     },
-    codeblock: {
+    /*codeblock: {
       showGithubLink: true,
       githubLinkLabel: 'View on GitHub',
       showRunmeLink: false,
       runmeLinkLabel: 'Checkout via Runme'
-    },
+    },*/
     docs: {
       sidebar: {
         autoCollapseCategories: true,
@@ -234,7 +234,7 @@ module.exports={
       }
     }
   },
-  themes: ['docusaurus-theme-github-codeblock'],
+  //themes: ['docusaurus-theme-github-codeblock'],
   /*
    *  PLUGINS
    */
