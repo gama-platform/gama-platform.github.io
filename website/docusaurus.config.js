@@ -19,12 +19,6 @@ module.exports={
   trailingSlash: false,
 
   // Adding in header
-  scripts: [
-    {
-      src: "/js/blogFacebook-iFrame.js",
-      async: true
-    }
-  ],
   stylesheets: [
     "https://use.fontawesome.com/releases/v6.1.1/css/all.css",
   ],
@@ -73,11 +67,6 @@ module.exports={
               label: '🚧 2024-06 🚧',
             },
           },
-        },
-        blog: {
-          path: "blog",
-          onInlineAuthors: "ignore",
-          onUntruncatedBlogPosts: "ignore"
         },
         theme: {
           customCss: "./src/css/customTheme.css"
@@ -153,11 +142,6 @@ module.exports={
           label: "Download",
           position: "left"
         },
-        {
-          to: "/blog",
-          label: "Blog",
-          position: "left"
-        },
 
         // Right Side
         /* Waiting for https://github.com/gama-platform/gama-platform.github.io/issues/160
@@ -195,9 +179,6 @@ module.exports={
             },
             {
               html: '<a class="footer__link-item" href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Youtube <i class="fa fa-arrow-up-right-from-square"></i></a>'
-            },
-            {
-              html: '<a class="footer__link-item" href="https://gama-platform.org/blog/rss.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss"></i> Blog RSS <i class="fa fa-arrow-up-right-from-square"></i></a>'
             }
           ],
         },
