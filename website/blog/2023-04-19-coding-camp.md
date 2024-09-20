@@ -5,7 +5,6 @@ author: GAMA Team
 authorURL: https://github.com/gama-platform
 authorFBID: GamaPlatform
 authorTwitter: gamaplatform
-tags: [event, coding camp, vietnam]
 ---
 
 ![CodingCamp](/img/coding_camp_serious_2023.jpeg)
