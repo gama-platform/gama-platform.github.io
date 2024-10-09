@@ -218,6 +218,9 @@ module.exports={
     }
   },
   //themes: ['docusaurus-theme-github-codeblock'],
+  themes: [
+    '@roiarthurb/theme-github-codeblock'
+  ],
   /*
    *  PLUGINS
    */
