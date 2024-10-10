@@ -19,7 +19,7 @@
     "@docusaurus/theme-search-algolia": "^3.5.2",
     "@giscus/react": "^2.3.0",
     "@mdx-js/react": "^3.0.0",
-    "@roiarthurb/theme-github-codeblock": "^0.2.4",
+    "@saucelabs/theme-github-codeblock": "^0.3.0",
     "clsx": "^1.2.1",
     "prism-gaml": "^0.1.3",
     "prism-react-renderer": "^2.1.0",
