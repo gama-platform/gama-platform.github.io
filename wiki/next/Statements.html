@@ -7,7 +7,7 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"><link rel="stylesheet" href="/assets/css/styles.4f6f4213.css">
-<script src="/assets/js/runtime~main.a737f95f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.459c9801.js" defer="defer"></script>
 <script src="/assets/js/main.ec32d32a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -560,7 +560,7 @@
 <li><strong><code>outputs</code></strong> (list): The list of output variables to analyse</li>
 <li><strong><code>report</code></strong> (string): The path to the file where the Betad report will be written</li>
 <li><strong><code>sampling</code></strong> (an identifier): The sampling method to build parameters sets that must be factorial based to some extends - available are: latinhypercube, orthogonal, factorial, uniform, saltelli, morris</li>
-<li><code>bootstrap</code> (list): The number of time each parameter value is boostraped (or resampled in another context)</li>
+<li><code>bootstrap</code> (int): The number of time each parameter value is boostraped (or resampled in another context)</li>
 <li><code>results</code> (string): The path to the file where the automatic batch report will be written</li>
 <li><code>sample</code> (int): The number of sample required.</li>
 </ul>
@@ -1403,7 +1403,7 @@
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="facets-38">Facets<a href="#facets-38" class="hash-link" aria-label="Direct link to Facets" title="Direct link to Facets">​</a></h4>
 <ul>
 <li><strong><code>name</code></strong> (an identifier), (omissible) : The name of the method. For internal use only</li>
-<li><code>factorial</code> (list): The number slices (value) applied to each parameter to build the factorial experimental plan.</li>
+<li><code>factorial</code> (int): The number of slice (value) applied to each parameter to build the factorial experimental plan.</li>
 <li><code>from</code> (string): a path to a file where each lines correspond to one parameter set and each colon a parameter</li>
 <li><code>iterations</code> (int): The number of iteration for orthogonal sampling, 5 by default</li>
 <li><code>levels</code> (int): The number of levels for morris sampling, 4 by default</li>
