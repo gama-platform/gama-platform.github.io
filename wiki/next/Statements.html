@@ -7,7 +7,7 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"><link rel="stylesheet" href="/assets/css/styles.f8db4f8d.css">
-<script src="/assets/js/runtime~main.afb02424.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.5d73f4fb.js" defer="defer"></script>
 <script src="/assets/js/main.d2383e3b.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -2052,25 +2052,12 @@
 <ul>
 <li><code>background</code> (rgb): the background color of the overlay displayed inside the view (the bottom overlay remains black)</li>
 <li><code>border</code> (rgb): Color to apply to the border of the rectangular shape of the overlay. Nil by default</li>
-<li><code>center</code> (any type): an expression that will be evaluated and displayed in the center section of the bottom overlay</li>
 <li><code>color</code> (any type in [list, rgb]): the color(s) used to display the expressions given in the &#x27;left&#x27;, &#x27;center&#x27; and &#x27;right&#x27; facets</li>
-<li><code>left</code> (any type): an expression that will be evaluated and displayed in the left section of the bottom overlay</li>
 <li><code>position</code> (point): position of the upper-left corner of the layer. Note that if coordinates are in [0,1[, the position is relative to the size of the environment (e.g. {0.5,0.5} refers to the middle of the display) whereas it is absolute when coordinates are greater than 1 for x and y. The z-ordinate can only be defined between 0 and 1. The position can only be a 3D point {0.5, 0.5, 0.5}, the last coordinate specifying the elevation of the layer. In case of negative value OpenGl will position the layer out of the environment.</li>
-<li><code>right</code> (any type): an expression that will be evaluated and displayed in the right section of the bottom overlay</li>
 <li><code>rounded</code> (boolean): Whether or not the rectangular shape of the overlay should be rounded. True by default</li>
 <li><code>size</code> (point): extent of the layer in the view from its position. Coordinates in [0,1[ are treated as percentages of the total surface of the view, while coordinates &gt; 1 are treated as absolute sizes in model units (i.e. considering the model occupies the entire view). Unlike  &#x27;position&#x27;, no elevation can be provided with the z coordinate</li>
 <li><code>transparency</code> (float): the transparency rate of the overlay (between 0 -- opaque and 1 -- fully transparent) when it is displayed inside the view. The bottom overlay will remain at 0.75</li>
 <li><code>visible</code> (boolean): Defines whether this layer is visible or not</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-60">Definition<a href="#definition-60" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
-<p><code>overlay</code> allows the modeler to display a line to the already existing bottom overlay, where the results of &#x27;left&#x27;, &#x27;center&#x27; and &#x27;right&#x27; facets, when they are defined, are displayed with the corresponding color if defined.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-60">Usages<a href="#usages-60" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
-<ul>
-<li>To display information in the bottom overlay, the syntax is:</li>
-</ul>
-<div class="language-gaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#282A36;--prism-background-color:#FFFFFF"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-gaml codeBlock_bY9V thin-scrollbar" style="color:#282A36;background-color:#FFFFFF"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#282A36"><span class="token statement" style="color:rgb(127,0, 85);font-style:bold">overlay</span><span class="token plain"> </span><span class="token string" style="color:rgb(116,167,251)">&quot;Cycle: &quot;</span><span class="token plain"> + </span><span class="token punctuation">(</span><span class="token variable" style="color:rgb(28,125,180)">cycle</span><span class="token punctuation">)</span><span class="token plain"> </span><span class="token facet" style="color:rgb(154,72,71)">center:</span><span class="token plain"> </span><span class="token string" style="color:rgb(116,167,251)">&quot;Duration: &quot;</span><span class="token plain"> + </span><span class="token variable" style="color:rgb(28,125,180)">total_duration</span><span class="token plain"> + </span><span class="token string" style="color:rgb(116,167,251)">&quot;ms&quot;</span><span class="token plain"> </span><span class="token facet" style="color:rgb(154,72,71)">right:</span><span class="token plain"> </span><span class="token string" style="color:rgb(116,167,251)">&quot;Model time: &quot;</span><span class="token plain"> + </span><span class="token variable" style="color:rgb(28,125,180)">as_date</span><span class="token punctuation">(</span><span class="token variable" style="color:rgb(28,125,180)">time</span><span class="token punctuation">,</span><span class="token string" style="color:rgb(116,167,251)">&quot;&quot;</span><span class="token punctuation">)</span><span class="token plain"> </span><span class="token facet" style="color:rgb(154,72,71)">color:</span><span class="token plain"> [</span><span class="token constant" style="color:rgb(0, 0, 0)">#yellow</span><span class="token punctuation">,</span><span class="token plain"> </span><span class="token constant" style="color:rgb(0, 0, 0)">#orange</span><span class="token punctuation">,</span><span class="token plain"> </span><span class="token constant" style="color:rgb(0, 0, 0)">#yellow</span><span class="token plain">]</span><span class="token punctuation">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<ul>
-<li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image">image</a>, <a href="#species_layer">species_layer</a>,</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-60">Embedments<a href="#embedments-60" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
@@ -2103,9 +2090,9 @@
 <li><code>unit</code> (string): the variable unit</li>
 <li><code>updates</code> (list): a list of global variables whose parameter editors will be updated when this parameter value is changed (their min, max, step and among values will be updated accordingly if they depend on this parameter. Note that it might lead to some inconsistencies, for instance a parameter value which becomes out of range, or which does not belong anymore to a list of possible values. In these cases, the value of the affected parameter will not change)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-61">Definition<a href="#definition-61" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-60">Definition<a href="#definition-60" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The parameter statement specifies which global attributes (i) will change through the successive simulations (in batch experiments), (ii) can be modified by user via the interface (in gui experiments). In GUI experiments, parameters are displayed depending on their type.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-61">Usages<a href="#usages-61" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-60">Usages<a href="#usages-60" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>In gui experiment, the general syntax is the following:</li>
 </ul>
@@ -2133,9 +2120,9 @@
 <li><code>threshold</code> (float): Threshold linked to the emotion.</li>
 <li><code>when</code> (boolean): a boolean to tell when does the perceive is active</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-62">Definition<a href="#definition-62" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-61">Definition<a href="#definition-61" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Allow the agent, with a bdi architecture, to perceive others agents</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-62">Usages<a href="#usages-62" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-61">Usages<a href="#usages-61" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>the basic syntax to perceive agents inside a circle of perception</li>
 </ul>
@@ -2149,9 +2136,9 @@
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="permanent">permanent<a href="#permanent" class="hash-link" aria-label="Direct link to permanent" title="Direct link to permanent">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="facets-63">Facets<a href="#facets-63" class="hash-link" aria-label="Direct link to Facets" title="Direct link to Facets">​</a></h4>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-63">Definition<a href="#definition-63" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-62">Definition<a href="#definition-62" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Represents the outputs of the experiment itself. In a batch experiment, the permanent section allows to define an output block that will NOT be re-initialized at the beginning of each simulation but will be filled at the end of each simulation.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-63">Usages<a href="#usages-63" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-62">Usages<a href="#usages-62" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>For instance, this permanent section will allow to display for each simulation the end value of the food_gathered variable:</li>
 </ul>
@@ -2175,9 +2162,9 @@
 <li><code>threshold</code> (float):</li>
 <li><code>when</code> (boolean):</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-64">Definition<a href="#definition-64" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-63">Definition<a href="#definition-63" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>define an action plan performed by an agent using the BDI engine</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-64">Usages<a href="#usages-64" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-63">Usages<a href="#usages-63" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-64">Embedments<a href="#embedments-64" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>plan</code> statement is of type: <strong>Behavior</strong></li>
@@ -2198,9 +2185,9 @@
 <li><code>weight_inertia</code> (float): weight for the inertia component</li>
 <li><code>weight_social</code> (float): weight for the social component</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-65">Definition<a href="#definition-65" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-64">Definition<a href="#definition-64" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>This algorithm is an implementation of the Particle Swarm Optimization algorithm. Only usable for numerical paramaters and based on a continuous parameter space search. See the wikipedia article for more details.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-65">Usages<a href="#usages-65" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-64">Usages<a href="#usages-64" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>As other batch methods, the basic syntax of the <code>pso</code> statement uses <code>method pso</code> instead of the expected <code>pso name: id</code> :</li>
 </ul>
@@ -2225,13 +2212,13 @@
 <li><code>at</code> (any type): the key or index at which to put the new value is specified by <code>container[index]</code></li>
 <li><code>key</code> (any type): the key or index at which to put the new value is specified by <code>container[index]</code></li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-66">Definition<a href="#definition-66" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-65">Definition<a href="#definition-65" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>A statement used to put items into containers at specific keys or indices. It can be written using the classic syntax (<code>put ... in: ...</code>) or a compact one, which is now preferred.</p>
 <ul>
 <li>To put an element in a container at a given index, use <code>container[index] &lt;- element;</code> (classic form: <code>put element in: container at: index;</code>)</li>
 <li>To put an element in a container at all indices (i.e. replace all values by the element),  use <code>container[] &lt;- element</code> (classic form: <code>put element in: container all: true;</code>)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-66">Usages<a href="#usages-66" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-65">Usages<a href="#usages-65" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages"> ​</a></h4>
 <ul>
 <li>The allowed  configurations are the following ones:</li>
 </ul>
@@ -2271,9 +2258,9 @@
 <li><code>tabu_list_size_max</code> (int): maximal size of the tabu list</li>
 <li><code>tabu_list_size_min</code> (int): minimal size of the tabu list</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-67">Definition<a href="#definition-67" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-66">Definition<a href="#definition-66" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>This algorithm is a simple implementation of the Reactive Tabu Search algorithm ((Battiti et al., 1993)). This Reactive Tabu Search is an enhance version of the Tabu search. It adds two new elements to the classic Tabu Search. The first one concerns the size of the tabu list: in the Reactive Tabu Search, this one is not constant anymore but it dynamically evolves according to the context. Thus, when the exploration process visits too often the same solutions, the tabu list is extended in order to favor the diversification of the search process. On the other hand, when the process has not visited an already known solution for a high number of iterations, the tabu list is shortened in order to favor the intensification of the search process. The second new element concerns the adding of cycle detection capacities. Thus, when a cycle is detected, the process applies random movements in order to break the cycle. See the batch dedicated page.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-67">Usages<a href="#usages-67" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-66">Usages<a href="#usages-66" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>As other batch methods, the basic syntax of the reactive_tabu statement uses <code>method reactive_tabu</code> instead of the expected <code>reactive_tabu name: id</code> :</li>
 </ul>
@@ -2295,9 +2282,9 @@
 <li><code>name</code> (an identifier), (omissible) : the identifier of the reflex</li>
 <li><code>when</code> (boolean): an expression that evaluates a boolean, the condition to fulfill in order to execute the statements embedded in the reflex.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-68">Definition<a href="#definition-68" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-67">Definition<a href="#definition-67" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Reflexes are sequences of statements that can be executed by the agent. Reflexes prefixed by the &#x27;reflex&#x27; keyword are executed continuously. Reflexes prefixed by &#x27;init&#x27; are executed only immediately after the agent has been created. Reflexes prefixed by &#x27;abort&#x27; just before the agent is killed. If a facet when: is defined, a reflex is executed only if the boolean expression evaluates to true.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-68">Usages<a href="#usages-68" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-67">Usages<a href="#usages-67" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Example:</li>
 </ul>
@@ -2317,9 +2304,9 @@
 <li><code>in</code> (agent): an expression that is evaluated as an agent that will be the macro-agent in which micro-agent will be released, i.e. their new host</li>
 <li><code>returns</code> (a new identifier): a new variable containing a list of the newly released agent(s)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-69">Definition<a href="#definition-69" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-68">Definition<a href="#definition-68" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Allows an agent to release its micro-agent(s). The preliminary for an agent to release its micro-agents is that species of these micro-agents are sub-species of other species (cf. [Species161#Nesting_species Nesting species]). The released agents won&#x27;t be micro-agents of the calling agent anymore. Being released from a macro-agent, the micro-agents will change their species and host (macro-agent).</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-69">Usages<a href="#usages-69" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-68">Usages<a href="#usages-68" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>We consider the following species. Agents of &quot;C&quot; species can be released from a &quot;B&quot; agent to become agents of &quot;A&quot; species. Agents of &quot;D&quot; species cannot be released from the &quot;A&quot; agent because species &quot;D&quot; has no parent species.</li>
 </ul>
@@ -2351,7 +2338,7 @@
 <li><code>index</code> (any type): any expression, the key at which to remove the element from the container</li>
 <li><code>key</code> (any type): If a key/index is to be removed (instead of a value), it must be indicated by using <code>container[]</code> instead of <code>container</code></li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-70">Definition<a href="#definition-70" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-69">Definition<a href="#definition-69" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>A statement used to remove items from containers. It can be written using the classic syntax (<code>remove ... from: ...</code>) or a compact one, which is now preferred.</p>
 <ul>
 <li>To remove an element from a container (other than a matrix), use <code>container &gt;&gt; element;</code> or <code>container &gt;- element;</code> (classic form: <code>remove element from: container;</code>)</li>
@@ -2360,7 +2347,7 @@
 <li>To remove all the indexes contained in another container, use <code>container[] &gt;&gt;- indices;</code> (classic form: <code>remove key: indices all: true from: container;</code>)</li>
 <li>To remove all the occurences of an element in the container, use <code>container &gt;&gt;- element;</code> (classic form: <code>remove element from: container all: true;</code>)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-70">Usages<a href="#usages-70" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-69">Usages<a href="#usages-69" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>This statement should be used in the following ways, depending on the kind of container used and the expected action on it:</li>
 </ul>
@@ -2402,9 +2389,9 @@
 <li><strong><code>target</code></strong> (agent), (omissible) : The agent to restore. Its attributes will be replaced by the ones stored in the file or string. No verification is done regarding the compatibility</li>
 <li><strong><code>from</code></strong> (any type in [string, file]): The file or the string from which to restore the agent</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-71">Definition<a href="#definition-71" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-70">Definition<a href="#definition-70" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Allows to restore any agent that has been previously serialised or saved to a file, e.g. <code>string s &lt;- serialize(a);</code> ...  <code>restore a from: s;</code> or <code>save simulation to: &#x27;sim.gsim&#x27; format: &#x27;binary&#x27;;</code> ... <code>restore simulation from: file(&#x27;sim.gsim&#x27;);</code></p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-71">Usages<a href="#usages-71" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-70">Usages<a href="#usages-70" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-71">Embedments<a href="#embedments-71" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>restore</code> statement is of type: <strong>Single statement</strong></li>
@@ -2417,9 +2404,9 @@
 <ul>
 <li><code>value</code> (any type), (omissible) : an expression that is returned</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-72">Definition<a href="#definition-72" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-71">Definition<a href="#definition-71" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Allows to immediately stop and tell which value to return from the evaluation of the surrounding action or top-level statement (reflex, init, etc.). Usually used within the declaration of an action. For more details about actions, see the following [Section161 section].</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-72">Usages<a href="#usages-72" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-71">Usages<a href="#usages-71" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Example:</li>
 </ul>
@@ -2443,9 +2430,9 @@
 <li><code>dynamic</code> (boolean): If true, the rotation is applied every step. Default is false.</li>
 <li><code>location</code> (point): Allows to define the center of the rotation. Defaut value is not specified is the center of mass of the world (i.e. {width/2, height/2, max(width, height) / 2})</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-73">Definition<a href="#definition-73" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-72">Definition<a href="#definition-72" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p><code>camera</code> allows the modeler to define a camera. The display will then be able to choose among the camera defined (either within this statement or globally in GAMA) in a dynamic way. Several preset cameras are provided and accessible in the preferences (to choose the default) or in GAML using the keywords #from_above, #from_left, #from_right, #from_up_right, #from_up_left, #from_front, #from_up_front.These cameras are unlocked (so that they can be manipulated by the user), look at the center of the world from a symbolic position, and the distance between this position and the target is equal to the maximum of the width and height of the world&#x27;s shape. These preset cameras can be reused when defining new cameras, since their names can become symbolic positions for them. For instance: camera &#x27;my_camera&#x27; location: #from_top distance: 10; will lower (or extend) the distance between the camera and the center of the world to 10. camera &#x27;my_camera&#x27; locked: true location: #from_up_front target: people(0); will continuously follow the first agent of the people species from the up-front position.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-73">Usages<a href="#usages-73" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-72">Usages<a href="#usages-72" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>See also: <a href="#display">display</a>, <a href="#agents">agents</a>, <a href="#chart">chart</a>, <a href="#event">event</a>, <a href="#graphics">graphics</a>, <a href="#display_grid">display_grid</a>, <a href="#image_layer">image_layer</a>, <a href="#species_layer">species_layer</a>,</li>
 </ul>
@@ -2502,9 +2489,9 @@
 <li><code>uncertainty</code> (predicate): The mandatory uncertainty</li>
 <li><code>when</code> (boolean):</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-74">Definition<a href="#definition-74" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-73">Definition<a href="#definition-73" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>enables to add a desire or a belief or to remove a belief, a desire or an intention if the agent gets the belief or/and desire or/and condition mentioned.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-74">Usages<a href="#usages-74" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-73">Usages<a href="#usages-73" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-74">Embedments<a href="#embedments-74" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>rule</code> statement is of type: <strong>Single statement</strong></li>
@@ -2535,9 +2522,9 @@
 <ul>
 <li><code>name</code> (an identifier), (omissible) :</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-75">Definition<a href="#definition-75" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-74">Definition<a href="#definition-74" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>declare the actions an agent execute when enforcing norms of others during a perception</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-75">Usages<a href="#usages-75" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-74">Usages<a href="#usages-74" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-76">Embedments<a href="#embedments-76" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>sanction</code> statement is of type: <strong>Behavior</strong></li>
@@ -2557,9 +2544,9 @@
 <li><code>rewrite</code> (boolean): a boolean expression specifying whether to erase the file if it exists or append data at the end of it. Only applicable to &quot;text&quot; or &quot;csv&quot; files. Default is true</li>
 <li><code>to</code> (string): an expression that evaluates to an string, the path to the file, or directly to a file</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-76">Definition<a href="#definition-76" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-75">Definition<a href="#definition-75" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Allows to save data in a file.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-76">Usages<a href="#usages-76" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-75">Usages<a href="#usages-75" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Its simple syntax is:</li>
 </ul>
@@ -2608,9 +2595,9 @@
 <li><strong><code>name</code></strong> (any type), (omissible) : the name of an existing variable or attribute to be modified</li>
 <li><strong><code>value</code></strong> (any type): the value to affect to the variable or attribute</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-77">Definition<a href="#definition-77" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-76">Definition<a href="#definition-76" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Allows to assign a value to the variable or attribute specified</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-77">Usages<a href="#usages-77" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">  ​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-76">Usages<a href="#usages-76" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">  ​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-78">Embedments<a href="#embedments-78" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>set</code> statement is of type: <strong>Single statement</strong></li>
@@ -2620,9 +2607,9 @@
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="setup">setup<a href="#setup" class="hash-link" aria-label="Direct link to setup" title="Direct link to setup">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="facets-79">Facets<a href="#facets-79" class="hash-link" aria-label="Direct link to Facets" title="Direct link to Facets">​</a></h4>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-78">Definition<a href="#definition-78" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-77">Definition<a href="#definition-77" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The setup statement is used to define the set of instructions that will be executed before every [#test test].</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-78">Usages<a href="#usages-78" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-77">Usages<a href="#usages-77" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>As every test should be independent from the others, the setup will mainly contain initialization of variables that will be used in each test.</li>
 </ul>
@@ -2647,9 +2634,9 @@
 <li><code>path</code> (string): The path to the saltelli sample csv file. If the file doesn&#x27;t exist automatic Saltelli sampling will be performed and saved in the corresponding location</li>
 <li><code>results</code> (string): The path to the file where the automatic batch report will be written</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-79">Definition<a href="#definition-79" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-78">Definition<a href="#definition-78" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>This algorithm runs a Sobol exploration - it has been built upon the moea framework at <a href="https://github.com/MOEAFramework/MOEAFramework" target="_blank" rel="noopener noreferrer">https://github.com/MOEAFramework/MOEAFramework</a> - disabled the repeat facet of the experiment</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-79">Usages<a href="#usages-79" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-78">Usages<a href="#usages-78" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>For example:</li>
 </ul>
@@ -2673,9 +2660,9 @@
 <li><code>trust</code> (float): the trust value of the created social link</li>
 <li><code>when</code> (boolean): A boolean value to socialize only with a certain condition</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-80">Definition<a href="#definition-80" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-79">Definition<a href="#definition-79" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>enables to directly add a social link from a perceived agent.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-80">Usages<a href="#usages-80" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-79">Usages<a href="#usages-79" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Other examples of use:</li>
 </ul>
@@ -2701,9 +2688,9 @@
 <li><code>t0</code> (float): the first bound of the integration interval (defaut value: cycle*step, the time at the begining of the current cycle.)</li>
 <li><code>tf</code> (float): the second bound of the integration interval. Can be smaller than t0 for a backward integration (defaut value: cycle*step, the time at the begining of the current cycle.)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-81">Definition<a href="#definition-81" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-80">Definition<a href="#definition-80" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Solves all equations which matched the given name, with all systems of agents that should solved simultaneously.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-81">Usages<a href="#usages-81" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-80">Usages<a href="#usages-80" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Other examples of use:</li>
 </ul>
@@ -2744,9 +2731,9 @@
 <li><code>virtual</code> (boolean): whether the species is virtual (cannot be instantiated, but only used as a parent) (false by default)</li>
 <li><code>width</code> (int): (grid only), the width of the grid (in terms of agent number)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-82">Definition<a href="#definition-82" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-81">Definition<a href="#definition-81" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The species statement allows modelers to define new species in the model. <code>global</code> and <code>grid</code> are speciel cases of species: <code>global</code> being the definition of the global agent (which has automatically one instance, world) and <code>grid</code> being a species with a grid topology.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-82">Usages<a href="#usages-82" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-81">Usages<a href="#usages-81" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Here is an example of a species definition with a FSM architecture and the additional skill moving:</li>
 </ul>
@@ -2785,9 +2772,9 @@
 <li><code>transparency</code> (float): the transparency level of the layer (between 0 -- opaque -- and 1 -- fully transparent)</li>
 <li><code>visible</code> (boolean): Defines whether this layer is visible or not</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-83">Definition<a href="#definition-83" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-82">Definition<a href="#definition-82" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The <code>species_layer</code> statement is used using the <code>species keyword</code>. It allows modeler to display all the agent of a given species in the current display. In particular, modeler can choose the aspect used to display them.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-83">Usages<a href="#usages-83" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-82">Usages<a href="#usages-82" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>The general syntax is:</li>
 </ul>
@@ -2832,9 +2819,9 @@
 <li><code>final</code> (boolean): specifies whether the state is a final one (i.e. there is no transition from this state to another state) (default value= false)</li>
 <li><code>initial</code> (boolean): specifies whether the state is the initial one (default value = false)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-84">Definition<a href="#definition-84" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-83">Definition<a href="#definition-83" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>A state, like a reflex, can contains several statements that can be executed at each time step by the agent.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-84">Usages<a href="#usages-84" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-83">Usages<a href="#usages-83" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Here is an exemple integrating 2 states and the statements in the FSM architecture:</li>
 </ul>
@@ -2855,9 +2842,9 @@
 <li><strong><code>message</code></strong> (any type), (omissible) : Allows to display a necessarily short message in the status box in the upper left corner. No formatting characters (carriage returns, tabs, or Unicode characters) should be used, but a background color can be specified. The message will remain in place until it is replaced by another one or by nil, in which case the standard status (number of cycles) will be displayed again</li>
 <li><code>color</code> (rgb): The color used for displaying the background of the status message</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-85">Definition<a href="#definition-85" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-84">Definition<a href="#definition-84" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The statement makes the agent output an arbitrary message in the status box.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-85">Usages<a href="#usages-85" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-84">Usages<a href="#usages-84" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Outputting a message</li>
 </ul>
@@ -2880,9 +2867,9 @@
 <li><code>sample</code> (int): The number of sample required , 10 by default</li>
 <li><code>sampling</code> (an identifier): The sampling method to build parameters sets. Available methods are: latinhypercube, orthogonal, factorial, uniform, saltelli, morris</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-86">Definition<a href="#definition-86" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-85">Definition<a href="#definition-85" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>This algorithm runs an exploration with a given sampling to compute a Stochasticity Analysis</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-86">Usages<a href="#usages-86" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-85">Usages<a href="#usages-85" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>For example:</li>
 </ul>
@@ -2899,9 +2886,9 @@
 <ul>
 <li><strong><code>value</code></strong> (any type), (omissible) : an expression</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-87">Definition<a href="#definition-87" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-86">Definition<a href="#definition-86" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The &quot;switch... match&quot; statement is a powerful replacement for imbricated &quot;if ... else ...&quot; constructs. All the blocks that match are executed in the order they are defined, unless one invokes &#x27;break&#x27;, in which case the switch statement is exited. The block prefixed by default is executed only if none have matched (otherwise it is not).</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-87">Usages<a href="#usages-87" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-86">Usages<a href="#usages-86" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>The prototypical syntax is as follows:</li>
 </ul>
@@ -2931,9 +2918,9 @@
 <li><code>minimize</code> (float): the value the algorithm tries to minimize</li>
 <li><code>tabu_list_size</code> (int): size of the tabu list</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-88">Definition<a href="#definition-88" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-87">Definition<a href="#definition-87" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>This algorithm is an implementation of the Tabu Search algorithm. See the wikipedia article and [batch161 the batch dedicated page].</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-88">Usages<a href="#usages-88" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-87">Usages<a href="#usages-87" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>As other batch methods, the basic syntax of the tabu statement uses <code>method tabu</code> instead of the expected <code>tabu name: id</code> :</li>
 </ul>
@@ -2955,9 +2942,9 @@
 <li><strong><code>name</code></strong> (an identifier), (omissible) : the identifier of the task</li>
 <li><strong><code>weight</code></strong> (float): the priority level of the task</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-89">Definition<a href="#definition-89" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-88">Definition<a href="#definition-88" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>As reflex, a task is a sequence of statements that can be executed, at each time step, by the agent. If an agent owns several tasks, the scheduler chooses a task to execute based on its current priority weight value.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-89">Usages<a href="#usages-89" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-88">Usages<a href="#usages-88" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-91">Embedments<a href="#embedments-91" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>task</code> statement is of type: <strong>Behavior</strong></li>
@@ -2970,9 +2957,9 @@
 <ul>
 <li><code>name</code> (an identifier), (omissible) : identifier of the test</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-90">Definition<a href="#definition-90" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-89">Definition<a href="#definition-89" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The test statement allows modeler to define a set of assertions that will be tested. Before the execution of the embedded set of instructions, if a setup is defined in the species, model or experiment, it is executed. In a test, if one assertion fails, the evaluation of other assertions continue.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-90">Usages<a href="#usages-90" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-89">Usages<a href="#usages-89" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>An example of use:</li>
 </ul>
@@ -2996,9 +2983,9 @@
 <li><code>color</code> (rgb): The color with wich the text will be displayed</li>
 <li><code>font</code> (any type in [font, string]): the font used to draw the text, which can be built with the operator &quot;font&quot;. ex : font<!-- -->:font<!-- -->(&quot;Helvetica&quot;, 20 , #bold)</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-91">Definition<a href="#definition-91" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-90">Definition<a href="#definition-90" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The statement makes an experiment display text in the parameters view.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-91">Usages<a href="#usages-91" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-90">Usages<a href="#usages-90" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-93">Embedments<a href="#embedments-93" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>text</code> statement is of type: <strong>Single statement</strong></li>
@@ -3008,9 +2995,9 @@
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="trace">trace<a href="#trace" class="hash-link" aria-label="Direct link to trace" title="Direct link to trace">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="facets-94">Facets<a href="#facets-94" class="hash-link" aria-label="Direct link to Facets" title="Direct link to Facets">​</a></h4>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-92">Definition<a href="#definition-92" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-91">Definition<a href="#definition-91" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>All the statements executed in the trace statement are displayed in the console.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-92">Usages<a href="#usages-92" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-91">Usages<a href="#usages-91" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-94">Embedments<a href="#embedments-94" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>trace</code> statement is of type: <strong>Sequence of statements or action</strong></li>
@@ -3024,9 +3011,9 @@
 <li><strong><code>to</code></strong> (an identifier): the identifier of the next state</li>
 <li><code>when</code> (boolean), (omissible) : a condition to be fulfilled to have a transition to another given state</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-93">Definition<a href="#definition-93" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-92">Definition<a href="#definition-92" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>In an FSM architecture, <code>transition</code> specifies the next state of the life cycle. The transition occurs when the condition is fulfilled. The embedded statements are executed when the transition is triggered.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-93">Usages<a href="#usages-93" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-92">Usages<a href="#usages-92" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>In the following example, the transition is executed when after 2 steps:</li>
 </ul>
@@ -3043,9 +3030,9 @@
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="try">try<a href="#try" class="hash-link" aria-label="Direct link to try" title="Direct link to try">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="facets-96">Facets<a href="#facets-96" class="hash-link" aria-label="Direct link to Facets" title="Direct link to Facets">​</a></h4>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-94">Definition<a href="#definition-94" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-93">Definition<a href="#definition-93" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Allows the agent to execute a sequence of statements and to catch any runtime error that might happen in a subsequent <code>catch</code> block, either to ignore it (not a good idea, usually) or to safely stop the model</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-94">Usages<a href="#usages-94" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-93">Usages<a href="#usages-93" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>The generic syntax is:</li>
 </ul>
@@ -3072,9 +3059,9 @@
 <li><code>threshold</code> (float): The threshold value to make the contagion</li>
 <li><code>when</code> (boolean): A boolean value to get the emotion only with a certain condition</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-95">Definition<a href="#definition-95" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-94">Definition<a href="#definition-94" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>enables to directly copy an emotion present in the perceived species.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-95">Usages<a href="#usages-95" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-94">Usages<a href="#usages-94" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Other examples of use:</li>
 </ul>
@@ -3097,9 +3084,9 @@
 <li><code>when</code> (boolean): the condition that should be fulfilled (in addition to the user clicking it) in order to execute this action</li>
 <li><code>with</code> (map): the map of the parameters::values required by the action</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-96">Definition<a href="#definition-96" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-95">Definition<a href="#definition-95" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Anywhere in the global block, in a species or in an (GUI) experiment, user_command statements allows to either call directly an existing action (with or without arguments) or to be followed by a block that describes what to do when this command is run.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-96">Usages<a href="#usages-96" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-95">Usages<a href="#usages-95" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>The general syntax is for example:</li>
 </ul>
@@ -3120,9 +3107,9 @@
 <li><strong><code>name</code></strong> (an identifier), (omissible) : The name of the panel</li>
 <li><code>initial</code> (boolean): Whether or not this panel will be the initial one</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-97">Definition<a href="#definition-97" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-96">Definition<a href="#definition-96" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Used in the user control architecture, user_init is executed only once when the agent is created. It opens a special panel (if it contains user_commands statements). It is the equivalent to the init block in the basic agent architecture.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-97">Usages<a href="#usages-97" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-96">Usages<a href="#usages-96" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>See also: <a href="#user_command">user_command</a>, <a href="#user_init">user_init</a>, <a href="#user_input">user_input</a>,</li>
 </ul>
@@ -3145,9 +3132,9 @@
 <li><code>slider</code> (boolean): Whether to display a slider or not when applicable</li>
 <li><code>type</code> (a datatype identifier): the variable type</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-98">Definition<a href="#definition-98" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-97">Definition<a href="#definition-97" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>It allows to let the user define the value of a variable.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-98">Usages<a href="#usages-98" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-97">Usages<a href="#usages-97" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Other examples of use:</li>
 </ul>
@@ -3168,9 +3155,9 @@
 <li><strong><code>name</code></strong> (an identifier), (omissible) : The name of the panel</li>
 <li><code>initial</code> (boolean): Whether or not this panel will be the initial one</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-99">Definition<a href="#definition-99" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-98">Definition<a href="#definition-98" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>It is the basic behavior of the user control architecture (it is similar to state for the FSM architecture). This user_panel translates, in the interface, in a semi-modal view that awaits the user to choose action buttons, change attributes of the controlled agent, etc. Each user_panel, like a state in FSM, can have a enter and exit sections, but it is only defined in terms of a set of user_commands which describe the different action buttons present in the panel.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-99">Usages<a href="#usages-99" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-98">Usages<a href="#usages-98" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>The general syntax is for example:</li>
 </ul>
@@ -3190,9 +3177,9 @@
 <ul>
 <li><strong><code>topology</code></strong> (topology), (omissible) : the topology</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-100">Definition<a href="#definition-100" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-99">Definition<a href="#definition-99" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p><code>using</code> is a statement that allows to set the topology to use by its sub-statements. They can gather it by asking the scope to provide it.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-100">Usages<a href="#usages-100" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-99">Usages<a href="#usages-99" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>All the spatial operations are topology-dependent (e.g. neighbors are not the same in a continuous and in a grid topology). So <code>using</code> statement allows modelers to specify the topology in which the spatial operation will be computed.</li>
 </ul>
@@ -3219,9 +3206,9 @@
 <li><code>type</code> (a datatype identifier): The type of the attribute</li>
 <li><code>update</code> (any type): An expression that will be evaluated each cycle to compute a new value for the attribute</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-101">Definition<a href="#definition-101" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-100">Definition<a href="#definition-100" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Declaration of an attribute of a species or an experiment</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-101">Usages<a href="#usages-101" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-100">Usages<a href="#usages-100" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-103">Embedments<a href="#embedments-103" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>Variable_container</code> statement is of type: <strong>Variable (container)</strong></li>
@@ -3246,9 +3233,9 @@
 <li><code>type</code> (a datatype identifier): The type of the attribute, either &#x27;int&#x27;, &#x27;float&#x27;, &#x27;point&#x27; or &#x27;date&#x27;</li>
 <li><code>update</code> (any type in [int, float, point, date]): An expression that will be evaluated each cycle to compute a new value for the attribute</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-102">Definition<a href="#definition-102" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-101">Definition<a href="#definition-101" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Declaration of an attribute of a species or an experiment; this type of attributes accepts min:, max: and step: facets, automatically clamping the value if it is lower than min or higher than max.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-102">Usages<a href="#usages-102" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-101">Usages<a href="#usages-101" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-104">Embedments<a href="#embedments-104" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>Variable_number</code> statement is of type: <strong>Variable (number)</strong></li>
@@ -3272,9 +3259,9 @@
 <li><code>type</code> (a datatype identifier): The type of this attribute. Can be combined with facets &#x27;of&#x27; and &#x27;index&#x27; to describe container types</li>
 <li><code>update</code> (any type): An expression that will be evaluated each cycle to compute a new value for the attribute</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-103">Definition<a href="#definition-103" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-102">Definition<a href="#definition-102" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>Declaration of an attribute of a species or an experiment</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-103">Usages<a href="#usages-103" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-102">Usages<a href="#usages-102" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedments-105">Embedments<a href="#embedments-105" class="hash-link" aria-label="Direct link to Embedments" title="Direct link to Embedments">​</a></h4>
 <ul>
 <li>The <code>Variable_regular</code> statement is of type: <strong>Variable (regular)</strong></li>
@@ -3287,9 +3274,9 @@
 <ul>
 <li><strong><code>message</code></strong> (string), (omissible) : the message to display as a warning.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-104">Definition<a href="#definition-104" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-103">Definition<a href="#definition-103" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The statement makes the agent output an arbitrary message in the error view as a warning.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-104">Usages<a href="#usages-104" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-103">Usages<a href="#usages-103" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Emmitting a warning</li>
 </ul>
@@ -3309,9 +3296,9 @@
 <li><code>color</code> (rgb): The color with wich the message will be displayed. Note that different simulations will have different (default) colors to use for this purpose if this facet is not specified</li>
 <li><code>end</code> (string): The string to be appened at the end of the message. By default it&#x27;s a new line character: &#x27;\n&#x27; or &#x27;\r\n&#x27; depending on the operating system.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-105">Definition<a href="#definition-105" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-104">Definition<a href="#definition-104" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
 <p>The statement makes the agent output an arbitrary message in the console.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-105">Usages<a href="#usages-105" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="usages-104">Usages<a href="#usages-104" class="hash-link" aria-label="Direct link to Usages" title="Direct link to Usages">​</a></h4>
 <ul>
 <li>Outputting a message</li>
 </ul>
