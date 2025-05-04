@@ -1,13 +1,13 @@
-const latestVersion="1.9.3"
+const latestVersion = "1.9.3";
 
-module.exports={
+module.exports = {
   // Main website options
   title: "GAMA Platform",
   tagline: "GAMA",
   url: "https://gama-platform.org",
   baseUrl: "/",
   favicon: "img/gama-logo.png",
-  titleDelimiter: '|',
+  titleDelimiter: "|",
 
   // Compilation/deploy options
   organizationName: "gama-platform",
@@ -19,19 +19,18 @@ module.exports={
   trailingSlash: false,
 
   // Adding in header
-  stylesheets: [
-    "https://use.fontawesome.com/releases/v6.1.1/css/all.css",
-  ],
+  stylesheets: ["https://use.fontawesome.com/releases/v6.1.1/css/all.css"],
 
   // Custom variables in page
   customFields: {
-    footerIcon: 'img/gama-logo.png',
+    footerIcon: "img/gama-logo.png",
     docsUrl: "wiki",
-    zipName: "GAMA_"+latestVersion,
+    zipName: "GAMA_" + latestVersion,
     downloadVersion: latestVersion,
     facebookAppId: 524881055001796,
-    frontPagePresentation: "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
-    frontPageImgLink: "release"
+    frontPagePresentation:
+      "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
+    frontPageImgLink: "release",
   },
 
   /*
@@ -45,9 +44,10 @@ module.exports={
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
           path: "../docs",
-          routeBasePath: 'wiki',
+          routeBasePath: "wiki",
           sidebarPath: "../website/sidebars.json",
-          editUrl: ({docPath}) => `https://github.com/gama-platform/gama/wiki/${docPath.slice(0, -3)}/_edit`,
+          editUrl: ({ docPath }) =>
+            `https://github.com/gama-platform/gama/wiki/${docPath.slice(0, -3)}/_edit`,
           editCurrentVersion: true,
 
           // Version dropdown options
@@ -64,40 +64,40 @@ module.exports={
           },*/
           versions: {
             current: {
-              label: '🚧 2024-06 🚧',
+              label: "🚧 Alpha 🚧",
             },
           },
         },
         theme: {
-          customCss: "./src/css/customTheme.css"
-        }
-      }
-    ]
+          customCss: "./src/css/customTheme.css",
+        },
+      },
+    ],
   ],
   themeConfig: {
     announcementBar: {
       // Change the ID for new announcement
-      id: 'releaseGama193',
-      content: '🎉 <strong>GAMA Platform 1.9.3 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
-      backgroundColor: '#34709f',
-      textColor: '#e3e3e3',
+      id: "releaseGama193",
+      content:
+        '🎉 <strong>GAMA Platform 1.9.3 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
+      backgroundColor: "#34709f",
+      textColor: "#e3e3e3",
       isCloseable: true,
     },
     colorMode: {
       respectPrefersColorScheme: true,
     },
     prism: {
-      additionalLanguages: ['java','javascript','python'],
-      defaultLanguage: 'gaml',
+      additionalLanguages: ["java", "javascript", "python"],
+      defaultLanguage: "gaml",
 
-      theme: require('prism-gaml/themes/light'),
-      darkTheme: require('prism-gaml/themes/dark'),
-
+      theme: require("prism-gaml/themes/light"),
+      darkTheme: require("prism-gaml/themes/dark"),
     },
     algolia: {
-      appId: 'MWUOLTL2EG',
-      apiKey: '1521937a1a954de39ac48917e384bfd6',
-      indexName: 'gama-platform',
+      appId: "MWUOLTL2EG",
+      apiKey: "1521937a1a954de39ac48917e384bfd6",
+      indexName: "gama-platform",
       contextualSearch: true,
     },
     /*codeblock: {
@@ -114,33 +114,33 @@ module.exports={
     navbar: {
       title: "GAMA Platform",
       logo: {
-        src: "img/gama-logo.png"
+        src: "img/gama-logo.png",
       },
       // Navigator bar
       items: [
         // Left side
         {
-          type: 'doc',
+          type: "doc",
           docId: "Home",
           label: "Documentation",
-          position: "left"
+          position: "left",
         },
         {
-          type: 'doc',
+          type: "doc",
           docId: "Tutorials",
           label: "Tutorials",
-          position: "left"
+          position: "left",
         },
         {
-          type: 'doc',
+          type: "doc",
           docId: "Community",
           label: "Community",
-          position: "left"
+          position: "left",
         },
         {
           to: "/download",
           label: "Download",
-          position: "left"
+          position: "left",
         },
 
         // Right Side
@@ -152,38 +152,38 @@ module.exports={
           dropdownActiveClassDisabled: false,
         },*/
         {
-          href: 'https://github.com/gama-platform/gama',
+          href: "https://github.com/gama-platform/gama",
           html: '<i class="fab fa-github" style="font-size: 24px;"></i>',
           //label: 'GitHub repository',
-          position: 'right',
-        }
-      ]
+          position: "right",
+        },
+      ],
     },
     image: "/resources/images/general/GamaPlatform.png",
     footer: {
       links: [
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              html: '<a class="footer__link-item" href="https://github.com/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Github <i class="fa fa-arrow-up-right-from-square"></i></a>'
+              html: '<a class="footer__link-item" href="https://github.com/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Github <i class="fa fa-arrow-up-right-from-square"></i></a>',
             },
             {
-              html: '<a class="footer__link-item" href="https://www.facebook.com/GamaPlatform/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook <i class="fa fa-arrow-up-right-from-square"></i></a>'
+              html: '<a class="footer__link-item" href="https://www.facebook.com/GamaPlatform/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook <i class="fa fa-arrow-up-right-from-square"></i></a>',
             },
             /*{
               html: '<a class="footer__link-item" href="https://twitter.com/gamaplatform" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter <i class="fa fa-arrow-up-right-from-square"></i></a>'
             },*/
             {
-              html: '<a class="footer__link-item" href="https://www.linkedin.com/company/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn <i class="fa fa-arrow-up-right-from-square"></i></a>'
+              html: '<a class="footer__link-item" href="https://www.linkedin.com/company/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn <i class="fa fa-arrow-up-right-from-square"></i></a>',
             },
             {
-              html: '<a class="footer__link-item" href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Youtube <i class="fa fa-arrow-up-right-from-square"></i></a>'
-            }
+              html: '<a class="footer__link-item" href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Youtube <i class="fa fa-arrow-up-right-from-square"></i></a>',
+            },
           ],
         },
         {
-          title: 'Mailing list',
+          title: "Mailing list",
           items: [
             {
               html: '<a class="footer__link-item" href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br>gama-platform@googlegroups.com</a>',
@@ -194,7 +194,7 @@ module.exports={
           ],
         },
         {
-          title: 'Licence',
+          title: "Licence",
           items: [
             {
               html: `
@@ -207,39 +207,40 @@ module.exports={
               html: `
                   <p>A copy of the license is included <a href="https://github.com/gama-platform/gama/wiki/LICENSE.md" style="display:initial">here</a>, in the repository of the wiki content.</p>
                 `,
-            }
+            },
           ],
-        }
+        },
       ],
       copyright: `Copyright (C) - ${new Date().getFullYear()} GAMA Platform.`,
       logo: {
-        src: "img/gama-logo.png"
-      }
-    }
+        src: "img/gama-logo.png",
+      },
+    },
   },
   //themes: ['docusaurus-theme-github-codeblock'],
-  themes: [
-    '@saucelabs/theme-github-codeblock'
-  ],
+  themes: ["@saucelabs/theme-github-codeblock"],
   /*
    *  PLUGINS
    */
   plugins: [
     [
-      '@docusaurus/plugin-client-redirects',
+      "@docusaurus/plugin-client-redirects",
       {
         redirects: [
           // Default wiki page
-          { from: '/wiki/next', to: '/wiki/next/Home', },
-          { from: '/wiki', to: '/wiki/Home', },
-          { from: '/wiki/1.8.1', to: '/wiki/1.8.1/Home', },
+          { from: "/wiki/next", to: "/wiki/next/Home" },
+          { from: "/wiki", to: "/wiki/Home" },
+          { from: "/wiki/1.8.1", to: "/wiki/1.8.1/Home" },
           // Debug
-          { from: '/wiki/next/Operators', to: '/wiki/next/Exhaustive-list-of-GAMA-Keywords', },
-          { from: '/wiki/next/Headless', to: '/wiki/next/RunningHeadless', },
+          {
+            from: "/wiki/next/Operators",
+            to: "/wiki/next/Exhaustive-list-of-GAMA-Keywords",
+          },
+          { from: "/wiki/next/Headless", to: "/wiki/next/RunningHeadless" },
           // External
           //{ from: '/Gama-Days-2022', to: '/gama.resources/conferences/Gama-Days-2022', },
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   ],
-}
+};
