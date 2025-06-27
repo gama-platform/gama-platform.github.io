@@ -106,6 +106,9 @@ module.exports = {
       showRunmeLink: false,
       runmeLinkLabel: 'Checkout via Runme'
     },*/
+    goatcounter: {
+      code: "gama-platform",
+    },
     docs: {
       sidebar: {
         autoCollapseCategories: true,
@@ -241,6 +244,7 @@ module.exports = {
           //{ from: '/Gama-Days-2022', to: '/gama.resources/conferences/Gama-Days-2022', },
         ],
       },
+      "docusaurus-plugin-goatcounter",
     ],
   ],
 };
