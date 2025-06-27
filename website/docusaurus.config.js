@@ -77,9 +77,9 @@ module.exports = {
   themeConfig: {
     announcementBar: {
       // Change the ID for new announcement
-      id: "releaseGama193",
+      id: "releaseGama202506",
       content:
-        '🎉 <strong>GAMA Platform 1.9.3 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
+        '🎉 <strong>GAMA Platform 2025-06 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
       backgroundColor: "#34709f",
       textColor: "#e3e3e3",
       isCloseable: true,
@@ -232,11 +232,11 @@ module.exports = {
           { from: "/wiki", to: "/wiki/Home" },
           { from: "/wiki/1.8.1", to: "/wiki/1.8.1/Home" },
           // Debug
-          {
-            from: "/wiki/next/Operators",
-            to: "/wiki/next/Exhaustive-list-of-GAMA-Keywords",
-          },
-          { from: "/wiki/next/Headless", to: "/wiki/next/RunningHeadless" },
+          // {
+          //   from: "/wiki/next/Operators",
+          //   to: "/wiki/next/Exhaustive-list-of-GAMA-Keywords",
+          // },
+          // { from: "/wiki/next/Headless", to: "/wiki/next/RunningHeadless" },
           // External
           //{ from: '/Gama-Days-2022', to: '/gama.resources/conferences/Gama-Days-2022', },
         ],
