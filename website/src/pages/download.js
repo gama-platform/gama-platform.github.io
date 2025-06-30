@@ -82,7 +82,7 @@ export default function Download() {
                   href={`https://github.com/gama-platform/gama/releases/tag/${siteConfig.customFields.downloadVersion}`}
                   target="_blank"
                 >
-                  version {siteConfig.customFields.downloadVersion}
+                  version {siteConfig.customFields.latestVersion}
                 </a>
               </h1>
             </header>
