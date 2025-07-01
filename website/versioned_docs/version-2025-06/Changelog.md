@@ -14,10 +14,10 @@ This is a major release, bringing numerous bug fixes, performance improvements, 
 
 *   **Core & Execution:**
     *   Now built on Eclipse 2025-03 and requires JDK21 ([#213](https://github.com/gama-platform/gama/issues/213), [#248](https://github.com/gama-platform/gama/issues/248), [#414](https://github.com/gama-platform/gama/issues/414)).
-    *   Significant performance optimizations in core execution ([#271](https://github.com/gama-platform/gama/issues/271), [#291](https://github.com/gama-platform/gama/issues/291)).
+    *   Significant performance optimizations in core execution ([#271](https://github.com/gama-platform/gama/issues/271), [#291](https://github.com/gama-platform/gama/issues/291) and many others).
     *   Fixed several memory leaks, improving long-running simulation stability ([#317](https://github.com/gama-platform/gama/issues/317), [#489](https://github.com/gama-platform/gama/issues/489)).
     *   Improved handling of file paths on Windows to prevent string concatenation issues ([#467](https://github.com/gama-platform/gama/issues/467)).
-    *   Enhanced unit testing framework ([#182](https://github.com/gama-platform/gama/issues/182) and many new unit test files to increase the coverage).
+    *   Enhanced unit testing framework ([#182](https://github.com/gama-platform/gama/issues/182) and many new unit tests to increase the coverage).
 
 *   **GAMA Server:**
     *   Numerous fixes and stability improvements for `gama-server` ([#691](https://github.com/gama-platform/gama/issues/691)).
@@ -61,18 +61,15 @@ This is a major release, bringing numerous bug fixes, performance improvements, 
 <details>
  <summary>View detailed changes</summary>
 
-*      **Stricter typing**: Gama has now stricter rules for types, especially related to container. Some may need to update their models to add explicit casting to the type they want to manipulate.
-*      **Simulation saving**: Some changes in the way the serialization is handled can prevent the compatibility with previous versions. If you saved a simulation with the `save` statement in 1.9.3 and try to restore it in this release, it may not work.
-*      **Removal of the zip option** The internal behaviour of the experiment of type record have been completely reworked and the facet `zip` is now not available anymore as it's done by default.
+*   **Stricter typing**: Gama has now stricter rules for types, especially related to container. Some may need to update their models to add explicit casting to the type they want to manipulate.
+*   **Simulation saving**: Some changes in the way the serialization is handled can prevent the compatibility with previous versions. If you saved a simulation with the `save` statement in 1.9.3 and try to restore it in this release, it may not work.
+*   **Removal of the zip option** The internal behaviour of the experiment of type record have been completely reworked and the facet `zip` is now not available anymore as it's done by default.
   
 </details>
 
-#### 🟠 Warnings 🟠: concepts that should be updated
-
-
 ### Preferences
 
-The preferences window has been rework for more clarity.
+The preferences window has been reworked for more clarity.
 In addition to this, new parameters are now available:
 <details>
  <summary>View detailed changes</summary>
@@ -87,7 +84,7 @@ In addition to this, new parameters are now available:
 ### Packaged models
 
 <details>
- <summary>View all new models list</summary>
+ <summary>View all changes in models</summary>
 
 *   Some older and unclear models have been removed, preparing for a future rework of the library.
 *   Two models have been added in `GAML Syntax` -> `Sytem` to illustrate the use of buffering strategies: `Buffering execution order.gaml` and `Buffering performances.gaml`
