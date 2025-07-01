@@ -5,7 +5,7 @@ title:  Changelog
 
 ## Major changes from 1.9.3 to 2025-06
 
-This is a major release, bringing numerous bug fixes, performance improvements, and new features across the platform. Key highlights include a more robust gama-server, significant UI/UX enhancements, expanded data type operations, and important updates to the physics engine and agent control architectures. This version is built on Eclipse 2025-03 and requires JDK21.
+This is a major release, bringing numerous bug fixes, performance improvements, and new features across the platform. Key highlights include a more robust gama-server, significant UI/UX enhancements and expanded data type operations. This version is built on Eclipse 2025-03 and requires JDK21.
 
 ### Detailed changes
 
@@ -61,42 +61,39 @@ This is a major release, bringing numerous bug fixes, performance improvements, 
 <details>
  <summary>View detailed changes</summary>
 
-*   **JSON Deserialization**: Deserializing a JSON string containing an unknown type will now raise an error instead of being silently ignored. Models relying on the old behavior will need to be adapted ([#684](https://github.com/gama-platform/gama/issues/684)).
-*   **`pedestrian` skill**: Casting an `outdoor` object to a `point` is no longer possible and will raise a cast error. Use specific operators to get spatial locations ([#570](https://github.com/gama-platform/gama/issues/570), [#503](https://github.com/gama-platform/gama/issues/503)).
-*   **Grid file access**: The way `grid` file contents are accessed has changed. Direct access methods might be deprecated in favor of new operators, which could break existing models that rely on the old accessors ([#187](https://github.com/gama-platform/gama/issues/187)).
-*   **File Paths on Windows**: Concatenating path elements with `+` should be replaced by the `path` constructor or the `/` operator to avoid issues on Windows ([#467](https://github.com/gama-platform/gama/issues/467)).
-
+*      **Stricter typing**: Gama has now stricter rules for types, especially related to container. Some may need to update their models to add explicit casting to the type they want to manipulate.
+*      **Simulation saving**: Some changes in the way the serialization is handled can prevent the compatibility with previous versions. If you saved a simulation with the `save` statement in 1.9.3 and try to restore it in this release, it may not work.
+*      **Removal of the zip option** The internal behaviour of the experiment of type record have been completely reworked and the facet `zip` is now not available anymore as it's done by default.
+  
 </details>
 
 #### 🟠 Warnings 🟠: concepts that should be updated
 
-<details>
- <summary>View detailed changes</summary>
-
-*   Several display facets have been deprecated and will be removed in a future version. Please consult the documentation to update your models.
-*   It is recommended to review and refactor models for performance optimizations, especially those using large datasets or complex spatial operations.
-
-</details>
 
 ### Preferences
 
+The preferences window has been rework for more clarity.
+In addition to this, new parameters are now available:
 <details>
  <summary>View detailed changes</summary>
 
-*   **Display**: New preferences for display synchronization and rendering have been added.
-*   **Files**: Added options for file buffering strategies to fine-tune I/O performance.
-*   **Server**: New settings to configure the `gama-server` port and other parameters directly from the preferences.
-*   **UI**: More customization options for the user interface.
-*   **Performance**: New parameters for performance tuning are available in the experimental section.
+*   **Server**: New settings to configure the `gama-server` port, ping interval and other parameters directly from the preferences. Those are available in the new `Network` tab.
+*   **Files**: Added options for file buffering strategies that can be used to improve performances in models that output a lot of data into files. Those are available in the new `Advanced` tab.
+*   **UI**: More customization options for the user interface, with for example code mining.
+*   **Serialization**: New parameters for the handling of special cases in JSON serialization have been added into the `Data and Operators` tab.
 
 </details>
 
-### Added models
+### Packaged models
 
 <details>
  <summary>View all new models list</summary>
 
-*   Several new example models have been added to the library to showcase new features.
+*   Some older and unclear models have been removed, preparing for a future rework of the library.
+*   Two models have been added in `GAML Syntax` -> `Sytem` to illustrate the use of buffering strategies: `Buffering execution order.gaml` and `Buffering performances.gaml`
+*   In `Visualization and User Interaction` -> `Visualization` -> `3D Visualization` the model `Quadratic Linear and Constant attenuation.gaml` has been added to showcase the use of different lighting effect in an opengl display.
+*   In `Plugin models` -> `Images` the model `Emoji.gaml` has been added.
+*   The three unit test models `Lists.experiment`, `Loops.experiment` and `Serialization.experiment` have been added into the `Basic Tests` folder of the `Test models`, they are used to showcase basic functionalities of gama and their edge cases as well as to ensure that there's no regression in GAMA. 
 *   Existing models have been updated to fix bugs and ensure compatibility with this new version ([#251](https://github.com/gama-platform/gama/issues/251), [#235](https://github.com/gama-platform/gama/issues/235), [#241](https://github.com/gama-platform/gama/issues/241)).
 *   Documentation for models has been improved ([#230](https://github.com/gama-platform/gama/issues/230), [#247](https://github.com/gama-platform/gama/issues/247)).
 
