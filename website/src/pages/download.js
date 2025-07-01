@@ -167,29 +167,16 @@ export default function Download() {
 
           <ul>
             <li>
-              <strong>A much more fluid and powerful IDE</strong>
+              A significantly <strong>improved user interface</strong> with a more informative status bar, better theming, and enhanced navigation and parameter views.
             </li>
             <li>
-              <strong>A new server mode of GAMA</strong>, which revolutionizes
-              the way to interact with the platform from R, Python or web
-              clients.
+              A more robust and feature-rich <strong>gama-server</strong> with improved stability and new commands for better external integration.
             </li>
             <li>
-              <strong>Increased model exploration possibilities</strong>.
+              Substantial performance optimizations and memory leak fixes, leading to <strong>faster and more stable simulations</strong>.
             </li>
             <li>
-              <strong>A more powerful graph manipulation</strong>
-            </li>
-            <li>
-              <strong>
-                The possibility to simulate physical interactions between agents
-              </strong>{" "}
-              thanks to the native <code>bullet</code> library.
-            </li>
-            <li>
-              <strong>New and faster display capabilities</strong>, making it
-              easier than ever to build interactive simulations, serious games
-              or advanced scientific visualisations.
+              Expanded data manipulation capabilities with <strong>new operators</strong> and more <strong>efficient file handling</strong>.
             </li>
           </ul>
         </div>
