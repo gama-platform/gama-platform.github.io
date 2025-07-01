@@ -206,7 +206,7 @@ export default function Download() {
             Other installation versions
           </Button>
           <Button
-            href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv193.pdf`}
+            href={`https://github.com/gama-platform/gama/wiki/resources/pdf/docGAMAv2025-06.pdf`}
             col="4"
             buttonColor="primary"
           >
