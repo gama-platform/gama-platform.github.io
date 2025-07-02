@@ -11,6 +11,7 @@ GAMA exists since 2007 and has undergone a number of changes since its first rel
 
 GAMA 2025-06 is the current recommended version. It is the first version with the new naming convention using dates instead of numbers, the goal being to be more understandable for users. This release brings major upgrades to the modeling language and core platform, including numerous new GAML operators, enhanced error handling, and improved server and headless capabilities. Significant work has been done on the user interface, installer, and build system, and the model library has been expanded with new examples and better documentation. Altogether, these changes make GAMA more robust, flexible, and ready for larger and more complex simulations.
 
+![splashscreen 2025-06](https://raw.githubusercontent.com/gama-platform/gama/refs/tags/2025.06.3/gama.ui.application/splash.png)
 
 ## GAMA 1.9.3 (January 2024)
 
