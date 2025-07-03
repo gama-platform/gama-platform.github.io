@@ -25,8 +25,8 @@ module.exports = {
   customFields: {
     footerIcon: "img/gama-logo.png",
     docsUrl: "wiki",
-    zipName: "GAMA_2025.06.3", // zipName: "GAMA_" + latestVersion,
-    downloadVersion: "2025.06.3", // downloadVersion: latestVersion,
+    zipName: "GAMA_2025.06.4", // zipName: "GAMA_" + latestVersion,
+    downloadVersion: "2025.06.4", // downloadVersion: latestVersion,
     facebookAppId: 524881055001796,
     frontPagePresentation:
       "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
