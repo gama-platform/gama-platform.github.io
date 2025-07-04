@@ -245,7 +245,7 @@ module.exports = {
           //{ from: '/Gama-Days-2022', to: '/gama.resources/conferences/Gama-Days-2022', },
         ],
       },
-      "docusaurus-plugin-goatcounter",
+      //"docusaurus-plugin-goatcounter", 
     ],
   ],
 };
