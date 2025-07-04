@@ -1,4 +1,5 @@
-const latestVersion = "2025-06";
+const LATEST_VERSION = "2025-06";
+const DOWNLOAD_VERSION = "2025.06.4"
 
 module.exports = {
   // Main website options
@@ -25,13 +26,13 @@ module.exports = {
   customFields: {
     footerIcon: "img/gama-logo.png",
     docsUrl: "wiki",
-    zipName: "GAMA_2025.06.4", // zipName: "GAMA_" + latestVersion,
-    downloadVersion: "2025.06.4", // downloadVersion: latestVersion,
+    zipName: "GAMA_" + DOWNLOAD_VERSION,
+    downloadVersion: DOWNLOAD_VERSION,
     facebookAppId: 524881055001796,
     frontPagePresentation:
       "GAMA is a modeling and simulation development environment for building spatially explicit agent-based simulations.",
     frontPageImgLink: "release",
-    latestVersion: latestVersion,
+    latestVersion: LATEST_VERSION,
   },
 
   /*
@@ -52,7 +53,7 @@ module.exports = {
           editCurrentVersion: true,
 
           // Version dropdown options
-          lastVersion: latestVersion,
+          lastVersion: LATEST_VERSION,
           /*versions: {
             "1.81: {
               label: '1.8.1',
