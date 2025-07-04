@@ -227,6 +227,7 @@ module.exports = {
    *  PLUGINS
    */
   plugins: [
+    "docusaurus-plugin-goatcounter", 
     [
       "@docusaurus/plugin-client-redirects",
       {
@@ -245,7 +246,6 @@ module.exports = {
           //{ from: '/Gama-Days-2022', to: '/gama.resources/conferences/Gama-Days-2022', },
         ],
       },
-      //"docusaurus-plugin-goatcounter", 
     ],
   ],
 };
