@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@v4
 
       - name: Prepare git
         run: |
@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.BOT_TOKEN}}
           
       - name: Set up Python
-        uses: actions/setup-python@latest
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
           architecture: x64
@@ -73,7 +73,7 @@ jobs:
       # COMPILATION
       #
 
-      - uses: actions/setup-node@latest
+      - uses: actions/setup-node@v4
         with:
           node-version: 'current'
 
