@@ -107,6 +107,9 @@ module.exports = {
       showRunmeLink: false,
       runmeLinkLabel: 'Checkout via Runme'
     },*/
+    goatcounter: {
+      code: "gama-platform",
+    },
     docs: {
       sidebar: {
         autoCollapseCategories: true,
@@ -224,6 +227,7 @@ module.exports = {
    *  PLUGINS
    */
   plugins: [
+    "docusaurus-plugin-goatcounter", 
     [
       "@docusaurus/plugin-client-redirects",
       {
