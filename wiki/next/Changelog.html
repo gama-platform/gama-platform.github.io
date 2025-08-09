@@ -9,7 +9,7 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"><link rel="stylesheet" href="/assets/css/styles.4da2c998.css">
-<script src="/assets/js/runtime~main.746113a6.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.ecb20978.js" defer="defer"></script>
 <script src="/assets/js/main.9fc86d05.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -86,34 +86,69 @@
 <li><strong><code>pedestrian</code> skill</strong>: Casting an <code>outdoor</code> object to a <code>point</code> is no longer possible and will raise a cast error. Use specific operators to get spatial locations (<a href="https://github.com/gama-platform/gama/issues/570" target="_blank" rel="noopener noreferrer">#570</a>, <a href="https://github.com/gama-platform/gama/issues/503" target="_blank" rel="noopener noreferrer">#503</a>).</li>
 <li><strong>Grid file access</strong>: The way <code>grid</code> file contents are accessed has changed. Direct access methods might be deprecated in favor of new operators, which could break existing models that rely on the old accessors (<a href="https://github.com/gama-platform/gama/issues/187" target="_blank" rel="noopener noreferrer">#187</a>).</li>
 <li><strong>File Paths on Windows</strong>: Concatenating path elements with <code>+</code> should be replaced by the <code>path</code> constructor or the <code>/</code> operator to avoid issues on Windows (<a href="https://github.com/gama-platform/gama/issues/467" target="_blank" rel="noopener noreferrer">#467</a>).</li>
-</ul><p>A large number of elements of the gaml langage that were considered deprecated have been deleted, here is an exhaustive list of the changes and what you could use as a replacement:</p><h5 class="anchor anchorWithStickyNavbar_LWe7" id="in-skills">In skills<a href="#in-skills" class="hash-link" aria-label="Direct link to In skills" title="Direct link to In skills">​</a></h5><h6 class="anchor anchorWithStickyNavbar_LWe7" id="driving-skill"><strong>Driving Skill</strong><a href="#driving-skill" class="hash-link" aria-label="Direct link to driving-skill" title="Direct link to driving-skill">​</a></h6><p><strong>Variables:</strong></p><ul>
+</ul><p>A large number of elements of the gaml langage that were considered deprecated have been deleted, here is an exhaustive list of the changes and what you could use as a replacement:</p><h5 class="anchor anchorWithStickyNavbar_LWe7" id="in-skills">In skills<a href="#in-skills" class="hash-link" aria-label="Direct link to In skills" title="Direct link to In skills">​</a></h5><h6 class="anchor anchorWithStickyNavbar_LWe7" id="driving-skill"><strong>Driving Skill</strong><a href="#driving-skill" class="hash-link" aria-label="Direct link to driving-skill" title="Direct link to driving-skill">​</a></h6><ul>
+<li><strong>Variables:</strong>
+<ul>
 <li><code>real_speed</code> → use <code>speed</code> instead</li>
 <li><code>targets</code> (list of points) → removed</li>
 <li><code>security_distance_coeff</code>, <code>min_security_distance</code> → use <code>safety_distance_coeff</code>, <code>min_safety_distance</code></li>
 <li><code>current_lane</code> → removed, no replacement</li>
 <li><code>on_linked_road</code> → use <code>using_linked_road</code> instead</li>
 <li><code>proba_lane_change_up</code>, <code>proba_lane_change_down</code> → use MOBIL model parameters</li>
-</ul><p><strong>Actions:</strong></p><ul>
+</ul>
+</li>
+<li><strong>Actions:</strong>
+<ul>
 <li><code>advanced_follow_driving</code> → removed</li>
 <li><code>path_from_nodes</code> → use <code>compute_path</code> with <code>nodes</code> facet</li>
 <li><code>speed_choice</code> → removed</li>
 <li><code>lane_choice</code> → use <code>choose_lane</code> instead</li>
-</ul><p><strong>Skills:</strong></p><ul>
+</ul>
+</li>
+<li><strong>Names:</strong>
+<ul>
 <li><code>advanced_driving</code> → renamed to <code>driving</code></li>
 <li><code>skill_road</code> → renamed to <code>road_skill</code></li>
 <li><code>skill_road_node</code> → renamed to <code>intersection</code></li>
-</ul><p><strong>Other:</strong></p><ul>
+</ul>
+</li>
+<li><strong>Other:</strong>
+<ul>
 <li><code>unregister</code> action in <code>road</code> skill → use <code>unregister</code> of the driving skill</li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="moving-skill"><strong>Moving Skill</strong><a href="#moving-skill" class="hash-link" aria-label="Direct link to moving-skill" title="Direct link to moving-skill">​</a></h6><p><strong>Variables:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="moving-skill"><strong>Moving Skill</strong><a href="#moving-skill" class="hash-link" aria-label="Direct link to moving-skill" title="Direct link to moving-skill">​</a></h6><ul>
+<li><strong>Variables:</strong>
+<ul>
 <li><code>destination</code> → removed</li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="communicatingfipa-skill"><strong>Communicating/FIPA Skill</strong><a href="#communicatingfipa-skill" class="hash-link" aria-label="Direct link to communicatingfipa-skill" title="Direct link to communicatingfipa-skill">​</a></h6><p><strong>Actions:</strong></p><ul>
-<li><code>send</code> in <code>fipa</code> → use <code>start_conversation</code></li>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="communicatingfipa-skill"><strong>Communicating/FIPA Skill</strong><a href="#communicatingfipa-skill" class="hash-link" aria-label="Direct link to communicatingfipa-skill" title="Direct link to communicatingfipa-skill">​</a></h6><ul>
+<li><strong>Names:</strong>
+<ul>
 <li><code>communicating</code> skill → use <code>fipa</code> skill instead</li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="database-skill"><strong>Database Skill</strong><a href="#database-skill" class="hash-link" aria-label="Direct link to database-skill" title="Direct link to database-skill">​</a></h6><p><strong>Actions:</strong></p><ul>
+</ul>
+</li>
+<li><strong>Actions:</strong>
+<ul>
+<li><code>send</code> in <code>fipa</code> → use <code>start_conversation</code></li>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="database-skill"><strong>Database Skill</strong><a href="#database-skill" class="hash-link" aria-label="Direct link to database-skill" title="Direct link to database-skill">​</a></h6><ul>
+<li><strong>Actions:</strong>
+<ul>
 <li><code>timeStamp</code> → use <code>gama.machine_time</code> variable</li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="grid-context"><strong>Grid Context</strong><a href="#grid-context" class="hash-link" aria-label="Direct link to grid-context" title="Direct link to grid-context">​</a></h6><p><strong>Variables:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="grid-context"><strong>Grid Context</strong><a href="#grid-context" class="hash-link" aria-label="Direct link to grid-context" title="Direct link to grid-context">​</a></h6><ul>
+<li><strong>Variables:</strong>
+<ul>
 <li><code>neighbours</code> → use <code>neighbors</code> instead</li>
-</ul><hr><h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-statements">In statements<a href="#in-statements" class="hash-link" aria-label="Direct link to In statements" title="Direct link to In statements">​</a></h2><h6 class="anchor anchorWithStickyNavbar_LWe7" id="display-statement"><strong>Display Statement</strong><a href="#display-statement" class="hash-link" aria-label="Direct link to display-statement" title="Direct link to display-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h5 class="anchor anchorWithStickyNavbar_LWe7" id="in-statements">In statements<a href="#in-statements" class="hash-link" aria-label="Direct link to In statements" title="Direct link to In statements">​</a></h5><h6 class="anchor anchorWithStickyNavbar_LWe7" id="display-statement"><strong>Display Statement</strong><a href="#display-statement" class="hash-link" aria-label="Direct link to display-statement" title="Direct link to display-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>refresh_every</code> → use <code>refresh: every(n)</code></li>
 <li><code>focus</code> → insert <code>camera default target: the_agent;</code> in layer definitions (not available in Java2D)</li>
 <li><code>synchronized</code> → now a property of <code>output</code>, not per-view</li>
@@ -122,57 +157,113 @@
 <li><code>ambient_light</code>, <code>diffuse_light</code>, <code>draw_diffuse_light</code> → use <code>light</code> statement</li>
 <li>Camera facets: <code>camera_pos</code>, <code>camera_location</code>, <code>camera_target</code>, <code>camera_look_pos</code>, <code>camera_orientation</code>, <code>camera_up_vector</code>, <code>camera_lens</code>, <code>camera_interaction</code> → use <code>camera</code> statement</li>
 <li><code>rotate</code> → removed</li>
-</ul><p>--</p><h6 class="anchor anchorWithStickyNavbar_LWe7" id="monitor-statement"><strong>Monitor Statement</strong><a href="#monitor-statement" class="hash-link" aria-label="Direct link to monitor-statement" title="Direct link to monitor-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="monitor-statement"><strong>Monitor Statement</strong><a href="#monitor-statement" class="hash-link" aria-label="Direct link to monitor-statement" title="Direct link to monitor-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>refresh_every</code> → use <code>refresh: every(n)</code></li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="permanent-statement"><strong>Permanent Statement</strong><a href="#permanent-statement" class="hash-link" aria-label="Direct link to permanent-statement" title="Direct link to permanent-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="permanent-statement"><strong>Permanent Statement</strong><a href="#permanent-statement" class="hash-link" aria-label="Direct link to permanent-statement" title="Direct link to permanent-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>layout</code>, <code>toolbars</code>, <code>tabs</code> → use <code>layout</code> statement</li>
 <li><code>synchronized</code> → removed</li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="do-statement"><strong>Do Statement</strong><a href="#do-statement" class="hash-link" aria-label="Direct link to do-statement" title="Direct link to do-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="do-statement"><strong>Do Statement</strong><a href="#do-statement" class="hash-link" aria-label="Direct link to do-statement" title="Direct link to do-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>returns</code> → assign result directly to variable</li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="save-statement"><strong>Save Statement</strong><a href="#save-statement" class="hash-link" aria-label="Direct link to save-statement" title="Direct link to save-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="save-statement"><strong>Save Statement</strong><a href="#save-statement" class="hash-link" aria-label="Direct link to save-statement" title="Direct link to save-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>type</code> → use <code>format</code></li>
 <li><code>with</code> → use <code>attributes</code></li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="draw-statement"><strong>Draw Statement</strong><a href="#draw-statement" class="hash-link" aria-label="Direct link to draw-statement" title="Direct link to draw-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="draw-statement"><strong>Draw Statement</strong><a href="#draw-statement" class="hash-link" aria-label="Direct link to draw-statement" title="Direct link to draw-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>rounded</code> → use <code>squircle</code> operator for rounded circles</li>
 <li><code>bitmap</code> → use <code>perspective</code></li>
 <li><code>empty</code> → use <code>wireframe</code></li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="variable-declarations"><strong>Variable Declarations</strong><a href="#variable-declarations" class="hash-link" aria-label="Direct link to variable-declarations" title="Direct link to variable-declarations">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="variable-declarations"><strong>Variable Declarations</strong><a href="#variable-declarations" class="hash-link" aria-label="Direct link to variable-declarations" title="Direct link to variable-declarations">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>value</code> → use <code>update</code></li>
 <li><code>category</code>, <code>parameter</code> facets → use <code>parameter</code> statement and <code>category</code> facet in <code>experiment</code></li>
 <li><code>size</code>, <code>fill_with</code> facets (container variables) → use <code>matrix_with(size, fill_with)</code> or <code>list_with(size, fill_with)</code></li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="solve-statement"><strong>Solve Statement</strong><a href="#solve-statement" class="hash-link" aria-label="Direct link to solve-statement" title="Direct link to solve-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="solve-statement"><strong>Solve Statement</strong><a href="#solve-statement" class="hash-link" aria-label="Direct link to solve-statement" title="Direct link to solve-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>integrated_times</code>, <code>integrated_values</code> → use <code>t[]</code>, <code>S[]</code>, <code>I[]</code></li>
 <li><code>step</code> → use <code>steps_size</code></li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="image-layer-statement"><strong>Image Layer Statement</strong><a href="#image-layer-statement" class="hash-link" aria-label="Direct link to image-layer-statement" title="Direct link to image-layer-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="image-layer-statement"><strong>Image Layer Statement</strong><a href="#image-layer-statement" class="hash-link" aria-label="Direct link to image-layer-statement" title="Direct link to image-layer-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>file</code> → pass image file directly to default facet</li>
 <li><code>matrix</code> → pass matrix directly or use <code>field</code>/<code>mesh</code> layer statement</li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="chart-layer-statement"><strong>Chart Layer Statement</strong><a href="#chart-layer-statement" class="hash-link" aria-label="Direct link to chart-layer-statement" title="Direct link to chart-layer-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="chart-layer-statement"><strong>Chart Layer Statement</strong><a href="#chart-layer-statement" class="hash-link" aria-label="Direct link to chart-layer-statement" title="Direct link to chart-layer-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>tick_font_size</code>, <code>tick_font_style</code> → use font in <code>tick_font</code></li>
 <li><code>label_font_size</code>, <code>label_font_style</code> → use font in <code>label_font</code></li>
 <li><code>legend_font_size</code>, <code>label_font_style</code> → use font in <code>legend_font</code></li>
 <li><code>title_font_size</code>, <code>label_font_style</code> → use font in <code>title_font</code></li>
-</ul><hr><p><strong>Grid Layer Statement</strong>
-<strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="grid-layer-statement"><strong>Grid Layer Statement</strong><a href="#grid-layer-statement" class="hash-link" aria-label="Direct link to grid-layer-statement" title="Direct link to grid-layer-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>lines</code> → use <code>border</code></li>
 <li><code>draw_as_dem</code>, <code>dem</code> → use <code>elevation</code></li>
 <li><code>empty</code> → use <code>wireframe</code></li>
-</ul><h6 class="anchor anchorWithStickyNavbar_LWe7" id="light-statement"><strong>Light Statement</strong><a href="#light-statement" class="hash-link" aria-label="Direct link to light-statement" title="Direct link to light-statement">​</a></h6><p><strong>Facets:</strong></p><ul>
+</ul>
+</li>
+</ul><h6 class="anchor anchorWithStickyNavbar_LWe7" id="light-statement"><strong>Light Statement</strong><a href="#light-statement" class="hash-link" aria-label="Direct link to light-statement" title="Direct link to light-statement">​</a></h6><ul>
+<li><strong>Facets:</strong>
+<ul>
 <li><code>position</code> → use <code>location</code></li>
 <li><code>spot_angle</code> → use <code>angle</code></li>
 <li><code>color</code> → use <code>intensity</code></li>
 <li><code>draw_light</code> → use <code>show</code></li>
 <li><code>update</code> → use <code>dynamic</code></li>
-</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="statements"><strong>Statements</strong><a href="#statements" class="hash-link" aria-label="Direct link to statements" title="Direct link to statements">​</a></h6><ul>
+</ul>
+</li>
+</ul><hr><h6 class="anchor anchorWithStickyNavbar_LWe7" id="diffusion-statement"><strong>Diffusion Statement</strong><a href="#diffusion-statement" class="hash-link" aria-label="Direct link to diffusion-statement" title="Direct link to diffusion-statement">​</a></h6><ul>
+<li><strong>Name:</strong>
+<ul>
 <li><code>diffusion</code> keyword → use <code>diffuse</code></li>
-</ul><hr><h2 class="anchor anchorWithStickyNavbar_LWe7" id="in-the-global">In the global<a href="#in-the-global" class="hash-link" aria-label="Direct link to In the global" title="Direct link to In the global">​</a></h2><p><strong>Global Variables:</strong></p><ul>
+</ul>
+</li>
+</ul><hr><h5 class="anchor anchorWithStickyNavbar_LWe7" id="in-the-global">In the global<a href="#in-the-global" class="hash-link" aria-label="Direct link to In the global" title="Direct link to In the global">​</a></h5><ul>
+<li><strong>Global Variables:</strong>
+<ul>
 <li><code>machine_time</code> → use <code>gama.machine_time</code></li>
 <li><code>workspace_path</code> → use <code>gama.workspace_path</code> or <code>gama.workspace</code></li>
-</ul><hr><h2 class="anchor anchorWithStickyNavbar_LWe7" id="operators">Operators<a href="#operators" class="hash-link" aria-label="Direct link to Operators" title="Direct link to Operators">​</a></h2><ul>
+</ul>
+</li>
+<li><strong>Operators:</strong>
+<ul>
 <li><code>with_optimizer_type</code> (graph, string) → use <code>with_shortestpath_algorithm</code></li>
 <li><code>buffer</code>, <code>enlarged_by</code>, <code>+</code> (shape, map) → use those operators with (shape, distance, number_of_segments) or (shape, distance, number_of_segments, end_cap) parameters instead</li>
 <li><code>is_clockwise</code>, <code>change_clockwise</code> (geometry) → removed as all geometries now clockwise</li>
 <li><code>user_input</code> → use <code>user_input_dialog</code>, replace maps by lists of <code>enter()</code>/<code>choose()</code></li>
 <li><code>as_json_string</code> → use <code>to_json</code></li>
+</ul>
+</li>
 </ul></div></div></details>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="-warnings--concepts-that-should-be-updated">🟠 Warnings 🟠: concepts that should be updated<a href="#-warnings--concepts-that-should-be-updated" class="hash-link" aria-label="Direct link to 🟠 Warnings 🟠: concepts that should be updated" title="Direct link to 🟠 Warnings 🟠: concepts that should be updated">​</a></h4>
 <details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>View detailed changes</summary><div><div class="collapsibleContent_i85q"><ul>
@@ -627,7 +718,7 @@ In addition, the macOS version is now fully signed. Linux and macOS users can al
 </ul><hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="new-mathematical-tests">New mathematical tests<a href="#new-mathematical-tests" class="hash-link" aria-label="Direct link to New mathematical tests" title="Direct link to New mathematical tests">​</a></h4><ul>
 <li><a href="https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/tests/ODE%20Tests/models/Consistency%20Test.gaml" target="_blank" rel="noopener noreferrer">ummisco.gaml.extensions.maths/tests/ODE Tests/models/Consistency Test.gaml</a></li>
 <li><a href="https://github.com/gama-platform/gama.old/tree/GAMA_1.9.1/ummisco.gaml.extensions.maths/tests/ODE%20Tests/models/Events%20Test.gaml" target="_blank" rel="noopener noreferrer">ummisco.gaml.extensions.maths/tests/ODE Tests/models/Events Test.gaml</a></li>
-</ul></div></div></details></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/gama-platform/gama/wiki/Changelog/_edit" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/wiki/next/Home"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">GAMA</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/wiki/next/PlatformDocumentation"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Platform</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#major-changes-from-193-to-2025-06" class="table-of-contents__link toc-highlight">Major changes from 1.9.3 to 2025-06</a><ul><li><a href="#detailed-changes" class="table-of-contents__link toc-highlight">Detailed changes</a></li><li><a href="#changes-that-can-impact-models" class="table-of-contents__link toc-highlight">Changes that can impact models</a></li></ul></li><li><a href="#in-statements" class="table-of-contents__link toc-highlight">In statements</a></li><li><a href="#in-the-global" class="table-of-contents__link toc-highlight">In the global</a></li><li><a href="#operators" class="table-of-contents__link toc-highlight">Operators</a><ul><li><a href="#preferences" class="table-of-contents__link toc-highlight">Preferences</a></li><li><a href="#added-models" class="table-of-contents__link toc-highlight">Added models</a></li></ul></li><li><a href="#major-changes-from-192-to-193" class="table-of-contents__link toc-highlight">Major changes from 1.9.2 to 1.9.3</a><ul><li><a href="#detailed-changes-1" class="table-of-contents__link toc-highlight">Detailed changes</a></li><li><a href="#changes-that-can-impact-models-1" class="table-of-contents__link toc-highlight">Changes that can impact models</a></li><li><a href="#preferences-1" class="table-of-contents__link toc-highlight">Preferences</a></li><li><a href="#added-models-1" class="table-of-contents__link toc-highlight">Added models</a></li></ul></li><li><a href="#major-changes-from-191-to-192" class="table-of-contents__link toc-highlight">Major changes from 1.9.1 to 1.9.2</a><ul><li><a href="#detailed-changes-2" class="table-of-contents__link toc-highlight">Detailed changes</a></li><li><a href="#changes-that-can-impact-models-2" class="table-of-contents__link toc-highlight">Changes that can impact models</a></li><li><a href="#preferences-2" class="table-of-contents__link toc-highlight">Preferences</a></li><li><a href="#bug-fixes" class="table-of-contents__link toc-highlight">Bug fixes</a></li><li><a href="#added-models-2" class="table-of-contents__link toc-highlight">Added models</a></li></ul></li><li><a href="#previous-major-changes-since-181-brought-by-191" class="table-of-contents__link toc-highlight">Previous major changes since 1.8.1 brought by 1.9.1</a><ul><li><a href="#comparison-chart" class="table-of-contents__link toc-highlight">Comparison chart</a></li><li><a href="#detailed-changes-3" class="table-of-contents__link toc-highlight">Detailed changes</a></li><li><a href="#gama-server-mode" class="table-of-contents__link toc-highlight">GAMA Server mode</a></li><li><a href="#modelling-improvements" class="table-of-contents__link toc-highlight">Modelling improvements</a></li><li><a href="#experiment" class="table-of-contents__link toc-highlight">Experiment</a></li><li><a href="#displays" class="table-of-contents__link toc-highlight">Displays</a></li><li><a href="#user-interface" class="table-of-contents__link toc-highlight">User Interface</a></li><li><a href="#user-interaction" class="table-of-contents__link toc-highlight">User Interaction</a></li><li><a href="#advanced-programming-usages" class="table-of-contents__link toc-highlight">Advanced programming usages</a></li><li><a href="#graph-improvements" class="table-of-contents__link toc-highlight">Graph improvements</a></li><li><a href="#os-and-computing-environments" class="table-of-contents__link toc-highlight">OS and computing environments</a></li><li><a href="#changes-that-can-impact-models-3" class="table-of-contents__link toc-highlight">Changes that can impact models</a></li><li><a href="#preferences-3" class="table-of-contents__link toc-highlight">Preferences</a></li><li><a href="#setting-and-sharing-preferences" class="table-of-contents__link toc-highlight">Setting and sharing preferences</a></li><li><a href="#bug-fixes-1" class="table-of-contents__link toc-highlight">Bug fixes</a></li><li><a href="#added-models-3" class="table-of-contents__link toc-highlight">Added models</a></li></ul></li></ul></div></div></div><br></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="https://github.com/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Github <i class="fa fa-arrow-up-right-from-square"></i></a></li><li class="footer__item"><a class="footer__link-item" href="https://www.facebook.com/GamaPlatform/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook <i class="fa fa-arrow-up-right-from-square"></i></a></li><li class="footer__item"><a class="footer__link-item" href="https://www.linkedin.com/company/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn <i class="fa fa-arrow-up-right-from-square"></i></a></li><li class="footer__item"><a class="footer__link-item" href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Youtube <i class="fa fa-arrow-up-right-from-square"></i></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Mailing list</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br>gama-platform@googlegroups.com</a></li><li class="footer__item"><a class="footer__link-item" href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br>gama-dev@googlegroups.com</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Licence</div><ul class="footer__items clean-list"><li class="footer__item">
+</ul></div></div></details></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/gama-platform/gama/wiki/Changelog/_edit" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/wiki/next/Home"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">GAMA</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/wiki/next/PlatformDocumentation"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Platform</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#major-changes-from-193-to-2025-06" class="table-of-contents__link toc-highlight">Major changes from 1.9.3 to 2025-06</a><ul><li><a href="#detailed-changes" class="table-of-contents__link toc-highlight">Detailed changes</a></li><li><a href="#changes-that-can-impact-models" class="table-of-contents__link toc-highlight">Changes that can impact models</a></li><li><a href="#preferences" class="table-of-contents__link toc-highlight">Preferences</a></li><li><a href="#added-models" class="table-of-contents__link toc-highlight">Added models</a></li></ul></li><li><a href="#major-changes-from-192-to-193" class="table-of-contents__link toc-highlight">Major changes from 1.9.2 to 1.9.3</a><ul><li><a href="#detailed-changes-1" class="table-of-contents__link toc-highlight">Detailed changes</a></li><li><a href="#changes-that-can-impact-models-1" class="table-of-contents__link toc-highlight">Changes that can impact models</a></li><li><a href="#preferences-1" class="table-of-contents__link toc-highlight">Preferences</a></li><li><a href="#added-models-1" class="table-of-contents__link toc-highlight">Added models</a></li></ul></li><li><a href="#major-changes-from-191-to-192" class="table-of-contents__link toc-highlight">Major changes from 1.9.1 to 1.9.2</a><ul><li><a href="#detailed-changes-2" class="table-of-contents__link toc-highlight">Detailed changes</a></li><li><a href="#changes-that-can-impact-models-2" class="table-of-contents__link toc-highlight">Changes that can impact models</a></li><li><a href="#preferences-2" class="table-of-contents__link toc-highlight">Preferences</a></li><li><a href="#bug-fixes" class="table-of-contents__link toc-highlight">Bug fixes</a></li><li><a href="#added-models-2" class="table-of-contents__link toc-highlight">Added models</a></li></ul></li><li><a href="#previous-major-changes-since-181-brought-by-191" class="table-of-contents__link toc-highlight">Previous major changes since 1.8.1 brought by 1.9.1</a><ul><li><a href="#comparison-chart" class="table-of-contents__link toc-highlight">Comparison chart</a></li><li><a href="#detailed-changes-3" class="table-of-contents__link toc-highlight">Detailed changes</a></li><li><a href="#gama-server-mode" class="table-of-contents__link toc-highlight">GAMA Server mode</a></li><li><a href="#modelling-improvements" class="table-of-contents__link toc-highlight">Modelling improvements</a></li><li><a href="#experiment" class="table-of-contents__link toc-highlight">Experiment</a></li><li><a href="#displays" class="table-of-contents__link toc-highlight">Displays</a></li><li><a href="#user-interface" class="table-of-contents__link toc-highlight">User Interface</a></li><li><a href="#user-interaction" class="table-of-contents__link toc-highlight">User Interaction</a></li><li><a href="#advanced-programming-usages" class="table-of-contents__link toc-highlight">Advanced programming usages</a></li><li><a href="#graph-improvements" class="table-of-contents__link toc-highlight">Graph improvements</a></li><li><a href="#os-and-computing-environments" class="table-of-contents__link toc-highlight">OS and computing environments</a></li><li><a href="#changes-that-can-impact-models-3" class="table-of-contents__link toc-highlight">Changes that can impact models</a></li><li><a href="#preferences-3" class="table-of-contents__link toc-highlight">Preferences</a></li><li><a href="#setting-and-sharing-preferences" class="table-of-contents__link toc-highlight">Setting and sharing preferences</a></li><li><a href="#bug-fixes-1" class="table-of-contents__link toc-highlight">Bug fixes</a></li><li><a href="#added-models-3" class="table-of-contents__link toc-highlight">Added models</a></li></ul></li></ul></div></div></div><br></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="https://github.com/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Github <i class="fa fa-arrow-up-right-from-square"></i></a></li><li class="footer__item"><a class="footer__link-item" href="https://www.facebook.com/GamaPlatform/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook <i class="fa fa-arrow-up-right-from-square"></i></a></li><li class="footer__item"><a class="footer__link-item" href="https://www.linkedin.com/company/gama-platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn <i class="fa fa-arrow-up-right-from-square"></i></a></li><li class="footer__item"><a class="footer__link-item" href="https://www.youtube.com/channel/UCWJ1kWGDDI-9u2f2uD0gcaQ" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Youtube <i class="fa fa-arrow-up-right-from-square"></i></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Mailing list</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="https://groups.google.com/forum/#!forum/gama-platform" target="_blank"><i class="fas fa-envelope"></i> For Users<br>gama-platform@googlegroups.com</a></li><li class="footer__item"><a class="footer__link-item" href="https://groups.google.com/forum/#!forum/gama-dev" target="_blank"><i class="fas fa-envelope"></i> For Developers<br>gama-dev@googlegroups.com</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Licence</div><ul class="footer__items clean-list"><li class="footer__item">
                   <p>
                     Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
                   </p>
