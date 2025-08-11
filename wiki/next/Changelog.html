@@ -9,7 +9,7 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"><link rel="stylesheet" href="/assets/css/styles.4da2c998.css">
-<script src="/assets/js/runtime~main.ecb20978.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.ac90c926.js" defer="defer"></script>
 <script src="/assets/js/main.9fc86d05.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -82,10 +82,7 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="changes-that-can-impact-models">Changes that can impact models<a href="#changes-that-can-impact-models" class="hash-link" aria-label="Direct link to Changes that can impact models" title="Direct link to Changes that can impact models">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="-errors--concepts-that-need-to-be-written-differently">🔴 Errors 🔴: concepts that need to be written differently<a href="#-errors--concepts-that-need-to-be-written-differently" class="hash-link" aria-label="Direct link to 🔴 Errors 🔴: concepts that need to be written differently" title="Direct link to 🔴 Errors 🔴: concepts that need to be written differently">​</a></h4>
 <details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>View detailed changes</summary><div><div class="collapsibleContent_i85q"><ul>
-<li><strong>JSON Deserialization</strong>: Deserializing a JSON string containing an unknown type will now raise an error instead of being silently ignored. Models relying on the old behavior will need to be adapted (<a href="https://github.com/gama-platform/gama/issues/684" target="_blank" rel="noopener noreferrer">#684</a>).</li>
-<li><strong><code>pedestrian</code> skill</strong>: Casting an <code>outdoor</code> object to a <code>point</code> is no longer possible and will raise a cast error. Use specific operators to get spatial locations (<a href="https://github.com/gama-platform/gama/issues/570" target="_blank" rel="noopener noreferrer">#570</a>, <a href="https://github.com/gama-platform/gama/issues/503" target="_blank" rel="noopener noreferrer">#503</a>).</li>
-<li><strong>Grid file access</strong>: The way <code>grid</code> file contents are accessed has changed. Direct access methods might be deprecated in favor of new operators, which could break existing models that rely on the old accessors (<a href="https://github.com/gama-platform/gama/issues/187" target="_blank" rel="noopener noreferrer">#187</a>).</li>
-<li><strong>File Paths on Windows</strong>: Concatenating path elements with <code>+</code> should be replaced by the <code>path</code> constructor or the <code>/</code> operator to avoid issues on Windows (<a href="https://github.com/gama-platform/gama/issues/467" target="_blank" rel="noopener noreferrer">#467</a>).</li>
+<li><strong>Data manipulation</strong>: Due to stricter typing rules, manipulating data, especially of containers, now requires either more explicit typing from the beginning or casting otherwise some compilation errors might appear. Overall there is no difference in what could be achieved with the language, see <a href="https://github.com/gama-platform/gama/issues/684" target="_blank" rel="noopener noreferrer">#684</a> for example.</li>
 </ul><p>A large number of elements of the gaml langage that were considered deprecated have been deleted, here is an exhaustive list of the changes and what you could use as a replacement:</p><h5 class="anchor anchorWithStickyNavbar_LWe7" id="in-skills">In skills<a href="#in-skills" class="hash-link" aria-label="Direct link to In skills" title="Direct link to In skills">​</a></h5><h6 class="anchor anchorWithStickyNavbar_LWe7" id="driving-skill"><strong>Driving Skill</strong><a href="#driving-skill" class="hash-link" aria-label="Direct link to driving-skill" title="Direct link to driving-skill">​</a></h6><ul>
 <li><strong>Variables:</strong>
 <ul>
