@@ -8,6 +8,12 @@ on:
   push:
     branches: [ sources ]
   workflow_dispatch:  # For manual trigger
+    inputs:
+      SAVE_PRE_COMPIL:
+        description: "Do you want to save pre-compiled md files?"
+        default: false
+        type: boolean
+
   repository_dispatch: # For POST request trigger
     types: automated-generation
 
@@ -68,6 +74,19 @@ jobs:
       - name: Finish cleaning docs folder
         shell: bash
         run: $GITHUB_WORKSPACE/script/finalClean.sh
+
+      # =========================================
+
+      - name: Export every releases
+        uses: actions/upload-artifact@v4
+        if: "${{ inputs.SAVE_PRE_COMPIL }}"
+        with:
+          name: pre-compiled-md
+          if-no-files-found: error
+          compression-level: 0
+          overwrite: true
+          path: |
+            ${{ github.workspace }}/docs/*.md
 
       #
       # COMPILATION
