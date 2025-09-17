@@ -5,7 +5,7 @@ title:  Changelog
 
 ## Major changes from 1.9.3 to 2025-06
 
-This is a major release, bringing numerous bug fixes, performance improvements, and new features across the platform. Key highlights include a more robust gama-server, significant UI/UX enhancements and expanded data type operations. This version is built on Eclipse 2025-03 and requires JDK21.
+This is a major release, bringing numerous bug fixes, performance improvements, and new features across the platform. Key highlights include a more robust gama-server, significant UI/UX enhancements, expanded data type operations, and important updates to the physics engine and agent control architectures. This version is built on Eclipse 2025-03 and requires JDK21.
 
 ### Detailed changes
 
@@ -13,11 +13,13 @@ This is a major release, bringing numerous bug fixes, performance improvements, 
  <summary>This release of GAMA contains new features and fixes, including:</summary>
 
 *   **Core & Execution:**
-    *   Now built on Eclipse 2025-03 and requires JDK21 ([#213](https://github.com/gama-platform/gama/issues/213), [#248](https://github.com/gama-platform/gama/issues/248), [#414](https://github.com/gama-platform/gama/issues/414)).
-    *   Significant performance optimizations in core execution ([#271](https://github.com/gama-platform/gama/issues/271), [#291](https://github.com/gama-platform/gama/issues/291) and many others).
+    *   Significant performance optimizations in core execution ([#271](https://github.com/gama-platform/gama/issues/271), [#291](https://github.com/gama-platform/gama/issues/291)).
+    *   Rework of simulation exploration methods to fix many bugs and clean up the outputs ([#186](https://github.com/gama-platform/gama/issues/186))
     *   Fixed several memory leaks, improving long-running simulation stability ([#317](https://github.com/gama-platform/gama/issues/317), [#489](https://github.com/gama-platform/gama/issues/489)).
     *   Improved handling of file paths on Windows to prevent string concatenation issues ([#467](https://github.com/gama-platform/gama/issues/467)).
-    *   Enhanced unit testing framework ([#182](https://github.com/gama-platform/gama/issues/182) and many new unit tests to increase the coverage).
+    *   Enhanced unit testing framework ([#182](https://github.com/gama-platform/gama/issues/182) and many new unit test files to increase the coverage).
+    *   Now built on Eclipse 2025-03 and requires JDK21 ([#213](https://github.com/gama-platform/gama/issues/213), [#248](https://github.com/gama-platform/gama/issues/248), [#414](https://github.com/gama-platform/gama/issues/414)).
+
 
 *   **GAMA Server:**
     *   Numerous fixes and stability improvements for `gama-server` ([#691](https://github.com/gama-platform/gama/issues/691)).
@@ -61,36 +63,206 @@ This is a major release, bringing numerous bug fixes, performance improvements, 
 <details>
  <summary>View detailed changes</summary>
 
-*   **Stricter typing**: Gama has now stricter rules for types, especially related to container. Some may need to update their models to add explicit casting to the type they want to manipulate.
-*   **Simulation saving**: Some changes in the way the serialization is handled can prevent the compatibility with previous versions. If you saved a simulation with the `save` statement in 1.9.3 and try to restore it in this release, it may not work.
-*   **Removal of the zip option** The internal behaviour of the experiment of type record have been completely reworked and the facet `zip` is now not available anymore as it's done by default.
-  
+*   **Data manipulation**: Due to stricter typing rules, manipulating data, especially of containers, now requires either more explicit typing from the beginning or casting otherwise some compilation errors might appear. Overall there is no difference in what could be achieved with the language, see [#684](https://github.com/gama-platform/gama/issues/684) for example.
+
+A large number of elements of the gaml langage that were considered deprecated have been deleted, here is an exhaustive list of the changes and what you could use as a replacement:
+
+##### In skills
+
+###### **Driving Skill**
+- **Variables:**
+  - `real_speed` &rarr; use `speed` instead
+  - `targets` (list of points) &rarr; removed
+  - `security_distance_coeff`, `min_security_distance` &rarr; use `safety_distance_coeff`, `min_safety_distance`
+  - `current_lane` &rarr; removed, no replacement
+  - `on_linked_road` &rarr; use `using_linked_road` instead
+  - `proba_lane_change_up`, `proba_lane_change_down` &rarr; use MOBIL model parameters
+- **Actions:**
+  - `advanced_follow_driving` &rarr; removed
+  - `path_from_nodes` &rarr; use `compute_path` with `nodes` facet
+  - `speed_choice` &rarr; removed
+  - `lane_choice` &rarr; use `choose_lane` instead
+- **Names:**
+  - `advanced_driving` &rarr; renamed to `driving`
+  - `skill_road` &rarr; renamed to `road_skill`
+  - `skill_road_node` &rarr; renamed to `intersection`
+- **Other:**
+  - `unregister` action in `road` skill &rarr; use `unregister` of the driving skill
+
+---
+
+###### **Moving Skill**
+- **Variables:**
+  - `destination` &rarr; removed
+
+---
+
+###### **Communicating/FIPA Skill**
+- **Names:**
+  - `communicating` skill &rarr; use `fipa` skill instead
+- **Actions:**
+  - `send` in `fipa` &rarr; use `start_conversation`
+
+---
+
+###### **Database Skill**
+- **Actions:**
+  - `timeStamp` &rarr; use `gama.machine_time` variable
+
+---
+
+###### **Grid Context**
+- **Variables:**
+  - `neighbours` &rarr; use `neighbors` instead
+
+---
+
+##### In statements
+
+###### **Display Statement**
+- **Facets:**
+  - `refresh_every` &rarr; use `refresh: every(n)`
+  - `focus` &rarr; insert `camera default target: the_agent;` in layer definitions (not available in Java2D)
+  - `synchronized` &rarr; now a property of `output`, not per-view
+  - `scale` &rarr; always displayed, facet removed
+  - `draw_env` &rarr; use `axes`
+  - `ambient_light`, `diffuse_light`, `draw_diffuse_light` &rarr; use `light` statement
+  - Camera facets: `camera_pos`, `camera_location`, `camera_target`, `camera_look_pos`, `camera_orientation`, `camera_up_vector`, `camera_lens`, `camera_interaction` &rarr; use `camera` statement
+  - `rotate` &rarr; removed
+
+---
+
+###### **Monitor Statement**
+- **Facets:**
+  - `refresh_every` &rarr; use `refresh: every(n)`
+
+---
+
+###### **Permanent Statement**
+- **Facets:**
+  - `layout`, `toolbars`, `tabs` &rarr; use `layout` statement
+  - `synchronized` &rarr; removed
+
+---
+
+###### **Do Statement**
+- **Facets:**
+  - `returns` &rarr; assign result directly to variable
+
+---
+
+###### **Save Statement**
+- **Facets:**
+  - `type` &rarr; use `format`
+  - `with` &rarr; use `attributes`
+
+---
+
+###### **Draw Statement**
+- **Facets:**
+  - `rounded` &rarr; use `squircle` operator for rounded circles
+  - `bitmap` &rarr; use `perspective`
+  - `empty` &rarr; use `wireframe`
+
+---
+
+###### **Variable Declarations**
+- **Facets:**
+  - `value` &rarr; use `update`
+  - `category`, `parameter` facets &rarr; use `parameter` statement and `category` facet in `experiment`
+  - `size`, `fill_with` facets (container variables) &rarr; use `matrix_with(size, fill_with)` or `list_with(size, fill_with)`
+
+---
+
+###### **Solve Statement**
+- **Facets:**
+  - `integrated_times`, `integrated_values` &rarr; use `t[]`, `S[]`, `I[]`
+  - `step` &rarr; use `steps_size`
+
+---
+
+###### **Image Layer Statement**
+- **Facets:**
+  - `file` &rarr; pass image file directly to default facet
+  - `matrix` &rarr; pass matrix directly or use `field`/`mesh` layer statement
+
+---
+
+###### **Chart Layer Statement**
+- **Facets:**
+  - `tick_font_size`, `tick_font_style` &rarr; use font in `tick_font`
+  - `label_font_size`, `label_font_style` &rarr; use font in `label_font`
+  - `legend_font_size`, `label_font_style` &rarr; use font in `legend_font`
+  - `title_font_size`, `label_font_style` &rarr; use font in `title_font`
+
+---
+
+###### **Grid Layer Statement** 
+- **Facets:**
+  - `lines` &rarr; use `border`
+  - `draw_as_dem`, `dem` &rarr; use `elevation`
+  - `empty` &rarr; use `wireframe`
+
+###### **Light Statement**
+- **Facets:**
+  - `position` &rarr; use `location`
+  - `spot_angle` &rarr; use `angle`
+  - `color` &rarr; use `intensity`
+  - `draw_light` &rarr; use `show`
+  - `update` &rarr; use `dynamic`
+
+---
+
+###### **Diffusion Statement**
+- **Name:**
+  - `diffusion` keyword &rarr; use `diffuse`
+
+---
+
+##### In the global
+
+- **Global Variables:**
+  - `machine_time` &rarr; use `gama.machine_time`
+  - `workspace_path` &rarr; use `gama.workspace_path` or `gama.workspace`
+- **Operators:**
+  - `with_optimizer_type` (graph, string) &rarr; use `with_shortestpath_algorithm`
+  - `buffer`, `enlarged_by`, `+` (shape, map) &rarr; use those operators with (shape, distance, number_of_segments) or (shape, distance, number_of_segments, end_cap) parameters instead
+  - `is_clockwise`, `change_clockwise` (geometry) &rarr; removed as all geometries now clockwise
+  - `user_input` &rarr; use `user_input_dialog`, replace maps by lists of `enter()`/`choose()`
+  - `as_json_string` &rarr; use `to_json`
+
+
+</details>
+
+#### 🟠 Warnings 🟠: concepts that should be updated
+
+<details>
+ <summary>View detailed changes</summary>
+
+*   Several display facets have been deprecated and will be removed in a future version. Please consult the documentation to update your models.
+*   It is recommended to review and refactor models for performance optimizations, especially those using large datasets or complex spatial operations.
+
 </details>
 
 ### Preferences
 
-The preferences window has been reworked for more clarity.
-In addition to this, new parameters are now available:
 <details>
  <summary>View detailed changes</summary>
 
-*   **Server**: New settings to configure the `gama-server` port, ping interval and other parameters directly from the preferences. Those are available in the new `Network` tab.
-*   **Files**: Added options for file buffering strategies that can be used to improve performances in models that output a lot of data into files. Those are available in the new `Advanced` tab.
-*   **UI**: More customization options for the user interface, with for example code mining.
-*   **Serialization**: New parameters for the handling of special cases in JSON serialization have been added into the `Data and Operators` tab.
+*   **Display**: New preferences for display synchronization and rendering have been added.
+*   **Files**: Added options for file buffering strategies to fine-tune I/O performance.
+*   **Server**: New settings to configure the `gama-server` port and other parameters directly from the preferences.
+*   **UI**: More customization options for the user interface.
+*   **Performance**: New parameters for performance tuning are available in the experimental section.
 
 </details>
 
-### Packaged models
+### Added models
 
 <details>
- <summary>View all changes in models</summary>
+ <summary>View all new models list</summary>
 
-*   Some older and unclear models have been removed, preparing for a future rework of the library.
-*   Two models have been added in `GAML Syntax` -> `Sytem` to illustrate the use of buffering strategies: `Buffering execution order.gaml` and `Buffering performances.gaml`
-*   In `Visualization and User Interaction` -> `Visualization` -> `3D Visualization` the model `Quadratic Linear and Constant attenuation.gaml` has been added to showcase the use of different lighting effect in an opengl display.
-*   In `Plugin models` -> `Images` the model `Emoji.gaml` has been added.
-*   The three unit test models `Lists.experiment`, `Loops.experiment` and `Serialization.experiment` have been added into the `Basic Tests` folder of the `Test models`, they are used to showcase basic functionalities of gama and their edge cases as well as to ensure that there's no regression in GAMA. 
+*   Several new example models have been added to the library to showcase new features.
 *   Existing models have been updated to fix bugs and ensure compatibility with this new version ([#251](https://github.com/gama-platform/gama/issues/251), [#235](https://github.com/gama-platform/gama/issues/235), [#241](https://github.com/gama-platform/gama/issues/241)).
 *   Documentation for models has been improved ([#230](https://github.com/gama-platform/gama/issues/230), [#247](https://github.com/gama-platform/gama/issues/247)).
 
