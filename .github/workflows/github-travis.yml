@@ -92,16 +92,16 @@ jobs:
       # COMPILATION
       #
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 'current'
+          node-version: 24
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
         working-directory: ./website
 
       - name: Build website
-        run: yarn build
+        run: npm run build
         working-directory: ./website
         env:
           NODE_ENV: production

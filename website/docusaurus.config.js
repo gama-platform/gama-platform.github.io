@@ -13,8 +13,15 @@ module.exports = {
   // Compilation/deploy options
   organizationName: "gama-platform",
   projectName: "gama-platform.github.io",
-  onBrokenLinks: "log",
-  onBrokenMarkdownLinks: "log",
+  onBrokenLinks: "ignore",
+  onBrokenAnchors: "ignore",
+  
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn"
+    }
+  },
+
   deploymentBranch: "master",
   // Needed to have an algolia crawler compatible website
   trailingSlash: false,
