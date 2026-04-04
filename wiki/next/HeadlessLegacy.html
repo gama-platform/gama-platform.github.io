@@ -9,7 +9,7 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"><link rel="stylesheet" href="/assets/css/styles.232afa40.css">
-<script src="/assets/js/runtime~main.7987a37d.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.aeca6928.js" defer="defer"></script>
 <script src="/assets/js/main.1c6e251c.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -21,7 +21,7 @@
 This mode is able to run one or a finite set of simulations. Those simulations, mostly for legacy reason, have to be of <em>type</em> <code>gui</code>, and does not work with <code>batch</code> experiments.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="easy-mode">Easy mode<a href="#easy-mode" class="hash-link" aria-label="Direct link to Easy mode" title="Direct link to Easy mode" translate="no">​</a></h2>
 <p>If you just want to run one experiment of a file, with default parameters and stop it at a given step, there is a simplified way of doing so that doesn&#x27;t require you to write intermediate files.
-To use it you will need to use the <code>gama-headless</code> script (see the <a class="" href="/wiki/next/RunningHeadless">running headless page</a>) with the parameter <code>-gaml</code> followed <strong>in that order</strong> by the <em>experiment name</em>, the <em>path to the experiment file</em> and the <em>path to an output folder</em> where the snapshots of the displays and the console outputs will be saved. _Optionally _you can use the parameter <code>-steps</code> followed by a number to indicate the number of steps you want to execute, if this parameter is omitted the default value will be 1000 steps. It is required that the <code>-steps</code> parameter and its value are placed before the <em>experiment name</em>.</p>
+To use it you will need to use the <code>gama-headless</code> script (see the <a class="" href="/wiki/next/RunningHeadless">running headless page</a>) with the parameter <code>-gaml</code> followed <strong>in that order</strong> by the <em>experiment name</em>, the <em>path to the experiment file</em> and the <em>path to an output folder</em> where the snapshots of the displays and the console outputs will be saved. <em>Optionally</em> you can use the parameter <code>-steps</code> followed by a number to indicate the number of steps you want to execute, if this parameter is omitted the default value will be 1000 steps. It is required that the <code>-steps</code> parameter and its value are placed before the <em>experiment name</em>.</p>
 <p>So for example, to run 243 steps of the experiment <code>exp</code> in the model file <code>/home/user/my_model.gaml</code> and to store its outputs in <code>/home/user/my_results/</code>, you could use this command line:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#282A36;--prism-background-color:#FFFFFF"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#282A36;background-color:#FFFFFF"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#282A36"><span class="token plain">gama-headless.sh -gaml -steps 243 exp /home/user/my_model.gaml /home/user/my_results/</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="advanced-mode">Advanced mode<a href="#advanced-mode" class="hash-link" aria-label="Direct link to Advanced mode" title="Direct link to Advanced mode" translate="no">​</a></h2>
