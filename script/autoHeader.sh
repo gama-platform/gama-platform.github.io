@@ -30,8 +30,8 @@ find $DOC_DIR -name "*.md" | while read pathfile; do
 
 		# If a title was find, add it in the header	
 		if [ ! -z "$title" ];then
-			# Remove the "#" from the title
-			title=$(echo "$title" | sed 's/\#//g')
+			# Remove the "#" from the title and extra spaces around it
+			title=$(echo "$title" | sed -r 's/\ ?+\#\ +//g' )
 
 			# Remove the title from the file content
 			sed -i '/^\#\ /d' "$pathfile"
@@ -41,7 +41,7 @@ find $DOC_DIR -name "*.md" | while read pathfile; do
 		sed -i '1s/^/---\n\n/' "$pathfile";
 
 		# Writing title
-		sed -i "1s/^/title: $title\n/" "$pathfile";
+		sed -i "1s/^/title: \"$title\"\n/" "$pathfile";
 
 		# The id is (by default) egal to the filename
 		# -> We want it
