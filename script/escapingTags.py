@@ -127,11 +127,11 @@ if __name__ == '__main__':
         # If we encounter a "<" and are not in quoted text
         if not in_simple_quote and not in_triple_quotes and currentChar.val == "<":
             # We check if it looks like a tag
-            if re.match("[\?a-zA-Z\d]", chars[ite+1].val):
+            if re.match(r"[?a-zA-Z\d]", chars[ite+1].val):
                 # We found a new tag, first we are going to parse to get its name
                 tag = [currentChar]
                 ite += 1
-                while re.match("[\?a-zA-Z\d]", chars[ite].val):
+                while re.match(r"[?a-zA-Z\d]", chars[ite].val):
                     tag += [chars[ite]]
                     ite += 1
                     currentChar = chars[ite]
