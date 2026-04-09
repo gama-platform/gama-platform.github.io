@@ -1,4 +1,4 @@
-:root{
+:root:not(#\#):not(#\#) {
   --ifm-color-primary-lightest: #5291C5;
   --ifm-color-primary-lighter: #3E81B8;
   --ifm-color-primary-light: #3B7BB0;

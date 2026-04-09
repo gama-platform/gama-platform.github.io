@@ -42,6 +42,12 @@ module.exports = {
     latestVersion: LATEST_VERSION,
   },
 
+  // Enable early v4 features
+  future: {
+    v4: true,
+    faster: true,
+  },
+
   /*
    *  DOCUSAURUS CONFIGURATION
    */
@@ -100,8 +106,8 @@ module.exports = {
       additionalLanguages: ["java", "javascript", "python"],
       defaultLanguage: "gaml",
 
-      theme: require("prism-gaml/themes/light"),
-      darkTheme: require("prism-gaml/themes/dark"),
+      theme: require("@gama-platform/prism-gaml/themes/light"),
+      darkTheme: require("@gama-platform/prism-gaml/themes/dark"),
     },
     algolia: {
       appId: "MWUOLTL2EG",

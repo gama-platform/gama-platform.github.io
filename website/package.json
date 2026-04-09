@@ -13,16 +13,17 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.10.0",
+    "@docusaurus/faster": "^3.10.0",
     "@docusaurus/plugin-client-redirects": "^3.10.0",
     "@docusaurus/preset-classic": "^3.10.0",
     "@docusaurus/theme-classic": "^3.10.0",
     "@docusaurus/theme-search-algolia": "^3.10.0",
+    "@gama-platform/prism-gaml": "^2026.4.6-alpha",
     "@giscus/react": "^3.1.0",
     "@mdx-js/react": "^3.0.0",
     "@saucelabs/theme-github-codeblock": "^0.3.0",
     "clsx": "^2.1.1",
     "docusaurus-plugin-goatcounter": "^4.0.0",
-    "prism-gaml": "^0.1.3",
     "prism-react-renderer": "^2.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
