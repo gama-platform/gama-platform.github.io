@@ -257,7 +257,14 @@ module.exports = {
           // },
           // { from: "/wiki/next/Headless", to: "/wiki/next/RunningHeadless" },
           // External
-          //{ from: '/Gama-Days-2022', to: '/gama.resources/conferences/Gama-Days-2022', },
+          { 
+            from: ['/Gama-Days-2022', '/Gama-days-2022', '/gama-days-2022', '/gama.resources/conferences/Gama-Days-2022'], 
+            to: 'https://gama-platform.org/gama.resources/Gama-Days-2022', 
+          },
+          { 
+            from: ['/Gama-Days-2024', '/Gama-days-2024', '/gama-days-2024'], 
+            to: 'https://gama-platform.org/gama.resources/gama-days-2024', 
+          },
         ],
       },
     ],
