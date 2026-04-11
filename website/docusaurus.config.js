@@ -265,6 +265,10 @@ module.exports = {
             from: ['/Gama-Days-2024', '/Gama-days-2024', '/gama-days-2024'], 
             to: 'https://gama-platform.org/gama.resources/gama-days-2024', 
           },
+          { 
+            from: ['/Gama-Days-2026', '/Gama-days-2026'], 
+            to: 'https://gama-platform.org/gama.resources/gama-days-2026', 
+          },
         ],
       },
     ],
