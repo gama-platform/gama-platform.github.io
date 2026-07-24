@@ -92,9 +92,9 @@ module.exports = {
   themeConfig: {
     announcementBar: {
       // Change the ID for new announcement
-      id: "releaseGama202506",
+      id: "GamaDays2026",
       content:
-        '🎉 <strong>GAMA Platform 2025-06 is out!!</strong> 🎉 <a href="/download"><u>Download it now</u></a> and check <a href="/wiki/Changelog"><u>the changelog</u></a>!! 🎉',
+        '📢 <strong>GAMA Days 2026 are coming</strong>: <a href="https://gama-platform.org/gama-days-2026/"><u>submit your work</u></a>!'
       backgroundColor: "#34709f",
       textColor: "#e3e3e3",
       isCloseable: true,
