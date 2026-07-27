@@ -94,7 +94,7 @@ module.exports = {
       // Change the ID for new announcement
       id: "GamaDays2026",
       content:
-        '📢 <strong>GAMA Days 2026 are coming</strong>: <a href="https://gama-platform.org/gama-days-2026/"><u>submit your work</u></a>!'
+        '📢 <strong>GAMA Days 2026 are coming</strong>: <a href="https://gama-platform.org/gama-days-2026/"><u>submit your work</u></a>!',
       backgroundColor: "#34709f",
       textColor: "#e3e3e3",
       isCloseable: true,
