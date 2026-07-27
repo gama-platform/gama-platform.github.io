@@ -22,5 +22,5 @@ rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/LICENSE"*
 for f in $( dirname "${BASH_SOURCE[0]}" )/../docs/*.md ; do
 	newTitle=$((basename $f) | cut -d "." -f 1 | sed "s/[-_]/ /g")
 
-	sed -i "s/^title:\ $/^title:\ $newTitle/g" "$f"
+	sed -i -E "s/^title: \"?\"?\$/title: \"$newTitle\"/" "$f"
 done
