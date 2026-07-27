@@ -9,7 +9,6 @@ done
 
 # Remove meta files not for website
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/G__BlankPage.md"
-rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/Operators.md"
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/OperatorsSplitted.md"
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/Index.md"
 rm -fr "$( dirname "${BASH_SOURCE[0]}" )/../docs/Event"*
