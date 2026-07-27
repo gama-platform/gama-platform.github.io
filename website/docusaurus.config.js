@@ -94,7 +94,7 @@ module.exports = {
       // Change the ID for new announcement
       id: "GamaDays2026",
       content:
-        '📢 <strong>GAMA Days 2026 are coming</strong>: <a href="https://gama-platform.org/gama-days-2026/"><u>submit your work</u></a>!',
+        '📢 <strong>GAMA Days 2026</strong> — Nov 23–25 (online, free): <a href="/gama-days-2026"><u>submit your abstract</u></a> by Sept 15! 📢',
       backgroundColor: "#34709f",
       textColor: "#e3e3e3",
       isCloseable: true,
@@ -266,7 +266,7 @@ module.exports = {
             to: 'https://gama-platform.org/gama.resources/gama-days-2024', 
           },
           { 
-            from: ['/Gama-Days-2026', '/Gama-days-2026'], 
+            from: ['/Gama-Days-2026', '/Gama-days-2026', '/gama-days-2026'],
             to: 'https://gama-platform.org/gama.resources/gama-days-2026', 
           },
         ],
