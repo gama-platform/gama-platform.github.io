@@ -34,6 +34,14 @@ if [ -d $( dirname "${BASH_SOURCE[0]}" )/../website/static/resources ];then
 fi
 mv $( dirname "${BASH_SOURCE[0]}" )/../gama.wiki/resources $( dirname "${BASH_SOURCE[0]}" )/../website/static/
 
+# The wiki is the live source of truth and can rename/delete images at any
+# time, but our versioned_docs/ snapshots keep referencing whatever paths
+# existed when they were published. Backfill (never overwrite) any resource
+# still referenced by a versioned doc but no longer shipped by the wiki from
+# our own tracked archive, so old doc versions don't end up with broken images.
+# See website/versioned_resources/README.md for how to add to this archive.
+cp -rn $( dirname "${BASH_SOURCE[0]}" )/../website/versioned_resources/. $( dirname "${BASH_SOURCE[0]}" )/../website/static/resources/
+
 # Update sidebar
 if [ -f $( dirname "${BASH_SOURCE[0]}" )/../website/sidebars.json ];then
 	rm $( dirname "${BASH_SOURCE[0]}" )/../website/sidebars.json
