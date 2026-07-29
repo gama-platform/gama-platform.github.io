@@ -50,4 +50,22 @@ fi
 # Move every <file>.md from a [sub]folder of _gama.wiki/_
 # to the folder _docs/_
 # https://superuser.com/questions/658075/how-do-i-move-files-out-of-nested-subdirectories-into-another-folder-in-ubuntu
+#
+# The wiki has multiple subfolders (e.g. WikiOnly/ vs References/GAMLReferences/)
+# that can both contain a file with the same name. Flattening them into one
+# folder used to silently let whichever file `find` visited last win (via
+# `mv --backup=numbered`, which just renamed the loser to *.~1~ with no
+# warning) - so a wiki edit could quietly replace a real page with a stub.
+# Warn loudly instead so it gets noticed and fixed at the wiki source, but
+# don't fail the build over it (mv --backup=numbered keeps the previous
+# silent-winner behavior as a fallback).
+dupes=$(find gama.wiki/ -type f -iname "*.md" -printf "%f\n" | sort | uniq -d)
+if [ -n "$dupes" ]; then
+	echo "WARNING: duplicate doc filename(s) found in the wiki - one silently wins, fix this in the wiki source:" >&2
+	while IFS= read -r dup; do
+		echo "  $dup:" >&2
+		find gama.wiki/ -type f -iname "$dup" -print >&2
+	done <<< "$dupes"
+fi
+
 find gama.wiki/ -type f -iname "*.md" -exec mv --backup=numbered -t docs {} +
