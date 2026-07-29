@@ -103,7 +103,7 @@ module.exports = {
       respectPrefersColorScheme: true,
     },
     prism: {
-      additionalLanguages: ["java", "javascript", "python"],
+      additionalLanguages: ["java", "markup", "javascript", "python"],
       defaultLanguage: "gaml",
 
       theme: require("@gama-platform/prism-gaml/themes/light"),
