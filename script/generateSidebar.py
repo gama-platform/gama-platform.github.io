@@ -86,7 +86,21 @@ def getSidebarContent():
 	file.close()
 
 	# Remove entry with only "\n"
-	return [i.split("\n")[0] for i in sideMd if i != "\n"]
+	lines = [i.split("\n")[0] for i in sideMd if i != "\n"]
+
+	# _Sidebar.md may already have a Docusaurus frontmatter header (e.g. if
+	# autoHeader.sh already ran on it, or this script is re-run on a
+	# previously-processed docs/ folder). Frontmatter uses the same "---"
+	# delimiter as the main/tuto/extra section splitter below, so if it's
+	# left in place it throws off that state machine (and its "title:" line
+	# isn't a valid "[Label](docId)" entry, which crashes generateTutorial).
+	# Strip it before splitting into sections so this script is idempotent
+	# regardless of what already ran on the file.
+	if lines and lines[0] == "---":
+		closing = lines[1:].index("---") + 1
+		lines = lines[closing + 1:]
+
+	return lines
 
 def makeSubCat(subList: list[str]):
 	items = []
