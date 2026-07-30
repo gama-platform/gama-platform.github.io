@@ -94,23 +94,18 @@ export default function Download() {
             className="blockElement imageAlignTop col col--4"
             style={{ marginTop: "3em", textAlign: "center" }}
           >
-            <a
-              href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Windows_with_JDK.exe`}
-              target="_blank"
-            >
-              <div className="blockImage">
-                <img src="/img/windows-logo.svg" alt="Windows"></img>
-              </div>
-              <div className="blockContent">
-                <Button
-                  href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Windows_with_JDK.exe`}
-                  buttonColor="outline button-dyn-color"
-                  col="12"
-                >
-                  Windows
-                </Button>
-              </div>
-            </a>
+            <div className="blockImage">
+              <img src="/img/windows-logo.svg" alt="Windows"></img>
+            </div>
+            <div className="blockContent">
+              <Button
+                href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Windows_with_JDK.exe`}
+                buttonColor="outline button-dyn-color"
+                col="12"
+              >
+                Windows
+              </Button>
+            </div>
           </div>
           <div
             className="blockElement imageAlignTop col col--4"
@@ -140,23 +135,18 @@ export default function Download() {
             className="blockElement imageAlignTop col col--4"
             style={{ marginTop: "3em", textAlign: "center" }}
           >
-            <a
-              href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Linux_with_JDK.deb`}
-              target="_blank"
-            >
-              <div className="blockImage">
-                <img src="/img/linux-logo.svg" alt="Linux"></img>
-              </div>
-              <div className="blockContent">
-                <Button
-                  href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Linux_with_JDK.deb`}
-                  buttonColor="outline button-dyn-color"
-                  col="12"
-                >
-                  Linux
-                </Button>
-              </div>
-            </a>
+            <div className="blockImage">
+              <img src="/img/linux-logo.svg" alt="Linux"></img>
+            </div>
+            <div className="blockContent">
+              <Button
+                href={`https://github.com/gama-platform/gama/releases/download/${siteConfig.customFields.downloadVersion}/${siteConfig.customFields.zipName}_Linux_with_JDK.deb`}
+                buttonColor="outline button-dyn-color"
+                col="12"
+              >
+                Linux
+              </Button>
+            </div>
           </div>
         </div>
         <div style={{ marginBottom: "3em", marginTop: "3em" }}>
