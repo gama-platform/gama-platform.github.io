@@ -65,8 +65,17 @@ aside .custom-sidebarVersion {
   padding: 0.5rem 0 0 0.5rem;
 }
 
-aside .custom-sidebarVersion p {
+aside .custom-sidebarVersion div {
   margin-bottom: 0;
   font-size: var(--fbc-font-size: 13px);
   padding: var(--ifm-menu-link-padding-vertical) var(--ifm-menu-link-padding-horizontal);
+}
+
+/*
+ *  Center images within doc/wiki page content
+ */
+.markdown img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
