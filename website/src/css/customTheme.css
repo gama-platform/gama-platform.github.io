@@ -11,10 +11,6 @@
   --ifm-color-primary: #3271a1;
 }
 
-nav a {
-  max-height: 32px;
-}
-
 /* 
  * SEARCH BAR
  */
@@ -38,10 +34,6 @@ nav a {
 .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column,
 .algolia-autocomplete .algolia-docsearch-suggestion--text{
   color: var(--ifm-navbar-link-color) !important;
-}
-
-a.pagination-nav__link {
-  padding-bottom: 53.5px;
 }
 
 .footer__logo {
@@ -75,6 +67,6 @@ aside .custom-sidebarVersion {
 
 aside .custom-sidebarVersion p {
   margin-bottom: 0;
-  font-size: var(--fbc-font-size: 13px;);
+  font-size: var(--fbc-font-size: 13px);
   padding: var(--ifm-menu-link-padding-vertical) var(--ifm-menu-link-padding-horizontal);
 }
