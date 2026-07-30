@@ -1,5 +1,22 @@
+const { themes: prismThemes } = require("prism-react-renderer");
+
 const LATEST_VERSION = "2025-06";
 const DOWNLOAD_VERSION = "2025.06.4"
+
+// @gama-platform/prism-gaml only defines colors for GAML-specific and a
+// handful of generic token types (string, keyword, comment, ...), so any
+// language whose grammar leans on other generic token types (tag, attr-name,
+// punctuation, class-name, ...) renders with little to no highlighting - most
+// visibly XML/HTML, which uses almost none of the types GAML's theme covers.
+// Layering it on top of a complete base theme (dracula is the exact palette
+// the GAML dark theme was itself converted from) fills every gap while
+// GAML's own entries, applied last, still win wherever both define a color.
+function withFullCoverage(baseTheme, gamlTheme) {
+  return {
+    plain: gamlTheme.plain,
+    styles: [...baseTheme.styles, ...gamlTheme.styles],
+  };
+}
 
 module.exports = {
   // Main website options
@@ -106,8 +123,8 @@ module.exports = {
       additionalLanguages: ["java", "markup", "javascript", "python"],
       defaultLanguage: "gaml",
 
-      theme: require("@gama-platform/prism-gaml/themes/light"),
-      darkTheme: require("@gama-platform/prism-gaml/themes/dark"),
+      theme: withFullCoverage(prismThemes.github, require("@gama-platform/prism-gaml/themes/light")),
+      darkTheme: withFullCoverage(prismThemes.dracula, require("@gama-platform/prism-gaml/themes/dark")),
     },
     algolia: {
       appId: "MWUOLTL2EG",
