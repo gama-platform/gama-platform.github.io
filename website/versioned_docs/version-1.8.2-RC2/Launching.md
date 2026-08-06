@@ -27,7 +27,7 @@ Running GAMA requires that you launch the application file (`Gama.app` on Mac OS
 
 Note that GAMA can also be launched in two different other ways:
 
-1. In a so-called _headless mode_ (i.e. without a user interface, from the command line, in order to conduct experiments or to be run remotely). Please refer to [the corresponding instructions](Headless).
+1. In a so-called _headless mode_ (i.e. without a user interface, from the command line, in order to conduct experiments or to be run remotely). Please refer to [the corresponding instructions](RunningHeadless).
 2. From the terminal, using a path to a model file and the name or number of an experiment, in order to allow running this experiment directly (note that the two arguments are optional: if the second is omitted, the file is imported in the workspace if not already present and opened in an editor; if both are omitted, GAMA is launched as usual):
 
 * `Gama.app/Contents/MacOS/Gama path_to_a_model_file#experiment_name_or_number` on Mac OS X

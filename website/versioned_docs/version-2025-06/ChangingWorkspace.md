@@ -3,7 +3,7 @@ title:  Changing Workspace
 ---
 
 
-It is possible, and actually common, to store different projects/models in different workspaces and to tell GAMA to switch between these workspaces. Doing so involves being able to create one or several new workspace locations (even if GAMA has been told to [remember](Launching#Choosing_a_Workspace) the current one) and being able to easily switch between them.
+It is possible, and actually common, to store different projects/models in different workspaces and to tell GAMA to switch between these workspaces. Doing so involves being able to create one or several new workspace locations (even if GAMA has been told to [remember](Launching#choosing-a-workspace) the current one) and being able to easily switch between them.
 
 ## Table of contents 
 
@@ -13,7 +13,7 @@ It is possible, and actually common, to store different projects/models in diffe
 
 
 ## Switching to another Workspace
-This process is similar to the [choice of the workspace location](Launching#Choosing_a_Workspace) when GAMA is launched for the first time. The only preliminary step is to invoke the appropriate command ("Switch Workspace") from the "File" menu.
+This process is similar to the [choice of the workspace location](Launching#choosing-a-workspace) when GAMA is launched for the first time. The only preliminary step is to invoke the appropriate command ("Switch Workspace") from the "File" menu.
 
 ![Switch Workspace in the File menu.](/resources/images/workspaceProjectsAndModels/changews_menu_switch.png)
 

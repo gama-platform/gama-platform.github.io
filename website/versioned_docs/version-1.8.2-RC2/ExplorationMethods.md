@@ -12,10 +12,10 @@ Several exploration methods are currently available in GAMA and described below.
 
 * [The `method` statement](#the-method-statement)
 * [Exhaustive exploration of the parameter space: `exhaustive`](#exhaustive-exploration-of-the-parameter-space-exhaustive)
-* [Hill Climbing: `hill_climbing`](#hill-climbing-hill-climbing)
+* [Hill Climbing: `hill_climbing`](#hill-climbing-hill_climbing)
 * [Simulated Annealing: `annealing`](#simulated-annealing-annealing)
 * [Tabu Search: `tabu`](#tabu-search-tabu)
-* [Reactive Tabu Search: `reactive_tabu`](#reactive-tabu-search-reactive-tabu)
+* [Reactive Tabu Search: `reactive_tabu`](#reactive-tabu-search-reactive_tabu)
 * [Genetic Algorithm: `genetic`](#genetic-algorithm-genetic)
 * [Particle Swarm Optimization: `pso`](#particle-swarm-optimization-pso)
 * [Sobol Exploration: `sobol`](#sobol-exploration-sobol)

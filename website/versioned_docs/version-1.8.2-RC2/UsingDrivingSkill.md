@@ -18,7 +18,7 @@ The use of the advanced driving skill requires to use 3 skills:
 ## Table of contents 
 
 * [Advanced Driving Skill](#advanced-driving-skill)
-  * [Structure of the network: road and road node skills](#structure-of-the-network-road-and-road-node-skills)
+  * [Structure of the network: road and road node skills](#structure-of-the-network-road-and-road_node-skills)
   * [Advanced driving skill](#advanced-driving-skill)
   * [Application example](#application-example)
 

@@ -18,7 +18,7 @@ This conceptual structure is respected in the definition of model files, which f
 * [Import gaml file](#import-gaml-file)
 * [Species declarations](#species-declarations)
 * [Experiment declarations](#experiment-declarations)
-* [Basic skeleton of a model](#basic-skeleton-of_a_model)
+* [Basic skeleton of a model](#basic-skeleton-of-a-model)
 
 
 ## Model Header (_model species_)

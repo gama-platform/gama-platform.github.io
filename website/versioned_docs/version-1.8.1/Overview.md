@@ -82,6 +82,6 @@ A complete list of references (papers and PhD theses on or using GAMA) is availa
 ## Contact Us
 To get in touch with the GAMA developers team, please sign in for the [gama-platform@googlegroups.com mailing list](http://groups.google.com/group/gama-platform). If you wish to contribute to the platform, you might want, instead or in addition, to sign in for the [gama-dev@googlegroups.com mailing list](http://groups.google.com/group/gama-dev). On both lists, we generally answer quite quickly to requests.
 
-Finally, to report bugs in GAMA or ask for a new feature, please refer to  [these instructions](Troubleshooting#Submitting_an_Issue) to do so.
+Finally, to report bugs in GAMA or ask for a new feature, please refer to  [these instructions](Troubleshooting#submitting-an-issue) to do so.
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

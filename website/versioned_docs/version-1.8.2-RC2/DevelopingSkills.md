@@ -15,7 +15,7 @@ A skill adds new features (attributes) and new capabilities (actions) to the ins
 
 A Skill is basically a **singleton** and **stateless** Java class that:
   * extends the abstract class `Skill`,
-  * begins by the annotation [@skill](DevelopingIndexAnnotations#@skill): `@skill(name = "name_of_the_skill_in_gaml")`.
+  * begins by the annotation [@skill](DevelopingIndexAnnotations#skill): `@skill(name = "name_of_the_skill_in_gaml")`.
 
 Note: GAMA annotations are classes defined into the `msi.gama.precompiler.GamlAnnotations` class.
 
@@ -25,10 +25,10 @@ Note: GAMA annotations are classes defined into the `msi.gama.precompiler.GamlAn
 
 ## Defining new attributes
 
-To add new attributes to the species that declares this skill, developers have to define them before the class using the [@vars](DevelopingIndexAnnotations#@vars) and `@variable` annotations.
+To add new attributes to the species that declares this skill, developers have to define them before the class using the [@vars](DevelopingIndexAnnotations#vars) and `@variable` annotations.
 The `@vars` annotation contains a set of `@variable` elements.
 
-In a [@variable](DevelopingIndexAnnotations#@variable) element, one has to define the name, the type and the default value of the attribute. For example in MovingSkill:
+In a [@variable](DevelopingIndexAnnotations#variable) element, one has to define the name, the type and the default value of the attribute. For example in MovingSkill:
 ```
 @vars({
   @variable(name = IKeyword.SPEED, type = IType.FLOAT, init = "1.0"),

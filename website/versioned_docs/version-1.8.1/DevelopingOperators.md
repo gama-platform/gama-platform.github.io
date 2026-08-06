@@ -9,7 +9,7 @@ title:  Developing Operators
 
 A new operator can be **any Java method** that:
 
-  * begins by the [@operator](DevelopingIndexAnnotations#@operator) (other fields can be added to the annotation): `@operator(value = "name_of_the_operator_gaml")`,
+  * begins by the [@operator](DevelopingIndexAnnotations#operator) (other fields can be added to the annotation): `@operator(value = "name_of_the_operator_gaml")`,
 ```
 @operator(value = "rgb")
 public static GamaColor rgb(final int r, final int g, final int b, final double alpha) {	

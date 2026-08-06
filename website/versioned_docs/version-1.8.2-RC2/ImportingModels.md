@@ -4,7 +4,7 @@ title:  Importing Models
 
 
 
-_Importing_ a model refers to making a model file (or a complete project) available for edition and experimentation in the **workspace**. With the exception of [headless](Headless) experiments, GAMA requires that models be manageable in the current workspace to be able to validate them and eventually experiment them.
+_Importing_ a model refers to making a model file (or a complete project) available for edition and experimentation in the **workspace**. With the exception of [headless](RunningHeadless) experiments, GAMA requires that models be manageable in the current workspace to be able to validate them and eventually experiment them.
 
 There are many situations where a model needs to be _imported_ by the user: someone sent it to him/her by mail, it has been attached to an [issue report](Troubleshooting), it has been shared on the web or a Git repository, or it belongs to a previous workspace after the user has [switched workspace](ChangingWorkspace). The instructions below apply equally to all these situations.
 
@@ -21,7 +21,7 @@ Since model files need to reside in a project to be managed by GAMA, it is usual
     * ["Other" imports](ImportingModels#other-imports)
   * [Silent import](#silent-import)
   * [Drag'n Drop / Copy-Paste Limitations](#dragn-drop--copy-paste-limitations)
-  * [Import from GitHub repository](#import-from-gitHub-repository)
+  * [Import from GitHub repository](#import-from-github-repository)
 
 
 ## The "Import..." Menu Command

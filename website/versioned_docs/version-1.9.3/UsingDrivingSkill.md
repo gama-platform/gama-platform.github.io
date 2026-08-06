@@ -18,7 +18,7 @@ The use of the driving skill requires to use 3 skills:
 ## Table of contents 
 
 * [Driving Skill](#driving-skill)
-  * [Structure of the network: road and road node skills](#structure-of-the-network-road-and-road-node-skills)
+  * [Structure of the network: road and road node skills](#structure-of-the-network-road-and-road_node-skills)
   * [Driving skill](#driving-skill)
   * [Application example](#application-example)
 

@@ -9,17 +9,17 @@ This introduction to the Java API is dedicated to programmers that want to parti
 
 [Concepts](#Concepts)
 
-1. [Factories](#Factories)
-2. [Spatial](#Spatial)
-3. [Type](#Type)
+1. [Factories](#factories)
+2. [Spatial](#spatial)
+3. [Type](#type)
 4. [IScope](#IScope)
-5. [Exception](#Exception)
-6. [Debug](#Debug)
-7. [Test](#Test)
+5. [Exception](#exception)
+6. [Debug](#debug)
+7. [Test](#test)
 
 [Packages](#Packages)
 
-* 1.[Core](#Core)
+* 1.[Core](#core)
 
 
 ***

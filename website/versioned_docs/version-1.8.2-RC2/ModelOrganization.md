@@ -18,7 +18,7 @@ This conceptual structure is respected in the definition of model files, which f
 * [Model Header (model species)](#model-header-model-species)
 * [Species declarations](#species-declarations)
 * [Experiment declarations](#experiment-declarations)
-* [Basic skeleton of a model](#basic-skeleton-of_a_model)
+* [Basic skeleton of a model](#basic-skeleton-of-a-model)
 
 
 [//]: # (keyword|concept_model)

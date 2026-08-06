@@ -21,7 +21,7 @@ Since model files need to reside in a project to be managed by GAMA, it is usual
     * ["Other" imports](ImportingModels#other-imports)
   * [Silent import](#silent-import)
   * [Drag'n Drop / Copy-Paste Limitations](#dragn-drop--copy-paste-limitations)
-  * [Import from GitHub repository](#import-from-gitHub-repository)
+  * [Import from GitHub repository](#import-from-github-repository)
 
 
 ## The "Import..." Menu Command

@@ -13,7 +13,7 @@ We made efforts to make the last release of GAMA (1.8.2) as easy as possible to 
   * [Install procedure](#install-procedure)
     * [Step-by-step Windows](#step-by-step-windows)
     * [Step-by-step macOS](#step-by-step-macos)
-      * [DMG version](#DMG-version)
+      * [DMG version](#dmg-version)
       * [`brew` version](#brew-version)
     * [Step-by-step Ubuntu](#step-by-step-ubuntu)
   * [System Requirements](#system-requirements)
@@ -90,5 +90,5 @@ In macOS we have two ways of installing gama: either the regular and user friend
 
 ## System Requirements
 
-GAMA 1.8.2 requires approximately 540MB of disk space and a minimum of 2GB of RAM (to increase the portion of memory usable by GAMA, please refer to [these instructions](Troubleshooting#Memory_problems)). 
+GAMA 1.8.2 requires approximately 540MB of disk space and a minimum of 2GB of RAM (to increase the portion of memory usable by GAMA, please refer to [these instructions](Troubleshooting#memory-problems)). 
 

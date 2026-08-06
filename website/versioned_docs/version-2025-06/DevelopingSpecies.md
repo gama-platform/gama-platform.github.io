@@ -19,7 +19,7 @@ A new built-in species extends the `GamlAgent` class, which defines the basic GA
 A new species can be **any Java class** that:
 
   * extends the `GamlAgent` class,
-  * begins by the [@species](DevelopingIndexAnnotations#@species): `@species(name = "name_of_the_species_gaml")`,
+  * begins by the [@species](DevelopingIndexAnnotations#species): `@species(name = "name_of_the_species_gaml")`,
 ```
 @species(name = "multicriteria_analyzer")
 public class MulticriteriaAnalyzer extends GamlAgent {
@@ -31,8 +31,8 @@ public class MulticriteriaAnalyzer extends GamlAgent {
 
 Defining new attributes needs:
 
-  * to add [@vars](DevelopingIndexAnnotations#@vars) (and one embedded [@variable](DevelopingIndexAnnotations#@variable) per additional attribute) annotation on top of the class,
-  * to define [@setter](DevelopingIndexAnnotations#@setter) and [@getter](DevelopingIndexAnnotations#@getter) annotations to the accessors methods.
+  * to add [@vars](DevelopingIndexAnnotations#vars) (and one embedded [@variable](DevelopingIndexAnnotations#variable) per additional attribute) annotation on top of the class,
+  * to define [@setter](DevelopingIndexAnnotations#setter) and [@getter](DevelopingIndexAnnotations#getter) annotations to the accessors methods.
 
 For example, regular species are defined with the following annotation:
 ```
@@ -53,7 +53,7 @@ public abstract void setName(String name);
 
 ### Additional actions
 
-An additional action is a method annotated by the [@action](DevelopingIndexAnnotations#@action) annotation.
+An additional action is a method annotated by the [@action](DevelopingIndexAnnotations#action) annotation.
 ```
 @action(name = ISpecies.stepActionName)
 public Object _step_(final IScope scope) {

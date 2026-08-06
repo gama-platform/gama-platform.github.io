@@ -41,7 +41,7 @@ After having downloaded the chosen GAMA version from the [Downloads page](https:
 
 ## System Requirements
 
-GAMA 1.8.0 requires approximately 540MB of disk space (resp. 120MB in its version without Java JDK) and a minimum of 4GB of RAM (to increase the portion of memory usable by GAMA, please refer to [these instructions](Troubleshooting#Memory_problems)). 
+GAMA 1.8.0 requires approximately 540MB of disk space (resp. 120MB in its version without Java JDK) and a minimum of 4GB of RAM (to increase the portion of memory usable by GAMA, please refer to [these instructions](Troubleshooting#memory-problems)). 
 
 The version with JDK does not require the installation of any other software and in particular the Java JDK.
 

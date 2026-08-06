@@ -8,7 +8,7 @@ title:  Workspace, Projects and Models
 
 The **workspace** is a directory in which GAMA stores all the current projects on which the user is working, links to other projects, as well as some meta-data like preference settings, the current status of the different projects, [error markers](ValidationOfModels), and so on.
 
-Except when running in [headless mode](Headless), **GAMA cannot function without a valid workspace**.
+Except when running in [headless mode](RunningHeadless), **GAMA cannot function without a valid workspace**.
 
 The workspace is organized in 4 **[categories](NavigatingWorkspace)**, which are themselves organized into **projects**.
 

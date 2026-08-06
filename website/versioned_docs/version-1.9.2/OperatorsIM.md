@@ -864,7 +864,7 @@ matrix<float> var0 <- inverse(matrix([[4,3],[3,2]])); // var0 equals matrix([[-2
 
 
 ### `inverse_distance_weighting`
-   Same signification as [IDW](OperatorsIM#IDW)
+   Same signification as [IDW](OperatorsIM#idw)
     	
 ----
 

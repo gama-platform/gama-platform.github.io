@@ -32,7 +32,7 @@ You can also launch your experiments from the navigator, by expanding a model an
 
 
 ## Running Experiments Automatically
-Once an experiment has been launched (unless it is run in [headless](Headless) mode, of course), it normally displays its views and waits from an input from the user, usually a click on the "Run" or "Step" buttons (see [here](MenusAndCommands)).
+Once an experiment has been launched (unless it is run in [headless](RunningHeadless) mode, of course), it normally displays its views and waits from an input from the user, usually a click on the "Run" or "Step" buttons (see [here](MenusAndCommands)).
 
 It is, however, possible to make experiments run directly once launched, without requiring any intervention from the user.  To activate this feature, [open the preferences of GAMA](Preferences). In the "Execution" tab, simply check "Auto-run experiments when they are launched" (which is unchecked by default) and hit "Save" to dismiss the dialog. Next time you will launch an experiment, it will run automatically (this option also applies to experiments launched from the command line).
 

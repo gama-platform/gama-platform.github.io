@@ -22,10 +22,10 @@ Several methods are currently available in GAMA to explore and calibrate your si
 > * [Morris analysis: `morris`](#morris-analysis-morris)
 > * [Beta analysis: `betad`](#beta-analysis-betad)
 * [Calibration methods](#calibration-methods)
-> * [Hill Climbing: `hill_climbing`](#hill-climbing-hill-climbing)
+> * [Hill Climbing: `hill_climbing`](#hill-climbing-hill_climbing)
 > * [Simulated Annealing: `annealing`](#simulated-annealing-annealing)
 > * [Tabu Search: `tabu`](#tabu-search-tabu)
-> * [Reactive Tabu Search: `reactive_tabu`](#reactive-tabu-search-reactive-tabu)
+> * [Reactive Tabu Search: `reactive_tabu`](#reactive-tabu-search-reactive_tabu)
 > * [Genetic Algorithm: `genetic`](#genetic-algorithm-genetic)
 > * [Particle Swarm Optimization: `pso`](#particle-swarm-optimization-pso)
 

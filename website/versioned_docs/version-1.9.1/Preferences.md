@@ -45,7 +45,7 @@ The Interface pane gathers all the preferences related to the appearance and beh
 ![Interface pane in Preferences.](/resources/images/preferences/pref_interface.png)
 
 * **Startup**
-  * **Display welcome page**: if true, and if no editors are opened, the [welcome page](Launching#Welcome_Page) is displayed when opening GAMA.
+  * **Display welcome page**: if true, and if no editors are opened, the [welcome page](Launching#welcome-page) is displayed when opening GAMA.
   * **Maximize GAMA window**: if true, the GAMA window is open with the maximal dimensions at startup.
   * **Maintain the state of the navigator across sessions**: if true, the context of the navigator (project opened, file selected...) will be saved when GAMA is closed and reloaded next start.  
 * **Menus**
@@ -103,7 +103,7 @@ This pane gathers all the preferences related to the execution of experiments, m
 ![Execution pane in Preferences.](/resources/images/preferences/pref_execution.png)
 
 * **Experiments**: various settings regarding the execution of experiments.
-  * **Auto-run experiments when they are launched**: see [this page](LaunchingExperiments#Running_Experiments_Automatically).
+  * **Auto-run experiments when they are launched**: see [this page](LaunchingExperiments#running-experiments-automatically).
   * **Ask to close the previous simulation before launching a new one**: if false, previous simulations (if any) will be closed without warning.
   * **Ask to go to fullscreen mode**: if true, ask the modeler before switching to the fullscreen mode.
   * **Synchronize outputs with the simulation**: if true, simulation cycles will wait for the displays to have finished their rendering before passing to the next cycle (this setting can be changed on an individual basis dynamically [here](Displays)).

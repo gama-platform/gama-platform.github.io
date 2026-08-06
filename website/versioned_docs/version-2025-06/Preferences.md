@@ -46,7 +46,7 @@ The Interface pane gathers all the preferences related to the appearance and beh
 ![Interface pane in Preferences.](https://github.com/gama-platform/gama/assets/55246822/1ecbd99c-2ad2-4352-a33f-68a52f1c7e46)
 
 * **Startup**
-  * **Display welcome page**: if true, and if no editors are opened, the [welcome page](Launching#Welcome_Page) is displayed when opening GAMA.
+  * **Display welcome page**: if true, and if no editors are opened, the [welcome page](Launching#welcome-page) is displayed when opening GAMA.
   * **Remember GAMA windows size and position**: if true, the windows size and position will be saved.
   * **Maximize GAMA window**: if true, the GAMA window is open with the maximal dimensions at startup.
   * **Ask before rebuilding a corrupted workspace**: if true, GAMA will ask if the user want to rebuild a detected corrupted workspace. 
@@ -113,7 +113,7 @@ This pane gathers all the preferences related to the execution of experiments, m
 ![Execution pane in Preferences.](https://github.com/gama-platform/gama/assets/55246822/21b51b09-6974-4ccf-90b6-4605dd6365c2)
 
 * **Experiments**: various settings regarding the execution of experiments.
-  * **Auto-run experiments when they are launched**: see [this page](LaunchingExperiments#Running_Experiments_Automatically).
+  * **Auto-run experiments when they are launched**: see [this page](LaunchingExperiments#running-experiments-automatically).
   * **Ask to close the previous simulation before launching a new one**: if false, previous simulations (if any) will be closed without warning.
   * **Set the step duration slider incrementation to linear. If false set to logarithmic**: if true, the slider will follow a linear incrementation. If false, the slider will follow a logarithmic incrementation.
   * **Synchronize outputs with the simulation**: if true, simulation cycles will wait for the displays to have finished their rendering before passing to the next cycle (this setting can be changed on an individual basis dynamically [here](Displays)).

@@ -14,15 +14,15 @@ A new statement must be a Java class that:
 
   * either implements the interface `IStatement` or extends an existing implementation of this interface (like `AbstractStatement` or `AbstractSequenceStatement`).
   * begins by the 2 following mandatory annotations:
-    * [@symbol](DevelopingIndexAnnotations#@symbol): `@symbol(name = "name_of_the_statement_gaml", kind = "kind_of_statement", with_sequence = true/false)`,
-    * [@inside](DevelopingIndexAnnotations#@inside): `@symbol(kinds = {"kind_of_statement_1","kind_of_statement_2","..."}`
+    * [@symbol](DevelopingIndexAnnotations#symbol): `@symbol(name = "name_of_the_statement_gaml", kind = "kind_of_statement", with_sequence = true/false)`,
+    * [@inside](DevelopingIndexAnnotations#inside): `@symbol(kinds = {"kind_of_statement_1","kind_of_statement_2","..."}`
 
 In addition the 4 following optional annotations can be added:
 
-  * [@facets](DevelopingIndexAnnotations#@facets): to describe the set of [@facet](DevelopingIndexAnnotations#@facet) annotations,
-  * [@doc](DevelopingIndexAnnotations#@doc): to document the statement.
-  * [@serializer](DevelopingIndexAnnotations#@serializer): in addition, statements can benefit from a custom serializer, by declaring `@serializer(CustomSerializer.class)`, with a class extending `SymbolSerializer`.
-  * [@validator](DevelopingIndexAnnotations#@validator): in addition, statements can benefit from a custom validation during the validation process, by declaring `@validator(CustomValidator.class)` with a class implementing `IDescriptionValidator` as value. This class will receive the `IDescription` of the statement and be able to execute further validations on the type of expressions, etc. or even to change the `IDescription`  (by adding new information, changing the value of facets, etc.).
+  * [@facets](DevelopingIndexAnnotations#facets): to describe the set of [@facet](DevelopingIndexAnnotations#facet) annotations,
+  * [@doc](DevelopingIndexAnnotations#doc): to document the statement.
+  * [@serializer](DevelopingIndexAnnotations#serializer): in addition, statements can benefit from a custom serializer, by declaring `@serializer(CustomSerializer.class)`, with a class extending `SymbolSerializer`.
+  * [@validator](DevelopingIndexAnnotations#validator): in addition, statements can benefit from a custom validation during the validation process, by declaring `@validator(CustomValidator.class)` with a class implementing `IDescriptionValidator` as value. This class will receive the `IDescription` of the statement and be able to execute further validations on the type of expressions, etc. or even to change the `IDescription`  (by adding new information, changing the value of facets, etc.).
 
 Note: GAMA annotations are classes defined into the `msi.gama.precompiler.GamlAnnotations` class.
 

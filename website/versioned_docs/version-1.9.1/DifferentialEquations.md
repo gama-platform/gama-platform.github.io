@@ -60,7 +60,7 @@ As a consequence, the GAML language has been increased by two main concepts (as 
 * equations can be written with the `equation` statement. An `equation` block is composed of a set of `diff` statement describing the evolution of species attributes.
 * an equation can be numerically integrated using the `solve` statement
 
-Additionnally, Gama provides an intuitive, flexible and natural framework to build ODE models, since an ODE system may be split among several entities. For example, if there are three species (resp. agent) involved in a common dynamics, it is possible to declare each equation inside the corresponding species (resp. agent) definition. An example is shown [below](#Split-a-system-into-several-agents).
+Additionnally, Gama provides an intuitive, flexible and natural framework to build ODE models, since an ODE system may be split among several entities. For example, if there are three species (resp. agent) involved in a common dynamics, it is possible to declare each equation inside the corresponding species (resp. agent) definition. An example is shown [below](#split-a-system-into-several-agents).
 
 ## Defining and solving an ODE system 
 
@@ -98,7 +98,7 @@ reflex solving {
     solve eqSI method: #rk4 step_size: h;
 }
 ```
-Several numerical schemes are available to solve the ODE system. More details about the numerical schemes and the `solve` syntax are provided [below](#More-details).
+Several numerical schemes are available to solve the ODE system. More details about the numerical schemes and the `solve` syntax are provided [below](#more-details).
 
 ## Alternative way to define an ODE system
 

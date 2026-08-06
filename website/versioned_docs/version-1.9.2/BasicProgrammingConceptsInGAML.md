@@ -173,7 +173,7 @@ string fruits <- "banana" among: ["pear","apple","banana"];
 [//]: # (keyword|concept_operator)
 ## Operators in GAMA
 
-In GAML language, you can use a lot of different operators. **An operator is a function, i.e. a way to get the result of a computation.** All of them are listed in this [page](Operators), but here are the most useful ones:
+In GAML language, you can use a lot of different operators. **An operator is a function, i.e. a way to get the result of a computation.** All of them are listed in this [page](OperatorsAA), but here are the most useful ones:
 
 [//]: # (keyword|operator_+)
 [//]: # (keyword|operator_-)

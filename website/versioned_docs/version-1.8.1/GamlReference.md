@@ -3,7 +3,7 @@ title:  GAML References
 ---
 
  	
-The GAML references describe in details all the keywords of the GAML language. In particular, they detail all the [expressions](expressions) (operators, units, literals...), [statements](Statements), [data types](DataTypes), [file types](FileTypes), [skills](BuiltInSkills), [architectures](BuiltInArchitectures), [built-in species](BuiltInSpecies)...
+The GAML references describe in details all the keywords of the GAML language. In particular, they detail all the [expressions](Expressions) (operators, units, literals...), [statements](Statements), [data types](DataTypes), [file types](FileTypes), [skills](BuiltInSkills), [architectures](BuiltInArchitectures), [built-in species](BuiltInSpecies)...
 
 
 ## Index of keywords

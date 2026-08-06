@@ -112,7 +112,7 @@ You can found all the tags and more detailed documentation on the [Docker Hub](h
 
 ## System Requirements
 
-GAMA 1.9.2 requires approximately 540MB of disk space and a minimum of 2GB of RAM (to increase the portion of memory usable by GAMA, please refer to [these instructions](Troubleshooting#Memory_problems)). 
+GAMA 1.9.2 requires approximately 540MB of disk space and a minimum of 2GB of RAM (to increase the portion of memory usable by GAMA, please refer to [these instructions](Troubleshooting#memory-problems)). 
 
 ## Windows post-installation setting (only for `zip` install)
 

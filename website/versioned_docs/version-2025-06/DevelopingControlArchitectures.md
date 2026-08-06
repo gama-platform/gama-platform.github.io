@@ -18,7 +18,7 @@ Defining a new control architecture needs to [create new statements of type beha
 
 A control architecture is a Java class, that:
 
-  * is annotated by the [@skill](DevelopingIndexAnnotations#@skill) annotation,
+  * is annotated by the [@skill](DevelopingIndexAnnotations#skill) annotation,
   * extends the `AbstractArchitecture` class (to get benefits of everything from the `reflex`-based control architecture, the `ReflexArchitecture` class can be extended instead).
 
 The `AbstractArchitecture` extends the `ISkill` and `IStatement` interfaces and add the 2 following methods:

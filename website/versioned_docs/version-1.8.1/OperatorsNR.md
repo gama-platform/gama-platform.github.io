@@ -2390,7 +2390,7 @@ float var0 <- quantile_inverse([1,3,5,6,9,11,12,13,19,21,22,32,35,36,45,44,55,68
 
 
 ### `R_correlation`
-   Same signification as [corR](OperatorsBC#corR)
+   Same signification as [corR](OperatorsBC#corr)
     	
 ----
 
@@ -2438,7 +2438,7 @@ file f <-R_file("file.r",map(["param1"::1.0,"param2"::10.0 ]));
 
 
 ### `R_mean`
-   Same signification as [meanR](OperatorsIM#meanR)
+   Same signification as [meanR](OperatorsIM#meanr)
     	
 ----
 

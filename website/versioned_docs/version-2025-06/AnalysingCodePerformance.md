@@ -65,7 +65,7 @@ global{
 ### Using the `benchmark` statement
 
 In addition to this, GAML provides a statement, [benchmark](Statements#benchmark), **that could be used to execute code a certain number of times and that will print in the console the minimum, maximum, and average duration of those executions**. This could be useful to quickly test different parts of the code or alternative codes one after another.
-Executing the code multiple times is a common technique in the code optimization world as it is sometimes necessary to eliminate (or assess) the impact of randomness in the given code (as talked about in the section on [randomness](#Randomness)) or on the computer: for example maybe some hidden task starts just at the same moment and impacts the performances of 1 execution.
+Executing the code multiple times is a common technique in the code optimization world as it is sometimes necessary to eliminate (or assess) the impact of randomness in the given code (as talked about in the section on [randomness](#randomness)) or on the computer: for example maybe some hidden task starts just at the same moment and impacts the performances of 1 execution.
 Here is an example of the use of the benchmark statement to compare two alternative codes:
 
 ```gaml
@@ -131,7 +131,7 @@ Once you have the csv file, you can open it in your favourite spreadsheet to vis
 Each of these cases calls for a different approach.
 
 #### Stable duration throughout the simulation
-Congratulations, your model is already stable, which means it is probably already well thought! Now it may be harder for you as there are no real clues as to what to improve first, but the good news is that probably any improvement anywhere in the code will reflect in the global model's execution time. See the section about [the things to look for](#What-to-pay-the-most-attention-to) that often cost a lot of execution time.
+Congratulations, your model is already stable, which means it is probably already well thought! Now it may be harder for you as there are no real clues as to what to improve first, but the good news is that probably any improvement anywhere in the code will reflect in the global model's execution time. See the section about [the things to look for](#what-to-pay-the-most-attention-to) that often cost a lot of execution time.
 
 #### Step duration increases during the simulation
 That kind of result points toward an increase in the simulation complexity during its lifespan: as the simulation progresses, there are more and more things to process. 

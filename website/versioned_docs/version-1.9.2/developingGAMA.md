@@ -10,7 +10,7 @@ GAMA is written in Java and made of tens of Eclipse plugins and projects, thousa
     1. [Architecture of GAMA](GamaArchitecture)
     1. [IScope](DevelopingIScope)
 1. [Developing Extensions](DevelopingExtensions)
-    1. [Developing Plugins](DevelopingPlugins)
+    1. [Developing Plugins](Developing-Plugins)
     1. [Developing Skills](DevelopingSkills)
     1. [Developing Statements](DevelopingStatements)
     1. [Developing Operators](DevelopingOperators)

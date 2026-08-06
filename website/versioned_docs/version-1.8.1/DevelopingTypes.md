@@ -23,7 +23,7 @@ Developing a new type requires the implementation of 2 Java files:
 
 The class representing the data structure is a Java class annotated by:
 
-  * a [@vars](DevelopingIndexAnnotations#@vars) annotation to describe the attributes of a complex type. The `@vars` annotation contains a set of `@variable` elements.
+  * a [@vars](DevelopingIndexAnnotations#vars) annotation to describe the attributes of a complex type. The `@vars` annotation contains a set of `@variable` elements.
 ```
 @vars ({ @variable (
 		name = IKeyword.COLOR_RED,
@@ -52,7 +52,7 @@ The class representing the data structure is a Java class annotated by:
 public class GamaColor extends Color implements IValue, Comparable<Color> {
 ```
 
-It can contain setter and/or getter for each of its attributes. Setters and getters are methods annotated by the [@getter](DevelopingIndexAnnotations#@getter) or [@setter](DevelopingIndexAnnotations#@setter) annotations.
+It can contain setter and/or getter for each of its attributes. Setters and getters are methods annotated by the [@getter](DevelopingIndexAnnotations#getter) or [@setter](DevelopingIndexAnnotations#setter) annotations.
 ```
 @getter(IKeyword.COLOR_RED)
 public Integer red() {
@@ -70,7 +70,7 @@ public abstract String stringValue(IScope scope) throws GamaRuntimeException;
 
 The class representing the type is a Java class such that:
 
-  * the class should be annotated by the [@type](DevelopingIndexAnnotations#@type) annotation,
+  * the class should be annotated by the [@type](DevelopingIndexAnnotations#type) annotation,
   * the class should extend the class `GamaType<DataStructureFile>` (and thus implement its 3 methods),
 
 
