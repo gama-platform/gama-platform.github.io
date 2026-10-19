@@ -30,8 +30,8 @@ module.exports = {
   // Compilation/deploy options
   organizationName: "gama-platform",
   projectName: "gama-platform.github.io",
-  onBrokenLinks: "ignore",
-  onBrokenAnchors: "ignore",
+  onBrokenLinks: "warn",
+  onBrokenAnchors: "warn",
   
   markdown: {
     hooks: {
