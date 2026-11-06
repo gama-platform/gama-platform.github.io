@@ -27,7 +27,14 @@ if [ ! -d "$RESOURCE_DIR" ]; then
 	exit 1
 fi
 
-grep -rhoE '\]\((/resources/[^)"'"'"'[:space:]]+)' "$ROOT/docs" "$ROOT/website/versioned_docs" 2>/dev/null \
+# Comments are stripped first: the wiki uses them for screenshot
+# placeholders (`<!-- SCREENSHOT NEEDED: ... ![..](resources/...) -->`)
+# that reference images which don't exist yet and are never rendered.
+# Both the HTML form (wiki source) and the MDX form `{/* ... */}` (what
+# script/escapingTags.py converts them into in docs/) are handled.
+find "$ROOT/docs" "$ROOT/website/versioned_docs" -type f -name "*.md" -exec cat {} + 2>/dev/null \
+	| perl -0777 -pe 's/<!--.*?-->//gs; s/\{\/\*.*?\*\/\}//gs' \
+	| grep -oE '\]\((/resources/[^)"'"'"'[:space:]]+)' \
 	| sed -E 's/^\]\(//; s/[#?].*$//' \
 	| sort -u \
 	| while IFS= read -r ref; do

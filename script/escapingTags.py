@@ -116,6 +116,8 @@ if __name__ == '__main__':
 
     tagStack: List[Tag] = []
     ElementsToEscape: List[TextElement] = []
+    # (start, end) spans of HTML comments found outside code, to convert into MDX comments
+    comments: List[tuple] = []
     ite = 0
 
     # Counters used to remember if the text is in a code bloc
@@ -123,6 +125,17 @@ if __name__ == '__main__':
     in_triple_quotes = False
     while ite < len(chars) - 1:
         currentChar = chars[ite]
+
+        # HTML comments (<!-- ... -->) are not valid MDX (Docusaurus v4 drops the MDX1
+        # compatibility layer), and escaping their "<" would turn the comment into visible
+        # text whose markdown (e.g. placeholder images) gets compiled. Convert them into
+        # MDX comments ({/* ... */}) instead, and skip their content.
+        if not in_simple_quote and not in_triple_quotes and text.startswith("<!--", ite):
+            comment_end = text.find("-->", ite + 4)
+            if comment_end != -1:
+                comments += [(ite, comment_end + 3)]
+                ite = comment_end + 3
+                continue
 
         # If we encounter a "<" and are not in quoted text
         if not in_simple_quote and not in_triple_quotes and currentChar.val == "<":
@@ -203,10 +216,17 @@ if __name__ == '__main__':
     log = []
     # Now we can finally replace all the elements by their escaped version
     # We reverse the list so we can modify the out text while keeping the in text indices
-    ElementsToEscape.sort(reverse=True, key=lambda tag: tag.startIndex)
-    for element in ElementsToEscape:
-        log += [f"element to escape: {element}"]
-        outText = outText[:element.startIndex] + escaping(chars[element.startIndex]) + outText[element.startIndex+1:]
+    # Every edit is a (start, end, replacement) span on the original text; they never
+    # overlap (comment contents are skipped by the scan above)
+    edits = [(e.startIndex, e.startIndex + 1, escaping(chars[e.startIndex])) for e in ElementsToEscape]
+    for start, end in comments:
+        body = text[start + 4:end - 3]
+        # "*/" would close the MDX comment early: drop such a comment altogether
+        edits += [(start, end, "" if "*/" in body else "{/*" + body + "*/}")]
+    edits.sort(reverse=True, key=lambda edit: edit[0])
+    for start, end, replacement in edits:
+        log += [f"element to escape: {text[start:end]!r} -> {replacement!r}"]
+        outText = outText[:start] + replacement + outText[end:]
 
     #print("\n".join(reversed(log)))
     #print("\n\n\n\n")

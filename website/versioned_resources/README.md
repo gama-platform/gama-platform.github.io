@@ -25,7 +25,11 @@ After the wiki content is refreshed (`gama.wiki` regenerated from
 It diffs every `/resources/...` reference under `docs/` and
 `website/versioned_docs/` against what `website/static/resources` (or, if not
 built yet, `gama.wiki/resources`) actually contains, and lists anything
-missing. For each missing file, either:
+missing. References inside comments are ignored: the wiki uses
+`<!-- SCREENSHOT NEEDED: ... -->` blocks as placeholders for images that
+don't exist yet, and those are never rendered (`script/escapingTags.py`
+converts HTML comments into MDX `{/* ... */}` comments, since Docusaurus v4
+mode no longer accepts HTML comments). For each missing file, either:
 
 - it still exists in `gama.wiki.bak` under a different path (renamed), or
 - it exists somewhere in `gama.wiki.bak`'s git history (deleted),
