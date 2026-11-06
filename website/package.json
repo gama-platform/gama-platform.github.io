@@ -1,7 +1,8 @@
 {
   "license": "GPL-3.0",
   "scripts": {
-    "docusaurus": "docusaurus",
+    "docusaurus": "bash ../script/docusaurus.sh",
+    "docs:version": "bash ../script/docusaurus.sh docs:version",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
