@@ -59,13 +59,34 @@ fi
 # Warn loudly instead so it gets noticed and fixed at the wiki source, but
 # don't fail the build over it (mv --backup=numbered keeps the previous
 # silent-winner behavior as a fallback).
-dupes=$(find gama.wiki/ -type f -iname "*.md" -printf "%f\n" | sort | uniq -d)
+# Publish user-facing wiki pages only. Dot directories hold repository configuration
+# and review records, while skills contain authoring guidance for documentation agents.
+mapfile -d '' wiki_markdown_files < <(
+	find gama.wiki/ \
+		\( -type d \( -name '.*' -o -name 'skills' \) -prune \) -o \
+		\( -type f -iname "*.md" \
+			! -iname "AGENTS.md" ! -iname "CLAUDE.md" ! -iname "RTK.md" \
+			-print0 \)
+)
+
+# Keep the existing flattened-page collision warning, limited to publishable pages.
+dupes=$(find gama.wiki/ \
+	\( -type d \( -name '.*' -o -name 'skills' \) -prune \) -o \
+	\( -type f -iname "*.md" \
+		! -iname "AGENTS.md" ! -iname "CLAUDE.md" ! -iname "RTK.md" \
+		-printf "%f\n" \) | tr '[:upper:]' '[:lower:]' | sort | uniq -d)
 if [ -n "$dupes" ]; then
 	echo "WARNING: duplicate doc filename(s) found in the wiki - one silently wins, fix this in the wiki source:" >&2
 	while IFS= read -r dup; do
 		echo "  $dup:" >&2
-		find gama.wiki/ -type f -iname "$dup" -print >&2
+		find gama.wiki/ \
+			\( -type d \( -name '.*' -o -name 'skills' \) -prune \) -o \
+			\( -type f -iname "$dup" \
+				! -iname "AGENTS.md" ! -iname "CLAUDE.md" ! -iname "RTK.md" \
+				-print \) >&2
 	done <<< "$dupes"
 fi
 
-find gama.wiki/ -type f -iname "*.md" -exec mv --backup=numbered -t docs {} +
+if ((${#wiki_markdown_files[@]})); then
+	printf '%s\0' "${wiki_markdown_files[@]}" | xargs -0 -r mv --backup=numbered -t docs
+fi
