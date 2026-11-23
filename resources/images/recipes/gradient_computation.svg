@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1060" viewBox="0 0 1600 1060" role="img" aria-labelledby="title desc">
+<title id="title">Gradient propagation</title><desc id="desc">The parameter-based 3 by 3 gradient kernel and grid values before propagation and after one and two steps.</desc>
+<style>
+text { font-family: Arial, sans-serif; fill: #203040; }
+.title { font-size: 30px; font-weight: 700; } .subtitle { font-size: 18px; fill: #52616b; }
+.section { font-size: 22px; font-weight: 700; } .stage { font-size: 21px; font-weight: 700; }
+.note { font-size: 16px; fill: #52616b; } .cell { font-family: Consolas, monospace; fill: #203040; }
+.card { fill: #f8fafc; stroke: #c7d3df; stroke-width: 2; } .process { fill: #edf3ea; stroke: #70805a; stroke-width: 2; }
+.bracket { fill: none; stroke: #557b9d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.arrow { fill: none; stroke: #52616b; stroke-width: 3; marker-end: url(#arrow); }
+</style>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#52616b"/></marker></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="800" y="44" text-anchor="middle" class="title">Gradient propagation</text>
+<text x="800" y="74" text-anchor="middle" class="subtitle">Each source value is multiplied by the kernel; the greatest overlapping contribution is kept.</text>
+<text x="80" y="118" class="section">Propagation kernel (3 × 3)</text>
+<rect x="80" y="138" width="1440" height="190" rx="12" class="card"/>
+<path class="bracket" d="M 173.0 164.0 C 157.0 176.0, 157.0 226.0, 159.0 234.0 C 157.0 242.0, 157.0 292.0, 173.0 304.0"/>
+<path class="bracket" d="M 487.0 164.0 C 503.0 176.0, 503.0 226.0, 501.0 234.0 C 503.0 242.0, 503.0 292.0, 487.0 304.0"/>
+<text x="238.0" y="186.0" text-anchor="middle" class="cell" font-size="23">1/8</text>
+<text x="330.0" y="186.0" text-anchor="middle" class="cell" font-size="23">1/8</text>
+<text x="422.0" y="186.0" text-anchor="middle" class="cell" font-size="23">1/8</text>
+<text x="238.0" y="234.0" text-anchor="middle" class="cell" font-size="23">1/8</text>
+<text x="330.0" y="234.0" text-anchor="middle" class="cell" font-size="23">1</text>
+<text x="422.0" y="234.0" text-anchor="middle" class="cell" font-size="23">1/8</text>
+<text x="238.0" y="282.0" text-anchor="middle" class="cell" font-size="23">1/8</text>
+<text x="330.0" y="282.0" text-anchor="middle" class="cell" font-size="23">1/8</text>
+<text x="422.0" y="282.0" text-anchor="middle" class="cell" font-size="23">1/8</text>
+<text x="570" y="220" class="stage">Parameter defaults: P = 1, R = 1, V = 0, N = 8.</text>
+<text x="570" y="254" class="note">Center: 1; each neighbor: 1/8. Overlaps use the maximum.</text>
+<text x="80" y="374" class="section">Grid values at each stage</text>
+<rect x="80" y="396" width="440" height="332" rx="12" class="card"/>
+<text x="300" y="434" text-anchor="middle" class="stage">Initial state</text>
+<text x="300" y="462" text-anchor="middle" class="note">One unit at the center</text>
+<path class="bracket" d="M 175.0 492.0 C 159.0 504.0, 159.0 552.0, 161.0 560.0 C 159.0 568.0, 159.0 616.0, 175.0 628.0"/>
+<path class="bracket" d="M 425.0 492.0 C 441.0 504.0, 441.0 552.0, 439.0 560.0 C 441.0 568.0, 441.0 616.0, 425.0 628.0"/>
+<text x="218.0" y="514.0" text-anchor="middle" class="cell" font-size="25">0</text>
+<text x="300.0" y="514.0" text-anchor="middle" class="cell" font-size="25">0</text>
+<text x="382.0" y="514.0" text-anchor="middle" class="cell" font-size="25">0</text>
+<text x="218.0" y="560.0" text-anchor="middle" class="cell" font-size="25">0</text>
+<text x="300.0" y="560.0" text-anchor="middle" class="cell" font-size="25">1</text>
+<text x="382.0" y="560.0" text-anchor="middle" class="cell" font-size="25">0</text>
+<text x="218.0" y="606.0" text-anchor="middle" class="cell" font-size="25">0</text>
+<text x="300.0" y="606.0" text-anchor="middle" class="cell" font-size="25">0</text>
+<text x="382.0" y="606.0" text-anchor="middle" class="cell" font-size="25">0</text>
+<rect x="580" y="396" width="440" height="332" rx="12" class="card"/>
+<text x="800" y="434" text-anchor="middle" class="stage">After one step</text>
+<text x="800" y="462" text-anchor="middle" class="note">Center 1; neighbors 1/8</text>
+<path class="bracket" d="M 675.0 492.0 C 659.0 504.0, 659.0 552.0, 661.0 560.0 C 659.0 568.0, 659.0 616.0, 675.0 628.0"/>
+<path class="bracket" d="M 925.0 492.0 C 941.0 504.0, 941.0 552.0, 939.0 560.0 C 941.0 568.0, 941.0 616.0, 925.0 628.0"/>
+<text x="718.0" y="514.0" text-anchor="middle" class="cell" font-size="25">1/8</text>
+<text x="800.0" y="514.0" text-anchor="middle" class="cell" font-size="25">1/8</text>
+<text x="882.0" y="514.0" text-anchor="middle" class="cell" font-size="25">1/8</text>
+<text x="718.0" y="560.0" text-anchor="middle" class="cell" font-size="25">1/8</text>
+<text x="800.0" y="560.0" text-anchor="middle" class="cell" font-size="25">1</text>
+<text x="882.0" y="560.0" text-anchor="middle" class="cell" font-size="25">1/8</text>
+<text x="718.0" y="606.0" text-anchor="middle" class="cell" font-size="25">1/8</text>
+<text x="800.0" y="606.0" text-anchor="middle" class="cell" font-size="25">1/8</text>
+<text x="882.0" y="606.0" text-anchor="middle" class="cell" font-size="25">1/8</text>
+<rect x="1080" y="396" width="440" height="332" rx="12" class="card"/>
+<text x="1300" y="434" text-anchor="middle" class="stage">After two steps</text>
+<text x="1300" y="462" text-anchor="middle" class="note">Contributions combine</text>
+<path class="bracket" d="M 1138.0 468.0 C 1122.0 480.0, 1122.0 558.0, 1124.0 566.0 C 1122.0 574.0, 1122.0 652.0, 1138.0 664.0"/>
+<path class="bracket" d="M 1462.0 468.0 C 1478.0 480.0, 1478.0 558.0, 1476.0 566.0 C 1478.0 574.0, 1478.0 652.0, 1462.0 664.0"/>
+<text x="1172.0" y="490.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1236.0" y="490.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1300.0" y="490.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1364.0" y="490.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1428.0" y="490.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1172.0" y="528.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1236.0" y="528.0" text-anchor="middle" class="cell" font-size="19">1/8</text>
+<text x="1300.0" y="528.0" text-anchor="middle" class="cell" font-size="19">1/8</text>
+<text x="1364.0" y="528.0" text-anchor="middle" class="cell" font-size="19">1/8</text>
+<text x="1428.0" y="528.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1172.0" y="566.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1236.0" y="566.0" text-anchor="middle" class="cell" font-size="19">1/8</text>
+<text x="1300.0" y="566.0" text-anchor="middle" class="cell" font-size="19">1</text>
+<text x="1364.0" y="566.0" text-anchor="middle" class="cell" font-size="19">1/8</text>
+<text x="1428.0" y="566.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1172.0" y="604.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1236.0" y="604.0" text-anchor="middle" class="cell" font-size="19">1/8</text>
+<text x="1300.0" y="604.0" text-anchor="middle" class="cell" font-size="19">1/8</text>
+<text x="1364.0" y="604.0" text-anchor="middle" class="cell" font-size="19">1/8</text>
+<text x="1428.0" y="604.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1172.0" y="642.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1236.0" y="642.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1300.0" y="642.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1364.0" y="642.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<text x="1428.0" y="642.0" text-anchor="middle" class="cell" font-size="19">1/64</text>
+<line x1="80" y1="766" x2="1520" y2="766" stroke="#d7e0e8" stroke-width="2"/>
+<text x="80" y="806" class="section">How each step updates the grid</text>
+<rect x="120" y="830" width="380" height="164" rx="12" class="process"/>
+<text x="310" y="878" text-anchor="middle" class="stage">1 · Start</text>
+<text x="310" y="918" text-anchor="middle" class="note">Read the current values</text>
+<text x="310" y="942" text-anchor="middle" class="note">from every grid cell.</text>
+<rect x="610" y="830" width="380" height="164" rx="12" class="process"/>
+<text x="800" y="878" text-anchor="middle" class="stage">2 · Apply kernel</text>
+<text x="800" y="918" text-anchor="middle" class="note">Multiply each source value</text>
+<text x="800" y="942" text-anchor="middle" class="note">by the matching kernel weights.</text>
+<rect x="1100" y="830" width="380" height="164" rx="12" class="process"/>
+<text x="1290" y="878" text-anchor="middle" class="stage">3 · Combine</text>
+<text x="1290" y="918" text-anchor="middle" class="note">Keep the greatest contribution at each cell</text>
+<path class="arrow" d="M 510 912 L 590 912"/>
+<path class="arrow" d="M 1000 912 L 1080 912"/>
+<text x="800" y="1030" text-anchor="middle" class="note">The upper row shows the kernel and the resulting grid states; the lower row summarizes the operation.</text>
+</svg>

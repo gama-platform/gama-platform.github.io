@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" role="img" aria-labelledby="title desc">
+  <title id="title">Forager obstacle sensor directions</title>
+  <desc id="desc">Eight rays extend from the forager at 45 degree intervals. Zero degrees points along positive x; positive angles advance toward positive y, counterclockwise on the diagram.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#557b9d"/>
+    </marker>
+    <style>
+      .ray { stroke: #557b9d; stroke-width: 3; stroke-linecap: round; marker-end: url(#arrow); }
+      .guide { fill: none; stroke: #b8c7d1; stroke-width: 2; stroke-dasharray: 7 8; }
+      .sensor { fill: #eaf2f8; stroke: #557b9d; stroke-width: 2; }
+      .angle { font: 600 24px sans-serif; fill: #203040; text-anchor: middle; dominant-baseline: central; }
+      .caption { font: 22px sans-serif; fill: #52616b; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <circle class="guide" cx="480" cy="320" r="218"/>
+
+  <line class="ray" x1="530" y1="320" x2="686" y2="320"/>
+  <line class="ray" x1="515" y1="285" x2="625" y2="175"/>
+  <line class="ray" x1="480" y1="270" x2="480" y2="114"/>
+  <line class="ray" x1="445" y1="285" x2="335" y2="175"/>
+  <line class="ray" x1="430" y1="320" x2="274" y2="320"/>
+  <line class="ray" x1="445" y1="355" x2="335" y2="465"/>
+  <line class="ray" x1="480" y1="370" x2="480" y2="526"/>
+  <line class="ray" x1="515" y1="355" x2="625" y2="465"/>
+
+  <circle cx="480" cy="320" r="58" fill="#294c60" stroke="#203040" stroke-width="3"/>
+  <text x="480" y="313" font-family="sans-serif" font-size="23" font-weight="700" fill="#ffffff" text-anchor="middle">Forager</text>
+  <text x="480" y="341" font-family="sans-serif" font-size="17" fill="#eaf2f8" text-anchor="middle">agent</text>
+
+  <g><circle class="sensor" cx="720" cy="320" r="34"/><text class="angle" x="720" y="320">0°</text></g>
+  <g><circle class="sensor" cx="649" cy="151" r="34"/><text class="angle" x="649" y="151">45°</text></g>
+  <g><circle class="sensor" cx="480" cy="80" r="34"/><text class="angle" x="480" y="80">90°</text></g>
+  <g><circle class="sensor" cx="311" cy="151" r="34"/><text class="angle" x="311" y="151">135°</text></g>
+  <g><circle class="sensor" cx="240" cy="320" r="34"/><text class="angle" x="240" y="320">180°</text></g>
+  <g><circle class="sensor" cx="311" cy="489" r="34"/><text class="angle" x="311" y="489">225°</text></g>
+  <g><circle class="sensor" cx="480" cy="560" r="34"/><text class="angle" x="480" y="560">270°</text></g>
+  <g><circle class="sensor" cx="649" cy="489" r="34"/><text class="angle" x="649" y="489">315°</text></g>
+
+  <text class="caption" x="480" y="640">Eight obstacle rays · 45° apart · counterclockwise from 0°</text>
+</svg>
